@@ -49,10 +49,9 @@ jobs:
           
           # This command assumes catalog-v0.xml is up-to-date
           # and .ttl file is named 'EDAAnOWL-[VERSION].ttl'
-          java -jar widoco.jar \
+          java -Djena.catalog.xml=catalog-v0.xml -jar widoco.jar \
             -ontFile src/EDAAnOWL-$VERSION.ttl \
             -outFolder build/docs \
-            -catalogFile catalog-v0.xml \
             -getOntologyMetadata \
             -webVowl \
             -licensius \
