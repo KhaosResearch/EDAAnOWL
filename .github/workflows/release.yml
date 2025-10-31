@@ -1,0 +1,96 @@
+# Workflow name, this will appear in the "Actions" tab on GitHub
+name: Deploy Ontology to GitHub Pages
+
+# Trigger:
+# This workflow runs EVERY TIME a new "Release" is created on GitHub
+on:
+  release:
+    types: [created]
+
+# Jobs to be executed
+jobs:
+  build-and-deploy:
+    # Use the latest version of Ubuntu
+    runs-on: ubuntu-latest
+
+    # Permissions needed by the job to write to the gh-pages branch
+    permissions:
+      contents: write
+
+    # Steps
+    steps:
+      # 1. Downloads the branch's code (the one corresponding to the tag/release)
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Get the tag name (e.g., "v0.0.1")
+      - name: Get Tag Name (Version)
+        id: get_version
+        run: echo "VERSION_TAG=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+
+      # 3. Set up Java (required by Widoco)
+      - name: Set up Java JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # 4. Download the Widoco .jar file
+      - name: Download Widoco
+        run: wget -O widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.18/widoco-1.4.18-jar-with-dependencies.jar
+
+      # 5. Run Widoco
+      - name: Generate documentation with Widoco
+        run: |
+          # Use the version variable from step 2
+          VERSION=${{ steps.get_version.outputs.VERSION_TAG }}
+          
+          echo "Generating documentation for version $VERSION"
+          
+          # This command assumes catalog-v0.xml is up-to-date
+          # and .ttl file is named 'EDAAnOWL-[VERSION].ttl'
+          java -jar widoco.jar \
+            -ontFile src/EDAAnOWL-$VERSION.ttl \
+            -outFolder build/docs \
+            -catalogFile catalog-v0.xml \
+            -getOntologyMetadata \
+            -webVowl \
+            -licensius \
+            -rewriteAll
+
+      # 6. Prepare files for publishing to gh-pages
+      - name: Prepare files for deployment
+        run: |
+          VERSION=${{ steps.get_version.outputs.VERSION_TAG }}
+          echo "Preparing files for version $VERSION"
+          
+          # 1. Create the folder for this version (e.g., /v0.0.1/)
+          mkdir -p deploy/$VERSION
+          
+          # 2. Copy the Widoco documentation (HTML, etc.)
+          cp -r build/docs/* deploy/$VERSION/
+          
+          # 3. Copy the SOURCE .ttl file (to make it resolvable)
+          cp src/EDAAnOWL-$VERSION.ttl deploy/$VERSION/
+          
+          # 4. Copy the SOURCE vocabularies
+          mkdir -p deploy/$VERSION/vocabularies
+          cp src/vocabularies/*.ttl deploy/$VERSION/vocabularies/
+          
+          # 5. Create the /latest folder (deleting the previous one)
+          rm -rf deploy/latest
+          # Copy everything from the current version to /latest
+          cp -r deploy/$VERSION deploy/latest
+
+      # 7. Deploy to the gh-pages branch
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # GitHub token for authentication
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # The directory we want to publish (created in step 6)
+          publish_dir: ./deploy
+          # The destination branch
+          publish_branch: gh-pages
+          # Create a new history (force orphan commit)
+          force_orphan: true
