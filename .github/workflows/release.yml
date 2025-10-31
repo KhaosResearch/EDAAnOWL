@@ -37,7 +37,7 @@ jobs:
 
       # 4. Download the Widoco .jar file
       - name: Download Widoco
-        run: wget -O widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.18/widoco-1.4.18-jar-with-dependencies.jar
+        run: wget -O widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.5/widoco-1.4.5-jar-with-dependencies.jar
 
       # 5. Run Widoco
       - name: Generate documentation with Widoco
