@@ -75,8 +75,8 @@ jobs:
               BASENAME=${FILENAME%.ttl} # agro-vocab
               
               echo "    <!-- Vocab: $BASENAME -->" >> catalog-v0.xml
-              echo "    <uri name="https://w3id.org/EDAAnOWL/$TAG_NO_V/vocabularies/$BASENAME"" >> catalog-v0.xml
-              echo "         uri="file:./$F"/>" >> catalog-v0.xml
+              echo "    <uri name=\"https://w3id.org/EDAAnOWL/$TAG_NO_V/vocabularies/$BASENAME\"" >> catalog-v0.xml
+              echo "         uri=\"file:./$F\"/>" >> catalog-v0.xml
             done
           else
             echo "--- No vocabularies found in src/$TAG_NO_V/vocabularies/ ---"
@@ -165,3 +165,4 @@ jobs:
           publish_branch: gh-pages
           # Create a new history (force orphan commit)
           force_orphan: true
+
