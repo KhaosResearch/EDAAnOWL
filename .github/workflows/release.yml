@@ -27,10 +27,9 @@ jobs:
       - name: Get Tag Versions
         id: get_version
         run: |
-          # CORRECCIÓN 1:
           # Primero, obtén la variable de GitHub en una variable de shell
           TAG_CON_V=${{ github.ref_name }}
-          
+
           # Segundo, usa la sintaxis de shell (${...#v}) en la variable de shell
           echo "VERSION_TAG_V=$TAG_CON_V" >> $GITHUB_OUTPUT
           echo "VERSION_NO_V=${TAG_CON_V#v}" >> $GITHUB_OUTPUT
@@ -41,8 +40,8 @@ jobs:
         with:
           # CORRECCIÓN 2:
           # La versión de Java DEBE coincidir con el JAR de Widoco (JDK-17)
-          java-version: '17'
-          distribution: 'temurin'
+          java-version: "17"
+          distribution: "temurin"
 
       # 4. Download Widoco (Updated to v1.4.25 with JDK 17 dependencies)
       - name: Download Widoco
@@ -53,20 +52,20 @@ jobs:
         id: catalog
         run: |
           TAG_NO_V=${{ steps.get_version.outputs.VERSION_NO_V }} # e.g., 0.0.1
-          
+
           echo "--- Generating catalog-v0.xml for version $TAG_NO_V ---"
-          
+
           cat << EOF > catalog-v0.xml
           <?xml version="1.0" encoding="UTF-8"?>
           <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
               <uri name="https://w3id.org/EDAAnOWL/$TAG_NO_V/"
                    uri="file:./src/$TAG_NO_V/EDAAnOWL.ttl"/>
           EOF
-          
+
           # Find all vocab files for this tag
           # Assumes they are in 'src/X.Y.Z/vocabularies/*.ttl'
           VOCAB_FILES=$(ls src/$TAG_NO_V/vocabularies/*.ttl 2>/dev/null || true)
-          
+
           if [ -n "$VOCAB_FILES" ]; then
             for F in $VOCAB_FILES
             do
@@ -81,7 +80,7 @@ jobs:
           else
             echo "--- No vocabularies found in src/$TAG_NO_V/vocabularies/ ---"
           fi
-          
+
           echo "</catalog>" >> catalog-v0.xml
           echo "--- Catalog Created ---"
           cat catalog-v0.xml
@@ -91,9 +90,9 @@ jobs:
         run: |
           # Use the version variable from step 2
           TAG_NO_V=${{ steps.get_version.outputs.VERSION_NO_V }}
-          
+
           echo "Generating documentation for version $TAG_NO_V"
-          
+
           # Use the dynamically generated catalog
           java -Djena.catalog.xml=catalog-v0.xml -jar widoco.jar \
             -ontFile src/$TAG_NO_V/EDAAnOWL.ttl \
@@ -107,48 +106,36 @@ jobs:
       - name: Prepare files for deployment
         run: |
           DEST_VERSION=${{ steps.get_version.outputs.VERSION_NO_V }} # e.g., 0.0.1
-          
+
           echo "Preparing files for deploy folder $DEST_VERSION"
-          
+
           # 1. Create the folder for this version (e.g., /0.0.1/)
           mkdir -p deploy/$DEST_VERSION
-          
+
           # 2. Copy the Widoco documentation (HTML, ontology.ttl, ontology.owl, etc.)
           echo "Copying WebVowl/HTML documentation files..."
-          # CORRECCIÓN: Copia el *contenido* de 'build/docs/doc/' a la raíz de la versión
+          # Copia el *contenido* de 'build/docs/doc/' a la raíz de la versión
           cp -r build/docs/doc/* deploy/$DEST_VERSION/
-          
+
           echo "Copying RDF serialization files..."
-          # CORRECCIÓN: Copia los archivos de serialización (ontology.ttl, etc.) desde 'build/docs/'
+          # Copia los archivos de serialización (ontology.ttl, etc.) desde 'build/docs/'
           # Usa 'find' para copiar solo archivos, saltando la carpeta 'doc'
           find build/docs -maxdepth 1 -type f -exec cp -t deploy/$DEST_VERSION/ {} +
-          
-          # 3. Rename Widoco index file to index.html to match .htaccess
-          echo "Renaming Widoco index file (index-en.html) to index.html..."
-          # CORRECCIÓN: Busca cualquier 'index-xx.html' y lo renombra a 'index.html'
-          INDEX_FILE=$(find deploy/$DEST_VERSION -maxdepth 1 -name 'index-*.html' -print -quit)
-          
-          if [ -n "$INDEX_FILE" ]; then
-            mv "$INDEX_FILE" deploy/$DEST_VERSION/index.html
-            echo "Renamed $INDEX_FILE to index.html"
-          else
-            echo "Warning: No index-xx.html file found. Skipping rename."
-          fi
-          
-          # 4. Copy the SOURCE vocabularies (no rename needed)
+
+          # 3. Copy the SOURCE vocabularies (no rename needed)
           mkdir -p deploy/$DEST_VERSION/vocabularies
-          
+
           # Find all vocabs for this tag (e.g., src/0.0.1/vocabularies/*.ttl)
           VOCAB_FILES=$(ls src/$DEST_VERSION/vocabularies/*.ttl 2>/dev/null || true)
-          
+
           if [ -n "$VOCAB_FILES" ]; then
             echo "Copying vocabularies from src/$DEST_VERSION/vocabularies/ to deploy/$DEST_VERSION/vocabularies/"
             cp src/$DEST_VERSION/vocabularies/*.ttl deploy/$DEST_VERSION/vocabularies/
           else
             echo "--- No vocabularies found in src/$DEST_VERSION/vocabularies/ to copy ---"
           fi
-          
-          # 5. Create the /latest folder (deleting the previous one)
+
+          # 4. Create the /latest folder (deleting the previous one)
           rm -rf deploy/latest
           # Copy everything from the current version to /latest
           cp -r deploy/$DEST_VERSION deploy/latest
@@ -165,4 +152,3 @@ jobs:
           publish_branch: gh-pages
           # Create a new history (force orphan commit)
           force_orphan: true
-
