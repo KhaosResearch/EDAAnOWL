@@ -19,6 +19,7 @@
 
 <https://w3id.org/EDAAnOWL/> rdf:type owl:Ontology ;
                               owl:versionIRI <https://w3id.org/EDAAnOWL/0.0.1> ;
+                              owl:versionInfo "0.0.1";
                               owl:imports bigalg: ,
                                           bigdat: ,
                                           bigprob: ,
@@ -29,7 +30,9 @@
                                           <https://w3id.org/EDAAnOWL/0.0.1/vocabularies/sector-scheme> ,
                                           ids: ;
                               dct:created "2025-10-10"^^xsd:date ;
-                              dct:creator <https://www.linkedin.com/in/martin-jeronimo-salvachua/> ;
+                              dct:creator 
+                                        <https://github.com/MartinM10> ,
+                                        <https://www.linkedin.com/in/martin-jeronimo-salvachua/> ;
                               dct:description "Extends IDS to describe Data Apps, Data Profiles, Metrics, Offers/Policies and their fit with BIGOWL (Algorithms, Problems, Workflows)."@en ;
                               dct:license <https://creativecommons.org/licenses/by/4.0/> ;
                               dct:modified "2025-10-20"^^xsd:date ;
@@ -38,7 +41,8 @@
                               vann:preferredNamespaceUri "https://w3id.org/EDAAnOWL/" ;
                               rdfs:seeAlso <https://w3id.org/BIGOWL/> ,
                                            <https://w3id.org/idsa/core> ;
-                              owl:versionInfo "0.0.1" .
+                              schema:codeRepository "https://github.com/KhaosResearch/EDAAnOWL"^^xsd:anyURI; .
+
 
 #################################################################
 #    Annotation properties

@@ -23,65 +23,118 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Get the tag name (e.g., "v0.0.1")
-      - name: Get Tag Name (Version)
+      # 2. Get Tag Versions (Tag: v0.0.1, Version: 0.0.1)
+      - name: Get Tag Versions
         id: get_version
-        run: echo "VERSION_TAG=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+        run: |
+          # CORRECCIÓN 1:
+          # Primero, obtén la variable de GitHub en una variable de shell
+          TAG_CON_V=${{ github.ref_name }}
+          
+          # Segundo, usa la sintaxis de shell (${...#v}) en la variable de shell
+          echo "VERSION_TAG_V=$TAG_CON_V" >> $GITHUB_OUTPUT
+          echo "VERSION_NO_V=${TAG_CON_V#v}" >> $GITHUB_OUTPUT
 
       # 3. Set up Java (required by Widoco)
-      - name: Set up Java JDK 11
+      - name: Set up Java JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: '11'
+          # CORRECCIÓN 2:
+          # La versión de Java DEBE coincidir con el JAR de Widoco (JDK-17)
+          java-version: '17'
           distribution: 'temurin'
 
-      # 4. Download the Widoco .jar file
+      # 4. Download Widoco (Updated to v1.4.25 with JDK 17 dependencies)
       - name: Download Widoco
-        run: wget -O widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.5/widoco-1.4.5-jar-with-dependencies.jar
+        run: wget -O widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-17.jar
 
-      # 5. Run Widoco
+      # 5. Generate Dynamic catalog.xml
+      - name: Generate dynamic catalog.xml
+        id: catalog
+        run: |
+          TAG_NO_V=${{ steps.get_version.outputs.VERSION_NO_V }} # e.g., 0.0.1
+          
+          echo "--- Generating catalog-v0.xml for version $TAG_NO_V ---"
+          
+          cat << EOF > catalog-v0.xml
+          <?xml version="1.0" encoding="UTF-8"?>
+          <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+              <uri name="https://w3id.org/EDAAnOWL/$TAG_NO_V/"
+                   uri="file:./src/$TAG_NO_V/EDAAnOWL.ttl"/>
+          EOF
+          
+          # Find all vocab files for this tag
+          # Assumes they are in 'src/X.Y.Z/vocabularies/*.ttl'
+          VOCAB_FILES=$(ls src/$TAG_NO_V/vocabularies/*.ttl 2>/dev/null || true)
+          
+          if [ -n "$VOCAB_FILES" ]; then
+            for F in $VOCAB_FILES
+            do
+              # F = src/0.0.1/vocabularies/agro-vocab.ttl
+              FILENAME=$(basename $F) # agro-vocab.ttl
+              BASENAME=${FILENAME%.ttl} # agro-vocab
+              
+              echo "    <!-- Vocab: $BASENAME -->" >> catalog-v0.xml
+              echo "    <uri name="https://w3id.org/EDAAnOWL/$TAG_NO_V/vocabularies/$BASENAME"" >> catalog-v0.xml
+              echo "         uri="file:./$F"/>" >> catalog-v0.xml
+            done
+          else
+            echo "--- No vocabularies found in src/$TAG_NO_V/vocabularies/ ---"
+          fi
+          
+          echo "</catalog>" >> catalog-v0.xml
+          echo "--- Catalog Created ---"
+          cat catalog-v0.xml
+
+      # 6. Run Widoco
       - name: Generate documentation with Widoco
         run: |
           # Use the version variable from step 2
-          VERSION=${{ steps.get_version.outputs.VERSION_TAG }}
+          TAG_NO_V=${{ steps.get_version.outputs.VERSION_NO_V }}
           
-          echo "Generating documentation for version $VERSION"
+          echo "Generating documentation for version $TAG_NO_V"
           
-          # This command assumes catalog-v0.xml is up-to-date
-          # and .ttl file is named 'EDAAnOWL-[VERSION].ttl'
+          # Use the dynamically generated catalog
           java -Djena.catalog.xml=catalog-v0.xml -jar widoco.jar \
-            -ontFile src/EDAAnOWL-$VERSION.ttl \
+            -ontFile src/$TAG_NO_V/EDAAnOWL.ttl \
             -outFolder build/docs \
             -getOntologyMetadata \
             -webVowl \
             -licensius \
             -rewriteAll
 
-      # 6. Prepare files for publishing to gh-pages
+      # 7. Prepare files for publishing to gh-pages
       - name: Prepare files for deployment
         run: |
-          VERSION=${{ steps.get_version.outputs.VERSION_TAG }}
-          echo "Preparing files for version $VERSION"
+          DEST_VERSION=${{ steps.get_version.outputs.VERSION_NO_V }} # e.g., 0.0.1
           
-          # 1. Create the folder for this version (e.g., /v0.0.1/)
-          mkdir -p deploy/$VERSION
+          echo "Preparing files for deploy folder $DEST_VERSION"
           
-          # 2. Copy the Widoco documentation (HTML, etc.)
-          cp -r build/docs/* deploy/$VERSION/
+          # 1. Create the folder for this version (e.g., /0.0.1/)
+          mkdir -p deploy/$DEST_VERSION
           
-          # 3. Copy the SOURCE .ttl file (to make it resolvable)
-          cp src/EDAAnOWL-$VERSION.ttl deploy/$VERSION/
+          # 2. Copy the Widoco documentation (HTML, ontology.ttl, ontology.owl, etc.)
+          cp -r build/docs/* deploy/$DEST_VERSION/
           
-          # 4. Copy the SOURCE vocabularies
-          mkdir -p deploy/$VERSION/vocabularies
-          cp src/vocabularies/*.ttl deploy/$VERSION/vocabularies/
+          # 3. Copy the SOURCE vocabularies (no rename needed)
+          mkdir -p deploy/$DEST_VERSION/vocabularies
           
-          # 5. Create the /latest folder (deleting the previous one)
+          # Find all vocabs for this tag (e.g., src/0.0.1/vocabularies/*.ttl)
+          VOCAB_FILES=$(ls src/$DEST_VERSION/vocabularies/*.ttl 2>/dev/null || true)
+          
+          if [ -n "$VOCAB_FILES" ]; then
+            echo "Copying vocabularies from src/$DEST_VERSION/vocabularies/ to deploy/$DEST_VERSION/vocabularies/"
+            cp src/$DEST_VERSION/vocabularies/*.ttl deploy/$DEST_VERSION/vocabularies/
+          else
+            echo "--- No vocabularies found in src/$DEST_VERSION/vocabularies/ to copy ---"
+          fi
+          
+          # 4. Create the /latest folder (deleting the previous one)
           rm -rf deploy/latest
           # Copy everything from the current version to /latest
-          cp -r deploy/$VERSION deploy/latest
+          cp -r deploy/$DEST_VERSION deploy/latest
 
-      # 7. Deploy to the gh-pages branch
+      # 8. Deploy to the gh-pages branch
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
