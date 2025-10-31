@@ -1,0 +1,52 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@base <https://w3id.org/EDAAnOWL/vocabularies/observed-properties> .
+
+<https://w3id.org/EDAAnOWL/vocabularies/observed-properties> rdf:type owl:Ontology ;
+    dct:title "Observed Properties Vocabulary"@en ;
+    dct:description "Properties that can be observed or measured in datasets."@en .
+
+:ObservedPropertyScheme rdf:type owl:NamedIndividual ,
+                                 skos:ConceptScheme ;
+                        dct:description "Properties that can be observed or measured in datasets."@en ;
+                        dct:title "Observed Properties"@en .
+
+:ndvi rdf:type owl:NamedIndividual ,
+               skos:Concept ;
+      skos:definition "Normalized Difference Vegetation Index"@en ;
+      skos:inScheme :ObservedPropertyScheme ;
+      skos:prefLabel "NDVI"@en .
+
+:occupancy rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:definition "Usage or occupation rate of facilities"@en ;
+           skos:inScheme :ObservedPropertyScheme ;
+           skos:prefLabel "Occupancy"@en .
+
+:precipitation rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:definition "Rainfall, snowfall, or other forms of moisture"@en ;
+               skos:inScheme :ObservedPropertyScheme ;
+               skos:prefLabel "Precipitation"@en .
+
+:temperature rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:definition "Thermal measurement in degrees"@en ;
+             skos:inScheme :ObservedPropertyScheme ;
+             skos:prefLabel "Temperature"@en .
+
+:yield rdf:type owl:NamedIndividual ,
+                skos:Concept ;
+       skos:definition "Amount of crop produced per unit area"@en ;
+       skos:inScheme :ObservedPropertyScheme ;
+       skos:prefLabel "Crop Yield"@en .
+
+:repiloIncidence rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:definition "Predicted incidence of Repilo disease"@en ;
+                 skos:inScheme :ObservedPropertyScheme ;
+                 skos:prefLabel "Repilo Incidence"@en .

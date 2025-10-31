@@ -1,0 +1,408 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix ns1: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix opmw: <http://www.opmw.org/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix bigwf: <https://w3id.org/BIGOWLWorkflows/> .
+@prefix bigalg: <https://w3id.org/BIGOWLAlgorithms/> .
+@prefix bigdat: <https://w3id.org/BIGOWLData/> .
+@prefix bigprob: <https://w3id.org/BIGOWLProblems/> .
+@base <https://w3id.org/EDAAnOWL/> .
+
+<https://w3id.org/EDAAnOWL/> rdf:type owl:Ontology ;
+                              owl:versionIRI <https://w3id.org/EDAAnOWL/0.0.1> ;
+                              owl:imports bigalg: ,
+                                          bigdat: ,
+                                          bigprob: ,
+                                          bigwf: ,
+                                          <https://w3id.org/EDAAnOWL/0.0.1/vocabularies/agro-vocab> ,
+                                          <https://w3id.org/EDAAnOWL/0.0.1/vocabularies/datatype-scheme> ,
+                                          <https://w3id.org/EDAAnOWL/0.0.1/vocabularies/observed-properties> ,
+                                          <https://w3id.org/EDAAnOWL/0.0.1/vocabularies/sector-scheme> ,
+                                          ids: ;
+                              dct:created "2025-10-10"^^xsd:date ;
+                              dct:creator <https://www.linkedin.com/in/martin-jeronimo-salvachua/> ;
+                              dct:description "Extends IDS to describe Data Apps, Data Profiles, Metrics, Offers/Policies and their fit with BIGOWL (Algorithms, Problems, Workflows)."@en ;
+                              dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+                              dct:modified "2025-10-20"^^xsd:date ;
+                              dct:title "EDAAnOWL Ontology (Khaos UMA) — aligned with IDS Information Model"@en ;
+                              vann:preferredNamespacePrefix "edaan" ;
+                              vann:preferredNamespaceUri "https://w3id.org/EDAAnOWL/" ;
+                              rdfs:seeAlso <https://w3id.org/BIGOWL/> ,
+                                           <https://w3id.org/idsa/core> ;
+                              owl:versionInfo "0.0.1" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+dct:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dct:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dct:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dct:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dct:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dct:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#broader
+skos:broader rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+skos:inScheme rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/odrl/2/action
+odrl:action rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/odrl/2/constraint
+odrl:constraint rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/odrl/2/leftOperand
+odrl:leftOperand rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/odrl/2/operator
+odrl:operator rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/odrl/2/permission
+odrl:permission rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/odrl/2/rightOperand
+odrl:rightOperand rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#duration
+xsd:duration rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/dc/terms/conformsTo
+dct:conformsTo rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/dc/terms/subject
+dct:subject rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/dcat#theme
+ns1:theme rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/EDAAnOWL/conformsToProfile
+:conformsToProfile rdf:type owl:ObjectProperty ;
+                   rdfs:domain ids:Resource ;
+                   rdfs:range :DataProfile .
+
+
+###  https://w3id.org/EDAAnOWL/consumesResource
+:consumesResource rdf:type owl:ObjectProperty ;
+                  rdfs:domain bigwf:Component ;
+                  rdfs:range ids:Representation ;
+                  rdfs:label "consumes representation"@en .
+
+
+###  https://w3id.org/EDAAnOWL/declaresDataClass
+:declaresDataClass rdf:type owl:ObjectProperty ;
+                   rdfs:domain :DataProfile ;
+                   rdfs:range bigdat:Data ;
+                   rdfs:label "declares data class"@en .
+
+
+###  https://w3id.org/EDAAnOWL/declaresObservedProperty
+:declaresObservedProperty rdf:type owl:ObjectProperty ;
+                          rdfs:domain :DataProfile ;
+                          rdfs:range skos:Concept ;
+                          rdfs:label "declares observed property"@en .
+
+
+###  https://w3id.org/EDAAnOWL/hasDomainSector
+:hasDomainSector rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf ns1:theme ;
+                 rdfs:domain ids:DataApp ,
+                             ids:Resource ;
+                 rdfs:range skos:Concept ;
+                 rdfs:label "has domain sector"@en .
+
+
+###  https://w3id.org/EDAAnOWL/implementsComponent
+:implementsComponent rdf:type owl:ObjectProperty ;
+                     rdfs:domain ids:DataApp ;
+                     rdfs:range bigwf:Component ;
+                     rdfs:comment "Links an IDSA DataApp to the BIGOWL workflow Component it implements."@en ;
+                     rdfs:label "implements component"@en .
+
+
+###  https://w3id.org/EDAAnOWL/parameter
+:parameter rdf:type owl:ObjectProperty ;
+           rdfs:domain ids:DataApp ;
+           rdfs:range :Parameter .
+
+
+###  https://w3id.org/EDAAnOWL/producesProfile
+:producesProfile rdf:type owl:ObjectProperty ;
+                 rdfs:domain ids:DataApp ;
+                 rdfs:range :DataProfile .
+
+
+###  https://w3id.org/EDAAnOWL/producesResource
+:producesResource rdf:type owl:ObjectProperty ;
+                  rdfs:domain bigwf:Component ;
+                  rdfs:range ids:Representation ;
+                  rdfs:label "produces representation"@en .
+
+
+###  https://w3id.org/EDAAnOWL/profileCRSRef
+:profileCRSRef rdf:type owl:ObjectProperty ;
+               rdfs:domain :DataProfile ;
+               rdfs:range odrl:Asset ;
+               rdfs:label "profile CRS (IRI)"@en .
+
+
+###  https://w3id.org/EDAAnOWL/realizesWorkflow
+:realizesWorkflow rdf:type owl:ObjectProperty ;
+                  rdfs:domain ids:DataApp ;
+                  rdfs:range opmw:WorkflowTemplate ;
+                  rdfs:label "realizes workflow"@en .
+
+
+###  https://w3id.org/EDAAnOWL/requiresProfile
+:requiresProfile rdf:type owl:ObjectProperty ;
+                 rdfs:domain ids:DataApp ;
+                 rdfs:range :DataProfile .
+
+
+###  https://w3id.org/EDAAnOWL/spatialGranularityConcept
+:spatialGranularityConcept rdf:type owl:ObjectProperty ;
+                           rdfs:domain ids:Resource ;
+                           rdfs:range skos:Concept ;
+                           rdfs:label "spatial granularity (concept)"@en .
+
+
+###  https://w3id.org/EDAAnOWL/topic
+:topic rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf dct:subject ;
+       rdfs:domain ids:Resource ;
+       rdfs:range skos:Concept ;
+       rdfs:label "topic"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/EDAAnOWL/computedAt
+:computedAt rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Metric ;
+            rdfs:range xsd:dateTime ;
+            rdfs:label "computed at"@en .
+
+
+###  https://w3id.org/EDAAnOWL/metricName
+:metricName rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Metric ;
+            rdfs:range xsd:string ;
+            rdfs:label "metric name"@en .
+
+
+###  https://w3id.org/EDAAnOWL/metricUnit
+:metricUnit rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Metric ;
+            rdfs:range xsd:string ;
+            rdfs:label "metric unit"@en .
+
+
+###  https://w3id.org/EDAAnOWL/metricValue
+:metricValue rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Metric ;
+             rdfs:range xsd:decimal ;
+             rdfs:label "metric value"@en .
+
+
+###  https://w3id.org/EDAAnOWL/profileCRS
+:profileCRS rdf:type owl:DatatypeProperty ;
+            rdfs:domain :DataProfile ;
+            rdfs:range xsd:string ;
+            rdfs:label "profile CRS"@en .
+
+
+###  https://w3id.org/EDAAnOWL/profileSpatialResolution
+:profileSpatialResolution rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :DataProfile ;
+                          rdfs:range xsd:string ;
+                          rdfs:label "profile spatial resolution"@en .
+
+
+###  https://w3id.org/EDAAnOWL/profileTemporalResolution
+:profileTemporalResolution rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :DataProfile ;
+                           rdfs:range xsd:duration ;
+                           rdfs:label "profile temporal resolution"@en .
+
+
+###  https://w3id.org/EDAAnOWL/spatialGranularity
+:spatialGranularity rdf:type owl:DatatypeProperty ;
+                    rdfs:domain ids:Resource ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "spatial granularity"@en .
+
+
+###  https://w3id.org/EDAAnOWL/supportContact
+:supportContact rdf:type owl:DatatypeProperty ;
+                rdfs:domain ids:Resource ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Support email/URL for a resource or service."@en ;
+                rdfs:label "support contact"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.opmw.org/ontology/WorkflowTemplate
+opmw:WorkflowTemplate rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+skos:ConceptScheme rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/odrl/2/Asset
+odrl:Asset rdf:type owl:Class .
+
+
+###  https://w3id.org/BIGOWLData/Data
+bigdat:Data rdf:type owl:Class .
+
+
+###  https://w3id.org/BIGOWLWorkflows/Component
+bigwf:Component rdf:type owl:Class .
+
+
+###  https://w3id.org/EDAAnOWL/AnalyzerApp
+:AnalyzerApp rdf:type owl:Class ;
+             rdfs:subClassOf ids:SmartDataApp ;
+             rdfs:comment "A smart data app for descriptive/diagnostic analysis (profiling, summarization, outlier detection)."@en ;
+             rdfs:label "Analyzer App"@en .
+
+
+###  https://w3id.org/EDAAnOWL/DataProfile
+:DataProfile rdf:type owl:Class ;
+             rdfs:comment "Facet bag describing data characteristics (domain, type, observed props, CRS, geometry, resolutions)."@en ;
+             rdfs:label "Data Profile"@en .
+
+
+###  https://w3id.org/EDAAnOWL/Metric
+:Metric rdf:type owl:Class ;
+        rdfs:label "Metric"@en .
+
+
+###  https://w3id.org/EDAAnOWL/Parameter
+:Parameter rdf:type owl:Class ;
+           rdfs:label "Parameter"@en .
+
+
+###  https://w3id.org/EDAAnOWL/PerformanceMetric
+:PerformanceMetric rdf:type owl:Class ;
+                   rdfs:subClassOf :Metric ;
+                   rdfs:label "Performance Metric"@en .
+
+
+###  https://w3id.org/EDAAnOWL/PredictionApp
+:PredictionApp rdf:type owl:Class ;
+               rdfs:subClassOf ids:SmartDataApp ;
+               rdfs:comment "A smart data app that produces predictions/inferences from input data using a model or algorithm."@en ;
+               rdfs:label "Prediction App"@en .
+
+
+###  https://w3id.org/EDAAnOWL/QualityMetric
+:QualityMetric rdf:type owl:Class ;
+               rdfs:subClassOf :Metric ;
+               rdfs:label "Quality Metric"@en .
+
+
+###  https://w3id.org/EDAAnOWL/VisualizationApp
+:VisualizationApp rdf:type owl:Class ;
+                  rdfs:subClassOf ids:SmartDataApp ;
+                  rdfs:comment "A smart data app that renders data into visual views/reports without altering underlying data."@en ;
+                  rdfs:label "Visualization App"@en .
+
+
+###  https://w3id.org/idsa/core/DataApp
+ids:DataApp rdf:type owl:Class .
+
+
+###  https://w3id.org/idsa/core/DataResource
+ids:DataResource rdf:type owl:Class .
+
+
+###  https://w3id.org/idsa/core/Representation
+ids:Representation rdf:type owl:Class .
+
+
+###  https://w3id.org/idsa/core/Resource
+ids:Resource rdf:type owl:Class .
+
+
+###  https://w3id.org/idsa/core/SmartDataApp
+ids:SmartDataApp rdf:type owl:Class ;
+                 rdfs:subClassOf ids:DataApp .
