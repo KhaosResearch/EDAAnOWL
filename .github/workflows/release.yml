@@ -114,9 +114,28 @@ jobs:
           mkdir -p deploy/$DEST_VERSION
           
           # 2. Copy the Widoco documentation (HTML, ontology.ttl, ontology.owl, etc.)
-          cp -r build/docs/* deploy/$DEST_VERSION/
+          echo "Copying WebVowl/HTML documentation files..."
+          # CORRECCIÓN: Copia el *contenido* de 'build/docs/doc/' a la raíz de la versión
+          cp -r build/docs/doc/* deploy/$DEST_VERSION/
           
-          # 3. Copy the SOURCE vocabularies (no rename needed)
+          echo "Copying RDF serialization files..."
+          # CORRECCIÓN: Copia los archivos de serialización (ontology.ttl, etc.) desde 'build/docs/'
+          # Usa 'find' para copiar solo archivos, saltando la carpeta 'doc'
+          find build/docs -maxdepth 1 -type f -exec cp -t deploy/$DEST_VERSION/ {} +
+          
+          # 3. Rename Widoco index file to index.html to match .htaccess
+          echo "Renaming Widoco index file (index-en.html) to index.html..."
+          # CORRECCIÓN: Busca cualquier 'index-xx.html' y lo renombra a 'index.html'
+          INDEX_FILE=$(find deploy/$DEST_VERSION -maxdepth 1 -name 'index-*.html' -print -quit)
+          
+          if [ -n "$INDEX_FILE" ]; then
+            mv "$INDEX_FILE" deploy/$DEST_VERSION/index.html
+            echo "Renamed $INDEX_FILE to index.html"
+          else
+            echo "Warning: No index-xx.html file found. Skipping rename."
+          fi
+          
+          # 4. Copy the SOURCE vocabularies (no rename needed)
           mkdir -p deploy/$DEST_VERSION/vocabularies
           
           # Find all vocabs for this tag (e.g., src/0.0.1/vocabularies/*.ttl)
@@ -129,7 +148,7 @@ jobs:
             echo "--- No vocabularies found in src/$DEST_VERSION/vocabularies/ to copy ---"
           fi
           
-          # 4. Create the /latest folder (deleting the previous one)
+          # 5. Create the /latest folder (deleting the previous one)
           rm -rf deploy/latest
           # Copy everything from the current version to /latest
           cp -r deploy/$DEST_VERSION deploy/latest
