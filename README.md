@@ -153,7 +153,7 @@ From the repository root:
   ```
 
 > [!NOTE]
-> These scripts are intended to be used locally by developers before creating a new release, and can also be integrated into CI pipelines if desired.
+> These scripts are intended to be used locally by developers before creating a new release, and can also be integrated into CI pipelines if desired. First version of that is `validation.yml`
 
 ## 🔗 Resolvability (PID)
 
