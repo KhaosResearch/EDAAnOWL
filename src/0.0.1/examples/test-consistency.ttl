@@ -1,0 +1,42 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix test: <https://w3id.org/EDAAnOWL/test/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix bigalg: <https://w3id.org/BIGOWLAlgorithms/> .
+@prefix bigprob: <https://w3id.org/BIGOWLProblems/> .
+@prefix bigdat: <https://w3id.org/BIGOWLData/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://w3id.org/EDAAnOWL/test/> rdf:type owl:Ontology ;
+    # Import the main ontology (needed for ROBOT to load all vocabs via catalog)
+    owl:imports <https://w3id.org/EDAAnOWL/> .
+
+### Conceptos "Mock" para que el test funcione sin importar vocabularios externos
+:agriculture rdf:type skos:Concept .
+:TestAlgorithm a bigalg:Algorithm .
+:TestProblem a bigprob:Problem .
+:TestDataClass a bigdat:Data .
+:TestProperty rdf:type skos:Concept .
+
+### Test válido - debería pasar
+test:ValidApp a ids:DataApp ;
+    dct:title "Valid Test App"@en ;
+    :parameter :TestAlgorithm ; 
+    :hasDomainSector :agriculture .
+
+test:ValidResource a ids:DataResource ;
+    dct:title "Valid Test Resource"@en ;
+    :hasDomainSector :agriculture ;
+    :conformsToProfile test:TestProfile .
+
+test:TestProfile a :DataProfile ; 
+    dct:title "Test Profile"@en ;
+    :declaresDataClass :TestDataClass ;
+    :declaresObservedProperty :TestProperty .
+
+### Test de Inconsistencia (Descomentar para probar)
+# test:InconsistentIndividual rdf:type ids:DataApp ,
+#                                      ids:DataResource .
