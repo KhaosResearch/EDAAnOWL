@@ -1,0 +1,92 @@
+name: Validate Ontology (SHACL, Syntax, Consistency)
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Set up Java JDK 17 (for ROBOT)
+      - name: Set up Java JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: "temurin"
+
+      # 3. Set up Python (for pyshacl + rdflib)
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 4. Install Python dependencies
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install pyshacl rdflib
+
+      # 5. Download ROBOT
+      - name: Download ROBOT
+        run: wget -q -O robot.jar https://github.com/ontodev/robot/releases/download/v1.9.4/robot.jar
+
+      # 6. Find the LATEST version folder in src/
+      - name: Get Latest Version Path
+        id: get_version
+        run: |
+          LATEST_VERSION=$(ls -v src | tail -n 1)
+          echo "LATEST_VERSION=$LATEST_VERSION" >> "$GITHUB_OUTPUT"
+          echo "Validating against version: $LATEST_VERSION"
+
+      # 7. Run RDF Syntax Check (re-use local check_rdf.py)
+      - name: Run RDF Syntax Check (check_rdf.py)
+        run: |
+          python scripts/check_rdf.py
+
+      # 8. Run SHACL Validation (pyshacl)
+      - name: Run SHACL Validation
+        run: |
+          set -e
+          LATEST_VERSION=${{ steps.get_version.outputs.LATEST_VERSION }}
+
+          echo "Validating examples against shapes for src/$LATEST_VERSION ..."
+
+          python -m pyshacl \
+            -s src/$LATEST_VERSION/shapes/edaan-shapes.ttl \
+            -e src/$LATEST_VERSION/EDAAnOWL.ttl \
+            -m -i rdfs -f human \
+            src/$LATEST_VERSION/examples/test-consistency.ttl
+
+      # 9. Run OWL Consistency Check (ROBOT)
+      - name: Run OWL Consistency Check (ROBOT)
+        run: |
+          LATEST_VERSION=${{ steps.get_version.outputs.LATEST_VERSION }}
+          echo "Checking consistency of test file for src/$LATEST_VERSION ..."
+
+          # Create a catalog just for ROBOT
+          cat << EOF > robot-catalog.xml
+          <?xml version="1.0" encoding="UTF-8"?>
+          <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+              <uri name="https://w3id.org/EDAAnOWL/"
+                   uri="file:./src/$LATEST_VERSION/EDAAnOWL.ttl"/>
+          </catalog>
+          EOF
+
+          # Run ROBOT reasoner on the consistency test file
+          java -jar robot.jar reason \
+            --catalog robot-catalog.xml \
+            --input src/$LATEST_VERSION/examples/test-consistency.ttl \
+            --reasoner ELK \
+            --output edaanowl-reasoned.owl

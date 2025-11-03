@@ -1,0 +1,99 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix ex: <https://w3id.org/EDAAnOWL/examples/agriculture/> .
+@prefix ex-min: <https://w3id.org/EDAAnOWL/examples/minimal/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bigalg: <https://w3id.org/BIGOWLAlgorithms/> .
+@prefix bigprob: <https://w3id.org/BIGOWLProblems/> .
+@prefix bigdat: <https://w3id.org/BIGOWLData/> .
+@prefix bigwf: <https://w3id.org/BIGOWLWorkflows/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- Prefixes for SKOS Vocabularies (Must be used in examples) ---
+# Note: The URI for concepts is built by the main ontology's prefix (:)
+# but the prefixes for the vocabs themselves are used here for clarity.
+@prefix sector: <https://w3id.org/EDAAnOWL/> . # Use main prefix for concepts
+@prefix dtype: <https://w3id.org/EDAAnOWL/> .  # Use main prefix for concepts
+@prefix obs: <https://w3id.org/EDAAnOWL/> .    # Use main prefix for concepts
+
+
+###
+### Minimal Example
+###
+ex-min:MinimalDataResource a ids:DataResource ;
+    dct:title "Minimal Test Dataset"@en ;
+    :hasDomainSector :agriculture ; # Assumes :agriculture is a SKOS concept
+    :conformsToProfile ex-min:MinimalProfile ;
+    :supportContact "test@example.org" .
+
+ex-min:MinimalProfile a :DataProfile ;
+    dct:title "Minimal Data Profile"@en ;
+    :declaresDataClass :tabular ;
+    :declaresObservedProperty :yield .
+
+ex-min:MinimalDataApp a ids:DataApp ;
+    dct:title "Minimal Test App"@en ;
+    :parameter ex-min:TestAlgorithm ;
+    :hasDomainSector :agriculture ;
+    :requiresProfile ex-min:MinimalProfile .
+
+ex-min:TestAlgorithm a bigalg:Algorithm ;
+    rdfs:label "Test Algorithm"@en .
+
+###
+### Crop Yield Demo
+###
+ex:AndalusiaCropYield2024 a ids:DataResource ;
+    dct:title "Andalusia Crop Yield Dataset 2024"@en ;
+    :hasDomainSector :agriculture ;
+    :conformsToProfile ex:AgriYieldProfile ;
+    :supportContact "agri-data@example.org" .
+
+ex:AgriYieldProfile a :DataProfile ;
+    dct:title "Agricultural Yield Profile"@en ;
+    :declaresDataClass :tabular ;
+    :declaresObservedProperty :yield ;
+    :profileTemporalResolution "P1Y"^^xsd:duration ;
+    :profileCRS "EPSG:4326" .
+
+ex:CropPredictorApp a :PredictionApp ;
+    dct:title "Crop Yield Predictor"@en ;
+    :parameter ex:RFAlgorithmExample ;
+    :requiresProfile ex:AgriYieldProfile ;
+    :hasDomainSector :agriculture ;
+    :supportContact "support@agri-apps.example.org" .
+
+ex:RFAlgorithmExample a bigalg:Algorithm ;
+    rdfs:label "Random Forest Predictor"@en .
+
+###
+### Repilo 1.0.0 Example
+###
+ex:Profile_Repilo_Input_Climate rdf:type :DataProfile ;
+    dct:title "Climate Input Profile" ;
+    :declaresDataClass :timeseries ,
+                       :tabular ;
+    :declaresObservedProperty :temperature ,
+                              :precipitation .
+
+ex:Profile_Repilo_Output_Incidence rdf:type :DataProfile ;
+    dct:title "Repilo Output Profile" ;
+    :declaresDataClass :georaster ;
+    :declaresObservedProperty :repiloIncidence .
+
+ex:Repilo1.0.0 rdf:type :PredictionApp ,
+                         ids:DataApp ;
+    dct:title "Repilo" ;
+    :hasDomainSector :agriculture ;
+    :requiresProfile ex:Profile_Repilo_Input_Climate ;
+    :producesProfile ex:Profile_Repilo_Output_Incidence .
+
+# --- Entities defined outside EDAAnOWL (for closure) ---
+ex-min:TestProblem a bigprob:Problem ;
+    rdfs:label "Test Problem"@en .
+<https://w3id.org/BIGOWLWorkflows/Component/BetaModel> a bigwf:Component .

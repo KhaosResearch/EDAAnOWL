@@ -7,9 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
+- **Local validation tooling**:
+  - Added a Docker-based validation environment (`Dockerfile`) to run ontology checks in a reproducible container.
+  - Added `scripts/check_rdf.py` to perform RDF syntax validation over all `.ttl` files in the latest `src/<version>/` folder (vocabularies, examples, shapes).
+  - Added cross-platform helper scripts:
+    - `scripts/local-validate.bat` (Windows)
+    - `scripts/local-validate.sh` (Linux/macOS)
+  - The validation pipeline runs:
+    - RDF syntax validation (`rdflib` via `check_rdf.py`)
+    - SHACL validation (`pyshacl` with `edaan-shapes.ttl` and `test-consistency.ttl`)
+    - OWL consistency checking (ROBOT `reason` with the ELK reasoner).
 
 ### Changed
+
+- Documented the local validation workflow and Docker-based environment in `README.md`.
 
 ### Fixed
 
