@@ -4,9 +4,9 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-@base <https://w3id.org/EDAAnOWL/vocabularies/datatype-scheme> .
+@base <https://w3id.org/EDAAnOWL/0.0.1/vocabularies/datatype-scheme> .
 
-<https://w3id.org/EDAAnOWL/vocabularies/datatype-scheme> rdf:type owl:Ontology ;
+<https://w3id.org/EDAAnOWL/0.0.1/vocabularies/datatype-scheme> rdf:type owl:Ontology ;
     dct:title "Data Type Categories Vocabulary"@en ;
     dct:description "Categories for classifying data types and formats."@en .
 
