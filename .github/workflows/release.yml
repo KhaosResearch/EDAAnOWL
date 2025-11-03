@@ -1,81 +1,69 @@
 # Workflow name, this will appear in the "Actions" tab on GitHub
 name: Deploy Ontology to GitHub Pages
 
-# Trigger:
-# This workflow runs EVERY TIME a new "Release" is created on GitHub
 on:
+  # Execute on new release creation
   release:
     types: [created]
+  # Or manually trigger via "Run workflow" button
+  workflow_dispatch:
 
-# Jobs to be executed
 jobs:
   build-and-deploy:
-    # Use the latest version of Ubuntu
     runs-on: ubuntu-latest
-
-    # Permissions needed by the job to write to the gh-pages branch
     permissions:
       contents: write
 
-    # Steps
     steps:
-      # 1. Downloads the branch's code (the one corresponding to the tag/release)
+      # 1) Checkout
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      # 2. Get Tag Versions (Tag: v0.0.1, Version: 0.0.1)
+      # 2) Get Tag Versions (Tag: v0.0.1 -> Version: 0.0.1)
       - name: Get Tag Versions
         id: get_version
+        shell: bash
         run: |
-          # Primero, obtén la variable de GitHub en una variable de shell
           TAG_CON_V=${{ github.ref_name }}
-
-          # Segundo, usa la sintaxis de shell (${...#v}) en la variable de shell
           echo "VERSION_TAG_V=$TAG_CON_V" >> $GITHUB_OUTPUT
           echo "VERSION_NO_V=${TAG_CON_V#v}" >> $GITHUB_OUTPUT
 
-      # 3. Set up Java (required by Widoco)
+      # 3) Java JDK 17 Setup
       - name: Set up Java JDK 17
         uses: actions/setup-java@v4
         with:
-          # CORRECCIÓN 2:
-          # La versión de Java DEBE coincidir con el JAR de Widoco (JDK-17)
           java-version: "17"
           distribution: "temurin"
 
-      # 4. Download Widoco (Updated to v1.4.25 with JDK 17 dependencies)
+      # 4) Widoco (JDK-17)
       - name: Download Widoco
         run: wget -O widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-17.jar
 
-      # 5. Generate Dynamic catalog.xml
+      # 5) catalog.xml dynamic generation
       - name: Generate dynamic catalog.xml
         id: catalog
+        shell: bash
         run: |
-          TAG_NO_V=${{ steps.get_version.outputs.VERSION_NO_V }} # e.g., 0.0.1
-
+          TAG_NO_V=${{ steps.get_version.outputs.VERSION_NO_V }} # p.ej. 0.0.1
           echo "--- Generating catalog-v0.xml for version $TAG_NO_V ---"
 
           cat << EOF > catalog-v0.xml
           <?xml version="1.0" encoding="UTF-8"?>
           <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
-              <uri name="https://w3id.org/EDAAnOWL/$TAG_NO_V/"
-                   uri="file:./src/$TAG_NO_V/EDAAnOWL.ttl"/>
+            <uri name="https://w3id.org/EDAAnOWL/$TAG_NO_V/"
+                 uri="file:./src/$TAG_NO_V/EDAAnOWL.ttl"/>
           EOF
 
-          # Find all vocab files for this tag
-          # Assumes they are in 'src/X.Y.Z/vocabularies/*.ttl'
           VOCAB_FILES=$(ls src/$TAG_NO_V/vocabularies/*.ttl 2>/dev/null || true)
-
           if [ -n "$VOCAB_FILES" ]; then
-            for F in $VOCAB_FILES
-            do
-              # F = src/0.0.1/vocabularies/agro-vocab.ttl
-              FILENAME=$(basename $F) # agro-vocab.ttl
-              BASENAME=${FILENAME%.ttl} # agro-vocab
-              
-              echo "    <!-- Vocab: $BASENAME -->" >> catalog-v0.xml
-              echo "    <uri name=\"https://w3id.org/EDAAnOWL/$TAG_NO_V/vocabularies/$BASENAME\"" >> catalog-v0.xml
-              echo "         uri=\"file:./$F\"/>" >> catalog-v0.xml
+            for F in $VOCAB_FILES; do
+              FILENAME=$(basename "$F")              # agro-vocab.ttl
+              BASENAME=${FILENAME%.ttl}              # agro-vocab
+              echo "  <!-- Vocab: $BASENAME -->" >> catalog-v0.xml
+              echo "  <uri name=\"https://w3id.org/EDAAnOWL/$TAG_NO_V/vocabularies/$BASENAME\"" >> catalog-v0.xml
+              echo "       uri=\"file:./$F\"/>" >> catalog-v0.xml
             done
           else
             echo "--- No vocabularies found in src/$TAG_NO_V/vocabularies/ ---"
@@ -85,15 +73,13 @@ jobs:
           echo "--- Catalog Created ---"
           cat catalog-v0.xml
 
-      # 6. Run Widoco
+      # 6) Generate documentation with Widoco
       - name: Generate documentation with Widoco
+        shell: bash
         run: |
-          # Use the version variable from step 2
           TAG_NO_V=${{ steps.get_version.outputs.VERSION_NO_V }}
-
           echo "Generating documentation for version $TAG_NO_V"
-
-          # Use the dynamically generated catalog
+          mkdir -p build/docs
           java -Djena.catalog.xml=catalog-v0.xml -jar widoco.jar \
             -ontFile src/$TAG_NO_V/EDAAnOWL.ttl \
             -outFolder build/docs \
@@ -102,53 +88,66 @@ jobs:
             -licensius \
             -rewriteAll
 
-      # 7. Prepare files for publishing to gh-pages
-      - name: Prepare files for deployment
+      # 7) Post-process: rewrite vocabulary links to point to /<version>/vocabularies/<name>
+      - name: Post-process Widoco HTML (force versioned vocab links)
+        shell: bash
         run: |
-          DEST_VERSION=${{ steps.get_version.outputs.VERSION_NO_V }} # e.g., 0.0.1
+          set -euo pipefail
+          V="${{ steps.get_version.outputs.VERSION_NO_V }}"
+          shopt -s nullglob
+          # Reescribe todos los HTML generados por Widoco
+          for f in build/docs/doc/*.html build/docs/doc/*/*.html; do
+            sed -i -E 's|(href=")https://w3id.org/EDAAnOWL/vocabularies/([A-Za-z0-9._-]+)")|\1https://w3id.org/EDAAnOWL/'"$V"'/vocabularies/\2")|g' "$f"
+          done
+
+      # 8) Prepare files for deployment
+      - name: Prepare files for deployment
+        id: prep
+        shell: bash
+        run: |
+          set -euo pipefail
+          DEST_VERSION=${{ steps.get_version.outputs.VERSION_NO_V }} # p.ej., 0.0.1
 
           echo "Preparing files for deploy folder $DEST_VERSION"
-
-          # 1. Create the folder for this version (e.g., /0.0.1/)
           mkdir -p deploy/$DEST_VERSION
 
-          # 2. Copy the Widoco documentation (HTML, ontology.ttl, ontology.owl, etc.)
           echo "Copying WebVowl/HTML documentation files..."
-          # Copia el *contenido* de 'build/docs/doc/' a la raíz de la versión
           cp -r build/docs/doc/* deploy/$DEST_VERSION/
 
-          echo "Copying RDF serialization files..."
-          # Copia los archivos de serialización (ontology.ttl, etc.) desde 'build/docs/'
-          # Usa 'find' para copiar solo archivos, saltando la carpeta 'doc'
+          echo "Copying RDF serialization files from Widoco (ontology.*)..."
           find build/docs -maxdepth 1 -type f -exec cp -t deploy/$DEST_VERSION/ {} +
 
-          # 3. Copy the SOURCE vocabularies (no rename needed)
+          echo "Ensuring EDAAnOWL.ttl exists alongside ontology.ttl..."
+          # Copia también el TTL de origen con nombre EDAAnOWL.ttl (útil para .htaccess)
+          if [ -f "src/$DEST_VERSION/EDAAnOWL.ttl" ]; then
+            cp -f "src/$DEST_VERSION/EDAAnOWL.ttl" "deploy/$DEST_VERSION/EDAAnOWL.ttl"
+          else
+            echo "WARN: src/$DEST_VERSION/EDAAnOWL.ttl not found; only ontology.ttl (Widoco) will be present."
+          fi
+
+          echo "Copying vocabularies..."
           mkdir -p deploy/$DEST_VERSION/vocabularies
-
-          # Find all vocabs for this tag (e.g., src/0.0.1/vocabularies/*.ttl)
           VOCAB_FILES=$(ls src/$DEST_VERSION/vocabularies/*.ttl 2>/dev/null || true)
-
           if [ -n "$VOCAB_FILES" ]; then
-            echo "Copying vocabularies from src/$DEST_VERSION/vocabularies/ to deploy/$DEST_VERSION/vocabularies/"
             cp src/$DEST_VERSION/vocabularies/*.ttl deploy/$DEST_VERSION/vocabularies/
           else
             echo "--- No vocabularies found in src/$DEST_VERSION/vocabularies/ to copy ---"
           fi
 
-          # 4. Create the /latest folder (deleting the previous one)
+          echo "Syncing 'latest'..."
           rm -rf deploy/latest
-          # Copy everything from the current version to /latest
           cp -r deploy/$DEST_VERSION deploy/latest
 
-      # 8. Deploy to the gh-pages branch
+          echo "Disabling Jekyll..."
+          touch deploy/.nojekyll
+
+          echo "DEPLOY_ROOT=deploy" >> $GITHUB_OUTPUT
+
+      # 9) Deploy to gh-pages
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          # GitHub token for authentication
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # The directory we want to publish (created in step 6)
-          publish_dir: ./deploy
-          # The destination branch
+          publish_dir: ${{ steps.prep.outputs.DEPLOY_ROOT }}
           publish_branch: gh-pages
-          # Create a new history (force orphan commit)
           force_orphan: true
