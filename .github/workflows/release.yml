@@ -55,7 +55,7 @@ jobs:
             for F in $VOCAB_FILES; do
               FILENAME=$(basename "$F")              # agro-vocab.ttl
               BASENAME=${FILENAME%.ttl}              # agro-vocab
-              echo "  <!-- Vocab: $BASENAME -->" >> catalog-v0.xml
+              echo "  " >> catalog-v0.xml
               echo "  <uri name=\"https://w3id.org/EDAAnOWL/$TAG_NO_V/vocabularies/$BASENAME\"" >> catalog-v0.xml
               echo "       uri=\"file:./$F\"/>" >> catalog-v0.xml
             done
@@ -92,14 +92,21 @@ jobs:
             sed -i -E "s|(href=\")https://w3id.org/EDAAnOWL/vocabularies/([A-Za-z0-9._-]+)\"|\\1https://w3id.org/EDAAnOWL/${V}/vocabularies/\\2\"|g" "$f"
           done
 
+      - name: Checkout existing gh-pages content
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: deploy
+
       - name: Prepare files for deployment
         id: prep
         shell: bash
         run: |
           set -euo pipefail
-          DEST_VERSION=${{ steps.get_version.outputs.VERSION_NO_V }} # p.ej., 0.0.1
+          DEST_VERSION=${{ steps.get_version.outputs.VERSION_NO_V }} # p.ex., 0.0.1
 
           echo "Preparing files for deploy folder $DEST_VERSION"
+          mkdir -p deploy
           mkdir -p deploy/$DEST_VERSION
 
           echo "Copying WebVowl/HTML documentation files..."
@@ -109,7 +116,6 @@ jobs:
           find build/docs -maxdepth 1 -type f -exec cp -t deploy/$DEST_VERSION/ {} +
 
           echo "Ensuring EDAAnOWL.ttl exists alongside ontology.ttl..."
-          # Also copy the source TTL named EDAAnOWL.ttl (useful for .htaccess)
           if [ -f "src/$DEST_VERSION/EDAAnOWL.ttl" ]; then
             cp -f "src/$DEST_VERSION/EDAAnOWL.ttl" "deploy/$DEST_VERSION/EDAAnOWL.ttl"
           else
@@ -147,4 +153,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ${{ steps.prep.outputs.DEPLOY_ROOT }}
           publish_branch: gh-pages
-          force_orphan: true
