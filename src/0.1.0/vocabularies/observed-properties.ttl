@@ -4,9 +4,9 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-@base <https://w3id.org/EDAAnOWL/0.1.0/vocabularies/observed-properties> .
+@base <https://w3id.org/EDAAnOWL/0.0.1/vocabularies/observed-properties> .
 
-<https://w3id.org/EDAAnOWL/0.1.0/vocabularies/observed-properties> rdf:type owl:Ontology ;
+<https://w3id.org/EDAAnOWL/0.0.1/vocabularies/observed-properties> rdf:type owl:Ontology ;
     dct:title "Observed Properties Vocabulary"@en ;
     dct:description "Properties that can be observed or measured in datasets."@en .
 
