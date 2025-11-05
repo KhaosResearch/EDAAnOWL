@@ -1,7 +1,6 @@
 # EDAAnOWL — (v0.0.1)
 
 [![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/release.yml/badge.svg)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/release.yml)
-[![Validate Ontology](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/validation.yml/badge.svg?branch=main)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/validation.yml)
 
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-1f6feb)](https://khaosresearch.github.io/EDAAnOWL/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -158,7 +157,7 @@ From the repository root:
   ```
 
 > [!NOTE]
-> These scripts are intended to be used locally by developers before creating a new release, and can also be integrated into CI pipelines if desired. First version of that is `validation.yml`
+> These scripts are intended to be used locally by developers before creating a new release, and can also be integrated into CI pipelines if desired.
 
 ## 🔗 Resolvability (PID)
 

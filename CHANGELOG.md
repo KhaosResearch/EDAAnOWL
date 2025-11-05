@@ -6,9 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
 ### Added
+
 ### Changed
+
 ### Fixed
+
 ### Removed
 
 ---
@@ -16,13 +20,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2025-11-05
 
 ### Added
+
 - **New Ontology Model (v0.1.0):**
   - Added new classes for direct semantic description: `:DataAsset`, `:SpatialTemporalAsset`, and `:AnalyticalService`.
   - Added new properties to support this model: `:servesObservableProperty`, `:requiresObservableProperty`, `:producesObservableProperty`, `:hasSpatialCoverage`, and `:hasTemporalCoverage`.
   - Added new `owl:imports` for `sosa`, `geosparql`, and `owl-time` to support the new classes.
   - Added new example file `eo-instances.ttl` to demonstrate the `v0.1.0` model.
-- **Validation CI (`validation.yml`):**
-  - Added a new GitHub Actions workflow (`validation.yml`) that runs on every push/PR to `dev` and `main`.
+- **Validation:**
   - The workflow validates RDF Syntax (using `check_rdf.py`), SHACL conformance (using `pyshacl`), and OWL Consistency (using `ROBOT reason`).
 - **Local Validation:**
   - Added a `Dockerfile` to create a self-contained validation environment with Python, Java, ROBOT, and pyshacl.
@@ -35,12 +39,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added `index.html` templates for the `gh-pages` root and versioned folders to provide navigation.
 
 ### Changed
+
 - **Versioning:** Upgraded version from `0.0.1` to `0.1.0` (Minor release) due to the addition of new, backwards-compatible ontology features.
 - **CI/CD (`release.yml`):** Updated the release workflow to find and copy the version-specific `README.md` from `src/X.Y.Z/` to the `gh-pages` branch during deployment.
 - **Validation (`edaan-shapes.ttl`):** Updated SHACL shapes to be more "realistic", checking that properties point to `skos:Concept` where appropriate.
 - **Vocabularies:** Ensured all vocabulary files in `src/0.1.0/` have their `@base` and `owl:imports` URIs correctly updated to point to the `.../0.1.0/...` path.
 
 ### Fixed
+
 - **Validation Scripts:** Fixed a bug in `check_rdf.py` that caused duplicate file logging by simplifying the file search logic.
 - **Example Files:** Corrected multiple syntax errors in `eo-instances.ttl` and `test-consistency.ttl` (missing prefixes) that were causing `rdflib` to fail.
 
