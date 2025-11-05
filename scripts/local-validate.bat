@@ -2,7 +2,7 @@
 setlocal
 
 set IMAGE_NAME=edaanowl-validator
-REM %~dp0 es la carpeta del script (ej: C:\proyecto\scripts\). ".." sube un nivel.
+REM
 set ROOT_DIR=%~dp0..
 
 echo --- Building local validation image (%IMAGE_NAME%) ---
@@ -12,7 +12,7 @@ if %errorlevel% neq 0 (
     goto :eof
 )
 
-REM 1. Find the latest version under src/
+REM
 echo --- Finding latest version ---
 set LATEST_VERSION=
 for /f "tokens=*" %%a in ('dir /b /ad /on "%ROOT_DIR%\src"') do (
@@ -25,10 +25,10 @@ if "%LATEST_VERSION%"=="" (
 )
 
 echo --- Validating against latest version: %LATEST_VERSION% ---
-REM Dentro del contenedor es Linux, así que usamos /
+REM
 set LATEST_PATH=src/%LATEST_VERSION%
 
-REM 2. Run RDF Syntax Check
+REM
 echo.
 echo --- 🚀 Running syntax validation (scripts/check_rdf.py) ---
 docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% python3 /app/scripts/check_rdf.py
@@ -37,7 +37,7 @@ if %errorlevel% neq 0 (
     goto :eof
 )
 
-REM 3. Run SHACL Validation
+REM
 echo.
 echo --- 🚀 Running SHACL validation (pyshacl) ---
 docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% python3 -m pyshacl ^
@@ -51,7 +51,7 @@ if %errorlevel% neq 0 (
     goto :eof
 )
 
-REM 4. Run OWL Consistency Check (ROBOT)
+REM
 echo.
 echo --- 🚀 Running OWL consistency validation (ROBOT) ---
 (

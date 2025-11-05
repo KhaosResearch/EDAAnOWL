@@ -10,6 +10,10 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+
 <https://w3id.org/EDAAnOWL/test/> rdf:type owl:Ontology ;
     # Import the main ontology (needed for ROBOT to load all vocabs via catalog)
     owl:imports <https://w3id.org/EDAAnOWL/> .
@@ -20,6 +24,12 @@
 :TestProblem a bigprob:Problem .
 :TestDataClass a bigdat:Data .
 :TestProperty rdf:type skos:Concept .
+
+:ndvi rdf:type skos:Concept .
+:waterStress rdf:type skos:Concept .
+sosa:ObservableProperty rdf:type owl:Class .
+gsp:Geometry rdf:type owl:Class .
+time:Interval rdf:type owl:Class .
 
 test:ValidApp a ids:DataApp ;
     dct:title "Valid Test App"@en ;
@@ -35,6 +45,20 @@ test:TestProfile a :DataProfile ;
     dct:title "Test Profile"@en ;
     :declaresDataClass :TestDataClass ;
     :declaresObservedProperty :TestProperty .
+
+test:ValidDataAsset a :DataAsset ;
+    dct:title "Valid Data Asset"@en ;
+    :servesObservableProperty :ndvi .
+
+test:ValidSpatialAsset a :SpatialTemporalAsset ;
+    dct:title "Valid Spatial Asset"@en ;
+    :servesObservableProperty :ndvi ;
+    :hasSpatialCoverage [ a gsp:Geometry ] ;
+    :hasTemporalCoverage [ a time:Interval ] .
+
+test:ValidService a :AnalyticalService ;
+    dct:title "Valid Analytical Service"@en ;
+    :producesObservableProperty :waterStress .
 
 ### Inconsistency Test (Uncomment to test)
 # test:InconsistentIndividual rdf:type ids:DataApp ,
