@@ -2,6 +2,10 @@
 
 [![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/release.yml/badge.svg)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/release.yml)
 
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-1f6feb)](https://khaosresearch.github.io/EDAAnOWL/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Latest Release](https://img.shields.io/github/v/release/KhaosResearch/EDAAnOWL?include_prereleases)](https://github.com/KhaosResearch/EDAAnOWL/releases)
+
 A pilot ontology for the semantic exploitation of data assets in the Agri-food (EDAA) context, aligned with the IDSA Information Model and the BIGOWL ontology.
 
 The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches the description of Data Space assets. It allows for modeling the functional profile (inputs, outputs, parameters) of `ids:DataApp` and `ids:DataResource`, facilitating their semantic discovery, composition into complex services, and compatibility validation.
@@ -153,7 +157,7 @@ From the repository root:
   ```
 
 > [!NOTE]
-> These scripts are intended to be used locally by developers before creating a new release, and can also be integrated into CI pipelines if desired. First version of that is `validation.yml`
+> These scripts are intended to be used locally by developers before creating a new release, and can also be integrated into CI pipelines if desired.
 
 ## 🔗 Resolvability (PID)
 

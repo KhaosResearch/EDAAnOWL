@@ -7,24 +7,50 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- **Local validation tooling**:
-  - Added a Docker-based validation environment (`Dockerfile`) to run ontology checks in a reproducible container.
-  - Added `scripts/check_rdf.py` to perform RDF syntax validation over all `.ttl` files in the latest `src/<version>/` folder (vocabularies, examples, shapes).
-  - Added cross-platform helper scripts:
-    - `scripts/local-validate.bat` (Windows)
-    - `scripts/local-validate.sh` (Linux/macOS)
-  - The validation pipeline runs:
-    - RDF syntax validation (`rdflib` via `check_rdf.py`)
-    - SHACL validation (`pyshacl` with `edaan-shapes.ttl` and `test-consistency.ttl`)
-    - OWL consistency checking (ROBOT `reason` with the ELK reasoner).
+### Added
 
 ### Changed
-
-- Documented the local validation workflow and Docker-based environment in `README.md`.
 
 ### Fixed
 
 ### Removed
+
+---
+
+## [0.1.0] - 2025-11-05
+
+### Added
+
+- **New Ontology Model (v0.1.0):**
+  - Added new classes for direct semantic description: `:DataAsset`, `:SpatialTemporalAsset`, and `:AnalyticalService`.
+  - Added new properties to support this model: `:servesObservableProperty`, `:requiresObservableProperty`, `:producesObservableProperty`, `:hasSpatialCoverage`, and `:hasTemporalCoverage`.
+  - Added new `owl:imports` for `sosa`, `geosparql`, and `owl-time` to support the new classes.
+  - Added new example file `eo-instances.ttl` to demonstrate the `v0.1.0` model.
+- **Validation:**
+  - The workflow validates RDF Syntax (using `check_rdf.py`), SHACL conformance (using `pyshacl`), and OWL Consistency (using `ROBOT reason`).
+- **Local Validation:**
+  - Added a `Dockerfile` to create a self-contained validation environment with Python, Java, ROBOT, and pyshacl.
+  - Added `local-validate.sh` and `local-validate.bat` scripts to run the full CI validation suite locally.
+- **SHACL & Consistency Tests:**
+  - Added `src/0.1.0/shapes/edaan-shapes.ttl` with rules for both `v0.0.1` (`:DataProfile`) and `v0.1.0` (`:DataAsset`) models.
+  - Added `src/0.1.0/examples/test-consistency.ttl` to provide valid data for SHACL and ROBOT testing.
+- **Documentation:**
+  - Added version-specific `README.md` files (like `src/0.1.0/README.md`) intended for deployment to `gh-pages`.
+  - Added `index.html` templates for the `gh-pages` root and versioned folders to provide navigation.
+
+### Changed
+
+- **Versioning:** Upgraded version from `0.0.1` to `0.1.0` (Minor release) due to the addition of new, backwards-compatible ontology features.
+- **CI/CD (`release.yml`):** Updated the release workflow to find and copy the version-specific `README.md` from `src/X.Y.Z/` to the `gh-pages` branch during deployment.
+- **Validation (`edaan-shapes.ttl`):** Updated SHACL shapes to be more "realistic", checking that properties point to `skos:Concept` where appropriate.
+- **Vocabularies:** Ensured all vocabulary files in `src/0.1.0/` have their `@base` and `owl:imports` URIs correctly updated to point to the `.../0.1.0/...` path.
+
+### Fixed
+
+- **Validation Scripts:** Fixed a bug in `check_rdf.py` that caused duplicate file logging by simplifying the file search logic.
+- **Example Files:** Corrected multiple syntax errors in `eo-instances.ttl` and `test-consistency.ttl` (missing prefixes) that were causing `rdflib` to fail.
+
+---
 
 ---
 
@@ -48,5 +74,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.0.1...v0.1.0
 [0.0.1]: https://github.com/KhaosResearch/EDAAnOWL/releases/tag/v0.0.1
