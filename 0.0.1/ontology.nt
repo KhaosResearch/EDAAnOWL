@@ -1,0 +1,356 @@
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/EDAAnOWL/0.0.1> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/BIGOWLAlgorithms/> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/BIGOWLData/> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/BIGOWLProblems/> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/BIGOWLWorkflows/> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/EDAAnOWL/0.0.1/vocabularies/agro-vocab> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/EDAAnOWL/0.0.1/vocabularies/datatype-scheme> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/EDAAnOWL/0.0.1/vocabularies/observed-properties> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/EDAAnOWL/0.0.1/vocabularies/sector-scheme> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/idsa/core/> .
+<https://w3id.org/EDAAnOWL/> <http://purl.org/dc/terms/created> "2025-10-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/EDAAnOWL/> <http://purl.org/dc/terms/creator> <https://github.com/MartinM10> .
+<https://w3id.org/EDAAnOWL/> <http://purl.org/dc/terms/creator> <https://www.linkedin.com/in/martin-jeronimo-salvachua/> .
+<https://w3id.org/EDAAnOWL/> <http://purl.org/dc/terms/description> "Extends IDS to describe Data Apps, Data Profiles, Metrics, Offers/Policies and their fit with BIGOWL (Algorithms, Problems, Workflows)."@en .
+<https://w3id.org/EDAAnOWL/> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> .
+<https://w3id.org/EDAAnOWL/> <http://purl.org/dc/terms/modified> "2025-10-20"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/EDAAnOWL/> <http://purl.org/dc/terms/title> "EDAAnOWL Ontology (Khaos UMA) — aligned with IDS Information Model"@en .
+<https://w3id.org/EDAAnOWL/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "edaan" .
+<https://w3id.org/EDAAnOWL/> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/EDAAnOWL/" .
+<https://w3id.org/EDAAnOWL/> <http://schema.org/codeRepository> "https://github.com/KhaosResearch/EDAAnOWL"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://w3id.org/BIGOWL/> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://w3id.org/idsa/core> .
+<https://w3id.org/EDAAnOWL/> <http://www.w3.org/2002/07/owl#versionInfo> "0.0.1" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://schema.org/codeRepository
+<http://schema.org/codeRepository> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#broader
+<http://www.w3.org/2004/02/skos/core#broader> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#inScheme
+<http://www.w3.org/2004/02/skos/core#inScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/odrl/2/action
+<http://www.w3.org/ns/odrl/2/action> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/odrl/2/constraint
+<http://www.w3.org/ns/odrl/2/constraint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/odrl/2/leftOperand
+<http://www.w3.org/ns/odrl/2/leftOperand> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/odrl/2/operator
+<http://www.w3.org/ns/odrl/2/operator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/odrl/2/permission
+<http://www.w3.org/ns/odrl/2/permission> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/odrl/2/rightOperand
+<http://www.w3.org/ns/odrl/2/rightOperand> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# http://www.w3.org/2001/XMLSchema#duration
+<http://www.w3.org/2001/XMLSchema#duration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/conformsTo
+<http://purl.org/dc/terms/conformsTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://purl.org/dc/terms/subject
+<http://purl.org/dc/terms/subject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/dcat#theme
+<http://www.w3.org/ns/dcat#theme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://w3id.org/EDAAnOWL/conformsToProfile
+<https://w3id.org/EDAAnOWL/conformsToProfile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/conformsToProfile> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Resource> .
+<https://w3id.org/EDAAnOWL/conformsToProfile> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/EDAAnOWL/DataProfile> .
+# 
+# https://w3id.org/EDAAnOWL/consumesResource
+<https://w3id.org/EDAAnOWL/consumesResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/consumesResource> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/BIGOWLWorkflows/Component> .
+<https://w3id.org/EDAAnOWL/consumesResource> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/idsa/core/Representation> .
+<https://w3id.org/EDAAnOWL/consumesResource> <http://www.w3.org/2000/01/rdf-schema#label> "consumes representation"@en .
+# 
+# https://w3id.org/EDAAnOWL/declaresDataClass
+<https://w3id.org/EDAAnOWL/declaresDataClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/declaresDataClass> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/EDAAnOWL/DataProfile> .
+<https://w3id.org/EDAAnOWL/declaresDataClass> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/BIGOWLData/Data> .
+<https://w3id.org/EDAAnOWL/declaresDataClass> <http://www.w3.org/2000/01/rdf-schema#label> "declares data class"@en .
+# 
+# https://w3id.org/EDAAnOWL/declaresObservedProperty
+<https://w3id.org/EDAAnOWL/declaresObservedProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/declaresObservedProperty> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/EDAAnOWL/DataProfile> .
+<https://w3id.org/EDAAnOWL/declaresObservedProperty> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/EDAAnOWL/declaresObservedProperty> <http://www.w3.org/2000/01/rdf-schema#label> "declares observed property"@en .
+# 
+# https://w3id.org/EDAAnOWL/hasDomainSector
+<https://w3id.org/EDAAnOWL/hasDomainSector> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/hasDomainSector> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/dcat#theme> .
+<https://w3id.org/EDAAnOWL/hasDomainSector> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DataApp> .
+<https://w3id.org/EDAAnOWL/hasDomainSector> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Resource> .
+<https://w3id.org/EDAAnOWL/hasDomainSector> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/EDAAnOWL/hasDomainSector> <http://www.w3.org/2000/01/rdf-schema#label> "has domain sector"@en .
+# 
+# https://w3id.org/EDAAnOWL/implementsComponent
+<https://w3id.org/EDAAnOWL/implementsComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/implementsComponent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DataApp> .
+<https://w3id.org/EDAAnOWL/implementsComponent> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/BIGOWLWorkflows/Component> .
+<https://w3id.org/EDAAnOWL/implementsComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an IDSA DataApp to the BIGOWL workflow Component it implements."@en .
+<https://w3id.org/EDAAnOWL/implementsComponent> <http://www.w3.org/2000/01/rdf-schema#label> "implements component"@en .
+# 
+# https://w3id.org/EDAAnOWL/parameter
+<https://w3id.org/EDAAnOWL/parameter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/parameter> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DataApp> .
+<https://w3id.org/EDAAnOWL/parameter> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/EDAAnOWL/Parameter> .
+# 
+# https://w3id.org/EDAAnOWL/producesProfile
+<https://w3id.org/EDAAnOWL/producesProfile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/producesProfile> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DataApp> .
+<https://w3id.org/EDAAnOWL/producesProfile> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/EDAAnOWL/DataProfile> .
+# 
+# https://w3id.org/EDAAnOWL/producesResource
+<https://w3id.org/EDAAnOWL/producesResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/producesResource> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/BIGOWLWorkflows/Component> .
+<https://w3id.org/EDAAnOWL/producesResource> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/idsa/core/Representation> .
+<https://w3id.org/EDAAnOWL/producesResource> <http://www.w3.org/2000/01/rdf-schema#label> "produces representation"@en .
+# 
+# https://w3id.org/EDAAnOWL/profileCRSRef
+<https://w3id.org/EDAAnOWL/profileCRSRef> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/profileCRSRef> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/EDAAnOWL/DataProfile> .
+<https://w3id.org/EDAAnOWL/profileCRSRef> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/odrl/2/Asset> .
+<https://w3id.org/EDAAnOWL/profileCRSRef> <http://www.w3.org/2000/01/rdf-schema#label> "profile CRS (IRI)"@en .
+# 
+# https://w3id.org/EDAAnOWL/realizesWorkflow
+<https://w3id.org/EDAAnOWL/realizesWorkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/realizesWorkflow> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DataApp> .
+<https://w3id.org/EDAAnOWL/realizesWorkflow> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.opmw.org/ontology/WorkflowTemplate> .
+<https://w3id.org/EDAAnOWL/realizesWorkflow> <http://www.w3.org/2000/01/rdf-schema#label> "realizes workflow"@en .
+# 
+# https://w3id.org/EDAAnOWL/requiresProfile
+<https://w3id.org/EDAAnOWL/requiresProfile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/requiresProfile> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/DataApp> .
+<https://w3id.org/EDAAnOWL/requiresProfile> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/EDAAnOWL/DataProfile> .
+# 
+# https://w3id.org/EDAAnOWL/spatialGranularityConcept
+<https://w3id.org/EDAAnOWL/spatialGranularityConcept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/spatialGranularityConcept> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Resource> .
+<https://w3id.org/EDAAnOWL/spatialGranularityConcept> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/EDAAnOWL/spatialGranularityConcept> <http://www.w3.org/2000/01/rdf-schema#label> "spatial granularity (concept)"@en .
+# 
+# https://w3id.org/EDAAnOWL/topic
+<https://w3id.org/EDAAnOWL/topic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/EDAAnOWL/topic> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/subject> .
+<https://w3id.org/EDAAnOWL/topic> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Resource> .
+<https://w3id.org/EDAAnOWL/topic> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/EDAAnOWL/topic> <http://www.w3.org/2000/01/rdf-schema#label> "topic"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/EDAAnOWL/computedAt
+<https://w3id.org/EDAAnOWL/computedAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/EDAAnOWL/computedAt> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/EDAAnOWL/Metric> .
+<https://w3id.org/EDAAnOWL/computedAt> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/EDAAnOWL/computedAt> <http://www.w3.org/2000/01/rdf-schema#label> "computed at"@en .
+# 
+# https://w3id.org/EDAAnOWL/metricName
+<https://w3id.org/EDAAnOWL/metricName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/EDAAnOWL/metricName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/EDAAnOWL/Metric> .
+<https://w3id.org/EDAAnOWL/metricName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/EDAAnOWL/metricName> <http://www.w3.org/2000/01/rdf-schema#label> "metric name"@en .
+# 
+# https://w3id.org/EDAAnOWL/metricUnit
+<https://w3id.org/EDAAnOWL/metricUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/EDAAnOWL/metricUnit> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/EDAAnOWL/Metric> .
+<https://w3id.org/EDAAnOWL/metricUnit> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/EDAAnOWL/metricUnit> <http://www.w3.org/2000/01/rdf-schema#label> "metric unit"@en .
+# 
+# https://w3id.org/EDAAnOWL/metricValue
+<https://w3id.org/EDAAnOWL/metricValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/EDAAnOWL/metricValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/EDAAnOWL/Metric> .
+<https://w3id.org/EDAAnOWL/metricValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/EDAAnOWL/metricValue> <http://www.w3.org/2000/01/rdf-schema#label> "metric value"@en .
+# 
+# https://w3id.org/EDAAnOWL/profileCRS
+<https://w3id.org/EDAAnOWL/profileCRS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/EDAAnOWL/profileCRS> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/EDAAnOWL/DataProfile> .
+<https://w3id.org/EDAAnOWL/profileCRS> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/EDAAnOWL/profileCRS> <http://www.w3.org/2000/01/rdf-schema#label> "profile CRS"@en .
+# 
+# https://w3id.org/EDAAnOWL/profileSpatialResolution
+<https://w3id.org/EDAAnOWL/profileSpatialResolution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/EDAAnOWL/profileSpatialResolution> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/EDAAnOWL/DataProfile> .
+<https://w3id.org/EDAAnOWL/profileSpatialResolution> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/EDAAnOWL/profileSpatialResolution> <http://www.w3.org/2000/01/rdf-schema#label> "profile spatial resolution"@en .
+# 
+# https://w3id.org/EDAAnOWL/profileTemporalResolution
+<https://w3id.org/EDAAnOWL/profileTemporalResolution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/EDAAnOWL/profileTemporalResolution> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/EDAAnOWL/DataProfile> .
+<https://w3id.org/EDAAnOWL/profileTemporalResolution> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#duration> .
+<https://w3id.org/EDAAnOWL/profileTemporalResolution> <http://www.w3.org/2000/01/rdf-schema#label> "profile temporal resolution"@en .
+# 
+# https://w3id.org/EDAAnOWL/spatialGranularity
+<https://w3id.org/EDAAnOWL/spatialGranularity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/EDAAnOWL/spatialGranularity> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Resource> .
+<https://w3id.org/EDAAnOWL/spatialGranularity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/EDAAnOWL/spatialGranularity> <http://www.w3.org/2000/01/rdf-schema#label> "spatial granularity"@en .
+# 
+# https://w3id.org/EDAAnOWL/supportContact
+<https://w3id.org/EDAAnOWL/supportContact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/EDAAnOWL/supportContact> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/idsa/core/Resource> .
+<https://w3id.org/EDAAnOWL/supportContact> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/EDAAnOWL/supportContact> <http://www.w3.org/2000/01/rdf-schema#comment> "Support email/URL for a resource or service."@en .
+<https://w3id.org/EDAAnOWL/supportContact> <http://www.w3.org/2000/01/rdf-schema#label> "support contact"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.opmw.org/ontology/WorkflowTemplate
+<http://www.opmw.org/ontology/WorkflowTemplate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/2004/02/skos/core#ConceptScheme
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/odrl/2/Asset
+<http://www.w3.org/ns/odrl/2/Asset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/BIGOWLData/Data
+<https://w3id.org/BIGOWLData/Data> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/BIGOWLWorkflows/Component
+<https://w3id.org/BIGOWLWorkflows/Component> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/EDAAnOWL/AnalyzerApp
+<https://w3id.org/EDAAnOWL/AnalyzerApp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/EDAAnOWL/AnalyzerApp> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/SmartDataApp> .
+<https://w3id.org/EDAAnOWL/AnalyzerApp> <http://www.w3.org/2000/01/rdf-schema#comment> "A smart data app for descriptive/diagnostic analysis (profiling, summarization, outlier detection)."@en .
+<https://w3id.org/EDAAnOWL/AnalyzerApp> <http://www.w3.org/2000/01/rdf-schema#label> "Analyzer App"@en .
+# 
+# https://w3id.org/EDAAnOWL/DataProfile
+<https://w3id.org/EDAAnOWL/DataProfile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/EDAAnOWL/DataProfile> <http://www.w3.org/2000/01/rdf-schema#comment> "Facet bag describing data characteristics (domain, type, observed props, CRS, geometry, resolutions)."@en .
+<https://w3id.org/EDAAnOWL/DataProfile> <http://www.w3.org/2000/01/rdf-schema#label> "Data Profile"@en .
+# 
+# https://w3id.org/EDAAnOWL/Metric
+<https://w3id.org/EDAAnOWL/Metric> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/EDAAnOWL/Metric> <http://www.w3.org/2000/01/rdf-schema#label> "Metric"@en .
+# 
+# https://w3id.org/EDAAnOWL/Parameter
+<https://w3id.org/EDAAnOWL/Parameter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/EDAAnOWL/Parameter> <http://www.w3.org/2000/01/rdf-schema#label> "Parameter"@en .
+# 
+# https://w3id.org/EDAAnOWL/PerformanceMetric
+<https://w3id.org/EDAAnOWL/PerformanceMetric> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/EDAAnOWL/PerformanceMetric> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/EDAAnOWL/Metric> .
+<https://w3id.org/EDAAnOWL/PerformanceMetric> <http://www.w3.org/2000/01/rdf-schema#label> "Performance Metric"@en .
+# 
+# https://w3id.org/EDAAnOWL/PredictionApp
+<https://w3id.org/EDAAnOWL/PredictionApp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/EDAAnOWL/PredictionApp> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/SmartDataApp> .
+<https://w3id.org/EDAAnOWL/PredictionApp> <http://www.w3.org/2000/01/rdf-schema#comment> "A smart data app that produces predictions/inferences from input data using a model or algorithm."@en .
+<https://w3id.org/EDAAnOWL/PredictionApp> <http://www.w3.org/2000/01/rdf-schema#label> "Prediction App"@en .
+# 
+# https://w3id.org/EDAAnOWL/QualityMetric
+<https://w3id.org/EDAAnOWL/QualityMetric> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/EDAAnOWL/QualityMetric> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/EDAAnOWL/Metric> .
+<https://w3id.org/EDAAnOWL/QualityMetric> <http://www.w3.org/2000/01/rdf-schema#label> "Quality Metric"@en .
+# 
+# https://w3id.org/EDAAnOWL/VisualizationApp
+<https://w3id.org/EDAAnOWL/VisualizationApp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/EDAAnOWL/VisualizationApp> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/SmartDataApp> .
+<https://w3id.org/EDAAnOWL/VisualizationApp> <http://www.w3.org/2000/01/rdf-schema#comment> "A smart data app that renders data into visual views/reports without altering underlying data."@en .
+<https://w3id.org/EDAAnOWL/VisualizationApp> <http://www.w3.org/2000/01/rdf-schema#label> "Visualization App"@en .
+# 
+# https://w3id.org/idsa/core/DataApp
+<https://w3id.org/idsa/core/DataApp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/idsa/core/DataResource
+<https://w3id.org/idsa/core/DataResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/idsa/core/Representation
+<https://w3id.org/idsa/core/Representation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/idsa/core/Resource
+<https://w3id.org/idsa/core/Resource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/idsa/core/SmartDataApp
+<https://w3id.org/idsa/core/SmartDataApp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/idsa/core/SmartDataApp> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/idsa/core/DataApp> .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

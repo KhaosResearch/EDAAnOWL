@@ -1,0 +1,673 @@
+<h2 id="crossreference" class="list">Cross-reference for EDAAnOWL Ontology (Khaos UMA) — aligned with IDS Information Model classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by EDAAnOWL Ontology (Khaos UMA) — aligned with IDS Information Model.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#AnalyzerApp" title="https://w3id.org/EDAAnOWL/AnalyzerApp">Analyzer App</a></li>
+  <li><a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Data Profile</a></li>
+  <li><a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Metric</a></li>
+  <li><a href="#Parameter" title="https://w3id.org/EDAAnOWL/Parameter">Parameter</a></li>
+  <li><a href="#PerformanceMetric" title="https://w3id.org/EDAAnOWL/PerformanceMetric">Performance Metric</a></li>
+  <li><a href="#PredictionApp" title="https://w3id.org/EDAAnOWL/PredictionApp">Prediction App</a></li>
+  <li><a href="#QualityMetric" title="https://w3id.org/EDAAnOWL/QualityMetric">Quality Metric</a></li>
+  <li><a href="#https://w3id.org/idsa/core/SmartDataApp" title="https://w3id.org/idsa/core/SmartDataApp"> <span>Smart Data App</span> </a></li>
+  <li><a href="#VisualizationApp" title="https://w3id.org/EDAAnOWL/VisualizationApp">Visualization App</a></li>
+ </ul>
+ <div class="entity" id="AnalyzerApp">
+  <h3>Analyzer App<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/AnalyzerApp</p>
+  <div class="comment">
+   <span class="markdown">A smart data app for descriptive/diagnostic analysis (profiling, summarization, outlier detection).</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/idsa/core/SmartDataApp" title="https://w3id.org/idsa/core/SmartDataApp">Smart Data App</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="DataProfile">
+  <h3>Data Profile<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/DataProfile</p>
+  <div class="comment">
+   <span class="markdown">Facet bag describing data characteristics (domain, type, observed props, CRS, geometry, resolutions).</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#declaresDataClass" title="https://w3id.org/EDAAnOWL/declaresDataClass">declares data class</a> <sup class="type-op" title="object property">op</sup>, <a href="#declaresObservedProperty" title="https://w3id.org/EDAAnOWL/declaresObservedProperty">declares observed property</a> <sup class="type-op" title="object property">op</sup>, <a href="#profileCRS" title="https://w3id.org/EDAAnOWL/profileCRS">profile CRS</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#profileCRSRef" title="https://w3id.org/EDAAnOWL/profileCRSRef">profile CRS (IRI)</a> <sup class="type-op" title="object property">op</sup>, <a href="#profileSpatialResolution" title="https://w3id.org/EDAAnOWL/profileSpatialResolution">profile spatial resolution</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#profileTemporalResolution" title="https://w3id.org/EDAAnOWL/profileTemporalResolution">profile temporal resolution</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#conformsToProfile" title="https://w3id.org/EDAAnOWL/conformsToProfile">conforms To Profile</a> <sup class="type-op" title="object property">op</sup>, <a href="#producesProfile" title="https://w3id.org/EDAAnOWL/producesProfile">produces Profile</a> <sup class="type-op" title="object property">op</sup>, <a href="#requiresProfile" title="https://w3id.org/EDAAnOWL/requiresProfile">requires Profile</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Metric">
+  <h3>Metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/Metric</p>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#PerformanceMetric" title="https://w3id.org/EDAAnOWL/PerformanceMetric">Performance Metric</a> <sup class="type-c" title="class">c</sup>, <a href="#QualityMetric" title="https://w3id.org/EDAAnOWL/QualityMetric">Quality Metric</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#computedAt" title="https://w3id.org/EDAAnOWL/computedAt">computed at</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#metricName" title="https://w3id.org/EDAAnOWL/metricName">metric name</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#metricUnit" title="https://w3id.org/EDAAnOWL/metricUnit">metric unit</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#metricValue" title="https://w3id.org/EDAAnOWL/metricValue">metric value</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Parameter">
+  <h3>Parameter<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/Parameter</p>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#parameter" title="https://w3id.org/EDAAnOWL/parameter">parameter</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PerformanceMetric">
+  <h3>Performance Metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/PerformanceMetric</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PredictionApp">
+  <h3>Prediction App<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/PredictionApp</p>
+  <div class="comment">
+   <span class="markdown">A smart data app that produces predictions/inferences from input data using a model or algorithm.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/idsa/core/SmartDataApp" title="https://w3id.org/idsa/core/SmartDataApp">Smart Data App</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="QualityMetric">
+  <h3>Quality Metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/QualityMetric</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/idsa/core/SmartDataApp">
+  <h3>Smart Data App<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/idsa/core/SmartDataApp</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#AnalyzerApp" title="https://w3id.org/EDAAnOWL/AnalyzerApp">Analyzer App</a> <sup class="type-c" title="class">c</sup>, <a href="#PredictionApp" title="https://w3id.org/EDAAnOWL/PredictionApp">Prediction App</a> <sup class="type-c" title="class">c</sup>, <a href="#VisualizationApp" title="https://w3id.org/EDAAnOWL/VisualizationApp">Visualization App</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="VisualizationApp">
+  <h3>Visualization App<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/VisualizationApp</p>
+  <div class="comment">
+   <span class="markdown">A smart data app that renders data into visual views/reports without altering underlying data.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/idsa/core/SmartDataApp" title="https://w3id.org/idsa/core/SmartDataApp">Smart Data App</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#conformsToProfile" title="https://w3id.org/EDAAnOWL/conformsToProfile"> <span>conforms To Profile</span> </a></li>
+  <li><a href="#consumesResource" title="https://w3id.org/EDAAnOWL/consumesResource">consumes representation</a></li>
+  <li><a href="#declaresDataClass" title="https://w3id.org/EDAAnOWL/declaresDataClass">declares data class</a></li>
+  <li><a href="#declaresObservedProperty" title="https://w3id.org/EDAAnOWL/declaresObservedProperty">declares observed property</a></li>
+  <li><a href="#hasDomainSector" title="https://w3id.org/EDAAnOWL/hasDomainSector">has domain sector</a></li>
+  <li><a href="#implementsComponent" title="https://w3id.org/EDAAnOWL/implementsComponent">implements component</a></li>
+  <li><a href="#parameter" title="https://w3id.org/EDAAnOWL/parameter"> <span>parameter</span> </a></li>
+  <li><a href="#producesProfile" title="https://w3id.org/EDAAnOWL/producesProfile"> <span>produces Profile</span> </a></li>
+  <li><a href="#producesResource" title="https://w3id.org/EDAAnOWL/producesResource">produces representation</a></li>
+  <li><a href="#profileCRSRef" title="https://w3id.org/EDAAnOWL/profileCRSRef">profile CRS (IRI)</a></li>
+  <li><a href="#realizesWorkflow" title="https://w3id.org/EDAAnOWL/realizesWorkflow">realizes workflow</a></li>
+  <li><a href="#requiresProfile" title="https://w3id.org/EDAAnOWL/requiresProfile"> <span>requires Profile</span> </a></li>
+  <li><a href="#spatialGranularityConcept" title="https://w3id.org/EDAAnOWL/spatialGranularityConcept">spatial granularity (concept)</a></li>
+  <li><a href="#topic" title="https://w3id.org/EDAAnOWL/topic">topic</a></li>
+ </ul>
+ <div class="entity" id="conformsToProfile">
+  <h3>conforms To Profile<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/conformsToProfile</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Data Profile</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="consumesResource">
+  <h3>consumes representation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/consumesResource</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/BIGOWLWorkflows/Component" target="_blank" title="https://w3id.org/BIGOWLWorkflows/Component">Component</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Representation" target="_blank" title="https://w3id.org/idsa/core/Representation">Representation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="declaresDataClass">
+  <h3>declares data class<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/declaresDataClass</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Data Profile</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/BIGOWLData/Data" target="_blank" title="https://w3id.org/BIGOWLData/Data">Data</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="declaresObservedProperty">
+  <h3>declares observed property<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/declaresObservedProperty</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Data Profile</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasDomainSector">
+  <h3>has domain sector<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/hasDomainSector</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/dcat#theme" target="_blank" title="http://www.w3.org/ns/dcat#theme">theme</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="implementsComponent">
+  <h3>implements component<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/implementsComponent</p>
+  <div class="comment">
+   <span class="markdown">Links an IDSA DataApp to the BIGOWL workflow Component it implements.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/BIGOWLWorkflows/Component" target="_blank" title="https://w3id.org/BIGOWLWorkflows/Component">Component</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="parameter">
+  <h3>parameter<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/parameter</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Parameter" title="https://w3id.org/EDAAnOWL/Parameter">Parameter</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="producesProfile">
+  <h3>produces Profile<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/producesProfile</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Data Profile</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="producesResource">
+  <h3>produces representation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/producesResource</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/BIGOWLWorkflows/Component" target="_blank" title="https://w3id.org/BIGOWLWorkflows/Component">Component</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Representation" target="_blank" title="https://w3id.org/idsa/core/Representation">Representation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="profileCRSRef">
+  <h3>profile CRS (IRI)<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/profileCRSRef</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Data Profile</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/odrl/2/Asset" target="_blank" title="http://www.w3.org/ns/odrl/2/Asset">Asset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="realizesWorkflow">
+  <h3>realizes workflow<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/realizesWorkflow</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.opmw.org/ontology/WorkflowTemplate" target="_blank" title="http://www.opmw.org/ontology/WorkflowTemplate">Workflow Template</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="requiresProfile">
+  <h3>requires Profile<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/requiresProfile</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Data Profile</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="spatialGranularityConcept">
+  <h3>spatial granularity (concept)<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/spatialGranularityConcept</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="topic">
+  <h3>topic<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/topic</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://purl.org/dc/terms/subject" target="_blank" title="http://purl.org/dc/terms/subject">subject</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#computedAt" title="https://w3id.org/EDAAnOWL/computedAt">computed at</a></li>
+  <li><a href="#metricName" title="https://w3id.org/EDAAnOWL/metricName">metric name</a></li>
+  <li><a href="#metricUnit" title="https://w3id.org/EDAAnOWL/metricUnit">metric unit</a></li>
+  <li><a href="#metricValue" title="https://w3id.org/EDAAnOWL/metricValue">metric value</a></li>
+  <li><a href="#profileCRS" title="https://w3id.org/EDAAnOWL/profileCRS">profile CRS</a></li>
+  <li><a href="#profileSpatialResolution" title="https://w3id.org/EDAAnOWL/profileSpatialResolution">profile spatial resolution</a></li>
+  <li><a href="#profileTemporalResolution" title="https://w3id.org/EDAAnOWL/profileTemporalResolution">profile temporal resolution</a></li>
+  <li><a href="#spatialGranularity" title="https://w3id.org/EDAAnOWL/spatialGranularity">spatial granularity</a></li>
+  <li><a href="#supportContact" title="https://w3id.org/EDAAnOWL/supportContact">support contact</a></li>
+ </ul>
+ <div class="entity" id="computedAt">
+  <h3>computed at<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/computedAt</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="metricName">
+  <h3>metric name<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/metricName</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="metricUnit">
+  <h3>metric unit<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/metricUnit</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="metricValue">
+  <h3>metric value<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/metricValue</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="profileCRS">
+  <h3>profile CRS<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/profileCRS</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Data Profile</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="profileSpatialResolution">
+  <h3>profile spatial resolution<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/profileSpatialResolution</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Data Profile</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="profileTemporalResolution">
+  <h3>profile temporal resolution<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/profileTemporalResolution</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Data Profile</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#duration" target="_blank" title="http://www.w3.org/2001/XMLSchema#duration">duration</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="spatialGranularity">
+  <h3>spatial granularity<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/spatialGranularity</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="supportContact">
+  <h3>support contact<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/supportContact</p>
+  <div class="comment">
+   <span class="markdown">Support email/URL for a resource or service.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+</div>
+</div>
