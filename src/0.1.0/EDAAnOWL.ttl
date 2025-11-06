@@ -12,13 +12,17 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
-@prefix time: <http://www.w3.org/2006/time#2016> .
+@prefix time: <http://www.w3.org/2006/time#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix bigwf: <https://w3id.org/BIGOWLWorkflows/> .
 @prefix bigalg: <https://w3id.org/BIGOWLAlgorithms/> .
 @prefix bigdat: <https://w3id.org/BIGOWLData/> .
 @prefix schema: <https://schema.org/> .
 @prefix bigprob: <https://w3id.org/BIGOWLProblems/> .
+@prefix agrovocab: <https://w3id.org/EDAAnOWL/0.1.0/vocabularies/agro-vocab> .
+@prefix sector-scheme: <https://w3id.org/EDAAnOWL/0.1.0/vocabularies/sector-scheme> .
+@prefix datatype-scheme: <https://w3id.org/EDAAnOWL/0.1.0/vocabularies/datatype-scheme> .
+@prefix observed-properties: <https://w3id.org/EDAAnOWL/0.1.0/vocabularies/observed-properties> .
 @base <https://w3id.org/EDAAnOWL/> .
 
 <https://w3id.org/EDAAnOWL/> rdf:type owl:Ontology ;
@@ -29,20 +33,21 @@
                                           bigdat: ,
                                           bigprob: ,
                                           bigwf: ,
-                                          <https://w3id.org/EDAAnOWL/0.1.0/vocabularies/agro-vocab> ,
-                                          <https://w3id.org/EDAAnOWL/0.1.0/vocabularies/datatype-scheme> ,
-                                          <https://w3id.org/EDAAnOWL/0.1.0/vocabularies/observed-properties> ,
-                                          <https://w3id.org/EDAAnOWL/0.1.0/vocabularies/sector-scheme> ,
+                                          agrovocab: ,
+                                          sector-scheme: ,
+                                          observed-properties: ,
                                           ids: ;
+                              dct:abstract "EDAAnOWL is a lightweight, modular ontology for describing the core semantics of data spaces—covering actors, roles, assets, policies, processes, and interactions—so that participants can publish, discover, and govern data under shared rules. The ontology aligns with the International Data Spaces (IDSA) information model and connects with the BIGOWL family to represent analytical workflows, datasets, inputs/outputs, and their profiles. It adopts well-established vocabularies (e.g., SOSA and OWL-Time) and provides curated concept schemes (e.g., sector, datatypes, observed properties, and domain terms) to ensure consistent annotation across domains without prescribing a single domain model. EDAAnOWL emphasizes practical interoperability: it is versioned, import-friendly, and designed to be extended by community or project-specific modules while remaining stable at its core. The result is a coherent, reusable scaffold that supports asset description, policy expression, provenance and lifecycle hooks, and validation via shapes, enabling organizations to integrate heterogeneous resources and document data-sharing agreements and analytical pipelines in a transparent, machine-processable way."@en ;
                               dct:created "2025-10-10"^^xsd:date ;
                               dct:creator <https://github.com/MartinM10> ,
                                           <https://www.linkedin.com/in/martin-jeronimo-salvachua/> ;
                               dct:description "Extends IDS to describe Data Apps, Data Profiles, Metrics, Offers/Policies and their fit with BIGOWL (Algorithms, Problems, Workflows)."@en ;
                               dct:license <https://creativecommons.org/licenses/by/4.0/> ;
                               dct:modified "2025-10-20"^^xsd:date ;
-                              dct:title "EDAAnOWL Ontology (Khaos UMA) — aligned with IDS Information Model"@en ;
+                              dct:title "EDAAnOWL Ontology"@en ;
                               vann:preferredNamespacePrefix "edaan" ;
                               vann:preferredNamespaceUri "https://w3id.org/EDAAnOWL/" ;
+                              rdfs:label "EDAAnOWL"@en ;
                               rdfs:seeAlso <https://w3id.org/BIGOWL/> ,
                                            <https://w3id.org/idsa/core> ;
                               owl:versionInfo "0.1.0" ;
@@ -51,6 +56,10 @@
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://purl.org/dc/terms/abstract
+dct:abstract rdf:type owl:AnnotationProperty .
+
 
 ###  http://purl.org/dc/terms/created
 dct:created rdf:type owl:AnnotationProperty .
@@ -203,7 +212,7 @@ ns1:theme rdf:type owl:ObjectProperty .
 ###  https://w3id.org/EDAAnOWL/hasTemporalCoverage
 :hasTemporalCoverage rdf:type owl:ObjectProperty ;
                      rdfs:domain :SpatialTemporalAsset ;
-                     rdfs:range <http://www.w3.org/2006/time#Interval> ;
+                     rdfs:range time:Interval ;
                      rdfs:comment "Defines the temporal coverage of the data asset required by Earth Observation CUs."@en ;
                      rdfs:label "has temporal coverage"@en .
 
