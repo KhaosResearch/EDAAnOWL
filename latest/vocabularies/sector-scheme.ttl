@@ -4,9 +4,9 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-@base <https://w3id.org/EDAAnOWL/0.0.1/vocabularies/sector-scheme> .
+@base <https://w3id.org/EDAAnOWL/0.1.0/vocabularies/sector-scheme> .
 
-<https://w3id.org/EDAAnOWL/0.0.1/vocabularies/sector-scheme> rdf:type owl:Ontology ;
+<https://w3id.org/EDAAnOWL/0.1.0/vocabularies/sector-scheme> rdf:type owl:Ontology ;
     dct:title "Economic and Domain Sectors Vocabulary"@en ;
     dct:description "Sectors for tagging data assets and applications by economic or thematic domain."@en .
 
