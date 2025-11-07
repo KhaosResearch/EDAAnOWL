@@ -83,50 +83,51 @@ jobs:
           set -euo pipefail
           DEST_VERSION=${{ steps.get_version.outputs.VERSION_NO_V }}
 
-          mkdir -p public/$DEST_VERSION
           echo "Preparing files for deploy folder $DEST_VERSION"
+          mkdir -p deploy/$DEST_VERSION
 
           echo "Copying Widoco documentation files..."
-          cp -r build/docs/doc/* public/$DEST_VERSION/
+          cp -r build/docs/doc/* deploy/$DEST_VERSION/
 
           echo "Copying RDF serialization files (ontology.*)..."
-          find build/docs -maxdepth 1 -type f -exec cp -t public/$DEST_VERSION/ {} +
+          find build/docs -maxdepth 1 -type f -exec cp -t deploy/$DEST_VERSION/ {} +
 
           echo "Copying source EDAAnOWL.ttl..."
           if [ -f "src/$DEST_VERSION/EDAAnOWL.ttl" ]; then
-            cp -f "src/$DEST_VERSION/EDAAnOWL.ttl" "public/$DEST_VERSION/EDAAnOWL.ttl"
+            cp -f "src/$DEST_VERSION/EDAAnOWL.ttl" "deploy/$DEST_VERSION/EDAAnOWL.ttl"
           fi
 
           echo "Copying vocabularies..."
-          mkdir -p public/$DEST_VERSION/vocabularies
+          mkdir -p deploy/$DEST_VERSION/vocabularies
           if [ -n "$(ls src/$DEST_VERSION/vocabularies/*.ttl 2>/dev/null)" ]; then
-            cp src/$DEST_VERSION/vocabularies/*.ttl public/$DEST_VERSION/vocabularies/
+            cp src/$DEST_VERSION/vocabularies/*.ttl deploy/$DEST_VERSION/vocabularies/
           fi
           
           echo "Copying versioned README.md..."
           if [ -f "src/$DEST_VERSION/README.md" ]; then
-            cp "src/$DEST_VERSION/README.md" "public/$DEST_VERSION/README.md"
+            cp "src/$DEST_VERSION/README.md" "deploy/$DEST_VERSION/README.md"
           fi
           
           echo "Copying versioned index.html..."
           if [ -f "src/$DEST_VERSION/index.html" ]; then
-            cp "src/$DEST_VERSION/index.html" "public/$DEST_VERSION/index.html"
+            cp "src/$DEST_VERSION/index.html" "deploy/$DEST_VERSION/index.html"
           fi
 
           echo "Copying root index.html..."
           if [ -f "src/index.html" ]; then
-            cp "src/index.html" "public/index.html"
+            cp "src/index.html" "deploy/index.html"
           else
             echo "--- WARN: src/index.html not found. Landing page will be missing. ---"
           fi
 
           echo "Syncing 'latest'..."
-          cp -r public/$DEST_VERSION public/latest
+          rm -rf deploy/latest
+          cp -r deploy/$DEST_VERSION deploy/latest
 
           echo "Disabling Jekyll..."
-          touch public/.nojekyll
+          touch deploy/.nojekyll
 
-          echo "DEPLOY_ROOT=public" >> $GITHUB_OUTPUT
+          echo "DEPLOY_ROOT=deploy" >> $GITHUB_OUTPUT
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
