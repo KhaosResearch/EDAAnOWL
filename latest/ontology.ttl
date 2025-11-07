@@ -18,21 +18,40 @@
                                           <https://w3id.org/EDAAnOWL/0.1.0/vocabularies/observed-properties> ,
                                           <https://w3id.org/EDAAnOWL/0.1.0/vocabularies/sector-scheme> ,
                                           <https://w3id.org/idsa/core/> ;
-                              <http://purl.org/dc/terms/abstract> "EDAAnOWL is a lightweight, modular ontology for describing the core semantics of data spaces—covering actors, roles, assets, policies, processes, and interactions—so that participants can publish, discover, and govern data under shared rules. The ontology aligns with the International Data Spaces (IDSA) information model and connects with the BIGOWL family to represent analytical workflows, datasets, inputs/outputs, and their profiles. It adopts well-established vocabularies (e.g., SOSA and OWL-Time) and provides curated concept schemes (e.g., sector, datatypes, observed properties, and domain terms) to ensure consistent annotation across domains without prescribing a single domain model. EDAAnOWL emphasizes practical interoperability: it is versioned, import-friendly, and designed to be extended by community or project-specific modules while remaining stable at its core. The result is a coherent, reusable scaffold that supports asset description, policy expression, provenance and lifecycle hooks, and validation via shapes, enabling organizations to integrate heterogeneous resources and document data-sharing agreements and analytical pipelines in a transparent, machine-processable way."@en ;
+                              <http://purl.org/dc/terms/abstract> "EDAAnOWL is a lightweight, modular ontology for describing the core semantics of data spaces—covering actors, roles, assets, offers/policies, processes, and interactions—so participants can publish, discover, and govern data under shared rules. It aligns with the International Data Spaces (IDSA) information model and connects with the BIGOWL family to describe analytical workflows, algorithms, problems, datasets, and input/output profiles. The ontology reuses well-established vocabularies (e.g., DCAT for cataloguing, SOSA/SSN for observations, OWL-Time for temporal descriptions) and provides curated concept schemes (sector, datatypes, observed properties) to enable consistent cross-domain annotation without imposing a single domain model. EDAAnOWL is versioned, import-friendly, and designed for extension through project-specific modules while preserving a stable core. It supports asset description, policy expression, provenance and lifecycle hooks, and SHACL-based validation to integrate heterogeneous resources and make data-sharing agreements and analytical pipelines transparent and machine-processable."@en ;
                               <http://purl.org/dc/terms/created> "2025-10-10"^^xsd:date ;
                               <http://purl.org/dc/terms/creator> <https://github.com/MartinM10> ,
                                                                  <https://www.linkedin.com/in/martin-jeronimo-salvachua/> ;
-                              <http://purl.org/dc/terms/description> "Extends IDS to describe Data Apps, Data Profiles, Metrics, Offers/Policies and their fit with BIGOWL (Algorithms, Problems, Workflows)."@en ;
+                              <http://purl.org/dc/terms/description> "Lightweight ontology for data spaces, aligned with IDSA and linked to BIGOWL, to describe data apps, data profiles, metrics, offers/policies, and workflows—enabling interoperable asset description, governance, and analytics across domains."@en ;
                               <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
-                              <http://purl.org/dc/terms/modified> "2025-10-20"^^xsd:date ;
+                              <http://purl.org/dc/terms/modified> "2025-11-06" ;
                               <http://purl.org/dc/terms/title> "EDAAnOWL Ontology"@en ;
                               <http://purl.org/vocab/vann/preferredNamespacePrefix> "edaan" ;
                               <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/EDAAnOWL/" ;
                               rdfs:label "EDAAnOWL"@en ;
                               rdfs:seeAlso <https://w3id.org/BIGOWL/> ,
                                            <https://w3id.org/idsa/core> ;
+                              owl:priorVersion <https://w3id.org/EDAAnOWL/0.0.1> ;
                               owl:versionInfo "0.1.0" ;
-                              <https://schema.org/codeRepository> "https://github.com/KhaosResearch/EDAAnOWL"^^xsd:anyURI .
+                              <https://schema.org/codeRepository> "https://github.com/KhaosResearch/EDAAnOWL"^^xsd:anyURI ;
+                              <https://w3id.org/widoco/vocab#introduction> """EDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces and the analytical artefacts that flow through them. While the abstract motivates the need, this introduction clarifies scope, design choices, and typical usage.
+
+Scope. EDAAnOWL focuses on (i) participants and roles, (ii) data assets and their profiles, (iii) offers and usage policies, and (iv) analytical workflows and applications. It aligns with the International Data Spaces (IDSA) information model for contractual and policy notions, and connects to the BIGOWL family to describe algorithms, problems, and workflows—linking inputs/outputs through ports and data profiles. The ontology ships with curated concept schemes (sector, datatypes, observed properties, domain terms) to encourage consistent annotations without locking users into a single domain model.
+
+Reuse over reinvention. EDAAnOWL reuses widely adopted vocabularies wherever possible: DCAT for cataloguing and dataset metadata, SOSA/SSN for observations and features of interest, OWL-Time for temporal descriptions, ODRL and IDSA Core for policy/contract semantics, and PROV-O for provenance. These alignments are expressed via imports and lightweight bridges so existing assets can be described without duplication.
+
+Modular structure. The ontology distinguishes a stable core from project-specific modules and reference vocabularies. The core defines the main classes and properties (e.g., Actor, Role, DataAsset, DataApp, DataProfile, Offer/Policy, Workflow, InputPort/OutputPort). Reference vocabularies are versioned and replaceable, letting communities specialise terms while keeping interoperability at the interfaces.
+
+Versioning and persistence. Each release has a persistent, versioned IRI and a non-versioned namespace that denotes the latest version. This enables unambiguous citation of a concrete release (“This version”) while preserving a canonical entry point (“Latest version”), typically redirected to the documentation of the rolling latest/ build.
+
+Typical usage.
+• Describe a dataset (DCAT) and attach a DataProfile with schema/datatype constraints and observed properties.
+• Publish a DataApp or workflow, declaring its input/output ports and the expected/produced profiles (BIGOWL).
+• Express offers and usage policies with ODRL/IDSA, linking them to assets or services.
+• Record provenance of executions and derivations (PROV-O).
+• Validate instances with SHACL shapes distributed alongside the ontology.
+
+Non-goals. EDAAnOWL is not a monolithic domain ontology nor a replacement for sector models. It provides the semantic “connective tissue” required to publish, discover, govern, and compose data and analytics across domains, encouraging extension through clean interfaces rather than centralised control."""@en .
 
 #################################################################
 #    Annotation properties
@@ -228,6 +247,10 @@
 <https://w3id.org/idsa/core/preDuty> rdf:type owl:AnnotationProperty ;
                                      rdfs:subPropertyOf <http://www.w3.org/ns/odrl/2/duty> ;
                                      rdfs:range <http://www.w3.org/ns/odrl/2/Duty> .
+
+
+###  https://w3id.org/widoco/vocab#introduction
+<https://w3id.org/widoco/vocab#introduction> rdf:type owl:AnnotationProperty .
 
 
 #################################################################

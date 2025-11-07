@@ -17,7 +17,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/EDAAnOWL/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/EDAAnOWL/","name":"EDAAnOWL Ontology", "headline":"EDAAnOWL is a lightweight, modular ontology for describing the core semantics of data spaces—covering actors, roles, assets, policies, processes, and interactions—so that participants can publish, discover, and govern data under shared rules. The ontology aligns with the International Data Spaces (IDSA) information model and connects with the BIGOWL family to represent analytical workflows, datasets, inputs/outputs, and their profiles. It adopts well-established vocabularies (e.g., SOSA and OWL-Time) and provides curated concept schemes (e.g., sector, datatypes, observed properties, and domain terms) to ensure consistent annotation across domains without prescribing a single domain model. EDAAnOWL emphasizes practical interoperability: it is versioned, import-friendly, and designed to be extended by community or project-specific modules while remaining stable at its core. The result is a coherent, reusable scaffold that supports asset description, policy expression, provenance and lifecycle hooks, and validation via shapes, enabling organizations to integrate heterogeneous resources and document data-sharing agreements and analytical pipelines in a transparent, machine-processable way.", "dateReleased":"2025-10-10", "dateModified":"2025-10-20", "version":"0.1.0", "license":"https://creativecommons.org/licenses/by/4.0/", "codeRepository":"https://github.com/KhaosResearch/EDAAnOWL", "author":[{"@type":"Person","name":"https://github.com/MartinM10","url":"https://github.com/MartinM10"},{"@type":"Person","name":"https://www.linkedin.com/in/martin-jeronimo-salvachua/","url":"https://www.linkedin.com/in/martin-jeronimo-salvachua/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/EDAAnOWL/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/EDAAnOWL/","name":"EDAAnOWL Ontology", "headline":"EDAAnOWL is a lightweight, modular ontology for describing the core semantics of data spaces—covering actors, roles, assets, offers/policies, processes, and interactions—so participants can publish, discover, and govern data under shared rules. It aligns with the International Data Spaces (IDSA) information model and connects with the BIGOWL family to describe analytical workflows, algorithms, problems, datasets, and input/output profiles. The ontology reuses well-established vocabularies (e.g., DCAT for cataloguing, SOSA/SSN for observations, OWL-Time for temporal descriptions) and provides curated concept schemes (sector, datatypes, observed properties) to enable consistent cross-domain annotation without imposing a single domain model. EDAAnOWL is versioned, import-friendly, and designed for extension through project-specific modules while preserving a stable core. It supports asset description, policy expression, provenance and lifecycle hooks, and SHACL-based validation to integrate heterogeneous resources and make data-sharing agreements and analytical pipelines transparent and machine-processable.", "dateReleased":"2025-10-10", "dateModified":"2025-11-06", "version":"0.1.0", "license":"https://creativecommons.org/licenses/by/4.0/", "codeRepository":"https://github.com/KhaosResearch/EDAAnOWL", "author":[{"@type":"Person","name":"https://github.com/MartinM10","url":"https://github.com/MartinM10"},{"@type":"Person","name":"https://www.linkedin.com/in/martin-jeronimo-salvachua/","url":"https://www.linkedin.com/in/martin-jeronimo-salvachua/"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -70,9 +70,11 @@ $(function(){
 
 
 <dl>
-<dt>Modified on: 2025-10-20</dt>
+<dt>Modified on: 2025-11-06</dt>
 <dt>This version:</dt>
 <dd><a href="https://w3id.org/EDAAnOWL/0.1.0">https://w3id.org/EDAAnOWL/0.1.0</a></dd>
+<dt>Previous version:</dt>
+<dd><a href="https://w3id.org/EDAAnOWL/0.0.1">https://w3id.org/EDAAnOWL/0.0.1</a></dd>
 <dt>Revision:</dt>
 <dd>0.1.0</dd>
 <dt>Authors:</dt>
@@ -99,14 +101,30 @@ $(function(){
 <span>Ontology Specification Draft</span>
 </div>
 </div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
-EDAAnOWL is a lightweight, modular ontology for describing the core semantics of data spaces—covering actors, roles, assets, policies, processes, and interactions—so that participants can publish, discover, and govern data under shared rules. The ontology aligns with the International Data Spaces (IDSA) information model and connects with the BIGOWL family to represent analytical workflows, datasets, inputs/outputs, and their profiles. It adopts well-established vocabularies (e.g., SOSA and OWL-Time) and provides curated concept schemes (e.g., sector, datatypes, observed properties, and domain terms) to ensure consistent annotation across domains without prescribing a single domain model. EDAAnOWL emphasizes practical interoperability: it is versioned, import-friendly, and designed to be extended by community or project-specific modules while remaining stable at its core. The result is a coherent, reusable scaffold that supports asset description, policy expression, provenance and lifecycle hooks, and validation via shapes, enabling organizations to integrate heterogeneous resources and document data-sharing agreements and analytical pipelines in a transparent, machine-processable way.</span>
+EDAAnOWL is a lightweight, modular ontology for describing the core semantics of data spaces—covering actors, roles, assets, offers/policies, processes, and interactions—so participants can publish, discover, and govern data under shared rules. It aligns with the International Data Spaces (IDSA) information model and connects with the BIGOWL family to describe analytical workflows, algorithms, problems, datasets, and input/output profiles. The ontology reuses well-established vocabularies (e.g., DCAT for cataloguing, SOSA/SSN for observations, OWL-Time for temporal descriptions) and provides curated concept schemes (sector, datatypes, observed properties) to enable consistent cross-domain annotation without imposing a single domain model. EDAAnOWL is versioned, import-friendly, and designed for extension through project-specific modules while preserving a stable core. It supports asset description, policy expression, provenance and lifecycle hooks, and SHACL-based validation to integrate heterogeneous resources and make data-sharing agreements and analytical pipelines transparent and machine-processable.</span>
 </div>
 <div id="toc"></div> 
 
 <!--INTRODUCTION SECTION-->
     <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<span class="markdown">
-This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+<span class="markdown">EDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces and the analytical artefacts that flow through them. While the abstract motivates the need, this introduction clarifies scope, design choices, and typical usage.
+
+Scope. EDAAnOWL focuses on (i) participants and roles, (ii) data assets and their profiles, (iii) offers and usage policies, and (iv) analytical workflows and applications. It aligns with the International Data Spaces (IDSA) information model for contractual and policy notions, and connects to the BIGOWL family to describe algorithms, problems, and workflows—linking inputs/outputs through ports and data profiles. The ontology ships with curated concept schemes (sector, datatypes, observed properties, domain terms) to encourage consistent annotations without locking users into a single domain model.
+
+Reuse over reinvention. EDAAnOWL reuses widely adopted vocabularies wherever possible: DCAT for cataloguing and dataset metadata, SOSA/SSN for observations and features of interest, OWL-Time for temporal descriptions, ODRL and IDSA Core for policy/contract semantics, and PROV-O for provenance. These alignments are expressed via imports and lightweight bridges so existing assets can be described without duplication.
+
+Modular structure. The ontology distinguishes a stable core from project-specific modules and reference vocabularies. The core defines the main classes and properties (e.g., Actor, Role, DataAsset, DataApp, DataProfile, Offer/Policy, Workflow, InputPort/OutputPort). Reference vocabularies are versioned and replaceable, letting communities specialise terms while keeping interoperability at the interfaces.
+
+Versioning and persistence. Each release has a persistent, versioned IRI and a non-versioned namespace that denotes the latest version. This enables unambiguous citation of a concrete release (“This version”) while preserving a canonical entry point (“Latest version”), typically redirected to the documentation of the rolling latest/ build.
+
+Typical usage.
+• Describe a dataset (DCAT) and attach a DataProfile with schema/datatype constraints and observed properties.
+• Publish a DataApp or workflow, declaring its input/output ports and the expected/produced profiles (BIGOWL).
+• Express offers and usage policies with ODRL/IDSA, linking them to assets or services.
+• Record provenance of executions and derivations (PROV-O).
+• Validate instances with SHACL shapes distributed alongside the ontology.
+
+Non-goals. EDAAnOWL is not a monolithic domain ontology nor a replacement for sector models. It provides the semantic “connective tissue” required to publish, discover, govern, and compose data and analytics across domains, encouraging extension through clean interfaces rather than centralised control.</span>
 </div>
   
 
@@ -2797,6 +2815,11 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#http://www.w3.org/ns/odrl/2/includedIn" title="http://www.w3.org/ns/odrl/2/includedIn">
          <span>included In</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/widoco/vocab#introduction" title="https://w3id.org/widoco/vocab#introduction">
+         <span>introduction</span>
       </a>
    </li>
    <li>
@@ -5506,7 +5529,7 @@ This ontology has the following classes and properties.</span>
 <!--DESCRIPTION SECTION-->
     <div id="description"><h2 id="desc" class="list">EDAAnOWL: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 
-<span class="markdown">Extends IDS to describe Data Apps, Data Profiles, Metrics, Offers/Policies and their fit with BIGOWL (Algorithms, Problems, Workflows).</span></div>
+<span class="markdown">Lightweight ontology for data spaces, aligned with IDSA and linked to BIGOWL, to describe data apps, data profiles, metrics, offers/policies, and workflows—enabling interoperable asset description, governance, and analytics across domains.</span></div>
    
 
 <!--CROSSREF SECTION-->
@@ -22449,6 +22472,7 @@ This section provides details for each class and property defined by EDAAnOWL.
   <li><a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension"> <span>in Dimension</span> </a></li>
   <li><a href="#http://www.w3.org/2004/02/skos/core#inScheme" title="http://www.w3.org/2004/02/skos/core#inScheme"> <span>in Scheme</span> </a></li>
   <li><a href="#http://www.w3.org/ns/odrl/2/includedIn" title="http://www.w3.org/ns/odrl/2/includedIn"> <span>included In</span> </a></li>
+  <li><a href="#https://w3id.org/widoco/vocab#introduction" title="https://w3id.org/widoco/vocab#introduction"> <span>introduction</span> </a></li>
   <li><a href="#http://www.w3.org/2003/01/geo/wgs84_pos#lat" title="http://www.w3.org/2003/01/geo/wgs84_pos#lat"> <span>lat</span> </a></li>
   <li><a href="#https://w3id.org/idsa/core/latitude" title="https://w3id.org/idsa/core/latitude"> <span>latitude</span> </a></li>
   <li><a href="#http://www.w3.org/ns/odrl/2/leftOperand" title="http://www.w3.org/ns/odrl/2/leftOperand"> <span>left Operand</span> </a></li>
@@ -22571,6 +22595,10 @@ This section provides details for each class and property defined by EDAAnOWL.
  <div class="entity" id="http://www.w3.org/ns/odrl/2/includedIn">
   <h3>included In<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/odrl/2/includedIn</p>
+ </div>
+ <div class="entity" id="https://w3id.org/widoco/vocab#introduction">
+  <h3>introduction<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/widoco/vocab#introduction</p>
  </div>
  <div class="entity" id="http://www.w3.org/2003/01/geo/wgs84_pos#lat">
   <h3>lat<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
@@ -36145,6 +36173,713 @@ This section provides details for each class and property defined by EDAAnOWL.
 <span class="markdown">
 Add your references here. It is recommended to have them as a list.</span>
 
+</div>
+   
+
+<!--CHANGELOG SECTION-->
+   <div id="changelog"><div id="changelog">
+<h2 id="changes" class="list">Changes from last version</h2>
+<h3 id="changeClass" class="list">Classes</h3>
+<details><summary><u>Modified classes</u></summary>
+<ul><li><a href="#http://www.w3.org/2006/time#TemporalEntity">http://www.w3.org/2006/time#TemporalEntity</a>
+<ul>
+<li>Added: rdfs:label "Temporal entity"@en</li>
+<li>Added: SubClass of http://www.w3.org/2002/07/owl#Thing</li>
+<li>Added: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/2006/time#TemporalEntity&gt; ObjectUnionOf(&lt;http://www.w3.org/2006/time#Instant&gt; &lt;http://www.w3.org/2006/time#Interval&gt;))</li>
+<li>Added: rdfs:comment "Un intervalo temporal o un instante."@es</li>
+<li>Added: <http://www.w3.org/2004/02/skos/core#definition> "Un intervalo temporal o un instante."@es</li>
+<li>Added: rdfs:label "entidad temporal"@es</li>
+<li>Added: <http://www.w3.org/2004/02/skos/core#definition> "A temporal interval or instant."@en</li>
+<li>Added: rdfs:comment "A temporal interval or instant."@en</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Added classes</u></summary>
+<ul><li><a href="#http://www.w3.org/2006/time#DateTimeDescription">http://www.w3.org/2006/time#DateTimeDescription</a>
+<ul>
+<li><li><li>Added: SubClass of http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+<li><li></ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#DateTimeInterval">http://www.w3.org/2006/time#DateTimeInterval</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/2006/time#ProperInterval</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#DayOfWeek">http://www.w3.org/2006/time#DayOfWeek</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/2002/07/owl#Thing</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#Duration">http://www.w3.org/2006/time#Duration</a>
+<ul>
+<li><li>Added: SubClass of http://www.w3.org/2006/time#TemporalDuration</li>
+<li></ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#DurationDescription">http://www.w3.org/2006/time#DurationDescription</a>
+<ul>
+<li><li><li><li><li><li><li>Added: SubClass of http://www.w3.org/2006/time#GeneralDurationDescription</li>
+<li><li></ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#GeneralDateTimeDescription">http://www.w3.org/2006/time#GeneralDateTimeDescription</a>
+<ul>
+<li><li><li><li><li><li><li><li><li><li><li>Added: SubClass of http://www.w3.org/2006/time#TemporalPosition</li>
+<li><li></ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#GeneralDurationDescription">http://www.w3.org/2006/time#GeneralDurationDescription</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/2006/time#TemporalDuration</li>
+<li><li><li><li><li><li><li><li></ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#Instant">http://www.w3.org/2006/time#Instant</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/2006/time#TemporalEntity</li>
+<li>Added: DisjointClasses DisjointClasses(&lt;http://www.w3.org/2006/time#Instant&gt; &lt;http://www.w3.org/2006/time#ProperInterval&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#Interval">http://www.w3.org/2006/time#Interval</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/2006/time#TemporalEntity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#January">http://www.w3.org/2006/time#January</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/2006/time#DateTimeDescription</li>
+<li><li></ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#MonthOfYear">http://www.w3.org/2006/time#MonthOfYear</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/2006/time#DateTimeDescription</li>
+<li><li><li><li><li><li><li><li></ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#ProperInterval">http://www.w3.org/2006/time#ProperInterval</a>
+<ul>
+<li>Added: DisjointClasses DisjointClasses(&lt;http://www.w3.org/2006/time#Instant&gt; &lt;http://www.w3.org/2006/time#ProperInterval&gt;)</li>
+<li>Added: SubClass of http://www.w3.org/2006/time#Interval</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#TRS">http://www.w3.org/2006/time#TRS</a>
+</li>
+<li><a href="#http://www.w3.org/2006/time#TemporalDuration">http://www.w3.org/2006/time#TemporalDuration</a>
+</li>
+<li><a href="#http://www.w3.org/2006/time#TemporalPosition">http://www.w3.org/2006/time#TemporalPosition</a>
+<ul>
+<li></ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#TemporalUnit">http://www.w3.org/2006/time#TemporalUnit</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/2006/time#TemporalDuration</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#TimePosition">http://www.w3.org/2006/time#TimePosition</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/2006/time#TemporalPosition</li>
+<li></ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#TimeZone">http://www.w3.org/2006/time#TimeZone</a>
+</li>
+<li><a href="#http://www.w3.org/2006/time#Year">http://www.w3.org/2006/time#Year</a>
+<ul>
+<li><li><li><li><li><li>Added: SubClass of http://www.w3.org/2006/time#DurationDescription</li>
+<li><li></ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/ActuatableProperty">http://www.w3.org/ns/sosa/ActuatableProperty</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Actuation">http://www.w3.org/ns/sosa/Actuation</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Actuator">http://www.w3.org/ns/sosa/Actuator</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/FeatureOfInterest">http://www.w3.org/ns/sosa/FeatureOfInterest</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/ObservableProperty">http://www.w3.org/ns/sosa/ObservableProperty</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Observation">http://www.w3.org/ns/sosa/Observation</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Platform">http://www.w3.org/ns/sosa/Platform</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Procedure">http://www.w3.org/ns/sosa/Procedure</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Result">http://www.w3.org/ns/sosa/Result</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Sample">http://www.w3.org/ns/sosa/Sample</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Sampler">http://www.w3.org/ns/sosa/Sampler</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Sampling">http://www.w3.org/ns/sosa/Sampling</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Sensor">http://www.w3.org/ns/sosa/Sensor</a>
+</li>
+<li><a href="#AnalyticalService">https://w3id.org/EDAAnOWL/AnalyticalService</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/idsa/core/AppResource</li>
+<li>Added: SubClass of http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#Workflow</li>
+</ul>
+</li>
+<li><a href="#DataAsset">https://w3id.org/EDAAnOWL/DataAsset</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/idsa/core/DataResource</li>
+</ul>
+</li>
+<li><a href="#Model">https://w3id.org/EDAAnOWL/Model</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/idsa/core/AppResource</li>
+</ul>
+</li>
+<li><a href="#ObservableProperty">https://w3id.org/EDAAnOWL/ObservableProperty</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/sosa/ObservableProperty</li>
+</ul>
+</li>
+<li><a href="#SpatialTemporalAsset">https://w3id.org/EDAAnOWL/SpatialTemporalAsset</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/EDAAnOWL/DataAsset</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Deleted classes</u></summary>
+<ul><li><a href="#Parameter">https://w3id.org/EDAAnOWL/Parameter</a>
+</li>
+</ul></details><h3 id="changeProp" class="list">Object Properties</h3>
+<details><summary><u>Modified object properties</u></summary>
+<ul><li><a href="#parameter">https://w3id.org/EDAAnOWL/parameter</a>
+<ul>
+<li>Added: Range http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#Parameter</li>
+</ul>
+<ul>
+<li>Deleted: Range https://w3id.org/EDAAnOWL/Parameter</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Added object properties</u></summary>
+<ul><li><a href="#http://www.w3.org/2006/time#after">http://www.w3.org/2006/time#after</a>
+<ul>
+<li>Added: domain http://www.w3.org/2006/time#TemporalEntity</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#before&gt; &lt;http://www.w3.org/2006/time#after&gt;)</li>
+<li>Added: Range http://www.w3.org/2006/time#TemporalEntity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#before">http://www.w3.org/2006/time#before</a>
+<ul>
+<li>Added: domain http://www.w3.org/2006/time#TemporalEntity</li>
+<li>Added: Range http://www.w3.org/2006/time#TemporalEntity</li>
+<li>Added: TransitiveObjectProperty TransitiveObjectProperty(&lt;http://www.w3.org/2006/time#before&gt;)</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#before&gt; &lt;http://www.w3.org/2006/time#after&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#dayOfWeek">http://www.w3.org/2006/time#dayOfWeek</a>
+<ul>
+<li>Added: Range http://www.w3.org/2006/time#DayOfWeek</li>
+<li>Added: domain http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#hasBeginning">http://www.w3.org/2006/time#hasBeginning</a>
+<ul>
+<li>Added: SubProperty of http://www.w3.org/2006/time#hasTime</li>
+<li>Added: domain http://www.w3.org/2006/time#TemporalEntity</li>
+<li>Added: Range http://www.w3.org/2006/time#Instant</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#hasDateTimeDescription">http://www.w3.org/2006/time#hasDateTimeDescription</a>
+<ul>
+<li>Added: domain http://www.w3.org/2006/time#DateTimeInterval</li>
+<li>Added: Range http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#hasDuration">http://www.w3.org/2006/time#hasDuration</a>
+<ul>
+<li>Added: Range http://www.w3.org/2006/time#Duration</li>
+<li>Added: SubProperty of http://www.w3.org/2006/time#hasTemporalDuration</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#hasDurationDescription">http://www.w3.org/2006/time#hasDurationDescription</a>
+<ul>
+<li>Added: Range http://www.w3.org/2006/time#GeneralDurationDescription</li>
+<li>Added: SubProperty of http://www.w3.org/2006/time#hasTemporalDuration</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#hasEnd">http://www.w3.org/2006/time#hasEnd</a>
+<ul>
+<li>Added: Range http://www.w3.org/2006/time#Instant</li>
+<li>Added: domain http://www.w3.org/2006/time#TemporalEntity</li>
+<li>Added: SubProperty of http://www.w3.org/2006/time#hasTime</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#hasTRS">http://www.w3.org/2006/time#hasTRS</a>
+<ul>
+<li>Added: FunctionalObjectProperty FunctionalObjectProperty(&lt;http://www.w3.org/2006/time#hasTRS&gt;)</li>
+<li>Added: Range http://www.w3.org/2006/time#TRS</li>
+<li>Added: domain Union of (http://www.w3.org/2006/time#GeneralDurationDescription, http://www.w3.org/2006/time#TemporalPosition)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#hasTemporalDuration">http://www.w3.org/2006/time#hasTemporalDuration</a>
+<ul>
+<li>Added: Range http://www.w3.org/2006/time#TemporalDuration</li>
+<li>Added: domain http://www.w3.org/2006/time#TemporalEntity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#hasTime">http://www.w3.org/2006/time#hasTime</a>
+<ul>
+<li>Added: Range http://www.w3.org/2006/time#TemporalEntity</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#inDateTime">http://www.w3.org/2006/time#inDateTime</a>
+<ul>
+<li>Added: Range http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+<li>Added: SubProperty of http://www.w3.org/2006/time#inTemporalPosition</li>
+<li>Added: domain http://www.w3.org/2006/time#Instant</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#inTemporalPosition">http://www.w3.org/2006/time#inTemporalPosition</a>
+<ul>
+<li>Added: domain http://www.w3.org/2006/time#Instant</li>
+<li>Added: Range http://www.w3.org/2006/time#TemporalPosition</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#inTimePosition">http://www.w3.org/2006/time#inTimePosition</a>
+<ul>
+<li>Added: domain http://www.w3.org/2006/time#Instant</li>
+<li>Added: SubProperty of http://www.w3.org/2006/time#inTemporalPosition</li>
+<li>Added: Range http://www.w3.org/2006/time#TimePosition</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#inside">http://www.w3.org/2006/time#inside</a>
+<ul>
+<li>Added: domain http://www.w3.org/2006/time#Interval</li>
+<li>Added: Range http://www.w3.org/2006/time#Instant</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalAfter">http://www.w3.org/2006/time#intervalAfter</a>
+<ul>
+<li>Added: SubProperty of http://www.w3.org/2006/time#after</li>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#intervalAfter&gt; &lt;http://www.w3.org/2006/time#intervalBefore&gt;)</li>
+<li>Added: SubProperty of http://www.w3.org/2006/time#intervalDisjoint</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalBefore">http://www.w3.org/2006/time#intervalBefore</a>
+<ul>
+<li>Added: SubProperty of http://www.w3.org/2006/time#before</li>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: SubProperty of http://www.w3.org/2006/time#intervalDisjoint</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#intervalAfter&gt; &lt;http://www.w3.org/2006/time#intervalBefore&gt;)</li>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalContains">http://www.w3.org/2006/time#intervalContains</a>
+<ul>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#intervalDuring&gt; &lt;http://www.w3.org/2006/time#intervalContains&gt;)</li>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalDisjoint">http://www.w3.org/2006/time#intervalDisjoint</a>
+<ul>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalDuring">http://www.w3.org/2006/time#intervalDuring</a>
+<ul>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#intervalDuring&gt; &lt;http://www.w3.org/2006/time#intervalContains&gt;)</li>
+<li>Added: SubProperty of http://www.w3.org/2006/time#intervalIn</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalEquals">http://www.w3.org/2006/time#intervalEquals</a>
+<ul>
+<li>Added: DisjointObjectProperties DisjointObjectProperties(&lt;http://www.w3.org/2006/time#intervalEquals&gt; &lt;http://www.w3.org/2006/time#intervalIn&gt;)</li>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalFinishedBy">http://www.w3.org/2006/time#intervalFinishedBy</a>
+<ul>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#intervalFinishedBy&gt; &lt;http://www.w3.org/2006/time#intervalFinishes&gt;)</li>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalFinishes">http://www.w3.org/2006/time#intervalFinishes</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#intervalFinishedBy&gt; &lt;http://www.w3.org/2006/time#intervalFinishes&gt;)</li>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: SubProperty of http://www.w3.org/2006/time#intervalIn</li>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalIn">http://www.w3.org/2006/time#intervalIn</a>
+<ul>
+<li>Added: DisjointObjectProperties DisjointObjectProperties(&lt;http://www.w3.org/2006/time#intervalEquals&gt; &lt;http://www.w3.org/2006/time#intervalIn&gt;)</li>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalMeets">http://www.w3.org/2006/time#intervalMeets</a>
+<ul>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#intervalMetBy&gt; &lt;http://www.w3.org/2006/time#intervalMeets&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalMetBy">http://www.w3.org/2006/time#intervalMetBy</a>
+<ul>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#intervalMetBy&gt; &lt;http://www.w3.org/2006/time#intervalMeets&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalOverlappedBy">http://www.w3.org/2006/time#intervalOverlappedBy</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#intervalOverlaps&gt; &lt;http://www.w3.org/2006/time#intervalOverlappedBy&gt;)</li>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalOverlaps">http://www.w3.org/2006/time#intervalOverlaps</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#intervalOverlaps&gt; &lt;http://www.w3.org/2006/time#intervalOverlappedBy&gt;)</li>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalStartedBy">http://www.w3.org/2006/time#intervalStartedBy</a>
+<ul>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#intervalStarts&gt; &lt;http://www.w3.org/2006/time#intervalStartedBy&gt;)</li>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#intervalStarts">http://www.w3.org/2006/time#intervalStarts</a>
+<ul>
+<li>Added: SubProperty of http://www.w3.org/2006/time#intervalIn</li>
+<li>Added: domain http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: Range http://www.w3.org/2006/time#ProperInterval</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/2006/time#intervalStarts&gt; &lt;http://www.w3.org/2006/time#intervalStartedBy&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#monthOfYear">http://www.w3.org/2006/time#monthOfYear</a>
+<ul>
+<li>Added: Range http://www.w3.org/2006/time#MonthOfYear</li>
+<li>Added: domain http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#timeZone">http://www.w3.org/2006/time#timeZone</a>
+<ul>
+<li>Added: domain http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+<li>Added: Range http://www.w3.org/2006/time#TimeZone</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#unitType">http://www.w3.org/2006/time#unitType</a>
+<ul>
+<li>Added: domain Union of (http://www.w3.org/2006/time#Duration, http://www.w3.org/2006/time#GeneralDateTimeDescription)</li>
+<li>Added: Range http://www.w3.org/2006/time#TemporalUnit</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/actsOnProperty">http://www.w3.org/ns/sosa/actsOnProperty</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/actsOnProperty&gt; &lt;http://www.w3.org/ns/sosa/isActedOnBy&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/hasFeatureOfInterest">http://www.w3.org/ns/sosa/hasFeatureOfInterest</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/hasFeatureOfInterest&gt; &lt;http://www.w3.org/ns/sosa/isFeatureOfInterestOf&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/hasResult">http://www.w3.org/ns/sosa/hasResult</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/hasResult&gt; &lt;http://www.w3.org/ns/sosa/isResultOf&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/hasSample">http://www.w3.org/ns/sosa/hasSample</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/hasSample&gt; &lt;http://www.w3.org/ns/sosa/isSampleOf&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/hosts">http://www.w3.org/ns/sosa/hosts</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/hosts&gt; &lt;http://www.w3.org/ns/sosa/isHostedBy&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/isActedOnBy">http://www.w3.org/ns/sosa/isActedOnBy</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/actsOnProperty&gt; &lt;http://www.w3.org/ns/sosa/isActedOnBy&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/isFeatureOfInterestOf">http://www.w3.org/ns/sosa/isFeatureOfInterestOf</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/hasFeatureOfInterest&gt; &lt;http://www.w3.org/ns/sosa/isFeatureOfInterestOf&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/isHostedBy">http://www.w3.org/ns/sosa/isHostedBy</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/hosts&gt; &lt;http://www.w3.org/ns/sosa/isHostedBy&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/isObservedBy">http://www.w3.org/ns/sosa/isObservedBy</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/isObservedBy&gt; &lt;http://www.w3.org/ns/sosa/observes&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/isResultOf">http://www.w3.org/ns/sosa/isResultOf</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/hasResult&gt; &lt;http://www.w3.org/ns/sosa/isResultOf&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/isSampleOf">http://www.w3.org/ns/sosa/isSampleOf</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/hasSample&gt; &lt;http://www.w3.org/ns/sosa/isSampleOf&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/madeActuation">http://www.w3.org/ns/sosa/madeActuation</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/madeActuation&gt; &lt;http://www.w3.org/ns/sosa/madeByActuator&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/madeByActuator">http://www.w3.org/ns/sosa/madeByActuator</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/madeActuation&gt; &lt;http://www.w3.org/ns/sosa/madeByActuator&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/madeBySampler">http://www.w3.org/ns/sosa/madeBySampler</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/madeBySampler&gt; &lt;http://www.w3.org/ns/sosa/madeSampling&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/madeBySensor">http://www.w3.org/ns/sosa/madeBySensor</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/madeBySensor&gt; &lt;http://www.w3.org/ns/sosa/madeObservation&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/madeObservation">http://www.w3.org/ns/sosa/madeObservation</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/madeBySensor&gt; &lt;http://www.w3.org/ns/sosa/madeObservation&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/madeSampling">http://www.w3.org/ns/sosa/madeSampling</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/madeBySampler&gt; &lt;http://www.w3.org/ns/sosa/madeSampling&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/observedProperty">http://www.w3.org/ns/sosa/observedProperty</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/observes">http://www.w3.org/ns/sosa/observes</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://www.w3.org/ns/sosa/isObservedBy&gt; &lt;http://www.w3.org/ns/sosa/observes&gt;)</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/phenomenonTime">http://www.w3.org/ns/sosa/phenomenonTime</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/usedProcedure">http://www.w3.org/ns/sosa/usedProcedure</a>
+</li>
+<li><a href="#hasSpatialCoverage">https://w3id.org/EDAAnOWL/hasSpatialCoverage</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/locn#Geometry</li>
+<li>Added: domain https://w3id.org/EDAAnOWL/SpatialTemporalAsset</li>
+</ul>
+</li>
+<li><a href="#hasTemporalCoverage">https://w3id.org/EDAAnOWL/hasTemporalCoverage</a>
+<ul>
+<li>Added: domain https://w3id.org/EDAAnOWL/SpatialTemporalAsset</li>
+<li>Added: Range http://www.w3.org/2006/time#Interval</li>
+</ul>
+</li>
+<li><a href="#implementsModel">https://w3id.org/EDAAnOWL/implementsModel</a>
+<ul>
+<li>Added: Range https://w3id.org/EDAAnOWL/Model</li>
+<li>Added: domain https://w3id.org/EDAAnOWL/AnalyticalService</li>
+</ul>
+</li>
+<li><a href="#producesObservableProperty">https://w3id.org/EDAAnOWL/producesObservableProperty</a>
+<ul>
+<li>Added: domain https://w3id.org/EDAAnOWL/AnalyticalService</li>
+<li>Added: Range https://w3id.org/EDAAnOWL/ObservableProperty</li>
+</ul>
+</li>
+<li><a href="#requiresObservableProperty">https://w3id.org/EDAAnOWL/requiresObservableProperty</a>
+<ul>
+<li>Added: domain https://w3id.org/EDAAnOWL/AnalyticalService</li>
+<li>Added: Range https://w3id.org/EDAAnOWL/ObservableProperty</li>
+</ul>
+</li>
+<li><a href="#servesObservableProperty">https://w3id.org/EDAAnOWL/servesObservableProperty</a>
+<ul>
+<li>Added: domain https://w3id.org/EDAAnOWL/DataAsset</li>
+<li>Added: Range https://w3id.org/EDAAnOWL/ObservableProperty</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Deleted object properties</u></summary>
+<ul><li><a href="#https://w3id.org/idsa/core/contentStandard">https://w3id.org/idsa/core/contentStandard</a>
+</li>
+<li><a href="#https://w3id.org/idsa/core/representationStandard">https://w3id.org/idsa/core/representationStandard</a>
+</li>
+</ul></details><h3 id="changeDataProp" class="list">Data Properties</h3>
+<details><summary><u>Modified data properties</u></summary>
+<ul><li><a href="#https://w3id.org/idsa/core/contentStandard">https://w3id.org/idsa/core/contentStandard</a>
+<ul>
+<li>Added: SubProperty of http://purl.org/dc/terms/conformsTo</li>
+<li>Added: Domain https://w3id.org/idsa/core/DigitalContent</li>
+</ul>
+</li>
+<li><a href="#https://w3id.org/idsa/core/representationStandard">https://w3id.org/idsa/core/representationStandard</a>
+<ul>
+<li>Added: SubProperty of http://purl.org/dc/terms/conformsTo</li>
+<li>Added: Domain http://www.w3.org/ns/dcat#Distribution</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Added data properties</u></summary>
+<ul><li><a href="#http://www.w3.org/2006/time#day">http://www.w3.org/2006/time#day</a>
+<ul>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#dayOfYear">http://www.w3.org/2006/time#dayOfYear</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#nonNegativeInteger</li>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#days">http://www.w3.org/2006/time#days</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDurationDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#hasXSDDuration">http://www.w3.org/2006/time#hasXSDDuration</a>
+<ul>
+<li>Added: Domain http://www.w3.org/2006/time#TemporalEntity</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#duration</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#hour">http://www.w3.org/2006/time#hour</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#nonNegativeInteger</li>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#hours">http://www.w3.org/2006/time#hours</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDurationDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#inXSDDate">http://www.w3.org/2006/time#inXSDDate</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#date</li>
+<li>Added: Domain http://www.w3.org/2006/time#Instant</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#inXSDDateTime">http://www.w3.org/2006/time#inXSDDateTime</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#dateTime</li>
+<li>Added: Domain http://www.w3.org/2006/time#Instant</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#inXSDDateTimeStamp">http://www.w3.org/2006/time#inXSDDateTimeStamp</a>
+<ul>
+<li>Added: Domain http://www.w3.org/2006/time#Instant</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#dateTimeStamp</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#inXSDgYear">http://www.w3.org/2006/time#inXSDgYear</a>
+<ul>
+<li>Added: Domain http://www.w3.org/2006/time#Instant</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#gYear</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#inXSDgYearMonth">http://www.w3.org/2006/time#inXSDgYearMonth</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#gYearMonth</li>
+<li>Added: Domain http://www.w3.org/2006/time#Instant</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#minute">http://www.w3.org/2006/time#minute</a>
+<ul>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#nonNegativeInteger</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#minutes">http://www.w3.org/2006/time#minutes</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDurationDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#month">http://www.w3.org/2006/time#month</a>
+<ul>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#months">http://www.w3.org/2006/time#months</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDurationDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#nominalPosition">http://www.w3.org/2006/time#nominalPosition</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#string</li>
+<li>Added: Domain http://www.w3.org/2006/time#TimePosition</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#numericDuration">http://www.w3.org/2006/time#numericDuration</a>
+<ul>
+<li>Added: Domain http://www.w3.org/2006/time#Duration</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#numericPosition">http://www.w3.org/2006/time#numericPosition</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+<li>Added: Domain http://www.w3.org/2006/time#TimePosition</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#second">http://www.w3.org/2006/time#second</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#seconds">http://www.w3.org/2006/time#seconds</a>
+<ul>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDurationDescription</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#week">http://www.w3.org/2006/time#week</a>
+<ul>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#nonNegativeInteger</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#weeks">http://www.w3.org/2006/time#weeks</a>
+<ul>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDurationDescription</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#xsdDateTime">http://www.w3.org/2006/time#xsdDateTime</a>
+<ul>
+<li>Added: Domain http://www.w3.org/2006/time#DateTimeInterval</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#dateTime</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#year">http://www.w3.org/2006/time#year</a>
+<ul>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDateTimeDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/2006/time#years">http://www.w3.org/2006/time#years</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#decimal</li>
+<li>Added: Domain http://www.w3.org/2006/time#GeneralDurationDescription</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/hasSimpleResult">http://www.w3.org/ns/sosa/hasSimpleResult</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/resultTime">http://www.w3.org/ns/sosa/resultTime</a>
+<ul>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#dateTime</li>
+</ul>
+</li>
+</ul></details></div>
 </div>
 <div id="acknowledgments">
 <h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
