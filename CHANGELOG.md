@@ -17,6 +17,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.0] - 2025-11-07
+
+### Changed
+
+- **Model Unification:** The domain (`rdfs:domain`) of the properties `:requiresObservableProperty` and `:producesObservableProperty` has been changed from the deprecated `:AnalyticalService` to `ids:SmartDataApp`.
+- This change unifies the "Profile-based Model" (v0.0.1) and the "Direct Semantic Model" (v0.1.0), allowing any `ids:SmartDataApp` (or its subclasses, like `:PredictionApp`) to use both semantic description methods simultaneously.
+- Updated `owl:versionIRI` to `.../0.2.0` and `owl:priorVersion` to `.../0.1.0`.
+- Updated all vocabulary `owl:imports` to point to the `.../0.2.0/` path.
+- Updated `dct:abstract` and `widoco:introduction` to reflect the unified model.
+
+### Added
+
+- Documentation: “IDSA alignment” section in `src/0.2.0/README.md` with examples for `ids:Representation`, Resource taxonomy, 3C views, and optional Context view (endpoint + contract).
+- Validation: New SHACL shape for `ids:Representation` ensuring `dct:format` or `ids:mediaType`.
+- Examples: Extended `eo-instances.ttl` with `ids:representation`, `ids:contractOffer` (ODRL Permission), and `ids:resourceEndpoint`.
+- Root README: Summaries of IDSA & BIGOWL and design rationale for classes/properties in EDAAnOWL.
+
+### Fixed
+
+- Prefix consistency: replaced `ns1:` with `dcat:`; corrected GeoSPARQL prefix to `gsp#`.
+- Datatypes: `dct:modified` typed as `xsd:date`; `:profileCRSRef` set to `xsd:anyURI`.
+- Deprecated: Marked `:spatialGranularity` as deprecated in favor of `:spatialGranularityConcept` (SKOS).
+
+### Removed
+
+- Removed the redundant class `:AnalyticalService` (which was a subclass of `ids:AppResource`). All app/service functionality is now consolidated under the `ids:DataApp` -> `ids:SmartDataApp` hierarchy.
+- Removed the class `:Model` and the object property `:implementsModel`, which were associated with the deprecated `:AnalyticalService` class.
+
+---
+
 ## [0.1.0] - 2025-11-05
 
 ### Added
@@ -74,6 +104,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.0.1...v0.1.0
 [0.0.1]: https://github.com/KhaosResearch/EDAAnOWL/releases/tag/v0.0.1

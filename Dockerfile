@@ -17,7 +17,7 @@ RUN pip3 install rdflib pyshacl
 
 # Descargar ROBOT en un directorio que NO se monta como volumen
 WORKDIR /opt/robot
-RUN wget -q -O robot.jar https://github.com/ontodev/robot/releases/download/v1.9.4/robot.jar
+RUN wget -q -O robot.jar https://github.com/ontodev/robot/releases/download/v1.9.6/robot.jar
 
 # Directorio de trabajo por defecto del contenedor
 WORKDIR /app

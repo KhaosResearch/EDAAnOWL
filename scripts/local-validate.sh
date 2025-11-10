@@ -27,6 +27,14 @@ docker run --rm -v "$ROOT_DIR:/app" "$IMAGE_NAME" \
         -m -i rdfs -f human \
         /app/$LATEST_PATH/examples/test-consistency.ttl
 
+echo -e "\n--- 🚀 Running SHACL validation (pyshacl) on EO examples ---"
+docker run --rm -v "$ROOT_DIR:/app" "$IMAGE_NAME" \
+    python3 -m pyshacl \
+        -s /app/$LATEST_PATH/shapes/edaan-shapes.ttl \
+        -e /app/$LATEST_PATH/EDAAnOWL.ttl \
+        -m -i rdfs -f human \
+        /app/$LATEST_PATH/examples/eo-instances.ttl
+
 echo -e "\n--- 🚀 Running OWL consistency validation (ROBOT) ---"
 cat > "$ROOT_DIR/robot-catalog.xml" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -41,6 +49,14 @@ docker run --rm -v "$ROOT_DIR:/app" "$IMAGE_NAME" \
         --input /app/$LATEST_PATH/examples/test-consistency.ttl \
         --reasoner ELK \
         --output /tmp/edaanowl-reasoned.owl
+
+echo -e "\n--- 🚀 Running OWL consistency validation (ROBOT) on EO examples ---"
+docker run --rm -v "$ROOT_DIR:/app" "$IMAGE_NAME" \
+    java -jar /opt/robot/robot.jar reason \
+        --catalog /app/robot-catalog.xml \
+        --input /app/$LATEST_PATH/examples/eo-instances.ttl \
+        --reasoner ELK \
+        --output /tmp/edaanowl-reasoned-eo.owl
 
 rm "$ROOT_DIR/robot-catalog.xml"
 

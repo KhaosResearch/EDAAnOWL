@@ -1,83 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EDAAnOWL – Documentation</title>
-  <meta name="description" content="EDAAnOWL documentation landing page with version selector and auto-redirect to latest." />
-  <style>
-    :root { --bg:#0b1220; --card:#0f162a; --fg:#e6edf3; --muted:rgba(230,237,243,.7); --accent:#1f6feb; --stroke:rgba(255,255,255,.08); --shadow:0 0 0 1px var(--stroke),0 24px 48px rgba(0,0,0,.35); --maxw:980px; --radius:16px; }
-    *{ box-sizing:border-box; } html,body{ height:100%; }
-    body{ margin:0; background: radial-gradient(1000px 600px at 10% -10%, #14203b 0%, rgba(20,32,59,0) 60%), var(--bg); color:var(--fg); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial; line-height:1.5; }
-    header{ position:sticky; top:0; backdrop-filter: blur(10px); background: rgba(11,18,32,.65); border-bottom:1px solid var(--stroke); z-index:10; }
-    .wrap{ max-width:var(--maxw); margin:0 auto; padding:16px 20px; }
-    .brand{ display:flex; align-items:center; gap:12px; }
-    .brand .dot{ width:12px; height:12px; border-radius:50%; background: linear-gradient(135deg,#3aa6ff,#7c4dff); box-shadow:0 0 20px #3aa6ff88; }
-    .brand h1{ font-size:18px; margin:0; }
-    main{ display:flex; justify-content:center; padding:28px 14px 48px; }
-    .card{ max-width:var(--maxw); width:100%; background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; }
-    .hero{ padding:28px; border-bottom:1px solid var(--stroke); background: linear-gradient(180deg, rgba(255,255,255,.02), transparent); }
-    .hero h2{ margin:0 0 6px; font-size:28px; }
-    .hero p{ margin:0; color:var(--muted); }
-    .grid{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:18px; padding:20px; }
-    .panel{ border:1px solid var(--stroke); border-radius:14px; padding:18px; background: rgba(255,255,255,.02); }
-    .panel h3{ margin:0 0 8px; }
-    .versions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
-    .btn, a.btn{ display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--accent); color:white; padding:10px 14px; border-radius:999px; font-weight:600; border:none; cursor:pointer; box-shadow:0 10px 24px rgba(31,111,235,.35); }
-    .btn--ghost{ background:transparent; color:var(--fg); border:1px solid var(--stroke); box-shadow:none; }
-    .list{ margin:10px 0 0; padding:0; list-style:none; }
-    .list li{ margin:6px 0; }
-    .badge{ display:inline-block; padding:4px 8px; border-radius:999px; font-size:12px; background: rgba(255,255,255,.08); border:1px solid var(--stroke); }
-    footer{ text-align:center; color:var(--muted); padding:20px; }
-    @media (max-width:760px){ .grid{ grid-template-columns: 1fr; } }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap">
-      <div class="brand">
-        <div class="dot"></div>
-        <h1>EDAAnOWL · Documentation</h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EDAAnOWL – Documentation</title>
+    <meta
+      name="description"
+      content="EDAAnOWL documentation landing page with version selector and auto-redirect to latest."
+    />
+    <style>
+      :root {
+        --bg: #0b1220;
+        --card: #0f162a;
+        --fg: #e6edf3;
+        --muted: rgba(230, 237, 243, 0.7);
+        --accent: #1f6feb;
+        --stroke: rgba(255, 255, 255, 0.08);
+        --shadow: 0 0 0 1px var(--stroke), 0 24px 48px rgba(0, 0, 0, 0.35);
+        --maxw: 980px;
+        --radius: 16px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: radial-gradient(
+            1000px 600px at 10% -10%,
+            #14203b 0%,
+            rgba(20, 32, 59, 0) 60%
+          ),
+          var(--bg);
+        color: var(--fg);
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial;
+        line-height: 1.5;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+        background: rgba(11, 18, 32, 0.65);
+        border-bottom: 1px solid var(--stroke);
+        z-index: 10;
+      }
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 16px 20px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #3aa6ff, #7c4dff);
+        box-shadow: 0 0 20px #3aa6ff88;
+      }
+      .brand h1 {
+        font-size: 18px;
+        margin: 0;
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        padding: 28px 14px 48px;
+      }
+      .card {
+        max-width: var(--maxw);
+        width: 100%;
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      .hero {
+        padding: 28px;
+        border-bottom: 1px solid var(--stroke);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          transparent
+        );
+      }
+      .hero h2 {
+        margin: 0 0 6px;
+        font-size: 28px;
+      }
+      .hero p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        padding: 20px;
+      }
+      .panel {
+        border: 1px solid var(--stroke);
+        border-radius: 14px;
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .panel h3 {
+        margin: 0 0 8px;
+      }
+      .versions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .btn,
+      a.btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        background: var(--accent);
+        color: white;
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 10px 24px rgba(31, 111, 235, 0.35);
+      }
+      .btn--ghost {
+        background: transparent;
+        color: var(--fg);
+        border: 1px solid var(--stroke);
+        box-shadow: none;
+      }
+      .list {
+        margin: 10px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        margin: 6px 0;
+      }
+      .badge {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 12px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--stroke);
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 20px;
+      }
+      @media (max-width: 760px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <div class="brand">
+          <div class="dot"></div>
+          <h1>EDAAnOWL · Documentation</h1>
+        </div>
       </div>
-    </div>
-  </header>
-  <main>
-    <section class="card">
-      <div class="hero">
-        <h2>Welcome 👋</h2>
-        <p>This is the documentation landing for <strong>EDAAnOWL</strong>. Jump to the latest version or browse older releases.</p>
-      </div>
-      <div class="grid">
-        <div class="panel">
-          <h3>Latest version</h3>
-          <p>We will automatically take you to the most recent stable version.</p>
-          <div class="versions">
-            <a class="btn" id="go-latest" href="./0.1.0/">Go to v0.1.0</a>
-            <button class="btn btn--ghost" id="cancel-redirect" title="Stop auto-redirect">Stay here</button>
+    </header>
+    <main>
+      <section class="card">
+        <div class="hero">
+          <h2>Welcome 👋</h2>
+          <p>
+            This is the documentation landing for <strong>EDAAnOWL</strong>.
+            Jump to the latest version or browse older releases.
+          </p>
+        </div>
+        <div class="grid">
+          <div class="panel">
+            <h3>Latest version</h3>
+            <p>
+              We will automatically take you to the most recent stable version.
+            </p>
+            <div class="versions">
+              <a class="btn" id="go-latest" href="./0.2.0/">Go to v0.2.0</a>
+              <button
+                class="btn btn--ghost"
+                id="cancel-redirect"
+                title="Stop auto-redirect"
+              >
+                Stay here
+              </button>
+            </div>
+            <p style="margin-top: 10px; color: var(--muted)">
+              <span class="badge">Auto-redirect</span> In 5s you will be
+              redirected to <code>v0.2.0/</code> (use “Stay here” or add
+              <code>#stay</code> to the URL to cancel).
+            </p>
           </div>
-          <p style="margin-top:10px;color:var(--muted);"><span class="badge">Auto-redirect</span> In 5s you will be redirected to <code>v0.1.0/</code> (use “Stay here” or add <code>#stay</code> to the URL to cancel).</p>
+          <div class="panel">
+            <h3>Available versions</h3>
+            <ul class="list">
+              <li>latest — <a href="./latest/">Open docs</a></li>
+              <li>v0.2.0 — <a href="./0.2.0/">Open docs</a></li>
+              <li>v0.1.0 — <a href="./0.1.0/">Open docs</a></li>
+              <li>v0.0.1 — <a href="./0.0.1/">Open docs</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="panel">
-          <h3>Available versions</h3>
-          <ul class="list">
-            <li>latest — <a href="./latest/">Open docs</a></li>
-            <li>v0.1.0 — <a href="./0.1.0/">Open docs</a></li>
-            <li>v0.0.1 — <a href="./0.0.1/">Open docs</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer>© 2025 · EDAAnOWL</footer>
-  <script>
-    // CAMBIO AQUÍ
-    var LATEST_PATH = "./0.1.0/";
-    var REDIRECT_MS = 5000;
-    function go() { window.location.assign(LATEST_PATH); }
-    function cancel() { window.__stay = true; history.replaceState(null, "", location.pathname + "#stay"); clearTimeout(window.__timer); }
-    document.getElementById('go-latest').setAttribute('href', LATEST_PATH);
-    document.getElementById('cancel-redirect').addEventListener('click', cancel);
-    if (!location.hash.includes("stay")) { window.__timer = setTimeout(go, REDIRECT_MS); }
-  </script>
-</body>
+      </section>
+    </main>
+    <footer>© 2025 · EDAAnOWL</footer>
+    <script>
+      var LATEST_PATH = "./0.2.0/";
+      var REDIRECT_MS = 5000;
+      function go() {
+        window.location.assign(LATEST_PATH);
+      }
+      function cancel() {
+        window.__stay = true;
+        history.replaceState(null, "", location.pathname + "#stay");
+        clearTimeout(window.__timer);
+      }
+      document.getElementById("go-latest").setAttribute("href", LATEST_PATH);
+      document
+        .getElementById("cancel-redirect")
+        .addEventListener("click", cancel);
+      if (!location.hash.includes("stay")) {
+        window.__timer = setTimeout(go, REDIRECT_MS);
+      }
+    </script>
+  </body>
 </html>

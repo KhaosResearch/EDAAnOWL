@@ -1,4 +1,4 @@
-# EDAAnOWL — (v0.0.1)
+# EDAAnOWL — (v0.2.0)
 
 [![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/release.yml/badge.svg)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/release.yml)
 
@@ -8,7 +8,64 @@
 
 A pilot ontology for the semantic exploitation of data assets in the Agri-food (EDAA) context, aligned with the IDSA Information Model and the BIGOWL ontology.
 
+> Latest stable: see `src/0.2.0/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
+
 The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches the description of Data Space assets. It allows for modeling the functional profile (inputs, outputs, parameters) of `ids:DataApp` and `ids:DataResource`, facilitating their semantic discovery, composition into complex services, and compatibility validation.
+
+## � Architecture Overview
+
+```mermaid
+graph TB
+    subgraph DataSpace[Data Space Layer]
+        DS[Data Space Assets]
+        AP[Applications/Services]
+    end
+
+    subgraph Semantic[Semantic Layer]
+        subgraph IDSA[IDSA Model]
+            IR[ids:Resource]
+            IDR[ids:DataResource]
+            IDA[ids:DataApp]
+        end
+
+        subgraph EDAAnOWL[EDAAnOWL]
+            DA[DataAsset]
+            Apps[SmartDataApp Types]
+            Prof[DataProfile]
+            OP[ObservableProperty]
+        end
+
+        subgraph BIGOWL[BIGOWL]
+            WF[Workflow]
+            Comp[Component]
+        end
+    end
+
+    DS --> IDR
+    AP --> IDA
+    IDR --> DA
+    IDA --> Apps
+    DA -- servesObservableProperty --> OP
+    Apps -- requiresObservableProperty --> OP
+    Apps -- implementsComponent --> Comp
+    Comp --> WF
+
+    classDef space fill:#e1f5fe,stroke:#01579b
+    classDef idsa fill:#f8bbd0,stroke:#880e4f
+    classDef edaan fill:#c8e6c9,stroke:#1b5e20
+    classDef bigowl fill:#fff9c4,stroke:#f57f17
+
+    class DS,AP space
+    class IR,IDR,IDA idsa
+    class DA,Apps,Prof,OP edaan
+    class WF,Comp bigowl
+```
+
+## 🖼 Architecture diagram
+
+![EDAAnOWL architecture — IDS ↔ BIGOWL (high-level)](images/eda-an-architecture-en.svg)
+
+Figure: High-level architecture showing how EDAAnOWL maps IDSA concepts (DataApp/DataResource) to BIGOWL components and publishes artifacts via DCAT, linking policies (ODRL/DPV). The image is stored in `images/` and can be reused in versioned READMEs.
 
 ## 🚀 Features
 
@@ -22,6 +79,74 @@ The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches th
   - Post-processes the HTML (`sed`) to ensure all vocabulary links are correctly versioned.
   - Publishes all artifacts (docs, vocabs, RDF serializations) to the `gh-pages` branch.
 - **Versioning**: Supports a `latest` development version and immutable, versioned snapshots (e.g., `/0.0.1/`).
+
+---
+
+## 📘 Background: IDSA and BIGOWL (what they are and why we align)
+
+### IDSA Information Model (what/why/how)
+
+- **What it is**: The International Data Spaces Association (IDSA) Information Model defines a common vocabulary for resources (data and apps), their representations, endpoints, usage contracts, participants, connectors, and security profiles. It provides a canonical taxonomy for `ids:Resource` and content/context views to describe how resources are exposed and governed.
+- **How it works**: Key concepts include:
+  - `ids:Resource` → specialized into `ids:DataResource` and `ids:DataApp`/`ids:SmartDataApp`.
+  - `ids:Representation` capturing format/media type/language, linked from resources by `ids:representation` or `ids:defaultRepresentation`.
+  - Usage control with contracts and rules (ODRL-based), endpoints for access, and participant/connector/security profiles.
+- **Why we reuse it**: We want assets and apps to be discoverable and governable across Data Spaces without reinventing core notions (resource taxonomy, representation, policies, endpoints). Aligning with IDSA ensures compatibility with IDS-based tooling and documentation.
+- References:
+  - IDSA IM docs: `https://international-data-spaces-association.github.io/InformationModel/docs/index.html#Resource`
+  - Figures (examples): Resource taxonomy (Fig. 3.15), Data App content view (Fig. 3.32), Data App taxonomy (Fig. 3.34).
+
+### BIGOWL (what/why/how)
+
+- **What it is**: A family of ontologies for analytical workflows, algorithms, problems, data, and components. It formalizes workflow elements (e.g., `bigwf:Component`), data types (`bigdat:Data`), and their relations.
+- **How it works**: Workflows are composed of components with well-defined inputs/outputs. These can be linked to algorithms/problems, enabling reproducible compositions and reasoning about compatibility.
+- **Why we reuse it**: We need to express the computational side (pipelines, components, inputs/outputs) and connect IDSA “apps” to executable workflow elements. BIGOWL gives us a neutral, modular way to do so, avoiding bespoke, ad-hoc workflow modeling.
+
+---
+
+## 🧭 Design Rationale: Why EDAAnOWL extends and aligns the way it does
+
+EDAanOWL provides the “connective tissue” between IDSA’s resource/contract governance and BIGOWL’s workflow semantics:
+
+- **Classes (why we created/extended them)**
+
+  - `:DataAsset ⊑ ids:DataResource`: We specialize IDSA’s data resource to attach domain semantics (e.g., observable variables) needed for matchmaking and discovery.
+  - `ids:SmartDataApp` specializations (`:PredictionApp`, `:AnalyzerApp`, `:VisualizationApp`): We align with IDSA’s app branch and provide a practical taxonomy reflecting functionality (prediction/analysis/visualization) inspired by IDSA’s Data App taxonomy.
+  - `:DataProfile`: Encapsulates structural/semantic “signatures” of data (class, CRS, resolutions, observed properties). This lives alongside IDSA `ids:Representation` (format/media/language), not replacing it—complementary roles.
+  - `:ObservableProperty ⊑ sosa:ObservableProperty`: We reuse SOSA/SSN for domain variables (e.g., NDVI, temperature), enabling semantic I/O specifications for apps and semantic descriptions for assets.
+
+- **Object properties (motivations)**
+
+  - `:conformsToProfile (ids:Resource → :DataProfile)`: A resource states it conforms to a profile (structural/semantic signature). Motivates profile-based compatibility checks.
+  - `:requiresProfile` / `:producesProfile (ids:DataApp ↔ :DataProfile)`: Apps specify expected/produced data signatures to enable structural compatibility.
+  - `:requiresObservableProperty` / `:producesObservableProperty (ids:SmartDataApp ↔ :ObservableProperty)`: Apps declare semantic I/O needs—enables simple, meaningful matchmaking (semantic compatibility).
+  - `:servesObservableProperty (:DataAsset ↔ :ObservableProperty)`: Assets declare the variables they provide—completing the matchmaking triangle.
+  - `:implementsComponent (ids:DataApp ↔ bigwf:Component)`: Bridges IDSA apps to BIGOWL components, grounding apps in executable workflow units.
+  - `:realizesWorkflow (ids:DataApp ↔ opmw:WorkflowTemplate)`: Links apps to abstract workflows (OPMW) for documentation and reasoning.
+  - `:hasDomainSector (⊑ dcat:theme)`: DCAT-aligned domain tagging using SKOS schemes, ensuring interoperable cataloguing and filtering across domains.
+
+- **Data properties (motivations)**
+
+  - `:profileCRS` and `:profileCRSRef`: Explicit CRS as string and IRI; we recommend the IRI form (`xsd:anyURI`) for unambiguous validation.
+  - `:profileSpatialResolution`, `:profileTemporalResolution`: Required to capture EO and time-series constraints for practical matchmaking.
+  - `:supportContact`: Operational contact—crucial in Data Spaces to support consumers.
+  - Metrics (`:Metric` and subtypes with `:metricName`/`:metricValue`/`:metricUnit`/`:computedAt`): Allows publishing quality/performance indicators relevant to governance and selection.
+
+- **Why both Profile-based and Direct Semantic models?**
+
+  - Real-world data/app compatibility has two complementary facets:
+    - Structural: “Does my dataset’s structure/CRS/resolution match the app’s expectations?” → `:DataProfile`.
+    - Semantic: “Do I have NDVI/temperature that this app needs?” → `:ObservableProperty`.
+  - Keeping both enables robust, explainable matchmaking and aligns with IDSA’s content view (representations) without conflating structure with format/serialization.
+
+- **Why align with IDSA Representation instead of embedding formats in profiles?**
+
+  - IDSA prescribes `ids:Representation` for format/media/language; we follow that and keep `:DataProfile` for data semantics/shape. This mirrors IDSA’s own separation of “content” vs. “context” and avoids duplication.
+
+- **Why SKOS/DCAT/ODRL/PROV/LOCN/GeoSPARQL?**
+  - We adopt standards recommended by IDSA and the Linked Data community: SKOS for taxonomies, DCAT for cataloguing, ODRL for policies/usage control, PROV-O for provenance, LOCN/GeoSPARQL for geospatial coverage. This maximizes interoperability and reduces custom modeling.
+
+---
 
 ## 📁 Repository Structure & Branching Model
 
@@ -79,26 +204,25 @@ The validation pipeline performs three main checks:
 2. **SHACL Validation (pySHACL)**
 
    - Tool: [`pyshacl`](https://github.com/RDFLib/pySHACL) (installed in the Docker image).
-   - Shapes file:
-     - `src/<version>/shapes/edaan-shapes.ttl`
-   - Ontology file:
-     - `src/<version>/EDAAnOWL.ttl`
-   - Data graph (example data):
-     - `src/<version>/examples/test-consistency.ttl`
-   - The validation is run with:
+   - Validates:
+     - Main ontology: `src/<version>/EDAAnOWL.ttl`
+     - Against shapes: `src/<version>/shapes/edaan-shapes.ttl`
+     - With test data: `src/<version>/examples/test-consistency.ttl`
+   - The validation runs with:
      - RDFS inference (`-i rdfs`)
      - Meta-SHACL checks (`-m`)
    - The process prints a SHACL validation report and fails if `Conforms: False`.
 
 3. **OWL Consistency Check (ROBOT + ELK)**
-   - Tool: [`ROBOT`](http://robot.obolibrary.org/) (downloaded as `robot.jar` in `/opt/robot/` inside the Docker image).
-   - A temporary `robot-catalog.xml` is generated to map:
-     - `https://w3id.org/EDAAnOWL/` → `file:/app/src/<version>/EDAAnOWL.ttl`
-   - Then ROBOT is executed with the `reason` command and the **example data** as input:
-     - Input: `/app/src/<version>/examples/test-consistency.ttl`
-     - Reasoner: `ELK`
-   - The reasoned ontology is written to a temporary file inside the container (`/tmp/edaanowl-reasoned.owl`).
-   - If reasoning fails (e.g. due to an inconsistency), the command exits with a non-zero status and the local validation script reports an error.
+   - Tool: [`ROBOT`](http://robot.obolibrary.org/) with ELK reasoner
+   - Validates:
+     - Main ontology: `src/<version>/EDAAnOWL.ttl`
+     - Test instances: `src/<version>/examples/test-consistency.ttl`
+   - Performs:
+     - Consistency checking
+     - Classification
+     - Instance realization
+   - If reasoning fails, the validation script reports an error.
 
 ### Docker Image
 
