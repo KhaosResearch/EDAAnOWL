@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="774" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">EDAAnOWL</title>
+  <desc id="desc">High-level architecture showing how EDAAnOWL bridges IDS and BIGOWL, enabling semantic description and compatibility validation.</desc>
+  <defs>
+    <linearGradient id="gradBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8f1ff"/>
+      <stop offset="100%" stop-color="#cfe3ff"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#efe6ff"/>
+      <stop offset="100%" stop-color="#e0d1ff"/>
+    </linearGradient>
+    <linearGradient id="gradGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e9f9ef"/>
+      <stop offset="100%" stop-color="#d8f1e2"/>
+    </linearGradient>
+    <linearGradient id="gradOrange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff3e0"/>
+      <stop offset="100%" stop-color="#ffe0b2"/>
+    </linearGradient>
+    <linearGradient id="gradGray" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3f4f6"/>
+      <stop offset="100%" stop-color="#e5e7eb"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4b5563"/>
+    </marker>
+    <style>
+      .title { font: 700 28px Arial, Helvetica, sans-serif; fill: #111827; }
+      .subtitle { font: 700 20px Arial, Helvetica, sans-serif; fill: #111827; }
+      .label { font: 500 16px Arial, Helvetica, sans-serif; fill: #111827; }
+      .small { font: 400 14px Arial, Helvetica, sans-serif; fill: #374151; }
+      .box { rx: 18; ry: 18; filter: url(#shadow); }
+      .pill { rx: 18; ry: 18; }
+      .muted { fill: #6b7280; }
+      .stroke { stroke: #9ca3af; stroke-width:1.5; }
+      .line { stroke: #4b5563; stroke-width:1.75; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700.0" y="56" text-anchor="middle" class="title">EDAAnOWL v0.2.0 — Unified Model Architecture</text>
+  
+  <!-- IDS Block -->
+  <g transform="translate(60,100)">
+    <rect class="box stroke" width="360" height="320" fill="url(#gradBlue)"/>
+    <text x="24" y="36" class="subtitle">IDS Information Model</text>
+    
+    <!-- Items -->
+    <g transform="translate(20,60)">
+      <rect class="pill stroke" x="0" y="0" width="160" height="36" fill="#ffffff"/>
+      <text class="label" x="12" y="24">ids:DataResource</text>
+      
+      <rect class="pill stroke" x="165" y="0" width="160" height="36" fill="#ffffff"/>
+      <text class="label" x="177" y="24">ids:SmartDataApp</text>
+      
+      <rect class="pill stroke" x="0" y="54" width="160" height="36" fill="#ffffff"/>
+      <text class="label" x="12" y="78">ids:Representation</text>
+      
+      <rect class="pill stroke" x="165" y="54" width="160" height="36" fill="#ffffff"/>
+      <text class="label" x="182" y="78">ids:ContractOffer</text>
+      
+      <rect class="pill stroke" x="0" y="108" width="185" height="36" fill="#ffffff"/>
+      <text class="label" x="12" y="132">ids:ResourceEndpoint</text>
+    </g>
+  </g>
+
+  <!-- BIGOWL Block -->
+  <g transform="translate(980,100)">
+    <rect class="box stroke" width="360" height="320" fill="url(#gradPurple)"/>
+    <text x="24" y="36" class="subtitle">BIGOWL Framework</text>
+    
+    <g transform="translate(20,60)">
+      <rect class="pill stroke" x="0" y="0" width="150" height="36" fill="#ffffff"/>
+      <text class="label" x="12" y="24">bigwf:Component</text>
+      
+      <rect class="pill stroke" x="160" y="0" width="160" height="36" fill="#ffffff"/>
+      <text class="label" x="172" y="24">bigdat:Data</text>
+      
+      <rect class="pill stroke" x="0" y="54" width="160" height="36" fill="#ffffff"/>
+      <text class="label" x="12" y="78">bigwf:InputPort</text>
+      
+      <rect class="pill stroke" x="170" y="54" width="150" height="36" fill="#ffffff"/>
+      <text class="label" x="182" y="78">bigwf:OutputPort</text>
+    </g>
+  </g>
+
+  <!-- EDAAnOWL Core -->
+  <g transform="translate(450,160)">
+    <rect class="box stroke" width="500" height="420" fill="url(#gradGray)"/>
+    <text x="24" y="36" class="subtitle">EDAAnOWL Core (v0.2.0)</text>
+    
+    <g transform="translate(20,70)">
+      <!-- Apps -->
+      <rect class="pill stroke" x="0" y="0" width="220" height="36" fill="url(#gradOrange)"/>
+      <text class="label" x="12" y="24">PredictionApp</text>
+      
+      <rect class="pill stroke" x="230" y="0" width="220" height="36" fill="url(#gradOrange)"/>
+      <text class="label" x="242" y="24">AnalyzerApp</text>
+      
+      <!-- Data Model -->
+      <rect class="pill stroke" x="0" y="54" width="180" height="36" fill="#ffffff"/>
+      <text class="label" x="12" y="78">DataProfile</text>
+      
+      <rect class="pill stroke" x="190" y="54" width="180" height="36" fill="#ffffff"/>
+      <text class="label" x="202" y="78">DataAsset</text>
+      
+      <!-- Properties -->
+      <rect class="pill stroke" x="0" y="108" width="225" height="36" fill="#ffffff"/>
+      <text class="label" x="12" y="132">requiresObservableProperty</text>
+      
+      <rect class="pill stroke" x="230" y="108" width="220" height="36" fill="#ffffff"/>
+      <text class="label" x="242" y="132">servesObservableProperty</text>
+      
+      <!-- Compatibility Models -->
+      <g transform="translate(20,170)">
+        <rect class="box stroke" width="200" height="80" fill="url(#gradBlue)"/>
+        <text class="label" x="12" y="30">Profile Model</text>
+        <text class="small" x="12" y="50">conformsToProfile</text>
+        <text class="small" x="12" y="70">requiresProfile</text>
+      </g>
+      
+      <g transform="translate(230,170)">
+        <rect class="box stroke" width="200" height="80" fill="url(#gradPurple)"/>
+        <text class="label" x="12" y="30">Semantic Model</text>
+        <text class="small" x="12" y="50">Observable Properties</text>
+        <text class="small" x="12" y="70">Direct Matchmaking</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Bottom: Standards -->
+  <g transform="translate(60,600)">
+    <rect class="box stroke" width="1280" height="220" fill="url(#gradGreen)"/>
+    <text x="24" y="36" class="subtitle">Standards Integration</text>
+    
+    <!-- DCAT -->
+    <g transform="translate(24,56)">
+      <rect class="pill stroke" x="0" y="0" width="300" height="44" fill="#ffffff"/>
+      <text class="label" x="12" y="28">DCAT 2.0</text>
+      <text class="small muted" x="12" y="60">Dataset/Service Discovery</text>
+    </g>
+    
+    <!-- SOSA/SSN -->
+    <g transform="translate(340,56)">
+      <rect class="pill stroke" x="0" y="0" width="300" height="44" fill="#ffffff"/>
+      <text class="label" x="12" y="28">SOSA/SSN</text>
+      <text class="small muted" x="12" y="60">Observable Properties</text>
+    </g>
+    
+    <!-- SKOS -->
+    <g transform="translate(656,56)">
+      <rect class="pill stroke" x="0" y="0" width="300" height="44" fill="#ffffff"/>
+      <text class="label" x="12" y="28">SKOS</text>
+      <text class="small muted" x="12" y="60">Controlled Vocabularies</text>
+    </g>
+    
+    <!-- ODRL -->
+    <g transform="translate(972,56)">
+      <rect class="pill stroke" x="0" y="0" width="300" height="44" fill="#ffffff"/>
+      <text class="label" x="12" y="28">ODRL 2.2</text>
+      <text class="small muted" x="12" y="60">Usage Policies</text>
+    </g>
+  </g>
+  
+  <!-- Arrows -->
+  <line class="line" x1="420" y1="260" x2="450" y2="260"/>
+  <line class="line" x1="980" y1="260" x2="950" y2="260"/>
+  <line class="line" x1="690" y1="580" x2="690" y2="600"/>
+  
+  <!-- Legend -->
+  <g transform="translate(60,840)">
+    <text class="small muted">
+	  <tspan dx="12">•</tspan>
+	  <tspan>Created: 2025-11-10</tspan>
+	  <tspan dx="12">•</tspan>
+      <tspan>v0.2.0 • EDAAnOWL</tspan>
+      <tspan dx="12">•</tspan>
+      <tspan>Unifies Profile-based and Direct Semantic Models</tspan>
+      <tspan dx="12">•</tspan>
+      <tspan>https://w3id.org/EDAAnOWL/</tspan>
+    </text>
+  </g>
+</svg>
