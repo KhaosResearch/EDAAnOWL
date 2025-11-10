@@ -51,6 +51,19 @@ if %errorlevel% neq 0 (
     goto :eof
 )
 
+echo.
+echo --- 🚀 Running SHACL validation (pyshacl) on EO examples ---
+docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% python3 -m pyshacl ^
+    -s /app/%LATEST_PATH%/shapes/edaan-shapes.ttl ^
+    -e /app/%LATEST_PATH%/EDAAnOWL.ttl ^
+    -m -i rdfs -f human ^
+    /app/%LATEST_PATH%/examples/eo-instances.ttl
+
+if %errorlevel% neq 0 (
+    echo [ERROR] SHACL validation (EO examples) failed.
+    goto :eof
+)
+
 REM
 echo.
 echo --- 🚀 Running OWL consistency validation (ROBOT) ---
@@ -69,6 +82,19 @@ docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% java -jar /opt/robot/robot.jar
 
 if %errorlevel% neq 0 (
     echo [ERROR] ROBOT consistency check failed.
+    goto :eof
+)
+
+echo.
+echo --- 🚀 Running OWL consistency validation (ROBOT) on EO examples ---
+docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% java -jar /opt/robot/robot.jar reason ^
+    --catalog /app/robot-catalog.xml ^
+    --input /app/%LATEST_PATH%/examples/eo-instances.ttl ^
+    --reasoner ELK ^
+    --output /tmp/edaanowl-reasoned-eo.owl
+
+if %errorlevel% neq 0 (
+    echo [ERROR] ROBOT consistency check (EO examples) failed.
     goto :eof
 )
 

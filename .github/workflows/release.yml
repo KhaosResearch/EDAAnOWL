@@ -39,7 +39,7 @@ jobs:
         run: |
           TAG_NO_V=${{ steps.get_version.outputs.VERSION_NO_V }}
           echo "Generating documentation for version $TAG_NO_V"
-          
+
           VOCAB_IMPORTS=""
           VOCAB_FILES=$(ls src/$TAG_NO_V/vocabularies/*.ttl 2>/dev/null || true)
           if [ -n "$VOCAB_FILES" ]; then
@@ -50,7 +50,7 @@ jobs:
           else
             echo "--- No vocabularies found in src/$TAG_NO_V/vocabularies/ ---"
           fi
-          
+
           echo "--- Running Widoco ---"
           java -jar ../../widoco.jar \
             -ontFile EDAAnOWL.ttl \
@@ -73,7 +73,7 @@ jobs:
           V="${{ steps.get_version.outputs.VERSION_NO_V }}"
           shopt -s nullglob
           for f in build/docs/doc/*.html build/docs/doc/*/*.html; do
-            sed -i -E "s|(href=\")https://w3id.org/EDAAnOWL/vocabularies/([A-Za-z0-9._-]+)\"|\\1https://w3id.org/EDAAnOWL/${V}/vocabularies/\\2\"|g" "$f"
+            sed -i -E "s|(href=\")https://w3id.org/EDAAnOWL(/([0-9]+\.[0-9]+\.[0-9]+))?/vocabularies/([A-Za-z0-9._-]+)\"|\\1https://w3id.org/EDAAnOWL/${V}/vocabularies/\\4\"|g" "$f"
           done
 
       - name: Prepare files for deployment
@@ -102,12 +102,24 @@ jobs:
           if [ -n "$(ls src/$DEST_VERSION/vocabularies/*.ttl 2>/dev/null)" ]; then
             cp src/$DEST_VERSION/vocabularies/*.ttl deploy/$DEST_VERSION/vocabularies/
           fi
-          
+
+          echo "Copying shapes..."
+          mkdir -p deploy/$DEST_VERSION/shapes
+          if [ -n "$(ls src/$DEST_VERSION/shapes/*.ttl 2>/dev/null)" ]; then
+            cp src/$DEST_VERSION/shapes/*.ttl deploy/$DEST_VERSION/shapes/
+          fi
+
+          echo "Copying examples..."
+          mkdir -p deploy/$DEST_VERSION/examples
+          if [ -n "$(ls src/$DEST_VERSION/examples/*.ttl 2>/dev/null)" ]; then
+            cp src/$DEST_VERSION/examples/*.ttl deploy/$DEST_VERSION/examples/
+          fi
+
           echo "Copying versioned README.md..."
           if [ -f "src/$DEST_VERSION/README.md" ]; then
             cp "src/$DEST_VERSION/README.md" "deploy/$DEST_VERSION/README.md"
           fi
-          
+
           echo "Copying versioned index.html..."
           if [ -f "src/$DEST_VERSION/index.html" ]; then
             cp "src/$DEST_VERSION/index.html" "deploy/$DEST_VERSION/index.html"
@@ -136,6 +148,6 @@ jobs:
           publish_dir: ${{ steps.prep.outputs.DEPLOY_ROOT }}
           publish_branch: gh-pages
           keep_files: true
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'Deploy: Deploy ${{ steps.get_version.outputs.VERSION_TAG_V }} to gh-pages'
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_message: "Deploy: Deploy ${{ steps.get_version.outputs.VERSION_TAG_V }} to gh-pages"

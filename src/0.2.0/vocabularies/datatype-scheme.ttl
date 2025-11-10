@@ -1,0 +1,42 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://w3id.org/EDAAnOWL/0.2.0/vocabularies/datatype-scheme> a owl:Ontology .
+
+:georaster a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Grid-based geospatial data (satellite imagery, DEM)"@en ;
+    skos:inScheme :DataTypeScheme ;
+    skos:prefLabel "Geospatial Raster"@en .
+
+:geovector a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Vector-based geospatial data (points, lines, polygons)"@en ;
+    skos:inScheme :DataTypeScheme ;
+    skos:prefLabel "Geospatial Vector"@en .
+
+:tabular a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Structured data in rows and columns"@en ;
+    skos:inScheme :DataTypeScheme ;
+    skos:prefLabel "Tabular"@en .
+
+:textual a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Unstructured or semi-structured text data"@en ;
+    skos:inScheme :DataTypeScheme ;
+    skos:prefLabel "Textual"@en .
+
+:timeseries a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Data points indexed in time order"@en ;
+    skos:inScheme :DataTypeScheme ;
+    skos:prefLabel "Time Series"@en .
+
+:DataTypeScheme a owl:NamedIndividual,
+        skos:ConceptScheme ;
+    dct:description "Categories for classifying data types and formats."@en ;
+    dct:title "Data Type Categories"@en .
+
