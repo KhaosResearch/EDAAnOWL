@@ -26,6 +26,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `owl:versionIRI` to `.../0.2.0` and `owl:priorVersion` to `.../0.1.0`.
 - Updated all vocabulary `owl:imports` to point to the `.../0.2.0/` path.
 - Updated `dct:abstract` and `widoco:introduction` to reflect the unified model.
+- **Documentation:** Split the root `README.md` into a user-facing overview (`README.md`) and a developer-facing `ARCHITECTURE.md`.
+
+- Prefix consistency: replaced `ns1:` with `dcat:`; corrected GeoSPARQL prefix to `gsp#`.
+- Datatypes: `dct:modified` typed as `xsd:date`; `:profileCRSRef` set to `xsd:anyURI`.
+- Deprecated: Marked `:spatialGranularity` as deprecated in favor of `:spatialGranularityConcept` (SKOS).
 
 ### Added
 
@@ -33,17 +38,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Validation: New SHACL shape for `ids:Representation` ensuring `dct:format` or `ids:mediaType`.
 - Examples: Extended `eo-instances.ttl` with `ids:representation`, `ids:contractOffer` (ODRL Permission), and `ids:resourceEndpoint`.
 - Root README: Summaries of IDSA & BIGOWL and design rationale for classes/properties in EDAAnOWL.
-
-### Fixed
-
-- Prefix consistency: replaced `ns1:` with `dcat:`; corrected GeoSPARQL prefix to `gsp#`.
-- Datatypes: `dct:modified` typed as `xsd:date`; `:profileCRSRef` set to `xsd:anyURI`.
-- Deprecated: Marked `:spatialGranularity` as deprecated in favor of `:spatialGranularityConcept` (SKOS).
+- `ARCHITECTURE.md` file
 
 ### Removed
 
 - Removed the redundant class `:AnalyticalService` (which was a subclass of `ids:AppResource`). All app/service functionality is now consolidated under the `ids:DataApp` -> `ids:SmartDataApp` hierarchy.
 - Removed the class `:Model` and the object property `:implementsModel`, which were associated with the deprecated `:AnalyticalService` class.
+- Removed redundant prefixes from shapes `edaan-shapes.ttl`
 
 ---
 
