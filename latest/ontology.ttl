@@ -10965,6 +10965,166 @@ A Sample is intended to sample some FatureOfInterest, so there is an expectation
                                                  <https://w3id.org/BIGOWLData/PrimitiveType> .
 
 
+###  https://w3id.org/EDAAnOWL/AgroVocab
+:AgroVocab rdf:type owl:NamedIndividual ,
+                    <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+           <http://purl.org/dc/terms/description> "Specialized vocabulary for agricultural data and applications."@en ;
+           <http://purl.org/dc/terms/title> "Agricultural Domain Vocabulary"@en .
+
+
+###  https://w3id.org/EDAAnOWL/ObservedPropertyScheme
+:ObservedPropertyScheme rdf:type owl:NamedIndividual ,
+                                 <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                        <http://purl.org/dc/terms/description> "Properties that can be observed or measured in datasets."@en ;
+                        <http://purl.org/dc/terms/title> "Observed Properties"@en .
+
+
+###  https://w3id.org/EDAAnOWL/SectorScheme
+:SectorScheme rdf:type owl:NamedIndividual ,
+                       <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+              <http://purl.org/dc/terms/description> "Sectors for tagging data assets and applications by economic or thematic domain."@en ;
+              <http://purl.org/dc/terms/title> "Economic and Domain Sectors"@en .
+
+
+###  https://w3id.org/EDAAnOWL/agriculture
+:agriculture rdf:type owl:NamedIndividual ,
+                      <http://www.w3.org/2004/02/skos/core#Concept> ;
+             <http://www.w3.org/2004/02/skos/core#definition> "Crop production, livestock, and agricultural activities"@en ;
+             <http://www.w3.org/2004/02/skos/core#inScheme> :SectorScheme ;
+             <http://www.w3.org/2004/02/skos/core#prefLabel> "Agriculture"@en .
+
+
+###  https://w3id.org/EDAAnOWL/agro_fertilization
+:agro_fertilization rdf:type owl:NamedIndividual ,
+                             <http://www.w3.org/2004/02/skos/core#Concept> ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "Application of fertilizers to soil"@en ;
+                    <http://www.w3.org/2004/02/skos/core#inScheme> :AgroVocab ;
+                    <http://www.w3.org/2004/02/skos/core#prefLabel> "Fertilization"@en .
+
+
+###  https://w3id.org/EDAAnOWL/agro_harvest
+:agro_harvest rdf:type owl:NamedIndividual ,
+                       <http://www.w3.org/2004/02/skos/core#Concept> ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Crop harvesting activities and timing"@en ;
+              <http://www.w3.org/2004/02/skos/core#inScheme> :AgroVocab ;
+              <http://www.w3.org/2004/02/skos/core#prefLabel> "Harvest"@en .
+
+
+###  https://w3id.org/EDAAnOWL/agro_irrigation
+:agro_irrigation rdf:type owl:NamedIndividual ,
+                          <http://www.w3.org/2004/02/skos/core#Concept> ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Artificial application of water to land"@en ;
+                 <http://www.w3.org/2004/02/skos/core#inScheme> :AgroVocab ;
+                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Irrigation"@en .
+
+
+###  https://w3id.org/EDAAnOWL/agro_maize
+:agro_maize rdf:type owl:NamedIndividual ,
+                     <http://www.w3.org/2004/02/skos/core#Concept> ;
+            <http://www.w3.org/2004/02/skos/core#broader> :agriculture ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Corn, Zea mays"@en ;
+            <http://www.w3.org/2004/02/skos/core#inScheme> :AgroVocab ;
+            <http://www.w3.org/2004/02/skos/core#prefLabel> "Maize"@en .
+
+
+###  https://w3id.org/EDAAnOWL/agro_olive
+:agro_olive rdf:type owl:NamedIndividual ,
+                     <http://www.w3.org/2004/02/skos/core#Concept> ;
+            <http://www.w3.org/2004/02/skos/core#broader> :agriculture ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Olive tree cultivation and oil production"@en ;
+            <http://www.w3.org/2004/02/skos/core#inScheme> :AgroVocab ;
+            <http://www.w3.org/2004/02/skos/core#prefLabel> "Olive"@en .
+
+
+###  https://w3id.org/EDAAnOWL/agro_wheat
+:agro_wheat rdf:type owl:NamedIndividual ,
+                     <http://www.w3.org/2004/02/skos/core#Concept> ;
+            <http://www.w3.org/2004/02/skos/core#broader> :agriculture ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Cereal grain, genus Triticum"@en ;
+            <http://www.w3.org/2004/02/skos/core#inScheme> :AgroVocab ;
+            <http://www.w3.org/2004/02/skos/core#prefLabel> "Wheat"@en .
+
+
+###  https://w3id.org/EDAAnOWL/energy
+:energy rdf:type owl:NamedIndividual ,
+                 <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#definition> "Energy production, distribution, and consumption"@en ;
+        <http://www.w3.org/2004/02/skos/core#inScheme> :SectorScheme ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel> "Energy"@en .
+
+
+###  https://w3id.org/EDAAnOWL/health
+:health rdf:type owl:NamedIndividual ,
+                 <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2004/02/skos/core#definition> "Healthcare, medical services, and public health"@en ;
+        <http://www.w3.org/2004/02/skos/core#inScheme> :SectorScheme ;
+        <http://www.w3.org/2004/02/skos/core#prefLabel> "Health"@en .
+
+
+###  https://w3id.org/EDAAnOWL/ndvi
+:ndvi rdf:type owl:NamedIndividual ,
+               <http://www.w3.org/2004/02/skos/core#Concept> ;
+      <http://www.w3.org/2004/02/skos/core#definition> "Normalized Difference Vegetation Index"@en ;
+      <http://www.w3.org/2004/02/skos/core#inScheme> :ObservedPropertyScheme ;
+      <http://www.w3.org/2004/02/skos/core#prefLabel> "NDVI"@en .
+
+
+###  https://w3id.org/EDAAnOWL/occupancy
+:occupancy rdf:type owl:NamedIndividual ,
+                    <http://www.w3.org/2004/02/skos/core#Concept> ;
+           <http://www.w3.org/2004/02/skos/core#definition> "Usage or occupation rate of facilities"@en ;
+           <http://www.w3.org/2004/02/skos/core#inScheme> :ObservedPropertyScheme ;
+           <http://www.w3.org/2004/02/skos/core#prefLabel> "Occupancy"@en .
+
+
+###  https://w3id.org/EDAAnOWL/precipitation
+:precipitation rdf:type owl:NamedIndividual ,
+                        <http://www.w3.org/2004/02/skos/core#Concept> ;
+               <http://www.w3.org/2004/02/skos/core#definition> "Rainfall, snowfall, or other forms of moisture"@en ;
+               <http://www.w3.org/2004/02/skos/core#inScheme> :ObservedPropertyScheme ;
+               <http://www.w3.org/2004/02/skos/core#prefLabel> "Precipitation"@en .
+
+
+###  https://w3id.org/EDAAnOWL/repiloIncidence
+:repiloIncidence rdf:type owl:NamedIndividual ,
+                          <http://www.w3.org/2004/02/skos/core#Concept> ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Predicted incidence of Repilo disease"@en ;
+                 <http://www.w3.org/2004/02/skos/core#inScheme> :ObservedPropertyScheme ;
+                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Repilo Incidence"@en .
+
+
+###  https://w3id.org/EDAAnOWL/temperature
+:temperature rdf:type owl:NamedIndividual ,
+                      <http://www.w3.org/2004/02/skos/core#Concept> ;
+             <http://www.w3.org/2004/02/skos/core#definition> "Thermal measurement in degrees"@en ;
+             <http://www.w3.org/2004/02/skos/core#inScheme> :ObservedPropertyScheme ;
+             <http://www.w3.org/2004/02/skos/core#prefLabel> "Temperature"@en .
+
+
+###  https://w3id.org/EDAAnOWL/tourism
+:tourism rdf:type owl:NamedIndividual ,
+                  <http://www.w3.org/2004/02/skos/core#Concept> ;
+         <http://www.w3.org/2004/02/skos/core#definition> "Travel, hospitality, and tourism services"@en ;
+         <http://www.w3.org/2004/02/skos/core#inScheme> :SectorScheme ;
+         <http://www.w3.org/2004/02/skos/core#prefLabel> "Tourism"@en .
+
+
+###  https://w3id.org/EDAAnOWL/transport
+:transport rdf:type owl:NamedIndividual ,
+                    <http://www.w3.org/2004/02/skos/core#Concept> ;
+           <http://www.w3.org/2004/02/skos/core#definition> "Transportation and logistics services"@en ;
+           <http://www.w3.org/2004/02/skos/core#inScheme> :SectorScheme ;
+           <http://www.w3.org/2004/02/skos/core#prefLabel> "Transport"@en .
+
+
+###  https://w3id.org/EDAAnOWL/yield
+:yield rdf:type owl:NamedIndividual ,
+                <http://www.w3.org/2004/02/skos/core#Concept> ;
+       <http://www.w3.org/2004/02/skos/core#definition> "Amount of crop produced per unit area"@en ;
+       <http://www.w3.org/2004/02/skos/core#inScheme> :ObservedPropertyScheme ;
+       <http://www.w3.org/2004/02/skos/core#prefLabel> "Crop Yield"@en .
+
+
 ###  https://w3id.org/idsa/code/AA
 <https://w3id.org/idsa/code/AA> rdf:type owl:NamedIndividual ,
                                          <https://w3id.org/idsa/core/Language> ;

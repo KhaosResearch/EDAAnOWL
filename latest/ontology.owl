@@ -17564,6 +17564,246 @@ A Sample is intended to sample some FatureOfInterest, so there is an expectation
     
 
 
+    <!-- https://w3id.org/EDAAnOWL/AgroVocab -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/AgroVocab">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <terms:description xml:lang="en">Specialized vocabulary for agricultural data and applications.</terms:description>
+        <terms:title xml:lang="en">Agricultural Domain Vocabulary</terms:title>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/ObservedPropertyScheme -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/ObservedPropertyScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <terms:description xml:lang="en">Properties that can be observed or measured in datasets.</terms:description>
+        <terms:title xml:lang="en">Observed Properties</terms:title>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/SectorScheme -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/SectorScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <terms:description xml:lang="en">Sectors for tagging data assets and applications by economic or thematic domain.</terms:description>
+        <terms:title xml:lang="en">Economic and Domain Sectors</terms:title>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/agriculture -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/agriculture">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Crop production, livestock, and agricultural activities</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/SectorScheme"/>
+        <skos:prefLabel xml:lang="en">Agriculture</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/agro_fertilization -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/agro_fertilization">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Application of fertilizers to soil</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/AgroVocab"/>
+        <skos:prefLabel xml:lang="en">Fertilization</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/agro_harvest -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/agro_harvest">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Crop harvesting activities and timing</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/AgroVocab"/>
+        <skos:prefLabel xml:lang="en">Harvest</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/agro_irrigation -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/agro_irrigation">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Artificial application of water to land</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/AgroVocab"/>
+        <skos:prefLabel xml:lang="en">Irrigation</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/agro_maize -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/agro_maize">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/EDAAnOWL/agriculture"/>
+        <skos:definition xml:lang="en">Corn, Zea mays</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/AgroVocab"/>
+        <skos:prefLabel xml:lang="en">Maize</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/agro_olive -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/agro_olive">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/EDAAnOWL/agriculture"/>
+        <skos:definition xml:lang="en">Olive tree cultivation and oil production</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/AgroVocab"/>
+        <skos:prefLabel xml:lang="en">Olive</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/agro_wheat -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/agro_wheat">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/EDAAnOWL/agriculture"/>
+        <skos:definition xml:lang="en">Cereal grain, genus Triticum</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/AgroVocab"/>
+        <skos:prefLabel xml:lang="en">Wheat</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/energy -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/energy">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Energy production, distribution, and consumption</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/SectorScheme"/>
+        <skos:prefLabel xml:lang="en">Energy</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/health -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/health">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Healthcare, medical services, and public health</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/SectorScheme"/>
+        <skos:prefLabel xml:lang="en">Health</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/ndvi -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/ndvi">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Normalized Difference Vegetation Index</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/ObservedPropertyScheme"/>
+        <skos:prefLabel xml:lang="en">NDVI</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/occupancy -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/occupancy">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Usage or occupation rate of facilities</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/ObservedPropertyScheme"/>
+        <skos:prefLabel xml:lang="en">Occupancy</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/precipitation -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/precipitation">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Rainfall, snowfall, or other forms of moisture</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/ObservedPropertyScheme"/>
+        <skos:prefLabel xml:lang="en">Precipitation</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/repiloIncidence -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/repiloIncidence">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Predicted incidence of Repilo disease</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/ObservedPropertyScheme"/>
+        <skos:prefLabel xml:lang="en">Repilo Incidence</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/temperature -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/temperature">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Thermal measurement in degrees</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/ObservedPropertyScheme"/>
+        <skos:prefLabel xml:lang="en">Temperature</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/tourism -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/tourism">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Travel, hospitality, and tourism services</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/SectorScheme"/>
+        <skos:prefLabel xml:lang="en">Tourism</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/transport -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/transport">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Transportation and logistics services</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/SectorScheme"/>
+        <skos:prefLabel xml:lang="en">Transport</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/yield -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/yield">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:definition xml:lang="en">Amount of crop produced per unit area</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/ObservedPropertyScheme"/>
+        <skos:prefLabel xml:lang="en">Crop Yield</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/idsa/code/AA -->
 
 
