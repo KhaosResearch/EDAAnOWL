@@ -1,4 +1,4 @@
-# EDAAnOWL — (v0.2.0)
+# EDAAnOWL
 
 [![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/release.yml/badge.svg)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/release.yml)
 
