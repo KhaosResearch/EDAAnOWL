@@ -79,7 +79,6 @@ Figure: High-level architecture showing how EDAAnOWL maps IDSA concepts (DataApp
   - Post-processes the HTML (`sed`) to ensure all vocabulary links are correctly versioned.
   - Publishes all artifacts (docs, vocabs, RDF serializations) to the `gh-pages` branch.
 - **Versioning**: Supports a `latest` development version and immutable, versioned snapshots (e.g., `/0.0.1/`).
-  ![alt text](images/eda-an-architecture-en.svg)
 
 ---
 
