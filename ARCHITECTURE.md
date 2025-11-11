@@ -60,7 +60,8 @@ Figure: High-level architecture showing how EDAAnOWL maps IDSA concepts (DataApp
 This repository uses a `dev` -> `main` -> `gh-pages` git flow.
 
 - **`main` branch**:
-  > [!CAUTION] **Do NOT commit directly here.** All changes must come from the `dev` branch via a Pull Request.
+  > [!CAUTION]
+  > **Do NOT commit directly here.** All changes must come from the `dev` branch via a Pull Request.
   
   - **Purpose**: This branch represents the most recent _stable, released_ version of the ontology.
     
@@ -79,8 +80,9 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
     - Same as `main`, but may contain the _next_ unreleased version folder (e.g., `src/0.0.3/`) while it is in progress.
 
 - **`gh-pages` branch**:
-  > [!CAUTION] **AUTO-GENERATED. DO NOT EDIT MANUALLY.**
-  
+  > [!CAUTION]
+  > **AUTO-GENERATED. DO NOT EDIT MANUALLY.**
+
   - **Purpose**: This branch contains the static output of the `release.yml` workflow. It hosts the public-facing documentation and RDF files served by GitHub Pages.
   
     
