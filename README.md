@@ -26,8 +26,11 @@ The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches th
   - Usage control with contracts and rules (ODRL-based), endpoints for access, and participant/connector/security profiles.
 - **Why we reuse it**: We want assets and apps to be discoverable and governable across Data Spaces without reinventing core notions (resource taxonomy, representation, policies, endpoints). Aligning with IDSA ensures compatibility with IDS-based tooling and documentation.
 - **References**:
-  - IDSA IM docs: `https://international-data-spaces-association.github.io/InformationModel/docs/index.html#Resource`
-  - Figures (examples): Resource taxonomy (Fig. 3.15), Data App content view (Fig. 3.32), Data App taxonomy (Fig. 3.34).
+  - IDSA IM docs: [https://international-data-spaces-association.github.io/InformationModel/docs/index.html#Resource](https://international-data-spaces-association.github.io/InformationModel/docs/index.html#Resource)
+  - Figures (examples): 
+    - Resource taxonomy ([Fig. 3.15](https://international-data-spaces-association.github.io/InformationModel/images/Figure_3_15_Taxonomy_of_the_resource_concept.png))
+    - Data App content view ([Fig. 3.32](https://international-data-spaces-association.github.io/InformationModel/images/Figure_3_32_Content_view_of_the_Data_App_resource.png))
+    - Data App taxonomy ([Fig. 3.34](https://international-data-spaces-association.github.io/InformationModel/images/Figure_3_34_Data_App_taxonomy.png)).
 
 ### BIGOWL (what/why/how)
 
@@ -93,7 +96,7 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
 - **Main Ontology**: A semantic "bridge" linking `ids:DataApp` to `bigwf:Component` (from BIGOWL).
 - **Profile Model**: A `:DataProfile` class to describe the data "signatures" (inputs/outputs) of assets.
 - **Modular Vocabularies**: Separate, resolvable SKOS vocabularies for domains, observed properties, etc., versioned alongside the main ontology.
-- **Persistent Identifiers**: All ontology and vocabulary modules are resolvable via `https://w3id.org/EDAAnOWL/` for robust content negotiation.
+- **Persistent Identifiers**: All ontology and vocabulary modules are resolvable via [https://w3id.org/EDAAnOWL/](https://w3id.org/EDAAnOWL/) for robust content negotiation.
 - **Automated Documentation & CI/CD**: A GitHub Actions workflow (`release.yml`) that, upon creating a new release:
   - Generates a dynamic `catalog-v0.xml` to resolve all imports.
   - Builds comprehensive HTML documentation with **Widoco**.
