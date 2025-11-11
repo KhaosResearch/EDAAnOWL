@@ -122,26 +122,5 @@ EDAAnOWL bridges three key layers:
 
 ## ✍️ How to Cite
 
-If you use this ontology in your work, please cite it as:
+Use the **“Cite this repository”** button on the right (GitHub sidebar), which is generated from our `CITATION.cff`. It provides BibTeX, APA, and more.
 
-```text
-Martín Salvachúa. (2025). EDAAnOWL: A Pilot Ontology for the Semantic Exploitation of Data Assets
-in the Agri-food (EDAA) Context [Computer software]. Version 0.2.0. Khaos Research Group,
-University of Málaga. https://w3id.org/EDAAnOWL/
-```
-
-Or using BibTeX:
-
-```bibtex
-@software{edaanowl_2025,
-  author       = {Martín Salvachúa},
-  title        = {{EDAAnOWL}: A Pilot Ontology for the Semantic Exploitation of Data Assets in the {Agri-food} {(EDAA)} Context},
-  year         = {2025},
-  publisher    = {Khaos Research Group, University of Málaga},
-  version      = {0.2.0},
-  url          = {https://w3id.org/EDAAnOWL/},
-  type         = {Ontology},
-  keywords     = {semantic web, data spaces, IDSA, BIGOWL, agri-food},
-  note         = {An ontology for semantic exploitation of data assets, aligned with IDSA Information Model and BIGOWL}
-}
-```
