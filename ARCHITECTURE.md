@@ -59,13 +59,18 @@ Figure: High-level architecture showing how EDAAnOWL maps IDSA concepts (DataApp
 
 This repository uses a `dev` -> `main` -> `gh-pages` git flow.
 
+> [!CAUTION]
+> **Do NOT commit directly in `main` branch.** All changes must come from the `dev` branch via a Pull Request.
+
+> [!CAUTION]
+> **`gh-pages` branch is AUTO-GENERATED. DO NOT EDIT MANUALLY.**
+
 - **`main` branch**:
-  > [!CAUTION]
-  > **Do NOT commit directly here.** All changes must come from the `dev` branch via a Pull Request.
-  
+
   - **Purpose**: This branch represents the most recent _stable, released_ version of the ontology.
-    
+  
   - Creating a "Release" from this branch triggers the `gh-pages` deployment.
+
   - **Structure**:
     - `/src/`
       - `0.0.1/` (Ontology and vocabs for v0.0.1)
@@ -76,16 +81,14 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
 
   - **Purpose**: This is the main **development branch**. All new features, fixes, and preparations for the _next_ version happen here.
   - All Pull Requests should be targeted at `dev`.
+  
   - **Structure**:
     - Same as `main`, but may contain the _next_ unreleased version folder (e.g., `src/0.0.3/`) while it is in progress.
 
 - **`gh-pages` branch**:
-  > [!CAUTION]
-  > **AUTO-GENERATED. DO NOT EDIT MANUALLY.**
 
   - **Purpose**: This branch contains the static output of the `release.yml` workflow. It hosts the public-facing documentation and RDF files served by GitHub Pages.
-  
-    
+
   - **Structure**:
 
     - `/latest/` (A mirror of the most recent version)
@@ -93,8 +96,9 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
     - `/0.0.2/` (A snapshot of the v0.0.2 documentation and files)
     - `.nojekyll` (Disables Jekyll on GitHub Pages)
 
-  - **Feature Branches (e.g., `feat/my-fix`)**:
-    - **Purpose**: Temporary branches for new work. They should be based on `dev` and merged back into `dev` via a Pull Request.
+- **Feature Branches (e.g., `feat/my-fix`)**:
+
+  - **Purpose**: Temporary branches for new work. They should be based on `dev` and merged back into `dev` via a Pull Request.
 
 ---
 
