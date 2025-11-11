@@ -60,11 +60,10 @@ Figure: High-level architecture showing how EDAAnOWL maps IDSA concepts (DataApp
 This repository uses a `dev` -> `main` -> `gh-pages` git flow.
 
 - **`main` branch**:
-
+  > [!CAUTION] **Do NOT commit directly here.** All changes must come from the `dev` branch via a Pull Request.
+  
   - **Purpose**: This branch represents the most recent _stable, released_ version of the ontology.
-    > [!CAUTION]
-    >
-    > - **Do NOT commit directly here.** All changes must come from the `dev` branch via a Pull Request.
+    
   - Creating a "Release" from this branch triggers the `gh-pages` deployment.
   - **Structure**:
     - `/src/`
@@ -80,22 +79,20 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
     - Same as `main`, but may contain the _next_ unreleased version folder (e.g., `src/0.0.3/`) while it is in progress.
 
 - **`gh-pages` branch**:
+  > [!CAUTION] **AUTO-GENERATED. DO NOT EDIT MANUALLY.**
+  
+  - **Purpose**: This branch contains the static output of the `release.yml` workflow. It hosts the public-facing documentation and RDF files served by GitHub Pages.
+  
+    
+  - **Structure**:
 
-> [!CAUTION]
->
-> - **Purpose**: **AUTO-GENERATED. DO NOT EDIT MANUALLY.**
+    - `/latest/` (A mirror of the most recent version)
+    - `/0.0.1/` (A snapshot of the v0.0.1 documentation and files)
+    - `/0.0.2/` (A snapshot of the v0.0.2 documentation and files)
+    - `.nojekyll` (Disables Jekyll on GitHub Pages)
 
-- This branch contains the static output of the `release.yml` workflow.
-- It hosts the public-facing documentation and RDF files served by GitHub Pages.
-- **Structure**:
-
-  - `/latest/` (A mirror of the most recent version)
-  - `/0.0.1/` (A snapshot of the v0.0.1 documentation and files)
-  - `/0.0.2/` (A snapshot of the v0.0.2 documentation and files)
-  - `.nojekyll` (Disables Jekyll on GitHub Pages)
-
-- **Feature Branches (e.g., `feat/my-fix`)**:
-  - **Purpose**: Temporary branches for new work. They should be based on `dev` and merged back into `dev` via a Pull Request.
+  - **Feature Branches (e.g., `feat/my-fix`)**:
+    - **Purpose**: Temporary branches for new work. They should be based on `dev` and merged back into `dev` via a Pull Request.
 
 ---
 
