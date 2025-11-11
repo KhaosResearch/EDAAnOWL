@@ -4,7 +4,7 @@
 
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-1f6feb)](https://khaosresearch.github.io/EDAAnOWL/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Latest Release](https://img.shields.io/github/v/release/KhaosResearch/EDAAnOWL?include_prereleases)](https://github.com/KhaosResearch/EDAAnOWL/releases)
+[![Latest Release](https://img.shields.io/github/v/release/KhaosResearch/EDAAnOWL)](https://github.com/KhaosResearch/EDAAnOWL/releases)
 
 A pilot ontology for the semantic exploitation of data assets in the Agri-food (EDAA) context, aligned with the IDSA Information Model and the BIGOWL ontology.
 

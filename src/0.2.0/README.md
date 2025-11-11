@@ -57,7 +57,7 @@ graph TD
 
 ## 🖼 Visual summary
 
-![EDAAnOWL architecture — IDS ↔ BIGOWL (high-level)](../../docs/images/eda-an-architecture-en.svg)
+![EDAAnOWL architecture — IDS ↔ BIGOWL (high-level)](../../images/eda-an-architecture-en.svg)
 
 Short: high-level mapping of IDSA ↔ EDAAnOWL ↔ BIGOWL and publication via DCAT/Policies.
 
