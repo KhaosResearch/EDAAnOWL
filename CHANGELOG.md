@@ -17,6 +17,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.1] - 2025-11-10
+
+### Added
+
+- Added bibliographic metadata: `dct:bibliographicCitation` was added to the ontology header.
+- Added a `schema:image` annotation pointing at the architecture diagram hosted on GitHub (annotation triple using `<https://schema.org/image>`).
+
+With this both annotations we help to widoco to generate a better documentation for EDAAnOWL ontology.
+
+### Removed
+
+- The `-includeImportedOntologies` parameter has been removed from the widoco command for generating ontology documentation in `release.yml`. Now widoco will only generate specific documentation based on our ontology and will not describe imported external ontologies.
+
+---
+
 ## [0.2.0] - 2025-11-10
 
 ### Changed
@@ -83,8 +98,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
----
-
 ## [0.0.1] - 2025-11-03
 
 ### Added
@@ -105,7 +118,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.0.1...v0.1.0
 [0.0.1]: https://github.com/KhaosResearch/EDAAnOWL/releases/tag/v0.0.1

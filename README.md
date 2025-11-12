@@ -9,7 +9,7 @@
 A pilot ontology for the semantic exploitation of data assets in the Agri-food (EDAA) context, aligned with the IDSA Information Model and the BIGOWL ontology.
 
 > [!NOTE]
-> Latest stable: see `src/0.2.0/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
+> Latest stable: see `src/0.2.1/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
 
 The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches the description of Data Space assets. It allows for modeling the functional profile (inputs, outputs, parameters) of `ids:DataApp` and `ids:DataResource`, facilitating their semantic discovery, composition into complex services, and compatibility validation.
 
