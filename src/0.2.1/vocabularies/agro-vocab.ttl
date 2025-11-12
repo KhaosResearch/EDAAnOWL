@@ -1,0 +1,56 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@base <https://w3id.org/EDAAnOWL/0.2.1/vocabularies/agro-vocab> .
+
+<https://w3id.org/EDAAnOWL/0.2.1/vocabularies/agro-vocab> rdf:type owl:Ontology ;
+    owl:imports <https://w3id.org/EDAAnOWL/0.2.1/vocabularies/sector-scheme> ;
+    dct:title "Agricultural Domain Vocabulary"@en ;
+    dct:description "Specialized vocabulary for agricultural data and applications."@en .
+
+:AgroVocab rdf:type owl:NamedIndividual ,
+                    skos:ConceptScheme ;
+           dct:description "Specialized vocabulary for agricultural data and applications."@en ;
+           dct:title "Agricultural Domain Vocabulary"@en .
+
+:agro_fertilization rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:definition "Application of fertilizers to soil"@en ;
+                    skos:inScheme :AgroVocab ;
+                    skos:prefLabel "Fertilization"@en .
+
+:agro_harvest rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:definition "Crop harvesting activities and timing"@en ;
+              skos:inScheme :AgroVocab ;
+              skos:prefLabel "Harvest"@en .
+
+:agro_irrigation rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:definition "Artificial application of water to land"@en ;
+                 skos:inScheme :AgroVocab ;
+                 skos:prefLabel "Irrigation"@en .
+
+:agro_maize rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader :agriculture ;
+            skos:definition "Corn, Zea mays"@en ;
+            skos:inScheme :AgroVocab ;
+            skos:prefLabel "Maize"@en .
+
+:agro_olive rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader :agriculture ;
+            skos:definition "Olive tree cultivation and oil production"@en ;
+            skos:inScheme :AgroVocab ;
+            skos:prefLabel "Olive"@en .
+
+:agro_wheat rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader :agriculture ;
+            skos:definition "Cereal grain, genus Triticum"@en ;
+            skos:inScheme :AgroVocab ;
+            skos:prefLabel "Wheat"@en .

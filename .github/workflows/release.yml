@@ -61,7 +61,6 @@ jobs:
             -rewriteAll \
             -htaccess \
             -uniteSections \
-            -includeImportedOntologies \
             -includeAnnotationProperties \
             $VOCAB_IMPORTS
         working-directory: ./src/${{ steps.get_version.outputs.VERSION_NO_V }}

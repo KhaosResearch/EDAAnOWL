@@ -194,25 +194,14 @@
               We will automatically take you to the most recent stable version.
             </p>
             <div class="versions">
-              <a class="btn" id="go-latest" href="./0.2.0/">Go to v0.2.0</a>
-              <button
-                class="btn btn--ghost"
-                id="cancel-redirect"
-                title="Stop auto-redirect"
-              >
-                Stay here
-              </button>
+              <a class="btn" id="go-latest" href="./0.2.1/">Open latest docs (v0.2.1)</a>
             </div>
-            <p style="margin-top: 10px; color: var(--muted)">
-              <span class="badge">Auto-redirect</span> In 5s you will be
-              redirected to <code>v0.2.0/</code> (use “Stay here” or add
-              <code>#stay</code> to the URL to cancel).
-            </p>
           </div>
           <div class="panel">
             <h3>Available versions</h3>
             <ul class="list">
               <li>latest — <a href="./latest/">Open docs</a></li>
+              <li>v0.2.1 — <a href="./0.2.1/">Open docs</a></li>
               <li>v0.2.0 — <a href="./0.2.0/">Open docs</a></li>
               <li>v0.1.0 — <a href="./0.1.0/">Open docs</a></li>
               <li>v0.0.1 — <a href="./0.0.1/">Open docs</a></li>
@@ -223,23 +212,8 @@
     </main>
     <footer>© 2025 · EDAAnOWL</footer>
     <script>
-      var LATEST_PATH = "./0.2.0/";
-      var REDIRECT_MS = 5000;
-      function go() {
-        window.location.assign(LATEST_PATH);
-      }
-      function cancel() {
-        window.__stay = true;
-        history.replaceState(null, "", location.pathname + "#stay");
-        clearTimeout(window.__timer);
-      }
+      var LATEST_PATH = "./latest/";
       document.getElementById("go-latest").setAttribute("href", LATEST_PATH);
-      document
-        .getElementById("cancel-redirect")
-        .addEventListener("click", cancel);
-      if (!location.hash.includes("stay")) {
-        window.__timer = setTimeout(go, REDIRECT_MS);
-      }
     </script>
   </body>
 </html>
