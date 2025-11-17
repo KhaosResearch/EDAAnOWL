@@ -9,7 +9,7 @@
 A pilot ontology for the semantic exploitation of data assets in the Agri-food (EDAA) context, aligned with the IDSA Information Model and the BIGOWL ontology.
 
 > [!NOTE]
-> Latest stable: see `src/0.2.1/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
+> Latest stable: see `src/0.3.0/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
 
 The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches the description of Data Space assets. It allows for modeling the functional profile (inputs, outputs, parameters) of `ids:DataApp` and `ids:DataResource`, facilitating their semantic discovery, composition into complex services, and compatibility validation.
 
@@ -27,7 +27,7 @@ The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches th
 - **Why we reuse it**: We want assets and apps to be discoverable and governable across Data Spaces without reinventing core notions (resource taxonomy, representation, policies, endpoints). Aligning with IDSA ensures compatibility with IDS-based tooling and documentation.
 - **References**:
   - IDSA IM docs: [https://international-data-spaces-association.github.io/InformationModel/docs/index.html#Resource](https://international-data-spaces-association.github.io/InformationModel/docs/index.html#Resource)
-  - Figures (examples): 
+  - Figures (examples):
     - Resource taxonomy ([Fig. 3.15](https://international-data-spaces-association.github.io/InformationModel/images/Figure_3_15_Taxonomy_of_the_resource_concept.png))
     - Data App content view ([Fig. 3.32](https://international-data-spaces-association.github.io/InformationModel/images/Figure_3_32_Content_view_of_the_Data_App_resource.png))
     - Data App taxonomy ([Fig. 3.34](https://international-data-spaces-association.github.io/InformationModel/images/Figure_3_34_Data_App_taxonomy.png)).
@@ -123,4 +123,3 @@ EDAAnOWL bridges three key layers:
 ## ✍️ How to Cite
 
 Use the **“Cite this repository”** button on the right (GitHub sidebar), which is generated from our `CITATION.cff`. It provides BibTeX, APA, and more.
-

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EDAAnOWL v0.3.0 – Docs</title>
+    <meta
+      name="description"
+      content="Static documentation for GitHub Pages rendering README.md (v0.3.0)."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+      :root {
+        --maxw: 960px;
+      }
+      body {
+        margin: 0;
+        background: #0b1220;
+        color: #e6edf3;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, Apple Color Emoji,
+          Segoe UI Emoji, Segoe UI Symbol;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+        background: rgba(11, 18, 32, 0.75);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 16px 20px;
+      }
+      .title {
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.2px;
+      }
+      .sub {
+        opacity: 0.75;
+        font-size: 12px;
+        margin-top: 2px;
+      }
+      main {
+        display: flex;
+        justify-content: center;
+      }
+      .card {
+        width: 100%;
+        max-width: var(--maxw);
+        margin: 24px;
+        padding: 0;
+        border-radius: 14px;
+        background: #0f162a;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08),
+          0 20px 45px rgba(0, 0, 0, 0.35);
+      }
+      .hero {
+        padding: 28px 28px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .hero h1 {
+        margin: 0 0 8px;
+        font-size: 26px;
+      }
+      .hero p {
+        margin: 0 0 14px;
+        opacity: 0.8;
+      }
+      .content {
+        padding: 24px;
+      }
+      .markdown-body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 100%;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4 {
+        color: #e6edf3;
+      }
+      .markdown-body pre code {
+        border-radius: 10px;
+      }
+      footer {
+        text-align: center;
+        opacity: 0.6;
+        font-size: 12px;
+        padding: 24px;
+      }
+      .badge {
+        display: inline-block;
+        background: #1f6feb;
+        color: white;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        margin-right: 6px;
+      }
+      .nav-link {
+        display: inline-block;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #e6edf3;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        transition: background 0.2s;
+      }
+      .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .header-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      @media (max-width: 768px) {
+        .card {
+          margin: 12px;
+        }
+        .hero h1 {
+          font-size: 22px;
+        }
+        .header-flex {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap header-flex">
+        <div>
+          <div class="title">EDAAnOWL v0.3.0 – Docs</div>
+          <div class="sub">Rendered from local <code>README.md</code></div>
+        </div>
+        <a href="../" class="nav-link">‹ Back to Versions</a>
+      </div>
+    </header>
+    <main>
+      <article class="card">
+        <section class="hero">
+          <h1>EDAAnOWL v0.3.0</h1>
+          <p>
+            Documentation rendered from README.md (Unified IDSA branch +
+            semantic/profile models).
+          </p>
+          <span class="badge" style="background: #238636">v0.3.0</span>
+        </section>
+        <section class="content">
+          <div id="md" class="markdown-body">Loading README…</div>
+        </section>
+      </article>
+    </main>
+    <footer>© 2025 · Built for GitHub Pages</footer>
+    <script>
+      async function loadReadme() {
+        try {
+          const res = await fetch("README.md", { cache: "no-store" });
+          if (!res.ok) throw new Error("Could not load README.md");
+          const md = await res.text();
+          marked.setOptions({ breaks: true });
+          const html = marked.parse(md);
+          const el = document.getElementById("md");
+          el.innerHTML = html;
+          document
+            .querySelectorAll("pre code")
+            .forEach((block) => hljs.highlightElement(block));
+        } catch (err) {
+          document.getElementById("md").innerHTML =
+            "<p>Could not load README.md.</p><pre>" +
+            (err?.message || err) +
+            "</pre>";
+        }
+      }
+      loadReadme();
+    </script>
+  </body>
+</html>
