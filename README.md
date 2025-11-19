@@ -10,6 +10,7 @@ A pilot ontology for the semantic exploitation of data assets in the Agri-food (
 
 > [!NOTE]
 > Latest stable: see `src/0.3.0/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
+> Check out the `demo/` folder for a practical example of transforming a DCAT catalog to EDAAnOWL RDF.
 
 The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches the description of Data Space assets. It allows for modeling the functional profile (inputs, outputs, parameters) of `ids:DataApp` and `ids:DataResource`, facilitating their semantic discovery, composition into complex services, and compatibility validation.
 
@@ -63,8 +64,8 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
 
 - **Data properties (motivations)**
 
-  - `:profileCRS` and `:profileCRSRef`: Explicit CRS as string and IRI; we recommend the IRI form (`xsd:anyURI`) for unambiguous validation.
-  - `:profileSpatialResolution`, `:profileTemporalResolution`: Required to capture EO and time-series constraints for practical matchmaking.
+  - `:hasCRS`: Links to a formal Coordinate Reference System (e.g., EPSG URI).
+  - `dcat:spatialResolutionInMeters`, `dcat:temporalResolution`: Adopted from DCAT 3 to capture EO and time-series constraints for practical matchmaking.
   - `:supportContact`: Operational contact—crucial in Data Spaces to support consumers.
   - Metrics (`:Metric` and subtypes with `:metricName`/`:metricValue`/`:metricUnit`/`:computedAt`): Allows publishing quality/performance indicators relevant to governance and selection.
 

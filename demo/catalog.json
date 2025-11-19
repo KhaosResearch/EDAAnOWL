@@ -1,0 +1,420 @@
+[
+    {
+        "@id": "42c000d8-aa37-427d-b5ec-aa215874510d",
+        "@type": "dcat:Catalog",
+        "dcat:dataset": [
+            {
+                "@id": "YieldPrediction1.0.0",
+                "@type": "dcat:Dataset",
+                "odrl:hasPolicy": {
+                    "@id": "WWllbGQtUHJlZGljdA==:WWllbGRQcmVkaWN0aW9uMS4wLjA=:MzQ1NjE0NjYtOGIwOC00YmM1LTg3MTktMWY1YjZlNTE5MDI5",
+                    "@type": "odrl:Offer",
+                    "odrl:permission": {
+                        "odrl:action": {
+                            "@id": "USE"
+                        },
+                        "odrl:constraint": {
+                            "odrl:and": [
+                                {
+                                    "odrl:leftOperand": {
+                                        "@id": "POLICY_PARTICIPANT_ID"
+                                    },
+                                    "odrl:operator": {
+                                        "@id": "odrl:eq"
+                                    },
+                                    "odrl:rightOperand": "did:web:KHAOS_1_ih%3A19194:KHAOS_1"
+                                },
+                                {
+                                    "odrl:or": {
+                                        "odrl:leftOperand": {
+                                            "@id": "POLICY_EVALUATION_TIME"
+                                        },
+                                        "odrl:operator": {
+                                            "@id": "odrl:lt"
+                                        },
+                                        "odrl:rightOperand": "2025-12-31"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "odrl:prohibition": [],
+                    "odrl:obligation": []
+                },
+                "dcat:distribution": [
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "HttpData-PULL"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    },
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "HttpData-PUSH"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    },
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "AmazonS3-PUSH"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    }
+                ],
+                "dct:license": "https://creativecommons.org/licenses/by-nd/4.0/",
+                "dcat:keyword": [
+                    "SARIMAX",
+                    "RandomForest",
+                    "EnsembleModel",
+                    "forecasting",
+                    "agriculture",
+                    "crops",
+                    "agrotech",
+                    "timeseries"
+                ],
+                "dcat:version": "1.0.0",
+                "dct:creator": {
+                    "http://xmlns.com/foaf/0.1/name": "Sandro Hurtado"
+                },
+                "dct:title": "Yield Prediction",
+                "dct:language": "https://w3id.org/idsa/code/EN",
+                "dct:description": "Crop Temporal Series Forecasting is a platform that provides a set of tools to support the decision-making process of farmers and other stakeholders in the tropical agriculture sector. The platform uses multivariate time series analysis to forecast crop yields using different ML algorithms.This application is designed to integrate multivariate time-series data and generate reliable agricultural production forecasts, combining advanced models and interactive visualizations.",
+                "dcat:mediaType": "application/vnd.datasphere.service.v1+json",
+                "id": "YieldPrediction1.0.0"
+            },
+            {
+                "@id": "SatelliteIndexes1.0.0",
+                "@type": "dcat:Dataset",
+                "odrl:hasPolicy": {
+                    "@id": "U2F0ZWxsaXRlIEluZGV4ZXM=:U2F0ZWxsaXRlSW5kZXhlczEuMC4w:MDY1NjdkZjAtYzk2ZS00ZDVmLWJkMDktNjZkZDU4NjllN2Jm",
+                    "@type": "odrl:Offer",
+                    "odrl:permission": {
+                        "odrl:action": {
+                            "@id": "USE"
+                        },
+                        "odrl:constraint": {
+                            "odrl:leftOperand": {
+                                "@id": "POLICY_PARTICIPANT_ID"
+                            },
+                            "odrl:operator": {
+                                "@id": "odrl:eq"
+                            },
+                            "odrl:rightOperand": "did:web:KHAOS_1_ih%3A19194:KHAOS_1"
+                        }
+                    },
+                    "odrl:prohibition": [],
+                    "odrl:obligation": []
+                },
+                "dcat:distribution": [
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "HttpData-PULL"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    },
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "HttpData-PUSH"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    },
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "AmazonS3-PUSH"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    }
+                ],
+                "dct:license": "https://creativecommons.org/licenses/by-nd/4.0/",
+                "dcat:keyword": [
+                    "satellite indexes",
+                    "images"
+                ],
+                "dcat:version": "1.0.0",
+                "dct:creator": {
+                    "http://xmlns.com/foaf/0.1/name": "Khaos Research"
+                },
+                "dct:title": "Satellite Indexes",
+                "dct:language": "https://w3id.org/idsa/code/EN",
+                "dct:description": "Esta aplicación permite analizar datos geoespaciales mediante índices derivados de imágenes satelitales.        ",
+                "dcat:mediaType": "application/vnd.datasphere.service.v1+json",
+                "id": "SatelliteIndexes1.0.0"
+            },
+            {
+                "@id": "METEO1.0.0",
+                "@type": "dcat:Dataset",
+                "odrl:hasPolicy": {
+                    "@id": "TUVURU8=:TUVURU8xLjAuMA==:ZTU2Yjc1MDktYjc5ZS00ZjI5LThkZGQtZDZjY2UzYzBhMTU0",
+                    "@type": "odrl:Offer",
+                    "odrl:permission": {
+                        "odrl:action": {
+                            "@id": "USE"
+                        },
+                        "odrl:constraint": {
+                            "odrl:and": [
+                                {
+                                    "odrl:leftOperand": {
+                                        "@id": "POLICY_PARTICIPANT_ID"
+                                    },
+                                    "odrl:operator": {
+                                        "@id": "odrl:eq"
+                                    },
+                                    "odrl:rightOperand": "did:web:KHAOS_1_ih%3A19194:KHAOS_1"
+                                },
+                                {
+                                    "odrl:or": {
+                                        "odrl:leftOperand": {
+                                            "@id": "POLICY_EVALUATION_TIME"
+                                        },
+                                        "odrl:operator": {
+                                            "@id": "odrl:lt"
+                                        },
+                                        "odrl:rightOperand": "2025-12-31"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "odrl:prohibition": [],
+                    "odrl:obligation": []
+                },
+                "dcat:distribution": [
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "HttpData-PULL"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    },
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "HttpData-PUSH"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    },
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "AmazonS3-PUSH"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    }
+                ],
+                "dct:license": "https://creativecommons.org/licenses/by-nd/4.0/",
+                "dcat:keyword": [
+                    "METEO",
+                    "process data"
+                ],
+                "dcat:version": "1.0.0",
+                "dct:creator": {
+                    "http://xmlns.com/foaf/0.1/name": "Khaos Research"
+                },
+                "dct:title": "METEO",
+                "dct:language": "https://w3id.org/idsa/code/EN",
+                "dct:description": "Esta aplicación permite extraer y procesar variables meteorológicas.",
+                "dcat:mediaType": "application/vnd.datasphere.service.v1+json",
+                "id": "METEO1.0.0"
+            },
+            {
+                "@id": "Olivarum1.0.0",
+                "@type": "dcat:Dataset",
+                "odrl:hasPolicy": {
+                    "@id": "T2xpdmFydW0=:T2xpdmFydW0xLjAuMA==:NzFmYzJhZGItNGMzZS00MjdkLWFlNWQtODNiNmUzMmJjYWJk",
+                    "@type": "odrl:Offer",
+                    "odrl:permission": {
+                        "odrl:action": {
+                            "@id": "USE"
+                        },
+                        "odrl:constraint": {
+                            "odrl:and": [
+                                {
+                                    "odrl:leftOperand": {
+                                        "@id": "POLICY_PARTICIPANT_ID"
+                                    },
+                                    "odrl:operator": {
+                                        "@id": "odrl:eq"
+                                    },
+                                    "odrl:rightOperand": "did:web:KHAOS_1_ih%3A19194:KHAOS_1"
+                                },
+                                {
+                                    "odrl:or": {
+                                        "odrl:leftOperand": {
+                                            "@id": "POLICY_EVALUATION_TIME"
+                                        },
+                                        "odrl:operator": {
+                                            "@id": "odrl:lt"
+                                        },
+                                        "odrl:rightOperand": "2025-12-31"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "odrl:prohibition": [],
+                    "odrl:obligation": []
+                },
+                "dcat:distribution": [
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "HttpData-PULL"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    },
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "HttpData-PUSH"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    },
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "AmazonS3-PUSH"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    }
+                ],
+                "dct:license": "https://creativecommons.org/licenses/by-nd/4.0/",
+                "dcat:keyword": [
+                    "olivo",
+                    "parcela",
+                    "variedad",
+                    "Andalucía"
+                ],
+                "dcat:version": "1.0.0",
+                "dct:creator": {
+                    "http://xmlns.com/foaf/0.1/name": "Khaos Research"
+                },
+                "dct:title": "Olivarum",
+                "dct:language": "https://w3id.org/idsa/code/EN",
+                "dct:description": "Este mapa muestra la distribución de las variedades de olivos en Andalucía.",
+                "dcat:mediaType": "application/vnd.datasphere.service.v1+json",
+                "id": "Olivarum1.0.0"
+            },
+            {
+                "@id": "Repilo1.0.0",
+                "@type": "dcat:Dataset",
+                "odrl:hasPolicy": {
+                    "@id": "UmVwaWxv:UmVwaWxvMS4wLjA=:YTM4MWIyYzYtZGU0OC00ZDIwLWFjOWMtYjg2MzcwMjAyNmNm",
+                    "@type": "odrl:Offer",
+                    "odrl:permission": [],
+                    "odrl:prohibition": [],
+                    "odrl:obligation": []
+                },
+                "dcat:distribution": [
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "HttpData-PULL"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    },
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "HttpData-PUSH"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    },
+                    {
+                        "@type": "dcat:Distribution",
+                        "dct:format": {
+                            "@id": "AmazonS3-PUSH"
+                        },
+                        "dcat:accessService": {
+                            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+                            "@type": "dcat:DataService"
+                        }
+                    }
+                ],
+                "dct:license": "https://creativecommons.org/licenses/by-nd/4.0/",
+                "dcat:keyword": [
+                    "olivo",
+                    "prediction",
+                    "Spilocaea",
+                    "incidence",
+                    "temperature"
+                ],
+                "dcat:version": "1.0.0",
+                "dct:creator": {
+                    "http://xmlns.com/foaf/0.1/name": "Khaos Research"
+                },
+                "dct:title": "Repilo",
+                "dct:language": "https://w3id.org/idsa/code/EN",
+                "dct:description": "El **repilo del olivo** es una enfermedad causada por hongos del género *Spilocaea* que afecta a las hojas, frutos y ramas jóvenes del olivo, reduciendo la productividad del árbol. Este modelo utiliza datos climáticos (temperatura, humedad y precipitación) y la ecuación del Modelo Beta Generalizado para calcular la **incidencia del repilo** en diferentes regiones geográficas.        ",
+                "dcat:mediaType": "application/vnd.datasphere.service.v1+json",
+                "id": "Repilo1.0.0"
+            }
+        ],
+        "dcat:catalog": [],
+        "dcat:distribution": [],
+        "dcat:service": {
+            "@id": "07f0bcb3-c6ba-4f92-89ef-c91e61254694",
+            "@type": "dcat:DataService",
+            "dcat:endpointDescription": "dspace:connector",
+            "dcat:endpointUrl": "http://KHAOS_2:19194/protocol",
+            "dcat:endpointURL": "http://KHAOS_2:19194/protocol"
+        },
+        "dspace:participantId": "did:web:KHAOS_2_ih%3A19194:KHAOS_2",
+        "originator": "http://KHAOS_2:19194/protocol",
+        "@context": {
+            "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
+            "edc": "https://w3id.org/edc/v0.0.1/ns/",
+            "odrl": "http://www.w3.org/ns/odrl/2/",
+            "dcat": "http://www.w3.org/ns/dcat#",
+            "dct": "http://purl.org/dc/terms/",
+            "dspace": "https://w3id.org/dspace/v0.8/"
+        }
+    }
+]

@@ -6,6 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 
 #################################################################
 ### Shapes for IDSA Classes (DataApp, DataResource)
@@ -125,25 +126,8 @@
 #    Shapes for v0.3.0 (Direct Semantic & Profile Models)
 #################################################################
 
-:DataAssetShape a sh:NodeShape ;
-    sh:targetClass :DataAsset ;
-    sh:property [
-        sh:path :conformsToProfile ;
-        sh:minCount 1 ;
-        sh:class :DataProfile ;
-        sh:message "A :DataAsset MUST have at least one :conformsToProfile."@en
-    ] ;
-    sh:property [
-        sh:path :servesObservableProperty ;
-        sh:minCount 1 ;
-        sh:class :ObservableProperty ;
-        sh:message "A :DataAsset MUST serve at least one :ObservableProperty."@en
-    ] .
-
-:SpatialTemporalAssetShape
-    a sh:NodeShape ;
+:SpatialTemporalAssetShape a sh:NodeShape ;
     sh:targetClass :SpatialTemporalAsset ;
-    # Note: inherits the rule from :DataAssetShape (sh:minCount 1 :servesObservableProperty)
     sh:property [
         sh:path :hasSpatialCoverage ;
         sh:minCount 1 ;
@@ -155,6 +139,21 @@
         sh:minCount 1 ;
         sh:nodeKind sh:BlankNode ;
         sh:message "A :SpatialTemporalAsset must have at least one :hasTemporalCoverage"@en
+    ] .
+
+:DataAssetShape a sh:NodeShape ;
+    sh:targetClass :DataAsset ;
+    sh:property [
+        sh:path :servesObservableProperty ;
+        sh:minCount 1 ;
+        sh:class :ObservableProperty ;
+        sh:message "A :DataAsset must serve at least one :ObservableProperty"@en
+    ] ;
+    sh:property [
+        sh:path prov:wasGeneratedBy ;
+        sh:minCount 0 ;
+        sh:class ids:DataApp ;
+        sh:message "If present, prov:wasGeneratedBy must point to an ids:DataApp"@en
     ] .
 
 :SmartDataAppSemanticShape

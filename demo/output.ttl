@@ -1,0 +1,87 @@
+@prefix bigalg: <https://w3id.org/BIGOWLAlgorithms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix edaan: <https://w3id.org/EDAAnOWL/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/EDAAnOWL/demo/METEO1.0.0> a ids:DataApp ;
+    dct:description "Esta aplicación permite extraer y procesar variables meteorológicas."@en ;
+    dct:title "METEO"@en ;
+    edaan:conformsToProfile <https://w3id.org/EDAAnOWL/demo/METEO1.0.0/profile> ;
+    edaan:hasDomainSector edaan:Agriculture .
+
+<https://w3id.org/EDAAnOWL/demo/Olivarum1.0.0> a ids:DataApp ;
+    dct:description "Este mapa muestra la distribución de las variedades de olivos en Andalucía."@en ;
+    dct:title "Olivarum"@en ;
+    edaan:conformsToProfile <https://w3id.org/EDAAnOWL/demo/Olivarum1.0.0/profile> ;
+    edaan:hasDomainSector edaan:Agriculture .
+
+<https://w3id.org/EDAAnOWL/demo/Repilo1.0.0> a edaan:PredictionApp ;
+    dct:description "El **repilo del olivo** es una enfermedad causada por hongos del género *Spilocaea* que afecta a las hojas, frutos y ramas jóvenes del olivo, reduciendo la productividad del árbol. Este modelo utiliza datos climáticos (temperatura, humedad y precipitación) y la ecuación del Modelo Beta Generalizado para calcular la **incidencia del repilo** en diferentes regiones geográficas.        "@en ;
+    dct:title "Repilo"@en ;
+    edaan:conformsToProfile <https://w3id.org/EDAAnOWL/demo/Repilo1.0.0/profile> ;
+    edaan:hasDomainSector edaan:Agriculture .
+
+<https://w3id.org/EDAAnOWL/demo/SatelliteIndexes1.0.0> a ids:DataApp ;
+    dct:description "Esta aplicación permite analizar datos geoespaciales mediante índices derivados de imágenes satelitales.        "@en ;
+    dct:title "Satellite Indexes"@en ;
+    edaan:conformsToProfile <https://w3id.org/EDAAnOWL/demo/SatelliteIndexes1.0.0/profile> ;
+    edaan:hasDomainSector edaan:Agriculture .
+
+<https://w3id.org/EDAAnOWL/demo/YieldPrediction1.0.0> a edaan:PredictionApp ;
+    dct:description "Crop Temporal Series Forecasting is a platform that provides a set of tools to support the decision-making process of farmers and other stakeholders in the tropical agriculture sector. The platform uses multivariate time series analysis to forecast crop yields using different ML algorithms.This application is designed to integrate multivariate time-series data and generate reliable agricultural production forecasts, combining advanced models and interactive visualizations."@en ;
+    dct:title "Yield Prediction"@en ;
+    edaan:conformsToProfile <https://w3id.org/EDAAnOWL/demo/YieldPrediction1.0.0/profile> ;
+    edaan:hasDomainSector edaan:Agriculture ;
+    edaan:implementsAlgorithm bigalg:RandomForest,
+        bigalg:SARIMAX .
+
+<https://w3id.org/EDAAnOWL/demo/METEO1.0.0/profile> a edaan:DataProfile ;
+    edaan:declaresDataClass <https://w3id.org/BIGOWLData/TabularData> ;
+    edaan:hasMetric <https://w3id.org/EDAAnOWL/demo/METEO1.0.0/profile/metric/completeness> .
+
+<https://w3id.org/EDAAnOWL/demo/METEO1.0.0/profile/metric/completeness> a dqv:QualityMetric,
+        edaan:QualityMetric ;
+    edaan:metricName "completeness" ;
+    edaan:metricValue 0.99 .
+
+<https://w3id.org/EDAAnOWL/demo/Olivarum1.0.0/profile> a edaan:DataProfile ;
+    edaan:declaresDataClass <https://w3id.org/BIGOWLData/TabularData> ;
+    edaan:hasMetric <https://w3id.org/EDAAnOWL/demo/Olivarum1.0.0/profile/metric/completeness> .
+
+<https://w3id.org/EDAAnOWL/demo/Olivarum1.0.0/profile/metric/completeness> a dqv:QualityMetric,
+        edaan:QualityMetric ;
+    edaan:metricName "completeness" ;
+    edaan:metricValue 0.99 .
+
+<https://w3id.org/EDAAnOWL/demo/Repilo1.0.0/profile> a edaan:DataProfile ;
+    edaan:declaresDataClass <https://w3id.org/BIGOWLData/TabularData> ;
+    edaan:hasMetric <https://w3id.org/EDAAnOWL/demo/Repilo1.0.0/profile/metric/completeness> .
+
+<https://w3id.org/EDAAnOWL/demo/Repilo1.0.0/profile/metric/completeness> a dqv:QualityMetric,
+        edaan:QualityMetric ;
+    edaan:metricName "completeness" ;
+    edaan:metricValue 0.99 .
+
+<https://w3id.org/EDAAnOWL/demo/SatelliteIndexes1.0.0/profile> a edaan:DataProfile ;
+    edaan:declaresDataClass <https://w3id.org/BIGOWLData/TabularData> ;
+    edaan:hasMetric <https://w3id.org/EDAAnOWL/demo/SatelliteIndexes1.0.0/profile/metric/completeness> .
+
+<https://w3id.org/EDAAnOWL/demo/SatelliteIndexes1.0.0/profile/metric/completeness> a dqv:QualityMetric,
+        edaan:QualityMetric ;
+    edaan:metricName "completeness" ;
+    edaan:metricValue 0.99 .
+
+<https://w3id.org/EDAAnOWL/demo/YieldPrediction1.0.0/profile> a edaan:DataProfile ;
+    edaan:declaresDataClass <https://w3id.org/BIGOWLData/TabularData> ;
+    edaan:hasMetric <https://w3id.org/EDAAnOWL/demo/YieldPrediction1.0.0/profile/metric/completeness> .
+
+<https://w3id.org/EDAAnOWL/demo/YieldPrediction1.0.0/profile/metric/completeness> a dqv:QualityMetric,
+        edaan:QualityMetric ;
+    edaan:metricName "completeness" ;
+    edaan:metricValue 0.99 .
+
+edaan:Agriculture a skos:Concept .
+

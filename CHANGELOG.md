@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.3.0] - 2025-11-17
+## [0.3.0] - 2025-11-19
 
 ### Added
 
@@ -26,13 +26,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `:hasCRS` (ObjectProperty) to semantically link a DataProfile to a formal Coordinate Reference System (e.g., an EPSG URI).
 - Added `rdfs:comment` annotations to all core classes and properties for better documentation.
 - Added `owl:minCardinality` and `owl:qualifiedCardinality` restrictions to `:DataAsset` (must have `:conformsToProfile`), `:DataProfile` (must have `:hasMetric` and `:declaresDataClass`), and `:Metric` (must have `:metricName` and `:metricValue`) to enforce model integrity.
+- **[DEMO]** Added `demo/` folder with `transform_catalog.py` to demonstrate the automated transformation of standard DCAT metadata into EDAAnOWL-compliant RDF assets and profiles.
+
+### Fixed
+
+- Split SHACL shapes into `:SpatialTemporalAssetShape` (strict) and `:DataAssetShape` (flexible) to fix validation for generic assets.
+- Corrected syntax errors in `edaan-shapes.ttl`.
 
 ### Changed
 
-- **[CRITICAL]** Changed the range (`rdfs:range`) of `:metricValue` from `xsd:decimal` to `rdfs:Literal`. This is a breaking change that enables storing boolean, string, or numeric metric values.
-- **[ALIGNMENT]** Aligned `:ObservableProperty` with the W3C SOSA standard by adding `rdfs:subClassOf sosa:ObservableProperty`.
-- **[ALIGNMENT]** Aligned `:DataProfile` with DCAT 3 by adding restrictions for `dcat:temporalResolution` and `dcat:spatialResolutionInMeters`.
-- **[ALIGNMENT]** Cleaned up `:supportContact` to be a clear `rdfs:subPropertyOf dcat:contactPoint`.
+- Changed the range (`rdfs:range`) of `:metricValue` from `xsd:decimal` to `rdfs:Literal`. This is a breaking change that enables storing boolean, string, or numeric metric values.
+- Aligned `:ObservableProperty` with the W3C SOSA standard by adding `rdfs:subClassOf sosa:ObservableProperty`.
+- Aligned `:DataProfile` with DCAT 3 by adding restrictions for `dcat:temporalResolution` and `dcat:spatialResolutionInMeters`.
+- Cleaned up `:supportContact` to be a clear `rdfs:subPropertyOf dcat:contactPoint`.
 - Updated `dct:abstract`, `dct:description`, and `widoco:introduction` to reflect the new focus on profiling and metrics.
 
 ### Deprecated
