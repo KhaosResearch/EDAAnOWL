@@ -67,7 +67,6 @@ test:ValidService a :PredictionApp ;
     :producesObservableProperty :waterStress ;
     :hasDomainSector :agriculture .
 
-# Necesaria para que FIX 3 sea válido
 test:DummyMetric a :QualityMetric, dqv:QualityMetric ;
     :metricName "testMetric" ;
-    :metricValue "1.0"^^xsd:decimal .cd
+    :metricValue "1.0"^^xsd:decimal .
