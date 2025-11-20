@@ -37,29 +37,6 @@ test:ValidApp a ids:DataApp ;
     dct:title "Valid Test App"@en ;
     :parameter :TestAlgorithm ; 
     :hasDomainSector :agriculture .
-@prefix prov: <http://www.w3.org/ns/prov/> .
-
-<https://w3id.org/EDAAnOWL/test/> rdf:type owl:Ontology ;
-    # Import the main ontology (needed for ROBOT to load all vocabs via catalog)
-    owl:imports <https://w3id.org/EDAAnOWL/> .
-
-### Mock concepts so that the test works independently of external vocabularies
-:agriculture rdf:type skos:Concept .
-:TestAlgorithm a bigalg:Algorithm .
-:TestProblem a bigprob:Problem .
-:TestDataClass a bigdat:Data .
-:TestProperty rdf:type skos:Concept .
-
-:ndvi a :ObservableProperty .
-:waterStress a :ObservableProperty .
-sosa:ObservableProperty rdf:type owl:Class .
-gsp:Geometry rdf:type owl:Class .
-time:Interval rdf:type owl:Class .
-
-test:ValidApp a ids:DataApp ;
-    dct:title "Valid Test App"@en ;
-    :parameter :TestAlgorithm ; 
-    :hasDomainSector :agriculture .
 
 test:ValidResource a ids:DataResource ;
     dct:title "Valid Test Resource"@en ;
@@ -93,8 +70,4 @@ test:ValidService a :PredictionApp ;
 # Necesaria para que FIX 3 sea válido
 test:DummyMetric a :QualityMetric, dqv:QualityMetric ;
     :metricName "testMetric" ;
-    :metricValue "1.0"^^xsd:decimal .
-
-### Inconsistency Test (Uncomment to test)
-# test:InconsistentIndividual rdf:type ids:DataApp ,
-#                                      ids:DataResource .
+    :metricValue "1.0"^^xsd:decimal .cd

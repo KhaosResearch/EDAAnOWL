@@ -10,6 +10,8 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix bigdat: <https://w3id.org/BIGOWLData/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <http://example.org/data/eo/> rdf:type owl:Ontology ;
     owl:imports <https://w3id.org/EDAAnOWL/> ;
@@ -18,9 +20,6 @@
 ###
 ### Use Case 1: Earth Observation (EO) Data Asset
 ###
-# A Data Asset that is a Sentinel-2 satellite image
-# and uses the new model: SpatialTemporalAsset
-
 ex:Sentinel2_NDVI_Jaen_2024 a :SpatialTemporalAsset ;
     dct:title "Sentinel-2 NDVI for Jaén (2024)"@en ;
     :hasDomainSector :agriculture ;
@@ -30,24 +29,27 @@ ex:Sentinel2_NDVI_Jaen_2024 a :SpatialTemporalAsset ;
         vcard:fn "EO Data Support"
     ] ;
     ids:representation ex:Sentinel2GeoTIFF ;
+    
+    # --- New Properties v0.3.0 ---
+    :isAlive true ;
+    :accessType "Download" ;
+    :legalContact [
+        rdf:type vcard:Kind ;
+        vcard:hasEmail <mailto:legal@eo.example.com> ;
+        vcard:fn "Legal Department"
+    ] ;
+    dct:alternative "Sentinel-2 NDVI Jaen 24" ; # Corregido: dct:alternative
 
-    # --- Properties of the new model (v0.1.0) ---
-
+    # --- Properties of the new model ---
     :hasTemporalCoverage [
         a time:Interval ;
-        time:hasBeginning [
-            time:inXSDDate "2024-01-01T00:00:00Z"^^xsd:dateTime
-        ] ;
-        time:hasEnd [
-            time:inXSDDate "2024-12-31T23:59:59Z"^^xsd:dateTime
-        ]
+        time:hasBeginning [ time:inXSDDate "2024-01-01T00:00:00Z"^^xsd:dateTime ] ;
+        time:hasEnd [ time:inXSDDate "2024-12-31T23:59:59Z"^^xsd:dateTime ]
     ] ;
-
     :hasSpatialCoverage [
         a gsp:Geometry ;
         gsp:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON((-4.0 38.0, -3.5 38.0, -3.5 37.5, -4.0 37.5, -4.0 38.0))"^^gsp:wktLiteral
     ] ;
-
     :servesObservableProperty :ndvi ;
     :conformsToProfile ex:Profile_Sentinel_NDVI .
 
@@ -57,9 +59,8 @@ ex:Sentinel2GeoTIFF a ids:Representation ;
     dct:language "en" .
 
 ###
-### Use Case 2: Prediction App (SmartDataApp)
+### Use Case 2: Prediction App
 ###
-# A predictive app that calculates water stress (v0.3.0 SmartDataApp branch)
 ex:WaterStressCalculator a :PredictionApp ;
     dct:title "Water Stress Calculator"@en ;
     :hasDomainSector :agriculture ;
@@ -68,37 +69,19 @@ ex:WaterStressCalculator a :PredictionApp ;
         vcard:hasEmail <mailto:data@eo.example.com> ;
         vcard:fn "EO Data Support"
     ] ;
-
-    # 1. Semantic Input
-    :requiresObservableProperty :ndvi ,
-                                :temperature ;
-
-    # 2. Semantic Output
+    :requiresObservableProperty :ndvi, :temperature ;
     :producesObservableProperty :waterStress .
 
 ###
-### Use Case 3: Classic Data Asset (Station Data)
+### Use Case 3: Classic Data Asset
 ###
-# A tabular data asset from a weather station
-# that complements Case 2
-
 ex:WeatherStation_Jaen_2024 a :DataAsset ;
     dct:title "Jaén Weather Station (2024)"@en ;
     :hasDomainSector :agriculture ;
     :servesObservableProperty :temperature ;
     :conformsToProfile ex:Profile_Weather_Station .
 
-# Observable variables used in the examples
-:ndvi a :ObservableProperty .
-:temperature a :ObservableProperty .
-:waterStress a :ObservableProperty .
-
-# Optional: Context view (Contract Offer) on the raster asset
-ex:BasicUsePolicy a odrl:Policy , ids:ContractOffer ;
-  odrl:permission [
-    a odrl:Permission ;
-    odrl:action odrl:use
-  ] .
+# --- Profiles ---
 
 ex:Profile_Sentinel_NDVI a :DataProfile ;
     :declaresDataClass :georaster ;
@@ -109,7 +92,6 @@ ex:Profile_Sentinel_NDVI a :DataProfile ;
         :metricUnit "%"
     ] .
 
-# Perfil para la estación meteorológica
 ex:Profile_Weather_Station a :DataProfile ;
     :declaresDataClass :tabular ;
     :hasMetric [
@@ -118,10 +100,75 @@ ex:Profile_Weather_Station a :DataProfile ;
         :metricValue "8760"^^xsd:integer
     ] .
 
+# --- Use Case 4: Governance & Quality (New in v0.3.0) ---
+
+ex:SensitiveCropData a :DataAsset ;
+    dct:title "Sensitive Crop Yield Data 2024"@en ;
+    :servesObservableProperty :yield ;
+    :conformsToProfile ex:Profile_Sensitive_Data ; # Corregido: punto y coma
+    :isAlive true ;
+    :auditLogAvailable true ;
+    :knownLimitations "Contains aggregated data, individual farm data is anonymized." ;
+    :paymentModelDescription "Subscription based access for premium partners." ;
+    :refundPolicy "No refunds after data download." ;
+    :legalContact [
+        a vcard:Kind ;
+        vcard:fn "Data Protection Officer" ;
+        vcard:hasEmail <mailto:dpo@example.com> 
+    ] ;
+    :externalQualityReport [
+        a :QualityReport ;
+        :qualityScore 95 ;
+        :qualityReportURI <https://example.org/reports/quality-2024.pdf>
+    ] .
+
+# Definition of profile required by Use case 4
+ex:Profile_Sensitive_Data a :DataProfile ;
+    :declaresDataClass :tabular ;
+    :hasMetric [
+        a :QualityMetric ;
+        :metricName "AnonymizationLevel" ;
+        :metricValue "High"
+    ] .
+
+# --- Observables & Policies ---
+:ndvi a :ObservableProperty .
+:temperature a :ObservableProperty .
+:waterStress a :ObservableProperty .
+:yield a :ObservableProperty .
+
+ex:BasicUsePolicy a odrl:Policy , ids:ContractOffer ;
+  odrl:permission [
+    a odrl:Permission ;
+    odrl:action odrl:use
+  ] .
+
 ex:Sentinel2_NDVI_Jaen_2024 ids:contractOffer ex:BasicUsePolicy .
 
-# Optional: Endpoint (Context view)
 ex:RasterDownloadEndpoint a ids:ResourceEndpoint ;
   dct:description "HTTPS endpoint for raster download"@en .
 
 ex:Sentinel2_NDVI_Jaen_2024 ids:resourceEndpoint ex:RasterDownloadEndpoint .
+
+
+###
+### Use Case 5: Unstructured Data (Audio)
+###
+ex:OralHistories_Granada a :DataAsset ;
+    dct:title "Oral Histories of Agriculture: Granada"@en ;
+    :hasDomainSector :agriculture ;
+    :accessType "Download" ;
+    :conformsToProfile ex:Profile_Audio_Interviews ;
+    :servesObservableProperty [ a :ObservableProperty ; skos:prefLabel "Social Memory" ] .
+
+ex:Profile_Audio_Interviews a :DataProfile ;
+    :declaresDataClass bigdat:Data ;
+    :hasMetric [
+        a :QualityMetric ;
+        :metricName "totalDuration" ;
+        :metricValue "PT40H15M"^^xsd:duration
+    ], [
+        a :QualityMetric ;
+        :metricName "audioFormat" ;
+        :metricValue "MP3"
+    ] .
