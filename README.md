@@ -9,7 +9,9 @@
 [![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/0.3.0/shapes/edaan-shapes.ttl)
 [![GitHub stars](https://img.shields.io/github/stars/KhaosResearch/EDAAnOWL?style=social)](https://github.com/KhaosResearch/EDAAnOWL/stargazers)
 
-A pilot ontology for the semantic exploitation of data assets in the Agri-food (EDAA) context, aligned with the IDSA Information Model and the BIGOWL ontology.
+A pilot ontology for the semantic exploitation of data assets in the Agri-food (EDAA) context, aligned with the [IDSA Information Model](https://github.com/International-Data-Spaces-Association/InformationModel) and the [BIGOWL ontology](https://github.com/KhaosResearch/BIGOWL-DS/).
+- :book: [IDSA ontology documentation](https://w3id.org/idsa/core)
+- :book: [BIGOWL ontology documentation](https://w3id.org/BIGOWL/)
 
 > [!NOTE]
 > Latest stable: see `src/0.3.0/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
