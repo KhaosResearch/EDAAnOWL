@@ -5,11 +5,17 @@
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-1f6feb)](https://khaosresearch.github.io/EDAAnOWL/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Latest Release](https://img.shields.io/github/v/release/KhaosResearch/EDAAnOWL?display_name=tag)](https://github.com/KhaosResearch/EDAAnOWL/releases)
+[![PURL](https://img.shields.io/badge/purl-w3id.org-blue)](https://w3id.org/EDAAnOWL/)
+[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/0.3.0/shapes/edaan-shapes.ttl)
+[![GitHub stars](https://img.shields.io/github/stars/KhaosResearch/EDAAnOWL?style=social)](https://github.com/KhaosResearch/EDAAnOWL/stargazers)
 
-A pilot ontology for the semantic exploitation of data assets in the Agri-food (EDAA) context, aligned with the IDSA Information Model and the BIGOWL ontology.
+A pilot ontology for the semantic exploitation of data assets in the Agri-food (EDAA) context, aligned with the [IDSA Information Model](https://github.com/International-Data-Spaces-Association/InformationModel) and the [BIGOWL ontology](https://github.com/KhaosResearch/BIGOWL-DS/).
+- :book: [IDSA ontology documentation](https://w3id.org/idsa/core)
+- :book: [BIGOWL ontology documentation](https://w3id.org/BIGOWL/)
 
 > [!NOTE]
-> Latest stable: see `src/0.2.1/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
+> Latest stable: see `src/0.3.0/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
+> Check out the `demo/` folder for a practical example of transforming a DCAT catalog to EDAAnOWL RDF.
 
 The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches the description of Data Space assets. It allows for modeling the functional profile (inputs, outputs, parameters) of `ids:DataApp` and `ids:DataResource`, facilitating their semantic discovery, composition into complex services, and compatibility validation.
 
@@ -27,7 +33,7 @@ The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches th
 - **Why we reuse it**: We want assets and apps to be discoverable and governable across Data Spaces without reinventing core notions (resource taxonomy, representation, policies, endpoints). Aligning with IDSA ensures compatibility with IDS-based tooling and documentation.
 - **References**:
   - IDSA IM docs: [https://international-data-spaces-association.github.io/InformationModel/docs/index.html#Resource](https://international-data-spaces-association.github.io/InformationModel/docs/index.html#Resource)
-  - Figures (examples): 
+  - Figures (examples):
     - Resource taxonomy ([Fig. 3.15](https://international-data-spaces-association.github.io/InformationModel/images/Figure_3_15_Taxonomy_of_the_resource_concept.png))
     - Data App content view ([Fig. 3.32](https://international-data-spaces-association.github.io/InformationModel/images/Figure_3_32_Content_view_of_the_Data_App_resource.png))
     - Data App taxonomy ([Fig. 3.34](https://international-data-spaces-association.github.io/InformationModel/images/Figure_3_34_Data_App_taxonomy.png)).
@@ -63,8 +69,8 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
 
 - **Data properties (motivations)**
 
-  - `:profileCRS` and `:profileCRSRef`: Explicit CRS as string and IRI; we recommend the IRI form (`xsd:anyURI`) for unambiguous validation.
-  - `:profileSpatialResolution`, `:profileTemporalResolution`: Required to capture EO and time-series constraints for practical matchmaking.
+  - `:hasCRS`: Links to a formal Coordinate Reference System (e.g., EPSG URI).
+  - `dcat:spatialResolutionInMeters`, `dcat:temporalResolution`: Adopted from DCAT 3 to capture EO and time-series constraints for practical matchmaking.
   - `:supportContact`: Operational contact—crucial in Data Spaces to support consumers.
   - Metrics (`:Metric` and subtypes with `:metricName`/`:metricValue`/`:metricUnit`/`:computedAt`): Allows publishing quality/performance indicators relevant to governance and selection.
 
@@ -123,4 +129,3 @@ EDAAnOWL bridges three key layers:
 ## ✍️ How to Cite
 
 Use the **“Cite this repository”** button on the right (GitHub sidebar), which is generated from our `CITATION.cff`. It provides BibTeX, APA, and more.
-

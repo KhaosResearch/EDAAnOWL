@@ -2,44 +2,51 @@
 
 ```mermaid
 graph TB
-    subgraph DataSpace[Data Space Layer]
-        DS[Data Space Assets]
-        AP[Applications/Services]
+    subgraph DataSpace ["Data Space Layer (Real World)"]
+        DS["Data Space Assets<br/>(Datasets, Files)"]
+        AP["Applications/Services<br/>(Algos, Models)"]
     end
 
-    subgraph Semantic[Semantic Layer]
-        subgraph IDSA[IDSA Model]
-            IR[ids:Resource]
-            IDR[ids:DataResource]
-            IDA[ids:DataApp]
+    subgraph Semantic ["Semantic Layer (Ontology)"]
+        subgraph IDSA ["IDSA Model (Governance)"]
+            IR["ids:Resource"]
+            IDR["ids:DataResource"]
+            IDA["ids:DataApp"]
         end
 
-        subgraph EDAAnOWL[EDAAnOWL]
-            DA[DataAsset]
-            Apps[SmartDataApp Types]
-            Prof[DataProfile]
-            OP[ObservableProperty]
+        subgraph EDAAnOWL ["EDAAnOWL (Semantics)"]
+            DA["DataAsset<br/>(Supply)"]
+            Apps["SmartDataApp Types<br/>(Demand)"]
+            Prof["DataProfile<br/>(Structure)<br/>--<br/>dcat:temporalResolution<br/>dcat:spatialResolution<br/>edaan:hasCRS<br/>edaan:hasMetric"]
+            OP["ObservableProperty<br/>(Meaning)<br/>--<br/>sosa:ObservableProperty<br/>(e.g., NDVI, Temp)"]
         end
 
-        subgraph BIGOWL[BIGOWL]
-            WF[Workflow]
-            Comp[Component]
+        subgraph BIGOWL ["BIGOWL (Workflow)"]
+            WF["Workflow"]
+            Comp["Component"]
         end
     end
 
-    DS --> IDR
-    AP --> IDA
-    IDR --> DA
-    IDA --> Apps
-    DA -- servesObservableProperty --> OP
-    Apps -- requiresObservableProperty --> OP
-    Apps -- implementsComponent --> Comp
-    Comp --> WF
+    %% Relationships
+    DS -->|"described as"| IDR
+    AP -->|"described as"| IDA
+    IDR -->|"specialized by"| DA
+    IDA -->|"specialized by"| Apps
+    
+    DA -- "servesObservableProperty<br/>(I provide X)" --> OP
+    Apps -- "requiresObservableProperty<br/>(I need X)" --> OP
+    
+    DA -- "conformsToProfile" --> Prof
+    Apps -- "requiresProfile" --> Prof
 
-    classDef space fill:#e1f5fe,stroke:#01579b
-    classDef idsa fill:#f8bbd0,stroke:#880e4f
-    classDef edaan fill:#c8e6c9,stroke:#1b5e20
-    classDef bigowl fill:#fff9c4,stroke:#f57f17
+    Apps -- "implementsComponent" --> Comp
+    Comp -->|"part of"| WF
+
+    %% Styling
+    classDef space fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef idsa fill:#f8bbd0,stroke:#880e4f,stroke-width:2px
+    classDef edaan fill:#c8e6c9,stroke:#1b5e20,stroke-width:2px
+    classDef bigowl fill:#fff9c4,stroke:#f57f17,stroke-width:2px
 
     class DS,AP space
     class IR,IDR,IDA idsa
