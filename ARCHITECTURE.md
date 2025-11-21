@@ -60,6 +60,73 @@ graph TB
 
 Figure: High-level architecture showing how EDAAnOWL maps IDSA concepts (DataApp/DataResource) to BIGOWL components and publishes artifacts via DCAT, linking policies (ODRL/DPV). The image is stored in `images/` and can be reused in versioned READMEs.
 
+### Architecture overview
+
+The figure below shows how EDAAnOWL connects real-world data-space assets with semantic models from IDSA and BIGOWL.
+
+The **Data Space Layer (Real World)** contains the actual assets:
+- **Data Space Assets (Datasets, Files)** represent the raw or curated data made available in the space.
+- **Applications/Services (Algos, Models)** represent smart data apps, analytics pipelines, or services that consume or produce data.
+
+These assets are semantically described in the **Semantic Layer (Ontology)**, which combines three main vocabularies: the IDSA Information Model, EDAAnOWL, and BIGOWL.
+
+### Alignment with the IDSA Information Model
+
+In the IDSA model, **`ids:Resource`** is the generic notion of an asset in the data space. It is refined into:
+- **`ids:DataResource`**, used to describe data assets (datasets, files, etc.).
+- **`ids:DataApp`**, used to describe data-processing applications or services.
+
+In EDAAnOWL, these classes are specialised to capture more domain-specific concepts:
+- **`DataAsset`** is aligned with and specialises `ids:DataResource` (supply side).
+- **Smart data app types** specialise `ids:DataApp` (demand side).
+
+In practice:
+- A real dataset (**Data Space Asset**) is **described as** an `ids:DataResource`, and further specialised as a `DataAsset`.
+- A real application or service (**Application/Service**) is **described as** an `ids:DataApp`, and further specialised as a smart data app type.
+
+This keeps compatibility with the IDSA Information Model while allowing EDAAnOWL to add more precise concepts for the project.
+
+### Observable properties: matching supply and demand
+
+EDAAnOWL introduces **`ObservableProperty`** to represent **what is being measured or described** (the semantic “meaning” of the data).
+
+- A **DataAsset** *serves* one or more observable properties  
+  – “I provide X” → the dataset contains observations of X.
+- A **Smart Data App** *requires* one or more observable properties  
+  – “I need X” → the app expects data about X as input.
+
+By connecting both sides to the same `ObservableProperty`, the architecture supports semantic matching between what datasets offer and what applications need.
+
+### Data profiles: structural compatibility
+
+Semantic meaning is not enough; the **structure** of the data also matters. For this, EDAAnOWL defines **`DataProfile`**:
+
+- A **DataAsset** **conformsToProfile** a `DataProfile`, which describes its schema, formats, and structural constraints.
+- A **Smart Data App** **requiresProfile** a `DataProfile`, which describes the expected input structure.
+
+This creates a two-dimensional matching space:
+- **ObservableProperty** → meaning (what is described).
+- **DataProfile** → structure (how it is represented).
+
+Together, they enable more robust discovery and interoperability between data assets and smart data apps.
+
+### Workflow perspective with BIGOWL
+
+The **BIGOWL** part of the diagram introduces the workflow view:
+
+- **`Workflow`** represents an analytical or data-processing pipeline.
+- **`Component`** represents a step, operator, or module within that workflow.
+
+Smart data apps are linked to this workflow layer by:
+- **Smart data app types** **implementComponent**, meaning they realise or execute specific BIGOWL components.
+- Components are **part of** a workflow, placing the app in the context of a larger analytical or processing chain.
+
+This alignment allows:
+- EDAAnOWL to describe assets and apps at the data-space level.
+- BIGOWL to describe how those apps participate in concrete analytical workflows.
+
+Together, these layers provide a coherent view from real assets and services, through their semantic descriptions, to their role in executable workflows.
+
 ---
 
 ## 📁 Repository Structure & Branching Model

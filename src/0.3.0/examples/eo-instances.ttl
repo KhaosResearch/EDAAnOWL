@@ -119,7 +119,7 @@ ex:SensitiveCropData a :DataAsset ;
     :externalQualityReport [
         a :QualityReport ;
         :qualityScore 95 ;
-        :qualityReportURI <https://example.org/reports/quality-2024.pdf>
+        :qualityReportURI "https://example.org/reports/quality-2024.pdf"^^xsd:anyURI
     ] .
 
 # Definition of profile required by Use case 4
