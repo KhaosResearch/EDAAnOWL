@@ -31,7 +31,7 @@
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "https://khaos.uma.es/",
+        "value" : "https://www.linkedin.com/in/martin-jeronimo-salvachua/",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -41,7 +41,7 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "https://www.linkedin.com/in/martin-jeronimo-salvachua/",
+        "value" : "https://khaos.uma.es/",
         "type" : "iri"
       } ],
       "created" : [ {
@@ -50,16 +50,16 @@
         "value" : "2025-10-10",
         "type" : "label"
       } ],
-      "versionInfo" : [ {
-        "identifier" : "versionInfo",
-        "language" : "undefined",
-        "value" : "0.3.0",
-        "type" : "label"
-      } ],
       "abstract" : [ {
         "identifier" : "abstract",
         "language" : "en",
         "value" : "Lightweight ontology for data spaces. It aligns IDSA and BIGOWL, focusing on the strong semantic description of Data Assets and Data Apps through Data Profiles, which include technical characteristics (DCAT 3) and granular quality metrics.",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "0.3.0",
         "type" : "label"
       } ],
       "title" : [ {
@@ -92,17 +92,17 @@
         "value" : "Salvachúa Galimberti, M. J.; Khaos Research. (2025). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.3.0.",
         "type" : "label"
       } ],
-      "preferredNamespaceUri" : [ {
-        "identifier" : "preferredNamespaceUri",
-        "language" : "undefined",
-        "value" : "https://w3id.org/EDAAnOWL/",
-        "type" : "label"
-      } ],
       "codeRepository" : [ {
         "identifier" : "codeRepository",
         "language" : "undefined",
         "value" : "https://github.com/KhaosResearch/EDAAnOWL",
         "type" : "iri"
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "https://w3id.org/EDAAnOWL/",
+        "type" : "label"
       } ],
       "introduction" : [ {
         "identifier" : "introduction",
@@ -323,6 +323,597 @@
     "label" : {
       "IRI-based" : "Concept"
     },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/EDAAnOWL/energy",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/SectorScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Energy",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Energy production, distribution, and consumption",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "energy"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/repiloIncidence",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Repilo Incidence",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Predicted incidence of Repilo disease",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "repiloIncidence"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/precipitation",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Precipitation",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Rainfall, snowfall, or other forms of moisture",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "precipitation"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agriculture",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/SectorScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Agriculture",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Crop production, livestock, and agricultural activities",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agriculture"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_irrigation",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Irrigation",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Artificial application of water to land",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_irrigation"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/timeseries",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/DataTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Time Series",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Data points indexed in time order",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "timeseries"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/yield",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Crop Yield",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Amount of crop produced per unit area",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "yield"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/tourism",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/SectorScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Tourism",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Travel, hospitality, and tourism services",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "tourism"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/tabular",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/DataTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Tabular",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Structured data in rows and columns",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "tabular"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_fertilization",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Fertilization",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Application of fertilizers to soil",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_fertilization"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/transport",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/SectorScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Transport",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Transportation and logistics services",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "transport"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/textual",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/DataTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Textual",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Unstructured or semi-structured text data",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "textual"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/health",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/SectorScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Health",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Healthcare, medical services, and public health",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "health"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_maize",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Maize",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Corn, Zea mays",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_maize"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/georaster",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/DataTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Geospatial Raster",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Grid-based geospatial data (satellite imagery, DEM)",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "georaster"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/occupancy",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Occupancy",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Usage or occupation rate of facilities",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "occupancy"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_wheat",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Wheat",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Cereal grain, genus Triticum",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_wheat"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/ndvi",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "NDVI",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Normalized Difference Vegetation Index",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "ndvi"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_harvest",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Harvest",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Crop harvesting activities and timing",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_harvest"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_olive",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Olive",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Olive tree cultivation and oil production",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_olive"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/temperature",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Temperature",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Thermal measurement in degrees",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "temperature"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/geovector",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/DataTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Geospatial Vector",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Vector-based geospatial data (points, lines, polygons)",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "geovector"
+      }
+    } ],
     "attributes" : [ "external" ],
     "id" : "8"
   }, {
@@ -660,6 +1251,75 @@
     "label" : {
       "IRI-based" : "ConceptScheme"
     },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/EDAAnOWL/SectorScheme",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "description" : {
+        "en" : "Sectors for tagging data assets and applications by economic or thematic domain."
+      },
+      "annotations" : {
+        "title" : [ {
+          "identifier" : "title",
+          "language" : "en",
+          "value" : "Economic and Domain Sectors",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "SectorScheme"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "description" : {
+        "en" : "Properties that can be observed or measured in datasets."
+      },
+      "annotations" : {
+        "title" : [ {
+          "identifier" : "title",
+          "language" : "en",
+          "value" : "Observed Properties",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "ObservedPropertyScheme"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/AgroVocab",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "description" : {
+        "en" : "Specialized vocabulary for agricultural data and applications."
+      },
+      "annotations" : {
+        "title" : [ {
+          "identifier" : "title",
+          "language" : "en",
+          "value" : "Agricultural Domain Vocabulary",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AgroVocab"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/DataTypeScheme",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "description" : {
+        "en" : "Categories for classifying data types and formats."
+      },
+      "annotations" : {
+        "title" : [ {
+          "identifier" : "title",
+          "language" : "en",
+          "value" : "Data Type Categories",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "DataTypeScheme"
+      }
+    } ],
     "attributes" : [ "external" ],
     "id" : "98"
   }, {
@@ -712,11 +1372,11 @@
     },
     "id" : "10"
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "iri" : "http://www.w3.org/2001/XMLSchema#duration",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "109",
     "label" : {
-      "IRI-based" : "decimal"
+      "IRI-based" : "duration"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
@@ -767,11 +1427,11 @@
       "IRI-based" : "anyURI"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#duration",
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "116",
     "label" : {
-      "IRI-based" : "duration"
+      "IRI-based" : "decimal"
     }
   }, {
     "iri" : "http://www.w3.org/2006/vcard/ns#Kind",
@@ -1103,7 +1763,7 @@
     },
     "domain" : "6",
     "subproperty" : [ "25" ],
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "24"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasDomainSector",
@@ -1172,7 +1832,7 @@
     "superproperty" : [ "45" ],
     "domain" : "2",
     "comment" : {
-      "en" : "Support email/URL for a resource or service."
+      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL)."
     },
     "attributes" : [ "object" ],
     "id" : "43"
@@ -1202,7 +1862,7 @@
     "comment" : {
       "en" : "A related resource from which the described resource is derived (e.g., the originating catalog)."
     },
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "50"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesObservableProperty",
@@ -1229,17 +1889,17 @@
     "comment" : {
       "en" : "The spatial resolution of the dataset, expressed in meters."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "60"
   }, {
     "range" : "53",
     "domain" : "65",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "64"
   }, {
     "range" : "53",
     "domain" : "67",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "66"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/conformsToProfile",
@@ -1259,17 +1919,17 @@
   }, {
     "range" : "53",
     "domain" : "52",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "69"
   }, {
     "range" : "2",
     "domain" : "36",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "71"
   }, {
     "range" : "73",
     "domain" : "56",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "72"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/parameter",
@@ -1330,7 +1990,7 @@
   }, {
     "range" : "13",
     "domain" : "12",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "79"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/servesObservableProperty",
@@ -1349,17 +2009,17 @@
   }, {
     "range" : "15",
     "domain" : "62",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "81"
   }, {
     "range" : "15",
     "domain" : "59",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "82"
   }, {
     "range" : "21",
     "domain" : "53",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "83"
   }, {
     "iri" : "http://purl.org/dc/terms/alternative",
@@ -1373,22 +2033,22 @@
     "comment" : {
       "en" : "An alternative name for the resource."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "84"
   }, {
     "range" : "63",
     "domain" : "62",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "86"
   }, {
     "range" : "36",
     "domain" : "13",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "87"
   }, {
     "range" : "14",
     "domain" : "15",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "88"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/isAlive",
@@ -1441,7 +2101,7 @@
     },
     "domain" : "6",
     "subproperty" : [ "30" ],
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "32"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/profileTemporalResolution",
@@ -1491,20 +2151,6 @@
     "attributes" : [ "deprecated", "datatype" ],
     "id" : "94"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/requiresObservableProperty",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "56",
-    "label" : {
-      "IRI-based" : "requiresObservableProperty",
-      "en" : "requires observable property"
-    },
-    "domain" : "53",
-    "comment" : {
-      "en" : "Defines the semantic signature of INPUT for a service (e.g., requires NDVI)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "95"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasTemporalCoverage",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "7",
@@ -1515,6 +2161,20 @@
     "domain" : "12",
     "comment" : {
       "en" : "Defines the temporal coverage of the data asset required by Earth Observation CUs."
+    },
+    "attributes" : [ "object" ],
+    "id" : "95"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/requiresObservableProperty",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "56",
+    "label" : {
+      "IRI-based" : "requiresObservableProperty",
+      "en" : "requires observable property"
+    },
+    "domain" : "53",
+    "comment" : {
+      "en" : "Defines the semantic signature of INPUT for a service (e.g., requires NDVI)."
     },
     "attributes" : [ "object" ],
     "id" : "96"
@@ -1533,20 +2193,6 @@
     "attributes" : [ "datatype" ],
     "id" : "97"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/requiresProfile",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "0",
-    "label" : {
-      "IRI-based" : "requiresProfile",
-      "en" : "requires profile"
-    },
-    "domain" : "21",
-    "comment" : {
-      "en" : "Links a DataApp to a DataProfile it requires as input."
-    },
-    "attributes" : [ "object" ],
-    "id" : "99"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/declaresObservedProperty",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "8",
@@ -1557,6 +2203,20 @@
     "domain" : "0",
     "comment" : {
       "en" : "Links a DataProfile to a semantic concept it describes, typically from a controlled vocabulary (e.g., an AGROVOC term)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "99"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/requiresProfile",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "0",
+    "label" : {
+      "IRI-based" : "requiresProfile",
+      "en" : "requires profile"
+    },
+    "domain" : "21",
+    "comment" : {
+      "en" : "Links a DataApp to a DataProfile it requires as input."
     },
     "attributes" : [ "object" ],
     "id" : "100"
@@ -1582,7 +2242,7 @@
       "IRI-based" : "conformsTo"
     },
     "domain" : "6",
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "102"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/externalQualityReport",
@@ -1638,12 +2298,25 @@
     "comment" : {
       "en" : "A URL pointing to a thumbnail image for the resource."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "106"
+  }, {
+    "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
+    "baseIri" : "http://www.w3.org/ns/dcat",
+    "range" : "109",
+    "label" : {
+      "IRI-based" : "temporalResolution"
+    },
+    "domain" : "0",
+    "comment" : {
+      "en" : "The temporal resolution of the dataset, expressed as an xsd:duration (e.g., 'P1D' for daily)."
+    },
+    "attributes" : [ "allValues", "datatype", "external" ],
+    "id" : "108"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
     "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "109",
+    "range" : "111",
     "label" : {
       "IRI-based" : "spatialResolutionInDegrees"
     },
@@ -1651,20 +2324,7 @@
     "comment" : {
       "en" : "The spatial resolution of the dataset, expressed in decimal degrees."
     },
-    "attributes" : [ "external", "allValues", "datatype" ],
-    "id" : "108"
-  }, {
-    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
-    "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "111",
-    "label" : {
-      "IRI-based" : "spatialResolutionInMeters"
-    },
-    "domain" : "0",
-    "comment" : {
-      "en" : "The spatial resolution of the dataset, expressed in meters."
-    },
-    "attributes" : [ "external", "allValues", "datatype" ],
+    "attributes" : [ "allValues", "datatype", "external" ],
     "id" : "110"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
@@ -1677,20 +2337,20 @@
     "comment" : {
       "en" : "The temporal resolution of the dataset, expressed as an xsd:duration (e.g., 'P1D' for daily)."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "114"
   }, {
-    "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
+    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
     "baseIri" : "http://www.w3.org/ns/dcat",
     "range" : "116",
     "label" : {
-      "IRI-based" : "temporalResolution"
+      "IRI-based" : "spatialResolutionInMeters"
     },
     "domain" : "0",
     "comment" : {
-      "en" : "The temporal resolution of the dataset, expressed as an xsd:duration (e.g., 'P1D' for daily)."
+      "en" : "The spatial resolution of the dataset, expressed in meters."
     },
-    "attributes" : [ "external", "allValues", "datatype" ],
+    "attributes" : [ "allValues", "datatype", "external" ],
     "id" : "115"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/topic",
@@ -1716,7 +2376,7 @@
     },
     "domain" : "6",
     "subproperty" : [ "43" ],
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "45"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesResource",
@@ -1769,7 +2429,7 @@
     "comment" : {
       "en" : "The spatial resolution of the dataset, expressed in decimal degrees."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "120"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/implementsComponent",
