@@ -17,8 +17,9 @@ graph TB
         subgraph EDAAnOWL ["EDAAnOWL (Semantics)"]
             DA["DataAsset<br/>(Supply)"]
             Apps["SmartDataApp Types<br/>(Demand)"]
-            Prof["DataProfile<br/>(Structure)<br/>--<br/>dcat:temporalResolution<br/>dcat:spatialResolution<br/>edaan:hasCRS<br/>edaan:hasMetric"]
+            Prof["DataProfile<br/>(Structure)<br/>--<br/>dcat:temporalResolution<br/>dcat:spatialResolution<br/>edaan:hasCRS"]
             OP["ObservableProperty<br/>(Meaning)<br/>--<br/>sosa:ObservableProperty<br/>(e.g., NDVI, Temp)"]
+            Met["Metric / QualityMetric<br/>(Quality)<br/>--<br/>dqv:Metric"]
         end
 
         subgraph BIGOWL ["BIGOWL (Workflow)"]
@@ -39,6 +40,9 @@ graph TB
     DA -- "conformsToProfile" --> Prof
     Apps -- "requiresProfile" --> Prof
 
+    Prof -- "hasMetric" --> Met
+    DA -.->|"prov:wasGeneratedBy"| Apps
+
     Apps -- "implementsComponent" --> Comp
     Comp -->|"part of"| WF
 
@@ -50,7 +54,7 @@ graph TB
 
     class DS,AP space
     class IR,IDR,IDA idsa
-    class DA,Apps,Prof,OP edaan
+    class DA,Apps,Prof,OP,Met edaan
     class WF,Comp bigowl
 ```
 
@@ -109,6 +113,13 @@ This creates a two-dimensional matching space:
 - **DataProfile** → structure (how it is represented).
 
 Together, they enable more robust discovery and interoperability between data assets and smart data apps.
+
+### Data Quality and Provenance
+
+EDAAnOWL v0.3.0 introduces explicit support for data quality and lineage:
+
+- **Metrics (`Metric`, `QualityMetric`)**: A `DataProfile` can define multiple metrics using `:hasMetric`. These align with `dqv:Metric`, allowing users to specify quality indicators (e.g., completeness, accuracy) or descriptive statistics (e.g., record count) with values and units.
+- **Provenance (`prov:wasGeneratedBy`)**: A `DataAsset` can be linked back to the `ids:SmartDataApp` (e.g., a `:PredictionApp`) that created it. This enables full lineage tracing from the raw data, through the processing app, to the derived asset.
 
 ### Workflow perspective with BIGOWL
 
