@@ -154,6 +154,12 @@
         sh:minCount 0 ;
         sh:class ids:DataApp ;
         sh:message "If present, prov:wasGeneratedBy must point to an ids:DataApp"@en
+    ] ;
+    sh:property [
+        sh:path prov:wasDerivedFrom ;
+        sh:minCount 0 ;
+        sh:class :DataAsset ;
+        sh:message "If present, prov:wasDerivedFrom must point to another :DataAsset"@en
     ] .
 
 :SmartDataAppSemanticShape

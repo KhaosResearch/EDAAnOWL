@@ -93,6 +93,7 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
   - **[SOSA/SSN](https://www.w3.org/TR/vocab-ssn/)**: For observable properties, sensors, and observations.
   - **[GeoSPARQL (v1.1)](https://www.ogc.org/standard/geosparql/)**: For geospatial coverage.
   - **[OPMW/BIGOWL](https://w3id.org/BIGOWL)**: For workflow and component modeling.
+  - **[PROV-O](https://www.w3.org/TR/prov-o/)**: For provenance and lineage tracking (`prov:wasGeneratedBy`, `prov:wasDerivedFrom`).
   - **[SKOS](https://www.w3.org/TR/skos-reference/)**: For the modular vocabularies.
 
 ---
@@ -101,6 +102,7 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
 
 - **Main Ontology**: A semantic "bridge" linking `ids:DataApp` to `bigwf:Component` (from BIGOWL).
 - **Profile Model**: A `:DataProfile` class to describe the data "signatures" (inputs/outputs) of assets.
+- **Data Lineage & Provenance**: Support for tracking dataset generation (`prov:wasGeneratedBy`) and derivation chains (`prov:wasDerivedFrom`) using PROV-O properties.
 - **Modular Vocabularies**: Separate, resolvable SKOS vocabularies for domains, observed properties, etc., versioned alongside the main ontology.
 - **Persistent Identifiers**: All ontology and vocabulary modules are resolvable via [https://w3id.org/EDAAnOWL/](https://w3id.org/EDAAnOWL/) for robust content negotiation.
 - **Automated Documentation & CI/CD**: A GitHub Actions workflow (`release.yml`) that, upon creating a new release:
@@ -108,6 +110,7 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
   - Post-processes the HTML (`sed`) to ensure all vocabulary links are correctly versioned.
   - Publishes all artifacts (docs, vocabs, RDF serializations) to the `gh-pages` branch.
 - **Versioning**: Supports a `latest` development version and immutable, versioned snapshots (e.g., `/0.0.1/`).
+- **Practical Examples**: See [USE_CASES.md](USE_CASES.md) for real-world examples of semantic matchmaking and provenance tracking.
 
 ---
 

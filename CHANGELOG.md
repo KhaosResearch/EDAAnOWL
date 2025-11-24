@@ -26,7 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `:hasCRS` (ObjectProperty) to semantically link a DataProfile to a formal Coordinate Reference System (e.g., an EPSG URI).
 - Added `rdfs:comment` annotations to all core classes and properties for better documentation.
 - Added `owl:minCardinality` and `owl:qualifiedCardinality` restrictions to `:DataAsset` (must have `:conformsToProfile`), `:DataProfile` (must have `:hasMetric` and `:declaresDataClass`), and `:Metric` (must have `:metricName` and `:metricValue`) to enforce model integrity.
+- **[PROVENANCE]** Added `prov:wasGeneratedBy` (ObjectProperty) to link a `:DataAsset` to the `ids:DataApp` that generated it, enabling lineage tracking.
+- **[PROVENANCE]** Added `prov:wasDerivedFrom` (ObjectProperty) to link a derived `:DataAsset` to its source `:DataAsset`, supporting data derivation chains.
 - **[DEMO]** Added `demo/` folder with `transform_catalog.py` to demonstrate the automated transformation of standard DCAT metadata into EDAAnOWL-compliant RDF assets and profiles.
+- **[DOCUMENTATION]** Added `USE_CASES.md` with practical examples in English illustrating semantic matchmaking and provenance tracking using real vocabulary concepts.
 
 ### Fixed
 
