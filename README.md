@@ -104,7 +104,6 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
 - **Modular Vocabularies**: Separate, resolvable SKOS vocabularies for domains, observed properties, etc., versioned alongside the main ontology.
 - **Persistent Identifiers**: All ontology and vocabulary modules are resolvable via [https://w3id.org/EDAAnOWL/](https://w3id.org/EDAAnOWL/) for robust content negotiation.
 - **Automated Documentation & CI/CD**: A GitHub Actions workflow (`release.yml`) that, upon creating a new release:
-  - Generates a dynamic `catalog-v0.xml` to resolve all imports.
   - Builds comprehensive HTML documentation with **Widoco**.
   - Post-processes the HTML (`sed`) to ensure all vocabulary links are correctly versioned.
   - Publishes all artifacts (docs, vocabs, RDF serializations) to the `gh-pages` branch.
