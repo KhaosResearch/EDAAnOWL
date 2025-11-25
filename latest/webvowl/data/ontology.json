@@ -192,13 +192,13 @@
     "id" : "52",
     "type" : "owl:Class"
   }, {
-    "id" : "3",
+    "id" : "5",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "54",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "5",
+    "id" : "3",
     "type" : "rdfs:Literal"
   }, {
     "id" : "57",
@@ -279,7 +279,7 @@
     "id" : "116",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "44",
+    "id" : "45",
     "type" : "owl:Class"
   }, {
     "id" : "2",
@@ -804,32 +804,6 @@
         "IRI-based" : "ndvi"
       }
     }, {
-      "iri" : "https://w3id.org/EDAAnOWL/agro_harvest",
-      "baseIri" : "https://w3id.org/EDAAnOWL",
-      "annotations" : {
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Harvest",
-          "type" : "label"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Crop harvesting activities and timing",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "agro_harvest"
-      }
-    }, {
       "iri" : "https://w3id.org/EDAAnOWL/agro_olive",
       "baseIri" : "https://w3id.org/EDAAnOWL",
       "annotations" : {
@@ -860,6 +834,32 @@
       },
       "labels" : {
         "IRI-based" : "agro_olive"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_harvest",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Harvest",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Crop harvesting activities and timing",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_harvest"
       }
     }, {
       "iri" : "https://w3id.org/EDAAnOWL/temperature",
@@ -1095,7 +1095,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "3",
+    "id" : "5",
     "label" : {
       "IRI-based" : "string"
     }
@@ -1109,7 +1109,7 @@
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "5",
+    "id" : "3",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -1441,7 +1441,7 @@
       "IRI-based" : "Kind"
     },
     "attributes" : [ "external" ],
-    "id" : "44"
+    "id" : "45"
   }, {
     "iri" : "https://w3id.org/idsa/core/Resource",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -1501,7 +1501,7 @@
     "id" : "43",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "46",
+    "id" : "44",
     "type" : "owl:objectProperty"
   }, {
     "id" : "50",
@@ -1639,7 +1639,7 @@
     "id" : "25",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "45",
+    "id" : "46",
     "type" : "owl:objectProperty"
   }, {
     "id" : "117",
@@ -1670,23 +1670,9 @@
     "type" : "owl:objectProperty"
   } ],
   "propertyAttribute" : [ {
-    "iri" : "https://w3id.org/EDAAnOWL/accessType",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "3",
-    "label" : {
-      "IRI-based" : "accessType",
-      "en" : "access type"
-    },
-    "domain" : "2",
-    "comment" : {
-      "en" : "Indicates the primary access mode for the resource (e.g., download, compute, ...)."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "1"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/alternativeName",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "5",
+    "range" : "3",
     "label" : {
       "IRI-based" : "alternativeName",
       "en" : "alternate name"
@@ -1694,6 +1680,20 @@
     "domain" : "2",
     "comment" : {
       "en" : "Alternative title or name for a resource."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "1"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/accessType",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "accessType",
+      "en" : "access type"
+    },
+    "domain" : "2",
+    "comment" : {
+      "en" : "Indicates the primary access mode for the resource (e.g., download, compute, ...)."
     },
     "attributes" : [ "datatype" ],
     "id" : "4"
@@ -1763,7 +1763,7 @@
     },
     "domain" : "6",
     "subproperty" : [ "25" ],
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "24"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasDomainSector",
@@ -1823,20 +1823,6 @@
     "attributes" : [ "datatype" ],
     "id" : "41"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/supportContact",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "44",
-    "label" : {
-      "IRI-based" : "supportContact"
-    },
-    "superproperty" : [ "45" ],
-    "domain" : "2",
-    "comment" : {
-      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "43"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "0",
@@ -1849,7 +1835,21 @@
       "en" : "Links a DataApp to a DataProfile it produces as output."
     },
     "attributes" : [ "object" ],
-    "id" : "46"
+    "id" : "43"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/supportContact",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "45",
+    "label" : {
+      "IRI-based" : "supportContact"
+    },
+    "superproperty" : [ "46" ],
+    "domain" : "2",
+    "comment" : {
+      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "44"
   }, {
     "iri" : "http://purl.org/dc/terms/source",
     "baseIri" : "http://purl.org/dc/terms",
@@ -1862,7 +1862,7 @@
     "comment" : {
       "en" : "A related resource from which the described resource is derived (e.g., the originating catalog)."
     },
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "50"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesObservableProperty",
@@ -2101,7 +2101,7 @@
     },
     "domain" : "6",
     "subproperty" : [ "30" ],
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "32"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/profileTemporalResolution",
@@ -2193,20 +2193,6 @@
     "attributes" : [ "datatype" ],
     "id" : "97"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/declaresObservedProperty",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "8",
-    "label" : {
-      "IRI-based" : "declaresObservedProperty",
-      "en" : "declares observed property"
-    },
-    "domain" : "0",
-    "comment" : {
-      "en" : "Links a DataProfile to a semantic concept it describes, typically from a controlled vocabulary (e.g., an AGROVOC term)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "99"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/requiresProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "0",
@@ -2217,6 +2203,20 @@
     "domain" : "21",
     "comment" : {
       "en" : "Links a DataApp to a DataProfile it requires as input."
+    },
+    "attributes" : [ "object" ],
+    "id" : "99"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/declaresObservedProperty",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "declaresObservedProperty",
+      "en" : "declares observed property"
+    },
+    "domain" : "0",
+    "comment" : {
+      "en" : "Links a DataProfile to a semantic concept it describes, typically from a controlled vocabulary (e.g., an AGROVOC term)."
     },
     "attributes" : [ "object" ],
     "id" : "100"
@@ -2242,7 +2242,7 @@
       "IRI-based" : "conformsTo"
     },
     "domain" : "6",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "102"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/externalQualityReport",
@@ -2275,7 +2275,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/legalContact",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "44",
+    "range" : "45",
     "label" : {
       "IRI-based" : "legalContact",
       "en" : "legal contact"
@@ -2311,7 +2311,7 @@
     "comment" : {
       "en" : "The temporal resolution of the dataset, expressed as an xsd:duration (e.g., 'P1D' for daily)."
     },
-    "attributes" : [ "allValues", "datatype", "external" ],
+    "attributes" : [ "datatype", "allValues", "external" ],
     "id" : "108"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
@@ -2324,7 +2324,7 @@
     "comment" : {
       "en" : "The spatial resolution of the dataset, expressed in decimal degrees."
     },
-    "attributes" : [ "allValues", "datatype", "external" ],
+    "attributes" : [ "datatype", "allValues", "external" ],
     "id" : "110"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
@@ -2350,7 +2350,7 @@
     "comment" : {
       "en" : "The spatial resolution of the dataset, expressed in meters."
     },
-    "attributes" : [ "allValues", "datatype", "external" ],
+    "attributes" : [ "datatype", "allValues", "external" ],
     "id" : "115"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/topic",
@@ -2375,9 +2375,9 @@
       "IRI-based" : "contactPoint"
     },
     "domain" : "6",
-    "subproperty" : [ "43" ],
-    "attributes" : [ "object", "external" ],
-    "id" : "45"
+    "subproperty" : [ "44" ],
+    "attributes" : [ "external", "object" ],
+    "id" : "46"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesResource",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2446,20 +2446,6 @@
     "attributes" : [ "object" ],
     "id" : "121"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/paymentModelDescription",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "33",
-    "label" : {
-      "IRI-based" : "paymentModelDescription",
-      "en" : "payment model description"
-    },
-    "domain" : "2",
-    "comment" : {
-      "en" : "A human-readable description of the pricing or payment model (e.g., 'Monthly Subscription', 'Pay-per-use'). This complements the formal ODRL policy."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "122"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/auditLogAvailable",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "49",
@@ -2470,6 +2456,20 @@
     "domain" : "2",
     "comment" : {
       "en" : "Indicates if audit logs for the resource usage are available."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "122"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/paymentModelDescription",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "33",
+    "label" : {
+      "IRI-based" : "paymentModelDescription",
+      "en" : "payment model description"
+    },
+    "domain" : "2",
+    "comment" : {
+      "en" : "A human-readable description of the pricing or payment model (e.g., 'Monthly Subscription', 'Pay-per-use'). This complements the formal ODRL policy."
     },
     "attributes" : [ "datatype" ],
     "id" : "123"
