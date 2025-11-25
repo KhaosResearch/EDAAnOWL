@@ -66,13 +66,26 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
   - `:implementsComponent (ids:DataApp ↔ bigwf:Component)`: Bridges IDSA apps to BIGOWL components, grounding apps in executable workflow units.
   - `:realizesWorkflow (ids:DataApp ↔ opmw:WorkflowTemplate)`: Links apps to abstract workflows (OPMW) for documentation and reasoning.
   - `:hasDomainSector (⊑ dcat:theme)`: DCAT-aligned domain tagging using SKOS schemes, ensuring interoperable cataloguing and filtering across domains.
+  - `:hasCRS`: Links to a formal Coordinate Reference System (e.g., EPSG URI).
+  - `:supportContact`: Standard contact point for support, using vCard (fn, email, telephone, URL).
+  - `:legalContact`: A specific contact point for legal inquiries about the resource.
+
 
 - **Data properties (motivations)**
 
-  - `:hasCRS`: Links to a formal Coordinate Reference System (e.g., EPSG URI).
-  - `dcat:spatialResolutionInMeters`, `dcat:temporalResolution`: Adopted from DCAT 3 to capture EO and time-series constraints for practical matchmaking.
-  - `:supportContact`: Operational contact—crucial in Data Spaces to support consumers.
+  - `dcat:spatialResolutionInMeters`, `dcat:temporalResolution`, `dcat:spatialResolutionInDegrees`: Adopted from DCAT 3 to capture EO and time-series constraints for practical matchmaking.
   - Metrics (`:Metric` and subtypes with `:metricName`/`:metricValue`/`:metricUnit`/`:computedAt`): Allows publishing quality/performance indicators relevant to governance and selection.
+  - `:accessType`: Indicates the primary access mode for the resource (e.g., download, compute, ...).
+  - `:alternativeName`: Alternative title or name for a resource.
+  - `:auditLogAvailable`: Indicates if audit logs for the resource usage are available.
+  - `:isAlive`: Indicates if the dataset is actively maintained and expects future updates.
+  - `:knownLimitations`: Human-readable description of any known limitations, biases, or quality issues of the resource.
+  - `:paymentModelDescription`: A human-readable description of the pricing or payment model (e.g., 'Monthly Subscription', 'Pay-per-use').
+  - `:qualityReportURI`: Link to full quality report.
+  - `:qualityScore`: A quantitative quality score (e.g., 0-100) assigned by the external quality report.
+  - `:recommendedUse`: Human-readable description of the intended or recommended use cases for the resource.
+  - `:refundPolicy`: A text description of the refund policy applicable to the resource.
+  - `schema:thumbnailUrl`: A URL pointing to a thumbnail image for the resource.
 
 - **Why both Profile-based and Direct Semantic models?**
 
