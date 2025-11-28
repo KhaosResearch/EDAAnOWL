@@ -1,0 +1,16 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <> .
+<https://w3id.org/EDAAnOWL/0.3.1> a prov:Entity;
+	 dc:title "Ontología EDAAnOWL";
+	 prov:wasAttributedTo <https://github.com/MartinM10>;
+	 dc:creator <https://github.com/MartinM10>;
+	 prov:wasAttributedTo <https://khaos.uma.es/>;
+	 dc:creator <https://khaos.uma.es/>;
+	 prov:wasAttributedTo <https://www.linkedin.com/in/martin-jeronimo-salvachua/>;
+	 dc:creator <https://www.linkedin.com/in/martin-jeronimo-salvachua/>;
+	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+	 prov:wasRevisionOf <https://w3id.org/EDAAnOWL/0.3.0>;
+	 prov:wasGeneratedAt "2025-10-10";
+.

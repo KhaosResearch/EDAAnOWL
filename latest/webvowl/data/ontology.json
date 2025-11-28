@@ -19,27 +19,27 @@
       "es" : "EDAAnOWL"
     },
     "other" : {
-      "priorVersion" : [ {
-        "identifier" : "priorVersion",
-        "language" : "undefined",
-        "value" : "https://w3id.org/EDAAnOWL/0.3.0",
-        "type" : "iri"
-      } ],
       "image" : [ {
         "identifier" : "image",
         "language" : "undefined",
         "value" : "https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/refs/heads/main/images/eda-an-architecture-en.svg",
         "type" : "iri"
       } ],
+      "priorVersion" : [ {
+        "identifier" : "priorVersion",
+        "language" : "undefined",
+        "value" : "https://w3id.org/EDAAnOWL/0.3.0",
+        "type" : "iri"
+      } ],
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "https://github.com/MartinM10",
+        "value" : "https://khaos.uma.es/",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "https://khaos.uma.es/",
+        "value" : "https://github.com/MartinM10",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -53,32 +53,32 @@
         "value" : "2025-10-10",
         "type" : "label"
       } ],
+      "abstract" : [ {
+        "identifier" : "abstract",
+        "language" : "en",
+        "value" : "Lightweight ontology for data spaces. It aligns IDSA and BIGOWL, focusing on the strong semantic description of Data Assets and Data Apps through Data Profiles, which include technical characteristics (DCAT 3) and granular quality metrics.",
+        "type" : "label"
+      }, {
+        "identifier" : "abstract",
+        "language" : "es",
+        "value" : "Ontología ligera para espacios de datos. Alinea IDSA y BIGOWL, enfocándose en la descripción semántica robusta de Activos de Datos y Aplicaciones de Datos a través de Perfiles de Datos, que incluyen características técnicas (DCAT 3) y métricas de calidad granulares.",
+        "type" : "label"
+      } ],
       "versionInfo" : [ {
         "identifier" : "versionInfo",
         "language" : "undefined",
         "value" : "0.3.1",
         "type" : "label"
       } ],
-      "abstract" : [ {
-        "identifier" : "abstract",
-        "language" : "es",
-        "value" : "Ontología ligera para espacios de datos. Alinea IDSA y BIGOWL, enfocándose en la descripción semántica robusta de Activos de Datos y Aplicaciones de Datos a través de Perfiles de Datos, que incluyen características técnicas (DCAT 3) y métricas de calidad granulares.",
-        "type" : "label"
-      }, {
-        "identifier" : "abstract",
-        "language" : "en",
-        "value" : "Lightweight ontology for data spaces. It aligns IDSA and BIGOWL, focusing on the strong semantic description of Data Assets and Data Apps through Data Profiles, which include technical characteristics (DCAT 3) and granular quality metrics.",
-        "type" : "label"
-      } ],
       "title" : [ {
-        "identifier" : "title",
-        "language" : "es",
-        "value" : "Ontología EDAAnOWL",
-        "type" : "label"
-      }, {
         "identifier" : "title",
         "language" : "en",
         "value" : "EDAAnOWL Ontology",
+        "type" : "label"
+      }, {
+        "identifier" : "title",
+        "language" : "es",
+        "value" : "Ontología EDAAnOWL",
         "type" : "label"
       } ],
       "license" : [ {
@@ -99,6 +99,12 @@
         "value" : "2025-11-28",
         "type" : "label"
       } ],
+      "codeRepository" : [ {
+        "identifier" : "codeRepository",
+        "language" : "undefined",
+        "value" : "https://github.com/KhaosResearch/EDAAnOWL",
+        "type" : "iri"
+      } ],
       "bibliographicCitation" : [ {
         "identifier" : "bibliographicCitation",
         "language" : "undefined",
@@ -111,18 +117,7 @@
         "value" : "https://w3id.org/EDAAnOWL/",
         "type" : "label"
       } ],
-      "codeRepository" : [ {
-        "identifier" : "codeRepository",
-        "language" : "undefined",
-        "value" : "https://github.com/KhaosResearch/EDAAnOWL",
-        "type" : "iri"
-      } ],
       "introduction" : [ {
-        "identifier" : "introduction",
-        "language" : "en",
-        "value" : "EDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces and the analytical artefacts that flow through them. While the abstract motivates the need, this introduction clarifies scope, design choices, and typical usage.\n\nScope. EDAAnOWL focuses on (i) participants and roles, (ii) data assets and their profiles, (iii) offers and usage policies, and (iv) analytical workflows and applications. It aligns with the International Data Spaces (IDSA) information model for contractual and policy notions, and connects to the BIGOWL family to describe algorithms, problems, and workflows—linking inputs/outputs through ports and data profiles. The ontology ships with curated concept schemes (sector, datatypes, observed properties, domain terms) to encourage consistent annotations without locking users into a single domain model.\n\nReuse over reinvention. EDAAnOWL reuses widely adopted vocabularies wherever possible: DCAT for cataloguing and dataset metadata, SOSA/SSN for observations and features of interest, OWL-Time for temporal descriptions, ODRL and IDSA Core for policy/contract semantics, and PROV-O for provenance. These alignments are expressed via imports and lightweight bridges so existing assets can be described without duplication.\n\nModular structure. The ontology distinguishes a stable core from project-specific modules and reference vocabularies. The core defines the main classes and properties (e.g., Actor, Role, DataAsset, DataApp, DataProfile, Offer/Policy, Workflow, InputPort/OutputPort). Reference vocabularies are versioned and replaceable, letting communities specialise terms while keeping interoperability at the interfaces.\n\nVersioning and persistence. Each release has a persistent, versioned IRI and a non-versioned namespace that denotes the latest version. This enables unambiguous citation of a concrete release (“This version”) while preserving a canonical entry point (“Latest version”), typically redirected to the documentation of the rolling latest/ build.\n\nTypical usage.\n• Describe a dataset (DataAsset): Attach an `edaan:DataProfile` using `edaan:conformsToProfile`.\n• Define the profile:\n    • Classify its type (e.g., `edaan:declaresDataClass bigdat:TabularData`).\n    • Define its technical properties (e.g., `dcat:temporalResolution \"P1D\"^^xsd:duration`, `edaan:hasCRS <http://.../EPSG/4326>`).\n    • List its quality metrics using `edaan:hasMetric`, describing each `edaan:Metric` with `metricName`, `metricValue` (as `rdfs:Literal`), and `appliesToFeature` (for column-level metrics).\n• Publish a DataApp: Declare the profiles it requires (`edaan:requiresProfile`) and produces (`edaan:producesProfile`).\n• Enable Matchmaking: Allow a broker to find assets that semantically match the requirements of an app.\n• Validate Instances: Use the provided SHACL shapes (`edaan-shapes.ttl`) to ensure all assets and profiles conform to the ontology's rules.\n\nNon-goals. EDAAnOWL is not a monolithic domain ontology nor a replacement for sector models. It provides the semantic “connective tissue” required to publish, discover, govern, and compose data and analytics across domains, encouraging extension through clean interfaces rather than centralised control.",
-        "type" : "label"
-      }, {
         "identifier" : "introduction",
         "language" : "es",
         "value" : "EDAAnOWL proporciona un vocabulario compacto pero expresivo para describir la semántica operacional de los espacios de datos y los artefactos analíticos que fluyen a través de ellos. Mientras que el resumen motiva la necesidad, esta introducción clarifica el alcance, las decisiones de diseño y el uso típico.\n\nAlcance. EDAAnOWL se enfoca en (i) participantes y roles, (ii) activos de datos y sus perfiles, (iii) ofertas y políticas de uso, y (iv) flujos de trabajo analíticos y aplicaciones. Se alinea con el modelo de información de International Data Spaces (IDSA) para nociones contractuales y de políticas, y se conecta con la familia BIGOWL para describir algoritmos, problemas y flujos de trabajo—vinculando entradas/salidas a través de puertos y perfiles de datos. La ontología incluye esquemas de conceptos curados (sector, tipos de datos, propiedades observadas, términos de dominio) para fomentar anotaciones consistentes sin encerrar a los usuarios en un único modelo de dominio.\n\nReutilización sobre reinvención. EDAAnOWL reutiliza vocabularios ampliamente adoptados siempre que sea posible: DCAT para catalogación y metadatos de conjuntos de datos, SOSA/SSN para observaciones y características de interés, OWL-Time para descripciones temporales, ODRL e IDSA Core para semántica de políticas/contratos, y PROV-O para procedencia. Estas alineaciones se expresan mediante importaciones y puentes ligeros para que los activos existentes puedan describirse sin duplicación.\n\nEstructura modular. La ontología distingue un núcleo estable de módulos específicos de proyecto y vocabularios de referencia. El núcleo define las clases y propiedades principales (p. ej., Actor, Role, DataAsset, DataApp, DataProfile, Offer/Policy, Workflow, InputPort/OutputPort). Los vocabularios de referencia están versionados y son reemplazables, permitiendo a las comunidades especializar términos mientras mantienen la interoperabilidad en las interfaces.\n\nVersionado y persistencia. Cada versión tiene un IRI persistente y versionado y un espacio de nombres sin versión que denota la última versión. Esto permite la citación inequívoca de una versión concreta (\"Esta versión\") mientras se preserva un punto de entrada canónico (\"Última versión\"), típicamente redirigido a la documentación de la compilación latest/ continua.\n\nUso típico.\n• Describir un conjunto de datos (DataAsset): Adjuntar un `edaan:DataProfile` usando `edaan:conformsToProfile`.\n• Definir el perfil:\n    • Clasificar su tipo (p. ej., `edaan:declaresDataClass bigdat:TabularData`).\n    • Definir sus propiedades técnicas (p. ej., `dcat:temporalResolution \\\"P1D\\\"^^xsd:duration`, `edaan:hasCRS <http://.../EPSG/4326>`).\n    • Listar sus métricas de calidad usando `edaan:hasMetric`, describiendo cada `edaan:Metric` con `metricName`, `metricValue` (como `rdfs:Literal`), y `appliesToFeature` (para métricas a nivel de columna).\n• Publicar una DataApp: Declarar los perfiles que requiere (`edaan:requiresProfile`) y produce (`edaan:producesProfile`).\n• Habilitar Matchmaking: Permitir que un intermediario encuentre activos que coincidan semánticamente con los requisitos de una aplicación.\n• Validar Instancias: Usar las formas SHACL proporcionadas (`edaan-shapes.ttl`) para asegurar que todos los activos y perfiles se ajusten a las reglas de la ontología.\n\nNo-objetivos. EDAAnOWL no es una ontología de dominio monolítica ni un reemplazo para modelos sectoriales. Proporciona el \"tejido conectivo\" semántico requerido para publicar, descubrir, gobernar y componer datos y análisis a través de dominios, fomentando la extensión a través de interfaces limpias en lugar de control centralizado.",
@@ -131,6 +126,11 @@
         "identifier" : "introduction",
         "language" : "en",
         "value" : "EDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces and the analytical artefacts that flow through them. While the abstract motivates the need, this introduction clarifies scope, design choices, and typical usage.\n\nScope. EDAAnOWL focuses on (i) participants and roles, (ii) data assets and their profiles, (iii) offers and usage policies, and (iv) analytical workflows and applications. It aligns with the International Data Spaces (IDSA) information model for contractual and policy notions, and connects to the BIGOWL family to describe algorithms, problems, and workflows—linking inputs/outputs through ports and data profiles. The ontology ships with curated concept schemes (sector, datatypes, observed properties, domain terms) to encourage consistent annotations without locking users into a single domain model.\n\nReuse over reinvention. EDAAnOWL reuses widely adopted vocabularies wherever possible: DCAT for cataloguing and dataset metadata, SOSA/SSN for observations and features of interest, OWL-Time for temporal descriptions, ODRL and IDSA Core for policy/contract semantics, and PROV-O for provenance. These alignments are expressed via imports and lightweight bridges so existing assets can be described without duplication.\n\nModular structure. The ontology distinguishes a stable core from project-specific modules and reference vocabularies. The core defines the main classes and properties (e.g., Actor, Role, DataAsset, DataApp, DataProfile, Offer/Policy, Workflow, InputPort/OutputPort). Reference vocabularies are versioned and replaceable, letting communities specialise terms while keeping interoperability at the interfaces.\n\nVersioning and persistence. Each release has a persistent, versioned IRI and a non-versioned namespace that denotes the latest version. This enables unambiguous citation of a concrete release (“This version”) while preserving a canonical entry point (“Latest version”), typically redirected to the documentation of the rolling latest/ build.\n\nTypical usage.\n• Describe a dataset (DataAsset): Attach an `edaan:DataProfile` using `edaan:conformsToProfile`.\n• Define the profile:\n    • Classify its type (e.g., `edaan:declaresDataClass bigdat:TabularData`).\n    • Define its technical properties (e.g., `dcat:temporalResolution \\\"P1D\\\"^^xsd:duration`, `edaan:hasCRS <http://.../EPSG/4326>`).\n    • List its quality metrics using `edaan:hasMetric`, describing each `edaan:Metric` with `metricName`, `metricValue` (as `rdfs:Literal`), and `appliesToFeature` (for column-level metrics).\n• Publish a DataApp: Declare the profiles it requires (`edaan:requiresProfile`) and produces (`edaan:producesProfile`).\n• Enable Matchmaking: Allow a broker to find assets that semantically match the requirements of an app.\n• Validate Instances: Use the provided SHACL shapes (`edaan-shapes.ttl`) to ensure all assets and profiles conform to the ontology's rules.\n\nNon-goals. EDAAnOWL is not a monolithic domain ontology nor a replacement for sector models. It provides the semantic “connective tissue” required to publish, discover, govern, and compose data and analytics across domains, encouraging extension through clean interfaces rather than centralised control.",
+        "type" : "label"
+      }, {
+        "identifier" : "introduction",
+        "language" : "en",
+        "value" : "EDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces and the analytical artefacts that flow through them. While the abstract motivates the need, this introduction clarifies scope, design choices, and typical usage.\n\nScope. EDAAnOWL focuses on (i) participants and roles, (ii) data assets and their profiles, (iii) offers and usage policies, and (iv) analytical workflows and applications. It aligns with the International Data Spaces (IDSA) information model for contractual and policy notions, and connects to the BIGOWL family to describe algorithms, problems, and workflows—linking inputs/outputs through ports and data profiles. The ontology ships with curated concept schemes (sector, datatypes, observed properties, domain terms) to encourage consistent annotations without locking users into a single domain model.\n\nReuse over reinvention. EDAAnOWL reuses widely adopted vocabularies wherever possible: DCAT for cataloguing and dataset metadata, SOSA/SSN for observations and features of interest, OWL-Time for temporal descriptions, ODRL and IDSA Core for policy/contract semantics, and PROV-O for provenance. These alignments are expressed via imports and lightweight bridges so existing assets can be described without duplication.\n\nModular structure. The ontology distinguishes a stable core from project-specific modules and reference vocabularies. The core defines the main classes and properties (e.g., Actor, Role, DataAsset, DataApp, DataProfile, Offer/Policy, Workflow, InputPort/OutputPort). Reference vocabularies are versioned and replaceable, letting communities specialise terms while keeping interoperability at the interfaces.\n\nVersioning and persistence. Each release has a persistent, versioned IRI and a non-versioned namespace that denotes the latest version. This enables unambiguous citation of a concrete release (“This version”) while preserving a canonical entry point (“Latest version”), typically redirected to the documentation of the rolling latest/ build.\n\nTypical usage.\n• Describe a dataset (DataAsset): Attach an `edaan:DataProfile` using `edaan:conformsToProfile`.\n• Define the profile:\n    • Classify its type (e.g., `edaan:declaresDataClass bigdat:TabularData`).\n    • Define its technical properties (e.g., `dcat:temporalResolution \"P1D\"^^xsd:duration`, `edaan:hasCRS <http://.../EPSG/4326>`).\n    • List its quality metrics using `edaan:hasMetric`, describing each `edaan:Metric` with `metricName`, `metricValue` (as `rdfs:Literal`), and `appliesToFeature` (for column-level metrics).\n• Publish a DataApp: Declare the profiles it requires (`edaan:requiresProfile`) and produces (`edaan:producesProfile`).\n• Enable Matchmaking: Allow a broker to find assets that semantically match the requirements of an app.\n• Validate Instances: Use the provided SHACL shapes (`edaan-shapes.ttl`) to ensure all assets and profiles conform to the ontology's rules.\n\nNon-goals. EDAAnOWL is not a monolithic domain ontology nor a replacement for sector models. It provides the semantic “connective tissue” required to publish, discover, govern, and compose data and analytics across domains, encouraging extension through clean interfaces rather than centralised control.",
         "type" : "label"
       } ]
     }
@@ -215,13 +215,13 @@
     "id" : "52",
     "type" : "owl:Class"
   }, {
-    "id" : "3",
+    "id" : "5",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "54",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "5",
+    "id" : "3",
     "type" : "rdfs:Literal"
   }, {
     "id" : "57",
@@ -302,7 +302,7 @@
     "id" : "118",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "44",
+    "id" : "45",
     "type" : "owl:Class"
   }, {
     "id" : "2",
@@ -375,32 +375,6 @@
         "IRI-based" : "energy"
       }
     }, {
-      "iri" : "https://w3id.org/EDAAnOWL/precipitation",
-      "baseIri" : "https://w3id.org/EDAAnOWL",
-      "annotations" : {
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Precipitation",
-          "type" : "label"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Rainfall, snowfall, or other forms of moisture",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "precipitation"
-      }
-    }, {
       "iri" : "https://w3id.org/EDAAnOWL/repiloIncidence",
       "baseIri" : "https://w3id.org/EDAAnOWL",
       "annotations" : {
@@ -425,6 +399,32 @@
       },
       "labels" : {
         "IRI-based" : "repiloIncidence"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/precipitation",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Precipitation",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Rainfall, snowfall, or other forms of moisture",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "precipitation"
       }
     }, {
       "iri" : "https://w3id.org/EDAAnOWL/agro_irrigation",
@@ -803,32 +803,6 @@
         "IRI-based" : "agro_wheat"
       }
     }, {
-      "iri" : "https://w3id.org/EDAAnOWL/agro_harvest",
-      "baseIri" : "https://w3id.org/EDAAnOWL",
-      "annotations" : {
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Harvest",
-          "type" : "label"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Crop harvesting activities and timing",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "agro_harvest"
-      }
-    }, {
       "iri" : "https://w3id.org/EDAAnOWL/agro_olive",
       "baseIri" : "https://w3id.org/EDAAnOWL",
       "annotations" : {
@@ -859,6 +833,32 @@
       },
       "labels" : {
         "IRI-based" : "agro_olive"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_harvest",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Harvest",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Crop harvesting activities and timing",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_harvest"
       }
     }, {
       "iri" : "https://w3id.org/EDAAnOWL/ndvi",
@@ -1124,7 +1124,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "3",
+    "id" : "5",
     "label" : {
       "IRI-based" : "string"
     }
@@ -1138,7 +1138,7 @@
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "5",
+    "id" : "3",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -1415,11 +1415,11 @@
     },
     "id" : "10"
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#duration",
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "111",
     "label" : {
-      "IRI-based" : "duration"
+      "IRI-based" : "decimal"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
@@ -1472,11 +1472,11 @@
       "IRI-based" : "anyURI"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "iri" : "http://www.w3.org/2001/XMLSchema#duration",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "118",
     "label" : {
-      "IRI-based" : "decimal"
+      "IRI-based" : "duration"
     }
   }, {
     "iri" : "http://www.w3.org/2006/vcard/ns#Kind",
@@ -1486,7 +1486,7 @@
       "IRI-based" : "Kind"
     },
     "attributes" : [ "external" ],
-    "id" : "44"
+    "id" : "45"
   }, {
     "iri" : "https://w3id.org/idsa/core/Resource",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -1546,7 +1546,7 @@
     "id" : "43",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "46",
+    "id" : "44",
     "type" : "owl:objectProperty"
   }, {
     "id" : "50",
@@ -1690,7 +1690,7 @@
     "id" : "25",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "45",
+    "id" : "46",
     "type" : "owl:objectProperty"
   }, {
     "id" : "119",
@@ -1703,10 +1703,10 @@
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "122",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "123",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "124",
     "type" : "owl:datatypeProperty"
@@ -1721,25 +1721,9 @@
     "type" : "owl:objectProperty"
   } ],
   "propertyAttribute" : [ {
-    "iri" : "https://w3id.org/EDAAnOWL/accessType",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "3",
-    "label" : {
-      "IRI-based" : "accessType",
-      "en" : "access type",
-      "es" : "tipo de acceso"
-    },
-    "domain" : "2",
-    "comment" : {
-      "en" : "Indicates the primary access mode for the resource (e.g., download, compute, ...).",
-      "es" : "Indica el modo de acceso principal para el recurso (p. ej., descarga, cómputo, ...)."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "1"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/alternativeName",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "5",
+    "range" : "3",
     "label" : {
       "IRI-based" : "alternativeName",
       "en" : "alternate name",
@@ -1749,6 +1733,22 @@
     "comment" : {
       "en" : "Alternative title or name for a resource.",
       "es" : "Título o nombre alternativo para un recurso."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "1"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/accessType",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "accessType",
+      "en" : "access type",
+      "es" : "tipo de acceso"
+    },
+    "domain" : "2",
+    "comment" : {
+      "en" : "Indicates the primary access mode for the resource (e.g., download, compute, ...).",
+      "es" : "Indica el modo de acceso principal para el recurso (p. ej., descarga, cómputo, ...)."
     },
     "attributes" : [ "datatype" ],
     "id" : "4"
@@ -1826,7 +1826,7 @@
     },
     "domain" : "6",
     "subproperty" : [ "25" ],
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "24"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasDomainSector",
@@ -1894,23 +1894,6 @@
     "attributes" : [ "datatype" ],
     "id" : "41"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/supportContact",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "44",
-    "label" : {
-      "IRI-based" : "supportContact",
-      "en" : "support contact",
-      "es" : "contacto de soporte"
-    },
-    "superproperty" : [ "45" ],
-    "domain" : "2",
-    "comment" : {
-      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL).",
-      "es" : "Punto de contacto estándar para soporte, usando vCard (fn, email, telephone, URL)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "43"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "0",
@@ -1925,7 +1908,24 @@
       "es" : "Vincula una DataApp con un DataProfile que produce como salida."
     },
     "attributes" : [ "object" ],
-    "id" : "46"
+    "id" : "43"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/supportContact",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "45",
+    "label" : {
+      "IRI-based" : "supportContact",
+      "en" : "support contact",
+      "es" : "contacto de soporte"
+    },
+    "superproperty" : [ "46" ],
+    "domain" : "2",
+    "comment" : {
+      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL).",
+      "es" : "Punto de contacto estándar para soporte, usando vCard (fn, email, telephone, URL)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "44"
   }, {
     "iri" : "http://purl.org/dc/terms/source",
     "baseIri" : "http://purl.org/dc/terms",
@@ -1940,7 +1940,7 @@
       "en" : "A related resource from which the described resource is derived (e.g., the originating catalog).",
       "es" : "Un recurso relacionado del cual se deriva el recurso descrito (p. ej., el catálogo de origen)."
     },
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "50"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesObservableProperty",
@@ -1970,17 +1970,17 @@
       "en" : "The spatial resolution of the dataset, expressed in meters.",
       "es" : "La resolución espacial del conjunto de datos, expresada en metros."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "60"
   }, {
     "range" : "53",
     "domain" : "65",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "64"
   }, {
     "range" : "53",
     "domain" : "67",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "66"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/conformsToProfile",
@@ -2002,17 +2002,17 @@
   }, {
     "range" : "53",
     "domain" : "52",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "69"
   }, {
     "range" : "2",
     "domain" : "36",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "71"
   }, {
     "range" : "73",
     "domain" : "56",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "72"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/parameter",
@@ -2081,7 +2081,7 @@
   }, {
     "range" : "13",
     "domain" : "12",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "79"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/servesObservableProperty",
@@ -2102,17 +2102,17 @@
   }, {
     "range" : "15",
     "domain" : "62",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "81"
   }, {
     "range" : "15",
     "domain" : "59",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "82"
   }, {
     "range" : "21",
     "domain" : "53",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "83"
   }, {
     "iri" : "http://purl.org/dc/terms/alternative",
@@ -2128,22 +2128,22 @@
       "en" : "An alternative name for the resource.",
       "es" : "Un nombre alternativo para el recurso."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "84"
   }, {
     "range" : "63",
     "domain" : "62",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "86"
   }, {
     "range" : "36",
     "domain" : "13",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "87"
   }, {
     "range" : "14",
     "domain" : "15",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "88"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/isAlive",
@@ -2175,7 +2175,7 @@
       "en" : "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity. In EDAAnOWL, this links a derived DataAsset to its source DataAsset.",
       "es" : "Una derivación es una transformación de una entidad en otra, una actualización de una entidad que resulta en una nueva, o la construcción de una nueva entidad basada en una entidad preexistente. En EDAAnOWL, esto vincula un DataAsset derivado con su DataAsset fuente."
     },
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "90"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/profileCRSRef",
@@ -2218,7 +2218,7 @@
     },
     "domain" : "6",
     "subproperty" : [ "30" ],
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "32"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/profileTemporalResolution",
@@ -2273,22 +2273,6 @@
     "attributes" : [ "deprecated", "datatype" ],
     "id" : "95"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/hasTemporalCoverage",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "7",
-    "label" : {
-      "IRI-based" : "hasTemporalCoverage",
-      "en" : "has temporal coverage",
-      "es" : "tiene cobertura temporal"
-    },
-    "domain" : "12",
-    "comment" : {
-      "en" : "Defines the temporal coverage of the data asset required by Earth Observation CUs.",
-      "es" : "Define la cobertura temporal del activo de datos requerido por las CUs de Observación de la Tierra."
-    },
-    "attributes" : [ "object" ],
-    "id" : "96"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/requiresObservableProperty",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "56",
@@ -2301,6 +2285,22 @@
     "comment" : {
       "en" : "Defines the semantic signature of INPUT for a service (e.g., requires NDVI).",
       "es" : "Define la firma semántica de la ENTRADA para un servicio (p. ej., requiere NDVI)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "96"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/hasTemporalCoverage",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "7",
+    "label" : {
+      "IRI-based" : "hasTemporalCoverage",
+      "en" : "has temporal coverage",
+      "es" : "tiene cobertura temporal"
+    },
+    "domain" : "12",
+    "comment" : {
+      "en" : "Defines the temporal coverage of the data asset required by Earth Observation CUs.",
+      "es" : "Define la cobertura temporal del activo de datos requerido por las CUs de Observación de la Tierra."
     },
     "attributes" : [ "object" ],
     "id" : "97"
@@ -2321,22 +2321,6 @@
     "attributes" : [ "datatype" ],
     "id" : "98"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/declaresObservedProperty",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "8",
-    "label" : {
-      "IRI-based" : "declaresObservedProperty",
-      "en" : "declares observed property",
-      "es" : "declara propiedad observada"
-    },
-    "domain" : "0",
-    "comment" : {
-      "en" : "Links a DataProfile to a semantic concept it describes, typically from a controlled vocabulary (e.g., an AGROVOC term).",
-      "es" : "Vincula un DataProfile con un concepto semántico que describe, típicamente de un vocabulario controlado (p. ej., un término AGROVOC)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "100"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/requiresProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "0",
@@ -2349,6 +2333,22 @@
     "comment" : {
       "en" : "Links a DataApp to a DataProfile it requires as input.",
       "es" : "Vincula una DataApp con un DataProfile que requiere como entrada."
+    },
+    "attributes" : [ "object" ],
+    "id" : "100"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/declaresObservedProperty",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "declaresObservedProperty",
+      "en" : "declares observed property",
+      "es" : "declara propiedad observada"
+    },
+    "domain" : "0",
+    "comment" : {
+      "en" : "Links a DataProfile to a semantic concept it describes, typically from a controlled vocabulary (e.g., an AGROVOC term).",
+      "es" : "Vincula un DataProfile con un concepto semántico que describe, típicamente de un vocabulario controlado (p. ej., un término AGROVOC)."
     },
     "attributes" : [ "object" ],
     "id" : "101"
@@ -2376,7 +2376,7 @@
       "IRI-based" : "conformsTo"
     },
     "domain" : "6",
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "103"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/externalQualityReport",
@@ -2413,13 +2413,13 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/legalContact",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "44",
+    "range" : "45",
     "label" : {
       "IRI-based" : "legalContact",
       "en" : "legal contact",
       "es" : "contacto legal"
     },
-    "superproperty" : [ "45" ],
+    "superproperty" : [ "46" ],
     "domain" : "2",
     "comment" : {
       "en" : "A specific contact point for legal inquiries about the resource.",
@@ -2441,7 +2441,7 @@
       "en" : "Generation is the completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation. In EDAAnOWL, this links a DataAsset to the DataApp that generated it.",
       "es" : "La generación es la finalización de la producción de una nueva entidad por una actividad. Esta entidad no existía antes de la generación y queda disponible para su uso después de esta generación. En EDAAnOWL, esto vincula un DataAsset con la DataApp que lo generó."
     },
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "107"
   }, {
     "iri" : "https://schema.org/thumbnailUrl",
@@ -2457,21 +2457,21 @@
       "en" : "A URL pointing to a thumbnail image for the resource.",
       "es" : "Una URL que apunta a una imagen en miniatura del recurso."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "108"
   }, {
-    "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
+    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
     "baseIri" : "http://www.w3.org/ns/dcat",
     "range" : "111",
     "label" : {
-      "IRI-based" : "temporalResolution"
+      "IRI-based" : "spatialResolutionInDegrees"
     },
     "domain" : "0",
     "comment" : {
-      "en" : "The temporal resolution of the dataset, expressed as an xsd:duration (e.g., 'P1D' for daily).",
-      "es" : "La resolución temporal del conjunto de datos, expresada como xsd:duration (p. ej., 'P1D' para diario)."
+      "en" : "The spatial resolution of the dataset, expressed in decimal degrees.",
+      "es" : "La resolución espacial del conjunto de datos, expresada en grados decimales."
     },
-    "attributes" : [ "allValues", "datatype", "external" ],
+    "attributes" : [ "allValues", "external", "datatype" ],
     "id" : "110"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
@@ -2485,7 +2485,7 @@
       "en" : "The spatial resolution of the dataset, expressed in meters.",
       "es" : "La resolución espacial del conjunto de datos, expresada en metros."
     },
-    "attributes" : [ "allValues", "datatype", "external" ],
+    "attributes" : [ "allValues", "external", "datatype" ],
     "id" : "112"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
@@ -2499,21 +2499,21 @@
       "en" : "The temporal resolution of the dataset, expressed as an xsd:duration (e.g., 'P1D' for daily).",
       "es" : "La resolución temporal del conjunto de datos, expresada como xsd:duration (p. ej., 'P1D' para diario)."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "116"
   }, {
-    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
+    "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
     "baseIri" : "http://www.w3.org/ns/dcat",
     "range" : "118",
     "label" : {
-      "IRI-based" : "spatialResolutionInDegrees"
+      "IRI-based" : "temporalResolution"
     },
     "domain" : "0",
     "comment" : {
-      "en" : "The spatial resolution of the dataset, expressed in decimal degrees.",
-      "es" : "La resolución espacial del conjunto de datos, expresada en grados decimales."
+      "en" : "The temporal resolution of the dataset, expressed as an xsd:duration (e.g., 'P1D' for daily).",
+      "es" : "La resolución temporal del conjunto de datos, expresada como xsd:duration (p. ej., 'P1D' para diario)."
     },
-    "attributes" : [ "allValues", "datatype", "external" ],
+    "attributes" : [ "allValues", "external", "datatype" ],
     "id" : "117"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/topic",
@@ -2540,9 +2540,9 @@
       "IRI-based" : "contactPoint"
     },
     "domain" : "6",
-    "subproperty" : [ "106", "43" ],
-    "attributes" : [ "external", "object" ],
-    "id" : "45"
+    "subproperty" : [ "106", "44" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "46"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesResource",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2589,20 +2589,6 @@
     "attributes" : [ "datatype" ],
     "id" : "121"
   }, {
-    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
-    "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "114",
-    "label" : {
-      "IRI-based" : "spatialResolutionInDegrees"
-    },
-    "domain" : "6",
-    "comment" : {
-      "en" : "The spatial resolution of the dataset, expressed in decimal degrees.",
-      "es" : "La resolución espacial del conjunto de datos, expresada en grados decimales."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "122"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/implementsComponent",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "57",
@@ -2617,23 +2603,21 @@
       "es" : "Vincula una DataApp IDSA con el Componente de flujo de trabajo BIGOWL que implementa."
     },
     "attributes" : [ "object" ],
-    "id" : "123"
+    "id" : "122"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/auditLogAvailable",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "49",
+    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
+    "baseIri" : "http://www.w3.org/ns/dcat",
+    "range" : "114",
     "label" : {
-      "IRI-based" : "auditLogAvailable",
-      "en" : "audit log available",
-      "es" : "registro de auditoría disponible"
+      "IRI-based" : "spatialResolutionInDegrees"
     },
-    "domain" : "2",
+    "domain" : "6",
     "comment" : {
-      "en" : "Indicates if audit logs for the resource usage are available.",
-      "es" : "Indica si los registros de auditoría para el uso del recurso están disponibles."
+      "en" : "The spatial resolution of the dataset, expressed in decimal degrees.",
+      "es" : "La resolución espacial del conjunto de datos, expresada en grados decimales."
     },
-    "attributes" : [ "datatype" ],
-    "id" : "124"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "123"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/paymentModelDescription",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2647,6 +2631,22 @@
     "comment" : {
       "en" : "A human-readable description of the pricing or payment model (e.g., 'Monthly Subscription', 'Pay-per-use'). This complements the formal ODRL policy.",
       "es" : "Una descripción legible del modelo de precios o pago (p. ej., 'Suscripción Mensual', 'Pago por uso'). Esto complementa la política formal ODRL."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "124"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/auditLogAvailable",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "49",
+    "label" : {
+      "IRI-based" : "auditLogAvailable",
+      "en" : "audit log available",
+      "es" : "registro de auditoría disponible"
+    },
+    "domain" : "2",
+    "comment" : {
+      "en" : "Indicates if audit logs for the resource usage are available.",
+      "es" : "Indica si los registros de auditoría para el uso del recurso están disponibles."
     },
     "attributes" : [ "datatype" ],
     "id" : "125"

@@ -1,0 +1,2568 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>Ontología EDAAnOWL</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/EDAAnOWL/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/EDAAnOWL/","name":"Ontología EDAAnOWL", "headline":"Ontología ligera para espacios de datos. Alinea IDSA y BIGOWL, enfocándose en la descripción semántica robusta de Activos de Datos y Aplicaciones de Datos a través de Perfiles de Datos, que incluyen características técnicas (DCAT 3) y métricas de calidad granulares.", "dateReleased":"2025-10-10", "dateModified":"2025-11-28", "version":"0.3.1", "license":"https://creativecommons.org/licenses/by/4.0/", "codeRepository":"https://github.com/KhaosResearch/EDAAnOWL", "author":[{"@type":"Person","name":"https://github.com/MartinM10","url":"https://github.com/MartinM10"},{"@type":"Person","name":"https://khaos.uma.es/","url":"https://khaos.uma.es/"},{"@type":"Person","name":"https://www.linkedin.com/in/martin-jeronimo-salvachua/","url":"https://www.linkedin.com/in/martin-jeronimo-salvachua/"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Tabla de contenidos</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> <a href="index-es.html"><b>es</b></a> </div>
+<h1>Ontología EDAAnOWL</h1>
+<h2>Fecha de creaci&oacute;n: 2025-10-10</h2>
+
+
+<dl>
+<dt>Fecha de modificaci&oacute;n: 2025-11-28</dt>
+<dt>Versi&oacute;n:</dt>
+<dd><a href="https://w3id.org/EDAAnOWL/0.3.1">https://w3id.org/EDAAnOWL/0.3.1</a></dd>
+<dt>Versi&oacute;n previa:</dt>
+<dd><a href="https://w3id.org/EDAAnOWL/0.3.0">https://w3id.org/EDAAnOWL/0.3.0</a></dd>
+<dt>Revisi&oacute;n n&uacute;mero:</dt>
+<dd>0.3.1</dd>
+<dt>Autores:</dt>
+<dd><a href="https://github.com/MartinM10">https://github.com/MartinM10</a></dd><dd><a href="https://khaos.uma.es/">https://khaos.uma.es/</a></dd><dd><a href="https://www.linkedin.com/in/martin-jeronimo-salvachua/">https://www.linkedin.com/in/martin-jeronimo-salvachua/</a></dd>
+
+<dt>Ontolog&iacute;as importadas:</dt>
+<dd><a href="https://w3id.org/EDAAnOWL/0.3.1/vocabularies/agro-vocab">agro-vocab</a></dd><dd><a href="https://w3id.org/EDAAnOWL/0.3.1/vocabularies/datatype-scheme">datatype-scheme</a></dd><dd><a href="https://w3id.org/EDAAnOWL/0.3.1/vocabularies/observed-properties">observed-properties</a></dd><dd><a href="https://w3id.org/EDAAnOWL/0.3.1/vocabularies/sector-scheme">sector-scheme</a></dd>
+
+<dt>Descargar serializaci&oacute;n:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>Licencia:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
+</dd><dt>Visualizaci&oacute;n:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+<dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd><dt>Citar como:</dt>
+<dd>Salvachúa Galimberti, M. J.; Khaos Research. (2025). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.3.1.</dd>
+<dt>Vocabulario mantenido en:</dt>
+<dd><a href="https://github.com/KhaosResearch/EDAAnOWL">https://github.com/KhaosResearch/EDAAnOWL</a></dd>
+</dl>
+
+<a href="provenance/provenance-es.html" target="_blank">Provenance de esta p&aacute;gina</a><hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>S&iacute;ntesis</h2><span class="markdown">
+Ontología ligera para espacios de datos. Alinea IDSA y BIGOWL, enfocándose en la descripción semántica robusta de Activos de Datos y Aplicaciones de Datos a través de Perfiles de Datos, que incluyen características técnicas (DCAT 3) y métricas de calidad granulares.</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introducci&oacute;n <span class="backlink"> volver a <a href="#toc">&iacute;ndice</a></span></h2>
+<span class="markdown">EDAAnOWL proporciona un vocabulario compacto pero expresivo para describir la semántica operacional de los espacios de datos y los artefactos analíticos que fluyen a través de ellos. Mientras que el resumen motiva la necesidad, esta introducción clarifica el alcance, las decisiones de diseño y el uso típico.
+
+Alcance. EDAAnOWL se enfoca en (i) participantes y roles, (ii) activos de datos y sus perfiles, (iii) ofertas y políticas de uso, y (iv) flujos de trabajo analíticos y aplicaciones. Se alinea con el modelo de información de International Data Spaces (IDSA) para nociones contractuales y de políticas, y se conecta con la familia BIGOWL para describir algoritmos, problemas y flujos de trabajo—vinculando entradas/salidas a través de puertos y perfiles de datos. La ontología incluye esquemas de conceptos curados (sector, tipos de datos, propiedades observadas, términos de dominio) para fomentar anotaciones consistentes sin encerrar a los usuarios en un único modelo de dominio.
+
+Reutilización sobre reinvención. EDAAnOWL reutiliza vocabularios ampliamente adoptados siempre que sea posible: DCAT para catalogación y metadatos de conjuntos de datos, SOSA/SSN para observaciones y características de interés, OWL-Time para descripciones temporales, ODRL e IDSA Core para semántica de políticas/contratos, y PROV-O para procedencia. Estas alineaciones se expresan mediante importaciones y puentes ligeros para que los activos existentes puedan describirse sin duplicación.
+
+Estructura modular. La ontología distingue un núcleo estable de módulos específicos de proyecto y vocabularios de referencia. El núcleo define las clases y propiedades principales (p. ej., Actor, Role, DataAsset, DataApp, DataProfile, Offer/Policy, Workflow, InputPort/OutputPort). Los vocabularios de referencia están versionados y son reemplazables, permitiendo a las comunidades especializar términos mientras mantienen la interoperabilidad en las interfaces.
+
+Versionado y persistencia. Cada versión tiene un IRI persistente y versionado y un espacio de nombres sin versión que denota la última versión. Esto permite la citación inequívoca de una versión concreta ("Esta versión") mientras se preserva un punto de entrada canónico ("Última versión"), típicamente redirigido a la documentación de la compilación latest/ continua.
+
+Uso típico.
+• Describir un conjunto de datos (DataAsset): Adjuntar un `edaan:DataProfile` usando `edaan:conformsToProfile`.
+• Definir el perfil:
+    • Clasificar su tipo (p. ej., `edaan:declaresDataClass bigdat:TabularData`).
+    • Definir sus propiedades técnicas (p. ej., `dcat:temporalResolution \"P1D\"^^xsd:duration`, `edaan:hasCRS <http://.../EPSG/4326>`).
+    • Listar sus métricas de calidad usando `edaan:hasMetric`, describiendo cada `edaan:Metric` con `metricName`, `metricValue` (como `rdfs:Literal`), y `appliesToFeature` (para métricas a nivel de columna).
+• Publicar una DataApp: Declarar los perfiles que requiere (`edaan:requiresProfile`) y produce (`edaan:producesProfile`).
+• Habilitar Matchmaking: Permitir que un intermediario encuentre activos que coincidan semánticamente con los requisitos de una aplicación.
+• Validar Instancias: Usar las formas SHACL proporcionadas (`edaan-shapes.ttl`) para asegurar que todos los activos y perfiles se ajusten a las reglas de la ontología.
+
+No-objetivos. EDAAnOWL no es una ontología de dominio monolítica ni un reemplazo para modelos sectoriales. Proporciona el "tejido conectivo" semántico requerido para publicar, descubrir, gobernar y componer datos y análisis a través de dominios, fomentando la extensión a través de interfaces limpias en lugar de control centralizado.</span>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">EDAAnOWL: Resumen <span class="backlink"> volver a <a href="#toc">&iacute;ndice</a></span></h2>
+<span class="markdown">La ontolog&iacute;a se compone de las siguientes clases y propiedades:</span>
+<h4>Clases</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#DataAsset" title="https://w3id.org/EDAAnOWL/DataAsset">Activo de Datos</a>
+   </li>
+   <li>
+      <a href="#SpatialTemporalAsset" title="https://w3id.org/EDAAnOWL/SpatialTemporalAsset">Activo Espacio-Temporal</a>
+   </li>
+   <li>
+      <a href="#AnalyzerApp" title="https://w3id.org/EDAAnOWL/AnalyzerApp">Aplicación Analizadora</a>
+   </li>
+   <li>
+      <a href="#PredictionApp" title="https://w3id.org/EDAAnOWL/PredictionApp">Aplicación de Predicción</a>
+   </li>
+   <li>
+      <a href="#VisualizationApp" title="https://w3id.org/EDAAnOWL/VisualizationApp">Aplicación de Visualización</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/idsa/core/DataResource" title="https://w3id.org/idsa/core/DataResource">
+         <span>Data Resource</span>
+      </a>
+   </li>
+   <li>
+      <a href="#QualityReport" title="https://w3id.org/EDAAnOWL/QualityReport">Informe de Calidad Externo</a>
+   </li>
+   <li>
+      <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Métrica</a>
+   </li>
+   <li>
+      <a href="#QualityMetric" title="https://w3id.org/EDAAnOWL/QualityMetric">Métrica de Calidad</a>
+   </li>
+   <li>
+      <a href="#PerformanceMetric" title="https://w3id.org/EDAAnOWL/PerformanceMetric">Métrica de Rendimiento</a>
+   </li>
+   <li>
+      <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a>
+   </li>
+   <li>
+      <a href="#ObservableProperty" title="https://w3id.org/EDAAnOWL/ObservableProperty">Propiedad Observable</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/idsa/core/SmartDataApp" title="https://w3id.org/idsa/core/SmartDataApp">
+         <span>Smart Data App</span>
+      </a>
+   </li>
+</ul><h4>Propiedades de objeto</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#consumesResource" title="https://w3id.org/EDAAnOWL/consumesResource">consume representación</a>
+   </li>
+   <li>
+      <a href="#supportContact" title="https://w3id.org/EDAAnOWL/supportContact">contacto de soporte</a>
+   </li>
+   <li>
+      <a href="#legalContact" title="https://w3id.org/EDAAnOWL/legalContact">contacto legal</a>
+   </li>
+   <li>
+      <a href="#declaresDataClass" title="https://w3id.org/EDAAnOWL/declaresDataClass">declara clase de datos</a>
+   </li>
+   <li>
+      <a href="#declaresObservedProperty"
+         title="https://w3id.org/EDAAnOWL/declaresObservedProperty">declara propiedad observada</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">fue derivado de</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">fue generado por</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/source" title="http://purl.org/dc/terms/source">fuente</a>
+   </li>
+   <li>
+      <a href="#spatialGranularityConcept"
+         title="https://w3id.org/EDAAnOWL/spatialGranularityConcept">granularidad espacial (concepto)</a>
+   </li>
+   <li>
+      <a href="#implementsComponent" title="https://w3id.org/EDAAnOWL/implementsComponent">implementa componente</a>
+   </li>
+   <li>
+      <a href="#externalQualityReport" title="https://w3id.org/EDAAnOWL/externalQualityReport">informe de calidad externo</a>
+   </li>
+   <li>
+      <a href="#parameter" title="https://w3id.org/EDAAnOWL/parameter">parámetro</a>
+   </li>
+   <li>
+      <a href="#producesProfile" title="https://w3id.org/EDAAnOWL/producesProfile">produce perfil</a>
+   </li>
+   <li>
+      <a href="#producesObservableProperty"
+         title="https://w3id.org/EDAAnOWL/producesObservableProperty">produce propiedad observable</a>
+   </li>
+   <li>
+      <a href="#producesResource" title="https://w3id.org/EDAAnOWL/producesResource">produce representación</a>
+   </li>
+   <li>
+      <a href="#realizesWorkflow" title="https://w3id.org/EDAAnOWL/realizesWorkflow">realiza flujo de trabajo</a>
+   </li>
+   <li>
+      <a href="#requiresProfile" title="https://w3id.org/EDAAnOWL/requiresProfile">requiere perfil</a>
+   </li>
+   <li>
+      <a href="#requiresObservableProperty"
+         title="https://w3id.org/EDAAnOWL/requiresObservableProperty">requiere propiedad observable</a>
+   </li>
+   <li>
+      <a href="#conformsToProfile" title="https://w3id.org/EDAAnOWL/conformsToProfile">se ajusta al perfil</a>
+   </li>
+   <li>
+      <a href="#servesObservableProperty"
+         title="https://w3id.org/EDAAnOWL/servesObservableProperty">sirve propiedad observable</a>
+   </li>
+   <li>
+      <a href="#topic" title="https://w3id.org/EDAAnOWL/topic">tema</a>
+   </li>
+   <li>
+      <a href="#hasSpatialCoverage" title="https://w3id.org/EDAAnOWL/hasSpatialCoverage">tiene cobertura espacial</a>
+   </li>
+   <li>
+      <a href="#hasTemporalCoverage" title="https://w3id.org/EDAAnOWL/hasTemporalCoverage">tiene cobertura temporal</a>
+   </li>
+   <li>
+      <a href="#hasMetric" title="https://w3id.org/EDAAnOWL/hasMetric">tiene métrica</a>
+   </li>
+   <li>
+      <a href="#hasDomainSector" title="https://w3id.org/EDAAnOWL/hasDomainSector">tiene sector de dominio</a>
+   </li>
+   <li>
+      <a href="#hasCRS" title="https://w3id.org/EDAAnOWL/hasCRS">tiene Sistema de Referencia de Coordenadas</a>
+   </li>
+</ul><h4>Propiedades de datos</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#computedAt" title="https://w3id.org/EDAAnOWL/computedAt">calculado en</a>
+   </li>
+   <li>
+      <a href="#profileCRS" title="https://w3id.org/EDAAnOWL/profileCRS">CRS de perfil</a>
+   </li>
+   <li>
+      <a href="#profileCRSRef" title="https://w3id.org/EDAAnOWL/profileCRSRef">CRS de perfil (IRI)</a>
+   </li>
+   <li>
+      <a href="#paymentModelDescription"
+         title="https://w3id.org/EDAAnOWL/paymentModelDescription">descripción del modelo de pago</a>
+   </li>
+   <li>
+      <a href="#isAlive" title="https://w3id.org/EDAAnOWL/isAlive">está activo</a>
+   </li>
+   <li>
+      <a href="#spatialGranularity" title="https://w3id.org/EDAAnOWL/spatialGranularity">granularidad espacial</a>
+   </li>
+   <li>
+      <a href="#knownLimitations" title="https://w3id.org/EDAAnOWL/knownLimitations">limitaciones conocidas</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/alternative" title="http://purl.org/dc/terms/alternative">nombre alternativo</a>
+   </li>
+   <li>
+      <a href="#alternativeName" title="https://w3id.org/EDAAnOWL/alternativeName">nombre alternativo</a>
+   </li>
+   <li>
+      <a href="#metricName" title="https://w3id.org/EDAAnOWL/metricName">nombre de métrica</a>
+   </li>
+   <li>
+      <a href="#refundPolicy" title="https://w3id.org/EDAAnOWL/refundPolicy">política de reembolso</a>
+   </li>
+   <li>
+      <a href="#qualityScore" title="https://w3id.org/EDAAnOWL/qualityScore">puntuación de calidad</a>
+   </li>
+   <li>
+      <a href="#auditLogAvailable" title="https://w3id.org/EDAAnOWL/auditLogAvailable">registro de auditoría disponible</a>
+   </li>
+   <li>
+      <a href="#profileSpatialResolution"
+         title="https://w3id.org/EDAAnOWL/profileSpatialResolution">resolución espacial de perfil</a>
+   </li>
+   <li>
+      <a href="#profileTemporalResolution"
+         title="https://w3id.org/EDAAnOWL/profileTemporalResolution">resolución temporal de perfil</a>
+   </li>
+   <li>
+      <a href="#appliesToFeature" title="https://w3id.org/EDAAnOWL/appliesToFeature">se aplica a característica</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#spatialResolutionInDegrees"
+         title="http://www.w3.org/ns/dcat#spatialResolutionInDegrees">
+         <span>spatial Resolution In Degrees</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#spatialResolutionInMeters"
+         title="http://www.w3.org/ns/dcat#spatialResolutionInMeters">
+         <span>spatial Resolution In Meters</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#temporalResolution" title="http://www.w3.org/ns/dcat#temporalResolution">
+         <span>temporal Resolution</span>
+      </a>
+   </li>
+   <li>
+      <a href="#accessType" title="https://w3id.org/EDAAnOWL/accessType">tipo de acceso</a>
+   </li>
+   <li>
+      <a href="#metricUnit" title="https://w3id.org/EDAAnOWL/metricUnit">unidad de métrica</a>
+   </li>
+   <li>
+      <a href="#qualityReportURI" title="https://w3id.org/EDAAnOWL/qualityReportURI">URI de informe de calidad</a>
+   </li>
+   <li>
+      <a href="#https://schema.org/thumbnailUrl" title="https://schema.org/thumbnailUrl">URL de miniatura</a>
+   </li>
+   <li>
+      <a href="#recommendedUse" title="https://w3id.org/EDAAnOWL/recommendedUse">uso recomendado</a>
+   </li>
+   <li>
+      <a href="#metricValue" title="https://w3id.org/EDAAnOWL/metricValue">valor de métrica</a>
+   </li>
+</ul><h4>Propiedades usadas para anotaci&oacute;n</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://purl.org/dc/terms/abstract" title="http://purl.org/dc/terms/abstract">
+         <span>abstract</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/action" title="http://www.w3.org/ns/odrl/2/action">
+         <span>action</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/bibliographicCitation" title="http://purl.org/dc/terms/bibliographicCitation">
+         <span>bibliographic Citation</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#broader" title="http://www.w3.org/2004/02/skos/core#broader">
+         <span>broader</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://schema.org/codeRepository" title="https://schema.org/codeRepository">
+         <span>code Repository</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/constraint" title="http://www.w3.org/ns/odrl/2/constraint">
+         <span>constraint</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/created" title="http://purl.org/dc/terms/created">
+         <span>created</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator">
+         <span>creator</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#definition" title="http://www.w3.org/2004/02/skos/core#definition">
+         <span>definition</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">
+         <span>description</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://schema.org/image" title="https://schema.org/image">
+         <span>image</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#inScheme" title="http://www.w3.org/2004/02/skos/core#inScheme">
+         <span>in Scheme</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/widoco/vocab#introduction" title="https://w3id.org/widoco/vocab#introduction">
+         <span>introduction</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/leftOperand" title="http://www.w3.org/ns/odrl/2/leftOperand">
+         <span>left Operand</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/license" title="http://purl.org/dc/terms/license">
+         <span>license</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/modified" title="http://purl.org/dc/terms/modified">
+         <span>modified</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/operator" title="http://www.w3.org/ns/odrl/2/operator">
+         <span>operator</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/permission" title="http://www.w3.org/ns/odrl/2/permission">
+         <span>permission</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#prefLabel" title="http://www.w3.org/2004/02/skos/core#prefLabel">
+         <span>pref Label</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/vocab/vann/preferredNamespacePrefix"
+         title="http://purl.org/vocab/vann/preferredNamespacePrefix">
+         <span>preferred Namespace Prefix</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/vocab/vann/preferredNamespaceUri" title="http://purl.org/vocab/vann/preferredNamespaceUri">
+         <span>preferred Namespace Uri</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/odrl/2/rightOperand" title="http://www.w3.org/ns/odrl/2/rightOperand">
+         <span>right Operand</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">
+         <span>title</span>
+      </a>
+   </li>
+</ul><iframe src="webvowl/index.html"></iframe> 
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">EDAAnOWL: Descripci&oacute;n <span class="backlink"> volver a <a href="#toc">&iacute;ndice</a></span></h2>
+
+<span class="markdown">Ontología para espacios de datos que conecta el Modelo de Información IDSA con la familia analítica BIGOWL. Su función principal es describir `DataAssets` (activos) y `DataApps` (servicios) usando `DataProfiles` (perfiles): modelos semánticos que detallan especificaciones técnicas (como resoluciones DCAT 3, CRS) y métricas de calidad granulares (como completitud o unicidad por característica). Esto permite un descubrimiento automatizado robusto y verificación de compatibilidad (matchmaking) para datos y servicios.</span><img src="https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/refs/heads/main/images/eda-an-architecture-en.svg"></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">T&eacute;rminos de EDAAnOWL para clases, propiedades de objeto y propiedades de datos <span class="backlink"> volver a <a href="#toc">&iacute;ndice</a></span></h2>
+Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad definida por EDAAnOWL.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Clases</h3>
+ <ul class="hlist">
+  <li><a href="#DataAsset" title="https://w3id.org/EDAAnOWL/DataAsset">Activo de Datos</a></li>
+  <li><a href="#SpatialTemporalAsset" title="https://w3id.org/EDAAnOWL/SpatialTemporalAsset">Activo Espacio-Temporal</a></li>
+  <li><a href="#AnalyzerApp" title="https://w3id.org/EDAAnOWL/AnalyzerApp">Aplicación Analizadora</a></li>
+  <li><a href="#PredictionApp" title="https://w3id.org/EDAAnOWL/PredictionApp">Aplicación de Predicción</a></li>
+  <li><a href="#VisualizationApp" title="https://w3id.org/EDAAnOWL/VisualizationApp">Aplicación de Visualización</a></li>
+  <li><a href="#https://w3id.org/idsa/core/DataResource" title="https://w3id.org/idsa/core/DataResource"> <span>Data Resource</span> </a></li>
+  <li><a href="#QualityReport" title="https://w3id.org/EDAAnOWL/QualityReport">Informe de Calidad Externo</a></li>
+  <li><a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Métrica</a></li>
+  <li><a href="#QualityMetric" title="https://w3id.org/EDAAnOWL/QualityMetric">Métrica de Calidad</a></li>
+  <li><a href="#PerformanceMetric" title="https://w3id.org/EDAAnOWL/PerformanceMetric">Métrica de Rendimiento</a></li>
+  <li><a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a></li>
+  <li><a href="#ObservableProperty" title="https://w3id.org/EDAAnOWL/ObservableProperty">Propiedad Observable</a></li>
+  <li><a href="#https://w3id.org/idsa/core/SmartDataApp" title="https://w3id.org/idsa/core/SmartDataApp"> <span>Smart Data App</span> </a></li>
+ </ul>
+ <div class="entity" id="DataAsset">
+  <h3>Activo de Datos<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/DataAsset</p>
+  <div class="comment">
+   <span class="markdown">Clase puente para un activo de datos. Especializa ids:DataResource para añadir la descripción semántica específica del dominio EDAA (p. ej., servesObservableProperty). Puede vincularse a la DataApp que lo generó usando prov:wasGeneratedBy.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/idsa/core/DataResource" title="https://w3id.org/idsa/core/DataResource">Data Resource</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+   <dt>
+    tiene subclases
+   </dt>
+   <dd>
+    <a href="#SpatialTemporalAsset" title="https://w3id.org/EDAAnOWL/SpatialTemporalAsset">Activo Espacio-Temporal</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+   <dt>
+    en dominio de
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">fue derivado de</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">fue generado por</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#servesObservableProperty" title="https://w3id.org/EDAAnOWL/servesObservableProperty">sirve propiedad observable</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+   </dd>
+   <dt>
+    en rango de
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">fue derivado de</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SpatialTemporalAsset">
+  <h3>Activo Espacio-Temporal<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/SpatialTemporalAsset</p>
+  <div class="comment">
+   <span class="markdown">Subclase de DataAsset para datos con cobertura espacial y temporal, como datos de Observación de la Tierra.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="#DataAsset" title="https://w3id.org/EDAAnOWL/DataAsset">Activo de Datos</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+   <dt>
+    en dominio de
+   </dt>
+   <dd>
+    <a href="#hasSpatialCoverage" title="https://w3id.org/EDAAnOWL/hasSpatialCoverage">tiene cobertura espacial</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasTemporalCoverage" title="https://w3id.org/EDAAnOWL/hasTemporalCoverage">tiene cobertura temporal</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="AnalyzerApp">
+  <h3>Aplicación Analizadora<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/AnalyzerApp</p>
+  <div class="comment">
+   <span class="markdown">Una aplicación de datos inteligente para análisis descriptivo/diagnóstico (perfilado, resumen, detección de valores atípicos).</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/idsa/core/SmartDataApp" title="https://w3id.org/idsa/core/SmartDataApp">Smart Data App</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PredictionApp">
+  <h3>Aplicación de Predicción<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/PredictionApp</p>
+  <div class="comment">
+   <span class="markdown">Una aplicación de datos inteligente que produce predicciones/inferencias a partir de datos de entrada usando un modelo o algoritmo.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/idsa/core/SmartDataApp" title="https://w3id.org/idsa/core/SmartDataApp">Smart Data App</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="VisualizationApp">
+  <h3>Aplicación de Visualización<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/VisualizationApp</p>
+  <div class="comment">
+   <span class="markdown">Una aplicación de datos inteligente que renderiza datos en vistas/informes visuales sin alterar los datos subyacentes.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/idsa/core/SmartDataApp" title="https://w3id.org/idsa/core/SmartDataApp">Smart Data App</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/idsa/core/DataResource">
+  <h3>Data Resource<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/idsa/core/DataResource</p>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+   <dt>
+    tiene subclases
+   </dt>
+   <dd>
+    <a href="#DataAsset" title="https://w3id.org/EDAAnOWL/DataAsset">Activo de Datos</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="QualityReport">
+  <h3>Informe de Calidad Externo<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/QualityReport</p>
+  <div class="comment">
+   <span class="markdown">Una clase que representa un informe de calidad externo y estructurado, que contiene metadatos sobre la evaluación (p. ej., una URL de informe PDF, una puntuación de calidad).</span>
+  </div>
+  <dl class="description">
+   <dt>
+    en dominio de
+   </dt>
+   <dd>
+    <a href="#qualityReportURI" title="https://w3id.org/EDAAnOWL/qualityReportURI">URI de informe de calidad</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#qualityScore" title="https://w3id.org/EDAAnOWL/qualityScore">puntuación de calidad</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>
+   </dd>
+   <dt>
+    en rango de
+   </dt>
+   <dd>
+    <a href="#externalQualityReport" title="https://w3id.org/EDAAnOWL/externalQualityReport">informe de calidad externo</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Metric">
+  <h3>Métrica<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/Metric</p>
+  <div class="comment">
+   <span class="markdown">Una clase que representa una característica única y medible de un activo o perfil. Alineada con dqv:Metric.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/dqv#Metric" target="_blank" title="http://www.w3.org/ns/dqv#Metric">Metric</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+   <dt>
+    tiene subclases
+   </dt>
+   <dd>
+    <a href="#QualityMetric" title="https://w3id.org/EDAAnOWL/QualityMetric">Métrica de Calidad</a> <sup class="type-c" title="clase">c</sup>, <a href="#PerformanceMetric" title="https://w3id.org/EDAAnOWL/PerformanceMetric">Métrica de Rendimiento</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+   <dt>
+    en dominio de
+   </dt>
+   <dd>
+    <a href="#computedAt" title="https://w3id.org/EDAAnOWL/computedAt">calculado en</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#metricName" title="https://w3id.org/EDAAnOWL/metricName">nombre de métrica</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#appliesToFeature" title="https://w3id.org/EDAAnOWL/appliesToFeature">se aplica a característica</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#metricUnit" title="https://w3id.org/EDAAnOWL/metricUnit">unidad de métrica</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#metricValue" title="https://w3id.org/EDAAnOWL/metricValue">valor de métrica</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>
+   </dd>
+   <dt>
+    en rango de
+   </dt>
+   <dd>
+    <a href="#hasMetric" title="https://w3id.org/EDAAnOWL/hasMetric">tiene métrica</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="QualityMetric">
+  <h3>Métrica de Calidad<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/QualityMetric</p>
+  <div class="comment">
+   <span class="markdown">Una métrica que describe un aspecto cualitativo o cuantitativo de la calidad de datos (p. ej., completitud, unicidad, recuento de registros). Alineada con dqv:QualityMetric.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Métrica</a> <sup class="type-c" title="clase">c</sup>, <a href="http://www.w3.org/ns/dqv#QualityMetric" target="_blank" title="http://www.w3.org/ns/dqv#QualityMetric">Quality Metric</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PerformanceMetric">
+  <h3>Métrica de Rendimiento<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/PerformanceMetric</p>
+  <div class="comment">
+   <span class="markdown">Una métrica que describe el rendimiento de una DataApp o servicio (p. ej., precisión, tiempo de ejecución).</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Métrica</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="DataProfile">
+  <h3>Perfil de Datos<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/DataProfile</p>
+  <div class="comment">
+   <span class="markdown">Bolsa de facetas que describe las características de los datos (dominio, tipo, propiedades observadas, CRS, geometría, resolución espacial/temporal). Propiedades típicas: • dcat:temporalResolution: granularidad temporal (xsd:duration, p. ej., P1D) • dcat:spatialResolutionInMeters o InDegrees: granularidad espacial (xsd:decimal) • :declaresObservedProperty: variables semánticas de esquemas de conceptos • :declaresDataClass: clasificación de tipo de datos • :profileCRSRef: sistema de referencia de coordenadas (IRI) Alineado con W3C DCAT 3 para interoperabilidad de catalogación de conjuntos de datos.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd></dd>
+   <dt>
+    en dominio de
+   </dt>
+   <dd>
+    <a href="#profileCRS" title="https://w3id.org/EDAAnOWL/profileCRS">CRS de perfil</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#profileCRSRef" title="https://w3id.org/EDAAnOWL/profileCRSRef">CRS de perfil (IRI)</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#declaresDataClass" title="https://w3id.org/EDAAnOWL/declaresDataClass">declara clase de datos</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#declaresObservedProperty" title="https://w3id.org/EDAAnOWL/declaresObservedProperty">declara propiedad observada</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#profileSpatialResolution" title="https://w3id.org/EDAAnOWL/profileSpatialResolution">resolución espacial de perfil</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#profileTemporalResolution" title="https://w3id.org/EDAAnOWL/profileTemporalResolution">resolución temporal de perfil</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#hasCRS" title="https://w3id.org/EDAAnOWL/hasCRS">tiene Sistema de Referencia de Coordenadas</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasMetric" title="https://w3id.org/EDAAnOWL/hasMetric">tiene métrica</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+   </dd>
+   <dt>
+    en rango de
+   </dt>
+   <dd>
+    <a href="#producesProfile" title="https://w3id.org/EDAAnOWL/producesProfile">produce perfil</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#requiresProfile" title="https://w3id.org/EDAAnOWL/requiresProfile">requiere perfil</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#conformsToProfile" title="https://w3id.org/EDAAnOWL/conformsToProfile">se ajusta al perfil</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ObservableProperty">
+  <h3>Propiedad Observable<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/ObservableProperty</p>
+  <div class="comment">
+   <span class="markdown">La variable semántica que describe un activo de datos (p. ej., NDVI, Estrés Hídrico) o que un servicio requiere/produce.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/sosa/ObservableProperty" target="_blank" title="http://www.w3.org/ns/sosa/ObservableProperty">Observable Property</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+   <dt>
+    en rango de
+   </dt>
+   <dd>
+    <a href="#producesObservableProperty" title="https://w3id.org/EDAAnOWL/producesObservableProperty">produce propiedad observable</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#requiresObservableProperty" title="https://w3id.org/EDAAnOWL/requiresObservableProperty">requiere propiedad observable</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#servesObservableProperty" title="https://w3id.org/EDAAnOWL/servesObservableProperty">sirve propiedad observable</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/idsa/core/SmartDataApp">
+  <h3>Smart Data App<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/idsa/core/SmartDataApp</p>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+   <dt>
+    tiene subclases
+   </dt>
+   <dd>
+    <a href="#AnalyzerApp" title="https://w3id.org/EDAAnOWL/AnalyzerApp">Aplicación Analizadora</a> <sup class="type-c" title="clase">c</sup>, <a href="#PredictionApp" title="https://w3id.org/EDAAnOWL/PredictionApp">Aplicación de Predicción</a> <sup class="type-c" title="clase">c</sup>, <a href="#VisualizationApp" title="https://w3id.org/EDAAnOWL/VisualizationApp">Aplicación de Visualización</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+   <dt>
+    en dominio de
+   </dt>
+   <dd>
+    <a href="#producesObservableProperty" title="https://w3id.org/EDAAnOWL/producesObservableProperty">produce propiedad observable</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#requiresObservableProperty" title="https://w3id.org/EDAAnOWL/requiresObservableProperty">requiere propiedad observable</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h2>Propiedades entre objetos</h2>
+ <ul class="hlist">
+  <li><a href="#consumesResource" title="https://w3id.org/EDAAnOWL/consumesResource">consume representación</a></li>
+  <li><a href="#supportContact" title="https://w3id.org/EDAAnOWL/supportContact">contacto de soporte</a></li>
+  <li><a href="#legalContact" title="https://w3id.org/EDAAnOWL/legalContact">contacto legal</a></li>
+  <li><a href="#declaresDataClass" title="https://w3id.org/EDAAnOWL/declaresDataClass">declara clase de datos</a></li>
+  <li><a href="#declaresObservedProperty" title="https://w3id.org/EDAAnOWL/declaresObservedProperty">declara propiedad observada</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">fue derivado de</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">fue generado por</a></li>
+  <li><a href="#http://purl.org/dc/terms/source" title="http://purl.org/dc/terms/source">fuente</a></li>
+  <li><a href="#spatialGranularityConcept" title="https://w3id.org/EDAAnOWL/spatialGranularityConcept">granularidad espacial (concepto)</a></li>
+  <li><a href="#implementsComponent" title="https://w3id.org/EDAAnOWL/implementsComponent">implementa componente</a></li>
+  <li><a href="#externalQualityReport" title="https://w3id.org/EDAAnOWL/externalQualityReport">informe de calidad externo</a></li>
+  <li><a href="#parameter" title="https://w3id.org/EDAAnOWL/parameter">parámetro</a></li>
+  <li><a href="#producesProfile" title="https://w3id.org/EDAAnOWL/producesProfile">produce perfil</a></li>
+  <li><a href="#producesObservableProperty" title="https://w3id.org/EDAAnOWL/producesObservableProperty">produce propiedad observable</a></li>
+  <li><a href="#producesResource" title="https://w3id.org/EDAAnOWL/producesResource">produce representación</a></li>
+  <li><a href="#realizesWorkflow" title="https://w3id.org/EDAAnOWL/realizesWorkflow">realiza flujo de trabajo</a></li>
+  <li><a href="#requiresProfile" title="https://w3id.org/EDAAnOWL/requiresProfile">requiere perfil</a></li>
+  <li><a href="#requiresObservableProperty" title="https://w3id.org/EDAAnOWL/requiresObservableProperty">requiere propiedad observable</a></li>
+  <li><a href="#conformsToProfile" title="https://w3id.org/EDAAnOWL/conformsToProfile">se ajusta al perfil</a></li>
+  <li><a href="#servesObservableProperty" title="https://w3id.org/EDAAnOWL/servesObservableProperty">sirve propiedad observable</a></li>
+  <li><a href="#topic" title="https://w3id.org/EDAAnOWL/topic">tema</a></li>
+  <li><a href="#hasSpatialCoverage" title="https://w3id.org/EDAAnOWL/hasSpatialCoverage">tiene cobertura espacial</a></li>
+  <li><a href="#hasTemporalCoverage" title="https://w3id.org/EDAAnOWL/hasTemporalCoverage">tiene cobertura temporal</a></li>
+  <li><a href="#hasMetric" title="https://w3id.org/EDAAnOWL/hasMetric">tiene métrica</a></li>
+  <li><a href="#hasDomainSector" title="https://w3id.org/EDAAnOWL/hasDomainSector">tiene sector de dominio</a></li>
+  <li><a href="#hasCRS" title="https://w3id.org/EDAAnOWL/hasCRS">tiene Sistema de Referencia de Coordenadas</a></li>
+ </ul>
+ <div class="entity" id="consumesResource">
+  <h3>consume representación<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/consumesResource</p>
+  <div class="comment">
+   <span class="markdown">Vincula un Componente BIGOWL con una Representación IDSA que consume como entrada.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/BIGOWLWorkflows/Component" target="_blank" title="https://w3id.org/BIGOWLWorkflows/Component">Component</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Representation" target="_blank" title="https://w3id.org/idsa/core/Representation">Representation</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="supportContact">
+  <h3>contacto de soporte<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/supportContact</p>
+  <div class="comment">
+   <span class="markdown">Punto de contacto estándar para soporte, usando vCard (fn, email, telephone, URL).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     tiene superpropiedades
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/dcat#contactPoint" target="_blank" title="http://www.w3.org/ns/dcat#contactPoint">contact Point</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+    </dd>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2006/vcard/ns#Kind" target="_blank" title="http://www.w3.org/2006/vcard/ns#Kind">Kind</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="legalContact">
+  <h3>contacto legal<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/legalContact</p>
+  <div class="comment">
+   <span class="markdown">Un punto de contacto específico para consultas legales sobre el recurso.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     tiene superpropiedades
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/dcat#contactPoint" target="_blank" title="http://www.w3.org/ns/dcat#contactPoint">contact Point</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+    </dd>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2006/vcard/ns#Kind" target="_blank" title="http://www.w3.org/2006/vcard/ns#Kind">Kind</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="declaresDataClass">
+  <h3>declara clase de datos<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/declaresDataClass</p>
+  <div class="comment">
+   <span class="markdown">Vincula un DataProfile con una clase de Datos BIGOWL (p. ej., bigdat:TabularDataSet, bigdat:Image).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="https://w3id.org/BIGOWLData/Data" target="_blank" title="https://w3id.org/BIGOWLData/Data">Data</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="declaresObservedProperty">
+  <h3>declara propiedad observada<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/declaresObservedProperty</p>
+  <div class="comment">
+   <span class="markdown">Vincula un DataProfile con un concepto semántico que describe, típicamente de un vocabulario controlado (p. ej., un término AGROVOC).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#wasDerivedFrom">
+  <h3>fue derivado de<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#wasDerivedFrom</p>
+  <div class="comment">
+   <span class="markdown">Una derivación es una transformación de una entidad en otra, una actualización de una entidad que resulta en una nueva, o la construcción de una nueva entidad basada en una entidad preexistente. En EDAAnOWL, esto vincula un DataAsset derivado con su DataAsset fuente.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#DataAsset" title="https://w3id.org/EDAAnOWL/DataAsset">Activo de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#DataAsset" title="https://w3id.org/EDAAnOWL/DataAsset">Activo de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#wasGeneratedBy">
+  <h3>fue generado por<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#wasGeneratedBy</p>
+  <div class="comment">
+   <span class="markdown">La generación es la finalización de la producción de una nueva entidad por una actividad. Esta entidad no existía antes de la generación y queda disponible para su uso después de esta generación. En EDAAnOWL, esto vincula un DataAsset con la DataApp que lo generó.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#DataAsset" title="https://w3id.org/EDAAnOWL/DataAsset">Activo de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/source">
+  <h3>fuente<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/source</p>
+  <div class="comment">
+   <span class="markdown">Un recurso relacionado del cual se deriva el recurso descrito (p. ej., el catálogo de origen).</span>
+  </div>
+ </div>
+ <div class="entity" id="spatialGranularityConcept">
+  <h3>granularidad espacial (concepto)<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/spatialGranularityConcept</p>
+  <div class="comment">
+   <span class="markdown">Vincula un recurso con un concepto SKOS que describe su granularidad espacial (p. ej., 'Municipal', 'Provincial').</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="implementsComponent">
+  <h3>implementa componente<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/implementsComponent</p>
+  <div class="comment">
+   <span class="markdown">Vincula una DataApp IDSA con el Componente de flujo de trabajo BIGOWL que implementa.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="https://w3id.org/BIGOWLWorkflows/Component" target="_blank" title="https://w3id.org/BIGOWLWorkflows/Component">Component</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="externalQualityReport">
+  <h3>informe de calidad externo<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/externalQualityReport</p>
+  <div class="comment">
+   <span class="markdown">Vincula un recurso con un objeto estructurado que describe un informe de calidad externo.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#QualityReport" title="https://w3id.org/EDAAnOWL/QualityReport">Informe de Calidad Externo</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="parameter">
+  <h3>parámetro<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/parameter</p>
+  <div class="comment">
+   <span class="markdown">Vincula una DataApp con un parámetro de ejecución que acepta.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#Parameter" target="_blank" title="http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#Parameter">Parameter</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="producesProfile">
+  <h3>produce perfil<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/producesProfile</p>
+  <div class="comment">
+   <span class="markdown">Vincula una DataApp con un DataProfile que produce como salida.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="producesObservableProperty">
+  <h3>produce propiedad observable<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/producesObservableProperty</p>
+  <div class="comment">
+   <span class="markdown">Define la firma semántica de la SALIDA de un servicio (p. ej., produce Crop_Forecast).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/idsa/core/SmartDataApp" title="https://w3id.org/idsa/core/SmartDataApp">Smart Data App</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#ObservableProperty" title="https://w3id.org/EDAAnOWL/ObservableProperty">Propiedad Observable</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="producesResource">
+  <h3>produce representación<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/producesResource</p>
+  <div class="comment">
+   <span class="markdown">Vincula un Componente BIGOWL con una Representación IDSA que produce como salida.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/BIGOWLWorkflows/Component" target="_blank" title="https://w3id.org/BIGOWLWorkflows/Component">Component</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Representation" target="_blank" title="https://w3id.org/idsa/core/Representation">Representation</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="realizesWorkflow">
+  <h3>realiza flujo de trabajo<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/realizesWorkflow</p>
+  <div class="comment">
+   <span class="markdown">Vincula una DataApp con la Plantilla de Flujo de Trabajo OPMW que ejecuta.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.opmw.org/ontology/WorkflowTemplate" target="_blank" title="http://www.opmw.org/ontology/WorkflowTemplate">Workflow Template</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="requiresProfile">
+  <h3>requiere perfil<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/requiresProfile</p>
+  <div class="comment">
+   <span class="markdown">Vincula una DataApp con un DataProfile que requiere como entrada.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="requiresObservableProperty">
+  <h3>requiere propiedad observable<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/requiresObservableProperty</p>
+  <div class="comment">
+   <span class="markdown">Define la firma semántica de la ENTRADA para un servicio (p. ej., requiere NDVI).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/idsa/core/SmartDataApp" title="https://w3id.org/idsa/core/SmartDataApp">Smart Data App</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#ObservableProperty" title="https://w3id.org/EDAAnOWL/ObservableProperty">Propiedad Observable</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="conformsToProfile">
+  <h3>se ajusta al perfil<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/conformsToProfile</p>
+  <div class="comment">
+   <span class="markdown">Vincula un recurso (p. ej., un DataAsset) con un DataProfile que describe su estructura y características.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="servesObservableProperty">
+  <h3>sirve propiedad observable<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/servesObservableProperty</p>
+  <div class="comment">
+   <span class="markdown">Vincula un activo de datos (DataAsset) con la variable semántica que describe (p. ej., NDVI).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#DataAsset" title="https://w3id.org/EDAAnOWL/DataAsset">Activo de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#ObservableProperty" title="https://w3id.org/EDAAnOWL/ObservableProperty">Propiedad Observable</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="topic">
+  <h3>tema<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/topic</p>
+  <div class="comment">
+   <span class="markdown">Una sub-propiedad de dct:subject para vincular un recurso con un concepto SKOS descriptivo (p. ej., de AGROVOC).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     tiene superpropiedades
+    </dt>
+    <dd>
+     <a href="http://purl.org/dc/terms/subject" target="_blank" title="http://purl.org/dc/terms/subject">subject</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+    </dd>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasSpatialCoverage">
+  <h3>tiene cobertura espacial<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/hasSpatialCoverage</p>
+  <div class="comment">
+   <span class="markdown">Define la cobertura espacial del activo de datos requerido por las CUs de Observación de la Tierra.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#SpatialTemporalAsset" title="https://w3id.org/EDAAnOWL/SpatialTemporalAsset">Activo Espacio-Temporal</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/locn#Geometry" target="_blank" title="http://www.w3.org/ns/locn#Geometry">Geometry</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasTemporalCoverage">
+  <h3>tiene cobertura temporal<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/hasTemporalCoverage</p>
+  <div class="comment">
+   <span class="markdown">Define la cobertura temporal del activo de datos requerido por las CUs de Observación de la Tierra.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#SpatialTemporalAsset" title="https://w3id.org/EDAAnOWL/SpatialTemporalAsset">Activo Espacio-Temporal</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2006/time#Interval" target="_blank" title="http://www.w3.org/2006/time#Interval">Interval</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasMetric">
+  <h3>tiene métrica<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/hasMetric</p>
+  <div class="comment">
+   <span class="markdown">Vincula un Perfil de Datos con una métrica específica de calidad, rendimiento o descriptiva.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Métrica</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasDomainSector">
+  <h3>tiene sector de dominio<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/hasDomainSector</p>
+  <div class="comment">
+   <span class="markdown">Una sub-propiedad de dcat:theme, que vincula específicamente un recurso con un concepto de un vocabulario de sector de dominio.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     tiene superpropiedades
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/dcat#theme" target="_blank" title="http://www.w3.org/ns/dcat#theme">theme</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+    </dd>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/DataApp" target="_blank" title="https://w3id.org/idsa/core/DataApp">Data App</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasCRS">
+  <h3>tiene Sistema de Referencia de Coordenadas<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/hasCRS</p>
+  <div class="comment">
+   <span class="markdown">Vincula un Perfil de Datos con la definición formal de su Sistema de Referencia de Coordenadas (CRS), preferiblemente usando un URI EPSG (p. ej., http://www.opengis.net/def/crs/EPSG/0/4326).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Propiedades de datos</h3>
+ <ul class="hlist">
+  <li><a href="#computedAt" title="https://w3id.org/EDAAnOWL/computedAt">calculado en</a></li>
+  <li><a href="#profileCRS" title="https://w3id.org/EDAAnOWL/profileCRS">CRS de perfil</a></li>
+  <li><a href="#profileCRSRef" title="https://w3id.org/EDAAnOWL/profileCRSRef">CRS de perfil (IRI)</a></li>
+  <li><a href="#paymentModelDescription" title="https://w3id.org/EDAAnOWL/paymentModelDescription">descripción del modelo de pago</a></li>
+  <li><a href="#isAlive" title="https://w3id.org/EDAAnOWL/isAlive">está activo</a></li>
+  <li><a href="#spatialGranularity" title="https://w3id.org/EDAAnOWL/spatialGranularity">granularidad espacial</a></li>
+  <li><a href="#knownLimitations" title="https://w3id.org/EDAAnOWL/knownLimitations">limitaciones conocidas</a></li>
+  <li><a href="#http://purl.org/dc/terms/alternative" title="http://purl.org/dc/terms/alternative">nombre alternativo</a></li>
+  <li><a href="#alternativeName" title="https://w3id.org/EDAAnOWL/alternativeName">nombre alternativo</a></li>
+  <li><a href="#metricName" title="https://w3id.org/EDAAnOWL/metricName">nombre de métrica</a></li>
+  <li><a href="#refundPolicy" title="https://w3id.org/EDAAnOWL/refundPolicy">política de reembolso</a></li>
+  <li><a href="#qualityScore" title="https://w3id.org/EDAAnOWL/qualityScore">puntuación de calidad</a></li>
+  <li><a href="#auditLogAvailable" title="https://w3id.org/EDAAnOWL/auditLogAvailable">registro de auditoría disponible</a></li>
+  <li><a href="#profileSpatialResolution" title="https://w3id.org/EDAAnOWL/profileSpatialResolution">resolución espacial de perfil</a></li>
+  <li><a href="#profileTemporalResolution" title="https://w3id.org/EDAAnOWL/profileTemporalResolution">resolución temporal de perfil</a></li>
+  <li><a href="#appliesToFeature" title="https://w3id.org/EDAAnOWL/appliesToFeature">se aplica a característica</a></li>
+  <li><a href="#http://www.w3.org/ns/dcat#spatialResolutionInDegrees" title="http://www.w3.org/ns/dcat#spatialResolutionInDegrees"> <span>spatial Resolution In Degrees</span> </a></li>
+  <li><a href="#http://www.w3.org/ns/dcat#spatialResolutionInMeters" title="http://www.w3.org/ns/dcat#spatialResolutionInMeters"> <span>spatial Resolution In Meters</span> </a></li>
+  <li><a href="#http://www.w3.org/ns/dcat#temporalResolution" title="http://www.w3.org/ns/dcat#temporalResolution"> <span>temporal Resolution</span> </a></li>
+  <li><a href="#accessType" title="https://w3id.org/EDAAnOWL/accessType">tipo de acceso</a></li>
+  <li><a href="#metricUnit" title="https://w3id.org/EDAAnOWL/metricUnit">unidad de métrica</a></li>
+  <li><a href="#qualityReportURI" title="https://w3id.org/EDAAnOWL/qualityReportURI">URI de informe de calidad</a></li>
+  <li><a href="#https://schema.org/thumbnailUrl" title="https://schema.org/thumbnailUrl">URL de miniatura</a></li>
+  <li><a href="#recommendedUse" title="https://w3id.org/EDAAnOWL/recommendedUse">uso recomendado</a></li>
+  <li><a href="#metricValue" title="https://w3id.org/EDAAnOWL/metricValue">valor de métrica</a></li>
+ </ul>
+ <div class="entity" id="computedAt">
+  <h3>calculado en<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/computedAt</p>
+  <div class="comment">
+   <span class="markdown">La marca de tiempo que indica cuándo se calculó o validó el valor de la métrica.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Métrica</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="profileCRS">
+  <h3>CRS de perfil<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/profileCRS</p>
+  <dl>
+   <dt>
+    Depecreado
+   </dt>
+   <dd>
+    true
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="profileCRSRef">
+  <h3>CRS de perfil (IRI)<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/profileCRSRef</p>
+  <div class="comment">
+   <span class="markdown">Obsoleto. Use la propiedad de objeto edaan:hasCRS para vincular a una definición formal de CRS.</span>
+  </div>
+  <dl>
+   <dt>
+    Depecreado
+   </dt>
+   <dd>
+    true
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="paymentModelDescription">
+  <h3>descripción del modelo de pago<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/paymentModelDescription</p>
+  <div class="comment">
+   <span class="markdown">Una descripción legible del modelo de precios o pago (p. ej., 'Suscripción Mensual', 'Pago por uso'). Esto complementa la política formal ODRL.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isAlive">
+  <h3>está activo<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/isAlive</p>
+  <div class="comment">
+   <span class="markdown">Indica si el conjunto de datos se mantiene activamente y espera actualizaciones futuras.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="spatialGranularity">
+  <h3>granularidad espacial<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/spatialGranularity</p>
+  <dl>
+   <dt>
+    Depecreado
+   </dt>
+   <dd>
+    true
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="knownLimitations">
+  <h3>limitaciones conocidas<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/knownLimitations</p>
+  <div class="comment">
+   <span class="markdown">Descripción legible de cualquier limitación conocida, sesgo o problema de calidad del recurso.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/alternative">
+  <h3>nombre alternativo<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/alternative</p>
+  <div class="comment">
+   <span class="markdown">Un nombre alternativo para el recurso.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     tiene subpropiedades
+    </dt>
+    <dd>
+     <a href="#alternativeName" title="https://w3id.org/EDAAnOWL/alternativeName">nombre alternativo</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="alternativeName">
+  <h3>nombre alternativo<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/alternativeName</p>
+  <div class="comment">
+   <span class="markdown">Título o nombre alternativo para un recurso.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     tiene superpropiedades
+    </dt>
+    <dd>
+     <a href="#http://purl.org/dc/terms/alternative" title="http://purl.org/dc/terms/alternative">nombre alternativo</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>
+    </dd>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" title="http://www.w3.org/2000/01/rdf-schema#Literal">Literal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="metricName">
+  <h3>nombre de métrica<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/metricName</p>
+  <div class="comment">
+   <span class="markdown">Un nombre o identificador legible para la métrica (p. ej., 'recordCount', 'missing_ratio').</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Métrica</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="refundPolicy">
+  <h3>política de reembolso<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/refundPolicy</p>
+  <div class="comment">
+   <span class="markdown">Una descripción textual de la política de reembolso aplicable al recurso.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="qualityScore">
+  <h3>puntuación de calidad<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/qualityScore</p>
+  <div class="comment">
+   <span class="markdown">Una puntuación de calidad cuantitativa (p. ej., 0-100) asignada por el informe de calidad externo.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#QualityReport" title="https://w3id.org/EDAAnOWL/QualityReport">Informe de Calidad Externo</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="auditLogAvailable">
+  <h3>registro de auditoría disponible<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/auditLogAvailable</p>
+  <div class="comment">
+   <span class="markdown">Indica si los registros de auditoría para el uso del recurso están disponibles.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="profileSpatialResolution">
+  <h3>resolución espacial de perfil<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/profileSpatialResolution</p>
+  <div class="comment">
+   <span class="markdown">Obsoleto. Use dcat:spatialResolutionInMeters o dcat:spatialResolutionInDegrees.</span>
+  </div>
+  <dl>
+   <dt>
+    Depecreado
+   </dt>
+   <dd>
+    true
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="profileTemporalResolution">
+  <h3>resolución temporal de perfil<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/profileTemporalResolution</p>
+  <div class="comment">
+   <span class="markdown">Obsoleto. Use dcat:temporalResolution para la resolución temporal de conjuntos de datos/perfiles.</span>
+  </div>
+  <dl>
+   <dt>
+    Depecreado
+   </dt>
+   <dd>
+    true
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#duration" target="_blank" title="http://www.w3.org/2001/XMLSchema#duration">duration</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="appliesToFeature">
+  <h3>se aplica a característica<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/appliesToFeature</p>
+  <div class="comment">
+   <span class="markdown">Indica la característica, columna o atributo específico al que se refiere una métrica. Se usa cuando una métrica no es global al conjunto de datos (p. ej., 'column_name', 'user.address.city', '$.user.address.city').</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Métrica</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dcat#spatialResolutionInDegrees">
+  <h3>spatial Resolution In Degrees<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dcat#spatialResolutionInDegrees</p>
+  <div class="comment">
+   <span class="markdown">La resolución espacial del conjunto de datos, expresada en grados decimales.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dcat#spatialResolutionInMeters">
+  <h3>spatial Resolution In Meters<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dcat#spatialResolutionInMeters</p>
+  <div class="comment">
+   <span class="markdown">La resolución espacial del conjunto de datos, expresada en metros.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dcat#temporalResolution">
+  <h3>temporal Resolution<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dcat#temporalResolution</p>
+  <div class="comment">
+   <span class="markdown">La resolución temporal del conjunto de datos, expresada como xsd:duration (p. ej., 'P1D' para diario).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#duration" target="_blank" title="http://www.w3.org/2001/XMLSchema#duration">duration</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="accessType">
+  <h3>tipo de acceso<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/accessType</p>
+  <div class="comment">
+   <span class="markdown">Indica el modo de acceso principal para el recurso (p. ej., descarga, cómputo, ...).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="metricUnit">
+  <h3>unidad de métrica<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/metricUnit</p>
+  <div class="comment">
+   <span class="markdown">La unidad de medida para el valor de la métrica (p. ej., '%', 'kg/ha', 'ppm').</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Métrica</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="qualityReportURI">
+  <h3>URI de informe de calidad<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/qualityReportURI</p>
+  <div class="comment">
+   <span class="markdown">El URI del informe de calidad completo y legible (p. ej., un documento PDF o HTML).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#QualityReport" title="https://w3id.org/EDAAnOWL/QualityReport">Informe de Calidad Externo</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="https://schema.org/thumbnailUrl">
+  <h3>URL de miniatura<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/thumbnailUrl</p>
+  <div class="comment">
+   <span class="markdown">Una URL que apunta a una imagen en miniatura del recurso.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="recommendedUse">
+  <h3>uso recomendado<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/recommendedUse</p>
+  <div class="comment">
+   <span class="markdown">Descripción legible de los casos de uso previstos o recomendados para el recurso.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="metricValue">
+  <h3>valor de métrica<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/metricValue</p>
+  <div class="comment">
+   <span class="markdown">El valor de la métrica. El rango es rdfs:Literal para soportar múltiples tipos de datos (p. ej., xsd:boolean, xsd:integer, xsd:string, xsd:decimal).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Métrica</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" title="http://www.w3.org/2000/01/rdf-schema#Literal">Literal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="annotationproperties">
+ <h2>Propiedades de anotación</h2>
+ <ul class="hlist">
+  <li><a href="#http://purl.org/dc/terms/abstract" title="http://purl.org/dc/terms/abstract"> <span>abstract</span> </a></li>
+  <li><a href="#http://www.w3.org/ns/odrl/2/action" title="http://www.w3.org/ns/odrl/2/action"> <span>action</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/bibliographicCitation" title="http://purl.org/dc/terms/bibliographicCitation"> <span>bibliographic Citation</span> </a></li>
+  <li><a href="#http://www.w3.org/2004/02/skos/core#broader" title="http://www.w3.org/2004/02/skos/core#broader"> <span>broader</span> </a></li>
+  <li><a href="#https://schema.org/codeRepository" title="https://schema.org/codeRepository"> <span>code Repository</span> </a></li>
+  <li><a href="#http://www.w3.org/ns/odrl/2/constraint" title="http://www.w3.org/ns/odrl/2/constraint"> <span>constraint</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/created" title="http://purl.org/dc/terms/created"> <span>created</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator"> <span>creator</span> </a></li>
+  <li><a href="#http://www.w3.org/2004/02/skos/core#definition" title="http://www.w3.org/2004/02/skos/core#definition"> <span>definition</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description"> <span>description</span> </a></li>
+  <li><a href="#https://schema.org/image" title="https://schema.org/image"> <span>image</span> </a></li>
+  <li><a href="#http://www.w3.org/2004/02/skos/core#inScheme" title="http://www.w3.org/2004/02/skos/core#inScheme"> <span>in Scheme</span> </a></li>
+  <li><a href="#https://w3id.org/widoco/vocab#introduction" title="https://w3id.org/widoco/vocab#introduction"> <span>introduction</span> </a></li>
+  <li><a href="#http://www.w3.org/ns/odrl/2/leftOperand" title="http://www.w3.org/ns/odrl/2/leftOperand"> <span>left Operand</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/license" title="http://purl.org/dc/terms/license"> <span>license</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/modified" title="http://purl.org/dc/terms/modified"> <span>modified</span> </a></li>
+  <li><a href="#http://www.w3.org/ns/odrl/2/operator" title="http://www.w3.org/ns/odrl/2/operator"> <span>operator</span> </a></li>
+  <li><a href="#http://www.w3.org/ns/odrl/2/permission" title="http://www.w3.org/ns/odrl/2/permission"> <span>permission</span> </a></li>
+  <li><a href="#http://www.w3.org/2004/02/skos/core#prefLabel" title="http://www.w3.org/2004/02/skos/core#prefLabel"> <span>pref Label</span> </a></li>
+  <li><a href="#http://purl.org/vocab/vann/preferredNamespacePrefix" title="http://purl.org/vocab/vann/preferredNamespacePrefix"> <span>preferred Namespace Prefix</span> </a></li>
+  <li><a href="#http://purl.org/vocab/vann/preferredNamespaceUri" title="http://purl.org/vocab/vann/preferredNamespaceUri"> <span>preferred Namespace Uri</span> </a></li>
+  <li><a href="#http://www.w3.org/ns/odrl/2/rightOperand" title="http://www.w3.org/ns/odrl/2/rightOperand"> <span>right Operand</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title"> <span>title</span> </a></li>
+ </ul>
+ <div class="entity" id="http://purl.org/dc/terms/abstract">
+  <h3>abstract<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/abstract</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/odrl/2/action">
+  <h3>action<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/odrl/2/action</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/bibliographicCitation">
+  <h3>bibliographic Citation<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/bibliographicCitation</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/2004/02/skos/core#broader">
+  <h3>broader<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#broader</p>
+ </div>
+ <div class="entity" id="https://schema.org/codeRepository">
+  <h3>code Repository<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/codeRepository</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/odrl/2/constraint">
+  <h3>constraint<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/odrl/2/constraint</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/created">
+  <h3>created<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/created</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/creator">
+  <h3>creator<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/creator</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/2004/02/skos/core#definition">
+  <h3>definition<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#definition</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/description">
+  <h3>description<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/description</p>
+ </div>
+ <div class="entity" id="https://schema.org/image">
+  <h3>image<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> https://schema.org/image</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/2004/02/skos/core#inScheme">
+  <h3>in Scheme<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#inScheme</p>
+ </div>
+ <div class="entity" id="https://w3id.org/widoco/vocab#introduction">
+  <h3>introduction<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/widoco/vocab#introduction</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/odrl/2/leftOperand">
+  <h3>left Operand<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/odrl/2/leftOperand</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/license">
+  <h3>license<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/license</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/modified">
+  <h3>modified<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/modified</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/odrl/2/operator">
+  <h3>operator<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/odrl/2/operator</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/odrl/2/permission">
+  <h3>permission<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/odrl/2/permission</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/2004/02/skos/core#prefLabel">
+  <h3>pref Label<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#prefLabel</p>
+ </div>
+ <div class="entity" id="http://purl.org/vocab/vann/preferredNamespacePrefix">
+  <h3>preferred Namespace Prefix<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/vocab/vann/preferredNamespacePrefix</p>
+ </div>
+ <div class="entity" id="http://purl.org/vocab/vann/preferredNamespaceUri">
+  <h3>preferred Namespace Uri<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/vocab/vann/preferredNamespaceUri</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/odrl/2/rightOperand">
+  <h3>right Operand<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/odrl/2/rightOperand</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/title">
+  <h3>title<sup class="type-ap" title="propiedad de anotación">ap</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#annotationproperties">Índice de propiedades de anotación</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/title</p>
+ </div>
+</div><div id="legend">
+<h2>Leyenda <span class="backlink"> volver a <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Clases">c</sup>: Clases <br/>
+<sup class="type-op" title="Propiedades de objeto">op</sup>: Propiedades de objeto <br/>
+<sup class="type-dp" title="Propiedades de datos">dp</sup>: Propiedades de datos <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">Referencias <span class="backlink"> volver a <a href="#toc">&iacute;ndice</a></span></h2>
+<span class="markdown">A&ntilde;ade aqu&iacute; tus referencias, a ser posible en una lista.</span>
+
+</div>
+   
+
+<!--CHANGELOG SECTION-->
+   <div id="changelog"><div id="changelog">
+<h2 id="changes" class="list">Cambios desde la &uacute;ltima versi&oacute;n</h2>
+<h3 id="changeClass" class="list">Clases</h3>
+<details><summary><u>Clases modificadas</u></summary>
+<ul><li><a href="#AnalyzerApp">https://w3id.org/EDAAnOWL/AnalyzerApp</a>
+<ul>
+<li>Nuevo: rdfs:comment "Una aplicación de datos inteligente para análisis descriptivo/diagnóstico (perfilado, resumen, detección de valores atípicos)."@es</li>
+<li>Nuevo: rdfs:label "Aplicación Analizadora"@es</li>
+</ul>
+</li>
+<li><a href="#DataAsset">https://w3id.org/EDAAnOWL/DataAsset</a>
+<ul>
+<li>Nuevo: rdfs:label "Activo de Datos"@es</li>
+<li>Nuevo: rdfs:comment "Clase puente para un activo de datos. Especializa ids:DataResource para añadir la descripción semántica específica del dominio EDAA (p. ej., servesObservableProperty). Puede vincularse a la DataApp que lo generó usando prov:wasGeneratedBy."@es</li>
+</ul>
+</li>
+<li><a href="#DataProfile">https://w3id.org/EDAAnOWL/DataProfile</a>
+<ul>
+<li>Nuevo: rdfs:label "Perfil de Datos"@es</li>
+<li>Nuevo: rdfs:comment "Bolsa de facetas que describe las características de los datos (dominio, tipo, propiedades observadas, CRS, geometría, resolución espacial/temporal).
+    
+Propiedades típicas:
+• dcat:temporalResolution: granularidad temporal (xsd:duration, p. ej., P1D)
+• dcat:spatialResolutionInMeters o InDegrees: granularidad espacial (xsd:decimal)
+• :declaresObservedProperty: variables semánticas de esquemas de conceptos
+• :declaresDataClass: clasificación de tipo de datos
+• :profileCRSRef: sistema de referencia de coordenadas (IRI)
+
+Alineado con W3C DCAT 3 para interoperabilidad de catalogación de conjuntos de datos."@es</li>
+</ul>
+</li>
+<li><a href="#Metric">https://w3id.org/EDAAnOWL/Metric</a>
+<ul>
+<li>Nuevo: rdfs:label "Métrica"@es</li>
+<li>Nuevo: rdfs:comment "Una clase que representa una característica única y medible de un activo o perfil. Alineada con dqv:Metric."@es</li>
+</ul>
+</li>
+<li><a href="#ObservableProperty">https://w3id.org/EDAAnOWL/ObservableProperty</a>
+<ul>
+<li>Nuevo: rdfs:comment "La variable semántica que describe un activo de datos (p. ej., NDVI, Estrés Hídrico) o que un servicio requiere/produce."@es</li>
+<li>Nuevo: rdfs:label "Propiedad Observable"@es</li>
+</ul>
+</li>
+<li><a href="#PerformanceMetric">https://w3id.org/EDAAnOWL/PerformanceMetric</a>
+<ul>
+<li>Nuevo: rdfs:label "Métrica de Rendimiento"@es</li>
+<li>Nuevo: rdfs:comment "Una métrica que describe el rendimiento de una DataApp o servicio (p. ej., precisión, tiempo de ejecución)."@es</li>
+</ul>
+</li>
+<li><a href="#PredictionApp">https://w3id.org/EDAAnOWL/PredictionApp</a>
+<ul>
+<li>Nuevo: rdfs:comment "Una aplicación de datos inteligente que produce predicciones/inferencias a partir de datos de entrada usando un modelo o algoritmo."@es</li>
+<li>Nuevo: rdfs:label "Aplicación de Predicción"@es</li>
+</ul>
+</li>
+<li><a href="#QualityMetric">https://w3id.org/EDAAnOWL/QualityMetric</a>
+<ul>
+<li>Nuevo: rdfs:label "Métrica de Calidad"@es</li>
+<li>Nuevo: rdfs:comment "Una métrica que describe un aspecto cualitativo o cuantitativo de la calidad de datos (p. ej., completitud, unicidad, recuento de registros). Alineada con dqv:QualityMetric."@es</li>
+</ul>
+</li>
+<li><a href="#QualityReport">https://w3id.org/EDAAnOWL/QualityReport</a>
+<ul>
+<li>Nuevo: rdfs:label "Informe de Calidad Externo"@es</li>
+<li>Nuevo: rdfs:comment "Una clase que representa un informe de calidad externo y estructurado, que contiene metadatos sobre la evaluación (p. ej., una URL de informe PDF, una puntuación de calidad)."@es</li>
+</ul>
+</li>
+<li><a href="#SpatialTemporalAsset">https://w3id.org/EDAAnOWL/SpatialTemporalAsset</a>
+<ul>
+<li>Nuevo: rdfs:label "Activo Espacio-Temporal"@es</li>
+<li>Nuevo: rdfs:comment "Subclase de DataAsset para datos con cobertura espacial y temporal, como datos de Observación de la Tierra."@es</li>
+</ul>
+</li>
+<li><a href="#VisualizationApp">https://w3id.org/EDAAnOWL/VisualizationApp</a>
+<ul>
+<li>Nuevo: rdfs:label "Aplicación de Visualización"@es</li>
+<li>Nuevo: rdfs:comment "Una aplicación de datos inteligente que renderiza datos en vistas/informes visuales sin alterar los datos subyacentes."@es</li>
+</ul>
+</li>
+</ul></details><h3 id="changeProp" class="list">Propiedades de objeto</h3>
+<details><summary><u>Propiedades de objeto modificadas</u></summary>
+<ul><li><a href="#http://purl.org/dc/terms/source">http://purl.org/dc/terms/source</a>
+<ul>
+<li>Nuevo: rdfs:comment "Un recurso relacionado del cual se deriva el recurso descrito (p. ej., el catálogo de origen)."@es</li>
+<li>Nuevo: rdfs:label "fuente"@es</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasDerivedFrom">http://www.w3.org/ns/prov#wasDerivedFrom</a>
+<ul>
+<li>Nuevo: rdfs:label "fue derivado de"@es</li>
+<li>Nuevo: rdfs:comment "Una derivación es una transformación de una entidad en otra, una actualización de una entidad que resulta en una nueva, o la construcción de una nueva entidad basada en una entidad preexistente. En EDAAnOWL, esto vincula un DataAsset derivado con su DataAsset fuente."@es</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasGeneratedBy">http://www.w3.org/ns/prov#wasGeneratedBy</a>
+<ul>
+<li>Nuevo: rdfs:label "fue generado por"@es</li>
+<li>Nuevo: rdfs:comment "La generación es la finalización de la producción de una nueva entidad por una actividad. Esta entidad no existía antes de la generación y queda disponible para su uso después de esta generación. En EDAAnOWL, esto vincula un DataAsset con la DataApp que lo generó."@es</li>
+</ul>
+</li>
+<li><a href="#conformsToProfile">https://w3id.org/EDAAnOWL/conformsToProfile</a>
+<ul>
+<li>Nuevo: rdfs:label "se ajusta al perfil"@es</li>
+<li>Nuevo: rdfs:comment "Vincula un recurso (p. ej., un DataAsset) con un DataProfile que describe su estructura y características."@es</li>
+</ul>
+</li>
+<li><a href="#consumesResource">https://w3id.org/EDAAnOWL/consumesResource</a>
+<ul>
+<li>Nuevo: rdfs:comment "Vincula un Componente BIGOWL con una Representación IDSA que consume como entrada."@es</li>
+<li>Nuevo: rdfs:label "consume representación"@es</li>
+</ul>
+</li>
+<li><a href="#declaresDataClass">https://w3id.org/EDAAnOWL/declaresDataClass</a>
+<ul>
+<li>Nuevo: rdfs:label "declara clase de datos"@es</li>
+<li>Nuevo: rdfs:comment "Vincula un DataProfile con una clase de Datos BIGOWL (p. ej., bigdat:TabularDataSet, bigdat:Image)."@es</li>
+</ul>
+</li>
+<li><a href="#declaresObservedProperty">https://w3id.org/EDAAnOWL/declaresObservedProperty</a>
+<ul>
+<li>Nuevo: rdfs:label "declara propiedad observada"@es</li>
+<li>Nuevo: rdfs:comment "Vincula un DataProfile con un concepto semántico que describe, típicamente de un vocabulario controlado (p. ej., un término AGROVOC)."@es</li>
+</ul>
+</li>
+<li><a href="#externalQualityReport">https://w3id.org/EDAAnOWL/externalQualityReport</a>
+<ul>
+<li>Nuevo: rdfs:comment "Vincula un recurso con un objeto estructurado que describe un informe de calidad externo."@es</li>
+<li>Nuevo: rdfs:label "informe de calidad externo"@es</li>
+</ul>
+</li>
+<li><a href="#hasCRS">https://w3id.org/EDAAnOWL/hasCRS</a>
+<ul>
+<li>Nuevo: rdfs:label "tiene Sistema de Referencia de Coordenadas"@es</li>
+<li>Nuevo: rdfs:comment "Vincula un Perfil de Datos con la definición formal de su Sistema de Referencia de Coordenadas (CRS), preferiblemente usando un URI EPSG (p. ej., http://www.opengis.net/def/crs/EPSG/0/4326)."@es</li>
+</ul>
+</li>
+<li><a href="#hasDomainSector">https://w3id.org/EDAAnOWL/hasDomainSector</a>
+<ul>
+<li>Nuevo: rdfs:label "tiene sector de dominio"@es</li>
+<li>Nuevo: rdfs:comment "Una sub-propiedad de dcat:theme, que vincula específicamente un recurso con un concepto de un vocabulario de sector de dominio."@es</li>
+</ul>
+</li>
+<li><a href="#hasMetric">https://w3id.org/EDAAnOWL/hasMetric</a>
+<ul>
+<li>Nuevo: rdfs:comment "Vincula un Perfil de Datos con una métrica específica de calidad, rendimiento o descriptiva."@es</li>
+<li>Nuevo: rdfs:label "tiene métrica"@es</li>
+</ul>
+</li>
+<li><a href="#hasSpatialCoverage">https://w3id.org/EDAAnOWL/hasSpatialCoverage</a>
+<ul>
+<li>Nuevo: rdfs:comment "Define la cobertura espacial del activo de datos requerido por las CUs de Observación de la Tierra."@es</li>
+<li>Nuevo: rdfs:label "tiene cobertura espacial"@es</li>
+</ul>
+</li>
+<li><a href="#hasTemporalCoverage">https://w3id.org/EDAAnOWL/hasTemporalCoverage</a>
+<ul>
+<li>Nuevo: rdfs:comment "Define la cobertura temporal del activo de datos requerido por las CUs de Observación de la Tierra."@es</li>
+<li>Nuevo: rdfs:label "tiene cobertura temporal"@es</li>
+</ul>
+</li>
+<li><a href="#implementsComponent">https://w3id.org/EDAAnOWL/implementsComponent</a>
+<ul>
+<li>Nuevo: rdfs:label "implementa componente"@es</li>
+<li>Nuevo: rdfs:comment "Vincula una DataApp IDSA con el Componente de flujo de trabajo BIGOWL que implementa."@es</li>
+</ul>
+</li>
+<li><a href="#legalContact">https://w3id.org/EDAAnOWL/legalContact</a>
+<ul>
+<li>Nuevo: rdfs:label "contacto legal"@es</li>
+<li>Nuevo: rdfs:comment "Un punto de contacto específico para consultas legales sobre el recurso."@es</li>
+</ul>
+</li>
+<li><a href="#parameter">https://w3id.org/EDAAnOWL/parameter</a>
+<ul>
+<li>Nuevo: rdfs:label "parámetro"@es</li>
+<li>Nuevo: rdfs:comment "Vincula una DataApp con un parámetro de ejecución que acepta."@es</li>
+</ul>
+</li>
+<li><a href="#producesObservableProperty">https://w3id.org/EDAAnOWL/producesObservableProperty</a>
+<ul>
+<li>Nuevo: rdfs:label "produce propiedad observable"@es</li>
+<li>Nuevo: rdfs:comment "Define la firma semántica de la SALIDA de un servicio (p. ej., produce Crop_Forecast)."@es</li>
+</ul>
+</li>
+<li><a href="#producesProfile">https://w3id.org/EDAAnOWL/producesProfile</a>
+<ul>
+<li>Nuevo: rdfs:comment "Vincula una DataApp con un DataProfile que produce como salida."@es</li>
+<li>Nuevo: rdfs:label "produce perfil"@es</li>
+</ul>
+</li>
+<li><a href="#producesResource">https://w3id.org/EDAAnOWL/producesResource</a>
+<ul>
+<li>Nuevo: rdfs:label "produce representación"@es</li>
+<li>Nuevo: rdfs:comment "Vincula un Componente BIGOWL con una Representación IDSA que produce como salida."@es</li>
+</ul>
+</li>
+<li><a href="#realizesWorkflow">https://w3id.org/EDAAnOWL/realizesWorkflow</a>
+<ul>
+<li>Nuevo: rdfs:label "realiza flujo de trabajo"@es</li>
+<li>Nuevo: rdfs:comment "Vincula una DataApp con la Plantilla de Flujo de Trabajo OPMW que ejecuta."@es</li>
+</ul>
+</li>
+<li><a href="#requiresObservableProperty">https://w3id.org/EDAAnOWL/requiresObservableProperty</a>
+<ul>
+<li>Nuevo: rdfs:label "requiere propiedad observable"@es</li>
+<li>Nuevo: rdfs:comment "Define la firma semántica de la ENTRADA para un servicio (p. ej., requiere NDVI)."@es</li>
+</ul>
+</li>
+<li><a href="#requiresProfile">https://w3id.org/EDAAnOWL/requiresProfile</a>
+<ul>
+<li>Nuevo: rdfs:comment "Vincula una DataApp con un DataProfile que requiere como entrada."@es</li>
+<li>Nuevo: rdfs:label "requiere perfil"@es</li>
+</ul>
+</li>
+<li><a href="#servesObservableProperty">https://w3id.org/EDAAnOWL/servesObservableProperty</a>
+<ul>
+<li>Nuevo: rdfs:label "sirve propiedad observable"@es</li>
+<li>Nuevo: rdfs:comment "Vincula un activo de datos (DataAsset) con la variable semántica que describe (p. ej., NDVI)."@es</li>
+</ul>
+</li>
+<li><a href="#spatialGranularityConcept">https://w3id.org/EDAAnOWL/spatialGranularityConcept</a>
+<ul>
+<li>Nuevo: rdfs:label "granularidad espacial (concepto)"@es</li>
+<li>Nuevo: rdfs:comment "Vincula un recurso con un concepto SKOS que describe su granularidad espacial (p. ej., 'Municipal', 'Provincial')."@es</li>
+</ul>
+</li>
+<li><a href="#supportContact">https://w3id.org/EDAAnOWL/supportContact</a>
+<ul>
+<li>Nuevo: rdfs:label "contacto de soporte"@es</li>
+<li>Nuevo: rdfs:comment "Punto de contacto estándar para soporte, usando vCard (fn, email, telephone, URL)."@es</li>
+</ul>
+</li>
+<li><a href="#topic">https://w3id.org/EDAAnOWL/topic</a>
+<ul>
+<li>Nuevo: rdfs:comment "Una sub-propiedad de dct:subject para vincular un recurso con un concepto SKOS descriptivo (p. ej., de AGROVOC)."@es</li>
+<li>Nuevo: rdfs:label "tema"@es</li>
+</ul>
+</li>
+</ul></details><h3 id="changeDataProp" class="list">Propiedades de datos</h3>
+<details><summary><u>Propiedades de datos modificadas</u></summary>
+<ul><li><a href="#http://purl.org/dc/terms/alternative">http://purl.org/dc/terms/alternative</a>
+<ul>
+<li>Nuevo: rdfs:label "nombre alternativo"@es</li>
+<li>Nuevo: rdfs:comment "Un nombre alternativo para el recurso."@es</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/dcat#spatialResolutionInDegrees">http://www.w3.org/ns/dcat#spatialResolutionInDegrees</a>
+<ul>
+<li>Nuevo: rdfs:comment "La resolución espacial del conjunto de datos, expresada en grados decimales."@es</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/dcat#spatialResolutionInMeters">http://www.w3.org/ns/dcat#spatialResolutionInMeters</a>
+<ul>
+<li>Nuevo: rdfs:comment "La resolución espacial del conjunto de datos, expresada en metros."@es</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/dcat#temporalResolution">http://www.w3.org/ns/dcat#temporalResolution</a>
+<ul>
+<li>Nuevo: rdfs:comment "La resolución temporal del conjunto de datos, expresada como xsd:duration (p. ej., 'P1D' para diario)."@es</li>
+</ul>
+</li>
+<li><a href="#https://schema.org/thumbnailUrl">https://schema.org/thumbnailUrl</a>
+<ul>
+<li>Nuevo: rdfs:comment "Una URL que apunta a una imagen en miniatura del recurso."@es</li>
+<li>Nuevo: rdfs:label "URL de miniatura"@es</li>
+</ul>
+</li>
+<li><a href="#accessType">https://w3id.org/EDAAnOWL/accessType</a>
+<ul>
+<li>Nuevo: rdfs:label "tipo de acceso"@es</li>
+<li>Nuevo: rdfs:comment "Indica el modo de acceso principal para el recurso (p. ej., descarga, cómputo, ...)."@es</li>
+</ul>
+</li>
+<li><a href="#alternativeName">https://w3id.org/EDAAnOWL/alternativeName</a>
+<ul>
+<li>Nuevo: rdfs:label "nombre alternativo"@es</li>
+<li>Nuevo: rdfs:comment "Título o nombre alternativo para un recurso."@es</li>
+</ul>
+</li>
+<li><a href="#appliesToFeature">https://w3id.org/EDAAnOWL/appliesToFeature</a>
+<ul>
+<li>Nuevo: rdfs:comment "Indica la característica, columna o atributo específico al que se refiere una métrica. Se usa cuando una métrica no es global al conjunto de datos (p. ej., 'column_name', 'user.address.city', '$.user.address.city')."@es</li>
+<li>Nuevo: rdfs:label "se aplica a característica"@es</li>
+</ul>
+</li>
+<li><a href="#auditLogAvailable">https://w3id.org/EDAAnOWL/auditLogAvailable</a>
+<ul>
+<li>Nuevo: rdfs:comment "Indica si los registros de auditoría para el uso del recurso están disponibles."@es</li>
+<li>Nuevo: rdfs:label "registro de auditoría disponible"@es</li>
+</ul>
+</li>
+<li><a href="#computedAt">https://w3id.org/EDAAnOWL/computedAt</a>
+<ul>
+<li>Nuevo: rdfs:label "calculado en"@es</li>
+<li>Nuevo: rdfs:comment "La marca de tiempo que indica cuándo se calculó o validó el valor de la métrica."@es</li>
+</ul>
+</li>
+<li><a href="#isAlive">https://w3id.org/EDAAnOWL/isAlive</a>
+<ul>
+<li>Nuevo: rdfs:comment "Indica si el conjunto de datos se mantiene activamente y espera actualizaciones futuras."@es</li>
+<li>Nuevo: rdfs:label "está activo"@es</li>
+</ul>
+</li>
+<li><a href="#knownLimitations">https://w3id.org/EDAAnOWL/knownLimitations</a>
+<ul>
+<li>Nuevo: rdfs:label "limitaciones conocidas"@es</li>
+<li>Nuevo: rdfs:comment "Descripción legible de cualquier limitación conocida, sesgo o problema de calidad del recurso."@es</li>
+</ul>
+</li>
+<li><a href="#metricName">https://w3id.org/EDAAnOWL/metricName</a>
+<ul>
+<li>Nuevo: rdfs:label "nombre de métrica"@es</li>
+<li>Nuevo: rdfs:comment "Un nombre o identificador legible para la métrica (p. ej., 'recordCount', 'missing_ratio')."@es</li>
+</ul>
+</li>
+<li><a href="#metricUnit">https://w3id.org/EDAAnOWL/metricUnit</a>
+<ul>
+<li>Nuevo: rdfs:comment "La unidad de medida para el valor de la métrica (p. ej., '%', 'kg/ha', 'ppm')."@es</li>
+<li>Nuevo: rdfs:label "unidad de métrica"@es</li>
+</ul>
+</li>
+<li><a href="#metricValue">https://w3id.org/EDAAnOWL/metricValue</a>
+<ul>
+<li>Nuevo: rdfs:label "valor de métrica"@es</li>
+<li>Nuevo: rdfs:comment "El valor de la métrica. El rango es rdfs:Literal para soportar múltiples tipos de datos (p. ej., xsd:boolean, xsd:integer, xsd:string, xsd:decimal)."@es</li>
+</ul>
+</li>
+<li><a href="#paymentModelDescription">https://w3id.org/EDAAnOWL/paymentModelDescription</a>
+<ul>
+<li>Nuevo: rdfs:label "descripción del modelo de pago"@es</li>
+<li>Nuevo: rdfs:comment "Una descripción legible del modelo de precios o pago (p. ej., 'Suscripción Mensual', 'Pago por uso'). Esto complementa la política formal ODRL."@es</li>
+</ul>
+</li>
+<li><a href="#profileCRS">https://w3id.org/EDAAnOWL/profileCRS</a>
+<ul>
+<li>Nuevo: rdfs:label "CRS de perfil"@es</li>
+</ul>
+</li>
+<li><a href="#profileCRSRef">https://w3id.org/EDAAnOWL/profileCRSRef</a>
+<ul>
+<li>Nuevo: rdfs:comment "Obsoleto. Use la propiedad de objeto edaan:hasCRS para vincular a una definición formal de CRS."@es</li>
+<li>Nuevo: rdfs:label "CRS de perfil (IRI)"@es</li>
+</ul>
+</li>
+<li><a href="#profileSpatialResolution">https://w3id.org/EDAAnOWL/profileSpatialResolution</a>
+<ul>
+<li>Nuevo: rdfs:comment "Obsoleto. Use dcat:spatialResolutionInMeters o dcat:spatialResolutionInDegrees."@es</li>
+<li>Nuevo: rdfs:label "resolución espacial de perfil"@es</li>
+</ul>
+</li>
+<li><a href="#profileTemporalResolution">https://w3id.org/EDAAnOWL/profileTemporalResolution</a>
+<ul>
+<li>Nuevo: rdfs:label "resolución temporal de perfil"@es</li>
+<li>Nuevo: rdfs:comment "Obsoleto. Use dcat:temporalResolution para la resolución temporal de conjuntos de datos/perfiles."@es</li>
+</ul>
+</li>
+<li><a href="#qualityReportURI">https://w3id.org/EDAAnOWL/qualityReportURI</a>
+<ul>
+<li>Nuevo: rdfs:label "URI de informe de calidad"@es</li>
+<li>Nuevo: rdfs:comment "El URI del informe de calidad completo y legible (p. ej., un documento PDF o HTML)."@es</li>
+</ul>
+</li>
+<li><a href="#qualityScore">https://w3id.org/EDAAnOWL/qualityScore</a>
+<ul>
+<li>Nuevo: rdfs:comment "Una puntuación de calidad cuantitativa (p. ej., 0-100) asignada por el informe de calidad externo."@es</li>
+<li>Nuevo: rdfs:label "puntuación de calidad"@es</li>
+</ul>
+</li>
+<li><a href="#recommendedUse">https://w3id.org/EDAAnOWL/recommendedUse</a>
+<ul>
+<li>Nuevo: rdfs:comment "Descripción legible de los casos de uso previstos o recomendados para el recurso."@es</li>
+<li>Nuevo: rdfs:label "uso recomendado"@es</li>
+</ul>
+</li>
+<li><a href="#refundPolicy">https://w3id.org/EDAAnOWL/refundPolicy</a>
+<ul>
+<li>Nuevo: rdfs:label "política de reembolso"@es</li>
+<li>Nuevo: rdfs:comment "Una descripción textual de la política de reembolso aplicable al recurso."@es</li>
+</ul>
+</li>
+<li><a href="#spatialGranularity">https://w3id.org/EDAAnOWL/spatialGranularity</a>
+<ul>
+<li>Nuevo: rdfs:label "granularidad espacial"@es</li>
+</ul>
+</li>
+</ul></details></div>
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Agradecimientos <span class="backlink"> volver a <a href="#toc">&iacute;ndice</a></span></h2>
+<p>Los autores agradecen a <a href="http://www.essepuntato.it/">Silvio Peroni</a> el desarrollo de <a href="http://www.essepuntato.it/lode">LODE</a>, un entorno de documentaci&oacute;n para OWL que es usado para generar la descripci&oacute;n de t&eacute;rminos de la ontolog&iacute;a de este documento; y a  <a href="http://purl.org/net/dgarijo">Daniel Garijo</a> por desarrollar <a href="https://github.com/dgarijo/Widoco">Widoco</a>, el programa utilizado para producir la plantilla en la que se basa este documento.</p>
+</div>
+
+
+</div>
+</body>
+</html>
