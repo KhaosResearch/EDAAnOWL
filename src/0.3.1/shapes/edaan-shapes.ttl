@@ -1,0 +1,180 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+#################################################################
+### Shapes for IDSA Classes (DataApp, DataResource)
+#################################################################
+
+:DataAppShape a sh:NodeShape ;
+    sh:targetClass ids:DataApp ;
+    rdfs:label "Data App Shape"@en ;
+    
+    sh:property [
+        sh:path dct:title ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:message "DataApp must have at least one dct:title"@en ;
+    ] ;
+    
+    sh:property [
+        sh:path :hasDomainSector ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ; # Must be a skos:Concept defined in a vocab
+        sh:message "DataApp must have at least one :hasDomainSector (which must be a skos:Concept)"@en ;
+    ] .
+
+#################################################################
+#    Shapes for IDSA Representation (Content view)
+#################################################################
+
+:RepresentationShape a sh:NodeShape ;
+    sh:targetClass ids:Representation ;
+    rdfs:label "Representation Shape"@en ;
+    sh:or (
+        [ sh:property [
+            sh:path dct:format ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:message "A Representation should have a dct:format (e.g., 'GeoTIFF')"@en ;
+        ] ]
+        [ sh:property [
+            sh:path ids:mediaType ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:message "A Representation should have an ids:mediaType (IANA media type IRI)"@en ;
+        ] ]
+    ) .
+
+:DataResourceShape a sh:NodeShape ;
+    sh:targetClass ids:DataResource ;
+    rdfs:label "Data Resource Shape"@en ;
+
+    sh:property [
+        sh:path dct:title ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:message "DataResource must have at least one dct:title"@en ;
+    ] ;
+    
+    sh:property [
+        sh:path :conformsToProfile ;
+        sh:minCount 0 ;
+        sh:class :DataProfile ; # Must link to a DataProfile
+        sh:message "DataResource must conform to at least one :DataProfile"@en ;
+    ] .
+
+#################################################################
+### Shapes for EDAAnOWL Classes (DataProfile, Metric)
+#################################################################
+
+
+:DataProfileShape a sh:NodeShape ;
+    sh:targetClass :DataProfile ;
+    rdfs:label "Data Profile Shape"@en ;
+    
+    sh:property [
+        sh:path :declaresDataClass ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "DataProfile MUST have exactly one :declaresDataClass (e.g., :tabular)."@en ;
+    ] ;
+    sh:property [
+        sh:path :hasMetric ;
+        sh:minCount 1 ;
+        sh:class :Metric ;
+        sh:message "DataProfile MUST have at least one :hasMetric."@en ;
+    ] ;
+    sh:property [
+        sh:path :hasCRS ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "DataProfile :hasCRS (if present) MUST be an IRI (e.g., an EPSG URI)."@en ;
+    ] ;
+    sh:property [
+        sh:path dcat:temporalResolution ;
+        sh:minCount 0 ;
+        sh:datatype xsd:duration ;
+        sh:message "dcat:temporalResolution (if present) MUST be an xsd:duration (e.g., 'P1D')."@en ;
+    ] .
+
+
+:MetricValidationShape a sh:NodeShape ;
+    sh:targetClass :Metric ;
+    sh:property [
+        sh:path :metricName ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Metric must have a :metricName (string)"@en ;
+    ] ;
+    sh:property [
+        sh:path :metricValue ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ; 
+        sh:message "Metric must have a :metricValue (as rdfs:Literal)"@en ;
+    ] .
+
+#################################################################
+#    Shapes for v0.3.1 (Direct Semantic & Profile Models)
+#################################################################
+
+:SpatialTemporalAssetShape a sh:NodeShape ;
+    sh:targetClass :SpatialTemporalAsset ;
+    sh:property [
+        sh:path :hasSpatialCoverage ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:BlankNode ;
+        sh:message "A :SpatialTemporalAsset must have at least one :hasSpatialCoverage"@en
+    ] ;
+    sh:property [
+        sh:path :hasTemporalCoverage ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:BlankNode ;
+        sh:message "A :SpatialTemporalAsset must have at least one :hasTemporalCoverage"@en
+    ] .
+
+:DataAssetShape a sh:NodeShape ;
+    sh:targetClass :DataAsset ;
+    sh:property [
+        sh:path :servesObservableProperty ;
+        sh:minCount 1 ;
+        sh:class :ObservableProperty ;
+        sh:message "A :DataAsset must serve at least one :ObservableProperty"@en
+    ] ;
+    sh:property [
+        sh:path prov:wasGeneratedBy ;
+        sh:minCount 0 ;
+        sh:class ids:DataApp ;
+        sh:message "If present, prov:wasGeneratedBy must point to an ids:DataApp"@en
+    ] ;
+    sh:property [
+        sh:path prov:wasDerivedFrom ;
+        sh:minCount 0 ;
+        sh:class :DataAsset ;
+        sh:message "If present, prov:wasDerivedFrom must point to another :DataAsset"@en
+    ] .
+
+:SmartDataAppSemanticShape
+    a sh:NodeShape ;
+    sh:targetClass ids:SmartDataApp ;
+    sh:property [
+        sh:path :requiresObservableProperty ;
+        sh:minCount 0 ;
+        sh:class :ObservableProperty ;
+        sh:message "If present, requiresObservableProperty must point to :ObservableProperty"@en
+    ] ;
+    sh:property [
+        sh:path :producesObservableProperty ;
+        sh:minCount 0 ;
+        sh:class :ObservableProperty ;
+        sh:message "If present, producesObservableProperty must point to :ObservableProperty"@en
+    ] ;
+    rdfs:label "SmartDataApp semantic I/O shape"@en .

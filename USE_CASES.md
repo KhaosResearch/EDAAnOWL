@@ -1,6 +1,6 @@
 # 📖 EDAAnOWL Use Cases
 
-This document illustrates practical use cases of the EDAAnOWL ontology through diagrams and RDF examples, using **exactly** the concepts defined in ontology v0.3.0.
+This document illustrates practical use cases of the EDAAnOWL ontology through diagrams and RDF examples, using **exactly** the concepts defined in ontology v0.3.1.
 
 ---
 
@@ -465,11 +465,11 @@ component:NDVICalculator a bigwf:Component ;
 
 ## 🔗 References
 
-- **Complete ontology**: `src/0.3.0/EDAAnOWL.ttl`
+- **Complete ontology**: `src/0.3.1/EDAAnOWL.ttl`
 - **SKOS vocabularies**:
-  - `src/0.3.0/vocabularies/observed-properties.ttl` (`:ndvi`, `:temperature`, `:precipitation`, `:yield`)
-  - `src/0.3.0/vocabularies/sector-scheme.ttl` (`:agriculture`, `:energy`, `:health`, etc.)
-  - `src/0.3.0/vocabularies/agro-vocab.ttl` (`:agro_olive`, `:agro_wheat`, `:agro_maize`, etc.)
-- **Additional examples**: `src/0.3.0/examples/test-consistency.ttl`
-- **SHACL validation**: `src/0.3.0/shapes/edaan-shapes.ttl`
+  - `src/0.3.1/vocabularies/observed-properties.ttl` (`:ndvi`, `:temperature`, `:precipitation`, `:yield`)
+  - `src/0.3.1/vocabularies/sector-scheme.ttl` (`:agriculture`, `:energy`, `:health`, etc.)
+  - `src/0.3.1/vocabularies/agro-vocab.ttl` (`:agro_olive`, `:agro_wheat`, `:agro_maize`, etc.)
+- **Additional examples**: `src/0.3.1/examples/test-consistency.ttl`
+- **SHACL validation**: `src/0.3.1/shapes/edaan-shapes.ttl`
 - **AGROVOC**: https://agrovoc.fao.org/

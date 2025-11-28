@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this ontology, please cite it as below."
 title: "EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL"
 abstract: "EDAAnOWL is a lightweight, modular ontology for describing data-space assets (datasets, data apps, policies, processes) aligned with the IDSA Information Model and connected to BIGOWL. It reuses established vocabularies such as SOSA/SSN, OWL-Time and DCAT, and provides SHACL shapes and concept schemes to enable discovery, interoperability and governance."
-version: "0.3.0"
-date-released: "2025-11-19"
+version: "0.3.1"
+date-released: "2025-11-28"
 authors:
   - family-names: "Salvachúa Galimberti"
     given-names: "Martín Jerónimo"

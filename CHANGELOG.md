@@ -17,6 +17,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.1] - 2025-11-28
+
+### Added
+
+- **[MULTILINGUAL]** Added Spanish translations (`@es`) for all labels (`rdfs:label`) and comments (`rdfs:comment`) in the main ontology file (`EDAAnOWL.ttl`).
+  - Translated ontology metadata: `dcterms:abstract`, `dcterms:description`, `dcterms:title`, `widoco:introduction`.
+  - Translated all Object Properties (24 properties).
+  - Translated all Data Properties (23 properties).
+  - Translated all Classes (11 classes).
+- **[MULTILINGUAL]** The ontology now provides full bilingual support (English/Spanish) for better accessibility and international adoption.
+
+### Changed
+
+- Updated `owl:versionIRI` to `.../0.3.1` and `owl:priorVersion` to `.../0.3.0`.
+- Updated all vocabulary `owl:imports` to point to the `.../0.3.1/` path.
+- Updated `dct:modified` to `2025-11-28`.
+
+---
+
 ## [0.3.0] - 2025-11-19
 
 ### Added
@@ -152,7 +171,9 @@ With this both annotations we help to widoco to generate a better documentation 
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.1...HEAD
+[0.3.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.0...v0.3.1
+[0.3.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.0.1...v0.1.0
