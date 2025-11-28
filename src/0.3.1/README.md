@@ -95,35 +95,44 @@ The following diagram illustrates how an App and an Asset "meet" through their s
 
 ```mermaid
 graph LR
-    subgraph "Data App (Demand)"
-    App[Crop Yield Predictor]
+    subgraph Demand ["Data App (Demand)"]
+        App[Crop Yield Predictor]
     end
 
-    subgraph "Shared Semantics (The Match)"
-    Profile[Agri Input Profile]
-    NDVI((NDVI))
-    Temp((Temperature))
+    subgraph Match ["Shared Semantics"]
+        direction TB
+        subgraph Structural ["Structure"]
+            Profile[Agri Input Profile]
+        end
+        subgraph Semantic ["Meaning"]
+            NDVI((NDVI))
+            Temp((Temperature))
+        end
     end
 
-    subgraph "Data Asset (Supply)"
-    Asset[Sentinel-2 Data]
+    subgraph Supply ["Data Asset (Supply)"]
+        Asset[Sentinel-2 Data]
     end
 
     %% Relationships
-    App -- requiresProfile<br/>(Structure) --> Profile
-    App -- requiresObservable<br/>(Meaning) --> NDVI
-    App -- requiresObservable<br/>(Meaning) --> Temp
+    App -- "requiresProfile" --> Profile
+    App -- "requiresObservable" --> NDVI
+    App -- "requiresObservable" --> Temp
 
-    Asset -- conformsToProfile<br/>(Structure) --> Profile
-    Asset -- servesObservable<br/>(Meaning) --> NDVI
-    Asset -- servesObservable<br/>(Meaning) --> Temp
+    Asset -- "conformsToProfile" --> Profile
+    Asset -- "servesObservable" --> NDVI
+    Asset -- "servesObservable" --> Temp
 
     %% Styling
-    style App fill:#f9f,stroke:#333,stroke-width:2px
-    style Asset fill:#bbf,stroke:#333,stroke-width:2px
-    style Profile fill:#dfd,stroke:#333,stroke-width:2px
-    style NDVI fill:#ff9,stroke:#333,stroke-width:1px
-    style Temp fill:#ff9,stroke:#333,stroke-width:1px
+    classDef app fill:#f8bbd0,stroke:#880e4f,stroke-width:2px,color:black
+    classDef asset fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:black
+    classDef profile fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:black
+    classDef concept fill:#fff9c4,stroke:#fbc02d,stroke-width:1px,color:black
+
+    class App app
+    class Asset asset
+    class Profile profile
+    class NDVI,Temp concept
 ```
 
 ---

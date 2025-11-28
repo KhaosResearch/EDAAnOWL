@@ -17,9 +17,16 @@ graph TB
         subgraph EDAAnOWL ["EDAAnOWL (Semantics)"]
             DA["DataAsset<br/>(Supply)"]
             Apps["SmartDataApp Types<br/>(Demand)"]
-            Prof["DataProfile<br/>(Structure)<br/>--<br/>dcat:temporalResolution<br/>dcat:spatialResolution<br/>edaan:hasCRS"]
-            OP["ObservableProperty<br/>(Meaning)<br/>--<br/>sosa:ObservableProperty<br/>(e.g., NDVI, Temp)"]
-            Met["Metric / QualityMetric<br/>(Quality)<br/>--<br/>dqv:Metric"]
+            
+            subgraph Matchmaking ["Matchmaking Core"]
+                Prof["DataProfile<br/>(Structure)"]
+                OP["ObservableProperty<br/>(Meaning)"]
+            end
+            
+            subgraph QualityProv ["Quality & Provenance"]
+                Met["Metric / QualityMetric<br/>(DQV)"]
+                Prov["Provenance<br/>(PROV-O)"]
+            end
         end
 
         subgraph BIGOWL ["BIGOWL (Workflow)"]
@@ -34,28 +41,31 @@ graph TB
     IDR -->|"specialized by"| DA
     IDA -->|"specialized by"| Apps
     
-    DA -- "servesObservableProperty<br/>(I provide X)" --> OP
-    Apps -- "requiresObservableProperty<br/>(I need X)" --> OP
+    DA -- "servesObservableProperty" --> OP
+    Apps -- "requiresObservableProperty" --> OP
     
     DA -- "conformsToProfile" --> Prof
     Apps -- "requiresProfile" --> Prof
 
     Prof -- "hasMetric" --> Met
     DA -.->|"prov:wasGeneratedBy"| Apps
+    DA -.->|"prov:wasDerivedFrom"| DA
 
     Apps -- "implementsComponent" --> Comp
     Comp -->|"part of"| WF
 
     %% Styling
-    classDef space fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    classDef idsa fill:#f8bbd0,stroke:#880e4f,stroke-width:2px
-    classDef edaan fill:#c8e6c9,stroke:#1b5e20,stroke-width:2px
-    classDef bigowl fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    classDef space fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    classDef idsa fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef edaan fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef bigowl fill:#fffde7,stroke:#fbc02d,stroke-width:2px
+    classDef core fill:#ffffff,stroke:#2e7d32,stroke-width:1px,stroke-dasharray: 5 5
 
     class DS,AP space
     class IR,IDR,IDA idsa
-    class DA,Apps,Prof,OP,Met edaan
+    class DA,Apps,Prof,OP,Met,Prov edaan
     class WF,Comp bigowl
+    class Matchmaking,QualityProv core
 ```
 
 ## 🖼 Architecture diagram
