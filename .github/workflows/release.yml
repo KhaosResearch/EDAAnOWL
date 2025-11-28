@@ -56,7 +56,7 @@ jobs:
             -ontFile EDAAnOWL.ttl \
             -outFolder /home/runner/work/EDAAnOWL/EDAAnOWL/build/docs \
             -oops \
-            -lang en \
+            -lang en-es \
             -webVowl \
             -rewriteAll \
             -htaccess \
