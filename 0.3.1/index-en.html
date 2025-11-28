@@ -106,7 +106,7 @@ Lightweight ontology for data spaces. It aligns IDSA and BIGOWL, focusing on the
     <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">EDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces and the analytical artefacts that flow through them. While the abstract motivates the need, this introduction clarifies scope, design choices, and typical usage.
 
-Scope. EDAAnOWL focuses on (i) participants and roles, (ii) data assets and their profiles, (iii) offers and usage policies, and (iv) analytical workflows and applications. It aligns with the International Data Spaces (IDSA) information model for contractual and policy notions, and connects to the BIGOWL family to describe algorithms, problems, and workflows—linking inputs/outputs through ports and data profiles. The ontology ships with curated concept schemes (sector, datatypes, observed properties, domain terms) to encourage consistent annotations without locking users into a single domain model.
+Scope. EDAAnOWL focuses on (i) participants and roles, (ii) data assets and their profiles, (iii) offers and usage policies, and (iv) analytical workflows and applications. It aligns with the International Data Spaces (IDSA) information model for contractual and policy notions, and connects to the BIGOWL family to describe algorithms, problems, and workflows—linking inputs/outputs through ports and data profiles. The ontology ships with curated concept schemes (sector, datatypes, observed properties, domain terms) to encourage consistent annotations without locking users into a single domain model."
 
 Reuse over reinvention. EDAAnOWL reuses widely adopted vocabularies wherever possible: DCAT for cataloguing and dataset metadata, SOSA/SSN for observations and features of interest, OWL-Time for temporal descriptions, ODRL and IDSA Core for policy/contract semantics, and PROV-O for provenance. These alignments are expressed via imports and lightweight bridges so existing assets can be described without duplication.
 
@@ -115,14 +115,21 @@ Modular structure. The ontology distinguishes a stable core from project-specifi
 Versioning and persistence. Each release has a persistent, versioned IRI and a non-versioned namespace that denotes the latest version. This enables unambiguous citation of a concrete release (“This version”) while preserving a canonical entry point (“Latest version”), typically redirected to the documentation of the rolling latest/ build.
 
 Typical usage.
-• Describe a dataset (DataAsset): Attach an `edaan:DataProfile` using `edaan:conformsToProfile`.
-• Define the profile:
-    • Classify its type (e.g., `edaan:declaresDataClass bigdat:TabularData`).
-    • Define its technical properties (e.g., `dcat:temporalResolution \"P1D\"^^xsd:duration`, `edaan:hasCRS <http://.../EPSG/4326>`).
-    • List its quality metrics using `edaan:hasMetric`, describing each `edaan:Metric` with `metricName`, `metricValue` (as `rdfs:Literal`), and `appliesToFeature` (for column-level metrics).
-• Publish a DataApp: Declare the profiles it requires (`edaan:requiresProfile`) and produces (`edaan:producesProfile`).
-• Enable Matchmaking: Allow a broker to find assets that semantically match the requirements of an app.
-• Validate Instances: Use the provided SHACL shapes (`edaan-shapes.ttl`) to ensure all assets and profiles conform to the ontology's rules.
+- Describe a dataset (DataAsset): Attach an `edaan:DataProfile` using `edaan:conformsToProfile`.
+
+- Define the profile:
+
+    - Classify its type (e.g., `edaan:declaresDataClass bigdat:TabularData`).
+
+    - Define its technical properties (e.g., `dcat:temporalResolution \"P1D\"^^xsd:duration`, `edaan:hasCRS <http://.../EPSG/4326>`).
+
+    - List its quality metrics using `edaan:hasMetric`, describing each `edaan:Metric` with `metricName`, `metricValue` (as `rdfs:Literal`), and `appliesToFeature` (for column-level metrics).
+
+- Publish a DataApp: Declare the profiles it requires (`edaan:requiresProfile`) and produces (`edaan:producesProfile`).
+
+- Enable Matchmaking: Allow a broker to find assets that semantically match the requirements of an app.
+
+- Validate Instances: Use the provided SHACL shapes (`edaan-shapes.ttl`) to ensure all assets and profiles conform to the ontology's rules.
 
 Non-goals. EDAAnOWL is not a monolithic domain ontology nor a replacement for sector models. It provides the semantic “connective tissue” required to publish, discover, govern, and compose data and analytics across domains, encouraging extension through clean interfaces rather than centralised control.</span>
 </div>

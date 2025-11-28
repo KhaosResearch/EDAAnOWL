@@ -115,14 +115,21 @@ Estructura modular. La ontología distingue un núcleo estable de módulos espec
 Versionado y persistencia. Cada versión tiene un IRI persistente y versionado y un espacio de nombres sin versión que denota la última versión. Esto permite la citación inequívoca de una versión concreta ("Esta versión") mientras se preserva un punto de entrada canónico ("Última versión"), típicamente redirigido a la documentación de la compilación latest/ continua.
 
 Uso típico.
-• Describir un conjunto de datos (DataAsset): Adjuntar un `edaan:DataProfile` usando `edaan:conformsToProfile`.
-• Definir el perfil:
-    • Clasificar su tipo (p. ej., `edaan:declaresDataClass bigdat:TabularData`).
-    • Definir sus propiedades técnicas (p. ej., `dcat:temporalResolution \"P1D\"^^xsd:duration`, `edaan:hasCRS <http://.../EPSG/4326>`).
-    • Listar sus métricas de calidad usando `edaan:hasMetric`, describiendo cada `edaan:Metric` con `metricName`, `metricValue` (como `rdfs:Literal`), y `appliesToFeature` (para métricas a nivel de columna).
-• Publicar una DataApp: Declarar los perfiles que requiere (`edaan:requiresProfile`) y produce (`edaan:producesProfile`).
-• Habilitar Matchmaking: Permitir que un intermediario encuentre activos que coincidan semánticamente con los requisitos de una aplicación.
-• Validar Instancias: Usar las formas SHACL proporcionadas (`edaan-shapes.ttl`) para asegurar que todos los activos y perfiles se ajusten a las reglas de la ontología.
+- Describir un conjunto de datos (DataAsset): Adjuntar un `edaan:DataProfile` usando `edaan:conformsToProfile`.
+
+- Definir el perfil:
+
+    - Clasificar su tipo (p. ej., `edaan:declaresDataClass bigdat:TabularData`).
+
+    - Definir sus propiedades técnicas (p. ej., `dcat:temporalResolution \"P1D\"^^xsd:duration`, `edaan:hasCRS <http://.../EPSG/4326>`).
+
+    - Listar sus métricas de calidad usando `edaan:hasMetric`, describiendo cada `edaan:Metric` con `metricName`, `metricValue` (como `rdfs:Literal`), y `appliesToFeature` (para métricas a nivel de columna).
+
+- Publicar una DataApp: Declarar los perfiles que requiere (`edaan:requiresProfile`) y produce (`edaan:producesProfile`).
+
+- Habilitar Matchmaking: Permitir que un intermediario encuentre activos que coincidan semánticamente con los requisitos de una aplicación.
+
+- Validar Instancias: Usar las formas SHACL proporcionadas (`edaan-shapes.ttl`) para asegurar que todos los activos y perfiles se ajusten a las reglas de la ontología.
 
 No-objetivos. EDAAnOWL no es una ontología de dominio monolítica ni un reemplazo para modelos sectoriales. Proporciona el "tejido conectivo" semántico requerido para publicar, descubrir, gobernar y componer datos y análisis a través de dominios, fomentando la extensión a través de interfaces limpias en lugar de control centralizado.</span>
 </div>
