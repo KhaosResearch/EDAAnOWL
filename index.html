@@ -4,240 +4,100 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EDAAnOWL – Documentation</title>
+  <title>EDAAnOWL – Ontology Documentation</title>
   <meta name="description"
-    content="EDAAnOWL documentation landing page with version selector and auto-redirect to latest." />
-  <style>
-    :root {
-      --bg: #0b1220;
-      --card: #0f162a;
-      --fg: #e6edf3;
-      --muted: rgba(230, 237, 243, 0.7);
-      --accent: #1f6feb;
-      --stroke: rgba(255, 255, 255, 0.08);
-      --shadow: 0 0 0 1px var(--stroke), 0 24px 48px rgba(0, 0, 0, 0.35);
-      --maxw: 980px;
-      --radius: 16px;
-    }
+    content="Official documentation for EDAAnOWL: An ontology for annotating data-space assets." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      height: 100%;
-    }
-
-    body {
-      margin: 0;
-      background: radial-gradient(1000px 600px at 10% -10%,
-          #14203b 0%,
-          rgba(20, 32, 59, 0) 60%),
-        var(--bg);
-      color: var(--fg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-        Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial;
-      line-height: 1.5;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(10px);
-      background: rgba(11, 18, 32, 0.65);
-      border-bottom: 1px solid var(--stroke);
-      z-index: 10;
-    }
-
-    .wrap {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 16px 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #3aa6ff, #7c4dff);
-      box-shadow: 0 0 20px #3aa6ff88;
-    }
-
-    .brand h1 {
-      font-size: 18px;
-      margin: 0;
-    }
-
-    main {
-      display: flex;
-      justify-content: center;
-      padding: 28px 14px 48px;
-    }
-
-    .card {
-      max-width: var(--maxw);
-      width: 100%;
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .hero {
-      padding: 28px;
-      border-bottom: 1px solid var(--stroke);
-      background: linear-gradient(180deg,
-          rgba(255, 255, 255, 0.02),
-          transparent);
-    }
-
-    .hero h2 {
-      margin: 0 0 6px;
-      font-size: 28px;
-    }
-
-    .hero p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      padding: 20px;
-    }
-
-    .panel {
-      border: 1px solid var(--stroke);
-      border-radius: 14px;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .panel h3 {
-      margin: 0 0 8px;
-    }
-
-    .versions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .btn,
-    a.btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      background: var(--accent);
-      color: white;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 10px 24px rgba(31, 111, 235, 0.35);
-    }
-
-    .btn--ghost {
-      background: transparent;
-      color: var(--fg);
-      border: 1px solid var(--stroke);
-      box-shadow: none;
-    }
-
-    .list {
-      margin: 10px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .list li {
-      margin: 6px 0;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 4px 8px;
-      border-radius: 999px;
-      font-size: 12px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--stroke);
-    }
-
-    footer {
-      text-align: center;
-      color: var(--muted);
-      padding: 20px;
-    }
-
-    @media (max-width: 760px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <!-- Main JS for Theme Toggle -->
+  <script src="assets/js/main.js"></script>
 </head>
 
 <body>
+
   <header>
-    <div class="wrap">
-      <div class="brand">
-        <div class="dot"></div>
-        <h1>EDAAnOWL · Documentation</h1>
-      </div>
+    <div class="container header-content">
+      <a href="#" class="brand">
+        <div class="brand-logo">E</div>
+        <span class="brand-text">EDAAnOWL</span>
+      </a>
+      <nav class="nav-links">
+        <a href="https://github.com/KhaosResearch/EDAAnOWL" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      </nav>
     </div>
   </header>
+
   <main>
-    <section class="card">
-      <div class="hero">
-        <h2>Welcome 👋</h2>
+    <section class="hero">
+      <div class="container">
+        <div class="badge latest" style="margin-bottom: 20px;">Latest Stable Release: v0.3.2</div>
+        <h1>Semantic Data Spaces <br> Made Simple.</h1>
         <p>
-          This is the documentation landing for <strong>EDAAnOWL</strong>.
-          Jump to the latest version or browse older releases.
+          EDAAnOWL is a lightweight, modular ontology for describing data assets,
+          services, and workflows in the IDSA and BIGOWL context.
         </p>
+        <a href="0.3.2/" class="cta-button">Read Documentation <i class="fas fa-arrow-right"
+            style="margin-left:8px; font-size: 0.9em;"></i></a>
       </div>
-      <div class="grid">
-        <div class="panel">
-          <h3>Latest version</h3>
-          <p>
-            We will automatically take you to the most recent stable version.
-          </p>
-          <div class="versions">
-            <a class="btn" id="go-latest" href="./0.3.2/">Open latest docs (v0.3.2)</a>
-          </div>
-        </div>
-        <div class="panel">
-          <h3>Available versions</h3>
-          <ul class="list">
-            <li>latest — <a href="./latest/">Open docs</a></li>
-            <li>v0.3.2 — <a href="./0.3.2/">Open docs</a></li>
-            <li>v0.3.1 — <a href="./0.3.1/">Open docs</a></li>
-            <li>v0.3.0 — <a href="./0.3.0/">Open docs</a></li>
-            <li>v0.2.1 — <a href="./0.2.1/">Open docs</a></li>
-            <li>v0.2.0 — <a href="./0.2.0/">Open docs</a></li>
-            <li>v0.1.0 — <a href="./0.1.0/">Open docs</a></li>
-            <li>v0.0.1 — <a href="./0.0.1/">Open docs</a></li>
-          </ul>
+    </section>
+
+    <section class="doc-content">
+      <div class="container">
+        <h2 style="font-size: 1.8rem; margin-bottom: 30px;">Available Versions</h2>
+
+        <div class="versions-grid">
+
+          <!-- Latest Version -->
+          <a href="0.3.2/" class="version-card" style="border-color: var(--accent-primary);">
+            <div style="display:flex; justify-content:space-between; align-items:start;">
+              <span class="version-number">v0.3.2</span>
+              <span class="badge latest">Latest</span>
+            </div>
+            <div class="version-date">December 9, 2025</div>
+            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
+              Structural refinements (:ObservableProperty inheritance) and updated shapes.
+            </p>
+          </a>
+
+          <!-- v0.3.1 -->
+          <a href="0.3.1/" class="version-card">
+            <span class="version-number">v0.3.1</span>
+            <div class="version-date">November 28, 2025</div>
+            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
+              Unified IDSA alignment (DataAsset/DataApp) and PROV-O integration.
+            </p>
+          </a>
+
+          <!-- v0.3.0 -->
+          <a href="0.3.0/" class="version-card">
+            <span class="version-number">v0.3.0</span>
+            <div class="version-date">November 2025</div>
+          </a>
+
+          <!-- v0.2.1 -->
+          <a href="0.2.1/" class="version-card">
+            <span class="version-number">v0.2.1</span>
+            <div class="version-date">October 2025</div>
+          </a>
+
+          <!-- v0.0.1 -->
+          <a href="0.0.1/" class="version-card">
+            <span class="version-number">v0.0.1</span>
+            <div class="version-date">Initial Pre-release</div>
+          </a>
+
         </div>
       </div>
     </section>
   </main>
-  <footer>© 2025 · EDAAnOWL</footer>
-  <script>
-    var LATEST_PATH = "./0.3.2/";
-    document.getElementById("go-latest").setAttribute("href", LATEST_PATH);
-  </script>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Khaos Research · Released under MIT License</p>
+    </div>
+  </footer>
+
 </body>
 
 </html>
