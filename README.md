@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Latest Release](https://img.shields.io/github/v/release/KhaosResearch/EDAAnOWL?display_name=tag)](https://github.com/KhaosResearch/EDAAnOWL/releases)
 [![PURL](https://img.shields.io/badge/purl-w3id.org-blue)](https://w3id.org/EDAAnOWL/)
-[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/0.3.1/shapes/edaan-shapes.ttl)
+[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/0.3.2/shapes/edaan-shapes.ttl)
 [![GitHub stars](https://img.shields.io/github/stars/KhaosResearch/EDAAnOWL?style=social)](https://github.com/KhaosResearch/EDAAnOWL/stargazers)
 
 A pilot ontology for the semantic exploitation of data assets in the Agri-food (EDAA) context, aligned with the [IDSA Information Model](https://github.com/International-Data-Spaces-Association/InformationModel) and the [BIGOWL ontology](https://github.com/KhaosResearch/BIGOWL-DS/).
@@ -14,7 +14,7 @@ A pilot ontology for the semantic exploitation of data assets in the Agri-food (
 - :book: [BIGOWL ontology documentation](https://w3id.org/BIGOWL/)
 
 > [!NOTE]
-> Latest stable: see `src/0.3.1/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
+> Latest stable: see `src/0.3.2/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
 > Check out the `demo/` folder for a practical example of transforming a DCAT catalog to EDAAnOWL RDF.
 
 The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches the description of Data Space assets. It allows for modeling the functional profile (inputs, outputs, parameters) of `ids:DataApp` and `ids:DataResource`, facilitating their semantic discovery, composition into complex services, and compatibility validation.
