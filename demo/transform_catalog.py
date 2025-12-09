@@ -95,6 +95,7 @@ def process_dataset(g, ds):
         obs_prop = EDAAN.CropYield
         g.add((resource_uri, EDAAN.servesObservableProperty, obs_prop))
         g.add((obs_prop, RDF.type, EDAAN.ObservableProperty))
+        g.add((obs_prop, RDF.type, SKOS.Concept))
 
         # Add provenance placeholder if it looks like a result
         if "indexes" in ds.get("dct:title", "").lower():

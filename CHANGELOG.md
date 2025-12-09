@@ -17,6 +17,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.2] - 2025-12-09
+
+### Added
+
+- **0.3.2 directory**: Added `0.3.2/` directory with updated documentation and resources.
+
+### Changed
+
+- **Structural Refinement into `0.3.2/EDAAnOWL.ttl`**:
+  - **`:ObservableProperty`** is now a subclass of both `sosa:ObservableProperty` and `skos:Concept`. This allows using SKOS concepts (like AGROVOC terms) directly as observable properties while maintaining SOSA semantics.
+  - **`:declaresObservedProperty`** now has a range of `:ObservableProperty` (instead of generic `skos:Concept`), enforcing stricter typing and consistency.
+  - updated `README.md` to reflect the changes.
+  - updated `ARCHITECTURE.md` to reflect the changes.
+  - updated `demo/README.md` to reflect the changes.
+  - updated `demo/transform_catalog.py` to reflect the changes.
+  - updated `CITATION.md` to reflect the changes.
+  - updated `USE_CASES.md` to reflect the changes.
+
+---
+
 ## [0.3.1] - 2025-11-28
 
 ### Added
@@ -171,7 +191,8 @@ With this both annotations we help to widoco to generate a better documentation 
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.2...HEAD
+[0.3.2]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.2.0...v0.2.1

@@ -22,7 +22,7 @@ This folder contains a practical demonstration of how to transform a standard **
     - Read `catalog.json`.
     - Map DCAT datasets to `edaan:DataAsset` or `ids:SmartDataApp` based on keywords.
     - Enrich the data with **Data Profiles**, **Quality Metrics** (DQV), and **Provenance** (PROV-O).
-    - Validate the output against the SHACL shapes (`../src/0.3.1/shapes/edaan-shapes.ttl`).
+    - Validate the output against the SHACL shapes (`../src/0.3.2/shapes/edaan-shapes.ttl`).
     - Save the result to `output.ttl`.
 
 ## 🧩 Transformation Logic
