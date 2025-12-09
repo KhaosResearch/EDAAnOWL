@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **0.3.2 directory**: Added `0.3.2/` directory with updated documentation and resources.
+- **GitHub Pages**: Added `style.css` and `main.js` to improve the visual appearance of the rendering of `README.md` files in `index.html` files.
 
 ### Changed
 
@@ -34,6 +35,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - updated `demo/transform_catalog.py` to reflect the changes.
   - updated `CITATION.md` to reflect the changes.
   - updated `USE_CASES.md` to reflect the changes.
+
+### Fixed
+
+- **GitHub Pages**: Fixed the visual appearance of the rendering of `README.md` files in `index.html` files.
 
 ---
 
