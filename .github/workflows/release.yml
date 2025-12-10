@@ -131,6 +131,14 @@ jobs:
             echo "--- WARN: src/index.html not found. Landing page will be missing. ---"
           fi
 
+          echo "Copying assets (CSS and JS)..."
+          if [ -d "src/assets" ]; then
+            cp -r "src/assets" "deploy/assets"
+            echo "Assets copied successfully"
+          else
+            echo "--- WARN: src/assets not found. Styles and scripts will be missing. ---"
+          fi
+
           echo "Syncing 'latest'..."
           rm -rf deploy/latest
           cp -r deploy/$DEST_VERSION deploy/latest
