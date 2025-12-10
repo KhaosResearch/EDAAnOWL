@@ -210,13 +210,13 @@
     "id" : "53",
     "type" : "owl:Class"
   }, {
-    "id" : "3",
+    "id" : "5",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "55",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "5",
+    "id" : "3",
     "type" : "rdfs:Literal"
   }, {
     "id" : "57",
@@ -297,7 +297,7 @@
     "id" : "119",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "45",
+    "id" : "46",
     "type" : "owl:Class"
   }, {
     "id" : "2",
@@ -370,32 +370,6 @@
         "IRI-based" : "energy"
       }
     }, {
-      "iri" : "https://w3id.org/EDAAnOWL/repiloIncidence",
-      "baseIri" : "https://w3id.org/EDAAnOWL",
-      "annotations" : {
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Repilo Incidence",
-          "type" : "label"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Predicted incidence of Repilo disease",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "repiloIncidence"
-      }
-    }, {
       "iri" : "https://w3id.org/EDAAnOWL/precipitation",
       "baseIri" : "https://w3id.org/EDAAnOWL",
       "annotations" : {
@@ -420,6 +394,32 @@
       },
       "labels" : {
         "IRI-based" : "precipitation"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/repiloIncidence",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Repilo Incidence",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Predicted incidence of Repilo disease",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "repiloIncidence"
       }
     }, {
       "iri" : "https://w3id.org/EDAAnOWL/agriculture",
@@ -1120,7 +1120,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "3",
+    "id" : "5",
     "label" : {
       "IRI-based" : "string"
     }
@@ -1134,7 +1134,7 @@
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "5",
+    "id" : "3",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -1236,32 +1236,6 @@
       "es" : "Propiedad Observable"
     },
     "individuals" : [ {
-      "iri" : "https://w3id.org/EDAAnOWL/precipitation",
-      "baseIri" : "https://w3id.org/EDAAnOWL",
-      "annotations" : {
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Precipitation",
-          "type" : "label"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Rainfall, snowfall, or other forms of moisture",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "precipitation"
-      }
-    }, {
       "iri" : "https://w3id.org/EDAAnOWL/repiloIncidence",
       "baseIri" : "https://w3id.org/EDAAnOWL",
       "annotations" : {
@@ -1286,6 +1260,32 @@
       },
       "labels" : {
         "IRI-based" : "repiloIncidence"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/precipitation",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Precipitation",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Rainfall, snowfall, or other forms of moisture",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "precipitation"
       }
     }, {
       "iri" : "https://w3id.org/EDAAnOWL/occupancy",
@@ -1568,18 +1568,18 @@
     },
     "id" : "11"
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#duration",
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "112",
     "label" : {
-      "IRI-based" : "duration"
+      "IRI-based" : "decimal"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "iri" : "http://www.w3.org/2001/XMLSchema#duration",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "114",
     "label" : {
-      "IRI-based" : "decimal"
+      "IRI-based" : "duration"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
@@ -1639,7 +1639,7 @@
       "IRI-based" : "Kind"
     },
     "attributes" : [ "external" ],
-    "id" : "45"
+    "id" : "46"
   }, {
     "iri" : "https://w3id.org/idsa/core/Resource",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -1699,7 +1699,7 @@
     "id" : "44",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "47",
+    "id" : "45",
     "type" : "owl:objectProperty"
   }, {
     "id" : "51",
@@ -1846,7 +1846,7 @@
     "id" : "26",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "46",
+    "id" : "47",
     "type" : "owl:objectProperty"
   }, {
     "id" : "120",
@@ -1877,25 +1877,9 @@
     "type" : "owl:objectProperty"
   } ],
   "propertyAttribute" : [ {
-    "iri" : "https://w3id.org/EDAAnOWL/accessType",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "3",
-    "label" : {
-      "IRI-based" : "accessType",
-      "en" : "access type",
-      "es" : "tipo de acceso"
-    },
-    "domain" : "2",
-    "comment" : {
-      "en" : "Indicates the primary access mode for the resource (e.g., download, compute, ...).",
-      "es" : "Indica el modo de acceso principal para el recurso (p. ej., descarga, cómputo, ...)."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "1"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/alternativeName",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "5",
+    "range" : "3",
     "label" : {
       "IRI-based" : "alternativeName",
       "en" : "alternate name",
@@ -1905,6 +1889,22 @@
     "comment" : {
       "en" : "Alternative title or name for a resource.",
       "es" : "Título o nombre alternativo para un recurso."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "1"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/accessType",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "accessType",
+      "en" : "access type",
+      "es" : "tipo de acceso"
+    },
+    "domain" : "2",
+    "comment" : {
+      "en" : "Indicates the primary access mode for the resource (e.g., download, compute, ...).",
+      "es" : "Indica el modo de acceso principal para el recurso (p. ej., descarga, cómputo, ...)."
     },
     "attributes" : [ "datatype" ],
     "id" : "4"
@@ -2050,23 +2050,6 @@
     "attributes" : [ "datatype" ],
     "id" : "42"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/supportContact",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "45",
-    "label" : {
-      "IRI-based" : "supportContact",
-      "en" : "support contact",
-      "es" : "contacto de soporte"
-    },
-    "superproperty" : [ "46" ],
-    "domain" : "2",
-    "comment" : {
-      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL).",
-      "es" : "Punto de contacto estándar para soporte, usando vCard (fn, email, telephone, URL)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "44"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "0",
@@ -2081,7 +2064,24 @@
       "es" : "Vincula una DataApp con un DataProfile que produce como salida."
     },
     "attributes" : [ "object" ],
-    "id" : "47"
+    "id" : "44"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/supportContact",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "46",
+    "label" : {
+      "IRI-based" : "supportContact",
+      "en" : "support contact",
+      "es" : "contacto de soporte"
+    },
+    "superproperty" : [ "47" ],
+    "domain" : "2",
+    "comment" : {
+      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL).",
+      "es" : "Punto de contacto estándar para soporte, usando vCard (fn, email, telephone, URL)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "45"
   }, {
     "iri" : "http://purl.org/dc/terms/source",
     "baseIri" : "http://purl.org/dc/terms",
@@ -2126,7 +2126,7 @@
       "en" : "The spatial resolution of the dataset, expressed in meters.",
       "es" : "La resolución espacial del conjunto de datos, expresada en metros."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "60"
   }, {
     "range" : "54",
@@ -2221,7 +2221,7 @@
       "en" : "Deprecated. Use dcat:spatialResolutionInMeters or dcat:spatialResolutionInDegrees.",
       "es" : "Obsoleto. Use dcat:spatialResolutionInMeters o dcat:spatialResolutionInDegrees."
     },
-    "attributes" : [ "datatype", "deprecated" ],
+    "attributes" : [ "deprecated", "datatype" ],
     "id" : "78"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/declaresDataClass",
@@ -2289,7 +2289,7 @@
       "en" : "An alternative name for the resource.",
       "es" : "Un nombre alternativo para el recurso."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "85"
   }, {
     "range" : "16",
@@ -2352,7 +2352,7 @@
       "en" : "Deprecated. Use the object property edaan:hasCRS to link to a formal CRS definition.",
       "es" : "Obsoleto. Use la propiedad de objeto edaan:hasCRS para vincular a una definición formal de CRS."
     },
-    "attributes" : [ "datatype", "deprecated" ],
+    "attributes" : [ "deprecated", "datatype" ],
     "id" : "92"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/recommendedUse",
@@ -2403,7 +2403,7 @@
       "en" : "Deprecated. Use dcat:temporalResolution for temporal resolution of datasets/profiles.",
       "es" : "Obsoleto. Use dcat:temporalResolution para la resolución temporal de conjuntos de datos/perfiles."
     },
-    "attributes" : [ "datatype", "deprecated" ],
+    "attributes" : [ "deprecated", "datatype" ],
     "id" : "94"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/computedAt",
@@ -2431,24 +2431,8 @@
       "es" : "CRS de perfil"
     },
     "domain" : "0",
-    "attributes" : [ "datatype", "deprecated" ],
+    "attributes" : [ "deprecated", "datatype" ],
     "id" : "96"
-  }, {
-    "iri" : "https://w3id.org/EDAAnOWL/requiresObservableProperty",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "9",
-    "label" : {
-      "IRI-based" : "requiresObservableProperty",
-      "en" : "requires observable property",
-      "es" : "requiere propiedad observable"
-    },
-    "domain" : "54",
-    "comment" : {
-      "en" : "Defines the semantic signature of INPUT for a service (e.g., requires NDVI).",
-      "es" : "Define la firma semántica de la ENTRADA para un servicio (p. ej., requiere NDVI)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "97"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasTemporalCoverage",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2462,6 +2446,22 @@
     "comment" : {
       "en" : "Defines the temporal coverage of the data asset required by Earth Observation CUs.",
       "es" : "Define la cobertura temporal del activo de datos requerido por las CUs de Observación de la Tierra."
+    },
+    "attributes" : [ "object" ],
+    "id" : "97"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/requiresObservableProperty",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "requiresObservableProperty",
+      "en" : "requires observable property",
+      "es" : "requiere propiedad observable"
+    },
+    "domain" : "54",
+    "comment" : {
+      "en" : "Defines the semantic signature of INPUT for a service (e.g., requires NDVI).",
+      "es" : "Define la firma semántica de la ENTRADA para un servicio (p. ej., requiere NDVI)."
     },
     "attributes" : [ "object" ],
     "id" : "98"
@@ -2482,22 +2482,6 @@
     "attributes" : [ "datatype" ],
     "id" : "99"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/declaresObservedProperty",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "9",
-    "label" : {
-      "IRI-based" : "declaresObservedProperty",
-      "en" : "declares observed property",
-      "es" : "declara propiedad observada"
-    },
-    "domain" : "0",
-    "comment" : {
-      "en" : "Links a DataProfile to a semantic concept it describes, typically from a controlled vocabulary (e.g., an AGROVOC term).",
-      "es" : "Vincula un DataProfile con un concepto semántico que describe, típicamente de un vocabulario controlado (p. ej., un término AGROVOC)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "101"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/requiresProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "0",
@@ -2510,6 +2494,22 @@
     "comment" : {
       "en" : "Links a DataApp to a DataProfile it requires as input.",
       "es" : "Vincula una DataApp con un DataProfile que requiere como entrada."
+    },
+    "attributes" : [ "object" ],
+    "id" : "101"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/declaresObservedProperty",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "declaresObservedProperty",
+      "en" : "declares observed property",
+      "es" : "declara propiedad observada"
+    },
+    "domain" : "0",
+    "comment" : {
+      "en" : "Links a DataProfile to a semantic concept it describes, typically from a controlled vocabulary (e.g., an AGROVOC term).",
+      "es" : "Vincula un DataProfile con un concepto semántico que describe, típicamente de un vocabulario controlado (p. ej., un término AGROVOC)."
     },
     "attributes" : [ "object" ],
     "id" : "102"
@@ -2574,13 +2574,13 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/legalContact",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "45",
+    "range" : "46",
     "label" : {
       "IRI-based" : "legalContact",
       "en" : "legal contact",
       "es" : "contacto legal"
     },
-    "superproperty" : [ "46" ],
+    "superproperty" : [ "47" ],
     "domain" : "2",
     "comment" : {
       "en" : "A specific contact point for legal inquiries about the resource.",
@@ -2618,26 +2618,12 @@
       "en" : "A URL pointing to a thumbnail image for the resource.",
       "es" : "Una URL que apunta a una imagen en miniatura del recurso."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "109"
-  }, {
-    "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
-    "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "112",
-    "label" : {
-      "IRI-based" : "temporalResolution"
-    },
-    "domain" : "0",
-    "comment" : {
-      "en" : "The temporal resolution of the dataset, expressed as an xsd:duration (e.g., 'P1D' for daily).",
-      "es" : "La resolución temporal del conjunto de datos, expresada como xsd:duration (p. ej., 'P1D' para diario)."
-    },
-    "attributes" : [ "datatype", "external", "allValues" ],
-    "id" : "111"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
     "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "114",
+    "range" : "112",
     "label" : {
       "IRI-based" : "spatialResolutionInDegrees"
     },
@@ -2646,7 +2632,21 @@
       "en" : "The spatial resolution of the dataset, expressed in decimal degrees.",
       "es" : "La resolución espacial del conjunto de datos, expresada en grados decimales."
     },
-    "attributes" : [ "datatype", "external", "allValues" ],
+    "attributes" : [ "external", "allValues", "datatype" ],
+    "id" : "111"
+  }, {
+    "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
+    "baseIri" : "http://www.w3.org/ns/dcat",
+    "range" : "114",
+    "label" : {
+      "IRI-based" : "temporalResolution"
+    },
+    "domain" : "0",
+    "comment" : {
+      "en" : "The temporal resolution of the dataset, expressed as an xsd:duration (e.g., 'P1D' for daily).",
+      "es" : "La resolución temporal del conjunto de datos, expresada como xsd:duration (p. ej., 'P1D' para diario)."
+    },
+    "attributes" : [ "external", "allValues", "datatype" ],
     "id" : "113"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
@@ -2660,7 +2660,7 @@
       "en" : "The temporal resolution of the dataset, expressed as an xsd:duration (e.g., 'P1D' for daily).",
       "es" : "La resolución temporal del conjunto de datos, expresada como xsd:duration (p. ej., 'P1D' para diario)."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "117"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
@@ -2674,7 +2674,7 @@
       "en" : "The spatial resolution of the dataset, expressed in meters.",
       "es" : "La resolución espacial del conjunto de datos, expresada en metros."
     },
-    "attributes" : [ "datatype", "external", "allValues" ],
+    "attributes" : [ "external", "allValues", "datatype" ],
     "id" : "118"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/topic",
@@ -2701,9 +2701,9 @@
       "IRI-based" : "contactPoint"
     },
     "domain" : "6",
-    "subproperty" : [ "107", "44" ],
+    "subproperty" : [ "107", "45" ],
     "attributes" : [ "object", "external" ],
-    "id" : "46"
+    "id" : "47"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesResource",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2730,7 +2730,7 @@
       "es" : "granularidad espacial"
     },
     "domain" : "2",
-    "attributes" : [ "datatype", "deprecated" ],
+    "attributes" : [ "deprecated", "datatype" ],
     "id" : "121"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/metricValue",
@@ -2777,24 +2777,8 @@
       "en" : "The spatial resolution of the dataset, expressed in decimal degrees.",
       "es" : "La resolución espacial del conjunto de datos, expresada en grados decimales."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "124"
-  }, {
-    "iri" : "https://w3id.org/EDAAnOWL/paymentModelDescription",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "34",
-    "label" : {
-      "IRI-based" : "paymentModelDescription",
-      "en" : "payment model description",
-      "es" : "descripción del modelo de pago"
-    },
-    "domain" : "2",
-    "comment" : {
-      "en" : "A human-readable description of the pricing or payment model (e.g., 'Monthly Subscription', 'Pay-per-use'). This complements the formal ODRL policy.",
-      "es" : "Una descripción legible del modelo de precios o pago (p. ej., 'Suscripción Mensual', 'Pago por uso'). Esto complementa la política formal ODRL."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "125"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/auditLogAvailable",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2808,6 +2792,22 @@
     "comment" : {
       "en" : "Indicates if audit logs for the resource usage are available.",
       "es" : "Indica si los registros de auditoría para el uso del recurso están disponibles."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "125"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/paymentModelDescription",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "34",
+    "label" : {
+      "IRI-based" : "paymentModelDescription",
+      "en" : "payment model description",
+      "es" : "descripción del modelo de pago"
+    },
+    "domain" : "2",
+    "comment" : {
+      "en" : "A human-readable description of the pricing or payment model (e.g., 'Monthly Subscription', 'Pay-per-use'). This complements the formal ODRL policy.",
+      "es" : "Una descripción legible del modelo de precios o pago (p. ej., 'Suscripción Mensual', 'Pago por uso'). Esto complementa la política formal ODRL."
     },
     "attributes" : [ "datatype" ],
     "id" : "126"
