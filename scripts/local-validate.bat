@@ -12,15 +12,15 @@ if %errorlevel% neq 0 (
     goto :eof
 )
 
-REM
+REM Find latest version folder (only folders matching semver pattern like 0.3.2)
 echo --- Finding latest version ---
 set LATEST_VERSION=
-for /f "tokens=*" %%a in ('dir /b /ad /on "%ROOT_DIR%\src"') do (
+for /f "tokens=*" %%a in ('dir /b /ad /on "%ROOT_DIR%\src" ^| findstr /r "^[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*$"') do (
     set LATEST_VERSION=%%a
 )
 
 if "%LATEST_VERSION%"=="" (
-    echo [ERROR] No version folder found in /src
+    echo [ERROR] No version folder found in /src (looking for semver pattern like 0.3.2)
     goto :eof
 )
 
@@ -43,6 +43,11 @@ echo --- 🚀 Running SHACL validation (pyshacl) ---
 docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% python3 -m pyshacl ^
     -s /app/%LATEST_PATH%/shapes/edaan-shapes.ttl ^
     -e /app/%LATEST_PATH%/EDAAnOWL.ttl ^
+    -e /app/%LATEST_PATH%/vocabularies/metric-types.ttl ^
+    -e /app/%LATEST_PATH%/vocabularies/observed-properties.ttl ^
+    -e /app/%LATEST_PATH%/vocabularies/agro-vocab.ttl ^
+    -e /app/%LATEST_PATH%/vocabularies/sector-scheme.ttl ^
+    -e /app/%LATEST_PATH%/vocabularies/datatype-scheme.ttl ^
     -m -i rdfs -f human ^
     /app/%LATEST_PATH%/examples/test-consistency.ttl
 
@@ -56,6 +61,11 @@ echo --- 🚀 Running SHACL validation (pyshacl) on EO examples ---
 docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% python3 -m pyshacl ^
     -s /app/%LATEST_PATH%/shapes/edaan-shapes.ttl ^
     -e /app/%LATEST_PATH%/EDAAnOWL.ttl ^
+    -e /app/%LATEST_PATH%/vocabularies/metric-types.ttl ^
+    -e /app/%LATEST_PATH%/vocabularies/observed-properties.ttl ^
+    -e /app/%LATEST_PATH%/vocabularies/agro-vocab.ttl ^
+    -e /app/%LATEST_PATH%/vocabularies/sector-scheme.ttl ^
+    -e /app/%LATEST_PATH%/vocabularies/datatype-scheme.ttl ^
     -m -i rdfs -f human ^
     /app/%LATEST_PATH%/examples/eo-instances.ttl
 

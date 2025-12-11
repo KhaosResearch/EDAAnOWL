@@ -17,12 +17,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.3.2] - 2025-12-09
+## [0.3.2] - 2025-12-11
 
 ### Added
 
 - **0.3.2 directory**: Added `0.3.2/` directory with updated documentation and resources.
 - **GitHub Pages**: Added `style.css` and `main.js` to improve the visual appearance of the rendering of `README.md` files in `index.html` files.
+- **`:MetricType` class**: New class for standardized metric type vocabulary. Enables controlled, interoperable metric names instead of free-text strings.
+- **`:metricType` property**: New object property to link a `:Metric` to a `:MetricType` from the controlled vocabulary.
+- **`metric-types.ttl` vocabulary**: New vocabulary with ~20 standardized metric types:
+  - Quality metrics (aligned with DQV): `mt_completeness`, `mt_uniqueness`, `mt_accuracy`, `mt_consistency`, `mt_timeliness`
+  - Profiling metrics: `mt_recordCount`, `mt_featureCount`, `mt_nullRatio`, `mt_duplicateRatio`
+  - Earth Observation metrics: `mt_cloudCoverage`, `mt_noDataRatio`, `mt_spatialExtent`
+  - Temporal metrics: `mt_temporalExtent`, `mt_updateFrequency`
+  - Performance metrics: `mt_executionTime`, `mt_modelAccuracy`, `mt_f1Score`
+- **Extended `observed-properties.ttl`**: Expanded from 6 to ~25 observable properties:
+  - Vegetation indices: `ndvi`, `evi`, `lai`, `chlorophyllContent`
+  - Meteorological: `temperature`, `precipitation`, `relativeHumidity`, `windSpeed`, `solarRadiation`, `evapotranspiration`
+  - Soil properties: `soilMoisture`, `soilTemperature`, `soilPH`, `electricalConductivity`, `organicMatter`
+  - Crop production: `yield`, `yieldForecast`, `biomass`
+  - Water management: `waterStress`, `irrigationNeed`
+  - Pest & disease: `pestIncidence`, `diseaseIncidence`, `repiloIncidence`
+  - All with `skos:exactMatch` / `skos:closeMatch` alignment to AGROVOC
+- **Extended `agro-vocab.ttl`**: Expanded from 6 to ~25 agricultural concepts:
+  - Mediterranean crops: `agro_olive`, `agro_vine`, `agro_almond`, `agro_citrus`
+  - Cereals: `agro_wheat`, `agro_maize`, `agro_barley`, `agro_rice`
+  - Industrial crops: `agro_sunflower`, `agro_cotton`, `agro_sugarbeet`
+  - Agricultural practices: `agro_irrigation`, `agro_fertilization`, `agro_harvest`, `agro_pruning`, `agro_pestControl`, `agro_soilManagement`
+  - Diseases: `agro_repilo`, `agro_tuberculosis`, `agro_verticillium`
+  - Production types: `agro_organic`, `agro_precisionAgriculture`
+  - All with `skos:exactMatch` alignment to AGROVOC and extensibility documentation
+- **SHACL shapes**: Added `:MetricTypeShape`, `:ObservablePropertyShape`, and updated `:MetricValidationShape` with optional `metricType` validation
+- **Example instances**: Updated `eo-instances.ttl` with:
+  - MetricType usage examples
+  - Extended observable properties
+  - AGROVOC direct references
+  - Provenance chain examples
+  - Soil data use case
 
 ### Changed
 

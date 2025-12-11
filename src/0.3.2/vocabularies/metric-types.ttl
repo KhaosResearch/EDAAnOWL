@@ -1,0 +1,181 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+
+@base <https://w3id.org/EDAAnOWL/0.3.2/vocabularies/metric-types> .
+
+<https://w3id.org/EDAAnOWL/0.3.2/vocabularies/metric-types> rdf:type owl:Ontology ;
+    dct:title "Metric Types Vocabulary"@en ;
+    dct:description "Controlled vocabulary for standardized metric types, aligned with W3C DQV dimensions."@en .
+
+#################################################################
+#    Metric Type Scheme
+#################################################################
+
+:MetricTypeScheme rdf:type owl:NamedIndividual ,
+                           skos:ConceptScheme ;
+                  dct:title "Metric Types"@en ;
+                  dct:description "Standard types of metrics for data quality and profiling."@en .
+
+#################################################################
+#    Quality Metrics (aligned with DQV dimensions)
+#################################################################
+
+:mt_completeness rdf:type owl:NamedIndividual ,
+                          skos:Concept ,
+                          :MetricType ;
+                 skos:prefLabel "Completeness"@en ,
+                                "Completitud"@es ;
+                 skos:definition "Percentage of non-null or non-missing values in the dataset or feature."@en ;
+                 skos:inScheme :MetricTypeScheme ;
+                 skos:broader dqv:Completeness .
+
+:mt_uniqueness rdf:type owl:NamedIndividual ,
+                        skos:Concept ,
+                        :MetricType ;
+               skos:prefLabel "Uniqueness"@en ,
+                              "Unicidad"@es ;
+               skos:definition "Percentage of distinct values, indicating absence of duplicates."@en ;
+               skos:inScheme :MetricTypeScheme ;
+               skos:broader dqv:Uniqueness .
+
+:mt_accuracy rdf:type owl:NamedIndividual ,
+                      skos:Concept ,
+                      :MetricType ;
+             skos:prefLabel "Accuracy"@en ,
+                            "Exactitud"@es ;
+             skos:definition "Degree to which data correctly represents real-world values."@en ;
+             skos:inScheme :MetricTypeScheme ;
+             skos:broader dqv:Accuracy .
+
+:mt_consistency rdf:type owl:NamedIndividual ,
+                         skos:Concept ,
+                         :MetricType ;
+                skos:prefLabel "Consistency"@en ,
+                               "Consistencia"@es ;
+                skos:definition "Degree to which data values are free of contradictions and coherent with other data."@en ;
+                skos:inScheme :MetricTypeScheme ;
+                skos:broader dqv:Consistency .
+
+:mt_timeliness rdf:type owl:NamedIndividual ,
+                        skos:Concept ,
+                        :MetricType ;
+               skos:prefLabel "Timeliness"@en ,
+                              "Puntualidad"@es ;
+               skos:definition "Degree to which data is up-to-date for the task at hand."@en ;
+               skos:inScheme :MetricTypeScheme ;
+               skos:broader dqv:Timeliness .
+
+#################################################################
+#    Profiling Metrics (descriptive statistics)
+#################################################################
+
+:mt_recordCount rdf:type owl:NamedIndividual ,
+                         skos:Concept ,
+                         :MetricType ;
+                skos:prefLabel "Record Count"@en ,
+                               "Número de Registros"@es ;
+                skos:definition "Total number of records/rows in the dataset."@en ;
+                skos:inScheme :MetricTypeScheme .
+
+:mt_featureCount rdf:type owl:NamedIndividual ,
+                          skos:Concept ,
+                          :MetricType ;
+                 skos:prefLabel "Feature Count"@en ,
+                                "Número de Características"@es ;
+                 skos:definition "Total number of features/columns in the dataset."@en ;
+                 skos:inScheme :MetricTypeScheme .
+
+:mt_nullRatio rdf:type owl:NamedIndividual ,
+                       skos:Concept ,
+                       :MetricType ;
+              skos:prefLabel "Null Ratio"@en ,
+                             "Ratio de Nulos"@es ;
+              skos:definition "Proportion of null/missing values (0.0 to 1.0)."@en ;
+              skos:inScheme :MetricTypeScheme .
+
+:mt_duplicateRatio rdf:type owl:NamedIndividual ,
+                            skos:Concept ,
+                            :MetricType ;
+                   skos:prefLabel "Duplicate Ratio"@en ,
+                                  "Ratio de Duplicados"@es ;
+                   skos:definition "Proportion of duplicate records (0.0 to 1.0)."@en ;
+                   skos:inScheme :MetricTypeScheme .
+
+#################################################################
+#    Earth Observation / Raster Metrics
+#################################################################
+
+:mt_cloudCoverage rdf:type owl:NamedIndividual ,
+                           skos:Concept ,
+                           :MetricType ;
+                  skos:prefLabel "Cloud Coverage"@en ,
+                                 "Cobertura de Nubes"@es ;
+                  skos:definition "Percentage of the image obscured by clouds (0-100%)."@en ;
+                  skos:inScheme :MetricTypeScheme .
+
+:mt_noDataRatio rdf:type owl:NamedIndividual ,
+                         skos:Concept ,
+                         :MetricType ;
+                skos:prefLabel "NoData Ratio"@en ,
+                               "Ratio Sin Datos"@es ;
+                skos:definition "Proportion of pixels with NoData value in a raster."@en ;
+                skos:inScheme :MetricTypeScheme .
+
+:mt_spatialExtent rdf:type owl:NamedIndividual ,
+                           skos:Concept ,
+                           :MetricType ;
+                  skos:prefLabel "Spatial Extent"@en ,
+                                 "Extensión Espacial"@es ;
+                  skos:definition "Bounding box or area covered by the dataset."@en ;
+                  skos:inScheme :MetricTypeScheme .
+
+#################################################################
+#    Temporal Metrics
+#################################################################
+
+:mt_temporalExtent rdf:type owl:NamedIndividual ,
+                            skos:Concept ,
+                            :MetricType ;
+                   skos:prefLabel "Temporal Extent"@en ,
+                                  "Extensión Temporal"@es ;
+                   skos:definition "Time range covered by the dataset (start to end date)."@en ;
+                   skos:inScheme :MetricTypeScheme .
+
+:mt_updateFrequency rdf:type owl:NamedIndividual ,
+                             skos:Concept ,
+                             :MetricType ;
+                    skos:prefLabel "Update Frequency"@en ,
+                                   "Frecuencia de Actualización"@es ;
+                    skos:definition "How often the dataset is updated (e.g., daily, weekly)."@en ;
+                    skos:inScheme :MetricTypeScheme .
+
+#################################################################
+#    Performance Metrics (for DataApps)
+#################################################################
+
+:mt_executionTime rdf:type owl:NamedIndividual ,
+                           skos:Concept ,
+                           :MetricType ;
+                  skos:prefLabel "Execution Time"@en ,
+                                 "Tiempo de Ejecución"@es ;
+                  skos:definition "Average time to complete processing (in seconds)."@en ;
+                  skos:inScheme :MetricTypeScheme .
+
+:mt_modelAccuracy rdf:type owl:NamedIndividual ,
+                           skos:Concept ,
+                           :MetricType ;
+                  skos:prefLabel "Model Accuracy"@en ,
+                                 "Precisión del Modelo"@es ;
+                  skos:definition "Accuracy score of a predictive model (0.0 to 1.0)."@en ;
+                  skos:inScheme :MetricTypeScheme .
+
+:mt_f1Score rdf:type owl:NamedIndividual ,
+                     skos:Concept ,
+                     :MetricType ;
+            skos:prefLabel "F1 Score"@en ;
+            skos:definition "Harmonic mean of precision and recall."@en ;
+            skos:inScheme :MetricTypeScheme .

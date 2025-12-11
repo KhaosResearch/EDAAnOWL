@@ -75,6 +75,7 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
 
   - `dcat:spatialResolutionInMeters`, `dcat:temporalResolution`, `dcat:spatialResolutionInDegrees`: Adopted from DCAT 3 to capture EO and time-series constraints for practical matchmaking.
   - Metrics (`:Metric` and subtypes with `:metricName`/`:metricValue`/`:metricUnit`/`:computedAt`): Allows publishing quality/performance indicators relevant to governance and selection.
+  - `:metricType`: Links a metric to a standardized `:MetricType` from the controlled vocabulary (`metric-types.ttl`), enabling interoperable metric names across data spaces.
   - `:accessType`: Indicates the primary access mode for the resource (e.g., download, compute, ...).
   - `:alternativeName`: Alternative title or name for a resource.
   - `:auditLogAvailable`: Indicates if audit logs for the resource usage are available.

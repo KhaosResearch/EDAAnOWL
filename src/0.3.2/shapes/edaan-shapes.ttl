@@ -26,7 +26,7 @@
     sh:property [
         sh:path :hasDomainSector ;
         sh:minCount 1 ;
-        sh:class skos:Concept ; # Must be a skos:Concept defined in a vocab
+        sh:class skos:Concept ;
         sh:message "DataApp must have at least one :hasDomainSector (which must be a skos:Concept)"@en ;
     ] .
 
@@ -66,14 +66,13 @@
     sh:property [
         sh:path :conformsToProfile ;
         sh:minCount 0 ;
-        sh:class :DataProfile ; # Must link to a DataProfile
+        sh:class :DataProfile ;
         sh:message "DataResource must conform to at least one :DataProfile"@en ;
     ] .
 
 #################################################################
 ### Shapes for EDAAnOWL Classes (DataProfile, Metric)
 #################################################################
-
 
 :DataProfileShape a sh:NodeShape ;
     sh:targetClass :DataProfile ;
@@ -90,7 +89,7 @@
         sh:path :hasMetric ;
         sh:minCount 1 ;
         sh:class :Metric ;
-        sh:message "DataProfile MUST have at least one :hasMetric."@en ;
+        sh:message "DataProfile MUST have at least one :hasMetric (typed as :Metric)."@en ;
     ] ;
     sh:property [
         sh:path :hasCRS ;
@@ -109,23 +108,35 @@
         sh:path :declaresObservedProperty ;
         sh:minCount 0 ;
         sh:class :ObservableProperty ;
-        sh:message ":declaresObservedProperty must point to a concept that is an :ObservableProperty"@en ;
+        sh:message ":declaresObservedProperty must point to an :ObservableProperty"@en ;
     ] .
 
 
 :MetricValidationShape a sh:NodeShape ;
     sh:targetClass :Metric ;
+    rdfs:label "Metric Shape"@en ;
+    rdfs:comment "A Metric must have a metricValue and metricName. Optionally metricType for interoperability."@en ;
+    
+    sh:property [
+        sh:path :metricValue ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ; 
+        sh:message "Metric must have a :metricValue (as rdfs:Literal)"@en ;
+    ] ;
+    
     sh:property [
         sh:path :metricName ;
         sh:minCount 1 ;
         sh:datatype xsd:string ;
         sh:message "Metric must have a :metricName (string)"@en ;
     ] ;
+    
     sh:property [
-        sh:path :metricValue ;
-        sh:minCount 1 ;
-        sh:nodeKind sh:Literal ; 
-        sh:message "Metric must have a :metricValue (as rdfs:Literal)"@en ;
+        sh:path :metricType ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:class :MetricType ;
+        sh:message "If present, :metricType must point to a :MetricType from the controlled vocabulary"@en ;
     ] .
 
 #################################################################
@@ -137,13 +148,13 @@
     sh:property [
         sh:path :hasSpatialCoverage ;
         sh:minCount 1 ;
-        sh:nodeKind sh:BlankNode ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
         sh:message "A :SpatialTemporalAsset must have at least one :hasSpatialCoverage"@en
     ] ;
     sh:property [
         sh:path :hasTemporalCoverage ;
         sh:minCount 1 ;
-        sh:nodeKind sh:BlankNode ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
         sh:message "A :SpatialTemporalAsset must have at least one :hasTemporalCoverage"@en
     ] .
 
