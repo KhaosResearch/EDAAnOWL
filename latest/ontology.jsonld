@@ -379,7 +379,7 @@
   } ],
   "http://purl.org/dc/terms/modified" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
-    "@value" : "2025-12-09"
+    "@value" : "2025-12-11"
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@language" : "en",
@@ -405,6 +405,8 @@
     "@id" : "https://w3id.org/EDAAnOWL/0.3.2/vocabularies/agro-vocab"
   }, {
     "@id" : "https://w3id.org/EDAAnOWL/0.3.2/vocabularies/datatype-scheme"
+  }, {
+    "@id" : "https://w3id.org/EDAAnOWL/0.3.2/vocabularies/metric-types"
   }, {
     "@id" : "https://w3id.org/EDAAnOWL/0.3.2/vocabularies/observed-properties"
   }, {
@@ -507,10 +509,10 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "A class representing a single, measurable characteristic of an asset or profile. Aligned with dqv:Metric."
+    "@value" : "A class representing a single, measurable characteristic of an asset or profile. Aligned with dqv:Metric. Can optionally use :metricType for standardized metric names."
   }, {
     "@language" : "es",
-    "@value" : "Una clase que representa una característica única y medible de un activo o perfil. Alineada con dqv:Metric."
+    "@value" : "Una clase que representa una característica única y medible de un activo o perfil. Alineada con dqv:Metric. Opcionalmente puede usar :metricType para nombres de métricas estandarizados."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -525,6 +527,26 @@
     "@id" : "_:genid7"
   }, {
     "@id" : "_:genid8"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/MetricType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A controlled vocabulary term for standardized metric types (e.g., completeness, recordCount, cloudCoverage). Use :metricType to link a Metric to its type."
+  }, {
+    "@language" : "es",
+    "@value" : "Un término de vocabulario controlado para tipos de métricas estandarizadas (p. ej., completitud, recuento de registros, cobertura de nubes). Use :metricType para vincular una Métrica con su tipo."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Metric Type"
+  }, {
+    "@language" : "es",
+    "@value" : "Tipo de Métrica"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/ObservableProperty",
@@ -1137,6 +1159,29 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/metricType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a Metric to a standardized MetricType from the controlled vocabulary. This is optional but recommended to ensure interoperability. If not used, :metricName (string) must be provided."
+  }, {
+    "@language" : "es",
+    "@value" : "Vincula una Métrica con un MetricType estandarizado del vocabulario controlado. Es opcional pero recomendado para asegurar interoperabilidad. Si no se usa, :metricName (string) debe proporcionarse."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "metric type"
+  }, {
+    "@language" : "es",
+    "@value" : "tipo de métrica"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/metricUnit",

@@ -17,7 +17,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/EDAAnOWL/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/EDAAnOWL/","name":"Ontología EDAAnOWL", "headline":"Ontología ligera para espacios de datos. Alinea IDSA y BIGOWL, enfocándose en la descripción semántica robusta de Activos de Datos y Aplicaciones de Datos a través de Perfiles de Datos, que incluyen características técnicas (DCAT 3) y métricas de calidad granulares.", "dateReleased":"2025-10-10", "dateModified":"2025-12-09", "version":"0.3.2", "license":"https://creativecommons.org/licenses/by/4.0/", "codeRepository":"https://github.com/KhaosResearch/EDAAnOWL", "author":[{"@type":"Person","name":"https://github.com/MartinM10","url":"https://github.com/MartinM10"},{"@type":"Person","name":"https://khaos.uma.es/","url":"https://khaos.uma.es/"},{"@type":"Person","name":"https://www.linkedin.com/in/martin-jeronimo-salvachua/","url":"https://www.linkedin.com/in/martin-jeronimo-salvachua/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/EDAAnOWL/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/EDAAnOWL/","name":"Ontología EDAAnOWL", "headline":"Ontología ligera para espacios de datos. Alinea IDSA y BIGOWL, enfocándose en la descripción semántica robusta de Activos de Datos y Aplicaciones de Datos a través de Perfiles de Datos, que incluyen características técnicas (DCAT 3) y métricas de calidad granulares.", "dateReleased":"2025-10-10", "dateModified":"2025-12-11", "version":"0.3.2", "license":"https://creativecommons.org/licenses/by/4.0/", "codeRepository":"https://github.com/KhaosResearch/EDAAnOWL", "author":[{"@type":"Person","name":"https://github.com/MartinM10","url":"https://github.com/MartinM10"},{"@type":"Person","name":"https://khaos.uma.es/","url":"https://khaos.uma.es/"},{"@type":"Person","name":"https://www.linkedin.com/in/martin-jeronimo-salvachua/","url":"https://www.linkedin.com/in/martin-jeronimo-salvachua/"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -70,7 +70,7 @@ $(function(){
 
 
 <dl>
-<dt>Fecha de modificaci&oacute;n: 2025-12-09</dt>
+<dt>Fecha de modificaci&oacute;n: 2025-12-11</dt>
 <dt>Versi&oacute;n:</dt>
 <dd><a href="https://w3id.org/EDAAnOWL/0.3.2">https://w3id.org/EDAAnOWL/0.3.2</a></dd>
 <dt>Versi&oacute;n previa:</dt>
@@ -185,6 +185,9 @@ No-objetivos. EDAAnOWL no es una ontología de dominio monolítica ni un reempla
          <span>Smart Data App</span>
       </a>
    </li>
+   <li>
+      <a href="#MetricType" title="https://w3id.org/EDAAnOWL/MetricType">Tipo de Métrica</a>
+   </li>
 </ul><h4>Propiedades de objeto</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
@@ -270,6 +273,9 @@ No-objetivos. EDAAnOWL no es una ontología de dominio monolítica ni un reempla
    </li>
    <li>
       <a href="#hasCRS" title="https://w3id.org/EDAAnOWL/hasCRS">tiene Sistema de Referencia de Coordenadas</a>
+   </li>
+   <li>
+      <a href="#metricType" title="https://w3id.org/EDAAnOWL/metricType">tipo de métrica</a>
    </li>
 </ul><h4>Propiedades de datos</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -508,6 +514,7 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
   <li><a href="#DataProfile" title="https://w3id.org/EDAAnOWL/DataProfile">Perfil de Datos</a></li>
   <li><a href="#ObservableProperty" title="https://w3id.org/EDAAnOWL/ObservableProperty">Propiedad Observable</a></li>
   <li><a href="#https://w3id.org/idsa/core/SmartDataApp" title="https://w3id.org/idsa/core/SmartDataApp"> <span>Smart Data App</span> </a></li>
+  <li><a href="#MetricType" title="https://w3id.org/EDAAnOWL/MetricType">Tipo de Métrica</a></li>
  </ul>
  <div class="entity" id="DataAsset">
   <h3>Activo de Datos<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
@@ -651,7 +658,7 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
   <h3>Métrica<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/Metric</p>
   <div class="comment">
-   <span class="markdown">Una clase que representa una característica única y medible de un activo o perfil. Alineada con dqv:Metric.</span>
+   <span class="markdown">Una clase que representa una característica única y medible de un activo o perfil. Alineada con dqv:Metric. Opcionalmente puede usar :metricType para nombres de métricas estandarizados.</span>
   </div>
   <dl class="description">
    <dt>
@@ -670,7 +677,7 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
     en dominio de
    </dt>
    <dd>
-    <a href="#computedAt" title="https://w3id.org/EDAAnOWL/computedAt">calculado en</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#metricName" title="https://w3id.org/EDAAnOWL/metricName">nombre de métrica</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#appliesToFeature" title="https://w3id.org/EDAAnOWL/appliesToFeature">se aplica a característica</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#metricUnit" title="https://w3id.org/EDAAnOWL/metricUnit">unidad de métrica</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#metricValue" title="https://w3id.org/EDAAnOWL/metricValue">valor de métrica</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>
+    <a href="#computedAt" title="https://w3id.org/EDAAnOWL/computedAt">calculado en</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#metricName" title="https://w3id.org/EDAAnOWL/metricName">nombre de métrica</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#appliesToFeature" title="https://w3id.org/EDAAnOWL/appliesToFeature">se aplica a característica</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#metricType" title="https://w3id.org/EDAAnOWL/metricType">tipo de métrica</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#metricUnit" title="https://w3id.org/EDAAnOWL/metricUnit">unidad de métrica</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#metricValue" title="https://w3id.org/EDAAnOWL/metricValue">valor de métrica</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>
    </dd>
    <dt>
     en rango de
@@ -780,6 +787,27 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
    </dd>
   </dl>
  </div>
+ <div class="entity" id="MetricType">
+  <h3>Tipo de Métrica<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/MetricType</p>
+  <div class="comment">
+   <span class="markdown">Un término de vocabulario controlado para tipos de métricas estandarizadas (p. ej., completitud, recuento de registros, cobertura de nubes). Use :metricType para vincular una Métrica con su tipo.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+   <dt>
+    en rango de
+   </dt>
+   <dd>
+    <a href="#metricType" title="https://w3id.org/EDAAnOWL/metricType">tipo de métrica</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+   </dd>
+  </dl>
+ </div>
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
  <h2>Propiedades entre objetos</h2>
  <ul class="hlist">
@@ -809,6 +837,7 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
   <li><a href="#hasMetric" title="https://w3id.org/EDAAnOWL/hasMetric">tiene métrica</a></li>
   <li><a href="#hasDomainSector" title="https://w3id.org/EDAAnOWL/hasDomainSector">tiene sector de dominio</a></li>
   <li><a href="#hasCRS" title="https://w3id.org/EDAAnOWL/hasCRS">tiene Sistema de Referencia de Coordenadas</a></li>
+  <li><a href="#metricType" title="https://w3id.org/EDAAnOWL/metricType">tipo de métrica</a></li>
  </ul>
  <div class="entity" id="consumesResource">
   <h3>consume representación<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
@@ -1415,6 +1444,29 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
     </dt>
     <dd>
      <a href="https://w3id.org/idsa/core/Resource" target="_blank" title="https://w3id.org/idsa/core/Resource">Resource</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="metricType">
+  <h3>tipo de métrica<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/EDAAnOWL/metricType</p>
+  <div class="comment">
+   <span class="markdown">Vincula una Métrica con un MetricType estandarizado del vocabulario controlado. Es opcional pero recomendado para asegurar interoperabilidad. Si no se usa, :metricName (string) debe proporcionarse.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/EDAAnOWL/Metric">Métrica</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#MetricType" title="https://w3id.org/EDAAnOWL/MetricType">Tipo de Métrica</a> <sup class="type-c" title="clase">c</sup>
     </dd>
    </dl>
   </div>
@@ -2182,7 +2234,23 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
 <h2 id="changes" class="list">Cambios desde la &uacute;ltima versi&oacute;n</h2>
 <h3 id="changeClass" class="list">Clases</h3>
 <details><summary><u>Clases modificadas</u></summary>
-<ul><li><a href="#ObservableProperty">https://w3id.org/EDAAnOWL/ObservableProperty</a>
+<ul><li><a href="#Metric">https://w3id.org/EDAAnOWL/Metric</a>
+<ul>
+<li>Nuevo: rdfs:comment "Una clase que representa una característica única y medible de un activo o perfil. Alineada con dqv:Metric. Opcionalmente puede usar :metricType para nombres de métricas estandarizados."@es</li>
+<li>Nuevo: rdfs:comment "A class representing a single, measurable characteristic of an asset or profile. Aligned with dqv:Metric. Can optionally use :metricType for standardized metric names."@en</li>
+</ul>
+<ul>
+<li>Eliminado: rdfs:comment "A class representing a single, measurable characteristic of an asset or profile. Aligned with dqv:Metric."@en</li>
+<li>Eliminado: rdfs:comment "Una clase que representa una característica única y medible de un activo o perfil. Alineada con dqv:Metric."@es</li>
+</ul>
+</li>
+<li><a href="#ObservableProperty">https://w3id.org/EDAAnOWL/ObservableProperty</a>
+<ul>
+<li>Nuevo: Subclase de http://www.w3.org/2004/02/skos/core#Concept</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Nuevas clases</u></summary>
+<ul><li><a href="#MetricType">https://w3id.org/EDAAnOWL/MetricType</a>
 <ul>
 <li>Nuevo: Subclase de http://www.w3.org/2004/02/skos/core#Concept</li>
 </ul>
@@ -2195,6 +2263,13 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
 </ul>
 <ul>
 <li>Eliminado: Rango http://www.w3.org/2004/02/skos/core#Concept</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Nuevas propiedades de objeto</u></summary>
+<ul><li><a href="#metricType">https://w3id.org/EDAAnOWL/metricType</a>
+<ul>
+<li>Nuevo: Rango https://w3id.org/EDAAnOWL/MetricType</li>
+<li>Nuevo: domain https://w3id.org/EDAAnOWL/Metric</li>
 </ul>
 </li>
 </ul></details><h3 id="changeDataProp" class="list">Propiedades de datos</h3>

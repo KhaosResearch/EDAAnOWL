@@ -16,6 +16,7 @@
         <owl:versionIRI rdf:resource="https://w3id.org/EDAAnOWL/0.3.2"/>
         <owl:imports rdf:resource="https://w3id.org/EDAAnOWL/0.3.2/vocabularies/agro-vocab"/>
         <owl:imports rdf:resource="https://w3id.org/EDAAnOWL/0.3.2/vocabularies/datatype-scheme"/>
+        <owl:imports rdf:resource="https://w3id.org/EDAAnOWL/0.3.2/vocabularies/metric-types"/>
         <owl:imports rdf:resource="https://w3id.org/EDAAnOWL/0.3.2/vocabularies/observed-properties"/>
         <owl:imports rdf:resource="https://w3id.org/EDAAnOWL/0.3.2/vocabularies/sector-scheme"/>
         <terms:abstract xml:lang="en">Lightweight ontology for data spaces. It aligns IDSA and BIGOWL, focusing on the strong semantic description of Data Assets and Data Apps through Data Profiles, which include technical characteristics (DCAT 3) and granular quality metrics.</terms:abstract>
@@ -28,7 +29,7 @@
         <terms:description xml:lang="en">Ontology for data spaces that bridges the IDSA Information Model with the BIGOWL analytical family. Its core function is to describe `DataAssets` (assets) and `DataApps` (services) using `DataProfiles` (profiles): semantic models that detail technical specifications (like DCAT 3 resolutions, CRS) and granular quality metrics (like completeness or uniqueness per feature). This enables robust, automated discovery and compatibility checking (matchmaking) for data and services.</terms:description>
         <terms:description xml:lang="es">Ontología para espacios de datos que conecta el Modelo de Información IDSA con la familia analítica BIGOWL. Su función principal es describir `DataAssets` (activos) y `DataApps` (servicios) usando `DataProfiles` (perfiles): modelos semánticos que detallan especificaciones técnicas (como resoluciones DCAT 3, CRS) y métricas de calidad granulares (como completitud o unicidad por característica). Esto permite un descubrimiento automatizado robusto y verificación de compatibilidad (matchmaking) para datos y servicios.</terms:description>
         <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-09</terms:modified>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-12-11</terms:modified>
         <terms:title xml:lang="en">EDAAnOWL Ontology</terms:title>
         <terms:title xml:lang="es">Ontología EDAAnOWL</terms:title>
         <vann:preferredNamespacePrefix>edaan</vann:preferredNamespacePrefix>
@@ -545,6 +546,20 @@ Non-goals. EDAAnOWL is not a monolithic domain ontology nor a replacement for se
         <rdfs:comment xml:lang="es">Un punto de contacto específico para consultas legales sobre el recurso.</rdfs:comment>
         <rdfs:label xml:lang="es">contacto legal</rdfs:label>
         <rdfs:label xml:lang="en">legal contact</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/metricType -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/metricType">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/Metric"/>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/MetricType"/>
+        <rdfs:comment xml:lang="en">Links a Metric to a standardized MetricType from the controlled vocabulary. This is optional but recommended to ensure interoperability. If not used, :metricName (string) must be provided.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula una Métrica con un MetricType estandarizado del vocabulario controlado. Es opcional pero recomendado para asegurar interoperabilidad. Si no se usa, :metricName (string) debe proporcionarse.</rdfs:comment>
+        <rdfs:label xml:lang="en">metric type</rdfs:label>
+        <rdfs:label xml:lang="es">tipo de métrica</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1266,10 +1281,23 @@ Aligned with W3C DCAT 3 for dataset cataloguing interoperability.</rdfs:comment>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A class representing a single, measurable characteristic of an asset or profile. Aligned with dqv:Metric.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Una clase que representa una característica única y medible de un activo o perfil. Alineada con dqv:Metric.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A class representing a single, measurable characteristic of an asset or profile. Aligned with dqv:Metric. Can optionally use :metricType for standardized metric names.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Una clase que representa una característica única y medible de un activo o perfil. Alineada con dqv:Metric. Opcionalmente puede usar :metricType para nombres de métricas estandarizados.</rdfs:comment>
         <rdfs:label xml:lang="en">Metric</rdfs:label>
         <rdfs:label xml:lang="es">Métrica</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/MetricType -->
+
+
+    <owl:Class rdf:about="https://w3id.org/EDAAnOWL/MetricType">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">A controlled vocabulary term for standardized metric types (e.g., completeness, recordCount, cloudCoverage). Use :metricType to link a Metric to its type.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Un término de vocabulario controlado para tipos de métricas estandarizadas (p. ej., completitud, recuento de registros, cobertura de nubes). Use :metricType para vincular una Métrica con su tipo.</rdfs:comment>
+        <rdfs:label xml:lang="en">Metric Type</rdfs:label>
+        <rdfs:label xml:lang="es">Tipo de Métrica</rdfs:label>
     </owl:Class>
     
 

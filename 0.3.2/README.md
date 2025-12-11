@@ -4,10 +4,39 @@ Welcome to the documentation for version 0.3.2 of the EDAAnOWL ontology.
 
 This ontology provides a semantic model for describing and annotating **Data Assets** and **Data Apps** (Applications/Services) within a Data Space, aligning the **IDSA** Information Model and the **BIGOWL** ontology framework.
 
-## 🚀 Key Changes in v0.3.2: Structural Refinement
+## 🚀 Key Changes in v0.3.2: Vocabularies & Matchmaking
 
-This version refines the semantics of observable properties to improve consistency:
+This version adds significant improvements for interoperability and agricultural domain coverage:
 
+### 1. Standardized Metric Types (`:MetricType`)
+- New **`:MetricType`** class and **`:metricType`** property for controlled metric vocabulary
+- New **`metric-types.ttl`** vocabulary with ~20 standardized types:
+  - Quality (DQV-aligned): `mt_completeness`, `mt_uniqueness`, `mt_accuracy`
+  - Profiling: `mt_recordCount`, `mt_featureCount`, `mt_nullRatio`
+  - Earth Observation: `mt_cloudCoverage`, `mt_noDataRatio`
+  - Performance: `mt_executionTime`, `mt_modelAccuracy`, `mt_f1Score`
+
+### 2. Extended Observable Properties
+- Expanded from 6 to **~25 observable properties** covering:
+  - Vegetation indices (`ndvi`, `evi`, `lai`, `chlorophyllContent`)
+  - Meteorological (`temperature`, `precipitation`, `evapotranspiration`)
+  - Soil properties (`soilMoisture`, `soilPH`, `electricalConductivity`)
+  - Crop production (`yield`, `yieldForecast`, `biomass`)
+  - Water management (`waterStress`, `irrigationNeed`)
+  - Pest & disease (`pestIncidence`, `diseaseIncidence`, `repiloIncidence`)
+
+### 3. Extended Agricultural Vocabulary
+- Expanded from 6 to **~25 agricultural concepts**:
+  - Mediterranean crops (`olive`, `vine`, `almond`, `citrus`)
+  - Cereals (`wheat`, `maize`, `barley`, `rice`)
+  - Practices (`irrigation`, `fertilization`, `pruning`, `pestControl`)
+  - Diseases (`repilo`, `verticillium`, `tuberculosis`)
+
+### 4. AGROVOC Alignment
+- All vocabulary terms now include `skos:exactMatch` / `skos:closeMatch` to [FAO AGROVOC](http://aims.fao.org/aos/agrovoc/)
+- Documentation on how to extend vocabularies with external references
+
+### 5. Structural Refinement
 - **`:ObservableProperty`** is now a subclass of both `sosa:ObservableProperty` and `skos:Concept`. This allows using SKOS concepts (like AGROVOC terms) directly as observable properties while maintaining SOSA semantics.
 - **`:declaresObservedProperty`** now has a range of `:ObservableProperty` (instead of generic `skos:Concept`), enforcing stricter typing.
 
