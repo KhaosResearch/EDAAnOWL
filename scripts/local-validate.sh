@@ -7,9 +7,10 @@ ROOT_DIR=$(cd "$(dirname "$0")/.." && pwd)
 echo "--- Building local validation image ($IMAGE_NAME) ---"
 docker build -t "$IMAGE_NAME" -f "$ROOT_DIR/Dockerfile" "$ROOT_DIR"
 
-LATEST_VERSION=$(ls -d "$ROOT_DIR/src"/*/ | xargs -n 1 basename | sort -V | tail -n 1)
+# Find latest version folder (only folders matching semver pattern like 0.3.2)
+LATEST_VERSION=$(ls -d "$ROOT_DIR/src"/*/ 2>/dev/null | xargs -n 1 basename | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n 1)
 if [ -z "$LATEST_VERSION" ]; then
-    echo "❌ [ERROR] No version folder found in /src"
+    echo "❌ [ERROR] No version folder found in /src (looking for semver pattern like 0.3.2)"
     exit 1
 fi
 echo "--- Validating against latest version: $LATEST_VERSION ---"
@@ -28,6 +29,11 @@ echo -e "\n--- 🚀 Running SHACL validation (pyshacl) ---"
 docker_run python3 -m pyshacl \
         -s /app/$LATEST_PATH/shapes/edaan-shapes.ttl \
         -e /app/$LATEST_PATH/EDAAnOWL.ttl \
+        -e /app/$LATEST_PATH/vocabularies/metric-types.ttl \
+        -e /app/$LATEST_PATH/vocabularies/observed-properties.ttl \
+        -e /app/$LATEST_PATH/vocabularies/agro-vocab.ttl \
+        -e /app/$LATEST_PATH/vocabularies/sector-scheme.ttl \
+        -e /app/$LATEST_PATH/vocabularies/datatype-scheme.ttl \
         -m -i rdfs -f human \
         /app/$LATEST_PATH/examples/test-consistency.ttl
 
@@ -35,6 +41,11 @@ echo -e "\n--- 🚀 Running SHACL validation (pyshacl) on EO examples ---"
 docker_run python3 -m pyshacl \
         -s /app/$LATEST_PATH/shapes/edaan-shapes.ttl \
         -e /app/$LATEST_PATH/EDAAnOWL.ttl \
+        -e /app/$LATEST_PATH/vocabularies/metric-types.ttl \
+        -e /app/$LATEST_PATH/vocabularies/observed-properties.ttl \
+        -e /app/$LATEST_PATH/vocabularies/agro-vocab.ttl \
+        -e /app/$LATEST_PATH/vocabularies/sector-scheme.ttl \
+        -e /app/$LATEST_PATH/vocabularies/datatype-scheme.ttl \
         -m -i rdfs -f human \
         /app/$LATEST_PATH/examples/eo-instances.ttl
 
