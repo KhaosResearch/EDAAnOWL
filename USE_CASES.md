@@ -463,6 +463,46 @@ component:NDVICalculator a bigwf:Component ;
 
 ---
 
+## ❓ FAQ: Common Questions
+
+### Metric vs ObservableProperty: What's the difference?
+
+These are **completely different concepts** with distinct purposes:
+
+| Aspect | **Metric** | **ObservableProperty** |
+|--------|------------|------------------------|
+| **Purpose** | Describes data quality/characteristics | Describes the phenomenon being measured |
+| **Examples** | `completeness`, `recordCount`, `accuracy` | `:ndvi`, `:temperature`, `:yield` |
+| **Associated with** | `DataProfile` via `hasMetric` | `DataAsset` via `servesObservableProperty` |
+| **Has a value?** | Yes (`metricValue: 0.98`) | No (it's a SKOS concept) |
+| **Question it answers** | "How good is the data?" | "What does the data measure?" |
+
+**Example:**
+```turtle
+# The dataset SERVES the "NDVI" property (what it measures)
+ex:MyDataset :servesObservableProperty :ndvi .
+
+# The profile HAS A METRIC for completeness (how complete it is)
+ex:MyProfile :hasMetric [
+    a :QualityMetric ;
+    :metricName "completeness" ;
+    :metricValue 0.98  # 98% of NDVI values are complete
+] .
+```
+
+### Does EDAAnOWL store the actual data values?
+
+**No.** EDAAnOWL is a **metadata ontology**:
+
+- ✅ Describes WHAT variables a dataset contains
+- ✅ Describes HOW the data is structured
+- ✅ Enables matchmaking between datasets and apps
+- ❌ Does NOT store individual data values (0.72, 18.5°C, etc.)
+
+The actual data stays in its native format (CSV, database, etc.). If you need to store individual observations as RDF, use **SOSA/SSN** ontology alongside EDAAnOWL.
+
+---
+
 ## 🔗 References
 
 - **Complete ontology**: `src/0.3.2/EDAAnOWL.ttl`
@@ -470,6 +510,10 @@ component:NDVICalculator a bigwf:Component ;
   - `src/0.3.2/vocabularies/observed-properties.ttl` (`:ndvi`, `:temperature`, `:precipitation`, `:yield`)
   - `src/0.3.2/vocabularies/sector-scheme.ttl` (`:agriculture`, `:energy`, `:health`, etc.)
   - `src/0.3.2/vocabularies/agro-vocab.ttl` (`:agro_olive`, `:agro_wheat`, `:agro_maize`, etc.)
+  - `src/0.3.2/vocabularies/metric-types.ttl` (`:mt_completeness`, `:mt_recordCount`, etc.)
+- **Practical demos**:
+  - `demo/olive-grove/` - CSV transformation with complete matchmaking example (compatible with Use Case 1)
+  - `demo/catalog/` - DCAT catalog transformation
 - **Additional examples**: `src/0.3.2/examples/test-consistency.ttl`
 - **SHACL validation**: `src/0.3.2/shapes/edaan-shapes.ttl`
 - **AGROVOC**: https://agrovoc.fao.org/

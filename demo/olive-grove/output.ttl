@@ -1,0 +1,77 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix edaan: <https://w3id.org/EDAAnOWL/> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix olive: <https://w3id.org/EDAAnOWL/demo/olive-grove/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+olive:OliveGroveMonitoring2024 a edaan:DataAsset,
+        edaan:SpatialTemporalAsset ;
+    dct:created "2024-11-20"^^xsd:date ;
+    dct:description "Multi-temporal monitoring data for olive groves in Jaén province, containing vegetation indices, meteorological variables, soil properties, and yield data. Compatible with yield prediction and water stress analysis applications."@en ;
+    dct:title "Olive Grove Monitoring Dataset - Jaén 2024"@en,
+        "Dataset de Monitorización de Olivar - Jaén 2024"@es ;
+    edaan:accessType "Download" ;
+    edaan:conformsToProfile olive:OliveMonitoringProfile ;
+    edaan:hasDomainSector edaan:agriculture ;
+    edaan:hasSpatialCoverage [ a locn:Geometry ;
+            gsp:asWKT "POLYGON((-3.8012 37.7654, -3.7423 37.7654, -3.7423 37.8321, -3.8012 37.8321, -3.8012 37.7654))"^^gsp:wktLiteral ] ;
+    edaan:hasTemporalCoverage [ a time:Interval ;
+            time:hasBeginning [ time:inXSDDate "2024-03-15"^^xsd:date ] ;
+            time:hasEnd [ time:inXSDDate "2024-04-15"^^xsd:date ] ] ;
+    edaan:isAlive true ;
+    edaan:servesObservableProperty edaan:ndvi,
+        edaan:precipitation,
+        edaan:soilMoisture,
+        edaan:temperature,
+        edaan:yield ;
+    edaan:supportContact [ a vcard:Kind ;
+            vcard:fn "Khaos Research Group" ;
+            vcard:hasEmail <mailto:khaos@uma.es> ] ;
+    edaan:topic edaan:agro_olive .
+
+olive:OliveMonitoringProfile a edaan:DataProfile ;
+    dct:title "Olive Grove Monitoring Profile"@en ;
+    dcat:temporalResolution "P1M"^^xsd:duration ;
+    edaan:declaresDataClass edaan:tabular ;
+    edaan:declaresObservedProperty edaan:ndvi,
+        edaan:precipitation,
+        edaan:soilMoisture,
+        edaan:temperature,
+        edaan:yield ;
+    edaan:hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
+    edaan:hasMetric [ a edaan:Metric,
+                edaan:QualityMetric ;
+            edaan:metricName "spatialExtent" ;
+            edaan:metricType edaan:mt_spatialExtent ;
+            edaan:metricValue "Jaén, Spain (37.7654,-3.8012 to 37.8321,-3.7423)" ],
+        [ a dqv:QualityMetric,
+                edaan:Metric,
+                edaan:QualityMetric ;
+            edaan:computedAt "2025-12-13T14:06:48.894779"^^xsd:dateTime ;
+            edaan:metricName "recordCount" ;
+            edaan:metricType edaan:mt_recordCount ;
+            edaan:metricValue 10 ],
+        [ a edaan:Metric,
+                edaan:QualityMetric ;
+            edaan:metricName "featureCount" ;
+            edaan:metricType edaan:mt_featureCount ;
+            edaan:metricValue 10 ],
+        [ a dqv:QualityMetric,
+                edaan:Metric,
+                edaan:QualityMetric ;
+            edaan:computedAt "2025-12-13T14:06:48.895402"^^xsd:dateTime ;
+            edaan:metricName "completeness" ;
+            edaan:metricType edaan:mt_completeness ;
+            edaan:metricUnit "ratio" ;
+            edaan:metricValue 1.0 ],
+        [ a edaan:Metric,
+                edaan:QualityMetric ;
+            edaan:metricName "temporalExtent" ;
+            edaan:metricType edaan:mt_temporalExtent ;
+            edaan:metricValue "2024-03-15 to 2024-04-15" ] .
+

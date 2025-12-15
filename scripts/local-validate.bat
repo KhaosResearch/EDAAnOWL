@@ -1,115 +1,78 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 
 set IMAGE_NAME=edaanowl-validator
-REM
 set ROOT_DIR=%~dp0..
 
-echo --- Building local validation image (%IMAGE_NAME%) ---
+echo --- Building local validation image ---
 docker build -t %IMAGE_NAME% -f "%ROOT_DIR%\Dockerfile" "%ROOT_DIR%"
-if %errorlevel% neq 0 (
-    echo [ERROR] Docker image build failed.
-    goto :eof
-)
+if errorlevel 1 goto :build_error
 
-REM Find latest version folder (only folders matching semver pattern like 0.3.2)
 echo --- Finding latest version ---
 set LATEST_VERSION=
-for /f "tokens=*" %%a in ('dir /b /ad /on "%ROOT_DIR%\src" ^| findstr /r "^[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*$"') do (
-    set LATEST_VERSION=%%a
-)
+pushd "%ROOT_DIR%\src"
+for /d %%d in (0.3.*) do set LATEST_VERSION=%%d
+popd
 
-if "%LATEST_VERSION%"=="" (
-    echo [ERROR] No version folder found in /src (looking for semver pattern like 0.3.2)
-    goto :eof
-)
+if "!LATEST_VERSION!"=="" goto :version_error
 
-echo --- Validating against latest version: %LATEST_VERSION% ---
-REM
-set LATEST_PATH=src/%LATEST_VERSION%
+echo --- Validating against version: !LATEST_VERSION! ---
+set LATEST_PATH=src/!LATEST_VERSION!
 
-REM
 echo.
-echo --- 🚀 Running syntax validation (scripts/check_rdf.py) ---
+echo --- Running syntax validation ---
 docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% python3 /app/scripts/check_rdf.py
-if %errorlevel% neq 0 (
-    echo [ERROR] Syntax validation failed.
-    goto :eof
-)
-
-REM
-echo.
-echo --- 🚀 Running SHACL validation (pyshacl) ---
-docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% python3 -m pyshacl ^
-    -s /app/%LATEST_PATH%/shapes/edaan-shapes.ttl ^
-    -e /app/%LATEST_PATH%/EDAAnOWL.ttl ^
-    -e /app/%LATEST_PATH%/vocabularies/metric-types.ttl ^
-    -e /app/%LATEST_PATH%/vocabularies/observed-properties.ttl ^
-    -e /app/%LATEST_PATH%/vocabularies/agro-vocab.ttl ^
-    -e /app/%LATEST_PATH%/vocabularies/sector-scheme.ttl ^
-    -e /app/%LATEST_PATH%/vocabularies/datatype-scheme.ttl ^
-    -m -i rdfs -f human ^
-    /app/%LATEST_PATH%/examples/test-consistency.ttl
-
-if %errorlevel% neq 0 (
-    echo [ERROR] SHACL validation failed.
-    goto :eof
-)
+if errorlevel 1 goto :syntax_error
 
 echo.
-echo --- 🚀 Running SHACL validation (pyshacl) on EO examples ---
-docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% python3 -m pyshacl ^
-    -s /app/%LATEST_PATH%/shapes/edaan-shapes.ttl ^
-    -e /app/%LATEST_PATH%/EDAAnOWL.ttl ^
-    -e /app/%LATEST_PATH%/vocabularies/metric-types.ttl ^
-    -e /app/%LATEST_PATH%/vocabularies/observed-properties.ttl ^
-    -e /app/%LATEST_PATH%/vocabularies/agro-vocab.ttl ^
-    -e /app/%LATEST_PATH%/vocabularies/sector-scheme.ttl ^
-    -e /app/%LATEST_PATH%/vocabularies/datatype-scheme.ttl ^
-    -m -i rdfs -f human ^
-    /app/%LATEST_PATH%/examples/eo-instances.ttl
-
-if %errorlevel% neq 0 (
-    echo [ERROR] SHACL validation (EO examples) failed.
-    goto :eof
-)
-
-REM
-echo.
-echo --- 🚀 Running OWL consistency validation (ROBOT) ---
-(
-    echo ^<?xml version="1.0" encoding="UTF-8"?^>
-    echo ^<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public"^>
-    echo     ^<uri name="https://w3id.org/EDAAnOWL/" uri="file:/app/%LATEST_PATH%/EDAAnOWL.ttl"/^>
-    echo ^</catalog^>
-) > "%ROOT_DIR%\robot-catalog.xml"
-
-docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% java -jar /opt/robot/robot.jar reason ^
-    --catalog /app/robot-catalog.xml ^
-    --input /app/%LATEST_PATH%/examples/test-consistency.ttl ^
-    --reasoner ELK ^
-    --output /tmp/edaanowl-reasoned.owl
-
-if %errorlevel% neq 0 (
-    echo [ERROR] ROBOT consistency check failed.
-    goto :eof
-)
+echo --- Running SHACL validation ---
+docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% python3 /app/scripts/validate_shacl.py
+if errorlevel 1 goto :shacl_error
 
 echo.
-echo --- 🚀 Running OWL consistency validation (ROBOT) on EO examples ---
-docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% java -jar /opt/robot/robot.jar reason ^
-    --catalog /app/robot-catalog.xml ^
-    --input /app/%LATEST_PATH%/examples/eo-instances.ttl ^
-    --reasoner ELK ^
-    --output /tmp/edaanowl-reasoned-eo.owl
+echo --- Running OWL consistency (ROBOT) ---
+echo ^<?xml version="1.0" encoding="UTF-8"?^> > "%ROOT_DIR%\robot-catalog.xml"
+echo ^<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public"^> >> "%ROOT_DIR%\robot-catalog.xml"
+echo   ^<uri name="https://w3id.org/EDAAnOWL/" uri="file:/app/!LATEST_PATH!/EDAAnOWL.ttl"/^> >> "%ROOT_DIR%\robot-catalog.xml"
+echo ^</catalog^> >> "%ROOT_DIR%\robot-catalog.xml"
 
-if %errorlevel% neq 0 (
-    echo [ERROR] ROBOT consistency check (EO examples) failed.
-    goto :eof
-)
-
-del "%ROOT_DIR%\robot-catalog.xml"
+docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% java -jar /opt/robot/robot.jar reason --catalog /app/robot-catalog.xml --input /app/!LATEST_PATH!/examples/test-consistency.ttl --reasoner ELK --output /tmp/reasoned.owl
+if errorlevel 1 goto :robot_error
 
 echo.
-echo --- ✅ All local validations completed successfully! ---
+echo --- Running OWL consistency (ROBOT) EO examples ---
+docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% java -jar /opt/robot/robot.jar reason --catalog /app/robot-catalog.xml --input /app/!LATEST_PATH!/examples/eo-instances.ttl --reasoner ELK --output /tmp/reasoned-eo.owl
+if errorlevel 1 goto :robot_eo_error
+
+del "%ROOT_DIR%\robot-catalog.xml" 2>nul
+
+echo.
+echo === All local validations completed successfully! ===
+goto :end
+
+:build_error
+echo [ERROR] Docker image build failed.
+goto :end
+
+:version_error
+echo [ERROR] No version folder found.
+goto :end
+
+:syntax_error
+echo [ERROR] Syntax validation failed.
+goto :end
+
+:shacl_error
+echo [ERROR] SHACL validation failed.
+goto :end
+
+:robot_error
+echo [ERROR] ROBOT consistency check failed.
+goto :end
+
+:robot_eo_error
+echo [ERROR] ROBOT check EO examples failed.
+goto :end
+
+:end
 endlocal

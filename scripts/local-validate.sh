@@ -26,28 +26,7 @@ echo -e "\n--- 🚀 Running syntax validation (scripts/check_rdf.py) ---"
 docker_run python3 /app/scripts/check_rdf.py
 
 echo -e "\n--- 🚀 Running SHACL validation (pyshacl) ---"
-docker_run python3 -m pyshacl \
-        -s /app/$LATEST_PATH/shapes/edaan-shapes.ttl \
-        -e /app/$LATEST_PATH/EDAAnOWL.ttl \
-        -e /app/$LATEST_PATH/vocabularies/metric-types.ttl \
-        -e /app/$LATEST_PATH/vocabularies/observed-properties.ttl \
-        -e /app/$LATEST_PATH/vocabularies/agro-vocab.ttl \
-        -e /app/$LATEST_PATH/vocabularies/sector-scheme.ttl \
-        -e /app/$LATEST_PATH/vocabularies/datatype-scheme.ttl \
-        -m -i rdfs -f human \
-        /app/$LATEST_PATH/examples/test-consistency.ttl
-
-echo -e "\n--- 🚀 Running SHACL validation (pyshacl) on EO examples ---"
-docker_run python3 -m pyshacl \
-        -s /app/$LATEST_PATH/shapes/edaan-shapes.ttl \
-        -e /app/$LATEST_PATH/EDAAnOWL.ttl \
-        -e /app/$LATEST_PATH/vocabularies/metric-types.ttl \
-        -e /app/$LATEST_PATH/vocabularies/observed-properties.ttl \
-        -e /app/$LATEST_PATH/vocabularies/agro-vocab.ttl \
-        -e /app/$LATEST_PATH/vocabularies/sector-scheme.ttl \
-        -e /app/$LATEST_PATH/vocabularies/datatype-scheme.ttl \
-        -m -i rdfs -f human \
-        /app/$LATEST_PATH/examples/eo-instances.ttl
+docker_run python3 /app/scripts/validate_shacl.py
 
 echo -e "\n--- 🚀 Running OWL consistency validation (ROBOT) ---"
 cat > "$ROOT_DIR/robot-catalog.xml" <<EOF

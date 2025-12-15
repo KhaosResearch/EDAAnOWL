@@ -106,13 +106,15 @@ def process_dataset(g, ds):
              g.add((app_uri, DCTERMS.title, Literal("Unknown App")))
              g.add((app_uri, EDAAN.hasDomainSector, sector_uri))
 
-    # Add dummy metrics for demonstration
+    # Add dummy metrics for demonstration (with MetricType for v0.3.2)
     metric_uri = URIRef(f"{profile_uri}/metric/completeness")
     g.add((metric_uri, RDF.type, EDAAN.QualityMetric))
+    g.add((metric_uri, RDF.type, EDAAN.Metric))
     g.add((metric_uri, RDF.type, DQV.QualityMetric))
+    g.add((metric_uri, EDAAN.metricType, EDAAN.mt_completeness))  # v0.3.2: MetricType vocabulary
     g.add((metric_uri, EDAAN.metricName, Literal("completeness")))
     g.add((metric_uri, EDAAN.metricValue, Literal("0.99", datatype=XSD.decimal)))
     g.add((profile_uri, EDAAN.hasMetric, metric_uri))
 
 if __name__ == "__main__":
-    transform_catalog("demo/catalog.json", "demo/output.ttl")
+    transform_catalog("catalog.json", "output.ttl")

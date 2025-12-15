@@ -1,40 +1,52 @@
-# EDAAnOWL Demo: DCAT to RDF Transformation
+# EDAAnOWL Demos
 
-This folder contains a practical demonstration of how to transform a standard **DCAT Catalog** (in JSON-LD format) into **EDAAnOWL RDF** that complies with the ontology's SHACL shapes.
+This folder contains practical demonstrations of EDAAnOWL transformations.
 
-## 📂 Contents
+## 📂 Available Demos
 
-- **`catalog.json`**: A sample DCAT catalog containing datasets (Data Assets) and services (Data Apps).
-- **`transform_catalog.py`**: A Python script that performs the transformation.
-- **`output.ttl`**: The resulting RDF file (Turtle format).
+### 1. [catalog/](catalog/) — DCAT Catalog Transformation
 
-## 🚀 How to Run
+Transforms a standard **DCAT Catalog** (JSON-LD) into EDAAnOWL RDF.
 
-1.  Ensure you have Python installed and the required dependencies:
-    ```bash
-    pip install rdflib pyshacl
-    ```
-2.  Run the transformation script:
-    ```bash
-    python transform_catalog.py
-    ```
-3.  The script will:
-    - Read `catalog.json`.
-    - Map DCAT datasets to `edaan:DataAsset` or `ids:SmartDataApp` based on keywords.
-    - Enrich the data with **Data Profiles**, **Quality Metrics** (DQV), and **Provenance** (PROV-O).
-    - Validate the output against the SHACL shapes (`../src/0.3.2/shapes/edaan-shapes.ttl`).
-    - Save the result to `output.ttl`.
+- **Input**: `catalog.json` (DCAT datasets with DataApps and services)
+- **Output**: `output.ttl` (EDAAnOWL DataAssets and Profiles)
 
-## 🧩 Transformation Logic
+```bash
+cd demo/catalog
+python transform_catalog.py
+```
 
-The script applies the following heuristics to map DCAT concepts to EDAAnOWL:
+---
 
-| DCAT Concept | Keyword/Type | EDAAnOWL Class | Added Features |
-| :--- | :--- | :--- | :--- |
-| `dcat:Dataset` | "algorithm", "model" | `ids:SmartDataApp` (specifically `:PredictionApp`) | `:requiresProfile`, `:producesObservableProperty` |
-| `dcat:Dataset` | (default) | `edaan:DataAsset` | `:conformsToProfile`, `:servesObservableProperty`, `prov:wasGeneratedBy` |
+### 2. [olive-grove/](olive-grove/) — CSV Data Transformation
 
-It also automatically generates:
-- **Data Profiles**: With `dcat:temporalResolution` and `:declaresDataClass`.
-- **Quality Metrics**: `dqv:QualityMetric` instances (e.g., completeness).
-- **Provenance**: Links assets to the apps that generated them.
+Transforms olive grove monitoring **CSV data** into EDAAnOWL RDF with full matchmaking support.
+
+- **Input**: `olive-grove-monitoring-2024.csv`
+- **Output**: `output.ttl` with:
+  - `:SpatialTemporalAsset` with computed spatial/temporal coverage
+  - `:DataProfile` with quality metrics using `:MetricType`
+  - Observable properties for semantic matchmaking
+
+```bash
+cd demo/olive-grove
+python transform_csv.py
+```
+
+**Highlights**:
+- Demonstrates Use Case 1 from `USE_CASES.md`
+- Dataset is compatible with `OliveYieldPredictor` app
+- Uses all v0.3.2 features: `MetricType`, `ObservableProperty`, AGROVOC alignment
+
+---
+
+## 🔧 Requirements
+
+```bash
+pip install rdflib
+```
+
+Optional (for SHACL validation):
+```bash
+pip install pyshacl
+```
