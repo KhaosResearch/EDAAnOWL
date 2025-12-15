@@ -6,6 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix metric-types: <https://w3id.org/EDAAnOWL/0.3.2/vocabularies/metric-types> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
 #################################################################

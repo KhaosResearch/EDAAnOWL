@@ -23,10 +23,11 @@
 @prefix widoco: <https://w3id.org/widoco/vocab#> .
 @prefix bigprob: <https://w3id.org/BIGOWLProblems/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix agrovocab: <https://w3id.org/EDAAnOWL/0.3.1/vocabularies/agro-vocab> .
-@prefix sector-scheme: <https://w3id.org/EDAAnOWL/0.3.1/vocabularies/sector-scheme> .
-@prefix datatype-scheme: <https://w3id.org/EDAAnOWL/0.3.1/vocabularies/datatype-scheme> .
-@prefix observed-properties: <https://w3id.org/EDAAnOWL/0.3.1/vocabularies/observed-properties> .
+@prefix agrovocab: <https://w3id.org/EDAAnOWL/0.3.2/vocabularies/agro-vocab> .
+@prefix sector-scheme: <https://w3id.org/EDAAnOWL/0.3.2/vocabularies/sector-scheme> .
+@prefix datatype-scheme: <https://w3id.org/EDAAnOWL/0.3.2/vocabularies/datatype-scheme> .
+@prefix metric-types: <https://w3id.org/EDAAnOWL/0.3.2/vocabularies/metric-types> .
+@prefix observed-properties: <https://w3id.org/EDAAnOWL/0.3.2/vocabularies/observed-properties> .
 @base <https://w3id.org/EDAAnOWL/> .
 
 <https://w3id.org/EDAAnOWL/> rdf:type owl:Ontology ;
