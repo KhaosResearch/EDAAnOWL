@@ -1,0 +1,136 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix bigalg: <https://w3id.org/BIGOWLAlgorithms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix edaan: <https://w3id.org/EDAAnOWL/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+# ============================================================================
+# DEMO: EDAAnOWL v0.3.2 - DataApps and Profiles
+# Generated from DCAT Catalog transformation
+# ============================================================================
+
+# --- METEO App ---
+<https://w3id.org/EDAAnOWL/demo/METEO1.0.0> a ids:DataApp ;
+    dct:title "METEO"@en ;
+    dct:description "Esta aplicación permite extraer y procesar variables meteorológicas."@en ;
+    edaan:hasDomainSector edaan:agriculture ;
+    edaan:conformsToProfile <https://w3id.org/EDAAnOWL/demo/METEO1.0.0/profile> ;
+    edaan:supportContact [
+        a vcard:Kind ;
+        vcard:fn "METEO Support" ;
+        vcard:hasEmail <mailto:meteo@example.com>
+    ] .
+
+<https://w3id.org/EDAAnOWL/demo/METEO1.0.0/profile> a edaan:DataProfile ;
+    dct:title "METEO Output Profile"@en ;
+    edaan:declaresDataClass edaan:tabular ;
+    edaan:declaresObservedProperty edaan:temperature, edaan:precipitation, edaan:relativeHumidity ;
+    edaan:hasMetric [
+        a edaan:Metric, edaan:QualityMetric, dqv:QualityMetric ;
+        edaan:metricType edaan:mt_completeness ;
+        edaan:metricName "completeness" ;
+        edaan:metricValue "0.99"^^xsd:decimal
+    ] .
+
+# --- Olivarum App ---
+<https://w3id.org/EDAAnOWL/demo/Olivarum1.0.0> a ids:DataApp ;
+    dct:title "Olivarum"@en ;
+    dct:description "Este mapa muestra la distribución de las variedades de olivos en Andalucía."@en ;
+    edaan:hasDomainSector edaan:agriculture ;
+    edaan:topic edaan:agro_olive ;
+    edaan:conformsToProfile <https://w3id.org/EDAAnOWL/demo/Olivarum1.0.0/profile> .
+
+<https://w3id.org/EDAAnOWL/demo/Olivarum1.0.0/profile> a edaan:DataProfile ;
+    dct:title "Olivarum Data Profile"@en ;
+    edaan:declaresDataClass edaan:geovector ;
+    edaan:declaresObservedProperty edaan:yield ;
+    edaan:hasMetric [
+        a edaan:Metric, edaan:QualityMetric, dqv:QualityMetric ;
+        edaan:metricType edaan:mt_completeness ;
+        edaan:metricName "completeness" ;
+        edaan:metricValue "0.99"^^xsd:decimal
+    ] .
+
+# --- Repilo Prediction App ---
+<https://w3id.org/EDAAnOWL/demo/Repilo1.0.0> a edaan:PredictionApp, ids:SmartDataApp, ids:DataApp ;
+    dct:title "Repilo"@en ;
+    dct:description """El repilo del olivo es una enfermedad causada por hongos del género Spilocaea 
+que afecta a las hojas, frutos y ramas jóvenes del olivo, reduciendo la productividad del árbol. 
+Este modelo utiliza datos climáticos (temperatura, humedad y precipitación) y la ecuación del 
+Modelo Beta Generalizado para calcular la incidencia del repilo en diferentes regiones geográficas."""@en ;
+    edaan:hasDomainSector edaan:agriculture ;
+    edaan:topic edaan:agro_olive ;
+    # Input requirements
+    edaan:requiresObservableProperty edaan:temperature, edaan:relativeHumidity, edaan:precipitation ;
+    edaan:requiresProfile <https://w3id.org/EDAAnOWL/demo/METEO1.0.0/profile> ;
+    # Output
+    edaan:producesObservableProperty edaan:repiloIncidence ;
+    edaan:producesProfile <https://w3id.org/EDAAnOWL/demo/Repilo1.0.0/profile> .
+
+<https://w3id.org/EDAAnOWL/demo/Repilo1.0.0/profile> a edaan:DataProfile ;
+    dct:title "Repilo Prediction Output Profile"@en ;
+    edaan:declaresDataClass edaan:tabular ;
+    edaan:declaresObservedProperty edaan:repiloIncidence ;
+    edaan:hasMetric [
+        a edaan:Metric, edaan:PerformanceMetric ;
+        edaan:metricType edaan:mt_modelAccuracy ;
+        edaan:metricName "modelAccuracy" ;
+        edaan:metricValue "0.85"^^xsd:decimal
+    ] .
+
+# --- Satellite Indexes App ---
+<https://w3id.org/EDAAnOWL/demo/SatelliteIndexes1.0.0> a ids:DataApp ;
+    dct:title "Satellite Indexes"@en ;
+    dct:description "Esta aplicación permite analizar datos geoespaciales mediante índices derivados de imágenes satelitales."@en ;
+    edaan:hasDomainSector edaan:agriculture ;
+    edaan:conformsToProfile <https://w3id.org/EDAAnOWL/demo/SatelliteIndexes1.0.0/profile> .
+
+<https://w3id.org/EDAAnOWL/demo/SatelliteIndexes1.0.0/profile> a edaan:DataProfile ;
+    dct:title "Satellite Indexes Profile"@en ;
+    edaan:declaresDataClass edaan:georaster ;
+    edaan:declaresObservedProperty edaan:ndvi, edaan:evi, edaan:lai ;
+    edaan:hasMetric [
+        a edaan:Metric, edaan:QualityMetric, dqv:QualityMetric ;
+        edaan:metricType edaan:mt_cloudCoverage ;
+        edaan:metricName "cloudCoverage" ;
+        edaan:metricValue "5"^^xsd:decimal ;
+        edaan:metricUnit "%"
+    ] .
+
+# --- Yield Prediction App ---
+<https://w3id.org/EDAAnOWL/demo/YieldPrediction1.0.0> a edaan:PredictionApp, ids:SmartDataApp, ids:DataApp ;
+    dct:title "Yield Prediction"@en ;
+    dct:description """Crop Temporal Series Forecasting is a platform that provides tools to support 
+decision-making for farmers in agriculture. The platform uses multivariate time series analysis 
+to forecast crop yields using ML algorithms including Random Forest and SARIMAX."""@en ;
+    edaan:hasDomainSector edaan:agriculture ;
+    edaan:topic edaan:agro_olive ;
+    # Input requirements
+    edaan:requiresObservableProperty edaan:ndvi, edaan:temperature, edaan:precipitation, edaan:soilMoisture ;
+    edaan:requiresProfile <https://w3id.org/EDAAnOWL/demo/SatelliteIndexes1.0.0/profile> ;
+    # Output
+    edaan:producesObservableProperty edaan:yieldForecast ;
+    edaan:producesProfile <https://w3id.org/EDAAnOWL/demo/YieldPrediction1.0.0/profile> ;
+    # BIGOWL algorithm links
+    edaan:implementsAlgorithm bigalg:RandomForest, bigalg:SARIMAX .
+
+<https://w3id.org/EDAAnOWL/demo/YieldPrediction1.0.0/profile> a edaan:DataProfile ;
+    dct:title "Yield Prediction Output Profile"@en ;
+    edaan:declaresDataClass edaan:tabular ;
+    edaan:declaresObservedProperty edaan:yieldForecast ;
+    edaan:hasMetric [
+        a edaan:Metric, edaan:PerformanceMetric ;
+        edaan:metricType edaan:mt_modelAccuracy ;
+        edaan:metricName "modelAccuracy" ;
+        edaan:metricValue "0.87"^^xsd:decimal
+    ] ,
+    [
+        a edaan:Metric, edaan:PerformanceMetric ;
+        edaan:metricType edaan:mt_f1Score ;
+        edaan:metricName "f1Score" ;
+        edaan:metricValue "0.82"^^xsd:decimal
+    ] .

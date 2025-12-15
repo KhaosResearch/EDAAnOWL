@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.3.2] - 2025-12-11
+## [0.3.2] - 2025-12-15
 
 ### Added
 
@@ -70,6 +70,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - **GitHub Pages**: Fixed the visual appearance of the rendering of `README.md` files in `index.html` files.
+- **Local validation**: Fixed local validation script to correctly handle vocabulary files and validate against the latest version.
+- **Agrovoc codes**: Fixed Agrovoc codes used in `agro-vocab.ttl`.
 
 ---
 

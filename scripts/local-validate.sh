@@ -26,28 +26,35 @@ echo -e "\n--- 🚀 Running syntax validation (scripts/check_rdf.py) ---"
 docker_run python3 /app/scripts/check_rdf.py
 
 echo -e "\n--- 🚀 Running SHACL validation (pyshacl) ---"
+# Merge files specifically for validation to ensure all types are visible in the data graph
+cat "$ROOT_DIR/$LATEST_PATH/examples/test-consistency.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/metric-types.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/observed-properties.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/agro-vocab.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/sector-scheme.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/datatype-scheme.ttl" > "$ROOT_DIR/merged_test.ttl"
+
 docker_run python3 -m pyshacl \
         -s /app/$LATEST_PATH/shapes/edaan-shapes.ttl \
         -e /app/$LATEST_PATH/EDAAnOWL.ttl \
-        -e /app/$LATEST_PATH/vocabularies/metric-types.ttl \
-        -e /app/$LATEST_PATH/vocabularies/observed-properties.ttl \
-        -e /app/$LATEST_PATH/vocabularies/agro-vocab.ttl \
-        -e /app/$LATEST_PATH/vocabularies/sector-scheme.ttl \
-        -e /app/$LATEST_PATH/vocabularies/datatype-scheme.ttl \
         -m -i rdfs -f human \
-        /app/$LATEST_PATH/examples/test-consistency.ttl
+        /app/merged_test.ttl
+rm "$ROOT_DIR/merged_test.ttl"
 
 echo -e "\n--- 🚀 Running SHACL validation (pyshacl) on EO examples ---"
+cat "$ROOT_DIR/$LATEST_PATH/examples/eo-instances.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/metric-types.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/observed-properties.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/agro-vocab.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/sector-scheme.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/datatype-scheme.ttl" > "$ROOT_DIR/merged_eo.ttl"
+
 docker_run python3 -m pyshacl \
         -s /app/$LATEST_PATH/shapes/edaan-shapes.ttl \
         -e /app/$LATEST_PATH/EDAAnOWL.ttl \
-        -e /app/$LATEST_PATH/vocabularies/metric-types.ttl \
-        -e /app/$LATEST_PATH/vocabularies/observed-properties.ttl \
-        -e /app/$LATEST_PATH/vocabularies/agro-vocab.ttl \
-        -e /app/$LATEST_PATH/vocabularies/sector-scheme.ttl \
-        -e /app/$LATEST_PATH/vocabularies/datatype-scheme.ttl \
         -m -i rdfs -f human \
-        /app/$LATEST_PATH/examples/eo-instances.ttl
+        /app/merged_eo.ttl
+rm "$ROOT_DIR/merged_eo.ttl"
 
 echo -e "\n--- 🚀 Running OWL consistency validation (ROBOT) ---"
 cat > "$ROOT_DIR/robot-catalog.xml" <<EOF

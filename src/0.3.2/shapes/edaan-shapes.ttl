@@ -6,6 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix metric-types: <https://w3id.org/EDAAnOWL/0.3.2/vocabularies/metric-types> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
 #################################################################
@@ -195,3 +196,36 @@
         sh:message "If present, producesObservableProperty must point to :ObservableProperty"@en
     ] ;
     rdfs:label "SmartDataApp semantic I/O shape"@en .
+
+#################################################################
+#    v0.3.2 Vocabulary Validation Shapes
+#################################################################
+
+:MetricTypeShape a sh:NodeShape ;
+    sh:targetClass :MetricType ;
+    rdfs:label "Metric Type Shape"@en ;
+    rdfs:comment "Validates that MetricType instances have correct SKOS structure."@en ;
+    
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:message "MetricType must have at least one skos:prefLabel"@en ;
+    ] ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:minCount 1 ;
+        sh:message "MetricType should be in a skos:ConceptScheme"@en ;
+    ] .
+
+:ObservablePropertyShape a sh:NodeShape ;
+    sh:targetClass :ObservableProperty ;
+    rdfs:label "Observable Property Shape"@en ;
+    rdfs:comment "Validates that ObservableProperty instances have correct structure."@en ;
+    
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:message "ObservableProperty must have at least one skos:prefLabel"@en ;
+    ] .

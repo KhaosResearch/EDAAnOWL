@@ -16,17 +16,17 @@ This vocabulary provides local concepts for common agricultural terms, aligned w
 FAO AGROVOC (http://aims.fao.org/aos/agrovoc/) where applicable.
 
 EXTENSIBILITY: Users are encouraged to:
-1. Use AGROVOC terms directly (e.g., agrovoc:c_5993 for 'olive')
+1. Use AGROVOC terms directly (e.g., agrovoc:c_12926 for 'olive')
 2. Define local concepts with skos:exactMatch/closeMatch to AGROVOC
 3. Define custom domain concepts as skos:Concept
 
 Example of direct AGROVOC usage:
-  ex:MyDataset :topic agrovoc:c_5993 .  # olive
+  ex:MyDataset :topic agrovoc:c_12926 .  # olive
 
 Example of local concept with alignment:
   ex:myOliveType a skos:Concept ;
       skos:prefLabel "Picual Olive"@en ;
-      skos:broader agrovoc:c_5993 ."""@en .
+      skos:broader agrovoc:c_12926 ."""@en .
 
 :AgroVocab rdf:type owl:NamedIndividual ,
                     skos:ConceptScheme ;
@@ -44,7 +44,7 @@ Example of local concept with alignment:
             skos:definition "Olive tree cultivation and oil production (Olea europaea)."@en ;
             skos:broader :agriculture ;
             skos:inScheme :AgroVocab ;
-            skos:exactMatch agrovoc:c_5993 .  # AGROVOC: olives
+            skos:exactMatch agrovoc:c_12926 .  # AGROVOC: olives
 
 :agro_vine rdf:type owl:NamedIndividual ,
                     skos:Concept ;
@@ -53,7 +53,7 @@ Example of local concept with alignment:
            skos:definition "Grapevine cultivation for wine or table grapes (Vitis vinifera)."@en ;
            skos:broader :agriculture ;
            skos:inScheme :AgroVocab ;
-           skos:exactMatch agrovoc:c_8218 .  # AGROVOC: vines
+           skos:exactMatch agrovoc:c_3360 .  # AGROVOC: grapevines
 
 :agro_almond rdf:type owl:NamedIndividual ,
                       skos:Concept ;
@@ -62,7 +62,7 @@ Example of local concept with alignment:
              skos:definition "Almond tree cultivation (Prunus dulcis)."@en ;
              skos:broader :agriculture ;
              skos:inScheme :AgroVocab ;
-             skos:exactMatch agrovoc:c_260 .  # AGROVOC: almonds
+             skos:exactMatch agrovoc:c_8734 .  # AGROVOC: almonds
 
 :agro_citrus rdf:type owl:NamedIndividual ,
                       skos:Concept ;
@@ -71,7 +71,7 @@ Example of local concept with alignment:
              skos:definition "Citrus fruit cultivation (oranges, lemons, etc.)."@en ;
              skos:broader :agriculture ;
              skos:inScheme :AgroVocab ;
-             skos:exactMatch agrovoc:c_1665 .  # AGROVOC: citrus fruits
+             skos:exactMatch agrovoc:c_1641 .  # AGROVOC: citrus fruits
 
 #################################################################
 #    Crops - Cereals
@@ -124,7 +124,7 @@ Example of local concept with alignment:
                 skos:definition "Helianthus annuus, for oil and seeds."@en ;
                 skos:broader :agriculture ;
                 skos:inScheme :AgroVocab ;
-                skos:exactMatch agrovoc:c_7474 .  # AGROVOC: sunflowers
+                skos:exactMatch agrovoc:c_aad037e4 .  # AGROVOC: sunflowers
 
 :agro_cotton rdf:type owl:NamedIndividual ,
                       skos:Concept ;
@@ -142,7 +142,7 @@ Example of local concept with alignment:
                 skos:definition "Beta vulgaris for sugar production."@en ;
                 skos:broader :agriculture ;
                 skos:inScheme :AgroVocab ;
-                skos:exactMatch agrovoc:c_7460 .  # AGROVOC: sugar beet
+                skos:exactMeatch agrovoc:c_7460 .  # AGROVOC: sugar beet
 
 #################################################################
 #    Agricultural Practices
@@ -162,7 +162,7 @@ Example of local concept with alignment:
                                    "Fertilización"@es ;
                     skos:definition "Application of fertilizers to soil."@en ;
                     skos:inScheme :AgroVocab ;
-                    skos:exactMatch agrovoc:c_2867 .  # AGROVOC: fertilizer application
+                    skos:exactMatch agrovoc:c_10795 .  # AGROVOC: fertilizer application
 
 :agro_harvest rdf:type owl:NamedIndividual ,
                        skos:Concept ;
@@ -170,7 +170,7 @@ Example of local concept with alignment:
                              "Cosecha"@es ;
               skos:definition "Crop harvesting activities and timing."@en ;
               skos:inScheme :AgroVocab ;
-              skos:exactMatch agrovoc:c_3521 .  # AGROVOC: harvesting
+              skos:exactMatch agrovoc:c_3500 .  # AGROVOC: harvesting
 
 :agro_pruning rdf:type owl:NamedIndividual ,
                        skos:Concept ;
@@ -178,7 +178,7 @@ Example of local concept with alignment:
                              "Poda"@es ;
               skos:definition "Selective removal of plant parts (branches, buds, roots)."@en ;
               skos:inScheme :AgroVocab ;
-              skos:exactMatch agrovoc:c_6299 .  # AGROVOC: pruning
+              skos:exactMatch agrovoc:c_6274 .  # AGROVOC: pruning
 
 :agro_pestControl rdf:type owl:NamedIndividual ,
                            skos:Concept ;
@@ -194,7 +194,7 @@ Example of local concept with alignment:
                                     "Manejo del Suelo"@es ;
                      skos:definition "Practices to maintain and improve soil health."@en ;
                      skos:inScheme :AgroVocab ;
-                     skos:exactMatch agrovoc:c_7173 .  # AGROVOC: soil management
+                     skos:exactMatch agrovoc:c_7176 .  # AGROVOC: soil management
 
 #################################################################
 #    Diseases (Olive-specific examples)
@@ -207,7 +207,7 @@ Example of local concept with alignment:
              skos:altLabel "Olive Leaf Spot"@en ;
              skos:definition "Fungal disease of olive caused by Fusicladium oleagineum."@en ;
              skos:inScheme :AgroVocab ;
-             skos:broader agrovoc:c_29515 .  # AGROVOC: fungal diseases of plants
+             skos:broader agrovoc:c_11042 .  # AGROVOC: fungal diseases of plants
 
 :agro_tuberculosis rdf:type owl:NamedIndividual ,
                             skos:Concept ;
@@ -216,7 +216,7 @@ Example of local concept with alignment:
                    skos:altLabel "Olive Knot"@en ;
                    skos:definition "Bacterial disease caused by Pseudomonas savastanoi."@en ;
                    skos:inScheme :AgroVocab ;
-                   skos:broader agrovoc:c_776 .  # AGROVOC: bacterial diseases (plants)
+                   skos:broader agrovoc:c_770 .  # AGROVOC: bacterial diseases (plants)
 
 :agro_verticillium rdf:type owl:NamedIndividual ,
                             skos:Concept ;
@@ -224,7 +224,7 @@ Example of local concept with alignment:
                                   "Verticilosis"@es ;
                    skos:definition "Soil-borne fungal disease affecting many crops."@en ;
                    skos:inScheme :AgroVocab ;
-                   skos:exactMatch agrovoc:c_8187 .  # AGROVOC: Verticillium
+                   skos:exactMatch agrovoc:c_35187 .  # AGROVOC: Verticillium
 
 #################################################################
 #    Production Types
@@ -244,4 +244,4 @@ Example of local concept with alignment:
                                           "Agricultura de Precisión"@es ;
                            skos:definition "Farming management using GPS, sensors, and data analytics."@en ;
                            skos:inScheme :AgroVocab ;
-                           skos:exactMatch agrovoc:c_34840 .  # AGROVOC: precision agriculture
+                           skos:exactMatch agrovoc:c_92363 .  # AGROVOC: precision agriculture
