@@ -34,7 +34,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                      "NDVI"@es ;
       skos:definition "Normalized Difference Vegetation Index - indicates vegetation health and density."@en ;
       skos:inScheme :ObservedPropertyScheme ;
-      skos:exactMatch agrovoc:c_12332 .  # AGROVOC: normalized difference vegetation index
+      skos:exactMatch agrovoc:c_ce585e0d .  # AGROVOC: normalized difference vegetation index
 
 :evi rdf:type owl:NamedIndividual ,
               skos:Concept ,
@@ -50,7 +50,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                     "IAF"@es ;
      skos:definition "Leaf Area Index - total one-sided area of leaf tissue per unit ground area."@en ;
      skos:inScheme :ObservedPropertyScheme ;
-     skos:exactMatch agrovoc:c_4171 .  # AGROVOC: leaf area index
+     skos:exactMatch agrovoc:c_35196 .  # AGROVOC: leaf area index
 
 :chlorophyllContent rdf:type owl:NamedIndividual ,
                              skos:Concept ,
@@ -59,7 +59,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                                    "Contenido de Clorofila"@es ;
                     skos:definition "Concentration of chlorophyll in plant leaves."@en ;
                     skos:inScheme :ObservedPropertyScheme ;
-                    skos:closeMatch agrovoc:c_1571 .  # AGROVOC: chlorophylls
+                    skos:closeMatch agrovoc:c_1577 .  # AGROVOC: chlorophylls
 
 #################################################################
 #    Meteorological Properties
@@ -90,7 +90,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                                  "Humedad Relativa"@es ;
                   skos:definition "Percentage of water vapor in the air relative to saturation."@en ;
                   skos:inScheme :ObservedPropertyScheme ;
-                  skos:exactMatch agrovoc:c_6524 .  # AGROVOC: relative humidity
+                  skos:exactMatch agrovoc:c_6496 .  # AGROVOC: relative humidity
 
 :windSpeed rdf:type owl:NamedIndividual ,
                     skos:Concept ,
@@ -99,7 +99,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                           "Velocidad del Viento"@es ;
            skos:definition "Speed of air movement."@en ;
            skos:inScheme :ObservedPropertyScheme ;
-           skos:exactMatch agrovoc:c_8391 .  # AGROVOC: wind velocity
+           skos:exactMatch agrovoc:c_37675 .  # AGROVOC: wind velocity
 
 :solarRadiation rdf:type owl:NamedIndividual ,
                          skos:Concept ,
@@ -108,7 +108,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                                "Radiación Solar"@es ;
                 skos:definition "Electromagnetic radiation emitted by the sun."@en ;
                 skos:inScheme :ObservedPropertyScheme ;
-                skos:exactMatch agrovoc:c_7223 .  # AGROVOC: solar radiation
+                skos:exactMatch agrovoc:c_14415 .  # AGROVOC: solar radiation
 
 :evapotranspiration rdf:type owl:NamedIndividual ,
                              skos:Concept ,
@@ -117,7 +117,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                                    "Evapotranspiración"@es ;
                     skos:definition "Combined water loss from evaporation and plant transpiration."@en ;
                     skos:inScheme :ObservedPropertyScheme ;
-                    skos:exactMatch agrovoc:c_2773 .  # AGROVOC: evapotranspiration
+                    skos:exactMatch agrovoc:c_2741 .  # AGROVOC: evapotranspiration
 
 #################################################################
 #    Soil Properties
@@ -148,7 +148,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                        "pH del Suelo"@es ;
         skos:definition "Measure of acidity or alkalinity of soil."@en ;
         skos:inScheme :ObservedPropertyScheme ;
-        skos:exactMatch agrovoc:c_7196 .  # AGROVOC: soil pH
+        skos:exactMatch agrovoc:c_34901 .  # AGROVOC: soil pH
 
 :electricalConductivity rdf:type owl:NamedIndividual ,
                                  skos:Concept ,
@@ -166,7 +166,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                               "Materia Orgánica"@es ;
                skos:definition "Percentage of organic material in soil."@en ;
                skos:inScheme :ObservedPropertyScheme ;
-               skos:exactMatch agrovoc:c_7211 .  # AGROVOC: soil organic matter
+               skos:exactMatch agrovoc:c_35657 .  # AGROVOC: soil organic matter
 
 #################################################################
 #    Crop Production
@@ -210,7 +210,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                             "Estrés Hídrico"@es ;
              skos:definition "Condition when water availability limits plant growth."@en ;
              skos:inScheme :ObservedPropertyScheme ;
-             skos:exactMatch agrovoc:c_8320 .  # AGROVOC: water stress
+             skos:exactMatch agrovoc:c_24993 .  # AGROVOC: water stress
 
 :irrigationNeed rdf:type owl:NamedIndividual ,
                          skos:Concept ,
@@ -232,7 +232,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                               "Incidencia de Plagas"@es ;
                skos:definition "Presence or severity of pest infestation."@en ;
                skos:inScheme :ObservedPropertyScheme ;
-               skos:exactMatch agrovoc:c_29455 .  # AGROVOC: pest attack
+               skos:exactMatch agrovoc:c_3855 .  # AGROVOC: pest attack
 
 :diseaseIncidence rdf:type owl:NamedIndividual ,
                            skos:Concept ,
@@ -241,7 +241,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                                  "Incidencia de Enfermedad"@es ;
                   skos:definition "Presence or severity of plant disease."@en ;
                   skos:inScheme :ObservedPropertyScheme ;
-                  skos:exactMatch agrovoc:c_49879 .  # AGROVOC: disease incidence
+                  skos:exactMatch agrovoc:c_5962 .  # AGROVOC: disease incidence
 
 :repiloIncidence rdf:type owl:NamedIndividual ,
                           skos:Concept ,
