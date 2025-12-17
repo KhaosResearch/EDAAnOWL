@@ -1,6 +1,10 @@
 # 📖 EDAAnOWL Use Cases
 
-This document illustrates practical use cases of the EDAAnOWL ontology through diagrams and RDF examples, using **exactly** the concepts defined in ontology v0.3.2.
+This document illustrates practical use cases of the EDAAnOWL ontology through diagrams and RDF examples, using **exactly** the concepts defined in ontology v0.4.0.
+
+> [!IMPORTANT]
+> **v0.4.0 Change**: `:conformsToProfile` now goes on `dcat:Distribution` (e.g., `:DataRepresentation`), not directly on the Resource.
+> See the "v0.4.0 Pattern" examples below for the updated approach.
 
 ---
 
@@ -171,7 +175,22 @@ data:SentinelOliveJaen2024 a edaan:SpatialTemporalAsset ;
         a time:Interval ;
         time:hasBeginning [ time:inXSDDate "2024-01-01"^^xsd:date ] ;
         time:hasEnd [ time:inXSDDate "2024-12-31"^^xsd:date ]
-    ] .
+    ] ;
+    
+    # v0.4.0: Link to representation (Distribution)
+    ids:representation data:SentinelOliveJaen2024_Repr .
+
+# v0.4.0 Pattern: Profile goes on the Distribution
+data:SentinelOliveJaen2024_Repr a :DataRepresentation ;
+    dct:format "GeoTIFF" ;
+    edaan:conformsToProfile profile:OliveAgriProfile ;
+    :instance data:SentinelOliveJaen2024_File . # Link to concrete file
+
+# Context Layer (Artifact)
+data:SentinelOliveJaen2024_File a ids:Artifact ;
+    dct:byteSize "45000000"^^xsd:integer ;
+    ids:checkSum "sha256:a4f5..." .
+
 
 # ========== THE SHARED PROFILE ==========
 profile:OliveAgriProfile a edaan:DataProfile ;
@@ -437,8 +456,8 @@ workflow:VegetationAnalysis a opmw:WorkflowTemplate ;
 
 component:NDVICalculator a bigwf:Component ;
     dct:title "NDVI Calculator"@en ;
-    edaan:consumesResource [ a ids:Representation ; dct:format "GeoTIFF" ] ;
-    edaan:producesResource [ a ids:Representation ; dct:format "CSV" ] .
+    edaan:consumesDataRepresentation [ a :DataRepresentation ; dct:format "GeoTIFF" ] ;
+    edaan:producesDataRepresentation [ a :DataRepresentation ; dct:format "CSV" ] .
 ```
 
 ---
@@ -505,15 +524,15 @@ The actual data stays in its native format (CSV, database, etc.). If you need to
 
 ## 🔗 References
 
-- **Complete ontology**: `src/0.3.2/EDAAnOWL.ttl`
+- **Complete ontology**: `src/0.4.0/EDAAnOWL.ttl`
 - **SKOS vocabularies**:
-  - `src/0.3.2/vocabularies/observed-properties.ttl` (`:ndvi`, `:temperature`, `:precipitation`, `:yield`)
-  - `src/0.3.2/vocabularies/sector-scheme.ttl` (`:agriculture`, `:energy`, `:health`, etc.)
-  - `src/0.3.2/vocabularies/agro-vocab.ttl` (`:agro_olive`, `:agro_wheat`, `:agro_maize`, etc.)
-  - `src/0.3.2/vocabularies/metric-types.ttl` (`:mt_completeness`, `:mt_recordCount`, etc.)
+  - `src/0.4.0/vocabularies/observed-properties.ttl` (`:ndvi`, `:temperature`, `:precipitation`, `:yield`)
+  - `src/0.4.0/vocabularies/sector-scheme.ttl` (`:agriculture`, `:energy`, `:health`, etc.)
+  - `src/0.4.0/vocabularies/agro-vocab.ttl` (`:agro_olive`, `:agro_wheat`, `:agro_maize`, etc.)
+  - `src/0.4.0/vocabularies/metric-types.ttl` (`:mt_completeness`, `:mt_recordCount`, etc.)
 - **Practical demos**:
   - `demo/olive-grove/` - CSV transformation with complete matchmaking example (compatible with Use Case 1)
   - `demo/catalog/` - DCAT catalog transformation
-- **Additional examples**: `src/0.3.2/examples/test-consistency.ttl`
-- **SHACL validation**: `src/0.3.2/shapes/edaan-shapes.ttl`
+- **Additional examples**: `src/0.4.0/examples/test-consistency.ttl`
+- **SHACL validation**: `src/0.4.0/shapes/edaan-shapes.ttl`
 - **AGROVOC**: https://agrovoc.fao.org/

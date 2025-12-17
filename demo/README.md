@@ -36,7 +36,7 @@ python transform_csv.py
 **Highlights**:
 - Demonstrates Use Case 1 from `USE_CASES.md`
 - Dataset is compatible with `OliveYieldPredictor` app
-- Uses all v0.3.2 features: `MetricType`, `ObservableProperty`, AGROVOC alignment
+- Uses all v0.4.0 features: `MetricType`, `ObservableProperty`, `:DataRepresentation`, `ids:Artifact` (traceability)
 
 ---
 

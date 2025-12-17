@@ -1,0 +1,31 @@
+﻿­ƒöì EDAAnOWL SHACL Validation (v0.4.0)
+==================================================
+
+­ƒôï Validating: test-consistency.ttl
+   Ô£à Conforms: True
+
+­ƒôï Validating: eo-instances.ttl
+   ÔØî Conforms: False
+      Results (3):
+      Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+      	Severity: sh:Violation
+      	Source Shape: [ sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("DataProfile MUST have exactly one :declaresDataClass (e.g., :tabular).", lang=en) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:nodeKind sh:IRI ; sh:path :declaresDataClass ]
+      	Focus Node: profile:OliveAgriProfile
+      	Result Path: :declaresDataClass
+      	Message: DataProfile MUST have exactly one :declaresDataClass (e.g., :tabular).
+      Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+      	Severity: sh:Violation
+      	Source Shape: [ sh:class :Metric ; sh:message Literal("DataProfile MUST have at least one :hasMetric (typed as :Metric).", lang=en) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path :hasMetric ]
+      	Focus Node: profile:OliveAgriProfile
+      	Result Path: :hasMetric
+      	Message: DataProfile MUST have at least one :hasMetric (typed as :Metric).
+      Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+      	Severity: sh:Violation
+      	Source Shape: [ sh:class dct:MediaType ; sh:message Literal("DataRepresentation should have a dcat:mediaType (IANA type)", lang=en) ; sh:minCount Literal("0", datatype=xsd:integer) ; sh:path dcat:mediaType ]
+      	Focus Node: data:SentinelOliveJaen2024_Repr
+      	Value Node: <https://www.iana.org/assignments/media-types/image/tiff>
+      	Result Path: dcat:mediaType
+      	Message: DataRepresentation should have a dcat:mediaType (IANA type)
+
+==================================================
+ÔØî Some SHACL validations failed.
