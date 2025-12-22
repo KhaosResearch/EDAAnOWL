@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Latest Release](https://img.shields.io/github/v/release/KhaosResearch/EDAAnOWL?display_name=tag)](https://github.com/KhaosResearch/EDAAnOWL/releases)
 [![PURL](https://img.shields.io/badge/purl-w3id.org-blue)](https://w3id.org/EDAAnOWL/)
-[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/0.3.2/shapes/edaan-shapes.ttl)
+[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/0.4.0/shapes/edaan-shapes.ttl)
 [![GitHub stars](https://img.shields.io/github/stars/KhaosResearch/EDAAnOWL?style=social)](https://github.com/KhaosResearch/EDAAnOWL/stargazers)
 
 A pilot ontology for the semantic exploitation of data assets in the Agri-food (EDAA) context, aligned with the [IDSA Information Model](https://github.com/International-Data-Spaces-Association/InformationModel) and the [BIGOWL ontology](https://github.com/KhaosResearch/BIGOWL-DS/).
@@ -14,7 +14,8 @@ A pilot ontology for the semantic exploitation of data assets in the Agri-food (
 - :book: [BIGOWL ontology documentation](https://w3id.org/BIGOWL/)
 
 > [!NOTE]
-> Latest stable: see `src/0.3.2/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
+> Latest stable: see `src/0.4.0/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
+> v0.4.0 brings **IDSA alignment**: `conformsToProfile` now on `dcat:Distribution`, new `ids:DataRepresentation` support.
 > Check out the `demo/` folder for a practical example of transforming a DCAT catalog to EDAAnOWL RDF.
 
 The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches the description of Data Space assets. It allows for modeling the functional profile (inputs, outputs, parameters) of `ids:DataApp` and `ids:DataResource`, facilitating their semantic discovery, composition into complex services, and compatibility validation.
@@ -59,7 +60,7 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
 
 - **Object properties (motivations)**
 
-  - `:conformsToProfile (ids:Resource → :DataProfile)`: A resource states it conforms to a profile (structural/semantic signature). Motivates profile-based compatibility checks.
+  - `:conformsToProfile (dcat:Distribution → :DataProfile)`: A Distribution/Representation states it conforms to a profile (structural/semantic signature). **v0.4.0 change**: Moved from `ids:Resource` to `dcat:Distribution` for IDSA alignment.
   - `:requiresProfile` / `:producesProfile (ids:DataApp ↔ :DataProfile)`: Apps specify expected/produced data signatures to enable structural compatibility.
   - `:requiresObservableProperty` / `:producesObservableProperty (ids:SmartDataApp ↔ :ObservableProperty)`: Apps declare semantic I/O needs—enables simple, meaningful matchmaking (semantic compatibility).
   - `:servesObservableProperty (:DataAsset ↔ :ObservableProperty)`: Assets declare the variables they provide—completing the matchmaking triangle.

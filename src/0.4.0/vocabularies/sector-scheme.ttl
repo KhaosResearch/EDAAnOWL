@@ -1,0 +1,43 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://w3id.org/EDAAnOWL/0.4.0/vocabularies/sector-scheme> a owl:Ontology ;
+    dct:title "Sector Categories"@en ;
+    dct:description "Categories for tagging data assets and applications by economic or thematic domain."@en .
+
+:SectorScheme a owl:NamedIndividual,
+        skos:ConceptScheme ;
+    dct:description "Sectors for tagging data assets and applications by economic or thematic domain."@en ;
+    dct:title "Economic and Domain Sectors"@en .
+
+:agriculture a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Crop production, livestock, and agricultural activities"@en ;
+    skos:inScheme :SectorScheme ;
+    skos:prefLabel "Agriculture"@en .
+
+:energy a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Energy production, distribution, and consumption"@en ;
+    skos:inScheme :SectorScheme ;
+    skos:prefLabel "Energy"@en .
+
+:health a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Healthcare, medical services, and public health"@en ;
+    skos:inScheme :SectorScheme ;
+    skos:prefLabel "Health"@en .
+
+:tourism a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Travel, hospitality, and tourism services"@en ;
+    skos:inScheme :SectorScheme ;
+    skos:prefLabel "Tourism"@en .
+
+:transport a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Transportation and logistics services"@en ;
+    skos:inScheme :SectorScheme ;
+    skos:prefLabel "Transport"@en .

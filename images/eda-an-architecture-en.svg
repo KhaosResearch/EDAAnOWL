@@ -66,7 +66,7 @@
     <text x="450" y="325" font-family="Consolas, monospace" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="middle">:DataAsset</text>
 <!--SmartDataApp-->
     <rect x="350" y="450" width="200" height="40" rx="5" fill="#ffffff" stroke="#2e7d32" stroke-width="2"/>
-    <text x="450" y="475" font-family="Consolas, monospace" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="middle">:SmartDataApp</text>
+    <text x="450" y="475" font-family="Consolas, monospace" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="middle">ids:SmartDataApp</text>
 <!--Profile & Observable-->
     <rect x="320" y="380" width="120" height="40" rx="15" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1"/>
     <text x="380" y="405" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1b5e20" text-anchor="middle">DataProfile</text>

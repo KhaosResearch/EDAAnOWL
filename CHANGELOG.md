@@ -17,6 +17,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.0] - 2025-12-22
+
+### Added
+
+- **IDSA Class Alignment**: Now using IDSA URIs directly (`ids:SmartDataApp`, `ids:DataResource`) instead of local classes.
+- **`:DataRepresentation`**: New internal class for data distributions, subclass of `dcat:Distribution`. Replaces usage of ghost `ids:DataRepresentation`.
+- **`:instance`**: New property for linking Distributions to `ids:Artifact`. Replaces usage of ghost `ids:instance`.
+- **New IDSA external terms**: Declared minimal references to IDSA classes used in examples:
+  - Classes: `ids:DataResource`, `ids:ContractOffer`, `ids:ResourceEndpoint`, `ids:Endpoint`, `ids:ConnectorEndpoint`, `ids:AppEndpoint`, `ids:Described`, `ids:DescribedSemantically`, `ids:DigitalContent`, `ids:ManagedEntity`, `ids:UsagePolicyClass`
+  - Object Properties: `ids:representation`, `ids:contractOffer`, `ids:resourceEndpoint`, `ids:appEndpoint`, `ids:endpointArtifact`, `ids:dataAppInformation`, `ids:dataTypeSchema`, `ids:supportedUsagePolicies`
+  - Data Properties: `ids:checkSum`, `ids:accessURL`, `ids:appDocumentation`, `ids:appEndpointPort`, `ids:appEndpointProtocol`, `ids:appEnvironmentVariables`, `ids:appStorageConfiguration`, `ids:endpointURI`, `ids:fileName`
+- **Traceability**: Added `:consumesDataRepresentation` and `:producesDataRepresentation` to link BIGOWL Components with EDAAnOWL DataRepresentations.
+- **AppRepresentation flow**: Added `:consumesAppRepresentation` and `:producesAppRepresentation` for workflow component modeling.
+- **Artifact Validation**: Added SHACL shapes for `ids:Artifact`.
+- **New examples**: Added Use Case 5b demonstrating `AppRepresentation` with Workflow Components.
+- **New observable properties**: Added `reflectance_red` and `reflectance_nir` to vocabulary.
+
+### Changed
+
+- **Profile Conformance (BREAKING)**: `:conformsToProfile` property domain changed from `ids:Resource` to `dcat:Distribution`. Existing data using `:conformsToProfile` directly on resources must be updated.
+- **SHACL shapes**: Updated `sh:targetClass` to use `ids:DataResource` and `ids:SmartDataApp` instead of local classes.
+- **Namespace Cleanup**: Moved several classes and properties from `ids:` namespace to `:edaan:` namespace to avoid invalid "ghost" IDSA entities.
+- **Annotation Cleanup**: Stripped annotations from external terms (DCAT, PROV, SKOS, DCTERMS) to avoid redundancy.
+- **Media Type**: Switched to `dcat:mediaType` instead of local `ids:mediaType`.
+- **Architecture diagram**: Updated `eda-an-architecture-en.svg` to use `ids:SmartDataApp`.
+
+### Deprecated
+
+- `ids:DataRepresentation` (ghost class, now use `:DataRepresentation`)
+- `ids:instance` (ghost property, now use `:instance`)
+- `ids:mediaType` (now use `dcat:mediaType`)
+
+---
+
 ## [0.3.2] - 2025-12-16
 
 ### Added
@@ -230,7 +264,8 @@ With this both annotations we help to widoco to generate a better documentation 
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.2...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.2...v0.4.0
 [0.3.2]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.2.1...v0.3.0
