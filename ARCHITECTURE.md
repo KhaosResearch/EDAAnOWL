@@ -16,7 +16,7 @@ graph TB
 
         subgraph EDAAnOWL ["EDAAnOWL (Semantics)"]
             DA["DataAsset<br/>(Supply)"]
-            Apps["SmartDataApp Types<br/>(Demand)"]
+            Apps["ids:SmartDataApp Types<br/>(Demand)"]
             
             subgraph Matchmaking ["Matchmaking Core"]
                 Prof["DataProfile<br/>(Structure)"]
@@ -126,7 +126,7 @@ Together, they enable more robust discovery and interoperability between data as
 
 ### Data Quality and Provenance
 
-EDAAnOWL v0.3.2 (building on v0.3.0 and v0.3.1) provides explicit support for data quality and lineage:
+EDAAnOWL v0.4.0 (building on v0.3.0 through v0.3.2) provides explicit support for data quality and lineage:
 
 - **Metrics (`Metric`, `QualityMetric`)**: A `DataProfile` can define multiple metrics using `:hasMetric`. These align with `dqv:Metric`, allowing users to specify quality indicators (e.g., completeness, accuracy) or descriptive statistics (e.g., record count) with values and units.
 - **Provenance (`prov:wasGeneratedBy`)**: A `DataAsset` can be linked back to the `ids:SmartDataApp` (e.g., a `:PredictionApp`) that created it. This enables full lineage tracing from the raw data, through the processing app, to the derived asset.

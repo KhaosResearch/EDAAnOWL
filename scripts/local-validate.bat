@@ -11,7 +11,7 @@ if errorlevel 1 goto :build_error
 echo --- Finding latest version ---
 set LATEST_VERSION=
 pushd "%ROOT_DIR%\src"
-for /d %%d in (0.3.*) do set LATEST_VERSION=%%d
+for /d %%d in (0.*) do set LATEST_VERSION=%%d
 popd
 
 if "!LATEST_VERSION!"=="" goto :version_error
