@@ -36,6 +36,22 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
       skos:inScheme :ObservedPropertyScheme ;
       skos:exactMatch agrovoc:c_ce585e0d .  # AGROVOC: normalized difference vegetation index
 
+:reflectance_red rdf:type owl:NamedIndividual ,
+                          skos:Concept ,
+                          :ObservableProperty ;
+                 skos:prefLabel "Red Reflectance"@en ,
+                                "Reflectancia Roja"@es ;
+                 skos:definition "Surface reflectance in the red band (~620-700nm), used in vegetation indices."@en ;
+                 skos:inScheme :ObservedPropertyScheme .
+
+:reflectance_nir rdf:type owl:NamedIndividual ,
+                          skos:Concept ,
+                          :ObservableProperty ;
+                 skos:prefLabel "NIR Reflectance"@en ,
+                                "Reflectancia NIR"@es ;
+                 skos:definition "Surface reflectance in the near-infrared band (~700-1100nm), used in vegetation indices."@en ;
+                 skos:inScheme :ObservedPropertyScheme .
+
 :evi rdf:type owl:NamedIndividual ,
               skos:Concept ,
               :ObservableProperty ;

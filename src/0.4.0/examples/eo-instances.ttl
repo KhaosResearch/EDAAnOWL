@@ -17,6 +17,8 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix data: <http://example.org/data/> .
 @prefix profile: <http://example.org/profile/> .
+@prefix bigwf: <https://w3id.org/BIGOWLWorkflows/> .
+@prefix opmw: <http://www.opmw.org/ontology/> .
 
 <http://example.org/data/eo/> rdf:type owl:Ontology ;
     owl:imports <https://w3id.org/EDAAnOWL/> ;
@@ -78,8 +80,8 @@ data:SentinelOliveJaen2024_Artifact a ids:Artifact ;
 ###
 ### Use Case 2: Prediction App with extended observable properties
 ###
-# NOTE: PredictionApp is a subclass of :SmartDataApp and ids:DataApp
-ex:WaterStressCalculator a :PredictionApp, :SmartDataApp, ids:DataApp ;
+# NOTE: PredictionApp is a subclass of ids:SmartDataApp
+ex:WaterStressCalculator a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
     dct:title "Water Stress Calculator"@en ;
     :hasDomainSector :agriculture ;
     :supportContact [
@@ -201,7 +203,7 @@ ex:PredictionOutputCSV a :DataRepresentation ;
     dct:format "text/csv" ;
     :conformsToProfile ex:Profile_PredictionOutput .
 
-ex:OliveYieldPredictor a :PredictionApp, :SmartDataApp, ids:DataApp ;
+ex:OliveYieldPredictor a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
     dct:title "Olive Yield Predictor"@en ;
     :hasDomainSector :agriculture ;
     :requiresObservableProperty :ndvi, :yield, :soilMoisture ;
@@ -227,6 +229,86 @@ ex:Profile_PredictionOutput a :DataProfile ;
         :metricValue "0.82"^^xsd:decimal
     ] .
 
+# --- Use Case 5b: AppRepresentation with Workflow Component (v0.4.0) ---
+# Demonstrates new :consumesAppRepresentation and :producesAppRepresentation properties
+
+# A published DataApp with its AppRepresentation (software delivery form)
+ex:NDVICalculatorService a :AnalyzerApp, ids:SmartDataApp, ids:DataApp ;
+    dct:title "NDVI Calculator Microservice"@en ;
+    dct:description "Calculates NDVI from multispectral bands (Red, NIR)"@en ;
+    :hasDomainSector :agriculture ;
+    :requiresObservableProperty :reflectance_red, :reflectance_nir ;
+    :producesObservableProperty :ndvi ;
+    ids:representation ex:NDVICalculatorDocker .  # Link to AppRepresentation
+
+# AppRepresentation: the concrete software artifact (Docker image)
+ex:NDVICalculatorDocker a ids:AppRepresentation ;
+    dct:format "application/vnd.docker.distribution.manifest.v2+json" ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/application/vnd.oci.image.manifest.v1+json> ;
+    :instance ex:NDVICalculatorDockerArtifact .
+
+# The concrete artifact (Docker image)
+ex:NDVICalculatorDockerArtifact a ids:Artifact ;
+    rdfs:label "ndvi-calculator:v2.1.0" ;
+    dct:byteSize "156000000"^^xsd:integer ;
+    ids:checkSum "sha256:abc123def456..." .
+
+# A workflow component that USES the app (consumes the AppRepresentation)
+ex:VegetationAnalysisStep a bigwf:Component ;
+    dct:title "Vegetation Analysis Step"@en ;
+    dct:description "Workflow step that calculates vegetation indices from satellite imagery"@en ;
+    :consumesDataRepresentation data:SentinelOliveJaen2024_Repr ;  # Input: satellite data
+    :consumesAppRepresentation ex:NDVICalculatorDocker ;           # Uses: NDVI calculator app
+    :producesDataRepresentation ex:NDVIOutputRepresentation .      # Output: NDVI results
+
+# The workflow template containing the component
+ex:AgriAnalysisWorkflow a opmw:WorkflowTemplate ;
+    dct:title "Agricultural Analysis Pipeline"@en ;
+    dct:description "End-to-end workflow for olive grove analysis"@en .
+
+# Link the DataApp to the component it implements
+ex:NDVICalculatorService :implementsComponent ex:VegetationAnalysisStep ;
+    :requiresProfile ex:MultispectralInputProfile ;
+    :producesProfile ex:NDVIOutputProfile .
+
+# Input profile expected by the NDVI calculator
+ex:MultispectralInputProfile a :DataProfile ;
+    dct:title "Multispectral Input Profile"@en ;
+    :declaresDataClass :georaster ;
+    :declaresObservedProperty :reflectance_red, :reflectance_nir ;
+    :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
+    :hasMetric [
+        a :Metric, :QualityMetric ;
+        :metricName "completeness" ;
+        :metricValue "0.95"^^xsd:decimal
+    ] .
+
+# Output profile produced by the NDVI calculator
+ex:NDVIOutputProfile a :DataProfile ;
+    dct:title "NDVI Output Profile"@en ;
+    :declaresDataClass :georaster ;
+    :declaresObservedProperty :ndvi ;
+    dcat:spatialResolutionInMeters "10.0"^^xsd:decimal ;
+    :hasMetric [
+        a :Metric, :PerformanceMetric ;
+        :metricType :mt_executionTime ;
+        :metricName "executionTime" ;
+        :metricValue "45"^^xsd:integer ;
+        :metricUnit "seconds"
+    ] ,
+    [
+        a :Metric, :QualityMetric ;
+        :metricType :mt_noDataRatio ;
+        :metricName "noDataRatio" ;
+        :metricValue "0.02"^^xsd:decimal
+    ] .
+
+# Output representation (v0.4.0 pattern: profile on Distribution)
+ex:NDVIOutputRepresentation a :DataRepresentation ;
+    dct:format "image/tiff" ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/image/tiff> ;
+    :conformsToProfile ex:NDVIOutputProfile .
+
 # --- Use Case 6: Soil Data with extended soil properties ---
 
 ex:SoilAnalysis_Jaen a :DataAsset ;
@@ -234,6 +316,11 @@ ex:SoilAnalysis_Jaen a :DataAsset ;
     :hasDomainSector :agriculture ;
     :topic :agro_soilManagement ;
     :servesObservableProperty :soilMoisture, :soilPH, :electricalConductivity, :organicMatter ;
+    ids:representation ex:SoilAnalysisCSV .  # v0.4.0 pattern: link to Distribution
+
+# v0.4.0 Pattern: Profile on Distribution
+ex:SoilAnalysisCSV a :DataRepresentation ;
+    dct:format "text/csv" ;
     :conformsToProfile ex:Profile_SoilData .
 
 ex:Profile_SoilData a :DataProfile ;

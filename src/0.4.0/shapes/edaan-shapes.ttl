@@ -96,7 +96,7 @@
 
 
 :DataResourceShape a sh:NodeShape ;
-    sh:targetClass :DataResource ;
+    sh:targetClass ids:DataResource ;
     rdfs:label "Data Resource Shape"@en ;
     rdfs:comment "In v0.4.0, conformsToProfile has moved to Distribution. DataResource just needs representation."@en ;
 
@@ -225,7 +225,7 @@
 
 :SmartDataAppSemanticShape
     a sh:NodeShape ;
-    sh:targetClass :SmartDataApp ;
+    sh:targetClass ids:SmartDataApp ;
     sh:property [
         sh:path :requiresObservableProperty ;
         sh:minCount 0 ;

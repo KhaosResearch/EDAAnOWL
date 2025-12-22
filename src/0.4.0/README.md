@@ -320,7 +320,7 @@ ex:MyRaster a :DataAsset ;
 
 ex:GeoTIFFRepr a ids:Representation ;
   dct:format "GeoTIFF" ;
-  ids:mediaType <https://www.iana.org/assignments/media-types/image/tiff> ;
+  dcat:mediaType <https://www.iana.org/assignments/media-types/image/tiff> ;
   dct:language "en" .
 ```
 
