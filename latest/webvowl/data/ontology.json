@@ -19,19 +19,24 @@
       "es" : "EDAAnOWL"
     },
     "other" : {
-      "priorVersion" : [ {
-        "identifier" : "priorVersion",
-        "language" : "undefined",
-        "value" : "https://w3id.org/EDAAnOWL/0.4.0",
-        "type" : "iri"
-      } ],
       "image" : [ {
         "identifier" : "image",
         "language" : "undefined",
         "value" : "https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/refs/heads/main/images/eda-an-architecture-en.svg",
         "type" : "iri"
       } ],
+      "priorVersion" : [ {
+        "identifier" : "priorVersion",
+        "language" : "undefined",
+        "value" : "https://w3id.org/EDAAnOWL/0.4.0",
+        "type" : "iri"
+      } ],
       "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.linkedin.com/in/martin-jeronimo-salvachua/",
+        "type" : "iri"
+      }, {
         "identifier" : "creator",
         "language" : "undefined",
         "value" : "https://khaos.uma.es/",
@@ -40,11 +45,6 @@
         "identifier" : "creator",
         "language" : "undefined",
         "value" : "https://github.com/MartinM10",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "https://www.linkedin.com/in/martin-jeronimo-salvachua/",
         "type" : "iri"
       } ],
       "created" : [ {
@@ -105,16 +105,16 @@
         "value" : "https://github.com/KhaosResearch/EDAAnOWL",
         "type" : "iri"
       } ],
-      "bibliographicCitation" : [ {
-        "identifier" : "bibliographicCitation",
-        "language" : "undefined",
-        "value" : "Salvachúa Galimberti, M. J.; Khaos Research. (2025). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.4.0.",
-        "type" : "label"
-      } ],
       "preferredNamespaceUri" : [ {
         "identifier" : "preferredNamespaceUri",
         "language" : "undefined",
         "value" : "https://w3id.org/EDAAnOWL/",
+        "type" : "label"
+      } ],
+      "bibliographicCitation" : [ {
+        "identifier" : "bibliographicCitation",
+        "language" : "undefined",
+        "value" : "Salvachúa Galimberti, M. J.; Khaos Research. (2025). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.4.0.",
         "type" : "label"
       } ],
       "introduction" : [ {
@@ -180,10 +180,10 @@
     "id" : "25",
     "type" : "owl:Class"
   }, {
-    "id" : "92",
+    "id" : "94",
     "type" : "owl:Class"
   }, {
-    "id" : "99",
+    "id" : "98",
     "type" : "owl:Class"
   }, {
     "id" : "83",
@@ -360,7 +360,7 @@
     "id" : "187",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "94",
+    "id" : "93",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "40",
@@ -378,7 +378,7 @@
     "id" : "191",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "124",
+    "id" : "125",
     "type" : "owl:Class"
   }, {
     "id" : "32",
@@ -520,6 +520,92 @@
     "label" : {
       "IRI-based" : "ConceptScheme"
     },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/EDAAnOWL/SectorScheme",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "description" : {
+        "en" : "Sectors for tagging data assets and applications by economic or thematic domain."
+      },
+      "annotations" : {
+        "title" : [ {
+          "identifier" : "title",
+          "language" : "en",
+          "value" : "Economic and Domain Sectors",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "SectorScheme"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "description" : {
+        "en" : "Properties that can be observed or measured in datasets."
+      },
+      "annotations" : {
+        "title" : [ {
+          "identifier" : "title",
+          "language" : "en",
+          "value" : "Observed Properties",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "ObservedPropertyScheme"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "description" : {
+        "en" : "Standard types of metrics for data quality and profiling."
+      },
+      "annotations" : {
+        "title" : [ {
+          "identifier" : "title",
+          "language" : "en",
+          "value" : "Metric Types",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "MetricTypeScheme"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/AgroVocab",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "description" : {
+        "en" : "Specialized vocabulary for agricultural data and applications."
+      },
+      "annotations" : {
+        "title" : [ {
+          "identifier" : "title",
+          "language" : "en",
+          "value" : "Agricultural Domain Vocabulary",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AgroVocab"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/DataTypeScheme",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "description" : {
+        "en" : "Categories for classifying data types and formats."
+      },
+      "annotations" : {
+        "title" : [ {
+          "identifier" : "title",
+          "language" : "en",
+          "value" : "Data Type Categories",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "DataTypeScheme"
+      }
+    } ],
     "attributes" : [ "external" ],
     "id" : "67"
   }, {
@@ -579,7 +665,7 @@
     },
     "subClasses" : [ "35" ],
     "attributes" : [ "external" ],
-    "id" : "92"
+    "id" : "94"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/MetricType",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -589,11 +675,564 @@
       "en" : "Metric Type",
       "es" : "Tipo de Métrica"
     },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_recordCount",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Record Count",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Número de Registros",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Total number of records/rows in the dataset.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_recordCount"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_modelAccuracy",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Precisión del Modelo",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Model Accuracy",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Accuracy score of a predictive model (0.0 to 1.0).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_modelAccuracy"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_temporalExtent",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Temporal Extent",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Extensión Temporal",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Time range covered by the dataset (start to end date).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_temporalExtent"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_accuracy",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Exactitud",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Accuracy",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Degree to which data correctly represents real-world values.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/dqv#Accuracy",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_accuracy"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_cloudCoverage",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Cloud Coverage",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Cobertura de Nubes",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Percentage of the image obscured by clouds (0-100%).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_cloudCoverage"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_consistency",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Consistencia",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Consistency",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Degree to which data values are free of contradictions and coherent with other data.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/dqv#Consistency",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_consistency"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_duplicateRatio",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Duplicate Ratio",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Ratio de Duplicados",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Proportion of duplicate records (0.0 to 1.0).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_duplicateRatio"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_completeness",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Completitud",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Completeness",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Percentage of non-null or non-missing values in the dataset or feature.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/dqv#Completeness",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_completeness"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_featureCount",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Feature Count",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Número de Características",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Total number of features/columns in the dataset.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_featureCount"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_timeliness",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Timeliness",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Puntualidad",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Degree to which data is up-to-date for the task at hand.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/dqv#Timeliness",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_timeliness"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_noDataRatio",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "NoData Ratio",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Ratio Sin Datos",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Proportion of pixels with NoData value in a raster.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_noDataRatio"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_executionTime",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Execution Time",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Tiempo de Ejecución",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Average time to complete processing (in seconds).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_executionTime"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_spatialExtent",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Spatial Extent",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Extensión Espacial",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Bounding box or area covered by the dataset.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_spatialExtent"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_uniqueness",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Unicidad",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Uniqueness",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Percentage of distinct values, indicating absence of duplicates.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/dqv#Uniqueness",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_uniqueness"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_updateFrequency",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Frecuencia de Actualización",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Update Frequency",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "How often the dataset is updated (e.g., daily, weekly).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_updateFrequency"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_nullRatio",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Ratio de Nulos",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Null Ratio",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Proportion of null/missing values (0.0 to 1.0).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_nullRatio"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_f1Score",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "F1 Score",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Harmonic mean of precision and recall.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_f1Score"
+      }
+    } ],
     "comment" : {
       "en" : "A controlled vocabulary term for standardized metric types (e.g., completeness, recordCount, cloudCoverage). Use :metricType to link a Metric to its type.",
       "es" : "Un término de vocabulario controlado para tipos de métricas estandarizadas (p. ej., completitud, recuento de registros, cobertura de nubes). Use :metricType para vincular una Métrica con su tipo."
     },
-    "id" : "99",
+    "id" : "98",
     "superClasses" : [ "11" ]
   }, {
     "iri" : "http://www.w3.org/ns/odrl/2/Asset",
@@ -628,7 +1267,2645 @@
     "label" : {
       "IRI-based" : "Concept"
     },
-    "subClasses" : [ "99", "27" ],
+    "individuals" : [ {
+      "iri" : "https://w3id.org/EDAAnOWL/agriculture",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/SectorScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Agriculture",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Crop production, livestock, and agricultural activities",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agriculture"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/evi",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "EVI",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Enhanced Vegetation Index - optimized for high biomass regions.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "evi"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/tourism",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/SectorScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Tourism",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Travel, hospitality, and tourism services",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "tourism"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_cloudCoverage",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Cloud Coverage",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Cobertura de Nubes",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Percentage of the image obscured by clouds (0-100%).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_cloudCoverage"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_pruning",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_6274",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Pruning",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Poda",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Selective removal of plant parts (branches, buds, roots).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_pruning"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_noDataRatio",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "NoData Ratio",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Ratio Sin Datos",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Proportion of pixels with NoData value in a raster.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_noDataRatio"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/relativeHumidity",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_6496",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Humedad Relativa",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Relative Humidity",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Percentage of water vapor in the air relative to saturation.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "relativeHumidity"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_uniqueness",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Unicidad",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Uniqueness",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Percentage of distinct values, indicating absence of duplicates.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/dqv#Uniqueness",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_uniqueness"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/repiloIncidence",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Incidencia de Repilo",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Repilo Incidence",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Predicted incidence of Repilo disease (Fusicladium oleagineum) in olive trees.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/diseaseIncidence",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "repiloIncidence"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_recordCount",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Record Count",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Número de Registros",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Total number of records/rows in the dataset.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_recordCount"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/pestIncidence",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_3855",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Incidencia de Plagas",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Pest Incidence",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Presence or severity of pest infestation.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "pestIncidence"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/soilTemperature",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Temperatura del Suelo",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Soil Temperature",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Temperature of the soil at a given depth.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/temperature",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "soilTemperature"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_almond",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_8734",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Almond",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Almendro",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Almond tree cultivation (Prunus dulcis).",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_almond"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/reflectance_red",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Reflectancia Roja",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Red Reflectance",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Surface reflectance in the red band (~620-700nm), used in vegetation indices.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "reflectance_red"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/waterStress",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_24993",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Water Stress",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Estrés Hídrico",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Condition when water availability limits plant growth.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "waterStress"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/yield",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_8488",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Crop Yield",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Rendimiento del Cultivo",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Amount of crop produced per unit area.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "yield"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/reflectance_nir",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "NIR Reflectance",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Reflectancia NIR",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Surface reflectance in the near-infrared band (~700-1100nm), used in vegetation indices.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "reflectance_nir"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/evapotranspiration",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_2741",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Evapotranspiration",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Evapotranspiración",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Combined water loss from evaporation and plant transpiration.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "evapotranspiration"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/transport",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/SectorScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Transport",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Transportation and logistics services",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "transport"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_consistency",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Consistencia",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Consistency",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Degree to which data values are free of contradictions and coherent with other data.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/dqv#Consistency",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_consistency"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_featureCount",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Feature Count",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Número de Características",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Total number of features/columns in the dataset.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_featureCount"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_pestControl",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_5726",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Pest Control",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Control de Plagas",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Management of pests that damage crops.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_pestControl"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/georaster",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/DataTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Geospatial Raster",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Grid-based geospatial data (satellite imagery, DEM)",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "georaster"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_repilo",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Repilo",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Repilo",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Olive Leaf Spot",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Fungal disease of olive caused by Fusicladium oleagineum.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_11042",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_repilo"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/solarRadiation",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_14415",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Solar Radiation",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Radiación Solar",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Electromagnetic radiation emitted by the sun.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "solarRadiation"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_soilManagement",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_7176",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Manejo del Suelo",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Soil Management",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Practices to maintain and improve soil health.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_soilManagement"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_wheat",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_8373",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Wheat",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Trigo",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Cereal grain, genus Triticum.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_wheat"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_sunflower",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_aad037e4",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Girasol",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Sunflower",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Helianthus annuus, for oil and seeds.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_sunflower"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_updateFrequency",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Frecuencia de Actualización",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Update Frequency",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "How often the dataset is updated (e.g., daily, weekly).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_updateFrequency"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_harvest",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_3500",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Harvest",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Cosecha",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Crop harvesting activities and timing.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_harvest"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_olive",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_12926",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Olive",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Olivo",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Olive tree cultivation and oil production (Olea europaea).",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_olive"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/electricalConductivity",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Conductividad Eléctrica",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Electrical Conductivity",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Measure of soil salinity via electrical conductivity.",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "EC",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "electricalConductivity"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/lai",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_35196",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "LAI",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "IAF",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Leaf Area Index - total one-sided area of leaf tissue per unit ground area.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lai"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_modelAccuracy",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Precisión del Modelo",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Model Accuracy",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Accuracy score of a predictive model (0.0 to 1.0).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_modelAccuracy"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_organic",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_5308",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Agricultura Ecológica",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Organic Farming",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Agricultural production without synthetic chemicals.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_organic"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_verticillium",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_35187",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Verticilosis",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Verticillium Wilt",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Soil-borne fungal disease affecting many crops.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_verticillium"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/organicMatter",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_35657",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Materia Orgánica",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Organic Matter",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Percentage of organic material in soil.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "organicMatter"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/textual",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/DataTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Textual",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Unstructured or semi-structured text data",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "textual"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_accuracy",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Exactitud",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Accuracy",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Degree to which data correctly represents real-world values.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/dqv#Accuracy",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_accuracy"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/chlorophyllContent",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "closeMatch" : [ {
+          "identifier" : "closeMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_1577",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Chlorophyll Content",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Contenido de Clorofila",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Concentration of chlorophyll in plant leaves.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "chlorophyllContent"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_vine",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_3360",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Vine",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Vid",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Grapevine cultivation for wine or table grapes (Vitis vinifera).",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_vine"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_completeness",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Completitud",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Completeness",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Percentage of non-null or non-missing values in the dataset or feature.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/dqv#Completeness",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_completeness"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_timeliness",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Timeliness",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Puntualidad",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Degree to which data is up-to-date for the task at hand.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "http://www.w3.org/ns/dqv#Timeliness",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_timeliness"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_executionTime",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Execution Time",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Tiempo de Ejecución",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Average time to complete processing (in seconds).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_executionTime"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/soilPH",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_34901",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Soil pH",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "pH del Suelo",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Measure of acidity or alkalinity of soil.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "soilPH"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_tuberculosis",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Tuberculosis del Olivo",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Olive Tuberculosis",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Bacterial disease caused by Pseudomonas savastanoi.",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Olive Knot",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_770",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_tuberculosis"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/energy",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/SectorScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Energy",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Energy production, distribution, and consumption",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "energy"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/precipitation",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_6161",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Precipitation",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Precipitación",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Rainfall, snowfall, or other forms of moisture.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "precipitation"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_irrigation",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_3954",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Irrigation",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Riego",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Artificial application of water to land for agriculture.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_irrigation"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_precisionAgriculture",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_92363",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Agricultura de Precisión",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Precision Agriculture",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Farming management using GPS, sensors, and data analytics.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_precisionAgriculture"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_citrus",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_1641",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Citrus",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Cítricos",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Citrus fruit cultivation (oranges, lemons, etc.).",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_citrus"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/timeseries",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/DataTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Time Series",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Data points indexed in time order",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "timeseries"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_fertilization",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_10795",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Fertilization",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Fertilización",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Application of fertilizers to soil.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_fertilization"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/tabular",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/DataTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Tabular",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Structured data in rows and columns",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "tabular"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/irrigationNeed",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Irrigation Need",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Necesidad de Riego",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Estimated water requirement for optimal crop growth.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/waterStress",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "irrigationNeed"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_temporalExtent",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Temporal Extent",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Extensión Temporal",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Time range covered by the dataset (start to end date).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_temporalExtent"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/yieldForecast",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Predicción de Rendimiento",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Yield Forecast",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Predicted crop yield based on models or historical data.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/yield",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "yieldForecast"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/health",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/SectorScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Health",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Healthcare, medical services, and public health",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "health"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_duplicateRatio",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Duplicate Ratio",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Ratio de Duplicados",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Proportion of duplicate records (0.0 to 1.0).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_duplicateRatio"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_barley",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_823",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Barley",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Cebada",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Cereal grain, Hordeum vulgare.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_barley"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_sugarbeet",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMeatch" : [ {
+          "identifier" : "exactMeatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_7460",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Remolacha Azucarera",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Sugar Beet",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Beta vulgaris for sugar production.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_sugarbeet"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_maize",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_12332",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Maize",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Maíz",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Corn, Zea mays.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_maize"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/biomass",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_926",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Biomass",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Biomasa",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Total mass of living organisms or organic matter in an area.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "biomass"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/soilMoisture",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_7208",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Soil Moisture",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Humedad del Suelo",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Water content in the soil.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "soilMoisture"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/occupancy",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Ocupación",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Occupancy",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Usage or occupation rate of facilities.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "occupancy"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_cotton",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_1926",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Algodón",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Cotton",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Fiber crop, Gossypium.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_cotton"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_spatialExtent",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Spatial Extent",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Extensión Espacial",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Bounding box or area covered by the dataset.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_spatialExtent"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/diseaseIncidence",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_5962",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Incidencia de Enfermedad",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Disease Incidence",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Presence or severity of plant disease.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "diseaseIncidence"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/ndvi",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_ce585e0d",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "NDVI",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "NDVI",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Normalized Difference Vegetation Index - indicates vegetation health and density.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "ndvi"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/agro_rice",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_6599",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/AgroVocab",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Arroz",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Rice",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Cereal grain, Oryza sativa.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/agriculture",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "agro_rice"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/windSpeed",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_37675",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Wind Speed",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Velocidad del Viento",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Speed of air movement.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "windSpeed"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/temperature",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_7657",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Temperatura",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Temperature",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Thermal measurement in degrees (air, soil, or water).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "temperature"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/geovector",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/DataTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Geospatial Vector",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Vector-based geospatial data (points, lines, polygons)",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "geovector"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_f1Score",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "F1 Score",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Harmonic mean of precision and recall.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_f1Score"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/mt_nullRatio",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/MetricTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Ratio de Nulos",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Null Ratio",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Proportion of null/missing values (0.0 to 1.0).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "mt_nullRatio"
+      }
+    } ],
+    "subClasses" : [ "98", "27" ],
     "attributes" : [ "external" ],
     "id" : "11"
   }, {
@@ -665,7 +3942,7 @@
     },
     "attributes" : [ "external" ],
     "id" : "35",
-    "superClasses" : [ "83", "8", "92" ]
+    "superClasses" : [ "8", "83", "94" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
@@ -948,6 +4225,940 @@
       "en" : "Observable Property",
       "es" : "Propiedad Observable"
     },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/EDAAnOWL/lai",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_35196",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "LAI",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "IAF",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Leaf Area Index - total one-sided area of leaf tissue per unit ground area.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "lai"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/evi",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "EVI",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Enhanced Vegetation Index - optimized for high biomass regions.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "evi"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/organicMatter",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_35657",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Materia Orgánica",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Organic Matter",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Percentage of organic material in soil.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "organicMatter"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/chlorophyllContent",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "closeMatch" : [ {
+          "identifier" : "closeMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_1577",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Chlorophyll Content",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Contenido de Clorofila",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Concentration of chlorophyll in plant leaves.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "chlorophyllContent"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/relativeHumidity",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_6496",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Humedad Relativa",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Relative Humidity",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Percentage of water vapor in the air relative to saturation.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "relativeHumidity"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/soilPH",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_34901",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Soil pH",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "pH del Suelo",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Measure of acidity or alkalinity of soil.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "soilPH"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/precipitation",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_6161",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Precipitation",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Precipitación",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Rainfall, snowfall, or other forms of moisture.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "precipitation"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/repiloIncidence",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Incidencia de Repilo",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Repilo Incidence",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Predicted incidence of Repilo disease (Fusicladium oleagineum) in olive trees.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/diseaseIncidence",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "repiloIncidence"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/soilTemperature",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Temperatura del Suelo",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Soil Temperature",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Temperature of the soil at a given depth.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/temperature",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "soilTemperature"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/pestIncidence",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_3855",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Incidencia de Plagas",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Pest Incidence",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Presence or severity of pest infestation.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "pestIncidence"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/reflectance_red",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Reflectancia Roja",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Red Reflectance",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Surface reflectance in the red band (~620-700nm), used in vegetation indices.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "reflectance_red"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/yield",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_8488",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Crop Yield",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Rendimiento del Cultivo",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Amount of crop produced per unit area.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "yield"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/waterStress",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_24993",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Water Stress",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Estrés Hídrico",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Condition when water availability limits plant growth.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "waterStress"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/reflectance_nir",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "NIR Reflectance",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Reflectancia NIR",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Surface reflectance in the near-infrared band (~700-1100nm), used in vegetation indices.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "reflectance_nir"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/irrigationNeed",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Irrigation Need",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Necesidad de Riego",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Estimated water requirement for optimal crop growth.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/waterStress",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "irrigationNeed"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/evapotranspiration",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_2741",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Evapotranspiration",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Evapotranspiración",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Combined water loss from evaporation and plant transpiration.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "evapotranspiration"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/yieldForecast",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Predicción de Rendimiento",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Yield Forecast",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Predicted crop yield based on models or historical data.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/yield",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "yieldForecast"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/biomass",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_926",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Biomass",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Biomasa",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Total mass of living organisms or organic matter in an area.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "biomass"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/soilMoisture",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_7208",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Soil Moisture",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Humedad del Suelo",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Water content in the soil.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "soilMoisture"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/occupancy",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Ocupación",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Occupancy",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Usage or occupation rate of facilities.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "occupancy"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/solarRadiation",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_14415",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Solar Radiation",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Radiación Solar",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Electromagnetic radiation emitted by the sun.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "solarRadiation"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/diseaseIncidence",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_5962",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Incidencia de Enfermedad",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Disease Incidence",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Presence or severity of plant disease.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "diseaseIncidence"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/ndvi",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_ce585e0d",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "NDVI",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "NDVI",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Normalized Difference Vegetation Index - indicates vegetation health and density.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "ndvi"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/windSpeed",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_37675",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Wind Speed",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Velocidad del Viento",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Speed of air movement.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "windSpeed"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/temperature",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "exactMatch" : [ {
+          "identifier" : "exactMatch",
+          "language" : "undefined",
+          "value" : "http://aims.fao.org/aos/agrovoc/c_7657",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Temperatura",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Temperature",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Thermal measurement in degrees (air, soil, or water).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "temperature"
+      }
+    }, {
+      "iri" : "https://w3id.org/EDAAnOWL/electricalConductivity",
+      "baseIri" : "https://w3id.org/EDAAnOWL",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/EDAAnOWL/ObservedPropertyScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "es",
+          "value" : "Conductividad Eléctrica",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Electrical Conductivity",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Measure of soil salinity via electrical conductivity.",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "EC",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "electricalConductivity"
+      }
+    } ],
     "comment" : {
       "en" : "The semantic variable that a data asset describes (e.g., NDVI, Water Stress) or a service requires/produces.",
       "es" : "La variable semántica que describe un activo de datos (p. ej., NDVI, Estrés Hídrico) o que un servicio requiere/produce."
@@ -1085,23 +5296,23 @@
     "id" : "2",
     "superClasses" : [ "31" ]
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "185",
-    "label" : {
-      "IRI-based" : "decimal"
-    }
-  }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#duration",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "187",
+    "id" : "185",
     "label" : {
       "IRI-based" : "duration"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "94",
+    "id" : "187",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "93",
     "label" : {
       "IRI-based" : "decimal"
     }
@@ -1156,7 +5367,7 @@
       "IRI-based" : "Kind"
     },
     "attributes" : [ "external" ],
-    "id" : "124"
+    "id" : "125"
   }, {
     "iri" : "https://w3id.org/idsa/core/SoftwareRepresentation",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -1289,7 +5500,7 @@
     "id" : "91",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "93",
+    "id" : "92",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "95",
@@ -1298,7 +5509,7 @@
     "id" : "96",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "98",
+    "id" : "99",
     "type" : "owl:objectProperty"
   }, {
     "id" : "100",
@@ -1331,10 +5542,10 @@
     "id" : "122",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "81",
+    "id" : "124",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "125",
+    "id" : "81",
     "type" : "owl:objectProperty"
   }, {
     "id" : "128",
@@ -1647,7 +5858,7 @@
       "IRI-based" : "appEndpointProtocol"
     },
     "domain" : "29",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "28"
   }, {
     "iri" : "https://w3id.org/idsa/core/appEndpoint",
@@ -1667,7 +5878,7 @@
       "IRI-based" : "fileName"
     },
     "domain" : "35",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "34"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
@@ -1677,7 +5888,7 @@
       "IRI-based" : "spatialResolutionInMeters"
     },
     "domain" : "23",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "39"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesAppRepresentation",
@@ -1761,7 +5972,7 @@
       "IRI-based" : "alternative"
     },
     "domain" : "23",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "54"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasDerivedFrom",
@@ -1836,7 +6047,7 @@
       "IRI-based" : "appEndpointPort"
     },
     "domain" : "29",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "65"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasSpatialCoverage",
@@ -1911,7 +6122,7 @@
       "IRI-based" : "appDocumentation"
     },
     "domain" : "13",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "77"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#contactPoint",
@@ -1972,17 +6183,17 @@
   }, {
     "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
     "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "94",
+    "range" : "93",
     "label" : {
       "IRI-based" : "spatialResolutionInDegrees"
     },
     "domain" : "23",
-    "attributes" : [ "datatype", "external" ],
-    "id" : "93"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "92"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/instance",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "92",
+    "range" : "94",
     "label" : {
       "IRI-based" : "instance",
       "en" : "instance",
@@ -2026,7 +6237,7 @@
       "es" : "OBSOLETO: Use consumesDataRepresentation o consumesAppRepresentation en su lugar. Vincula un Componente BIGOWL con una Representación IDSA que consume como entrada."
     },
     "attributes" : [ "deprecated", "object" ],
-    "id" : "98"
+    "id" : "99"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasMetric",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2052,7 +6263,7 @@
       "IRI-based" : "checkSum"
     },
     "domain" : "35",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "101"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/alternativeName",
@@ -2094,7 +6305,7 @@
       "IRI-based" : "endpointURI"
     },
     "domain" : "23",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "109"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/metricName",
@@ -2121,7 +6332,7 @@
       "IRI-based" : "appStorageConfiguration"
     },
     "domain" : "13",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "114"
   }, {
     "iri" : "http://purl.org/dc/terms/subject",
@@ -2168,23 +6379,6 @@
     "attributes" : [ "datatype" ],
     "id" : "122"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/supportContact",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "124",
-    "label" : {
-      "IRI-based" : "supportContact",
-      "en" : "support contact",
-      "es" : "contacto de soporte"
-    },
-    "superproperty" : [ "79" ],
-    "domain" : "3",
-    "comment" : {
-      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL).",
-      "es" : "Punto de contacto estándar para soporte, usando vCard (fn, email, telephone, URL)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "81"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "0",
@@ -2199,7 +6393,24 @@
       "es" : "Vincula una DataApp con un DataProfile que produce como salida."
     },
     "attributes" : [ "object" ],
-    "id" : "125"
+    "id" : "124"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/supportContact",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "125",
+    "label" : {
+      "IRI-based" : "supportContact",
+      "en" : "support contact",
+      "es" : "contacto de soporte"
+    },
+    "superproperty" : [ "79" ],
+    "domain" : "3",
+    "comment" : {
+      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL).",
+      "es" : "Punto de contacto estándar para soporte, usando vCard (fn, email, telephone, URL)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "81"
   }, {
     "range" : "19",
     "domain" : "37",
@@ -2249,7 +6460,7 @@
       "IRI-based" : "accessURL"
     },
     "domain" : "41",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "134"
   }, {
     "range" : "31",
@@ -2263,7 +6474,7 @@
     "id" : "136"
   }, {
     "range" : "11",
-    "domain" : "99",
+    "domain" : "98",
     "attributes" : [ "anonymous", "object" ],
     "id" : "137"
   }, {
@@ -2426,7 +6637,7 @@
     "attributes" : [ "datatype", "deprecated" ],
     "id" : "154"
   }, {
-    "range" : "92",
+    "range" : "94",
     "domain" : "35",
     "attributes" : [ "anonymous", "object" ],
     "id" : "155"
@@ -2466,22 +6677,6 @@
     "attributes" : [ "anonymous", "object" ],
     "id" : "162"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/requiresObservableProperty",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "27",
-    "label" : {
-      "IRI-based" : "requiresObservableProperty",
-      "en" : "requires observable property",
-      "es" : "requiere propiedad observable"
-    },
-    "domain" : "25",
-    "comment" : {
-      "en" : "Defines the semantic signature of INPUT for a service (e.g., requires NDVI).",
-      "es" : "Define la firma semántica de la ENTRADA para un servicio (p. ej., requiere NDVI)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "163"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasTemporalCoverage",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "108",
@@ -2494,6 +6689,22 @@
     "comment" : {
       "en" : "Defines the temporal coverage of the data asset required by Earth Observation CUs.",
       "es" : "Define la cobertura temporal del activo de datos requerido por las CUs de Observación de la Tierra."
+    },
+    "attributes" : [ "object" ],
+    "id" : "163"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/requiresObservableProperty",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "27",
+    "label" : {
+      "IRI-based" : "requiresObservableProperty",
+      "en" : "requires observable property",
+      "es" : "requiere propiedad observable"
+    },
+    "domain" : "25",
+    "comment" : {
+      "en" : "Defines the semantic signature of INPUT for a service (e.g., requires NDVI).",
+      "es" : "Define la firma semántica de la ENTRADA para un servicio (p. ej., requiere NDVI)."
     },
     "attributes" : [ "object" ],
     "id" : "164"
@@ -2639,7 +6850,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/legalContact",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "124",
+    "range" : "125",
     "label" : {
       "IRI-based" : "legalContact",
       "en" : "legal contact",
@@ -2671,27 +6882,27 @@
       "IRI-based" : "thumbnailUrl"
     },
     "domain" : "3",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "182"
-  }, {
-    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
-    "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "185",
-    "label" : {
-      "IRI-based" : "spatialResolutionInMeters"
-    },
-    "domain" : "0",
-    "attributes" : [ "datatype", "allValues", "external" ],
-    "id" : "184"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
     "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "187",
+    "range" : "185",
     "label" : {
       "IRI-based" : "temporalResolution"
     },
     "domain" : "0",
-    "attributes" : [ "datatype", "allValues", "external" ],
+    "attributes" : [ "external", "datatype", "allValues" ],
+    "id" : "184"
+  }, {
+    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
+    "baseIri" : "http://www.w3.org/ns/dcat",
+    "range" : "187",
+    "label" : {
+      "IRI-based" : "spatialResolutionInMeters"
+    },
+    "domain" : "0",
+    "attributes" : [ "external", "datatype", "allValues" ],
     "id" : "186"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
@@ -2701,7 +6912,7 @@
       "IRI-based" : "temporalResolution"
     },
     "domain" : "23",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "189"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
@@ -2711,7 +6922,7 @@
       "IRI-based" : "spatialResolutionInDegrees"
     },
     "domain" : "0",
-    "attributes" : [ "datatype", "allValues", "external" ],
+    "attributes" : [ "external", "datatype", "allValues" ],
     "id" : "190"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesResource",
@@ -2732,7 +6943,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/metricType",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "99",
+    "range" : "98",
     "label" : {
       "IRI-based" : "metricType",
       "en" : "metric type",
@@ -2753,7 +6964,7 @@
       "IRI-based" : "appEnvironmentVariables"
     },
     "domain" : "13",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "194"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/paymentModelDescription",
