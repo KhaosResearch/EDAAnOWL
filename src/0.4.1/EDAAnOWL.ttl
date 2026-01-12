@@ -23,11 +23,11 @@
 @prefix widoco: <https://w3id.org/widoco/vocab#> .
 @prefix bigprob: <https://w3id.org/BIGOWLProblems/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix agrovocab: <https://w3id.org/EDAAnOWL/0.4.0/vocabularies/agro-vocab> .
-@prefix metric-types: <https://w3id.org/EDAAnOWL/0.4.0/vocabularies/metric-types> .
-@prefix sector-scheme: <https://w3id.org/EDAAnOWL/0.4.0/vocabularies/sector-scheme> .
-@prefix datatype-scheme: <https://w3id.org/EDAAnOWL/0.4.0/vocabularies/datatype-scheme> .
-@prefix observed-properties: <https://w3id.org/EDAAnOWL/0.4.0/vocabularies/observed-properties> .
+@prefix agrovocab: <https://w3id.org/EDAAnOWL/0.4.1/vocabularies/agro-vocab> .
+@prefix metric-types: <https://w3id.org/EDAAnOWL/0.4.1/vocabularies/metric-types> .
+@prefix sector-scheme: <https://w3id.org/EDAAnOWL/0.4.1/vocabularies/sector-scheme> .
+@prefix datatype-scheme: <https://w3id.org/EDAAnOWL/0.4.1/vocabularies/datatype-scheme> .
+@prefix observed-properties: <https://w3id.org/EDAAnOWL/0.4.1/vocabularies/observed-properties> .
 @base <https://w3id.org/EDAAnOWL/> .
 
 <https://w3id.org/EDAAnOWL/> rdf:type owl:Ontology ;
@@ -39,7 +39,7 @@
                                           <https://w3id.org/EDAAnOWL/0.4.1/vocabularies/sector-scheme> ;
                               dcterms:abstract "Lightweight ontology for data spaces. It aligns IDSA and BIGOWL, focusing on the strong semantic description of Data Assets and Data Apps through Data Profiles, which include technical characteristics (DCAT 3) and granular quality metrics."@en ,
                                                "Ontología ligera para espacios de datos. Alinea IDSA y BIGOWL, enfocándose en la descripción semántica robusta de Activos de Datos y Aplicaciones de Datos a través de Perfiles de Datos, que incluyen características técnicas (DCAT 3) y métricas de calidad granulares."@es ;
-                              dcterms:bibliographicCitation "Salvachúa Galimberti, M. J.; Khaos Research. (2025). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.4.0." ;
+                              dcterms:bibliographicCitation "Salvachúa Galimberti, M. J.; Khaos Research. (2025). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.4.1." ;
                               dcterms:created "2025-10-10"^^xsd:date ;
                               dcterms:creator <https://github.com/MartinM10> ,
                                               <https://khaos.uma.es/> ,
