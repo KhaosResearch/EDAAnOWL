@@ -92,9 +92,19 @@ def transform_csv(input_file: str, output_file: str):
     g.add((dataset_uri, EDAAN.servesObservableProperty, EDAAN.soilMoisture))
     g.add((dataset_uri, EDAAN.servesObservableProperty, EDAAN["yield"]))
     
-    # Link to profile
-    g.add((dataset_uri, EDAAN.conformsToProfile, OLIVE.OliveMonitoringProfile))
-    
+    # Create a Representation (ids:Representation / edaan:DataRepresentation)
+    representation_uri = OLIVE.OliveMonitoringRepresentation
+    g.add((representation_uri, RDF.type, EDAAN.DataRepresentation))
+    g.add((representation_uri, RDF.type, IDS.Representation))
+    g.add((representation_uri, DCAT.mediaType, Literal("text/csv")))
+    g.add((representation_uri, DCTERMS.format, Literal("CSV")))
+
+    # Link Asset -> Representation
+    g.add((dataset_uri, IDS.representation, representation_uri))
+
+    # Link Representation -> Profile (v0.4.1 pattern)
+    g.add((representation_uri, EDAAN.conformsToProfile, OLIVE.OliveMonitoringProfile))
+
     # Spatial coverage (bounding box as WKT)
     spatial_coverage = BNode()
     g.add((spatial_coverage, RDF.type, LOCN.Geometry))
