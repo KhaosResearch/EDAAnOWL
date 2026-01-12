@@ -80,10 +80,25 @@ def process_dataset(g, ds):
     g.add((resource_uri, EDAAN.hasDomainSector, sector_uri))
     g.add((sector_uri, RDF.type, SKOS.Concept)) # Ensure it's typed
 
+    # Create a Representation (ids:Representation / edaan:DataRepresentation)
+    representation_uri = URIRef(f"{resource_uri}/representation")
+    g.add((representation_uri, RDF.type, EDAAN.DataRepresentation))
+    g.add((representation_uri, RDF.type, IDS.Representation))
+
+    # Link Asset -> Representation
+    g.add((resource_uri, IDS.representation, representation_uri))
+
+    # Common properties for Representation
+    if media_type:
+        g.add((representation_uri, DCAT.mediaType, Literal(media_type)))
+        g.add((representation_uri, DCTERMS.format, Literal(media_type)))
+
     # Create a DataProfile
     profile_uri = URIRef(f"{resource_uri}/profile")
     g.add((profile_uri, RDF.type, EDAAN.DataProfile))
-    g.add((resource_uri, EDAAN.conformsToProfile, profile_uri))
+    
+    # Link Representation -> Profile (v0.4.1 pattern)
+    g.add((representation_uri, EDAAN.conformsToProfile, profile_uri))
     
     # Fix: Add required :declaresDataClass
     g.add((profile_uri, EDAAN.declaresDataClass, URIRef("https://w3id.org/BIGOWLData/TabularData")))

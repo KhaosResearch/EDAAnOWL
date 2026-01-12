@@ -1,0 +1,96 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix test: <https://w3id.org/EDAAnOWL/test/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix bigalg: <https://w3id.org/BIGOWLAlgorithms/> .
+@prefix bigprob: <https://w3id.org/BIGOWLProblems/> .
+@prefix bigdat: <https://w3id.org/BIGOWLData/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<https://w3id.org/EDAAnOWL/test/> rdf:type owl:Ontology ;
+    # Import the main ontology (needed for ROBOT to load all vocabs via catalog)
+    owl:imports <https://w3id.org/EDAAnOWL/> .
+
+### Mock concepts so that the test works independently of external vocabularies
+:agriculture rdf:type skos:Concept .
+:TestAlgorithm a bigalg:Algorithm .
+:TestProblem a bigprob:Problem .
+:TestDataClass a bigdat:Data .
+
+# TestProperty must be an ObservableProperty (not just skos:Concept)
+:TestProperty rdf:type :ObservableProperty ;
+    skos:prefLabel "Test Property"@en .
+
+# These must have skos:prefLabel to pass ObservablePropertyShape
+:ndvi a :ObservableProperty ;
+    skos:prefLabel "NDVI"@en .
+
+:waterStress a :ObservableProperty ;
+    skos:prefLabel "Water Stress"@en .
+
+sosa:ObservableProperty rdf:type owl:Class .
+gsp:Geometry rdf:type owl:Class .
+time:Interval rdf:type owl:Class .
+
+test:ValidApp a ids:DataApp ;
+    dct:title "Valid Test App"@en ;
+    :parameter :TestAlgorithm ; 
+    :hasDomainSector :agriculture .
+
+test:ValidResource a ids:DataResource ;
+    dct:title "Valid Test Resource"@en ;
+    :hasDomainSector :agriculture ;
+    ids:representation test:ValidResource_Repr .
+
+# v0.4.0 Pattern: Profile on Distribution
+test:ValidResource_Repr a :DataRepresentation ;
+    dct:format "text/csv" ;
+    :conformsToProfile test:TestProfile .
+
+test:ValidDataAsset a :DataAsset ;
+    dct:title "Valid Data Asset"@en ;
+    :servesObservableProperty :ndvi ;
+    ids:representation test:ValidDataAsset_Repr ;
+    prov:wasGeneratedBy test:ValidApp .
+
+# v0.4.0 Pattern: Profile on Distribution
+test:ValidDataAsset_Repr a :DataRepresentation ;
+    dct:format "text/csv" ;
+    :conformsToProfile test:TestProfile .
+
+test:TestProfile a :DataProfile ; 
+    dct:title "Test Profile"@en ;
+    :declaresDataClass :TestDataClass ;
+    :declaresObservedProperty :TestProperty ;
+    :hasMetric test:DummyMetric .
+
+test:ValidSpatialAsset a :SpatialTemporalAsset ;
+    dct:title "Valid Spatial Asset"@en ;
+    :servesObservableProperty :ndvi ;
+    :hasSpatialCoverage [ a gsp:Geometry ] ;
+    :hasTemporalCoverage [ a time:Interval ] ;
+    ids:representation test:ValidSpatialAsset_Repr .
+
+# v0.4.0 Pattern: Profile on Distribution
+test:ValidSpatialAsset_Repr a :DataRepresentation ;
+    dct:format "GeoTIFF" ;
+    :conformsToProfile test:TestProfile .
+
+test:ValidService a :PredictionApp ;
+    dct:title "Valid Analytical Service"@en ;
+    :producesObservableProperty :waterStress ;
+    :hasDomainSector :agriculture .
+
+test:DummyMetric a :Metric, :QualityMetric, dqv:QualityMetric ;
+    :metricName "testMetric" ;
+    :metricValue "1.0"^^xsd:decimal .
