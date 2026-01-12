@@ -9,8 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **Pull Request Template**: Added `.github/pull_request_template.md` to standardize PR descriptions and checks.
-
 ### Changed
 
 ### Fixed
@@ -20,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 ## [0.4.1] - 2026-01-12
+
+### Added
+
+- **Pull Request Template**: Added `.github/pull_request_template.md` to standardize PR descriptions and checks.
 
 ### Fixed
 
