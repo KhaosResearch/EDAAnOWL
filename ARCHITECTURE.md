@@ -44,7 +44,8 @@ graph TB
     DA -- "servesObservableProperty" --> OP
     Apps -- "requiresObservableProperty" --> OP
     
-    DA -- "conformsToProfile" --> Prof
+    DA -- "ids:representation" --> Repr
+    Repr -- "conformsToProfile" --> Prof
     Apps -- "requiresProfile" --> Prof
 
     Prof -- "hasMetric" --> Met
@@ -63,7 +64,7 @@ graph TB
 
     class DS,AP space
     class IR,IDR,IDA idsa
-    class DA,Apps,Prof,OP,Met,Prov edaan
+    class DA,Repr,Apps,Prof,OP,Met,Prov edaan
     class WF,Comp bigowl
     class Matchmaking,QualityProv core
 ```
@@ -115,7 +116,8 @@ By connecting both sides to the same `ObservableProperty`, the architecture supp
 
 Semantic meaning is not enough; the **structure** of the data also matters. For this, EDAAnOWL defines **`DataProfile`**:
 
-- A **DataAsset** **conformsToProfile** a `DataProfile`, which describes its schema, formats, and structural constraints.
+- A **DataAsset** has a **Representation** (via `ids:representation`).
+- That **Representation** **conformsToProfile** a `DataProfile`, which describes its schema, formats, and structural constraints.
 - A **Smart Data App** **requiresProfile** a `DataProfile`, which describes the expected input structure.
 
 This creates a two-dimensional matching space:

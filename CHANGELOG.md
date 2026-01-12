@@ -17,6 +17,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.1] - 2026-01-12
+
+### Fixed
+
+- **OWL Restriction Bug**: Removed incorrect `owl:minCardinality` restriction on `:DataAsset` for `:conformsToProfile`. In v0.4.0, `:conformsToProfile` domain changed to `dcat:Distribution`, making this restriction semantically invalid.
+- **Test Examples**: Updated `test-consistency.ttl` to use the correct v0.4.0 pattern (profile on Distribution, not directly on Resource).
+- **Demo Scripts**: Fixed `demo/olive-grove/transform_csv.py` and `demo/catalog/transform_catalog.py` to generate RDF following the v0.4.0 pattern with `:DataRepresentation` and `ids:representation`.
+- **Documentation**: Corrected examples and descriptions in `src/0.4.0/README.md` to reflect the v0.4.0 pattern where profiles are linked via `ids:representation → dcat:Distribution → :conformsToProfile`.
+- **Ontology Introduction**: Updated `widoco:introduction` in `EDAAnOWL.ttl` to clarify the v0.4.0 usage pattern for linking profiles to distributions.
+
+### Changed
+
+- **`:DataAsset` class**: Updated `rdfs:comment` to explicitly document that profiles are linked via Distribution in v0.4.0+, not directly on the DataAsset.
+
+---
+
 ## [0.4.0] - 2025-12-22
 
 ### Added
@@ -41,7 +57,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Namespace Cleanup**: Moved several classes and properties from `ids:` namespace to `:edaan:` namespace to avoid invalid "ghost" IDSA entities.
 - **Annotation Cleanup**: Stripped annotations from external terms (DCAT, PROV, SKOS, DCTERMS) to avoid redundancy.
 - **Media Type**: Switched to `dcat:mediaType` instead of local `ids:mediaType`.
-- **Architecture diagram**: Updated `eda-an-architecture-en.svg` to use `ids:SmartDataApp`.
 
 ### Deprecated
 
@@ -264,7 +279,8 @@ With this both annotations we help to widoco to generate a better documentation 
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.1...HEAD
+[0.4.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.2...v0.4.0
 [0.3.2]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.0...v0.3.1
