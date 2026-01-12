@@ -86,7 +86,7 @@ $(function(){
 <dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
 </dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
 <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd><dt>Cite as:</dt>
-<dd>Salvachúa Galimberti, M. J.; Khaos Research. (2025). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.4.0.</dd>
+<dd>Salvachúa Galimberti, M. J.; Khaos Research. (2025). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.4.1.</dd>
 <dt>Vocabulary maintained at:</dt>
 <dd><a href="https://github.com/KhaosResearch/EDAAnOWL">https://github.com/KhaosResearch/EDAAnOWL</a></dd>
 </dl>
@@ -3070,8 +3070,8 @@ Add your references here. It is recommended to have them as a list.</span>
 <details><summary><u>Modified classes</u></summary>
 <ul><li><a href="#DataAsset">https://w3id.org/EDAAnOWL/DataAsset</a>
 <ul>
-<li>Added: rdfs:comment "Clase puente para un activo de datos. Especializa ids:DataResource para añadir la descripción semántica específica del dominio EDAA (p. ej., servesObservableProperty). Puede vincularse a la DataApp que lo generó usando prov:wasGeneratedBy. En v0.4.0+, los perfiles se vinculan mediante ids:representation → dcat:Distribution → :conformsToProfile, no directamente en el DataAsset."@es</li>
 <li>Added: rdfs:comment "Bridge class for a data asset. Specialises ids:DataResource to add the EDAA domain-specific semantic description (e.g., servesObservableProperty). Can be linked to the DataApp that generated it using prov:wasGeneratedBy. In v0.4.0+, profiles are linked via ids:representation → dcat:Distribution → :conformsToProfile, not directly on the DataAsset."@en</li>
+<li>Added: rdfs:comment "Clase puente para un activo de datos. Especializa ids:DataResource para añadir la descripción semántica específica del dominio EDAA (p. ej., servesObservableProperty). Puede vincularse a la DataApp que lo generó usando prov:wasGeneratedBy. En v0.4.0+, los perfiles se vinculan mediante ids:representation → dcat:Distribution → :conformsToProfile, no directamente en el DataAsset."@es</li>
 </ul>
 <ul>
 <li><li>Deleted: rdfs:comment "Bridge class for a data asset. Specialises ids:DataResource to add the EDAA domain-specific semantic description (e.g., servesObservableProperty). Can be linked to the DataApp that generated it using prov:wasGeneratedBy."@en</li>
@@ -3095,8 +3095,8 @@ Add your references here. It is recommended to have them as a list.</span>
 <li><a href="#instance">https://w3id.org/EDAAnOWL/instance</a>
 <ul>
 <li>Added: rdfs:comment "Referencia a una instancia de una representación dada. Puede apuntar a ids:Artifact (archivo/secuencia de bytes) o ids:Value (valor literal inline) según el Modelo de Información IDSA."@es</li>
-<li>Added: rdfs:comment "Reference to an instance of given representation. Can point to ids:Artifact (file/byte sequence) or ids:Value (inline literal value) as per IDSA Information Model."@en</li>
 <li>Added: rdfs:label "instancia"@es</li>
+<li>Added: rdfs:comment "Reference to an instance of given representation. Can point to ids:Artifact (file/byte sequence) or ids:Value (inline literal value) as per IDSA Information Model."@en</li>
 </ul>
 <ul>
 <li>Deleted: rdfs:comment "Reference to an instance of given representation, i.e. inline value or file placeholder."@en</li>

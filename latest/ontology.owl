@@ -21,7 +21,7 @@
         <owl:imports rdf:resource="https://w3id.org/EDAAnOWL/0.4.1/vocabularies/sector-scheme"/>
         <terms:abstract xml:lang="en">Lightweight ontology for data spaces. It aligns IDSA and BIGOWL, focusing on the strong semantic description of Data Assets and Data Apps through Data Profiles, which include technical characteristics (DCAT 3) and granular quality metrics.</terms:abstract>
         <terms:abstract xml:lang="es">Ontología ligera para espacios de datos. Alinea IDSA y BIGOWL, enfocándose en la descripción semántica robusta de Activos de Datos y Aplicaciones de Datos a través de Perfiles de Datos, que incluyen características técnicas (DCAT 3) y métricas de calidad granulares.</terms:abstract>
-        <terms:bibliographicCitation>Salvachúa Galimberti, M. J.; Khaos Research. (2025). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.4.0.</terms:bibliographicCitation>
+        <terms:bibliographicCitation>Salvachúa Galimberti, M. J.; Khaos Research. (2025). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.4.1.</terms:bibliographicCitation>
         <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-10-10</terms:created>
         <terms:creator rdf:resource="https://github.com/MartinM10"/>
         <terms:creator rdf:resource="https://khaos.uma.es/"/>

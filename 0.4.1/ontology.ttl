@@ -15,7 +15,7 @@
                                           <https://w3id.org/EDAAnOWL/0.4.1/vocabularies/sector-scheme> ;
                               <http://purl.org/dc/terms/abstract> "Lightweight ontology for data spaces. It aligns IDSA and BIGOWL, focusing on the strong semantic description of Data Assets and Data Apps through Data Profiles, which include technical characteristics (DCAT 3) and granular quality metrics."@en ,
                                                                   "Ontología ligera para espacios de datos. Alinea IDSA y BIGOWL, enfocándose en la descripción semántica robusta de Activos de Datos y Aplicaciones de Datos a través de Perfiles de Datos, que incluyen características técnicas (DCAT 3) y métricas de calidad granulares."@es ;
-                              <http://purl.org/dc/terms/bibliographicCitation> "Salvachúa Galimberti, M. J.; Khaos Research. (2025). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.4.0." ;
+                              <http://purl.org/dc/terms/bibliographicCitation> "Salvachúa Galimberti, M. J.; Khaos Research. (2025). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.4.1." ;
                               <http://purl.org/dc/terms/created> "2025-10-10"^^xsd:date ;
                               <http://purl.org/dc/terms/creator> <https://github.com/MartinM10> ,
                                                                  <https://khaos.uma.es/> ,
