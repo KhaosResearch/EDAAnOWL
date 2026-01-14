@@ -21,19 +21,20 @@ Este diagrama explica cómo estructuramos los metadatos. **Concepto Clave**: Sep
 ```mermaid
 graph TD
     %% Subgraphs
-    subgraph "🔎 DESCUBRIMIENTO (El Activo)"
+    subgraph "🔎 El Activo"
         Asset["📦 <b>DataAsset</b><br/>(Sentinel-2 Jaén)<br/>---<br/>Sector: :agriculture<br/>Tema: :agro_olive<br/>Sirve: :ndvi"]
     end
 
-    subgraph "💾 ACCESO (La Distribución)"
+    subgraph "💾 La Distribución"
         Dist["💿 <b>DataRepresentation</b><br/>(Archivo GeoTIFF)<br/>---<br/>Formato: image/tiff"]
     end
 
     subgraph "⚙️ PERFIL TÉCNICO"
-        Profile["📋 <b>DataProfile</b><br/>(Specs Técnicas)<br/>---<br/>Clase: :Grid<br/>Res: 10m / 5d<br/>CRS: EPSG:32630<br/>Declara: :ndvi"]
+        Profile["📋 <b>DataProfile</b><br/>(Specs Técnicas)<br/>---<br/>Clase: :Grid<br/>Res: 10m / 5d<br/>CRS: EPSG:32630"]
         
         Metric1["✅ <b>QualityMetric</b><br/>(Completitud)<br/>Valor: 99.8%"]
         Metric2["☁️ <b>QualityMetric</b><br/>(Nubes)<br/>Valor: 5.2%"]
+        ObsProp["🌿 <b>ObservableProperty</b><br/>(:ndvi)"]
     end
 
     %% Relationships
@@ -41,6 +42,7 @@ graph TD
     Dist -->|"edaan:conformsToProfile"| Profile
     Profile -->|"edaan:hasMetric"| Metric1
     Profile -->|"edaan:hasMetric"| Metric2
+    Profile -->|"edaan:declaresObservedProperty"| ObsProp
 
     %% Styling
     style Asset fill:#e1f5fe,stroke:#01579b,stroke-width:2px
@@ -48,6 +50,7 @@ graph TD
     style Profile fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style Metric1 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:1px
     style Metric2 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:1px
+    style ObsProp fill:#c8e6c9,stroke:#1b5e20,stroke-width:1px
 ```
 
 ### 🧠 Puntos Clave para el Equipo:
