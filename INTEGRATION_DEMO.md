@@ -1,4 +1,4 @@
-# 🫒 Demostración de Integración EDAAn: Monitorización de Olivar
+# 🫒 Demostración de Integración EDAAn: Datos de Producción de Olivar
 
 Este documento demuestra cómo utilizar **EDAAnOWL v0.4.1** para anotar datos en el contexto de **EDAAn (Espacios de Datos Agroalimentarios en Andalucía)**.
 
@@ -6,11 +6,11 @@ Está diseñado para explicar la ontología al equipo y servir de guía para el 
 
 ---
 
-## 1. El Escenario: Optimización de Riego en Jaén
+## 1. El Escenario: Histórico de Producción en Jaén
 
-Tenemos un conjunto de datos de **Imágenes Satelitales Sentinel-2** enfocado en olivares de Jaén.
-- **Objetivo**: Hacer que estos datos sean descubribles por una "App de Optimización de Riego".
-- **Desafío**: La app no solo necesita saber *qué* son los datos (Olivar, NDVI), sino *cuán buenos* son (Cobertura de nubes, Completitud) y *cómo leerlos* (GeoTIFF, Resolución).
+Tenemos un archivo **CSV** simple que contiene los datos de producción de aceituna de varias cooperativas en Jaén durante la campaña 2024.
+- **Objetivo**: Hacer que estos datos sean descubribles para una "App de Predicción de Precios".
+- **Desafío**: La app necesita saber que el CSV contiene datos de *Rendimiento (Yield)* de *Olivar*, que es un archivo *Tabular*, y que los datos están completos (sin filas vacías).
 
 ---
 
@@ -22,26 +22,24 @@ Este diagrama explica cómo estructuramos los metadatos. **Concepto Clave**: Sep
 graph TD
     %% Subgraphs
     subgraph "🔎 El Activo"
-        Asset["📦 <b>DataAsset</b><br/>(Sentinel-2 Jaén)<br/>---<br/>Sector: :agriculture<br/>Tema: :agro_olive<br/>Sirve: :ndvi"]
+        Asset["📦 <b>DataAsset</b><br/>(Producción Olivar 2024)<br/>---<br/>Sector: :agriculture<br/>Tema: :agro_olive<br/>Sirve: :yield"]
     end
 
     subgraph "💾 La Distribución"
-        Dist["💿 <b>DataRepresentation</b><br/>(Archivo GeoTIFF)<br/>---<br/>Formato: image/tiff"]
+        Dist["💿 <b>DataRepresentation</b><br/>(Archivo CSV)<br/>---<br/>Formato: text/csv<br/>Delimitador: ','"]
     end
 
     subgraph "⚙️ PERFIL TÉCNICO"
-        Profile["📋 <b>DataProfile</b><br/>(Specs Técnicas)<br/>---<br/>Clase: :Grid<br/>Res: 10m / 5d<br/>CRS: EPSG:32630"]
+        Profile["📋 <b>DataProfile</b><br/>(Specs Tabulares)<br/>---<br/>Clase: :TabularDataSet<br/>Filas: 1540<br/>Columnas: [fecha, kgs, variedad]"]
         
-        Metric1["✅ <b>QualityMetric</b><br/>(Completitud)<br/>Valor: 99.8%"]
-        Metric2["☁️ <b>QualityMetric</b><br/>(Nubes)<br/>Valor: 5.2%"]
-        ObsProp["🌿 <b>ObservableProperty</b><br/>(:ndvi)"]
+        Metric1["✅ <b>QualityMetric</b><br/>(Completitud)<br/>Valor: 100%"]
+        ObsProp["⚖️ <b>ObservableProperty</b><br/>(:yield)"]
     end
 
     %% Relationships
     Asset -->|"ids:representation"| Dist
     Dist -->|"edaan:conformsToProfile"| Profile
     Profile -->|"edaan:hasMetric"| Metric1
-    Profile -->|"edaan:hasMetric"| Metric2
     Profile -->|"edaan:declaresObservedProperty"| ObsProp
 
     %% Styling
@@ -49,20 +47,19 @@ graph TD
     style Dist fill:#fff9c4,stroke:#fbc02d,stroke-width:2px
     style Profile fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style Metric1 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:1px
-    style Metric2 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:1px
     style ObsProp fill:#c8e6c9,stroke:#1b5e20,stroke-width:1px
 ```
 
 ### 🧠 Puntos Clave para el Equipo:
-1.  **Capa de Descubrimiento**: Los usuarios buscan "Olivar" y "NDVI" (`DataAsset`).
-2.  **Capa de Validación**: Usan el `DataProfile` para verificar requisitos técnicos.
-3.  **Calidad y Semántica**: El Perfil no solo dice "es un GeoTIFF", sino **qué variable contiene** (`declaresObservedProperty`) y **su calidad** (`hasMetric`).
+1.  **Capa de Descubrimiento**: Los usuarios buscan "Olivar" y "Rendimiento" (`:yield`).
+2.  **Capa de Validación**: Usan el `DataProfile` para verificar que es una tabla y no una imagen.
+3.  **Calidad y Semántica**: El Perfil declara explícitamente que la tabla contiene la variable "Yield" (`:yield`) y que no faltan datos.
 
 ---
 
 ## 3. La Anotación (Código Turtle)
 
-Esta es la salida RDF real que nuestro **Script de Anotación** necesitará generar.
+Esta es la salida RDF real que nuestro **Script de Anotación** necesitará generar para un CSV.
 
 ```turtle
 @prefix : <https://w3id.org/EDAAnOWL/> .
@@ -70,44 +67,41 @@ Esta es la salida RDF real que nuestro **Script de Anotación** necesitará gene
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
 
 # 1️⃣ EL ACTIVO (¿Qué es?)
-:SentinelOliveJaen2024 a :SpatialTemporalAsset ;
-    dct:title "Monitorización de Olivares Sentinel-2 Jaén"@es ;
+:OliveYield2024_Jaen a :DataAsset ;  # Activo Genérico
+    dct:title "Producción Aceituna Jaén 2024"@es ;
     
     # Etiquetas de Descubrimiento
     :hasDomainSector :agriculture ;
     :topic :agro_olive ;
-    :servesObservableProperty :ndvi ; # 📢 "Ofrezco datos de NDVI"
+    :servesObservableProperty :yield ; # 📢 "Ofrezco datos de Rendimiento (kg/ha)"
     
-    ids:representation :SentinelOliveJaen2024_GeoTIFF .
+    ids:representation :OliveYield2024_CSV .
 
 # 2️⃣ LA DISTRIBUCIÓN (¿Cómo lo obtengo?)
-:SentinelOliveJaen2024_GeoTIFF a :DataRepresentation ;
-    dct:format "image/tiff" ;
-    ids:byteSize "45000000"^^xsd:integer ;
-    :conformsToProfile :Olive_S2_L2A_Profile .
+:OliveYield2024_CSV a :DataRepresentation ;
+    dct:format "text/csv" ;
+    ids:byteSize "102400"^^xsd:integer ; # 100KB
+    :conformsToProfile :Tabular_Yield_Profile .
 
 # 3️⃣ EL PERFIL (¿Cumple los requisitos técnicos?)
-:Olive_S2_L2A_Profile a :DataProfile ;
-    dct:title "Perfil Técnico Sentinel-2 L2A"@es ;
+:Tabular_Yield_Profile a :DataProfile ;
+    dct:title "Perfil Tabular estándar para Producción"@es ;
     
     # 🔗 Enlace Semántico-Estructural
-    # Confirma que este perfil estructura la variable NDVI
-    :declaresObservedProperty :ndvi ; 
+    # Confirma que este perfil estructura la variable Yield
+    :declaresObservedProperty :yield ; 
 
-    # Estructura y Resolución
-    :declaresDataClass <https://w3id.org/BIGOWLData/Grid> ;
-    :hasCRS <http://www.opengis.net/def/crs/EPSG/0/32630> ;
-    dcat:spatialResolutionInMeters "10.0"^^xsd:decimal ;
-    dcat:temporalResolution "P5D"^^xsd:duration ;
+    # Estructura Tabular
+    :declaresDataClass <https://w3id.org/BIGOWLData/TabularDataSet> ;
     
     # Métricas de Calidad
     :hasMetric [
         a :QualityMetric ;
-        :metricName "cloud_coverage" ;
-        :metricValue "5.2"^^xsd:decimal
+        :metricName "completeness" ;
+        :metricValue "1.0"^^xsd:decimal ; # 100% completo
+        :metricUnit "ratio"
     ] .
 ```
 
@@ -115,57 +109,45 @@ Esta es la salida RDF real que nuestro **Script de Anotación** necesitará gene
 
 ## 4. Guía para el Script de Anotación
 
-Cuando escribamos el script en Python para automatizar esto, mapearemos los metadatos fuente a estos campos:
+Para ficheros CSV, el script leerá las cabeceras o metadatos asociados:
 
-| Metadato Fuente (ej. Tags GeoTIFF) | Propiedad Ontología EDAAn | Clase Destino |
-|------------------------------------|---------------------------|---------------|
-| `TIFFTAG_IMAGEWIDTH`, `IMAGELENGTH` | *(Define implícitamente área/forma)* | `:SpatialTemporalAsset` |
-| Código `PROJ:EPSG` (ej. 32630) | `:hasCRS` | `:DataProfile` |
-| `GSD` (Ground Sample Distance) | `dcat:spatialResolutionInMeters` | `:DataProfile` |
-| `CLOUDY_PIXEL_PERCENTAGE` | `:metricValue` (métrica cloud) | `:QualityMetric` |
-| Bandas disponibles (VIS, NIR) | `:declaresObservedProperty` (:ndvi) | `:DataProfile` |
+| Metadato Fuente (ej. análisis de pandas) | Propiedad Ontología EDAAn | Clase Destino |
+|------------------------------------------|---------------------------|---------------|
+| Extensión `.csv` | `dct:format`: "text/csv" | `:DataRepresentation` |
+| ¿Contiene columna 'kgs', 'yield'? | `:servesObservableProperty` (:yield) | `:DataAsset` |
+| `pd.isna(df).sum()` (Nulos) | `:metricValue` (métrica completeness) | `:QualityMetric` |
+| Nombre fichero / Usuario | `dct:title` | `:DataAsset` |
 
 ---
 
-## 5. Caso de Uso: Matchmaking con SmartDataApp
-
-Una vez anotado, ¿cómo se consume? Aquí se muestra cómo una **App de Análisis** encuentra este dataset.
+## 5. Caso de Uso: Matchmaking
 
 ### Escenario
-El servicio **"EcoIrrigation Optimizer"** busca datos para calcular recomendaciones de riego.
+El servicio **"AgroPrice Predictor"** busca datos históricos para entrenar su modelo.
 
-### Requisitos de la App (La Demanda)
+### Requisitos de la App
 ```turtle
-:EcoIrrigationApp a :PredictionApp ;
-    dct:title "Optimizador de Riego"@es ;
-    
+:AgroPricePredictor a :PredictionApp ;
     # 1. ¿De qué tema?
     :hasDomainSector :agriculture ;
     
-    # 2. ¿Qué variables necesita como input?
-    :requiresObservableProperty :ndvi ; # 🔍 Busca datasets que sirvan NDVI
+    # 2. ¿Qué variables necesita?
+    :requiresObservableProperty :yield ; 
     
-    # 3. ¿Con qué estructura técnica?
-    :requiresProfile :Olive_S2_L2A_Profile . # 🔍 Busca datasets con esta estructura (10m, UTM30N...)
+    # 3. ¿Qué formato? (Solo sabe leer Tablas, no imágenes)
+    :requiresProfile [ a :DataProfile ; 
+        :declaresDataClass <https://w3id.org/BIGOWLData/TabularDataSet> 
+    ] .
 ```
 
-### El "Match" (La Magia de la Ontología)
-El sistema conecta la oferta y la demanda porque:
-1.  **Semántica**: Dataset `:servesObservableProperty :ndvi` == App `:requiresObservableProperty :ndvi`.
-2.  **Técnica**: Dataset (Distribución) `:conformsToProfile :P` == App `:requiresProfile :P`.
-3.  **Calidad**: La App puede filtrar adicionalmente: *"Solo dame datos donde `cloud_coverage` < 10%"* leyendo las métricas del perfil.
+### El "Match"
+El sistema descarta los satélites (GeoTIFF) y conecta nuestra tabla porque ambos comparten `:yield` y la clase `:TabularDataSet`.
 
 ---
 
 ## 6. Uso de Vocabularios Controlados (AGROVOC)
 
-Para garantizar que "Olivar" signifique lo mismo para todos (interoperabilidad global), enlazamos nuestros conceptos locales con **FAO AGROVOC** usando `skos:exactMatch`.
-
-**¿Por qué?**
-Si un usuario busca "Olea europaea" (científico) o "Olive" (inglés), el sistema sabrá que es lo mismo que nuestro concept `:agro_olive`.
-
-### Ejemplo de Definición de Concepto
-Así es como definimos `:agro_olive` en nuestra ontología (`agro-vocab.ttl`), y como tu script podría enriquecer los metadatos si fuera necesario:
+Para garantizar la interoperabilidad, usamos `agro-vocab.ttl`.
 
 ```turtle
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -173,10 +155,7 @@ Así es como definimos `:agro_olive` en nuestra ontología (`agro-vocab.ttl`), y
 
 :agro_olive a skos:Concept ;
     skos:prefLabel "Olivo"@es, "Olive"@en ;
-    
-    # 🌍 Enlace al estándar global (AGROVOC c_12926 = Olive)
     skos:exactMatch agrovoc:c_12926 . 
 ```
 
-**Nota para el Script**:
-No necesitas definir esto cada vez. Simplemente usa el URI `:agro_olive` en tu dataset, y la ontología ya se encarga del enlace con AGROVOC.
+**Nota**: Al etiquetar tu CSV con `:topic :agro_olive`, automáticamente eres compatible con cualquier sistema que entienda AGROVOC, sin cambiar tu CSV.
