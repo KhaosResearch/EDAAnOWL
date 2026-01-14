@@ -154,3 +154,29 @@ El sistema conecta la oferta y la demanda porque:
 1.  **Semántica**: Dataset `:servesObservableProperty :ndvi` == App `:requiresObservableProperty :ndvi`.
 2.  **Técnica**: Dataset (Distribución) `:conformsToProfile :P` == App `:requiresProfile :P`.
 3.  **Calidad**: La App puede filtrar adicionalmente: *"Solo dame datos donde `cloud_coverage` < 10%"* leyendo las métricas del perfil.
+
+---
+
+## 6. Uso de Vocabularios Controlados (AGROVOC)
+
+Para garantizar que "Olivar" signifique lo mismo para todos (interoperabilidad global), enlazamos nuestros conceptos locales con **FAO AGROVOC** usando `skos:exactMatch`.
+
+**¿Por qué?**
+Si un usuario busca "Olea europaea" (científico) o "Olive" (inglés), el sistema sabrá que es lo mismo que nuestro concept `:agro_olive`.
+
+### Ejemplo de Definición de Concepto
+Así es como definimos `:agro_olive` en nuestra ontología (`agro-vocab.ttl`), y como tu script podría enriquecer los metadatos si fuera necesario:
+
+```turtle
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+
+:agro_olive a skos:Concept ;
+    skos:prefLabel "Olivo"@es, "Olive"@en ;
+    
+    # 🌍 Enlace al estándar global (AGROVOC c_12926 = Olive)
+    skos:exactMatch agrovoc:c_12926 . 
+```
+
+**Nota para el Script**:
+No necesitas definir esto cada vez. Simplemente usa el URI `:agro_olive` en tu dataset, y la ontología ya se encarga del enlace con AGROVOC.
