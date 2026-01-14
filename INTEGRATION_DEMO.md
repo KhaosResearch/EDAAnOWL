@@ -20,17 +20,17 @@ Este diagrama explica cómo estructuramos los metadatos. **Concepto Clave**: Sep
 
 ```mermaid
 graph TD
-    %% Subgraphs for logical grouping
+    %% Subgraphs
     subgraph "🔎 DESCUBRIMIENTO (El Activo)"
         Asset["📦 <b>DataAsset</b><br/>(Sentinel-2 Jaén)<br/>---<br/>Sector: :agriculture<br/>Tema: :agro_olive<br/>Sirve: :ndvi"]
     end
 
     subgraph "💾 ACCESO (La Distribución)"
-        Dist["💿 <b>DataRepresentation</b><br/>(Archivo GeoTIFF)<br/>---<br/>Formato: image/tiff<br/>Tamaño: 45MB"]
+        Dist["💿 <b>DataRepresentation</b><br/>(Archivo GeoTIFF)<br/>---<br/>Formato: image/tiff"]
     end
 
-    subgraph "⚙️ TÉCNICO (El Perfil)"
-        Profile["📋 <b>DataProfile</b><br/>(Specs Técnicas)<br/>---<br/>ClaseDatos: :Grid<br/>ResEspacial: 10m<br/>ResTemporal: 5 días<br/>CRS: EPSG:32630"]
+    subgraph "⚙️ PERFIL TÉCNICO"
+        Profile["📋 <b>DataProfile</b><br/>(Specs Técnicas)<br/>---<br/>Clase: :Grid<br/>Res: 10m / 5d<br/>CRS: EPSG:32630<br/>Declara: :ndvi"]
         
         Metric1["✅ <b>QualityMetric</b><br/>(Completitud)<br/>Valor: 99.8%"]
         Metric2["☁️ <b>QualityMetric</b><br/>(Nubes)<br/>Valor: 5.2%"]
@@ -51,9 +51,9 @@ graph TD
 ```
 
 ### 🧠 Puntos Clave para el Equipo:
-1.  **Capa de Descubrimiento**: Los usuarios buscan "Olivar" y "NDVI" (definido en `DataAsset`).
-2.  **Capa de Validación**: Usan el `DataProfile` para verificar si el dato encaja con la app (ej. "Necesito resolución de 10m").
-3.  **Calidad Primero**: El `Profile` lista explícitamente las métricas de calidad (`hasMetric`), permitiendo filtrado automático (ej. "Rechazar si Nubes > 20%").
+1.  **Capa de Descubrimiento**: Los usuarios buscan "Olivar" y "NDVI" (`DataAsset`).
+2.  **Capa de Validación**: Usan el `DataProfile` para verificar requisitos técnicos.
+3.  **Calidad y Semántica**: El Perfil no solo dice "es un GeoTIFF", sino **qué variable contiene** (`declaresObservedProperty`) y **su calidad** (`hasMetric`).
 
 ---
 
@@ -72,46 +72,39 @@ Esta es la salida RDF real que nuestro **Script de Anotación** necesitará gene
 # 1️⃣ EL ACTIVO (¿Qué es?)
 :SentinelOliveJaen2024 a :SpatialTemporalAsset ;
     dct:title "Monitorización de Olivares Sentinel-2 Jaén"@es ;
-    dct:description "Datos multiespectrales para análisis de rendimiento en olivar."@es ;
     
-    # Etiquetas de Descubrimiento (Vocabularios Controlados)
-    :hasDomainSector :agriculture ;    # Del sector-scheme
-    :topic :agro_olive ;              # Del agro-vocab
-    :servesObservableProperty :ndvi ; # De observed-properties
+    # Etiquetas de Descubrimiento
+    :hasDomainSector :agriculture ;
+    :topic :agro_olive ;
+    :servesObservableProperty :ndvi ; # 📢 "Ofrezco datos de NDVI"
     
-    # Enlace al archivo físico/distribución
     ids:representation :SentinelOliveJaen2024_GeoTIFF .
 
 # 2️⃣ LA DISTRIBUCIÓN (¿Cómo lo obtengo?)
 :SentinelOliveJaen2024_GeoTIFF a :DataRepresentation ;
     dct:format "image/tiff" ;
     ids:byteSize "45000000"^^xsd:integer ;
-    
-    # Enlace al perfil técnico
     :conformsToProfile :Olive_S2_L2A_Profile .
 
-# 3️⃣ EL PERFIL (¿Es suficientemente bueno?)
+# 3️⃣ EL PERFIL (¿Cumple los requisitos técnicos?)
 :Olive_S2_L2A_Profile a :DataProfile ;
     dct:title "Perfil Técnico Sentinel-2 L2A"@es ;
     
+    # 🔗 Enlace Semántico-Estructural
+    # Confirma que este perfil estructura la variable NDVI
+    :declaresObservedProperty :ndvi ; 
+
     # Estructura y Resolución
     :declaresDataClass <https://w3id.org/BIGOWLData/Grid> ;
-    :hasCRS <http://www.opengis.net/def/crs/EPSG/0/32630> ; # UTM Zona 30N
+    :hasCRS <http://www.opengis.net/def/crs/EPSG/0/32630> ;
     dcat:spatialResolutionInMeters "10.0"^^xsd:decimal ;
-    dcat:temporalResolution "P5D"^^xsd:duration ; # Cada 5 días
+    dcat:temporalResolution "P5D"^^xsd:duration ;
     
-    # Métricas de Calidad (El "Contrato")
+    # Métricas de Calidad
     :hasMetric [
         a :QualityMetric ;
         :metricName "cloud_coverage" ;
-        :metricValue "5.2"^^xsd:decimal ;
-        :metricUnit "percentage"
-    ] ;
-    :hasMetric [
-        a :QualityMetric ;
-        :metricName "completeness" ;
-        :metricValue "0.998"^^xsd:decimal ;
-        :metricUnit "ratio"
+        :metricValue "5.2"^^xsd:decimal
     ] .
 ```
 
@@ -127,9 +120,34 @@ Cuando escribamos el script en Python para automatizar esto, mapearemos los meta
 | Código `PROJ:EPSG` (ej. 32630) | `:hasCRS` | `:DataProfile` |
 | `GSD` (Ground Sample Distance) | `dcat:spatialResolutionInMeters` | `:DataProfile` |
 | `CLOUDY_PIXEL_PERCENTAGE` | `:metricValue` (métrica cloud) | `:QualityMetric` |
-| Tamaño de archivo (os.stat) | `ids:byteSize` | `:DataRepresentation` |
+| Bandas disponibles (VIS, NIR) | `:declaresObservedProperty` (:ndvi) | `:DataProfile` |
 
-**Estrategia**:
-1.  **Extraer**: Leer tags de cabecera de las imágenes.
-2.  **Mapear**: Convertir tags a propiedades RDF (como se muestra arriba).
-3.  **Serializar**: Generar el archivo `.ttl` usando `rdflib`.
+---
+
+## 5. Caso de Uso: Matchmaking con SmartDataApp
+
+Una vez anotado, ¿cómo se consume? Aquí se muestra cómo una **App de Análisis** encuentra este dataset.
+
+### Escenario
+El servicio **"EcoIrrigation Optimizer"** busca datos para calcular recomendaciones de riego.
+
+### Requisitos de la App (La Demanda)
+```turtle
+:EcoIrrigationApp a :PredictionApp ;
+    dct:title "Optimizador de Riego"@es ;
+    
+    # 1. ¿De qué tema?
+    :hasDomainSector :agriculture ;
+    
+    # 2. ¿Qué variables necesita como input?
+    :requiresObservableProperty :ndvi ; # 🔍 Busca datasets que sirvan NDVI
+    
+    # 3. ¿Con qué estructura técnica?
+    :requiresProfile :Olive_S2_L2A_Profile . # 🔍 Busca datasets con esta estructura (10m, UTM30N...)
+```
+
+### El "Match" (La Magia de la Ontología)
+El sistema conecta la oferta y la demanda porque:
+1.  **Semántica**: Dataset `:servesObservableProperty :ndvi` == App `:requiresObservableProperty :ndvi`.
+2.  **Técnica**: Dataset (Distribución) `:conformsToProfile :P` == App `:requiresProfile :P`.
+3.  **Calidad**: La App puede filtrar adicionalmente: *"Solo dame datos donde `cloud_coverage` < 10%"* leyendo las métricas del perfil.
