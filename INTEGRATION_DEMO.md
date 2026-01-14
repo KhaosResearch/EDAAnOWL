@@ -65,8 +65,8 @@ graph TD
 ### 🧠 Puntos Clave para el Equipo:
 1.  **Reutilización**: `:AgroOliveProductionTabularProfile` es un concepto genérico. Cualquier CSV de aceituna con columnas básicas `[fecha, variedad, kgs]` puede usar este perfil.
 2.  **Diferencia Semántica (Contenido vs. Forma)**:
-    *   `servesObservableProperty` (Activo): Describe el **CONTENIDO REAL**. *Ej: "Hoy hace 30ºC" (Tengo datos de Temperatura).*
-    *   `declaresObservedProperty` (Perfil): Describe la **FORMA DEL MOLDE**. *Ej: "Tengo un hueco para escribir grados centígrados" (Tengo una columna para Temperatura).*
+    *   `servesObservableProperty` (Activo): Describe el **CONTENIDO REAL**. *Ej: "Este archivo contiene datos de Rendimiento".*
+    *   `declaresObservedProperty` (Perfil): Describe la **FORMA DEL MOLDE**. *Ej: "Esta tabla tiene una columna diseñada para apuntar el Rendimiento".*
 3.  **¿Aceituna o Uva?**: La distinción semántica ("¿De qué trata esto?") la da el `DataAsset` con la propiedad `:topic` (ej. `:agro_olive`). El Perfil asegura que la *estructura* es válida para ese tema.
     *   Si el activo dice `:topic :agro_olive` -> Busco un perfil de aceituna.
     *   Si el activo dice `:topic :agro_wine` -> Busco un perfil de viñedo.
