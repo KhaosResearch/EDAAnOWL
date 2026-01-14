@@ -25,7 +25,6 @@ graph TD
         Resource["📦 <b>DataAsset</b><br/>(Conjunto de Datos)<br/>---<br/>Sector: :agriculture (agrovoc:c_33756)<br/>Tema: :agro_olive (agrovoc:c_12926)<br/>"]
         
         ObsProp1["⚖️ <b>ObservableProperty</b><br/>(:yield)<br/>(agrovoc:c_8504)"]
-        ObsProp2["⚖️ <b>ObservableProperty</b><br/>(:rainfall)<br/>(agrovoc:c_6435)"]
     end
 
     subgraph "💾 La Distribución (Acceso)"
@@ -60,18 +59,18 @@ graph TD
     style Profile fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     style Metric1 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:1px
     style ObsProp1 fill:#c8e6c9,stroke:#1b5e20,stroke-width:1px
-    style ObsProp2 fill:#c8e6c9,stroke:#1b5e20,stroke-width:1px
     style App fill:#ffe0b2,stroke:#e65100,stroke-width:2px
 ```
 
 ### 🧠 Puntos Clave para el Equipo:
 1.  **Reutilización**: `:AgroOliveProductionTabularProfile` es un concepto genérico. Cualquier CSV de aceituna con columnas básicas `[fecha, variedad, kgs]` puede usar este perfil.
-2.  **Relaciones Explícitas**:
-    *   `servesObservableProperty`: El activo contiene información sobre Yield.
-    *   `declaresObservedProperty`: El perfil garantiza que la estructura de datos soporta la variable Yield.
+2.  **Diferencia Semántica (Contenido vs. Forma)**:
+    *   `servesObservableProperty` (Activo): Describe el **CONTENIDO REAL**. *Ej: "Hoy hace 30ºC" (Tengo datos de Temperatura).*
+    *   `declaresObservedProperty` (Perfil): Describe la **FORMA DEL MOLDE**. *Ej: "Tengo un hueco para escribir grados centígrados" (Tengo una columna para Temperatura).*
 3.  **¿Aceituna o Uva?**: La distinción semántica ("¿De qué trata esto?") la da el `DataAsset` con la propiedad `:topic` (ej. `:agro_olive`). El Perfil asegura que la *estructura* es válida para ese tema.
     *   Si el activo dice `:topic :agro_olive` -> Busco un perfil de aceituna.
     *   Si el activo dice `:topic :agro_wine` -> Busco un perfil de viñedo.
+4.  **Automatización (El "Enchufe")**: El Perfil actúa como un enchufe estándar. El sistema puede probar automáticamente si un archivo "encaja" en el perfil (¿tiene las columnas correctas?). Si encaja, lo etiqueta automáticamente. Esto permite procesar miles de archivos sin intervención humana.
 
 ---
 
