@@ -125,7 +125,7 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
   - Post-processes the HTML (`sed`) to ensure all vocabulary links are correctly versioned.
   - Publishes all artifacts (docs, vocabs, RDF serializations) to the `gh-pages` branch.
 - **Versioning**: Supports a `latest` development version and immutable, versioned snapshots (e.g., `/0.0.1/`).
-- **Practical Examples**: See [USE_CASES.md](USE_CASES.md) for real-world examples of semantic matchmaking and provenance tracking.
+- **Practical Examples**: See [demo/USE_CASES.md](demo/USE_CASES.md) for real-world examples of semantic matchmaking, provenance tracking, and cross-domain interoperability.
 
 ---
 
