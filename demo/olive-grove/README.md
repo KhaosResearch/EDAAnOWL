@@ -31,7 +31,7 @@ python transform_csv.py
 
 ## 🔗 Matchmaking Compatibility
 
-The generated dataset **matches the requirements** of `OliveYieldPredictor` from [USE_CASES.md](../../USE_CASES.md):
+The generated dataset **matches the requirements** of `OliveYieldPredictor` from [USE_CASES.md](../USE_CASES.md):
 
 | App Requires | Dataset Serves |
 |--------------|----------------|

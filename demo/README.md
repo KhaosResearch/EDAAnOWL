@@ -1,8 +1,21 @@
 # EDAAnOWL Demos
 
-This folder contains practical demonstrations of EDAAnOWL transformations.
+This folder contains practical demonstrations and use cases for EDAAnOWL.
 
-## 📂 Available Demos
+## 📖 Use Cases & Examples
+
+See **[USE_CASES.md](USE_CASES.md)** for comprehensive documentation including:
+
+- Semantic matchmaking (Olive Yield Prediction)
+- DataApp as supply/demand
+- Provenance and traceability
+- Cross-domain interoperability (Agriculture ↔ Energy)
+- Weighted/probabilistic matching with metrics
+- Vocabulary strategies (local vs. direct linking)
+
+---
+
+## 📂 Practical Demos
 
 ### 1. [catalog/](catalog/) — DCAT Catalog Transformation
 
@@ -36,7 +49,7 @@ python transform_csv.py
 **Highlights**:
 - Demonstrates Use Case 1 from `USE_CASES.md`
 - Dataset is compatible with `OliveYieldPredictor` app
-- Uses all v0.4.0 features: `MetricType`, `ObservableProperty`, `:DataRepresentation`, `ids:Artifact` (traceability)
+- Uses all v0.4.0+ features
 
 ---
 
@@ -50,3 +63,4 @@ Optional (for SHACL validation):
 ```bash
 pip install pyshacl
 ```
+
