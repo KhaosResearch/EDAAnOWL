@@ -9,7 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Documentation (`demo/INTEGRATION_DEMO.md`)**: New integration demo in Spanish explaining DataProfile, ObservableProperty, and matchmaking concepts with Mermaid diagrams.
+- **Documentation (`demo/USE_CASES.md`)**: Expanded with three new sections:
+  - **DataProfile Reuse & Identity**: Explains profile reuse with lifecycle flowchart and SPARQL example for profile discovery.
+  - **Matchmaking Property Reference**: Complete property table with domains/ranges and decision flowchart.
+  - **Multi-Dimensional Compatibility**: "80% compatible" scenario with weighted scoring SPARQL query.
+- **FAQ additions**: Clarified Resource vs Distribution and `servesObservableProperty` vs `declaresObservedProperty`.
+
 ### Changed
+
+- **SPARQL examples**: Updated to use v0.4.0 pattern (`ids:representation` → `conformsToProfile` on Distribution).
 
 ### Fixed
 
