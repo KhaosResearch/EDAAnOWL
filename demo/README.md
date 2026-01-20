@@ -11,6 +11,9 @@ See **[USE_CASES.md](USE_CASES.md)** for comprehensive documentation including:
 - Provenance and traceability
 - Cross-domain interoperability (Agriculture ↔ Energy)
 - Weighted/probabilistic matching with metrics
+- **DataProfile reuse & lifecycle** *(how profiles are created and shared)*
+- **Matchmaking property reference** *(when to use which property)*
+- **Multi-dimensional compatibility** *(80% compatible scenarios)*
 - Vocabulary strategies (local vs. direct linking)
 
 ---
