@@ -113,6 +113,70 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
 
 ---
 
+## 🇪🇺 Alignment with European Standards (DCAT-AP) & Value Proposition
+
+EDAAnOWL is designed to work **in conjunction** with European interoperability standards, not to replace them. We address the "Deep Semantic Gap" that exists in current cataloging standards.
+
+### 1. Complementary Roles: The "Map" vs. The "Motor"
+
+Is EDAAnOWL redundant? **No**. You are building the **motor**, while DCAT-AP provides the **map**.
+
+| Feature | DCAT-AP (The Map) | EDAAnOWL (The Motor) |
+| :--- | :--- | :--- |
+| **Objective** | Human Discovery (Portal) | Automatic Composition (Agent) |
+| **Key Question** | *"Is there a dataset about climate?"* | *"Can I **execute** my prediction algorithm with this dataset?"* |
+| **Detail Level** | Administrative Metadata (License, Title, Author) | Functional Metadata (Variables, Inputs/Outputs, Resolution) |
+| **Service Description** | `dcat:endpointDescription` → Link to a PDF/HTML/Swagger | `servesObservableProperty` → Explicit RDF about scientific variables |
+| **Interoperability** | Syntactic (File formats) | **Deep Semantic** (Data meaning) |
+
+*   **DCAT-AP** provides the necessary metadata for high-level discovery (Title, License, Publisher) and administrative interoperability across European Data Portals. It gets you to the "door" of the service.
+*   **EDAAnOWL** provides the functional metadata (Observable Properties, Detailed Inputs/Outputs) required for **automated service composition** and precise matchmaking within a Data Space. It describes what happens "inside the box".
+
+### 2. The "Gap" EDAAnOWL Fills
+
+DCAT-AP stops at the service endpoint. It allows you to find a service, but it does **not** tell an intelligent software agent what exact parameters to send or what specific scientific variables are returned (beyond a human-readable text description).
+
+**EDAAnOWL fills this void:**
+1.  **Semantic Matchmaking**: An agent can reason: *"I need `precipitation` in `mm/h`"*. EDAAnOWL allows finding exactly that dataset by validating not just the theme (Agriculture) but the **exact physical variable** (`sosa:ObservableProperty`).
+2.  **Compatibility Validation**: It defines `DataProfile` to ensure that the structure (columns, data types) fits what the App expects.
+
+### 3. Integration Points & Vocabulary Reuse
+
+To ensure seamless integration and avoid "vocabulary silos", EDAAnOWL promotes **Direct Vocabulary Reuse**:
+
+1.  **Dual Typing**: A resource should be an instance of both `:DataAsset` (for functional use) and `dcat:Dataset` (for cataloging).
+2.  **EuroSciVoc <-> AGROVOC Alignment**: 
+    *   The EU is aligning its general scientific vocabulary (**EuroSciVoc**) with the specialized agricultural vocabulary (**AGROVOC**).
+    *   **Recommendation**: Use **AGROVOC URIs** directly for domain tagging (`dcat:theme`, `:hasDomainSector`).
+    *   **Benefit**: By using AGROVOC (e.g., `<http://aims.fao.org/aos/agrovoc/c_330834>` for 'soil moisture'), your assets become:
+        *   Semantically precise for agricultural agents.
+        *   **Automatically discoverable** at the European level under broader EuroSciVoc categories thanks to the existing alignment.
+3.  ** Explicit Compliance with DCAT-AP**:
+    *   Use **EU Named Authority Lists (NALs)** for file types and media types.
+    *   Declare conformance to regulations:
+    `dct:conformsTo <http://data.europa.eu/eli/reg_impl/2023/138>`.
+    *   Example:
+    ```ttl
+    :MyAsset a :DataAsset, dcat:Dataset ;
+        dct:conformsTo <http://data.europa.eu/eli/reg_impl/2023/138> . # e.g., HVD Regulation
+    ```
+
+#### 🇪🇺 Alignment with Interoperable Europe
+EDAAnOWL follows the guidelines of the [SEMIC Support Centre](https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-data-portals-europe) and the **Interoperable Europe** initiative. 
+*   **The Goal**: To prevent "Data Silos" that hinder cross-border reuse.
+*   **Our Contribution**: While DCAT-AP facilitates finding data across Member States, EDAAnOWL ensures that data is **technically reusable** by software agents in Data Spaces, fulfilling the vision of a connected implementation layer.
+
+#### 🇪🇸 Alignment with Spanish Framework (ENI)
+We align with the **[Esquema Nacional de Interoperabilidad (ENI)](https://cred.digital.gob.es/content/dam/cred/img/docs/MarcoInteroperabilidadTecnico.pdf)**, specifically the "Norma Técnica de Interoperabilidad de Reutilización de recursos de información".
+*   **Compliance**: By implementing DCAT-AP (the standard adopted by the NTI-RISP), EDAAnOWL ensures full compliance with Spanish regulations for description and open data.
+*   **Enhanced Reuse**: The ENI mandates facilitating the *reuse* of information. EDAAnOWL takes this mandate further by providing the **functional semantics** (Detailed inputs/outputs) necessary for *automated reuse*, reducing the integration cost for Spanish entities.
+
+> [!NOTE]
+> See [DCAT-AP 3.0.1](https://semiceu.github.io/DCAT-AP/releases/3.0.1/) and [EuroSciVoc-Agrovoc Alignment](https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/euroscivoc_alignment_agrovoc) for more details.
+
+---
+
+
 ## 🚀 Features
 
 - **Main Ontology**: A semantic "bridge" linking `ids:DataApp` to `bigwf:Component` (from BIGOWL).

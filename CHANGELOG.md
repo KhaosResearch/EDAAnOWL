@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **DataProfile Reuse & Identity**: Explains profile reuse with lifecycle flowchart and SPARQL example for profile discovery.
   - **Matchmaking Property Reference**: Complete property table with domains/ranges and decision flowchart.
   - **Multi-Dimensional Compatibility**: "80% compatible" scenario with weighted scoring SPARQL query.
+- **Integration Frameworks**: Expanded documentation to align with **Interoperable Europe** and the Spanish **Esquema Nacional de Interoperabilidad (ENI)** via DCAT-AP compliance.
+- **Direct Vocabulary Reuse**: Updated documentation and SHACL rules to strongly encourage using external URIs (AGROVOC) directly instead of local proxy classes.
+- **Documentation (`README.md`)**: Added dedicated section "**Alignment with European Standards (DCAT-AP) & Value Proposition**" to clarify the complementary role of EDAAnOWL within the European Data Spaces ecosystem.
+- **Validation**: Added `src/0.4.1/shapes/dcat-ap-alignment.ttl` to validate EDAAnOWL assets against basic DCAT-AP requirements (Dual Typing, Conformance, Vocabularies).
 - **FAQ additions**: Clarified Resource vs Distribution and `servesObservableProperty` vs `declaresObservedProperty`.
 
 ### Changed
