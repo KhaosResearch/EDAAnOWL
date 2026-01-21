@@ -1,0 +1,247 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+
+@base <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/agro-vocab> .
+
+<https://w3id.org/EDAAnOWL/0.5.0/vocabularies/agro-vocab> rdf:type owl:Ontology ;
+    owl:imports <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/sector-scheme> ;
+    dct:title "Agricultural Domain Vocabulary"@en ;
+    dct:description """Specialized vocabulary for agricultural data and applications.
+    
+This vocabulary provides local concepts for common agricultural terms, aligned with 
+FAO AGROVOC (http://aims.fao.org/aos/agrovoc/) where applicable.
+
+EXTENSIBILITY: Users are encouraged to:
+1. Use AGROVOC terms directly (e.g., agrovoc:c_12926 for 'olive')
+2. Define local concepts with skos:exactMatch/closeMatch to AGROVOC
+3. Define custom domain concepts as skos:Concept
+
+Example of direct AGROVOC usage:
+  ex:MyDataset :topic agrovoc:c_12926 .  # olive
+
+Example of local concept with alignment:
+  ex:myOliveType a skos:Concept ;
+      skos:prefLabel "Picual Olive"@en ;
+      skos:broader agrovoc:c_12926 ."""@en .
+
+:AgroVocab rdf:type owl:NamedIndividual ,
+                    skos:ConceptScheme ;
+           dct:description "Specialized vocabulary for agricultural data and applications."@en ;
+           dct:title "Agricultural Domain Vocabulary"@en .
+
+#################################################################
+#    Crops - Mediterranean
+#################################################################
+
+:agro_olive rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:prefLabel "Olive"@en ,
+                           "Olivo"@es ;
+            skos:definition "Olive tree cultivation and oil production (Olea europaea)."@en ;
+            skos:broader :agriculture ;
+            skos:inScheme :AgroVocab ;
+            skos:exactMatch agrovoc:c_12926 .  # AGROVOC: olives
+
+:agro_vine rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:prefLabel "Vine"@en ,
+                          "Vid"@es ;
+           skos:definition "Grapevine cultivation for wine or table grapes (Vitis vinifera)."@en ;
+           skos:broader :agriculture ;
+           skos:inScheme :AgroVocab ;
+           skos:exactMatch agrovoc:c_3360 .  # AGROVOC: grapevines
+
+:agro_almond rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:prefLabel "Almond"@en ,
+                            "Almendro"@es ;
+             skos:definition "Almond tree cultivation (Prunus dulcis)."@en ;
+             skos:broader :agriculture ;
+             skos:inScheme :AgroVocab ;
+             skos:exactMatch agrovoc:c_8734 .  # AGROVOC: almonds
+
+:agro_citrus rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:prefLabel "Citrus"@en ,
+                            "Cítricos"@es ;
+             skos:definition "Citrus fruit cultivation (oranges, lemons, etc.)."@en ;
+             skos:broader :agriculture ;
+             skos:inScheme :AgroVocab ;
+             skos:exactMatch agrovoc:c_1641 .  # AGROVOC: citrus fruits
+
+#################################################################
+#    Crops - Cereals
+#################################################################
+
+:agro_wheat rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:prefLabel "Wheat"@en ,
+                           "Trigo"@es ;
+            skos:definition "Cereal grain, genus Triticum."@en ;
+            skos:broader :agriculture ;
+            skos:inScheme :AgroVocab ;
+            skos:exactMatch agrovoc:c_8373 .  # AGROVOC: wheat
+
+:agro_maize rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:prefLabel "Maize"@en ,
+                           "Maíz"@es ;
+            skos:definition "Corn, Zea mays."@en ;
+            skos:broader :agriculture ;
+            skos:inScheme :AgroVocab ;
+            skos:exactMatch agrovoc:c_12332 .  # AGROVOC: maize
+
+:agro_barley rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:prefLabel "Barley"@en ,
+                            "Cebada"@es ;
+             skos:definition "Cereal grain, Hordeum vulgare."@en ;
+             skos:broader :agriculture ;
+             skos:inScheme :AgroVocab ;
+             skos:exactMatch agrovoc:c_823 .  # AGROVOC: barley
+
+:agro_rice rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:prefLabel "Rice"@en ,
+                          "Arroz"@es ;
+           skos:definition "Cereal grain, Oryza sativa."@en ;
+           skos:broader :agriculture ;
+           skos:inScheme :AgroVocab ;
+           skos:exactMatch agrovoc:c_6599 .  # AGROVOC: rice
+
+#################################################################
+#    Crops - Industrial / Other
+#################################################################
+
+:agro_sunflower rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:prefLabel "Sunflower"@en ,
+                               "Girasol"@es ;
+                skos:definition "Helianthus annuus, for oil and seeds."@en ;
+                skos:broader :agriculture ;
+                skos:inScheme :AgroVocab ;
+                skos:exactMatch agrovoc:c_aad037e4 .  # AGROVOC: sunflowers
+
+:agro_cotton rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:prefLabel "Cotton"@en ,
+                            "Algodón"@es ;
+             skos:definition "Fiber crop, Gossypium."@en ;
+             skos:broader :agriculture ;
+             skos:inScheme :AgroVocab ;
+             skos:exactMatch agrovoc:c_1926 .  # AGROVOC: cotton
+
+:agro_sugarbeet rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:prefLabel "Sugar Beet"@en ,
+                               "Remolacha Azucarera"@es ;
+                skos:definition "Beta vulgaris for sugar production."@en ;
+                skos:broader :agriculture ;
+                skos:inScheme :AgroVocab ;
+                skos:exactMeatch agrovoc:c_7460 .  # AGROVOC: sugar beet
+
+#################################################################
+#    Agricultural Practices
+#################################################################
+
+:agro_irrigation rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:prefLabel "Irrigation"@en ,
+                                "Riego"@es ;
+                 skos:definition "Artificial application of water to land for agriculture."@en ;
+                 skos:inScheme :AgroVocab ;
+                 skos:exactMatch agrovoc:c_3954 .  # AGROVOC: irrigation
+
+:agro_fertilization rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:prefLabel "Fertilization"@en ,
+                                   "Fertilización"@es ;
+                    skos:definition "Application of fertilizers to soil."@en ;
+                    skos:inScheme :AgroVocab ;
+                    skos:exactMatch agrovoc:c_10795 .  # AGROVOC: fertilizer application
+
+:agro_harvest rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:prefLabel "Harvest"@en ,
+                             "Cosecha"@es ;
+              skos:definition "Crop harvesting activities and timing."@en ;
+              skos:inScheme :AgroVocab ;
+              skos:exactMatch agrovoc:c_3500 .  # AGROVOC: harvesting
+
+:agro_pruning rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:prefLabel "Pruning"@en ,
+                             "Poda"@es ;
+              skos:definition "Selective removal of plant parts (branches, buds, roots)."@en ;
+              skos:inScheme :AgroVocab ;
+              skos:exactMatch agrovoc:c_6274 .  # AGROVOC: pruning
+
+:agro_pestControl rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:prefLabel "Pest Control"@en ,
+                                 "Control de Plagas"@es ;
+                  skos:definition "Management of pests that damage crops."@en ;
+                  skos:inScheme :AgroVocab ;
+                  skos:exactMatch agrovoc:c_5726 .  # AGROVOC: pest control
+
+:agro_soilManagement rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     skos:prefLabel "Soil Management"@en ,
+                                    "Manejo del Suelo"@es ;
+                     skos:definition "Practices to maintain and improve soil health."@en ;
+                     skos:inScheme :AgroVocab ;
+                     skos:exactMatch agrovoc:c_7176 .  # AGROVOC: soil management
+
+#################################################################
+#    Diseases (Olive-specific examples)
+#################################################################
+
+:agro_repilo rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:prefLabel "Repilo"@en ,
+                            "Repilo"@es ;
+             skos:altLabel "Olive Leaf Spot"@en ;
+             skos:definition "Fungal disease of olive caused by Fusicladium oleagineum."@en ;
+             skos:inScheme :AgroVocab ;
+             skos:broader agrovoc:c_11042 .  # AGROVOC: fungal diseases of plants
+
+:agro_tuberculosis rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:prefLabel "Olive Tuberculosis"@en ,
+                                  "Tuberculosis del Olivo"@es ;
+                   skos:altLabel "Olive Knot"@en ;
+                   skos:definition "Bacterial disease caused by Pseudomonas savastanoi."@en ;
+                   skos:inScheme :AgroVocab ;
+                   skos:broader agrovoc:c_770 .  # AGROVOC: bacterial diseases (plants)
+
+:agro_verticillium rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:prefLabel "Verticillium Wilt"@en ,
+                                  "Verticilosis"@es ;
+                   skos:definition "Soil-borne fungal disease affecting many crops."@en ;
+                   skos:inScheme :AgroVocab ;
+                   skos:exactMatch agrovoc:c_35187 .  # AGROVOC: Verticillium
+
+#################################################################
+#    Production Types
+#################################################################
+
+:agro_organic rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:prefLabel "Organic Farming"@en ,
+                             "Agricultura Ecológica"@es ;
+              skos:definition "Agricultural production without synthetic chemicals."@en ;
+              skos:inScheme :AgroVocab ;
+              skos:exactMatch agrovoc:c_5308 .  # AGROVOC: organic farming
+
+:agro_precisionAgriculture rdf:type owl:NamedIndividual ,
+                                    skos:Concept ;
+                           skos:prefLabel "Precision Agriculture"@en ,
+                                          "Agricultura de Precisión"@es ;
+                           skos:definition "Farming management using GPS, sensors, and data analytics."@en ;
+                           skos:inScheme :AgroVocab ;
+                           skos:exactMatch agrovoc:c_92363 .  # AGROVOC: precision agriculture
