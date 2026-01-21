@@ -576,7 +576,7 @@ Both link to `ObservableProperty`, but at **different levels**:
 
 ## 🔗 References
 
-- **Ontology**: `src/0.4.1/EDAAnOWL.ttl`
-- **Vocabularies**: `src/0.4.1/vocabularies/`
+- **Ontology**: `src/0.5.0/EDAAnOWL.ttl`
+- **Vocabularies**: `src/0.5.0/vocabularies/`
 - **Practical demos**: `demo/olive-grove/`, `demo/catalog/`
-- **SHACL shapes**: `src/0.4.1/shapes/edaan-shapes.ttl`
+- **SHACL shapes**: `src/0.5.0/shapes/edaan-shapes.ttl`

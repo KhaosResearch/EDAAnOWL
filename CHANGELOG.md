@@ -9,25 +9,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **Documentation (`demo/USE_CASES.md`)**: Expanded with three new sections:
-  - **DataProfile Reuse & Identity**: Explains profile reuse with lifecycle flowchart and SPARQL example for profile discovery.
-  - **Matchmaking Property Reference**: Complete property table with domains/ranges and decision flowchart.
-  - **Multi-Dimensional Compatibility**: "80% compatible" scenario with weighted scoring SPARQL query.
-- **Integration Frameworks**: Expanded documentation to align with **Interoperable Europe** and the Spanish **Esquema Nacional de Interoperabilidad (ENI)** via DCAT-AP compliance.
-- **Direct Vocabulary Reuse**: Updated documentation and SHACL rules to strongly encourage using external URIs (AGROVOC) directly instead of local proxy classes.
-- **Documentation (`README.md`)**: Added dedicated section "**Alignment with European Standards (DCAT-AP) & Value Proposition**" to clarify the complementary role of EDAAnOWL within the European Data Spaces ecosystem.
-- **Validation**: Added `src/0.4.1/shapes/dcat-ap-alignment.ttl` to validate EDAAnOWL assets against basic DCAT-AP requirements (Dual Typing, Conformance, Vocabularies).
-- **FAQ additions**: Clarified Resource vs Distribution and `servesObservableProperty` vs `declaresObservedProperty`.
-
 ### Changed
-
-- **SPARQL examples**: Updated to use v0.4.0 pattern (`ids:representation` → `conformsToProfile` on Distribution).
 
 ### Fixed
 
 ### Removed
 
 ---
+
+## [0.5.0] - 2026-01-21
+
+### Added
+
+- **DQV Alignment**: `:metricType` → `rdfs:subPropertyOf dqv:isMeasurementOf`, `:metricValue` → `rdfs:subPropertyOf dqv:value`. This enables DQV-aware tools to interpret EDAAnOWL metrics natively.
+- **PROV Alignment**: `:computedAt` → `rdfs:subPropertyOf prov:generatedAtTime`. Establishes provenance lineage for metric measurements.
+- **New ObjectProperties**:
+  - `:accessTypeConcept` (Domain: `ids:Resource`, Range: `skos:Concept`) - Replaces deprecated `:accessType` string.
+  - `:appliesToFeatureConcept` (Domain: `:Metric`, Range: `skos:Concept`) - Replaces deprecated `:appliesToFeature` string.
+- **Documentation (`demo/USE_CASES.md`)**: Expanded with DataProfile Reuse, Matchmaking Property Reference, and Multi-Dimensional Compatibility sections.
+- **Integration Frameworks**: Expanded documentation to align with **Interoperable Europe** and the Spanish **Esquema Nacional de Interoperabilidad (ENI)** via DCAT-AP compliance.
+- **Validation**: Added `src/0.4.1/shapes/dcat-ap-alignment.ttl` to validate EDAAnOWL assets against basic DCAT-AP requirements.
+
+### Changed
+
+- **`:hasCRS` range**: Changed from `owl:Thing` to `skos:Concept` for interoperability with controlled vocabularies.
+- **SPARQL examples**: Updated to use v0.4.0 pattern (`ids:representation` → `conformsToProfile` on Distribution).
+
+### Deprecated
+
+- **`:accessType`** (DatatypeProperty, string) - Use `:accessTypeConcept` instead.
+- **`:appliesToFeature`** (DatatypeProperty, string) - Use `:appliesToFeatureConcept` instead.
 
 ## [0.4.1] - 2026-01-12
 

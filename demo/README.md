@@ -52,7 +52,7 @@ python transform_csv.py
 **Highlights**:
 - Demonstrates Use Case 1 from `USE_CASES.md`
 - Dataset is compatible with `OliveYieldPredictor` app
-- Uses all v0.4.0+ features
+- Uses all v0.5.0+ features
 
 ---
 
