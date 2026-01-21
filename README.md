@@ -14,8 +14,8 @@ A pilot ontology for the semantic exploitation of data assets in the Agri-food (
 - :book: [BIGOWL ontology documentation](https://w3id.org/BIGOWL/)
 
 > [!NOTE]
-> Latest stable: see `src/0.4.1/` (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
-> v0.4.1 brings **IDSA alignment** bugfixes (conformsToProfile) and updated documentation.
+> Latest stable: see src/0.5.0/ (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
+> v0.5.0 brings **DQV/PROV alignment** and new **Controlled Vocabulary** properties.
 > Check out the `demo/` folder for a practical example of transforming a DCAT catalog to EDAAnOWL RDF.
 
 The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches the description of Data Space assets. It allows for modeling the functional profile (inputs, outputs, parameters) of `ids:DataApp` and `ids:DataResource`, facilitating their semantic discovery, composition into complex services, and compatibility validation.
