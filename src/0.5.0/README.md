@@ -88,14 +88,41 @@ Added to replace string-based properties:
 
 ---
 
-## Vocabulary Imports
+### 6. Data Representation Hierarchy & IDSA Alignment
 
-All internal vocabulary imports updated from `0.4.1` to `0.5.0`:
-- `agro-vocab`
-- `datatype-scheme`
-- `metric-types`
-- `observed-properties`
-- `sector-scheme`
+We have refined the class hierarchy to strictly follow the IDSA 4.2.0 taxonomy:
+
+```turtle
+dcat:Distribution
+  └─ ids:DataRepresentation (IDSA Taxonomy)
+       └─ :DataRepresentation (EDAAnOWL specialization)
+```
+
+**Key Improvements:**
+- **Inheritance**: `:DataRepresentation` now explicitly extends `ids:DataRepresentation` (instead of acting as a sibling or generic subclass).
+- **Instance Management**: We now use `ids:instance` (range `ids:RepresentationInstance`) to link to artifacts (files) or values, removing the redundant `:instance` property.
+- **Standards**: We recommend using `ids:representationStandard` (for technical standards like CSV W3C) alongside `:conformsToProfile` (for semantic/quality profiles).
+
+---
+
+## Vocabulary Strategy (BREAKING CHANGE)
+
+Starting with v0.5.0, EDAAnOWL **no longer bundles local SKOS vocabularies** for domain concepts, observable properties, metrics, or sectors. Instead, we recommend using **established external vocabularies** directly:
+
+| Domain | Recommended Vocabulary | URI Pattern |
+|--------|------------------------|-------------|
+| Agriculture | [AGROVOC](http://aims.fao.org/aos/agrovoc/) | `http://aims.fao.org/aos/agrovoc/c_*` |
+| General Science | [EuroSciVoc](http://data.europa.eu/8mn/) | `http://data.europa.eu/8mn/*` |
+| Data Quality | [DQV](http://www.w3.org/ns/dqv#) | `http://www.w3.org/ns/dqv#*` |
+| Units | [QUDT](http://qudt.org/vocab/unit/) | `http://qudt.org/vocab/unit/*` |
+| Geospatial | [EPSG](http://www.opengis.net/def/crs/EPSG/) | `http://www.opengis.net/def/crs/EPSG/0/*` |
+
+> [!IMPORTANT]
+> **Why this change?** EDAAnOWL's purpose is to provide *structure* (classes, properties) for semantic interoperability across data spaces. Domain *content* (concepts, terms) should come from globally recognized vocabularies to maximize cross-domain compatibility.
+
+### Retained Local Vocabulary
+
+Only `datatype-scheme.ttl` is retained, as it defines EDAAnOWL-specific data classes (`:georaster`, `:tabular`, `:timeseries`) that don't have direct external equivalents.
 
 ---
 
