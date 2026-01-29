@@ -16,35 +16,40 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
 
 <https://w3id.org/EDAAnOWL/test/> rdf:type owl:Ontology ;
-    # Import the main ontology (needed for ROBOT to load all vocabs via catalog)
-    owl:imports <https://w3id.org/EDAAnOWL/> .
+    owl:imports <https://w3id.org/EDAAnOWL/> ;
+    dct:title "EDAAnOWL Test Instances"@en ;
+    dct:description "Minimal test instances for SHACL validation using AGROVOC URIs verified from vocabularies."@en .
 
-### Mock concepts so that the test works independently of external vocabularies
-:agriculture rdf:type skos:Concept .
-:TestAlgorithm a bigalg:Algorithm .
-:TestProblem a bigprob:Problem .
-:TestDataClass a bigdat:Data .
+### Stub definitions for external concepts (enables offline validation)
+### VERIFIED AGROVOC codes from observed-properties.ttl exactMatch alignments
 
-# TestProperty must be an ObservableProperty (not just skos:Concept)
-:TestProperty rdf:type :ObservableProperty ;
-    skos:prefLabel "Test Property"@en .
+:agriculture a skos:Concept ;
+    skos:prefLabel "Agriculture"@en .
 
-# These must have skos:prefLabel to pass ObservablePropertyShape
-:ndvi a :ObservableProperty ;
+agrovoc:c_ce585e0d a skos:Concept, sosa:ObservableProperty ;  # NDVI
     skos:prefLabel "NDVI"@en .
 
-:waterStress a :ObservableProperty ;
+agrovoc:c_24993 a skos:Concept, sosa:ObservableProperty ;     # Water stress
     skos:prefLabel "Water Stress"@en .
 
+### Mock BIGOWL concepts for testing
+test:TestAlgorithm a bigalg:Algorithm .
+test:TestProblem a bigprob:Problem .
+test:TestDataClass a bigdat:Data .
+
+### External class declarations for reasoning
 sosa:ObservableProperty rdf:type owl:Class .
 gsp:Geometry rdf:type owl:Class .
 time:Interval rdf:type owl:Class .
 
+### Test Instances
+
 test:ValidApp a ids:DataApp ;
     dct:title "Valid Test App"@en ;
-    :parameter :TestAlgorithm ; 
+    :parameter test:TestAlgorithm ; 
     :hasDomainSector :agriculture .
 
 test:ValidResource a ids:DataResource ;
@@ -52,43 +57,49 @@ test:ValidResource a ids:DataResource ;
     :hasDomainSector :agriculture ;
     ids:representation test:ValidResource_Repr .
 
-# v0.4.0 Pattern: Profile on Distribution
 test:ValidResource_Repr a :DataRepresentation ;
     dct:format "text/csv" ;
+    dcat:accessURL <https://example.org/resource/data.csv> ;
+    dct:license <http://example.org/license> ;
+    ids:instance [ a ids:Artifact ; ids:fileName "data.csv" ] ;
     :conformsToProfile test:TestProfile .
 
 test:ValidDataAsset a :DataAsset ;
     dct:title "Valid Data Asset"@en ;
-    :servesObservableProperty :ndvi ;
+    :servesObservableProperty agrovoc:c_ce585e0d ;  # NDVI
     ids:representation test:ValidDataAsset_Repr ;
     prov:wasGeneratedBy test:ValidApp .
 
-# v0.4.0 Pattern: Profile on Distribution
 test:ValidDataAsset_Repr a :DataRepresentation ;
     dct:format "text/csv" ;
+    dcat:accessURL <https://example.org/asset/data.csv> ;
+    dct:license <http://example.org/license> ;
+    ids:instance [ a ids:Artifact ; ids:fileName "data.csv" ] ;
     :conformsToProfile test:TestProfile .
 
 test:TestProfile a :DataProfile ; 
     dct:title "Test Profile"@en ;
-    :declaresDataClass :TestDataClass ;
-    :declaresObservedProperty :TestProperty ;
+    :declaresDataClass test:TestDataClass ;
+    :declaresObservedProperty agrovoc:c_ce585e0d ;  # NDVI
     :hasMetric test:DummyMetric .
 
 test:ValidSpatialAsset a :SpatialTemporalAsset ;
     dct:title "Valid Spatial Asset"@en ;
-    :servesObservableProperty :ndvi ;
+    :servesObservableProperty agrovoc:c_ce585e0d ;  # NDVI
     :hasSpatialCoverage [ a gsp:Geometry ] ;
     :hasTemporalCoverage [ a time:Interval ] ;
     ids:representation test:ValidSpatialAsset_Repr .
 
-# v0.4.0 Pattern: Profile on Distribution
 test:ValidSpatialAsset_Repr a :DataRepresentation ;
     dct:format "GeoTIFF" ;
+    dcat:accessURL <https://example.org/spatial/data.tif> ;
+    dct:license <http://example.org/license> ;
+    ids:instance [ a ids:Artifact ; ids:fileName "data.tif" ] ;
     :conformsToProfile test:TestProfile .
 
 test:ValidService a :PredictionApp ;
     dct:title "Valid Analytical Service"@en ;
-    :producesObservableProperty :waterStress ;
+    :producesObservableProperty agrovoc:c_24993 ;  # Water stress
     :hasDomainSector :agriculture .
 
 test:DummyMetric a :Metric, :QualityMetric, dqv:QualityMetric ;

@@ -19,20 +19,71 @@
 @prefix profile: <http://example.org/profile/> .
 @prefix bigwf: <https://w3id.org/BIGOWLWorkflows/> .
 @prefix opmw: <http://www.opmw.org/ontology/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
 
 <http://example.org/data/eo/> rdf:type owl:Ontology ;
     owl:imports <https://w3id.org/EDAAnOWL/> ;
     dct:title "Earth Observation (EO) Instance Examples"@en ;
-    dct:description "Example instances demonstrating EDAAnOWL v0.4.0 features including IDSA alignment with DataRepresentation, conformsToProfile on Distribution, and extended vocabularies."@en .
+    dct:description "Example instances demonstrating EDAAnOWL v0.5.0 features with external vocabulary references (AGROVOC)."@en .
 
 ###
-### Use Case 1: Earth Observation (EO) Data Asset with v0.4.0 Pattern
-### NOTE: conformsToProfile now goes on the Distribution (:DataRepresentation), not on the Resource
-# NOTE: SpatialTemporalAsset is a subclass of DataAsset, but we add DataAsset explicitly for SHACL validation
+### AGROVOC Stub Definitions (for offline SHACL validation)
+### Codes verified from observed-properties.ttl and agro-vocab.ttl exactMatch alignments
+###
+
+# Domain Sectors (no AGROVOC exactMatch in sector-scheme, using local)
+:agriculture a skos:Concept ;
+    skos:prefLabel "Agriculture"@en .
+
+# Observable Properties - VERIFIED AGROVOC CODES
+agrovoc:c_ce585e0d a skos:Concept ;     # NDVI (normalized difference vegetation index)
+    skos:prefLabel "NDVI"@en .
+
+agrovoc:c_7657 a skos:Concept ;          # Temperature
+    skos:prefLabel "Temperature"@en .
+
+agrovoc:c_7208 a skos:Concept ;          # Soil moisture
+    skos:prefLabel "Soil Moisture"@en .
+
+agrovoc:c_24993 a skos:Concept ;         # Water stress
+    skos:prefLabel "Water Stress"@en .
+
+agrovoc:c_3954 a skos:Concept ;          # Irrigation
+    skos:prefLabel "Irrigation"@en .
+
+agrovoc:c_6161 a skos:Concept ;          # Precipitation
+    skos:prefLabel "Precipitation"@en .
+
+agrovoc:c_6496 a skos:Concept ;          # Relative humidity
+    skos:prefLabel "Relative Humidity"@en .
+
+agrovoc:c_37675 a skos:Concept ;         # Wind velocity
+    skos:prefLabel "Wind Speed"@en .
+
+agrovoc:c_8488 a skos:Concept ;          # Yield
+    skos:prefLabel "Crop Yield"@en .
+
+agrovoc:c_34901 a skos:Concept ;         # Soil pH
+    skos:prefLabel "Soil pH"@en .
+
+agrovoc:c_35657 a skos:Concept ;         # Soil organic matter
+    skos:prefLabel "Organic Matter"@en .
+
+# Topics - VERIFIED AGROVOC CODES
+agrovoc:c_12926 a skos:Concept ;         # Olives
+    skos:prefLabel "Olives"@en .
+
+agrovoc:c_7176 a skos:Concept ;          # Soil management
+    skos:prefLabel "Soil Management"@en .
+
+###
+### Use Case 1: Earth Observation (EO) Data Asset
+### Uses AGROVOC for observable properties
+###
 ex:Sentinel2_NDVI_Jaen_2024 a :SpatialTemporalAsset, :DataAsset ;
     dct:title "Sentinel-2 NDVI for Jaén (2024)"@en ;
     :hasDomainSector :agriculture ;
-    :topic :agro_olive ;
+    :topic agrovoc:c_12926 ;                       # Olives
     :supportContact [
         rdf:type vcard:Kind ;
         vcard:hasEmail <mailto:data@eo.example.com> ;
@@ -59,28 +110,28 @@ ex:Sentinel2_NDVI_Jaen_2024 a :SpatialTemporalAsset, :DataAsset ;
         gsp:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON((-4.0 38.0, -3.5 38.0, -3.5 37.5, -4.0 37.5, -4.0 38.0))"^^gsp:wktLiteral
     ] ;
     
-    :servesObservableProperty :ndvi .
-    # NOTE: :conformsToProfile now goes on the Representation (v0.4.0 pattern)
+    :servesObservableProperty agrovoc:c_ce585e0d .  # NDVI
 
-# v0.4.0 Pattern: Profile on Distribution
+# v0.5.0 Pattern: Profile on Distribution with external vocab references
 data:SentinelOliveJaen2024_Repr a :DataRepresentation ;
     dct:format "GeoTIFF" ;
+    dcat:accessURL <https://eo.example.com/download/sentinel2_jaen_2024.tif> ;
+    dct:license <http://example.org/licenses/CC-BY-4.0> ;
     dcat:mediaType <https://www.iana.org/assignments/media-types/image/tiff> ;
     dct:language "en" ;
-    :conformsToProfile ex:Profile_Sentinel_NDVI ;  # <-- NEW: Profile now on Distribution
-    :instance data:SentinelOliveJaen2024_Artifact . # <-- NEW: Link to Artifact
+    :conformsToProfile ex:Profile_Sentinel_NDVI ;
+    ids:instance data:SentinelOliveJaen2024_Artifact .
 
-# v0.4.0: Concrete Artifact
 data:SentinelOliveJaen2024_Artifact a ids:Artifact ;
     rdfs:label "Sentinel2_Jaen_2024.tif" ;
+    ids:fileName "Sentinel2_Jaen_2024.tif" ;
     dct:byteSize "256000000"^^xsd:integer ;
-    ids:checkSum "8490328490..." .
+    ids:checkSum "sha256:8490328490..." .
 
 
 ###
-### Use Case 2: Prediction App with extended observable properties
+### Use Case 2: Prediction App with external observable properties
 ###
-# NOTE: PredictionApp is a subclass of ids:SmartDataApp
 ex:WaterStressCalculator a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
     dct:title "Water Stress Calculator"@en ;
     :hasDomainSector :agriculture ;
@@ -89,58 +140,66 @@ ex:WaterStressCalculator a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
         vcard:hasEmail <mailto:data@eo.example.com> ;
         vcard:fn "EO Data Support"
     ] ;
-    :requiresObservableProperty :ndvi, :temperature, :soilMoisture ;
-    :producesObservableProperty :waterStress, :irrigationNeed .
+    :requiresObservableProperty agrovoc:c_ce585e0d,   # NDVI
+                                 agrovoc:c_7657,       # Temperature
+                                 agrovoc:c_7208 ;      # Soil moisture
+    :producesObservableProperty agrovoc:c_24993,      # Water stress
+                                 agrovoc:c_3954 .      # Irrigation
 
 ###
-### Use Case 3: Weather Station Data with multiple metrics
+### Use Case 3: Weather Station Data
 ###
 ex:WeatherStation_Jaen_2024 a :DataAsset ;
     dct:title "Jaén Weather Station (2024)"@en ;
     :hasDomainSector :agriculture ;
-    :servesObservableProperty :temperature, :precipitation, :relativeHumidity, :windSpeed ;
+    :servesObservableProperty agrovoc:c_7657,        # Temperature
+                               agrovoc:c_6161,        # Precipitation
+                               agrovoc:c_6496,        # Relative humidity
+                               agrovoc:c_37675 ;      # Wind speed
     ids:representation ex:WeatherCSV .
 
-# v0.4.0 Pattern: CSV representation with profile
 ex:WeatherCSV a :DataRepresentation ;
     dct:format "text/csv" ;
+    dcat:accessURL <https://eo.example.com/weather/jaen_2024.csv> ;
+    dct:license <http://example.org/licenses/CC-BY-4.0> ;
+    ids:instance [ a ids:Artifact ; ids:fileName "weather_jaen_2024.csv" ] ;
     :conformsToProfile ex:Profile_Weather_Station .
 
-# --- Profiles with MetricType (new v0.3.2 feature) ---
-# NOTE: Metrics need explicit :Metric type for SHACL sh:class validation
+# --- Profiles ---
+# NOTE: Profiles use :declaresObservedProperty with external URIs
 
 ex:Profile_Sentinel_NDVI a :DataProfile ;
     :declaresDataClass :georaster ;
-    :declaresObservedProperty :ndvi ;
+    :declaresObservedProperty agrovoc:c_ce585e0d ;  # NDVI
     dcat:spatialResolutionInMeters "10.0"^^xsd:decimal ;
     dcat:temporalResolution "P5D"^^xsd:duration ;
     :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
     :hasMetric [
         a :Metric, :QualityMetric ;
-        :metricType :mt_cloudCoverage ;
-        :metricName "CloudCoverage" ;
+        :metricName "cloudCoverage" ;
         :metricValue "5"^^xsd:decimal ;
         :metricUnit "%"
     ] ,
     [
         a :Metric, :QualityMetric ;
-        :metricType :mt_noDataRatio ;
-        :metricName "NoDataRatio" ;
+        :metricName "noDataRatio" ;
         :metricValue "0.02"^^xsd:decimal
     ] .
 
 ex:Profile_Weather_Station a :DataProfile ;
     :declaresDataClass :tabular ;
+    :declaresObservedProperty agrovoc:c_7657,        # Temperature
+                               agrovoc:c_6161,        # Precipitation
+                               agrovoc:c_6496,        # Relative humidity
+                               agrovoc:c_37675 ;      # Wind speed
     dcat:temporalResolution "PT1H"^^xsd:duration ;
     :hasMetric [
         a :Metric, :QualityMetric ;
-        :metricType :mt_recordCount ;
         :metricName "recordCount" ;
         :metricValue "8760"^^xsd:integer
     ] ,
     [
         a :Metric, :QualityMetric ;
-        :metricType :mt_completeness ;
         :metricName "completeness" ;
         :metricValue "0.98"^^xsd:decimal ;
         :appliesToFeature "temperature"
@@ -150,11 +209,10 @@ ex:Profile_Weather_Station a :DataProfile ;
 
 ex:OliveYieldAndalucia a :DataAsset ;
     dct:title "Olive Yield Data - Andalucía 2024"@en ;
-    :servesObservableProperty :yield ;
-    :topic agrovoc:c_5993 ;
-    :topic :agro_olive ;
+    :servesObservableProperty agrovoc:c_8488 ;  # Yield
+    :topic agrovoc:c_12926 ;                     # Olives
     :hasDomainSector :agriculture ;
-    ids:representation ex:OliveYieldCSV ;  # v0.4.0 pattern
+    ids:representation ex:OliveYieldCSV ;
     :isAlive true ;
     :auditLogAvailable true ;
     :knownLimitations "Contains aggregated data, individual farm data is anonymized." ;
@@ -172,42 +230,49 @@ ex:OliveYieldAndalucia a :DataAsset ;
 
 ex:OliveYieldCSV a :DataRepresentation ;
     dct:format "text/csv" ;
+    dcat:accessURL <https://eo.example.com/yield/andalucia_2024.csv> ;
+    dct:license <http://example.org/licenses/Proprietary> ;
+    ids:instance [ a ids:Artifact ; ids:fileName "olive_yield_2024.csv" ] ;
     :conformsToProfile ex:Profile_OliveYield .
 
 ex:Profile_OliveYield a :DataProfile ;
     :declaresDataClass :tabular ;
+    :declaresObservedProperty agrovoc:c_8488 ;  # Yield
     :hasMetric [
         a :Metric, :QualityMetric ;
-        :metricType :mt_recordCount ;
         :metricName "recordCount" ;
         :metricValue "15000"^^xsd:integer
     ] ,
     [
         a :Metric, :QualityMetric ;
-        :metricType :mt_accuracy ;
         :metricName "accuracy" ;
         :metricValue "0.95"^^xsd:decimal ;
         :metricUnit "%"
     ] .
 
-# --- Use Case 5: Prediction App with Provenance (v0.4.0 pattern) ---
+# --- Use Case 5: Prediction App with Provenance ---
 
 ex:YieldPrediction_2024 a :DataAsset ;
     dct:title "Olive Yield Predictions 2024"@en ;
-    :servesObservableProperty :yieldForecast ;
-    ids:representation ex:PredictionOutputCSV ;  # v0.4.0 pattern
+    :servesObservableProperty :yieldForecast ;  # Local concept (no AGROVOC exactMatch)
+    ids:representation ex:PredictionOutputCSV ;
     prov:wasGeneratedBy ex:OliveYieldPredictor ;
     prov:wasDerivedFrom ex:OliveYieldAndalucia, ex:Sentinel2_NDVI_Jaen_2024 .
 
 ex:PredictionOutputCSV a :DataRepresentation ;
     dct:format "text/csv" ;
+    dcat:accessURL <https://eo.example.com/predictions/2024_results.csv> ;
+    dct:license <http://example.org/licenses/Proprietary> ;
+    ids:instance [ a ids:Artifact ; ids:fileName "prediction_results_2024.csv" ] ;
     :conformsToProfile ex:Profile_PredictionOutput .
 
 ex:OliveYieldPredictor a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
     dct:title "Olive Yield Predictor"@en ;
     :hasDomainSector :agriculture ;
-    :requiresObservableProperty :ndvi, :yield, :soilMoisture ;
-    :producesObservableProperty :yieldForecast ;
+    :requiresObservableProperty agrovoc:c_ce585e0d,   # NDVI
+                                 agrovoc:c_8488,       # Yield
+                                 agrovoc:c_7208 ;      # Soil moisture
+    :producesObservableProperty :yieldForecast ;      # Local concept
     :supportContact [
         a vcard:Kind ;
         vcard:fn "AI Team" ;
@@ -216,66 +281,59 @@ ex:OliveYieldPredictor a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
 
 ex:Profile_PredictionOutput a :DataProfile ;
     :declaresDataClass :tabular ;
+    :declaresObservedProperty :yieldForecast ;  # Local concept
     :hasMetric [
         a :Metric, :PerformanceMetric ;
-        :metricType :mt_modelAccuracy ;
         :metricName "modelAccuracy" ;
         :metricValue "0.87"^^xsd:decimal
     ] ,
     [
         a :Metric, :PerformanceMetric ;
-        :metricType :mt_f1Score ;
         :metricName "f1Score" ;
         :metricValue "0.82"^^xsd:decimal
     ] .
 
-# --- Use Case 5b: AppRepresentation with Workflow Component (v0.4.0) ---
-# Demonstrates new :consumesAppRepresentation and :producesAppRepresentation properties
+# --- Use Case 5b: AppRepresentation with Workflow Component ---
 
-# A published DataApp with its AppRepresentation (software delivery form)
 ex:NDVICalculatorService a :AnalyzerApp, ids:SmartDataApp, ids:DataApp ;
     dct:title "NDVI Calculator Microservice"@en ;
     dct:description "Calculates NDVI from multispectral bands (Red, NIR)"@en ;
     :hasDomainSector :agriculture ;
-    :requiresObservableProperty :reflectance_red, :reflectance_nir ;
-    :producesObservableProperty :ndvi ;
-    ids:representation ex:NDVICalculatorDocker .  # Link to AppRepresentation
+    :requiresObservableProperty :reflectance_red,     # Local concept (no AGROVOC)
+                                 :reflectance_nir ;    # Local concept (no AGROVOC)
+    :producesObservableProperty agrovoc:c_ce585e0d ;  # NDVI
+    ids:representation ex:NDVICalculatorDocker .
 
-# AppRepresentation: the concrete software artifact (Docker image)
 ex:NDVICalculatorDocker a ids:AppRepresentation ;
     dct:format "application/vnd.docker.distribution.manifest.v2+json" ;
     dcat:mediaType <https://www.iana.org/assignments/media-types/application/vnd.oci.image.manifest.v1+json> ;
-    :instance ex:NDVICalculatorDockerArtifact .
+    ids:instance ex:NDVICalculatorDockerArtifact .
 
-# The concrete artifact (Docker image)
 ex:NDVICalculatorDockerArtifact a ids:Artifact ;
     rdfs:label "ndvi-calculator:v2.1.0" ;
+    ids:fileName "ndvi-calculator.tar" ;
     dct:byteSize "156000000"^^xsd:integer ;
     ids:checkSum "sha256:abc123def456..." .
 
-# A workflow component that USES the app (consumes the AppRepresentation)
 ex:VegetationAnalysisStep a bigwf:Component ;
     dct:title "Vegetation Analysis Step"@en ;
     dct:description "Workflow step that calculates vegetation indices from satellite imagery"@en ;
-    :consumesDataRepresentation data:SentinelOliveJaen2024_Repr ;  # Input: satellite data
-    :consumesAppRepresentation ex:NDVICalculatorDocker ;           # Uses: NDVI calculator app
-    :producesDataRepresentation ex:NDVIOutputRepresentation .      # Output: NDVI results
+    :consumesDataRepresentation data:SentinelOliveJaen2024_Repr ;
+    :consumesAppRepresentation ex:NDVICalculatorDocker ;
+    :producesDataRepresentation ex:NDVIOutputRepresentation .
 
-# The workflow template containing the component
 ex:AgriAnalysisWorkflow a opmw:WorkflowTemplate ;
     dct:title "Agricultural Analysis Pipeline"@en ;
     dct:description "End-to-end workflow for olive grove analysis"@en .
 
-# Link the DataApp to the component it implements
 ex:NDVICalculatorService :implementsComponent ex:VegetationAnalysisStep ;
     :requiresProfile ex:MultispectralInputProfile ;
     :producesProfile ex:NDVIOutputProfile .
 
-# Input profile expected by the NDVI calculator
 ex:MultispectralInputProfile a :DataProfile ;
     dct:title "Multispectral Input Profile"@en ;
     :declaresDataClass :georaster ;
-    :declaresObservedProperty :reflectance_red, :reflectance_nir ;
+    :declaresObservedProperty :reflectance_red, :reflectance_nir ;  # Local concepts
     :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
     :hasMetric [
         a :Metric, :QualityMetric ;
@@ -283,57 +341,63 @@ ex:MultispectralInputProfile a :DataProfile ;
         :metricValue "0.95"^^xsd:decimal
     ] .
 
-# Output profile produced by the NDVI calculator
 ex:NDVIOutputProfile a :DataProfile ;
     dct:title "NDVI Output Profile"@en ;
     :declaresDataClass :georaster ;
-    :declaresObservedProperty :ndvi ;
+    :declaresObservedProperty agrovoc:c_ce585e0d ;  # NDVI
     dcat:spatialResolutionInMeters "10.0"^^xsd:decimal ;
     :hasMetric [
         a :Metric, :PerformanceMetric ;
-        :metricType :mt_executionTime ;
         :metricName "executionTime" ;
         :metricValue "45"^^xsd:integer ;
         :metricUnit "seconds"
     ] ,
     [
         a :Metric, :QualityMetric ;
-        :metricType :mt_noDataRatio ;
         :metricName "noDataRatio" ;
         :metricValue "0.02"^^xsd:decimal
     ] .
 
-# Output representation (v0.4.0 pattern: profile on Distribution)
 ex:NDVIOutputRepresentation a :DataRepresentation ;
     dct:format "image/tiff" ;
+    dcat:accessURL <https://eo.example.com/job/ndvi_output.tif> ;
+    dct:license <http://example.org/licenses/CC-BY-4.0> ;
+    ids:instance [ a ids:Artifact ; ids:fileName "ndvi_output.tif" ] ;
     dcat:mediaType <https://www.iana.org/assignments/media-types/image/tiff> ;
     :conformsToProfile ex:NDVIOutputProfile .
 
-# --- Use Case 6: Soil Data with extended soil properties ---
+# --- Use Case 6: Soil Data with external soil properties ---
 
 ex:SoilAnalysis_Jaen a :DataAsset ;
     dct:title "Soil Analysis Data - Jaén Region"@en ;
     :hasDomainSector :agriculture ;
-    :topic :agro_soilManagement ;
-    :servesObservableProperty :soilMoisture, :soilPH, :electricalConductivity, :organicMatter ;
-    ids:representation ex:SoilAnalysisCSV .  # v0.4.0 pattern: link to Distribution
+    :topic agrovoc:c_7176 ;                          # Soil management
+    :servesObservableProperty agrovoc:c_7208,        # Soil moisture
+                               agrovoc:c_34901,       # Soil pH
+                               :electricalConductivity,  # Local (no AGROVOC exactMatch)
+                               agrovoc:c_35657 ;      # Organic matter
+    ids:representation ex:SoilAnalysisCSV .
 
-# v0.4.0 Pattern: Profile on Distribution
 ex:SoilAnalysisCSV a :DataRepresentation ;
     dct:format "text/csv" ;
+    dcat:accessURL <https://eo.example.com/soil/jaen_analysis.csv> ;
+    dct:license <http://example.org/licenses/CC-BY-4.0> ;
+    ids:instance [ a ids:Artifact ; ids:fileName "soil_analysis.csv" ] ;
     :conformsToProfile ex:Profile_SoilData .
 
 ex:Profile_SoilData a :DataProfile ;
     :declaresDataClass :tabular ;
+    :declaresObservedProperty agrovoc:c_7208,        # Soil moisture
+                               agrovoc:c_34901,       # Soil pH
+                               :electricalConductivity,
+                               agrovoc:c_35657 ;      # Organic matter
     :hasMetric [
         a :Metric, :QualityMetric ;
-        :metricType :mt_recordCount ;
         :metricName "recordCount" ;
         :metricValue "500"^^xsd:integer
     ] ,
     [
         a :Metric, :QualityMetric ;
-        :metricType :mt_uniqueness ;
         :metricName "uniqueness" ;
         :metricValue "1.0"^^xsd:decimal ;
         :appliesToFeature "sample_id"
@@ -354,5 +418,8 @@ ex:RasterDownloadEndpoint a ids:ResourceEndpoint ;
 
 ex:Sentinel2_NDVI_Jaen_2024 ids:resourceEndpoint ex:RasterDownloadEndpoint .
 
-# SHACL Helper
+# --- Helper Definitions ---
 <https://www.iana.org/assignments/media-types/image/tiff> a dct:MediaType .
+
+<http://www.opengis.net/def/crs/EPSG/0/4326> a skos:Concept ;
+    skos:prefLabel "WGS 84"@en .
