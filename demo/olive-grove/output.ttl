@@ -8,6 +8,17 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+
+# AGROVOC Stub Definitions (for offline validation)
+agrovoc:c_ce585e0d a skos:Concept ; skos:prefLabel "NDVI"@en .
+agrovoc:c_7657 a skos:Concept ; skos:prefLabel "Temperature"@en .
+agrovoc:c_6161 a skos:Concept ; skos:prefLabel "Precipitation"@en .
+agrovoc:c_7208 a skos:Concept ; skos:prefLabel "Soil Moisture"@en .
+agrovoc:c_8488 a skos:Concept ; skos:prefLabel "Yield"@en .
+agrovoc:c_12926 a skos:Concept ; skos:prefLabel "Olives"@en .
+edaan:agriculture a skos:Concept ; skos:prefLabel "Agriculture"@en .
 
 olive:OliveGroveMonitoring2024 a edaan:DataAsset,
         edaan:SpatialTemporalAsset ;
@@ -17,61 +28,57 @@ olive:OliveGroveMonitoring2024 a edaan:DataAsset,
         "Dataset de Monitorización de Olivar - Jaén 2024"@es ;
     edaan:accessType "Download" ;
     edaan:conformsToProfile olive:OliveMonitoringProfile ;
-    edaan:hasDomainSector edaan:agriculture ;
+    edaan:hasDomainSector edaan:agriculture ;   # Agriculture
     edaan:hasSpatialCoverage [ a locn:Geometry ;
             gsp:asWKT "POLYGON((-3.8012 37.7654, -3.7423 37.7654, -3.7423 37.8321, -3.8012 37.8321, -3.8012 37.7654))"^^gsp:wktLiteral ] ;
     edaan:hasTemporalCoverage [ a time:Interval ;
             time:hasBeginning [ time:inXSDDate "2024-03-15"^^xsd:date ] ;
             time:hasEnd [ time:inXSDDate "2024-04-15"^^xsd:date ] ] ;
     edaan:isAlive true ;
-    edaan:servesObservableProperty edaan:ndvi,
-        edaan:precipitation,
-        edaan:soilMoisture,
-        edaan:temperature,
-        edaan:yield ;
+    edaan:servesObservableProperty 
+        agrovoc:c_ce585e0d,  # NDVI
+        agrovoc:c_6161,      # Precipitation
+        agrovoc:c_7208,      # Soil Moisture
+        agrovoc:c_7657,      # Temperature
+        agrovoc:c_8488 ;     # Yield
     edaan:supportContact [ a vcard:Kind ;
             vcard:fn "Khaos Research Group" ;
             vcard:hasEmail <mailto:khaos@uma.es> ] ;
-    edaan:topic edaan:agro_olive .
+    edaan:topic agrovoc:c_12926 .  # Olives
 
 olive:OliveMonitoringProfile a edaan:DataProfile ;
     dct:title "Olive Grove Monitoring Profile"@en ;
     dcat:temporalResolution "P1M"^^xsd:duration ;
     edaan:declaresDataClass edaan:tabular ;
-    edaan:declaresObservedProperty edaan:ndvi,
-        edaan:precipitation,
-        edaan:soilMoisture,
-        edaan:temperature,
-        edaan:yield ;
+    edaan:declaresObservedProperty 
+        agrovoc:c_ce585e0d,  # NDVI
+        agrovoc:c_6161,      # Precipitation
+        agrovoc:c_7208,      # Soil Moisture
+        agrovoc:c_7657,      # Temperature
+        agrovoc:c_8488 ;     # Yield
     edaan:hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
     edaan:hasMetric [ a edaan:Metric,
                 edaan:QualityMetric ;
             edaan:metricName "spatialExtent" ;
-            edaan:metricType edaan:mt_spatialExtent ;
             edaan:metricValue "Jaén, Spain (37.7654,-3.8012 to 37.8321,-3.7423)" ],
         [ a dqv:QualityMetric,
                 edaan:Metric,
                 edaan:QualityMetric ;
             edaan:computedAt "2025-12-13T14:06:48.894779"^^xsd:dateTime ;
             edaan:metricName "recordCount" ;
-            edaan:metricType edaan:mt_recordCount ;
             edaan:metricValue 10 ],
         [ a edaan:Metric,
                 edaan:QualityMetric ;
             edaan:metricName "featureCount" ;
-            edaan:metricType edaan:mt_featureCount ;
             edaan:metricValue 10 ],
         [ a dqv:QualityMetric,
                 edaan:Metric,
                 edaan:QualityMetric ;
             edaan:computedAt "2025-12-13T14:06:48.895402"^^xsd:dateTime ;
             edaan:metricName "completeness" ;
-            edaan:metricType edaan:mt_completeness ;
             edaan:metricUnit "ratio" ;
             edaan:metricValue 1.0 ],
         [ a edaan:Metric,
                 edaan:QualityMetric ;
             edaan:metricName "temporalExtent" ;
-            edaan:metricType edaan:mt_temporalExtent ;
             edaan:metricValue "2024-03-15 to 2024-04-15" ] .
-

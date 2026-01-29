@@ -5,6 +5,9 @@ This document consolidates all practical use cases, examples, and demonstrations
 > [!IMPORTANT]
 > **v0.4.0+ Change**: `:conformsToProfile` is now applied to `dcat:Distribution` (e.g., `:DataRepresentation`), not directly on the Resource.
 
+> [!NOTE]
+> **v0.5.0+ Change**: EDAAnOWL now recommends using external vocabularies (AGROVOC, DQV) directly. Examples in diagrams use short names for readability; see code blocks for full AGROVOC URIs.
+
 ---
 
 ## Table of Contents
@@ -89,18 +92,25 @@ The system determines compatibility because:
 @prefix edaan: <https://w3id.org/EDAAnOWL/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
 
 # THE APPLICATION (DEMAND)
 agri:OliveYieldPredictor a edaan:PredictionApp ;
     edaan:hasDomainSector edaan:agriculture ;
-    edaan:requiresObservableProperty edaan:ndvi, edaan:temperature, edaan:precipitation ;
+    edaan:requiresObservableProperty 
+        agrovoc:c_ce585e0d,  # NDVI
+        agrovoc:c_7657,      # Temperature
+        agrovoc:c_6161 ;     # Precipitation
     edaan:requiresProfile profile:OliveAgriProfile .
 
 # THE DATASET (SUPPLY)
 data:SentinelOliveJaen2024 a edaan:SpatialTemporalAsset ;
     dct:title "Sentinel-2 Data for Olive Groves in Jaén 2024"@en ;
     edaan:hasDomainSector edaan:agriculture ;
-    edaan:servesObservableProperty edaan:ndvi, edaan:temperature, edaan:precipitation ;
+    edaan:servesObservableProperty 
+        agrovoc:c_ce585e0d,  # NDVI
+        agrovoc:c_7657,      # Temperature
+        agrovoc:c_6161 ;     # Precipitation
     ids:representation data:SentinelOliveJaen2024_Repr .
 
 data:SentinelOliveJaen2024_Repr a edaan:DataRepresentation ;
@@ -114,12 +124,14 @@ data:SentinelOliveJaen2024_Repr a edaan:DataRepresentation ;
 A `DataApp` can be both **DEMAND** (requires input) and **SUPPLY** (offers a service):
 
 ```turtle
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+
 apps:PublishedNDVICalculator a edaan:AnalyzerApp ;
     dct:title "NDVI Calculator Service"@en ;
-    # What it requires (DEMAND)
+    # What it requires (DEMAND) - local concepts (no AGROVOC exactMatch)
     edaan:requiresObservableProperty edaan:reflectance_red, edaan:reflectance_nir ;
     # What it produces (SUPPLY)
-    edaan:producesObservableProperty edaan:ndvi .
+    edaan:producesObservableProperty agrovoc:c_ce585e0d .  # NDVI
 ```
 
 ---
@@ -147,10 +159,12 @@ graph TB
 ### RDF Example
 
 ```turtle
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+
 data:NDVITimeSeries2024 a edaan:DataAsset ;
     prov:wasGeneratedBy analytics:NDVIAnalyzer ;
     prov:wasDerivedFrom data:SentinelRaw2024 ;
-    edaan:servesObservableProperty edaan:ndvi .
+    edaan:servesObservableProperty agrovoc:c_ce585e0d .  # NDVI
 ```
 
 ---
