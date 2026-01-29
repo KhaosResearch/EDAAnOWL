@@ -32,11 +32,7 @@
 
 <https://w3id.org/EDAAnOWL/> rdf:type owl:Ontology ;
                               owl:versionIRI <https://w3id.org/EDAAnOWL/0.5.0> ;
-                              owl:imports <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/agro-vocab> ,
-                                          <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/datatype-scheme> ,
-                                          <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/metric-types> ,
-                                          <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/observed-properties> ,
-                                          <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/sector-scheme> ;
+                              owl:imports <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/datatype-scheme> ;
                               dcterms:abstract "Lightweight ontology for data spaces. It aligns IDSA and BIGOWL, focusing on the strong semantic description of Data Assets and Data Apps through Data Profiles, which include technical characteristics (DCAT 3) and granular quality metrics."@en ,
                                                "Ontología ligera para espacios de datos. Alinea IDSA y BIGOWL, enfocándose en la descripción semántica robusta de Activos de Datos y Aplicaciones de Datos a través de Perfiles de Datos, que incluyen características técnicas (DCAT 3) y métricas de calidad granulares."@es ;
                               dcterms:bibliographicCitation "Salvachúa Galimberti, M. J.; Khaos Research. (2026). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.5.0." ;
@@ -94,7 +90,7 @@ Scope. EDAAnOWL focuses on (i) participants and roles, (ii) data assets and thei
 
 Reuse over reinvention. EDAAnOWL reuses widely adopted vocabularies wherever possible: DCAT for cataloguing and dataset metadata, SOSA/SSN for observations and features of interest, OWL-Time for temporal descriptions, ODRL and IDSA Core for policy/contract semantics, and PROV-O for provenance. These alignments are expressed via imports and lightweight bridges so existing assets can be described without duplication.
 
-Modular structure. The ontology distinguishes a stable core from project-specific modules and reference vocabularies. The core defines the main classes and properties (e.g., Actor, Role, DataAsset, DataApp, DataProfile, Offer/Policy, Workflow, InputPort/OutputPort). Reference vocabularies are versioned and replaceable, letting communities specialise terms while keeping interoperability at the interfaces.
+Modular structure. The ontology distinguishes a stable core from project-specific modules and referenced vocabularies. The core defines the main classes and properties (e.g., Actor, Role, DataAsset, DataApp, DataProfile, Offer/Policy, Workflow, InputPort/OutputPort). Reference vocabularies are versioned and replaceable, letting communities specialise terms while keeping interoperability at the interfaces.
 
 Versioning and persistence. Each release has a persistent, versioned IRI and a non-versioned namespace that denotes the latest version. This enables unambiguous citation of a concrete release (“This version”) while preserving a canonical entry point (“Latest version”), typically redirected to the documentation of the rolling latest/ build.
 
@@ -110,6 +106,8 @@ Typical usage.
     - Define its technical properties (e.g., `dcat:temporalResolution \\\"P1D\\\"^^xsd:duration`, `edaan:hasCRS <http://.../EPSG/4326>`).
 
     - List its quality metrics using `edaan:hasMetric`, describing each `edaan:Metric` with `metricName`, `metricValue` (as `rdfs:Literal`), and `appliesToFeature` (for column-level metrics).
+    
+    - Optionally, for trusted data spaces, usage `edaan:hasCredential` to link to a `edaan:VerifiableDataProfile` signed by an issuer.
 
 - Publish a DataApp: Declare the profiles it requires (`edaan:requiresProfile`) and produces (`edaan:producesProfile`).
 
@@ -251,6 +249,10 @@ dcat:contactPoint rdf:type owl:ObjectProperty .
 dcat:theme rdf:type owl:ObjectProperty .
 
 
+###  http://www.w3.org/ns/dqv#isMeasurementOf
+dqv:isMeasurementOf rdf:type owl:ObjectProperty .
+
+
 ###  http://www.w3.org/ns/prov#wasDerivedFrom
 prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
                     rdfs:domain :DataAsset ;
@@ -261,6 +263,26 @@ prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
 prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
                     rdfs:domain :DataAsset ;
                     rdfs:range ids:DataApp .
+
+
+###  https://w3id.org/EDAAnOWL/accessTypeConcept
+:accessTypeConcept rdf:type owl:ObjectProperty ;
+                   rdfs:domain ids:Resource ;
+                   rdfs:range skos:Concept ;
+                   rdfs:comment "Links a resource to a SKOS concept describing its access mode (e.g., 'download', 'compute-in-place'). Replaces the deprecated :accessType string property."@en ,
+                                "Vincula un recurso con un concepto SKOS que describe su modo de acceso (p. ej., 'descarga', 'cómputo-in-situ'). Reemplaza la propiedad string obsoleta :accessType."@es ;
+                   rdfs:label "access type (concept)"@en ,
+                              "tipo de acceso (concepto)"@es .
+
+
+###  https://w3id.org/EDAAnOWL/appliesToFeatureConcept
+:appliesToFeatureConcept rdf:type owl:ObjectProperty ;
+                         rdfs:domain :Metric ;
+                         rdfs:range skos:Concept ;
+                         rdfs:comment "Links a metric to a formal schema element (as a SKOS Concept) describing the feature/column it applies to. Use this when a formal schema definition exists. For simple JSONPath strings, the deprecated :appliesToFeature (string) may still be used."@en ,
+                                      "Vincula una métrica con un elemento de esquema formal (como un Concepto SKOS) que describe la característica/columna a la que aplica. Use esto cuando exista una definición de esquema formal. Para strings JSONPath simples, aún puede usarse la obsoleta :appliesToFeature (string)."@es ;
+                         rdfs:label "applies to feature (concept)"@en ,
+                                    "se aplica a característica (concepto)"@es .
 
 
 ###  https://w3id.org/EDAAnOWL/conformsToProfile
@@ -397,16 +419,6 @@ prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
                                 "implements component"@en .
 
 
-###  https://w3id.org/EDAAnOWL/instance
-:instance rdf:type owl:ObjectProperty ;
-          rdfs:domain dcat:Distribution ;
-          rdfs:range ids:RepresentationInstance ;
-          rdfs:comment "Reference to an instance of given representation. Can point to ids:Artifact (file/byte sequence) or ids:Value (inline literal value) as per IDSA Information Model."@en ,
-                       "Referencia a una instancia de una representación dada. Puede apuntar a ids:Artifact (archivo/secuencia de bytes) o ids:Value (valor literal inline) según el Modelo de Información IDSA."@es ;
-          rdfs:label "instance"@en ,
-                     "instancia"@es .
-
-
 ###  https://w3id.org/EDAAnOWL/legalContact
 :legalContact rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf dcat:contactPoint ;
@@ -540,26 +552,6 @@ prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
                                       "spatial granularity (concept)"@en .
 
 
-###  https://w3id.org/EDAAnOWL/accessTypeConcept
-:accessTypeConcept rdf:type owl:ObjectProperty ;
-                   rdfs:domain ids:Resource ;
-                   rdfs:range skos:Concept ;
-                   rdfs:comment "Links a resource to a SKOS concept describing its access mode (e.g., 'download', 'compute-in-place'). Replaces the deprecated :accessType string property."@en ,
-                                "Vincula un recurso con un concepto SKOS que describe su modo de acceso (p. ej., 'descarga', 'cómputo-in-situ'). Reemplaza la propiedad string obsoleta :accessType."@es ;
-                   rdfs:label "access type (concept)"@en ,
-                              "tipo de acceso (concepto)"@es .
-
-
-###  https://w3id.org/EDAAnOWL/appliesToFeatureConcept
-:appliesToFeatureConcept rdf:type owl:ObjectProperty ;
-                         rdfs:domain :Metric ;
-                         rdfs:range skos:Concept ;
-                         rdfs:comment "Links a metric to a formal schema element (as a SKOS Concept) describing the feature/column it applies to. Use this when a formal schema definition exists. For simple JSONPath strings, the deprecated :appliesToFeature (string) may still be used."@en ,
-                                      "Vincula una métrica con un elemento de esquema formal (como un Concepto SKOS) que describe la característica/columna a la que aplica. Use esto cuando exista una definición de esquema formal. Para strings JSONPath simples, aún puede usarse la obsoleta :appliesToFeature (string)."@es ;
-                         rdfs:label "applies to feature (concept)"@en ,
-                                    "se aplica a característica (concepto)"@es .
-
-
 ###  https://w3id.org/EDAAnOWL/supportContact
 :supportContact rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf dcat:contactPoint ;
@@ -612,6 +604,12 @@ ids:endpointArtifact rdf:type owl:ObjectProperty ;
                      rdfs:range ids:Artifact .
 
 
+###  https://w3id.org/idsa/core/instance
+ids:instance rdf:type owl:ObjectProperty ;
+             rdfs:domain dcat:Distribution ;
+             rdfs:range ids:RepresentationInstance .
+
+
 ###  https://w3id.org/idsa/core/representation
 ids:representation rdf:type owl:ObjectProperty ;
                    rdfs:domain ids:Resource ;
@@ -628,6 +626,25 @@ ids:resourceEndpoint rdf:type owl:ObjectProperty ;
 ids:supportedUsagePolicies rdf:type owl:ObjectProperty ;
                            rdfs:domain ids:DataApp ;
                            rdfs:range ids:UsagePolicyClass .
+
+
+###  https://w3id.org/EDAAnOWL/hasCredential
+:hasCredential rdf:type owl:ObjectProperty ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( :DataAsset
+                                           :DataProfile
+                                           ids:DataApp
+                                         )
+                           ] ;
+               rdfs:range <https://www.w3.org/2018/credentials#VerifiableCredential> ;
+               rdfs:comment "Links a data space entity to a Verifiable Credential attesting its properties, quality metrics, or compliance certifications."@en ,
+                            "Vincula una entidad de espacio de datos con una Credencial Verificable que certifica sus propiedades, métricas de calidad o certificaciones de conformidad."@es ;
+               rdfs:label "has credential"@en ,
+                          "tiene credencial"@es .
+
+
+###  https://www.w3.org/2018/credentials#issuer
+<https://www.w3.org/2018/credentials#issuer> rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -651,6 +668,14 @@ dcat:spatialResolutionInMeters rdf:type owl:DatatypeProperty ;
 ###  http://www.w3.org/ns/dcat#temporalResolution
 dcat:temporalResolution rdf:type owl:DatatypeProperty ;
                         rdfs:range xsd:duration .
+
+
+###  http://www.w3.org/ns/dqv#value
+dqv:value rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/ns/prov#generatedAtTime
+prov:generatedAtTime rdf:type owl:DatatypeProperty .
 
 
 ###  https://schema.org/thumbnailUrl
@@ -707,8 +732,8 @@ schema:thumbnailUrl rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf prov:generatedAtTime ;
             rdfs:domain :Metric ;
             rdfs:range xsd:dateTime ;
-            rdfs:comment "The timestamp indicating when the metric's value was computed or validated. Aligned with prov:generatedAtTime for provenance interoperability."@en ,
-                         "La marca de tiempo que indica cuándo se calculó o validó el valor de la métrica. Alineada con prov:generatedAtTime para interoperabilidad de procedencia."@es ;
+            rdfs:comment "La marca de tiempo que indica cuándo se calculó o validó el valor de la métrica. Alineada con prov:generatedAtTime para interoperabilidad de procedencia."@es ,
+                         "The timestamp indicating when the metric's value was computed or validated. Aligned with prov:generatedAtTime for provenance interoperability."@en ;
             rdfs:label "calculado en"@es ,
                        "computed at"@en .
 
@@ -758,8 +783,8 @@ schema:thumbnailUrl rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf dqv:value ;
              rdfs:domain :Metric ;
              rdfs:range rdfs:Literal ;
-             rdfs:comment "The value of the metric measurement. Aligned with dqv:value for DQV interoperability. Range is rdfs:Literal to support multiple datatypes (e.g., xsd:boolean, xsd:integer, xsd:string, xsd:decimal)."@en ,
-                          "El valor de la medición de la métrica. Alineado con dqv:value para interoperabilidad DQV. El rango es rdfs:Literal para soportar múltiples tipos de datos (p. ej., xsd:boolean, xsd:integer, xsd:string, xsd:decimal)."@es ;
+             rdfs:comment "El valor de la medición de la métrica. Alineado con dqv:value para interoperabilidad DQV. El rango es rdfs:Literal para soportar múltiples tipos de datos (p. ej., xsd:boolean, xsd:integer, xsd:string, xsd:decimal)."@es ,
+                          "The value of the metric measurement. Aligned with dqv:value for DQV interoperability. Range is rdfs:Literal to support multiple datatypes (e.g., xsd:boolean, xsd:integer, xsd:string, xsd:decimal)."@en ;
              rdfs:label "metric value"@en ,
                         "valor de métrica"@es .
 
@@ -792,6 +817,10 @@ schema:thumbnailUrl rdf:type owl:DatatypeProperty ;
                rdfs:label "CRS de perfil (IRI)"@es ,
                           "profile CRS (IRI)"@en ;
                owl:deprecated "true"^^xsd:boolean .
+
+
+###  https://www.w3.org/2018/credentials#expirationDate
+<https://www.w3.org/2018/credentials#expirationDate> rdf:type owl:DatatypeProperty .
 
 
 ###  https://w3id.org/EDAAnOWL/profileSpatialResolution
@@ -1055,8 +1084,19 @@ Aligned with W3C DCAT 3 for dataset cataloguing interoperability."""@en ;
 
 ###  https://w3id.org/EDAAnOWL/DataRepresentation
 :DataRepresentation rdf:type owl:Class ;
-                    rdfs:subClassOf dcat:Distribution ;
-                    rdfs:comment "Physical representation of (structured) data. Subclass of dcat:Distribution as per EDAAnOWL alignment."@en .
+                    rdfs:subClassOf ids:DataRepresentation ;
+                    rdfs:comment """Physical representation of (structured) data. Specializes ids:DataRepresentation 
+    from the IDSA taxonomy to add EDAAnOWL-specific semantics for data profiles and quality metrics.
+    
+    Alignment: ids:DataRepresentation extends dcat:Distribution (W3C DCAT 2+), 
+    ensuring interoperability with DCAT-based catalogs while maintaining IDSA compliance."""@en ,
+                 """Representación física de datos (estructurados). Especializa ids:DataRepresentation 
+    de la taxonomía IDSA para añadir semántica específica de EDAAnOWL para perfiles de datos y métricas de calidad.
+    
+    Alineación: ids:DataRepresentation extiende dcat:Distribution (W3C DCAT 2+), 
+    asegurando interoperabilidad con catálogos basados en DCAT mientras mantiene conformidad IDSA."""@es ;
+                    rdfs:label "Data Representation"@en ,
+                               "Representación de Datos"@es .
 
 
 ###  https://w3id.org/EDAAnOWL/Metric
@@ -1185,6 +1225,11 @@ ids:ContractOffer rdf:type owl:Class .
 ids:DataApp rdf:type owl:Class .
 
 
+###  https://w3id.org/idsa/core/DataRepresentation
+ids:DataRepresentation rdf:type owl:Class ;
+                       rdfs:subClassOf dcat:Distribution .
+
+
 ###  https://w3id.org/idsa/core/DataResource
 ids:DataResource rdf:type owl:Class ;
                  rdfs:subClassOf ids:Resource .
@@ -1234,7 +1279,18 @@ ids:SmartDataApp rdf:type owl:Class ;
 ids:SoftwareRepresentation rdf:type owl:Class ;
                            rdfs:subClassOf dcat:Distribution .
 
+###  https://w3id.org/EDAAnOWL/VerifiableDataProfile
+:VerifiableDataProfile rdf:type owl:Class ;
+                       rdfs:subClassOf :DataProfile ,
+                                       <https://www.w3.org/2018/credentials#VerifiableCredential> ;
+                       rdfs:comment "A DataProfile that can be cryptographically verified using W3C Verifiable Credentials. This enables trusted quality assertions in data spaces by allowing only authorized auditors to issue signed profiles."@en ,
+                                    "Un DataProfile que puede ser verificado criptográficamente usando W3C Verifiable Credentials. Esto habilita aserciones de calidad confiables en espacios de datos permitiendo solo a auditores autorizados emitir perfiles firmados."@es ;
+                       rdfs:label "Perfil de Datos Verificable"@es ,
+                                  "Verifiable Data Profile"@en .
 
+
+###  https://www.w3.org/2018/credentials#VerifiableCredential
+<https://www.w3.org/2018/credentials#VerifiableCredential> rdf:type owl:Class .
 ###  https://w3id.org/idsa/core/UsagePolicyClass
 ids:UsagePolicyClass rdf:type owl:Class .
 
