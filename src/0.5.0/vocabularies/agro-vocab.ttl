@@ -67,7 +67,7 @@ Example of local concept with alignment:
 :agro_citrus rdf:type owl:NamedIndividual ,
                       skos:Concept ;
              skos:prefLabel "Citrus"@en ,
-                            "C韙ricos"@es ;
+                            "C铆tricos"@es ;
              skos:definition "Citrus fruit cultivation (oranges, lemons, etc.)."@en ;
              skos:broader :agriculture ;
              skos:inScheme :AgroVocab ;
@@ -89,7 +89,7 @@ Example of local concept with alignment:
 :agro_maize rdf:type owl:NamedIndividual ,
                      skos:Concept ;
             skos:prefLabel "Maize"@en ,
-                           "Ma韟"@es ;
+                           "Ma铆z"@es ;
             skos:definition "Corn, Zea mays."@en ;
             skos:broader :agriculture ;
             skos:inScheme :AgroVocab ;
@@ -129,7 +129,7 @@ Example of local concept with alignment:
 :agro_cotton rdf:type owl:NamedIndividual ,
                       skos:Concept ;
              skos:prefLabel "Cotton"@en ,
-                            "Algod髇"@es ;
+                            "Algod贸n"@es ;
              skos:definition "Fiber crop, Gossypium."@en ;
              skos:broader :agriculture ;
              skos:inScheme :AgroVocab ;
@@ -159,7 +159,7 @@ Example of local concept with alignment:
 :agro_fertilization rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     skos:prefLabel "Fertilization"@en ,
-                                   "Fertilizaci髇"@es ;
+                                   "Fertilizaci贸n"@es ;
                     skos:definition "Application of fertilizers to soil."@en ;
                     skos:inScheme :AgroVocab ;
                     skos:exactMatch agrovoc:c_10795 .  # AGROVOC: fertilizer application
@@ -233,7 +233,7 @@ Example of local concept with alignment:
 :agro_organic rdf:type owl:NamedIndividual ,
                        skos:Concept ;
               skos:prefLabel "Organic Farming"@en ,
-                             "Agricultura Ecol骻ica"@es ;
+                             "Agricultura Ecol贸gica"@es ;
               skos:definition "Agricultural production without synthetic chemicals."@en ;
               skos:inScheme :AgroVocab ;
               skos:exactMatch agrovoc:c_5308 .  # AGROVOC: organic farming
@@ -241,7 +241,7 @@ Example of local concept with alignment:
 :agro_precisionAgriculture rdf:type owl:NamedIndividual ,
                                     skos:Concept ;
                            skos:prefLabel "Precision Agriculture"@en ,
-                                          "Agricultura de Precisi髇"@es ;
+                                          "Agricultura de Precisi贸n"@es ;
                            skos:definition "Farming management using GPS, sensors, and data analytics."@en ;
                            skos:inScheme :AgroVocab ;
                            skos:exactMatch agrovoc:c_92363 .  # AGROVOC: precision agriculture

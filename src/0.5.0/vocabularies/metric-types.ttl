@@ -77,7 +77,7 @@
                          skos:Concept ,
                          :MetricType ;
                 skos:prefLabel "Record Count"@en ,
-                               "N鷐ero de Registros"@es ;
+                               "N煤mero de Registros"@es ;
                 skos:definition "Total number of records/rows in the dataset."@en ;
                 skos:inScheme :MetricTypeScheme .
 
@@ -85,7 +85,7 @@
                           skos:Concept ,
                           :MetricType ;
                  skos:prefLabel "Feature Count"@en ,
-                                "N鷐ero de Caracter韘ticas"@es ;
+                                "N煤mero de Caracter铆sticas"@es ;
                  skos:definition "Total number of features/columns in the dataset."@en ;
                  skos:inScheme :MetricTypeScheme .
 
@@ -129,7 +129,7 @@
                            skos:Concept ,
                            :MetricType ;
                   skos:prefLabel "Spatial Extent"@en ,
-                                 "Extensi髇 Espacial"@es ;
+                                 "Extensi贸n Espacial"@es ;
                   skos:definition "Bounding box or area covered by the dataset."@en ;
                   skos:inScheme :MetricTypeScheme .
 
@@ -141,7 +141,7 @@
                             skos:Concept ,
                             :MetricType ;
                    skos:prefLabel "Temporal Extent"@en ,
-                                  "Extensi髇 Temporal"@es ;
+                                  "Extensi贸n Temporal"@es ;
                    skos:definition "Time range covered by the dataset (start to end date)."@en ;
                    skos:inScheme :MetricTypeScheme .
 
@@ -149,7 +149,7 @@
                              skos:Concept ,
                              :MetricType ;
                     skos:prefLabel "Update Frequency"@en ,
-                                   "Frecuencia de Actualizaci髇"@es ;
+                                   "Frecuencia de Actualizaci贸n"@es ;
                     skos:definition "How often the dataset is updated (e.g., daily, weekly)."@en ;
                     skos:inScheme :MetricTypeScheme .
 
@@ -161,7 +161,7 @@
                            skos:Concept ,
                            :MetricType ;
                   skos:prefLabel "Execution Time"@en ,
-                                 "Tiempo de Ejecuci髇"@es ;
+                                 "Tiempo de Ejecuci贸n"@es ;
                   skos:definition "Average time to complete processing (in seconds)."@en ;
                   skos:inScheme :MetricTypeScheme .
 
@@ -169,7 +169,7 @@
                            skos:Concept ,
                            :MetricType ;
                   skos:prefLabel "Model Accuracy"@en ,
-                                 "Precisi髇 del Modelo"@es ;
+                                 "Precisi贸n del Modelo"@es ;
                   skos:definition "Accuracy score of a predictive model (0.0 to 1.0)."@en ;
                   skos:inScheme :MetricTypeScheme .
 

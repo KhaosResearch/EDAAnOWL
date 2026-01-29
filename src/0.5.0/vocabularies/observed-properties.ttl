@@ -94,7 +94,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                         skos:Concept ,
                         :ObservableProperty ;
                skos:prefLabel "Precipitation"@en ,
-                              "Precipitaci髇"@es ;
+                              "Precipitaci贸n"@es ;
                skos:definition "Rainfall, snowfall, or other forms of moisture."@en ;
                skos:inScheme :ObservedPropertyScheme ;
                skos:exactMatch agrovoc:c_6161 .  # AGROVOC: precipitation
@@ -121,7 +121,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                          skos:Concept ,
                          :ObservableProperty ;
                 skos:prefLabel "Solar Radiation"@en ,
-                               "Radiaci髇 Solar"@es ;
+                               "Radiaci贸n Solar"@es ;
                 skos:definition "Electromagnetic radiation emitted by the sun."@en ;
                 skos:inScheme :ObservedPropertyScheme ;
                 skos:exactMatch agrovoc:c_14415 .  # AGROVOC: solar radiation
@@ -130,7 +130,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                              skos:Concept ,
                              :ObservableProperty ;
                     skos:prefLabel "Evapotranspiration"@en ,
-                                   "Evapotranspiraci髇"@es ;
+                                   "Evapotranspiraci贸n"@es ;
                     skos:definition "Combined water loss from evaporation and plant transpiration."@en ;
                     skos:inScheme :ObservedPropertyScheme ;
                     skos:exactMatch agrovoc:c_2741 .  # AGROVOC: evapotranspiration
@@ -170,7 +170,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                                  skos:Concept ,
                                  :ObservableProperty ;
                         skos:prefLabel "Electrical Conductivity"@en ,
-                                       "Conductividad El閏trica"@es ;
+                                       "Conductividad El茅ctrica"@es ;
                         skos:altLabel "EC"@en ;
                         skos:definition "Measure of soil salinity via electrical conductivity."@en ;
                         skos:inScheme :ObservedPropertyScheme .
@@ -179,7 +179,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                         skos:Concept ,
                         :ObservableProperty ;
                skos:prefLabel "Organic Matter"@en ,
-                              "Materia Org醤ica"@es ;
+                              "Materia Org谩nica"@es ;
                skos:definition "Percentage of organic material in soil."@en ;
                skos:inScheme :ObservedPropertyScheme ;
                skos:exactMatch agrovoc:c_35657 .  # AGROVOC: soil organic matter
@@ -201,7 +201,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                         skos:Concept ,
                         :ObservableProperty ;
                skos:prefLabel "Yield Forecast"@en ,
-                              "Predicci髇 de Rendimiento"@es ;
+                              "Predicci贸n de Rendimiento"@es ;
                skos:definition "Predicted crop yield based on models or historical data."@en ;
                skos:inScheme :ObservedPropertyScheme ;
                skos:broader :yield .
@@ -223,7 +223,7 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                       skos:Concept ,
                       :ObservableProperty ;
              skos:prefLabel "Water Stress"@en ,
-                            "Estr閟 H韉rico"@es ;
+                            "Estr茅s H铆drico"@es ;
              skos:definition "Condition when water availability limits plant growth."@en ;
              skos:inScheme :ObservedPropertyScheme ;
              skos:exactMatch agrovoc:c_24993 .  # AGROVOC: water stress
@@ -276,6 +276,6 @@ See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
                     skos:Concept ,
                     :ObservableProperty ;
            skos:prefLabel "Occupancy"@en ,
-                          "Ocupaci髇"@es ;
+                          "Ocupaci贸n"@es ;
            skos:definition "Usage or occupation rate of facilities."@en ;
            skos:inScheme :ObservedPropertyScheme .
