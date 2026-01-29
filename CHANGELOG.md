@@ -34,11 +34,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **`:hasCRS` range**: Changed from `owl:Thing` to `skos:Concept` for interoperability with controlled vocabularies.
 - **SPARQL examples**: Updated to use v0.4.0 pattern (`ids:representation` → `conformsToProfile` on Distribution).
+- **External Vocabulary Strategy (BREAKING)**: Removed bundled local SKOS vocabularies (`agro-vocab.ttl`, `observed-properties.ttl`, `metric-types.ttl`, `sector-scheme.ttl`). EDAAnOWL now recommends using external standardized vocabularies (AGROVOC, DQV, QUDT, EuroSciVoc) directly. Only `datatype-scheme.ttl` is retained for EDAAnOWL-specific data classes.
 
 ### Deprecated
 
 - **`:accessType`** (DatatypeProperty, string) - Use `:accessTypeConcept` instead.
 - **`:appliesToFeature`** (DatatypeProperty, string) - Use `:appliesToFeatureConcept` instead.
+
+### Removed
+
+- **Local vocabulary imports**: `agro-vocab.ttl`, `observed-properties.ttl`, `metric-types.ttl`, `sector-scheme.ttl` are no longer imported by the main ontology. Use external URIs (e.g., AGROVOC) directly.
 
 ## [0.4.1] - 2026-01-12
 
@@ -306,7 +311,8 @@ With this both annotations we help to widoco to generate a better documentation 
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.1...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.2...v0.4.0
 [0.3.2]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.1...v0.3.2
