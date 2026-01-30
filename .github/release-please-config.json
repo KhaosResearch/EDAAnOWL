@@ -1,0 +1,86 @@
+{
+    "packages": {
+        ".": {
+            "release-type": "simple",
+            "package-name": "EDAAnOWL",
+            "changelog-path": "CHANGELOG.md",
+            "bump-minor-pre-major": true,
+            "bump-patch-for-minor-pre-major": true,
+            "draft": false,
+            "prerelease": false,
+            "changelog-sections": [
+                {
+                    "type": "feat",
+                    "section": "Added",
+                    "hidden": false
+                },
+                {
+                    "type": "fix",
+                    "section": "Fixed",
+                    "hidden": false
+                },
+                {
+                    "type": "perf",
+                    "section": "Changed",
+                    "hidden": false
+                },
+                {
+                    "type": "revert",
+                    "section": "Changed",
+                    "hidden": false
+                },
+                {
+                    "type": "docs",
+                    "section": "Changed",
+                    "hidden": false
+                },
+                {
+                    "type": "style",
+                    "section": "Changed",
+                    "hidden": false
+                },
+                {
+                    "type": "chore",
+                    "section": "Changed",
+                    "hidden": false
+                },
+                {
+                    "type": "refactor",
+                    "section": "Changed",
+                    "hidden": false
+                },
+                {
+                    "type": "test",
+                    "section": "Changed",
+                    "hidden": false
+                },
+                {
+                    "type": "build",
+                    "section": "Changed",
+                    "hidden": false
+                },
+                {
+                    "type": "ci",
+                    "section": "Changed",
+                    "hidden": false
+                },
+                {
+                    "type": "remove",
+                    "section": "Removed",
+                    "hidden": false
+                },
+                {
+                    "type": "deprecate",
+                    "section": "Deprecated",
+                    "hidden": false
+                },
+                {
+                    "type": "security",
+                    "section": "Security",
+                    "hidden": false
+                }
+            ]
+        }
+    },
+    "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
+}

@@ -9,6 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Fixed
+
+### Removed
+
+---
+
+## [0.5.0] - 2026-01-30
+
+### Added
+
 - **BIGOWL Data class stubs**: Added stub definitions for `bigdat:TabularDataSet`, `bigdat:Image`, `bigdat:Data` in `datatype-scheme.ttl` for offline SHACL validation.
 - **BIGOWL integration guidance**: Updated `AGENTS.md` and `CONTRIBUTING.md` with BIGOWL alignment documentation.
 

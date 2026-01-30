@@ -101,18 +101,24 @@ ex:MyProfile a :DataProfile ;
 
 ## Versioning Process
 
-> **See [CONTRIBUTING.md](CONTRIBUTING.md#how-to-publish-a-new-version-core-maintainer-process) for complete guide.**
+> **See [CONTRIBUTING.md](CONTRIBUTING.md#automated-release-process-release-please) for detailed guide.**
 
-Quick checklist for new versions:
-1. Duplicate `src/X.Y.Z/` folder
-2. Update `owl:versionIRI`, `owl:versionInfo`, `owl:priorVersion`
-3. Update all `owl:imports` to new version paths
-4. Update `vocabularies/*.ttl` URIs
-5. Update `CHANGELOG.md`, `CITATION.cff`, `README.md`, `SECURITY.md`
-6. Update `src/X.Y.Z/README.md` and `index.html`
-7. Review `images/` for consistency
-8. Run validation: `check_rdf.py`, `validate_shacl.py`
-9. PR to `main`, then create GitHub Release with `vX.Y.Z` tag
+We use **Release Please** for automated versioning.
+
+1.  **Development**: Work on `feat/` or `fix/` branches.
+2.  **Commit**: Use [Conventional Commits](https://www.conventionalcommits.org/):
+    - `feat: ...` for features
+    - `fix: ...` for bugs
+    - `feat!: ...` for breaking changes
+3.  **Merge**: Merge to `main`.
+4.  **Bot Action**: `release-please` creates a Release PR with updated CHANGELOG.
+5.  **Release**: Merging the Release PR triggers the final release and documentation build.
+
+### Manual Steps per Version (still required)
+When starting a new version (e.g., 0.6.0), you must still create the folder structure manually *before* the release:
+1. For example: `cp -r src/0.5.0/ src/0.6.0/` (being 0.5.0 the previous version).
+2. Update `owl:versionIRI` and imports in the new files.
+3. Commit these changes as `chore: prepare v0.6.0 folder hierarchy`.
 
 ---
 

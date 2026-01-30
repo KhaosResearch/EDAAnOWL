@@ -10,135 +10,58 @@ If you find a bug, inconsistency, or have a feature request, please [open an Iss
 
 For minor fixes or feature additions that don't constitute a new version:
 
-1.  **Fork & Branch:** Fork the repository and create a descriptive branch from the `dev` branch.
+1.  **Fork & Branch:** Fork the repository and create a descriptive branch from the `main` branch.
 
     ```bash
-    # Make sure your dev is up to date
-    git checkout dev
-    git pull origin dev
+    # Make sure your main is up to date
+    git checkout main
+    git pull origin main
 
-    # Create your new branch
-    git checkout -b fix/correct-typo-in-profile
+    # Create your new branch (e.g., feature/new-metrics)
+    git checkout -b feature/new-metrics
     ```
 
 2.  **Make Changes:** Modify the necessary `.ttl` files _within the latest version's folder_ (e.g., `src/0.5.0/`).
 3.  **Run Validation:** Execute `python scripts/check_rdf.py && python scripts/validate_shacl.py`.
-4.  **Commit & Push:** Commit your changes following [Conventional Commits](https://www.conventionalcommits.org/) and push to your fork.
-5.  **Open a Pull Request:** Submit a PR against the `dev` branch using the [PR template](.github/pull_request_template.md).
+4.  **Commit & Push:** Commit your changes following [Conventional Commits](https://www.conventionalcommits.org/).
+5.  **Open a Pull Request:** Submit a PR against the `main` branch.
 
 ---
 
-## How to Publish a New Version (Core Maintainer Process)
+## Automated Release Process (Release Please)
 
-Publishing a new version is a semi-automated process. It requires preparing all files in the `dev` branch, merging them into `main`, and then creating a GitHub Release.
+We use [Google Release Please](https://github.com/google-github-actions/release-please-action) to automate versioning and changelog generation.
 
-### Version Numbering (Semantic Versioning)
+### How it works
 
-We follow [Semantic Versioning](https://semver.org/):
-- **MAJOR** (X.0.0): Breaking changes (removed classes, changed property domains)
-- **MINOR** (0.X.0): New features (new classes, properties, vocabularies)
-- **PATCH** (0.0.X): Bug fixes, documentation updates
+1.  **Commit Messages**: All commits must follow [Conventional Commits](https://www.conventionalcommits.org/).
+    - `feat:` → Minor version bump (e.g., 0.5.0 → 0.6.0)
+    - `fix:` → Patch version bump (e.g., 0.5.0 → 0.5.1)
+    - `feat!:` or `BREAKING CHANGE:` → Major version bump
+    - `docs:`, `chore:`, etc. → No release trigger (unless configured)
 
-For breaking changes in commits, use:
-```
-feat!: description
+2.  **Release PR**: When changes are merged into the `main` branch, the **release-please** bot automatically checks commits since the last release.
+    - If there are user-facing changes (`feat`, `fix`), it opens a **Release PR**.
+    - This PR contains:
+        - Updated `CHANGELOG.md`
+        - Updated `.release-please-manifest.json` versions
 
-BREAKING CHANGE: details of what breaks
-```
+3.  **Publishing**:
+    - **Review** the Release PR created by the bot.
+    - **Merge** the Release PR.
+    - Only then will the bot:
+        - Create a GitHub Release tag (`vX.Y.Z`).
+        - Trigger the `release.yml` workflow to build/publish documentation.
 
----
+### Developer Workflow
 
-### Step 1: Prepare the New Version on the `dev` Branch
-
-All new development happens on the `dev` branch (or feature branches merged into it).
-
-#### 1.1 Duplicate the Version Folder
+You do **NOT** need to manually update `CHANGELOG.md` or version numbers. Just write good commit messages!
 
 ```bash
-cp -r src/0.4.0/ src/0.5.0/
+git commit -m "feat: add support for new bigowl components"
+git commit -m "fix: correct typo in owl:imports"
+git commit -m "docs: update contributor guide"
 ```
-
-#### 1.2 Update Version Metadata
-
-Update these files with the new version number:
-
-| File | What to Update |
-|------|----------------|
-| `src/X.Y.Z/EDAAnOWL.ttl` | `owl:versionIRI`, `owl:versionInfo`, `owl:priorVersion`, `dct:modified` |
-| `src/X.Y.Z/README.md` | Version references, changelog summary |
-| `src/X.Y.Z/index.html` | Version number in page |
-| `src/X.Y.Z/vocabularies/*.ttl` | `@base` URI, `owl:Ontology` URI |
-| `CHANGELOG.md` | Add new version section |
-| `CITATION.cff` | `version` field, `date-released` |
-| `README.md` (root) | Latest version badge, notes |
-| `SECURITY.md` | Supported versions table |
-
-#### 1.3 Update owl:imports in Main Ontology
-
-```turtle
-owl:imports <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/datatype-scheme> ;
-```
-
-#### 1.4 Review and Update Content
-
-- [ ] **Shapes** (`shapes/edaan-shapes.ttl`): Add/update validation rules
-- [ ] **Examples** (`examples/*.ttl`): Update to use new patterns
-- [ ] **Vocabularies** (`vocabularies/*.ttl`): Update alignments if needed
-- [ ] **Images** (`images/`): Ensure diagrams reflect current ontology structure
-
-#### 1.5 Run Validation
-
-```bash
-# Full validation
-python scripts/check_rdf.py
-python scripts/validate_shacl.py
-
-# Or use Docker:
-./scripts/local-validate.sh
-```
-
-#### 1.6 Commit to dev
-
-```bash
-git add .
-git commit -m "feat: Prepare files for v0.5.0"
-git push origin dev
-```
-
----
-
-### Step 2: Merge `dev` into `main`
-
-1. Open a Pull Request from `dev` to `main`.
-2. Title: "Release v0.5.0".
-3. Use the [PR template](.github/pull_request_template.md).
-4. Have the PR reviewed and approved.
-5. **Merge the Pull Request.**
-
----
-
-### Step 3: Create the GitHub Release (Triggers Automation)
-
-1. Go to **Releases** → **Draft a new release**.
-2. Create tag: `v0.5.0` (with `v` prefix).
-3. Target: `main` branch.
-4. Copy changelog notes into the release description.
-5. Click **Publish release**.
-
----
-
-### Step 4: What Happens Automatically
-
-The `release.yml` workflow:
-- Detects the tag `v0.5.0`
-- Runs Widoco to generate HTML documentation
-- Post-processes HTML for correct vocabulary links
-- Copies files to `deploy/0.5.0/` and `deploy/latest/`
-- Pushes to `gh-pages` branch
-
-Wait ~5 minutes, then verify:
-- https://w3id.org/EDAAnOWL/latest/
-- https://w3id.org/EDAAnOWL/0.5.0/
 
 ---
 
