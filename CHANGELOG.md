@@ -5,6 +5,126 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.5.0...v0.6.0) (2026-01-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* Align with BIGOWL and enforce external vocabularies.
+    - Added release-please configuration
+    - Renamed release workflow to deploy-docs
+    - Updated CONTRIBUTING and AGENTS docs
+* Deprecated local vocabularies in favor of external URIs. Deprecated :realizesWorkflow in favor of :implementsComponent. Moved vocabulary strategy to use AGROVOC, EU NALs, and BIGOWL directly. Updated documentation and examples to reflect these changes."
+* **ontology:** remove local vocabulary imports in favor of external URIs
+
+### Added
+
+* 0.4.0 updates ([fff10a8](https://github.com/KhaosResearch/EDAAnOWL/commit/fff10a850225cf18dccef216344e1f6765cec587))
+* Add architecture diagram to README and update image path ([6f21b16](https://github.com/KhaosResearch/EDAAnOWL/commit/6f21b167996f6a2b387b95986845e493b911d8dd))
+* Add bibliographic metadata bibliographicCitation and schema:image to the ontology. ([e5888f2](https://github.com/KhaosResearch/EDAAnOWL/commit/e5888f23cf19b1c022d9812ffcaaa66b5e7472eb))
+* Add initial version of EDAAnOWL v0.2.0 with examples, vocabularies, and shapes ([cd640ed](https://github.com/KhaosResearch/EDAAnOWL/commit/cd640edc63e5788653b315f1807d86c5d79c75ff))
+* added ontology v0.0.1, vocabularies and catalog.xml ([7429c4c](https://github.com/KhaosResearch/EDAAnOWL/commit/7429c4cb3668a847323ef5c9736d30a7217024f5))
+* **ci:** Adapt workflow to the new file structure (src/X.Y.Z/) ([5b3dc48](https://github.com/KhaosResearch/EDAAnOWL/commit/5b3dc48388e8a7649cb5f292f37b4e51e98ea94d))
+* **ci:** Adapt workflow to the new file structure (src/X.Y.Z/) ([d1f6b85](https://github.com/KhaosResearch/EDAAnOWL/commit/d1f6b85e781b51a9183b591c35f5f804dfe7bc1f))
+* Enhance architecture with explicit data quality metrics and provenance links between data assets and smart data apps. ([7e4eff3](https://github.com/KhaosResearch/EDAAnOWL/commit/7e4eff30d8f853474acb48d44af2b050b8df93b0))
+* Enhance GitHub Pages rendering with new styles and scripts. ([1e9f4ff](https://github.com/KhaosResearch/EDAAnOWL/commit/1e9f4ff90bc3b03b5ef4295f03a6b2b36ce2dd79))
+* Finalize v0.1.0 for release ([54faa11](https://github.com/KhaosResearch/EDAAnOWL/commit/54faa116e3015935daf4f000813519d414e7d7ff))
+* Improved the visual appearance of GitHub pages (index.html for each version). Use of `style.css` and `main.js` to reuse code in index.html files. ([af736b2](https://github.com/KhaosResearch/EDAAnOWL/commit/af736b2d39a4bd42d08c4df92a8b9f385fb02e1f))
+* Introduce EDAAnOWL ontology v0.3.0 with new SHACL shapes and comprehensive use case documentation. ([4270542](https://github.com/KhaosResearch/EDAAnOWL/commit/4270542c1784614056b834b6777ea8e2ac2430a8))
+* Introduce new MetricType vocabulary, expanded observed properties and agricultural concepts with AGROVOC alignment, updated SHACL shapes, and a documentation landing page. ([33764e0](https://github.com/KhaosResearch/EDAAnOWL/commit/33764e047244f1333e2e7ac002d03bcb38a87c5f))
+* Introduce olive grove demo, SHACL validation scripts, and catalog transformation utility. ([7119fb2](https://github.com/KhaosResearch/EDAAnOWL/commit/7119fb2b5f510fb5dda31261522ad67ebbf085dd))
+* Merge dev → main to release EDAAnOWL v0.2.0 — ontology, shapes, examples & architecture docs ([cd58058](https://github.com/KhaosResearch/EDAAnOWL/commit/cd5805811be5d35ad46c18191fbf892169d753f0))
+* **ontology:** Add utility, commercial & quality props for v0.3.0 ([8c8aeb8](https://github.com/KhaosResearch/EDAAnOWL/commit/8c8aeb8c3f571813e41a28d911c05e02fd7b40ca))
+* **ontology:** Release v0.3.0 with stable data profiling model ([7d102d2](https://github.com/KhaosResearch/EDAAnOWL/commit/7d102d247c3dad16481992e5025196dadc89c9c3))
+* **ontology:** release v0.5.0 with DQV alignment and Concept properties ([8f5913c](https://github.com/KhaosResearch/EDAAnOWL/commit/8f5913c77ada43f09efcd4e37860465fd1b966d3))
+* **ontology:** remove local vocabulary imports in favor of external URIs ([2f78840](https://github.com/KhaosResearch/EDAAnOWL/commit/2f78840ed561a1a7eb0b413b58ca8711c08f6770))
+* prepare v0.5.0 release and setup automated versioning ([36fed7c](https://github.com/KhaosResearch/EDAAnOWL/commit/36fed7c9d10459345758424d4e0daa2d777ebd38))
+* Release EDAAnOWL ontology version 0.4.0 with new shapes, examples, vocabularies, and updated documentation. ([cd1d686](https://github.com/KhaosResearch/EDAAnOWL/commit/cd1d6861ff4435440e4a9377d7fd7bf53340545f))
+* Release EDAAnOWL v0.3.2 ([c39e4c3](https://github.com/KhaosResearch/EDAAnOWL/commit/c39e4c3ec89bec017e9f3b5de018b514d74d3812))
+* Release v0.3.1 with multilingual support ([9b720d9](https://github.com/KhaosResearch/EDAAnOWL/commit/9b720d9bd70a7004f95173e1a9da4378a02281c8))
+* release version 0.4.1 with IDSA alignment and profile updates ([d7aac5e](https://github.com/KhaosResearch/EDAAnOWL/commit/d7aac5e37610bd6da8cbdc033d67b56b2373e767))
+* Split README into user-facing overview and developer-facing ARCHITECTURE.md; updated changelog and removed redundant prefixes from shapes ([d5a3273](https://github.com/KhaosResearch/EDAAnOWL/commit/d5a3273b315efb0d5b0d7dcf57b473d80a893eb4))
+* updated GitHub Actions workflow to deploy ontology spanish documentation to GitHub Pages. ([eb5ca2f](https://github.com/KhaosResearch/EDAAnOWL/commit/eb5ca2f030c5b7979a07b5607959f2c2844926a8))
+* v0.5.0 release - BIGOWL alignment and External Vocabularies ([e3ffda8](https://github.com/KhaosResearch/EDAAnOWL/commit/e3ffda86fb0bb17ed48cf52d21c6df9b63dae6c1))
+* **validation:** add SHACL shapes for DCAT-AP and AGROVOC alignment ([9ea082d](https://github.com/KhaosResearch/EDAAnOWL/commit/9ea082df15bf0332e0f8114420450e604f04ae5b))
+
+
+### Fixed
+
+* Add support for XML files in .gitignore and correct prefix in EDAAnOWL.ttl ([f78bf5b](https://github.com/KhaosResearch/EDAAnOWL/commit/f78bf5b506ef7ace4bff690a8b8ddb1f32668139))
+* Add support for XML files in .gitignore and correct prefix in EDAAnOWL.ttl ([3d5002c](https://github.com/KhaosResearch/EDAAnOWL/commit/3d5002cd676ef7dda8962b0c82f63a92590404d2))
+* agrovoc concept codes in observed-properties.ttl ([242cdd5](https://github.com/KhaosResearch/EDAAnOWL/commit/242cdd567f55a27dee3bb13ed53397ca6622fef7))
+* **ci:** Flatten deployment structure and rename Widoco index ([3136462](https://github.com/KhaosResearch/EDAAnOWL/commit/3136462b93534ae0b32ebee8617e5d6ede44e75c))
+* **ci:** Flatten deployment structure and rename Widoco index ([046b956](https://github.com/KhaosResearch/EDAAnOWL/commit/046b956f36ec9d78e6afa3999c5d7ab569228e69))
+* **ci:** updated Java version for Widoco ([2999524](https://github.com/KhaosResearch/EDAAnOWL/commit/29995240e93c599180d167edda5e254705da62cf))
+* **ci:** updated Java version for Widoco ([ac5b99b](https://github.com/KhaosResearch/EDAAnOWL/commit/ac5b99bf2463503a0cc922cf6d752ef531b4b3e3))
+* **ci:** use -Djena.catalog.xml for Widoco ([620beeb](https://github.com/KhaosResearch/EDAAnOWL/commit/620beeb3b81ca0588f36b1129308eeeab0e86f04))
+* **ci:** use -Djena.catalog.xml for Widoco ([a5f1c98](https://github.com/KhaosResearch/EDAAnOWL/commit/a5f1c98833ba11b615cab8865b0b4de82af362b4))
+* Clarify branch purpose and commit guidelines in ARCHITECTURE.md ([424c34b](https://github.com/KhaosResearch/EDAAnOWL/commit/424c34bb41fffdc9d586fe91a2ed1be4c7fc214a))
+* Copy assets folder to gh-pages deployment ([4f60eeb](https://github.com/KhaosResearch/EDAAnOWL/commit/4f60eeb97d004ee1fc53b1e639a62f1e0afeb121))
+* Copy assets folder to gh-pages deployment ([a434f44](https://github.com/KhaosResearch/EDAAnOWL/commit/a434f44a3a95124d14eeefd896a0280ae7d194d2))
+* **demo:** update transformation scripts for v0.4.0+ pattern ([8b75a15](https://github.com/KhaosResearch/EDAAnOWL/commit/8b75a157739a338f83264ae91d6e23b295a952a9))
+* Improve caution notes formatting in ARCHITECTURE.md ([85855f6](https://github.com/KhaosResearch/EDAAnOWL/commit/85855f64f47541679bde01ca2d633f58f5db4bf3))
+* Improve caution notes formatting in ARCHITECTURE.md ([ed2d404](https://github.com/KhaosResearch/EDAAnOWL/commit/ed2d404ec4a6469b3239c46e1551dceb63f7b173))
+* **local-validate.sh:** fix(local-validate.sh):  ([80c5980](https://github.com/KhaosResearch/EDAAnOWL/commit/80c59800bcae181759af049feb5de69c17494eaf))
+* local-validate.sh ([a159bbe](https://github.com/KhaosResearch/EDAAnOWL/commit/a159bbeacdf96d6ce48282a76b2c5c15c3322766))
+* **ontology:** update vocabulary prefixes and citation to v0.4.1 ([9d2faf1](https://github.com/KhaosResearch/EDAAnOWL/commit/9d2faf17de01aa569a71782bac96fff6dbc6fc07))
+* **ontology:** update vocabulary prefixes and citation to v0.4.1 ([bd37c50](https://github.com/KhaosResearch/EDAAnOWL/commit/bd37c508c684b206f5915f237e720203a6e5ea3a))
+* Reformat caution notes and clarify branch guidelines in ARCHITECTURE.md ([4fd11fc](https://github.com/KhaosResearch/EDAAnOWL/commit/4fd11fc4d5e0d63d75caef41690ea622de4179c4))
+* Reformat caution notes and clarify branch guidelines in ARCHITECTURE.md ([28e1ec5](https://github.com/KhaosResearch/EDAAnOWL/commit/28e1ec5e63e510fa79cc5945bd24b9c4fbd1edd9))
+* Remove redundant architecture diagram from features section in README ([b9bcd61](https://github.com/KhaosResearch/EDAAnOWL/commit/b9bcd611ab895609ea68296d3aa98eab900f24bb))
+* Update badge for latest release in README.md ([e4dfd10](https://github.com/KhaosResearch/EDAAnOWL/commit/e4dfd10df9c20d09c2ffeefff8bd299b8de058ff))
+* Update badge for latest release in README.md ([7d393b5](https://github.com/KhaosResearch/EDAAnOWL/commit/7d393b5cc7a4e40c960668000261327e5a8f6c31))
+* Update citation instructions in README.md and add CITATION.cff file ([4a02afb](https://github.com/KhaosResearch/EDAAnOWL/commit/4a02afb7f8d4eb4993357fb52c8e25a21c1d758d))
+* Update image path for architecture diagram in README files ([bab7ef7](https://github.com/KhaosResearch/EDAAnOWL/commit/bab7ef773933baa2304904c58305bb9d8d58c8fa))
+* Update links in README.md for IDSA IM docs and figures ([76d893c](https://github.com/KhaosResearch/EDAAnOWL/commit/76d893c04761834e3a6865ad11de9517679c432d))
+* Update README.md and CHANGELOG.md to reflect the latest stable version 0.2.1 and enhance changelog with new bibliographic metadata. ([ba9719a](https://github.com/KhaosResearch/EDAAnOWL/commit/ba9719a60e6a3d1e9c40c6e6a93aa4929674ae7d))
+* Update release date for version 0.2.0 in CHANGELOG.md ([e3dfe92](https://github.com/KhaosResearch/EDAAnOWL/commit/e3dfe92dedb1660cfac042a67863159b581072db))
+* **vocabularies:** convert to UTF-8 encoding ([c28ae35](https://github.com/KhaosResearch/EDAAnOWL/commit/c28ae351d51c1c1544927d502e5a0b44b9b279ab))
+
+
+### Changed
+
+* add AGENTS.md for AI coding agents context ([4164d47](https://github.com/KhaosResearch/EDAAnOWL/commit/4164d47aebbd818e515a910ee5287482b4cacc72))
+* add ontology release workflow ([963b1a1](https://github.com/KhaosResearch/EDAAnOWL/commit/963b1a1e1febece1c13a6e149d597f73549936af))
+* add PR template to changelog ([89d12cc](https://github.com/KhaosResearch/EDAAnOWL/commit/89d12cc5a4ccd9df10097d0115a95c2fd9982b49))
+* Add project documentation (CHANGELOG, CONTRIBUTING, README) ([c6d4185](https://github.com/KhaosResearch/EDAAnOWL/commit/c6d4185113f2b92271ec565e255f49c960602aca))
+* Add project documentation (CHANGELOG, CONTRIBUTING, README) ([5e4d567](https://github.com/KhaosResearch/EDAAnOWL/commit/5e4d567dbf3c502c137e74d2b3cb4691fe766269))
+* add pull request template ([a9df9ea](https://github.com/KhaosResearch/EDAAnOWL/commit/a9df9ea18883f62271c49da2554e98157ba14c82))
+* Add PURL, SHACL Validation, and GitHub stars badges to README. ([7a6ab1f](https://github.com/KhaosResearch/EDAAnOWL/commit/7a6ab1ff8df31154ccb8a956582ec3dc81c48805))
+* added two images ([b3e0d15](https://github.com/KhaosResearch/EDAAnOWL/commit/b3e0d15d0716b6e7dfc39766af0e5777228bc14d))
+* **changelog:** add v0.5.0 external vocabulary breaking change ([ccc6ede](https://github.com/KhaosResearch/EDAAnOWL/commit/ccc6edeb60e989982ae53cc98d4e2670ba6b7671))
+* comprehensive alignment with DCAT-AP, ENI, and Interoperable Europe ([60a811d](https://github.com/KhaosResearch/EDAAnOWL/commit/60a811d4809650964c67596b3f08d570501a32cc))
+* consolidate use cases and examples into demo/USE_CASES.md ([23baeb5](https://github.com/KhaosResearch/EDAAnOWL/commit/23baeb529d73ed6b5b1f64af1ad0b3f8955e61d1))
+* **demo:** use AGROVOC URIs in demo files with inline comments ([fa805e7](https://github.com/KhaosResearch/EDAAnOWL/commit/fa805e72bb05415a599d73b05f679fc6f3349fa6))
+* estructura inicial del proyecto ([74cbedb](https://github.com/KhaosResearch/EDAAnOWL/commit/74cbedb85a576d90c6dae8b3e41dc93e39f1b1b4))
+* **examples:** use verified AGROVOC URIs instead of local concepts ([9671f87](https://github.com/KhaosResearch/EDAAnOWL/commit/9671f87debc1ee6b894d98e4bd115ea9aba4656e))
+* expand USE_CASES.md with DataProfile reuse, matchmaking reference, and multi-dimensional compatibility ([fe8523f](https://github.com/KhaosResearch/EDAAnOWL/commit/fe8523fe112603a8f5bdd4ce15c8072c4ca03e2a))
+* indentation improve in widoco documentation ([bf5103d](https://github.com/KhaosResearch/EDAAnOWL/commit/bf5103df1c74614926ab246510d2c6971a2ed165))
+* indentation improve in widoco documentation ([03a25c1](https://github.com/KhaosResearch/EDAAnOWL/commit/03a25c102dabc6167d31f2f98316e49799556ce9))
+* **main:** release EDAAnOWL 0.5.0 ([484a261](https://github.com/KhaosResearch/EDAAnOWL/commit/484a261e4ea5bce1243ed8dc623e687d8df80d2d))
+* **main:** release EDAAnOWL 0.5.0 ([6b4515f](https://github.com/KhaosResearch/EDAAnOWL/commit/6b4515f40c93e1add2e479eeef8c12338bf0835b))
+* **main:** release EDAAnOWL 0.6.0 ([601221e](https://github.com/KhaosResearch/EDAAnOWL/commit/601221e1259ee10ac6b0ef3de4dfb9765269e602))
+* **main:** release EDAAnOWL 0.6.0 ([3936b91](https://github.com/KhaosResearch/EDAAnOWL/commit/3936b91f82e3a40b8f41bdc2ae0fd4c669d14c8a))
+* move PR template entry to v0.4.1 in changelog ([90f975a](https://github.com/KhaosResearch/EDAAnOWL/commit/90f975a655f1c25ac06155f5cf7ef7fe5c5fef30))
+* **releas-please:** update GitHub Actions workflow. ([9bf143f](https://github.com/KhaosResearch/EDAAnOWL/commit/9bf143f3694101212544959238bc5f325a10048e))
+* **releas-please:** update GitHub Actions workflow. ([00b61e8](https://github.com/KhaosResearch/EDAAnOWL/commit/00b61e84848b98c2169cb575edfe59de5c0a0ff3))
+* Remove mention of `catalog-v0.xml` generation from CI/CD documentation. ([0c8e671](https://github.com/KhaosResearch/EDAAnOWL/commit/0c8e6714f9237c0b4d58a45adea5a097d87cfbe1))
+* removed line from Unreleased Changelog section ([54fdbfd](https://github.com/KhaosResearch/EDAAnOWL/commit/54fdbfd11e2e400368442b73e7625df1167d287e))
+* Restructure EDAAnOWL architecture with matchmaking and quality/provenance subgraphs, add new diagram, and create v0.3.1 documentation. ([dca2c90](https://github.com/KhaosResearch/EDAAnOWL/commit/dca2c90f8dd62fd83f29e2d154ec2afe91d2a48b))
+* update architecture and changelog for v0.4.1 ([8c185dd](https://github.com/KhaosResearch/EDAAnOWL/commit/8c185dda043af9facd7b1eb0dbd0097e359d1d2c))
+* update CHANGELOG with unreleased changes since v0.4.1 ([2e6c456](https://github.com/KhaosResearch/EDAAnOWL/commit/2e6c456b20b904f0061bc95160bdfe0b2b94a688))
+* Update CHANGELOG.md for v0.3.2 ([2fe5b7c](https://github.com/KhaosResearch/EDAAnOWL/commit/2fe5b7c15d37687a97ac9627481afe55f31df86a))
+* update demos, guides and metadata for v0.5.0 ([384c0cd](https://github.com/KhaosResearch/EDAAnOWL/commit/384c0cdacbcf0348fa1156e9c6153876fe2a901a))
+* update root README references to v0.5.0 ([fb3d975](https://github.com/KhaosResearch/EDAAnOWL/commit/fb3d975d1aafaa58a1c8efd4c3a11d055d185a56))
+* update version references to v0.4.1 ([c6722ab](https://github.com/KhaosResearch/EDAAnOWL/commit/c6722abf701be909b8e24310a6ed140fa575ca9e))
+* update version references to v0.4.1 ([b380a27](https://github.com/KhaosResearch/EDAAnOWL/commit/b380a27fcf56f24c939e960e5e1f8bbf05ccd69c))
+* updated size of architecture image ([fdb4a26](https://github.com/KhaosResearch/EDAAnOWL/commit/fdb4a26bd540488dd45b71f4f71f7d05e98c21e9))
+* updated size of architecture image ([b219a22](https://github.com/KhaosResearch/EDAAnOWL/commit/b219a22b2cfdfd8bcbcd0773c3028f0a573b340e))
+* Updated the README according to the latest version of the ontology. ([65237ef](https://github.com/KhaosResearch/EDAAnOWL/commit/65237ef9dc2eb3a559dd2d0e4e02db88e2407ed5))
+* updated v0.3.2 documentation page. ([2f9f8b7](https://github.com/KhaosResearch/EDAAnOWL/commit/2f9f8b7e34dece295d7cea6e048bac36ada00108))
+* **v0.5.0:** document external vocabulary strategy ([1161ccc](https://github.com/KhaosResearch/EDAAnOWL/commit/1161ccc8513141800dfd4e4dc8d795e2bffb6545))
+
 ## [0.5.0](https://github.com/KhaosResearch/EDAAnOWL/compare/EDAAnOWL-v0.4.1...EDAAnOWL-v0.5.0) (2026-01-30)
 
 
