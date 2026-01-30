@@ -1,0 +1,103 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://w3id.org/EDAAnOWL/0.5.0/vocabularies/data-theme> a owl:Ontology ;
+    dct:title "Data Theme - EU NAL Reference"@en ;
+    dct:description """Reference document for EU Publications Office Data Theme NAL.
+
+NOT IMPORTED by EDAAnOWL - for documentation/stub definitions only.
+
+Use EU NAL URIs directly for :hasDomainSector:
+  ex:MyDataset :hasDomainSector <http://publications.europa.eu/resource/authority/data-theme/AGRI> .
+
+Available data themes from EU NAL (DCAT-AP mandatory vocabulary):
+- AGRI - Agriculture, fisheries, forestry and food
+- ECON - Economy and finance
+- EDUC - Education, culture and sport
+- ENER - Energy
+- ENVI - Environment
+- GOVE - Government and public sector
+- HEAL - Health
+- INTR - International issues
+- JUST - Justice, legal system and public safety
+- REGI - Regions and cities
+- SOCI - Population and society
+- TECH - Science and technology
+- TRAN - Transport
+
+Reference: http://publications.europa.eu/resource/authority/data-theme
+DCAT-AP 3.0.1 requires at least one value from this vocabulary for dcat:theme.
+"""@en .
+
+#################################################################
+#    Stub Definitions for SHACL Validation
+#    These allow offline validation without dereferencing URIs
+#################################################################
+
+<http://publications.europa.eu/resource/authority/data-theme/AGRI> a skos:Concept ;
+    skos:prefLabel "Agriculture, fisheries, forestry and food"@en ,
+                   "Agricultura, pesca, silvicultura y alimentación"@es ;
+    skos:notation "AGRI" .
+
+<http://publications.europa.eu/resource/authority/data-theme/ECON> a skos:Concept ;
+    skos:prefLabel "Economy and finance"@en ,
+                   "Economía y finanzas"@es ;
+    skos:notation "ECON" .
+
+<http://publications.europa.eu/resource/authority/data-theme/EDUC> a skos:Concept ;
+    skos:prefLabel "Education, culture and sport"@en ,
+                   "Educación, cultura y deporte"@es ;
+    skos:notation "EDUC" .
+
+<http://publications.europa.eu/resource/authority/data-theme/ENER> a skos:Concept ;
+    skos:prefLabel "Energy"@en ,
+                   "Energía"@es ;
+    skos:notation "ENER" .
+
+<http://publications.europa.eu/resource/authority/data-theme/ENVI> a skos:Concept ;
+    skos:prefLabel "Environment"@en ,
+                   "Medio ambiente"@es ;
+    skos:notation "ENVI" .
+
+<http://publications.europa.eu/resource/authority/data-theme/GOVE> a skos:Concept ;
+    skos:prefLabel "Government and public sector"@en ,
+                   "Gobierno y sector público"@es ;
+    skos:notation "GOVE" .
+
+<http://publications.europa.eu/resource/authority/data-theme/HEAL> a skos:Concept ;
+    skos:prefLabel "Health"@en ,
+                   "Salud"@es ;
+    skos:notation "HEAL" .
+
+<http://publications.europa.eu/resource/authority/data-theme/INTR> a skos:Concept ;
+    skos:prefLabel "International issues"@en ,
+                   "Asuntos internacionales"@es ;
+    skos:notation "INTR" .
+
+<http://publications.europa.eu/resource/authority/data-theme/JUST> a skos:Concept ;
+    skos:prefLabel "Justice, legal system and public safety"@en ,
+                   "Justicia, sistema legal y seguridad pública"@es ;
+    skos:notation "JUST" .
+
+<http://publications.europa.eu/resource/authority/data-theme/REGI> a skos:Concept ;
+    skos:prefLabel "Regions and cities"@en ,
+                   "Regiones y ciudades"@es ;
+    skos:notation "REGI" .
+
+<http://publications.europa.eu/resource/authority/data-theme/SOCI> a skos:Concept ;
+    skos:prefLabel "Population and society"@en ,
+                   "Población y sociedad"@es ;
+    skos:notation "SOCI" .
+
+<http://publications.europa.eu/resource/authority/data-theme/TECH> a skos:Concept ;
+    skos:prefLabel "Science and technology"@en ,
+                   "Ciencia y tecnología"@es ;
+    skos:notation "TECH" .
+
+<http://publications.europa.eu/resource/authority/data-theme/TRAN> a skos:Concept ;
+    skos:prefLabel "Transport"@en ,
+                   "Transporte"@es ;
+    skos:notation "TRAN" .

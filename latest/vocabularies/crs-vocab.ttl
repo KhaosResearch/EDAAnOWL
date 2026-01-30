@@ -1,0 +1,69 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://w3id.org/EDAAnOWL/0.5.0/vocabularies/crs-vocab> a owl:Ontology ;
+    dct:title "Coordinate Reference Systems - Reference"@en ;
+    dct:description """Reference document for common Coordinate Reference System (CRS) URIs.
+
+NOT IMPORTED by EDAAnOWL - for documentation/stub definitions only.
+
+Use OGC EPSG URIs directly in your data:
+  ex:MyProfile :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> .
+
+Standard EPSG CRS URIs follow the pattern:
+  http://www.opengis.net/def/crs/EPSG/0/{EPSG_CODE}
+
+Common CRS for Spain and Europe:
+- EPSG:4326 - WGS 84 (global, lat/lon) - Most common for GPS data
+- EPSG:4258 - ETRS89 (European reference, lat/lon) - Official EU CRS
+- EPSG:25830 - ETRS89 / UTM zone 30N (Spain mainland)
+- EPSG:25829 - ETRS89 / UTM zone 29N (Western Spain/Portugal)
+- EPSG:32630 - WGS 84 / UTM zone 30N
+- EPSG:3857 - Web Mercator (web maps)
+
+Reference: http://www.opengis.net/def/crs/EPSG/
+"""@en .
+
+#################################################################
+#    Stub Definitions for SHACL Validation
+#    These allow offline validation without dereferencing URIs
+#################################################################
+
+<http://www.opengis.net/def/crs/EPSG/0/4326> a skos:Concept ;
+    skos:prefLabel "WGS 84"@en ;
+    skos:notation "EPSG:4326" ;
+    skos:definition "World Geodetic System 1984 - Global latitude/longitude CRS."@en .
+
+<http://www.opengis.net/def/crs/EPSG/0/4258> a skos:Concept ;
+    skos:prefLabel "ETRS89"@en ;
+    skos:notation "EPSG:4258" ;
+    skos:definition "European Terrestrial Reference System 1989 - Official EU geodetic CRS."@en .
+
+<http://www.opengis.net/def/crs/EPSG/0/25830> a skos:Concept ;
+    skos:prefLabel "ETRS89 / UTM zone 30N"@en ;
+    skos:notation "EPSG:25830" ;
+    skos:definition "Projected CRS for Spain mainland (central/eastern)."@en .
+
+<http://www.opengis.net/def/crs/EPSG/0/25829> a skos:Concept ;
+    skos:prefLabel "ETRS89 / UTM zone 29N"@en ;
+    skos:notation "EPSG:25829" ;
+    skos:definition "Projected CRS for Western Spain and Portugal."@en .
+
+<http://www.opengis.net/def/crs/EPSG/0/32630> a skos:Concept ;
+    skos:prefLabel "WGS 84 / UTM zone 30N"@en ;
+    skos:notation "EPSG:32630" ;
+    skos:definition "WGS 84 projected CRS for UTM zone 30N."@en .
+
+<http://www.opengis.net/def/crs/EPSG/0/3857> a skos:Concept ;
+    skos:prefLabel "WGS 84 / Pseudo-Mercator"@en ;
+    skos:altLabel "Web Mercator"@en ;
+    skos:notation "EPSG:3857" ;
+    skos:definition "Spherical Mercator projection used by web mapping services."@en .
+
+<http://www.opengis.net/def/crs/OGC/1.3/CRS84> a skos:Concept ;
+    skos:prefLabel "CRS84"@en ;
+    skos:notation "CRS:84" ;
+    skos:definition "WGS 84 with longitude-latitude axis order (GeoJSON default)."@en .
