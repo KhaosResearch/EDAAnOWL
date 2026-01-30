@@ -54,6 +54,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * update root README references to v0.5.0 ([fb3d975](https://github.com/KhaosResearch/EDAAnOWL/commit/fb3d975d1aafaa58a1c8efd4c3a11d055d185a56))
 * **v0.5.0:** document external vocabulary strategy ([1161ccc](https://github.com/KhaosResearch/EDAAnOWL/commit/1161ccc8513141800dfd4e4dc8d795e2bffb6545))
 
+---
 
 ## [0.4.1] - 2026-01-12
 
