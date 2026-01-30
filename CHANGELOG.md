@@ -5,6 +5,53 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.1...v0.5.0) (2026-01-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* Align with BIGOWL and enforce external vocabularies.
+    - Added release-please configuration
+    - Renamed release workflow to deploy-docs
+    - Updated CONTRIBUTING and AGENTS docs
+* Deprecated local vocabularies in favor of external URIs. Deprecated :realizesWorkflow in favor of :implementsComponent. Moved vocabulary strategy to use AGROVOC, EU NALs, and BIGOWL directly. Updated documentation and examples to reflect these changes."
+* **ontology:** remove local vocabulary imports in favor of external URIs
+
+### Added
+
+* **ontology:** release v0.5.0 with DQV alignment and Concept properties ([8f5913c](https://github.com/KhaosResearch/EDAAnOWL/commit/8f5913c77ada43f09efcd4e37860465fd1b966d3))
+* **ontology:** remove local vocabulary imports in favor of external URIs ([2f78840](https://github.com/KhaosResearch/EDAAnOWL/commit/2f78840ed561a1a7eb0b413b58ca8711c08f6770))
+* prepare v0.5.0 release and setup automated versioning ([36fed7c](https://github.com/KhaosResearch/EDAAnOWL/commit/36fed7c9d10459345758424d4e0daa2d777ebd38))
+* v0.5.0 release - BIGOWL alignment and External Vocabularies ([e3ffda8](https://github.com/KhaosResearch/EDAAnOWL/commit/e3ffda86fb0bb17ed48cf52d21c6df9b63dae6c1))
+* **validation:** add SHACL shapes for DCAT-AP and AGROVOC alignment ([9ea082d](https://github.com/KhaosResearch/EDAAnOWL/commit/9ea082df15bf0332e0f8114420450e604f04ae5b))
+
+
+### Fixed
+
+* **vocabularies:** convert to UTF-8 encoding ([c28ae35](https://github.com/KhaosResearch/EDAAnOWL/commit/c28ae351d51c1c1544927d502e5a0b44b9b279ab))
+
+
+### Changed
+
+* add AGENTS.md for AI coding agents context ([4164d47](https://github.com/KhaosResearch/EDAAnOWL/commit/4164d47aebbd818e515a910ee5287482b4cacc72))
+* **changelog:** add v0.5.0 external vocabulary breaking change ([ccc6ede](https://github.com/KhaosResearch/EDAAnOWL/commit/ccc6edeb60e989982ae53cc98d4e2670ba6b7671))
+* comprehensive alignment with DCAT-AP, ENI, and Interoperable Europe ([60a811d](https://github.com/KhaosResearch/EDAAnOWL/commit/60a811d4809650964c67596b3f08d570501a32cc))
+* consolidate use cases and examples into demo/USE_CASES.md ([23baeb5](https://github.com/KhaosResearch/EDAAnOWL/commit/23baeb529d73ed6b5b1f64af1ad0b3f8955e61d1))
+* **demo:** use AGROVOC URIs in demo files with inline comments ([fa805e7](https://github.com/KhaosResearch/EDAAnOWL/commit/fa805e72bb05415a599d73b05f679fc6f3349fa6))
+* **examples:** use verified AGROVOC URIs instead of local concepts ([9671f87](https://github.com/KhaosResearch/EDAAnOWL/commit/9671f87debc1ee6b894d98e4bd115ea9aba4656e))
+* expand USE_CASES.md with DataProfile reuse, matchmaking reference, and multi-dimensional compatibility ([fe8523f](https://github.com/KhaosResearch/EDAAnOWL/commit/fe8523fe112603a8f5bdd4ce15c8072c4ca03e2a))
+* **main:** release EDAAnOWL 0.5.0 ([484a261](https://github.com/KhaosResearch/EDAAnOWL/commit/484a261e4ea5bce1243ed8dc623e687d8df80d2d))
+* **main:** release EDAAnOWL 0.5.0 ([6b4515f](https://github.com/KhaosResearch/EDAAnOWL/commit/6b4515f40c93e1add2e479eeef8c12338bf0835b))
+* **main:** release EDAAnOWL 0.6.0 ([601221e](https://github.com/KhaosResearch/EDAAnOWL/commit/601221e1259ee10ac6b0ef3de4dfb9765269e602))
+* **main:** release EDAAnOWL 0.6.0 ([3936b91](https://github.com/KhaosResearch/EDAAnOWL/commit/3936b91f82e3a40b8f41bdc2ae0fd4c669d14c8a))
+* **releas-please:** update GitHub Actions workflow. ([9bf143f](https://github.com/KhaosResearch/EDAAnOWL/commit/9bf143f3694101212544959238bc5f325a10048e))
+* **releas-please:** update GitHub Actions workflow. ([00b61e8](https://github.com/KhaosResearch/EDAAnOWL/commit/00b61e84848b98c2169cb575edfe59de5c0a0ff3))
+* removed line from Unreleased Changelog section ([54fdbfd](https://github.com/KhaosResearch/EDAAnOWL/commit/54fdbfd11e2e400368442b73e7625df1167d287e))
+* update CHANGELOG with unreleased changes since v0.4.1 ([2e6c456](https://github.com/KhaosResearch/EDAAnOWL/commit/2e6c456b20b904f0061bc95160bdfe0b2b94a688))
+* update demos, guides and metadata for v0.5.0 ([384c0cd](https://github.com/KhaosResearch/EDAAnOWL/commit/384c0cdacbcf0348fa1156e9c6153876fe2a901a))
+* update root README references to v0.5.0 ([fb3d975](https://github.com/KhaosResearch/EDAAnOWL/commit/fb3d975d1aafaa58a1c8efd4c3a11d055d185a56))
+* **v0.5.0:** document external vocabulary strategy ([1161ccc](https://github.com/KhaosResearch/EDAAnOWL/commit/1161ccc8513141800dfd4e4dc8d795e2bffb6545))
+
 ## [0.5.0](https://github.com/KhaosResearch/EDAAnOWL/compare/EDAAnOWL-v0.4.1...EDAAnOWL-v0.5.0) (2026-01-30)
 
 
