@@ -80,6 +80,9 @@ $(function(){
 <dt>Authors:</dt>
 <dd><a href="https://github.com/MartinM10">https://github.com/MartinM10</a></dd><dd><a href="https://khaos.uma.es/">https://khaos.uma.es/</a></dd><dd><a href="https://www.linkedin.com/in/martin-jeronimo-salvachua/">https://www.linkedin.com/in/martin-jeronimo-salvachua/</a></dd>
 
+<dt>Imported Ontologies:</dt>
+<dd><a href="https://w3id.org/EDAAnOWL/0.5.0/vocabularies/datatype-scheme">datatype-scheme</a></dd>
+
 <dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
 </dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
 <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd><dt>Cite as:</dt>
@@ -3276,8 +3279,8 @@ Add your references here. It is recommended to have them as a list.</span>
 </li>
 <li><a href="#VerifiableDataProfile">https://w3id.org/EDAAnOWL/VerifiableDataProfile</a>
 <ul>
-<li>Added: SubClass of https://www.w3.org/2018/credentials#VerifiableCredential</li>
 <li>Added: SubClass of https://w3id.org/EDAAnOWL/DataProfile</li>
+<li>Added: SubClass of https://www.w3.org/2018/credentials#VerifiableCredential</li>
 </ul>
 </li>
 <li><a href="#https://w3id.org/idsa/core/DataRepresentation">https://w3id.org/idsa/core/DataRepresentation</a>
@@ -3355,11 +3358,11 @@ Use :implementsComponent instead to link a DataApp to the BIGOWL Component it im
 A Workflow is a pipeline composed of multiple Components connected via Tasks.
 
 If you need to indicate workflow membership, consider using bigwf:hasComponent (inverse)."@en</li>
+<li>Added: rdfs:label "realiza flujo de trabajo (obsoleto)"@es</li>
 <li>Added: rdfs:comment "OBSOLETO: Una DataApp implementa un Component, no un Workflow.
 
 Use :implementsComponent para vincular una DataApp con el Component BIGOWL que implementa.
 Un Workflow es un pipeline compuesto por múltiples Components conectados via Tasks."@es</li>
-<li>Added: rdfs:label "realiza flujo de trabajo (obsoleto)"@es</li>
 </ul>
 <ul>
 <li>Deleted: rdfs:label "realiza flujo de trabajo"@es</li>
@@ -3435,8 +3438,8 @@ Vocabularios RECOMENDADOS:
 <ul>
 <li>Deleted: rdfs:comment "Indicates the primary access mode for the resource (e.g., download, compute, ...)."@en</li>
 <li>Deleted: rdfs:label "tipo de acceso"@es</li>
-<li>Deleted: rdfs:label "access type"@en</li>
 <li>Deleted: rdfs:comment "Indica el modo de acceso principal para el recurso (p. ej., descarga, cómputo, ...)."@es</li>
+<li>Deleted: rdfs:label "access type"@en</li>
 </ul>
 </li>
 <li><a href="#appliesToFeature">https://w3id.org/EDAAnOWL/appliesToFeature</a>
