@@ -97,7 +97,7 @@ def process_dataset(g, ds):
     profile_uri = URIRef(f"{resource_uri}/profile")
     g.add((profile_uri, RDF.type, EDAAN.DataProfile))
     
-    # Link Representation -> Profile (v0.4.1 pattern)
+    # Link Representation -> Profile (v0.5.0 pattern)
     g.add((representation_uri, EDAAN.conformsToProfile, profile_uri))
     
     # Fix: Add required :declaresDataClass
@@ -126,7 +126,7 @@ def process_dataset(g, ds):
     g.add((metric_uri, RDF.type, EDAAN.QualityMetric))
     g.add((metric_uri, RDF.type, EDAAN.Metric))
     g.add((metric_uri, RDF.type, DQV.QualityMetric))
-    g.add((metric_uri, EDAAN.metricType, EDAAN.mt_completeness))  # v0.3.2: MetricType vocabulary
+    g.add((metric_uri, EDAAN.metricType, EDAAN.mt_completeness))  # v0.3.2+: MetricType vocabulary aligned with DQV
     g.add((metric_uri, EDAAN.metricName, Literal("completeness")))
     g.add((metric_uri, EDAAN.metricValue, Literal("0.99", datatype=XSD.decimal)))
     g.add((profile_uri, EDAAN.hasMetric, metric_uri))

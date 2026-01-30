@@ -5,16 +5,16 @@ We provide security fixes for the following versions:
 
 | Version  | Supported |
 |---------:|:---------:|
+| 0.5.x    | ✅        |
 | 0.4.x    | ✅        |
-| 0.3.x    | ✅        |
-| 0.2.x    | ✅        |
-| 0.1.x    | ⚠️ Critical fixes only (if feasible) |
-| < 0.1.0  | ❌        |
+| 0.3.x    | ⚠️ Critical fixes only |
+| 0.2.x    | ❌        |
+| < 0.2.0  | ❌        |
 
 ## Reporting a Vulnerability
 Please **do not** open a public issue for security matters.
 
-- Use **GitHub → Security → “Report a vulnerability”** (private advisory), or  
+- Use **GitHub → Security → "Report a vulnerability"** (private advisory), or  
 - Email: <martinjs@uma.es>
 
 Provide a minimal, reproducible example if possible, affected version(s), and any CVE references.

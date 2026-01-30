@@ -10,113 +10,123 @@ If you find a bug, inconsistency, or have a feature request, please [open an Iss
 
 For minor fixes or feature additions that don't constitute a new version:
 
-1.  **Fork & Branch:** Fork the repository and create a descriptive branch from the `dev` branch.
+1.  **Fork & Branch:** Fork the repository and create a descriptive branch from the `main` branch.
 
     ```bash
-    # Make sure your dev is up to date
-    git checkout dev
-    git pull origin dev
+    # Make sure your main is up to date
+    git checkout main
+    git pull origin main
 
-    # Create your new branch
-    git checkout -b fix/correct-typo-in-profile
+    # Create your new branch (e.g., feature/new-metrics)
+    git checkout -b feature/new-metrics
     ```
 
-2.  **Make Changes:** Modify the necessary `.ttl` files _within the latest version's folder_ (e.g., `src/0.0.1/`).
-3.  **Commit & Push:** Commit your changes and push them to your fork.
-4.  **Open a Pull Request:** Submit a PR against the `dev` branch for review.
+2.  **Make Changes:** Modify the necessary `.ttl` files _within the latest version's folder_ (e.g., `src/0.5.0/`).
+3.  **Run Validation:** Execute `python scripts/check_rdf.py && python scripts/validate_shacl.py`.
+4.  **Commit & Push:** Commit your changes following [Conventional Commits](https://www.conventionalcommits.org/).
+5.  **Open a Pull Request:** Submit a PR against the `main` branch.
 
 ---
 
-## How to Publish a New Version (Core Maintainer Process)
+## Automated Release Process (Release Please)
 
-Publishing a new version is a semi-automated process. It requires preparing all files in the `dev` branch, merging them into `main`, and then creating a GitHub Release.
+We use [Google Release Please](https://github.com/google-github-actions/release-please-action) to automate versioning and changelog generation.
 
-**Example: Publishing version `0.0.2` (from `0.0.1`)**
+### How it works
 
-### Step 1: Prepare the New Version on the `dev` Branch
+1.  **Commit Messages**: All commits must follow [Conventional Commits](https://www.conventionalcommits.org/).
+    - `feat:` → Minor version bump (e.g., 0.5.0 → 0.6.0)
+    - `fix:` → Patch version bump (e.g., 0.5.0 → 0.5.1)
+    - `feat!:` or `BREAKING CHANGE:` → Major version bump
+    - `docs:`, `chore:`, etc. → No release trigger (unless configured)
 
-All new development happens on the `dev` branch (or feature branches merged into it).
+2.  **Release PR**: When changes are merged into the `main` branch, the **release-please** bot automatically checks commits since the last release.
+    - If there are user-facing changes (`feat`, `fix`), it opens a **Release PR**.
+    - This PR contains:
+        - Updated `CHANGELOG.md`
+        - Updated `.release-please-manifest.json` versions
 
-1.  **Duplicate the Version Folder:**
+3.  **Publishing**:
+    - **Review** the Release PR created by the bot.
+    - **Merge** the Release PR.
+    - Only then will the bot:
+        - Create a GitHub Release tag (`vX.Y.Z`).
+        - Trigger the `release.yml` workflow to build/publish documentation.
 
-    - Create a copy of the entire directory for the last version and name it with the new version.
-    - `cp -r src/0.0.1/ src/0.0.2/`
+### Developer Workflow
 
-2.  **Update the Main Ontology File:**
+You do **NOT** need to manually update `CHANGELOG.md` or version numbers. Just write good commit messages!
 
-    - Open the new file: `src/0.0.2/EDAAnOWL.ttl`.
-    - Find and update the `owl:versionIRI` and `owl:versionInfo`:
-      ```turtle
-      # ...
-      [https://w3id.org/EDAAnOWL/](https://w3id.org/EDAAnOWL/) rdf:type owl:Ontology ;
-                                    owl:versionIRI [https://w3id.org/EDAAnOWL/0.0.2](https://w3id.org/EDAAnOWL/0.0.2) ; # <-- UPDATE
-                                    owl:versionInfo "0.0.2"; # <-- UPDATE
-      # ...
-      ```
-    - Find and update **all `owl:imports`** of your modular vocabularies to point to the new version path:
-      ```turtle
-      # ...
-                                    owl:imports ...
-                                                [https://w3id.org/EDAAnOWL/0.0.2/vocabularies/agro-vocab](https://w3id.org/EDAAnOWL/0.0.2/vocabularies/agro-vocab) , # <-- UPDATE
-                                                [https://w3id.org/EDAAnOWL/0.0.2/vocabularies/datatype-scheme](https://w3id.org/EDAAnOWL/0.0.2/vocabularies/datatype-scheme) , # <-- UPDATE
-                                                # ... (and so on for all vocabs)
-      # ...
-      ```
+```bash
+git commit -m "feat: add support for new bigowl components"
+git commit -m "fix: correct typo in owl:imports"
+git commit -m "docs: update contributor guide"
+```
 
-3.  **Update the Modular Vocabularies:**
+---
 
-    - For **each** `.ttl` file inside `src/0.0.2/vocabularies/`:
-    - Open the file (e.g., `agro-vocab.ttl`).
-    - Update its `@base` and `owl:Ontology` URI to the new version:
+## External Vocabulary Strategy (v0.5.0+)
 
-      ```turtle
-      # ...
-      @base [https://w3id.org/EDAAnOWL/0.0.2/vocabularies/agro-vocab](https://w3id.org/EDAAnOWL/0.0.2/vocabularies/agro-vocab) . # <-- UPDATE
+> [!IMPORTANT]
+> **EDAAnOWL does NOT import local vocabularies.** We use external standardized URIs directly.
 
-      [https://w3id.org/EDAAnOWL/0.0.2/vocabularies/agro-vocab](https://w3id.org/EDAAnOWL/0.0.2/vocabularies/agro-vocab) rdf:type owl:Ontology ; # <-- UPDATE
-          owl:imports [https://w3id.org/EDAAnOWL/0.0.2/vocabularies/sector-scheme](https://w3id.org/EDAAnOWL/0.0.2/vocabularies/sector-scheme) ; # <-- UPDATE (if it imports others)
-      # ...
-      ```
+### Why External Vocabularies?
 
-4.  **Make All Other Changes:** Add, modify, or remove any concepts, properties, etc., within the `src/0.0.2/` files.
-5.  **Update the Changelog:** Edit `CHANGELOG.md` to document all the new changes under an `[Unreleased]` section.
-6.  **Commit:** Commit all your changes to the `dev` branch.
-    - `git add .`
-    - `git commit -m "feat: Prepare files and changes for v0.0.2"`
-    - `git push origin dev`
+1. **Maintenance burden**: Local vocabularies require constant updates
+2. **Interoperability**: External URIs are recognized across data spaces
+3. **Authority**: FAO, EU, OGC maintain authoritative vocabularies
+4. **Alignment**: External vocabularies already have SKOS mappings
 
-### Step 2: Merge `dev` into `main`
+### Recommended Vocabularies
 
-1.  When the `dev` branch is stable and all files for the new version are ready, open a Pull Request from `dev` to `main`.
-2.  Title the PR: "Merge `dev` into `main` for v0.0.2 Release".
-3.  Have the PR reviewed and approved by a maintainer.
-4.  **Merge the Pull Request.** The `main` branch now contains the new `src/0.0.2/` folder and is ready to be tagged.
+| Domain | Vocabulary | URI Pattern |
+|--------|------------|-------------|
+| Agriculture | AGROVOC | `http://aims.fao.org/aos/agrovoc/c_*` |
+| Data Themes | EU Data Theme NAL | `http://publications.europa.eu/resource/authority/data-theme/*` |
+| Data Types | BIGOWL Data | `https://w3id.org/BIGOWLData/*` |
+| Quality | W3C DQV | `http://www.w3.org/ns/dqv#*` |
+| CRS | OGC EPSG | `http://www.opengis.net/def/crs/EPSG/0/*` |
 
-### Step 3: Create the GitHub Release (Triggers Automation)
+### What About Local Vocabulary Files?
 
-This is the final step that makes the new version public.
+Files in `vocabularies/` are **reference documents only**:
+- `datatype-scheme.ttl` - Alignment with BIGOWL Data classes
+- `metric-types.ttl` - DQV-aligned metric instances
+- `data-theme.ttl` - EU NAL stubs for SHACL validation
 
-1.  Go to the **"Releases"** page of the repository.
-2.  Click **"Draft a new release"**.
-3.  Click "Choose a tag" and **create a new tag**. The tag **MUST** use the `vX.Y.Z` format (with a `v`).
-    - Example: `v0.0.2`
-4.  Ensure the "Target" is the **`main` branch** (which you just merged into).
-5.  Set the release title (e.g., "Version 0.0.2").
-6.  Copy the notes from `CHANGELOG.md` for the new version into the release description.
-7.  Update the `CHANGELOG.md` file itself: change `[Unreleased]` to `[0.0.2] - YYYY-MM-DD` and add the comparison links at the bottom. Commit this change to `main`.
-8.  Click **"Publish release"**.
+They are NOT owl:imported by the main ontology.
 
-### Step 4: Done!
+### For Examples & SHACL Validation
 
-Publishing the release triggers the `release.yml` workflow. It will:
+Add stub definitions for external concepts:
 
-- Detect the tag `v0.0.2`.
-- Get the version string `0.0.2`.
-- Use the files from `src/0.0.2/` to run Widoco.
-- Run the **Step 7 (Post-process)** `sed` command to fix vocabulary links.
-- Run the **Step 8 (Prepare files)** to:
-  - Copy all files into `deploy/0.0.2/`.
-  - Sync `deploy/latest/` to mirror the new version.
-- Push the final `deploy/` directory to the `gh-pages` branch.
+```turtle
+agrovoc:c_ce585e0d a skos:Concept ;
+    skos:prefLabel "NDVI"@en .
 
-Wait ~5 minutes, then verify that `https://w3id.org/EDAAnOWL/latest/` and `https://w3id.org/EDAAnOWL/0.0.2/` are working correctly.
+bigdat:TabularDataSet a owl:Class ;
+    rdfs:subClassOf bigdat:Data .
+```
+
+---
+
+## Versioning Checklist (Quick Reference)
+
+Use this checklist before every release:
+
+```markdown
+- [ ] New `src/X.Y.Z/` folder created
+- [ ] `EDAAnOWL.ttl`: owl:versionIRI, owl:versionInfo, owl:priorVersion
+- [ ] `EDAAnOWL.ttl`: All owl:imports point to X.Y.Z paths
+- [ ] `vocabularies/*.ttl`: @base and owl:Ontology URIs updated
+- [ ] `shapes/*.ttl`: Updated for new classes/properties
+- [ ] `examples/*.ttl`: Valid against new ontology
+- [ ] `src/X.Y.Z/README.md`: Updated
+- [ ] `src/X.Y.Z/index.html`: Updated
+- [ ] `CHANGELOG.md`: New version section added
+- [ ] `CITATION.cff`: Version and date updated
+- [ ] `README.md` (root): Latest version notes
+- [ ] `SECURITY.md`: Supported versions updated
+- [ ] `images/`: Diagrams consistent with ontology
+- [ ] Validation passes: `check_rdf.py`, `validate_shacl.py`
+```

@@ -11,11 +11,65 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+### Deprecated
+
 ### Fixed
 
 ### Removed
 
 ---
+
+## [0.5.0] - 2026-01-30
+
+### Added
+
+- **BIGOWL Data class stubs**: Added stub definitions for `bigdat:TabularDataSet`, `bigdat:Image`, `bigdat:Data` in `datatype-scheme.ttl` for offline SHACL validation.
+- **BIGOWL integration guidance**: Updated `AGENTS.md` and `CONTRIBUTING.md` with BIGOWL alignment documentation.
+
+### Changed
+
+- **`datatype-scheme.ttl`**: Converted to reference alignment document showing BIGOWL Data class mappings. Local concepts (`:tabular`, `:georaster`) deprecated with `skos:exactMatch` to BIGOWL equivalents.
+- **`:spatialGranularityConcept`**: Updated comment to recommend EU NUTS/INSPIRE vocabularies.
+- **Examples**: Replaced local data class references with BIGOWL classes (`bigdat:TabularDataSet`, `bigdat:Image`) in `eo-instances.ttl`.
+- **Documentation**: Expanded `CONTRIBUTING.md` with comprehensive versioning checklist and external vocabulary strategy.
+
+### Deprecated
+
+- **`:realizesWorkflow`**: Deprecated with explanation. A DataApp implements a Component (single processing step), not a Workflow (pipeline). Use `:implementsComponent` instead.
+
+### Fixed
+
+### Removed
+
+---
+
+## [0.5.0] - 2026-01-21
+
+### Added
+
+- **DQV Alignment**: `:metricType` → `rdfs:subPropertyOf dqv:isMeasurementOf`, `:metricValue` → `rdfs:subPropertyOf dqv:value`. This enables DQV-aware tools to interpret EDAAnOWL metrics natively.
+- **PROV Alignment**: `:computedAt` → `rdfs:subPropertyOf prov:generatedAtTime`. Establishes provenance lineage for metric measurements.
+- **New ObjectProperties**:
+  - `:accessTypeConcept` (Domain: `ids:Resource`, Range: `skos:Concept`) - Replaces deprecated `:accessType` string.
+  - `:appliesToFeatureConcept` (Domain: `:Metric`, Range: `skos:Concept`) - Replaces deprecated `:appliesToFeature` string.
+- **Documentation (`demo/USE_CASES.md`)**: Expanded with DataProfile Reuse, Matchmaking Property Reference, and Multi-Dimensional Compatibility sections.
+- **Integration Frameworks**: Expanded documentation to align with **Interoperable Europe** and the Spanish **Esquema Nacional de Interoperabilidad (ENI)** via DCAT-AP compliance.
+- **Validation**: Added `src/0.4.1/shapes/dcat-ap-alignment.ttl` to validate EDAAnOWL assets against basic DCAT-AP requirements.
+
+### Changed
+
+- **`:hasCRS` range**: Changed from `owl:Thing` to `skos:Concept` for interoperability with controlled vocabularies.
+- **SPARQL examples**: Updated to use v0.4.0 pattern (`ids:representation` → `conformsToProfile` on Distribution).
+- **External Vocabulary Strategy (BREAKING)**: Removed bundled local SKOS vocabularies (`agro-vocab.ttl`, `observed-properties.ttl`, `metric-types.ttl`, `sector-scheme.ttl`). EDAAnOWL now recommends using external standardized vocabularies (AGROVOC, DQV, QUDT, EuroSciVoc) directly. Only `datatype-scheme.ttl` is retained for EDAAnOWL-specific data classes.
+
+### Deprecated
+
+- **`:accessType`** (DatatypeProperty, string) - Use `:accessTypeConcept` instead.
+- **`:appliesToFeature`** (DatatypeProperty, string) - Use `:appliesToFeatureConcept` instead.
+
+### Removed
+
+- **Local vocabulary imports**: `agro-vocab.ttl`, `observed-properties.ttl`, `metric-types.ttl`, `sector-scheme.ttl` are no longer imported by the main ontology. Use external URIs (e.g., AGROVOC) directly.
 
 ## [0.4.1] - 2026-01-12
 
@@ -283,7 +337,8 @@ With this both annotations we help to widoco to generate a better documentation 
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.1...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.2...v0.4.0
 [0.3.2]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.1...v0.3.2

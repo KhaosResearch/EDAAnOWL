@@ -11,6 +11,9 @@ See **[USE_CASES.md](USE_CASES.md)** for comprehensive documentation including:
 - Provenance and traceability
 - Cross-domain interoperability (Agriculture ↔ Energy)
 - Weighted/probabilistic matching with metrics
+- **DataProfile reuse & lifecycle** *(how profiles are created and shared)*
+- **Matchmaking property reference** *(when to use which property)*
+- **Multi-dimensional compatibility** *(80% compatible scenarios)*
 - Vocabulary strategies (local vs. direct linking)
 
 ---
@@ -49,7 +52,7 @@ python transform_csv.py
 **Highlights**:
 - Demonstrates Use Case 1 from `USE_CASES.md`
 - Dataset is compatible with `OliveYieldPredictor` app
-- Uses all v0.4.0+ features
+- Uses all v0.5.0+ features
 
 ---
 

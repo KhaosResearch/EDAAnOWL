@@ -31,8 +31,10 @@ cat "$ROOT_DIR/$LATEST_PATH/examples/test-consistency.ttl" \
     "$ROOT_DIR/$LATEST_PATH/vocabularies/metric-types.ttl" \
     "$ROOT_DIR/$LATEST_PATH/vocabularies/observed-properties.ttl" \
     "$ROOT_DIR/$LATEST_PATH/vocabularies/agro-vocab.ttl" \
-    "$ROOT_DIR/$LATEST_PATH/vocabularies/sector-scheme.ttl" \
-    "$ROOT_DIR/$LATEST_PATH/vocabularies/datatype-scheme.ttl" > "$ROOT_DIR/merged_test.ttl"
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/datatype-scheme.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/data-theme.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/crs-vocab.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/access-rights.ttl" > "$ROOT_DIR/merged_test.ttl"
 
 docker_run python3 -m pyshacl \
         -s /app/$LATEST_PATH/shapes/edaan-shapes.ttl \
@@ -46,8 +48,10 @@ cat "$ROOT_DIR/$LATEST_PATH/examples/eo-instances.ttl" \
     "$ROOT_DIR/$LATEST_PATH/vocabularies/metric-types.ttl" \
     "$ROOT_DIR/$LATEST_PATH/vocabularies/observed-properties.ttl" \
     "$ROOT_DIR/$LATEST_PATH/vocabularies/agro-vocab.ttl" \
-    "$ROOT_DIR/$LATEST_PATH/vocabularies/sector-scheme.ttl" \
-    "$ROOT_DIR/$LATEST_PATH/vocabularies/datatype-scheme.ttl" > "$ROOT_DIR/merged_eo.ttl"
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/datatype-scheme.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/data-theme.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/crs-vocab.ttl" \
+    "$ROOT_DIR/$LATEST_PATH/vocabularies/access-rights.ttl" > "$ROOT_DIR/merged_eo.ttl"
 
 docker_run python3 -m pyshacl \
         -s /app/$LATEST_PATH/shapes/edaan-shapes.ttl \

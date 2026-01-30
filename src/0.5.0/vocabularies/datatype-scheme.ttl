@@ -1,0 +1,110 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix bigdat: <https://w3id.org/BIGOWLData/> .
+
+<https://w3id.org/EDAAnOWL/0.5.0/vocabularies/datatype-scheme> a owl:Ontology ;
+    dct:title "Data Type Alignment - Reference"@en ;
+    dct:description """Reference vocabulary showing alignment between EDAAnOWL data types and BIGOWL Data classes.
+
+NOT IMPORTED by EDAAnOWL - for documentation and reference only.
+
+RECOMMENDED: Use BIGOWL Data classes directly:
+  bigdat:TabularDataSet  # Tabular/CSV data
+  bigdat:Image           # Raster/image data
+  bigdat:Text            # Text-based data
+  bigdat:Json            # JSON data
+  bigdat:RDF             # RDF data
+
+BIGOWL Data Ontology: https://w3id.org/BIGOWLData"""@en .
+
+###
+### BIGOWL Data Class Stubs (for offline SHACL validation)
+### Source: https://w3id.org/BIGOWLData
+###
+
+bigdat:Data a owl:Class ;
+    dct:description "Annotates the data flowing through the workflow."@en ;
+    skos:prefLabel "Data"@en .
+
+bigdat:TabularDataSet a owl:Class ;
+    rdfs:subClassOf bigdat:Data ;
+    skos:prefLabel "Tabular Dataset"@en ;
+    skos:definition "Structured data in rows and columns (CSV, Excel, etc.)"@en .
+
+bigdat:Image a owl:Class ;
+    rdfs:subClassOf bigdat:Data ;
+    skos:prefLabel "Image"@en ;
+    skos:definition "Image data including satellite/raster imagery"@en .
+
+bigdat:Text a owl:Class ;
+    rdfs:subClassOf bigdat:Data ;
+    skos:prefLabel "Text"@en ;
+    skos:definition "Text-based data"@en .
+
+bigdat:Json a owl:Class ;
+    rdfs:subClassOf bigdat:Text ;
+    skos:prefLabel "JSON"@en ;
+    skos:definition "JavaScript Object Notation data"@en .
+
+bigdat:RDF a owl:Class ;
+    rdfs:subClassOf bigdat:Text ;
+    skos:prefLabel "RDF"@en ;
+    skos:definition "RDF graph data"@en .
+
+bigdat:Map a owl:Class ;
+    rdfs:subClassOf bigdat:Data ;
+    skos:prefLabel "Map"@en ;
+    skos:definition "Geographic map data"@en .
+
+###
+### EDAAnOWL Alignment (DEPRECATED - use BIGOWL classes directly)
+###
+
+:DataTypeScheme a owl:NamedIndividual,
+        skos:ConceptScheme ;
+    owl:deprecated true ;
+    dct:description "DEPRECATED: Use BIGOWL Data classes directly."@en ;
+    dct:title "Data Type Categories (Deprecated)"@en .
+
+:georaster a owl:NamedIndividual,
+        skos:Concept ;
+    owl:deprecated true ;
+    skos:definition "DEPRECATED: Use bigdat:Image instead."@en ;
+    skos:exactMatch bigdat:Image ;
+    skos:inScheme :DataTypeScheme ;
+    skos:prefLabel "Geospatial Raster (deprecated)"@en .
+
+:geovector a owl:NamedIndividual,
+        skos:Concept ;
+    owl:deprecated true ;
+    skos:definition "DEPRECATED: Use bigdat:Map or bigdat:Data for vector data."@en ;
+    skos:broadMatch bigdat:Data ;
+    skos:inScheme :DataTypeScheme ;
+    skos:prefLabel "Geospatial Vector (deprecated)"@en .
+
+:tabular a owl:NamedIndividual,
+        skos:Concept ;
+    owl:deprecated true ;
+    skos:definition "DEPRECATED: Use bigdat:TabularDataSet instead."@en ;
+    skos:exactMatch bigdat:TabularDataSet ;
+    skos:inScheme :DataTypeScheme ;
+    skos:prefLabel "Tabular (deprecated)"@en .
+
+:textual a owl:NamedIndividual,
+        skos:Concept ;
+    owl:deprecated true ;
+    skos:definition "DEPRECATED: Use bigdat:Text instead."@en ;
+    skos:exactMatch bigdat:Text ;
+    skos:inScheme :DataTypeScheme ;
+    skos:prefLabel "Textual (deprecated)"@en .
+
+:timeseries a owl:NamedIndividual,
+        skos:Concept ;
+    owl:deprecated true ;
+    skos:definition "DEPRECATED: Use bigdat:TabularDataSet for time-indexed data."@en ;
+    skos:broadMatch bigdat:TabularDataSet ;
+    skos:inScheme :DataTypeScheme ;
+    skos:prefLabel "Time Series (deprecated)"@en .

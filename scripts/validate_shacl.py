@@ -103,8 +103,10 @@ def main():
         vocab_dir / 'metric-types.ttl',
         vocab_dir / 'observed-properties.ttl',
         vocab_dir / 'agro-vocab.ttl',
-        vocab_dir / 'sector-scheme.ttl',
         vocab_dir / 'datatype-scheme.ttl',
+        vocab_dir / 'data-theme.ttl',
+        vocab_dir / 'crs-vocab.ttl',
+        vocab_dir / 'access-rights.ttl',
     ]
     
     # Data files to validate

@@ -102,7 +102,7 @@ def transform_csv(input_file: str, output_file: str):
     # Link Asset -> Representation
     g.add((dataset_uri, IDS.representation, representation_uri))
 
-    # Link Representation -> Profile (v0.4.1 pattern)
+    # Link Representation -> Profile (v0.5.0 pattern)
     g.add((representation_uri, EDAAN.conformsToProfile, OLIVE.OliveMonitoringProfile))
 
     # Spatial coverage (bounding box as WKT)
@@ -135,7 +135,8 @@ def transform_csv(input_file: str, output_file: str):
     
     # Additional properties
     g.add((dataset_uri, EDAAN.isAlive, Literal(True)))
-    g.add((dataset_uri, EDAAN.accessType, Literal("Download")))
+    # g.add((dataset_uri, EDAAN.accessType, Literal("Download"))) # Deprecated in v0.5.0
+    # For v0.5.0, preferred: g.add((dataset_uri, EDAAN.accessTypeConcept, SKOS_CONCEPT_URI))
     
     # ========== THE PROFILE (DataProfile with MetricTypes) ==========
     profile_uri = OLIVE.OliveMonitoringProfile

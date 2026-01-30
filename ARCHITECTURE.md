@@ -8,13 +8,12 @@ graph TB
     end
 
     subgraph Semantic ["Semantic Layer (Ontology)"]
-        subgraph IDSA ["IDSA Model (Governance)"]
-            IR["ids:Resource"]
-            IDR["ids:DataResource"]
-            IDA["ids:DataApp"]
+        subgraph Compliance ["Compliance Layer (Maps)"]
+            DCAT["dcat:Dataset<br/>(Discovery)"]
+            IDSA ["IDSA Model (Governance)"]
         end
 
-        subgraph EDAAnOWL ["EDAAnOWL (Semantics)"]
+        subgraph EDAAnOWL ["EDAAnOWL (Deep Semantics)"]
             DA["DataAsset<br/>(Supply)"]
             Apps["ids:SmartDataApp Types<br/>(Demand)"]
             
@@ -37,6 +36,9 @@ graph TB
 
     %% Relationships
     DS -->|"described as"| IDR
+    IDR -->|"specialized by"| DA
+    DA -.->|"types as"| DCAT
+
     AP -->|"described as"| IDA
     IDR -->|"specialized by"| DA
     IDA -->|"specialized by"| Apps

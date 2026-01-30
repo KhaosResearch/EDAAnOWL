@@ -1,0 +1,55 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://w3id.org/EDAAnOWL/0.5.0/vocabularies/access-rights> a owl:Ontology ;
+    dct:title "Access Rights - EU NAL Reference"@en ;
+    dct:description """Reference document for EU Publications Office Access Rights NAL.
+
+NOT IMPORTED by EDAAnOWL - for documentation/stub definitions only.
+
+Use EU NAL URIs directly in your data:
+  ex:MyDataset dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> .
+
+Available access rights from EU NAL:
+- PUBLIC - Publicly accessible without restrictions
+- NON_PUBLIC - Not publicly accessible
+- RESTRICTED - Restricted access (requires authorization)
+- CONFIDENTIAL - Confidential information
+- SENSITIVE - Sensitive data requiring special handling
+
+Reference: http://publications.europa.eu/resource/authority/access-right
+DCAT-AP 3.0.1 recommends this vocabulary for dct:accessRights.
+"""@en .
+
+#################################################################
+#    Stub Definitions for SHACL Validation
+#    These allow offline validation without dereferencing URIs
+#################################################################
+
+<http://publications.europa.eu/resource/authority/access-right/PUBLIC> a skos:Concept ;
+    skos:prefLabel "Public"@en ,
+                   "Público"@es ;
+    skos:definition "Publicly accessible data without restrictions."@en .
+
+<http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC> a skos:Concept ;
+    skos:prefLabel "Non-public"@en ,
+                   "No público"@es ;
+    skos:definition "Data not intended for public access."@en .
+
+<http://publications.europa.eu/resource/authority/access-right/RESTRICTED> a skos:Concept ;
+    skos:prefLabel "Restricted"@en ,
+                   "Restringido"@es ;
+    skos:definition "Data with restricted access requiring authorization."@en .
+
+<http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL> a skos:Concept ;
+    skos:prefLabel "Confidential"@en ,
+                   "Confidencial"@es ;
+    skos:definition "Confidential information with limited disclosure."@en .
+
+<http://publications.europa.eu/resource/authority/access-right/SENSITIVE> a skos:Concept ;
+    skos:prefLabel "Sensitive"@en ,
+                   "Sensible"@es ;
+    skos:definition "Sensitive data requiring special protection measures."@en .
