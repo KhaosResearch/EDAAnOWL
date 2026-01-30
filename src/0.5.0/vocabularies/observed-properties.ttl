@@ -8,15 +8,23 @@
 @base <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/observed-properties> .
 
 <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/observed-properties> rdf:type owl:Ontology ;
-    dct:title "Observed Properties Vocabulary"@en ;
-    dct:description """Properties that can be observed or measured in agricultural and environmental datasets.
-    
-This vocabulary is designed to be extensible. Users can:
-1. Use these local concepts directly
-2. Reference AGROVOC terms via skos:exactMatch/closeMatch
-3. Define new local concepts aligned with external vocabularies
+    dct:title "Observed Properties Vocabulary - Reference Alignments"@en ;
+    dct:description """Reference document mapping observable properties to FAO AGROVOC.
 
-See: http://aims.fao.org/aos/agrovoc/ for the FAO AGROVOC thesaurus."""@en .
+NOT IMPORTED by EDAAnOWL - for documentation and alignment verification only.
+
+RECOMMENDED USAGE: Use AGROVOC URIs directly:
+  ex:MyAsset :servesObservableProperty agrovoc:c_ce585e0d .  # NDVI
+  ex:MyAsset :servesObservableProperty agrovoc:c_7657 .      # Temperature
+  ex:MyAsset :servesObservableProperty agrovoc:c_7208 .      # Soil moisture
+
+This file provides:
+1. Verified AGROVOC codes for common observable properties
+2. skos:exactMatch/closeMatch alignments
+3. Local concepts for properties without AGROVOC equivalents
+
+FAO AGROVOC Thesaurus: http://aims.fao.org/aos/agrovoc/
+AGROVOC Lookup: https://agrovoc.fao.org/browse/agrovoc/en/"""@en .
 
 :ObservedPropertyScheme rdf:type owl:NamedIndividual ,
                                  skos:ConceptScheme ;

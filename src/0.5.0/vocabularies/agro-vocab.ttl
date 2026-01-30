@@ -8,25 +8,27 @@
 @base <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/agro-vocab> .
 
 <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/agro-vocab> rdf:type owl:Ontology ;
-    owl:imports <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/sector-scheme> ;
-    dct:title "Agricultural Domain Vocabulary"@en ;
-    dct:description """Specialized vocabulary for agricultural data and applications.
-    
-This vocabulary provides local concepts for common agricultural terms, aligned with 
-FAO AGROVOC (http://aims.fao.org/aos/agrovoc/) where applicable.
+    dct:title "Agricultural Domain Vocabulary - Reference Alignments"@en ;
+    dct:description """Reference document mapping agricultural concepts to FAO AGROVOC.
 
-EXTENSIBILITY: Users are encouraged to:
-1. Use AGROVOC terms directly (e.g., agrovoc:c_12926 for 'olive')
-2. Define local concepts with skos:exactMatch/closeMatch to AGROVOC
-3. Define custom domain concepts as skos:Concept
+NOT IMPORTED by EDAAnOWL - for documentation and alignment verification only.
 
-Example of direct AGROVOC usage:
-  ex:MyDataset :topic agrovoc:c_12926 .  # olive
+RECOMMENDED USAGE: Use AGROVOC URIs directly in your data:
+  ex:MyDataset :topic agrovoc:c_12926 .                    # Olives
+  ex:MyAsset :servesObservableProperty agrovoc:c_7208 .    # Soil moisture
 
-Example of local concept with alignment:
+This file provides:
+1. Verified AGROVOC codes for common agricultural concepts
+2. skos:exactMatch alignments between local concepts and AGROVOC
+3. Reference for concepts without direct AGROVOC equivalents
+
+FAO AGROVOC Thesaurus: http://aims.fao.org/aos/agrovoc/
+AGROVOC Lookup: https://agrovoc.fao.org/browse/agrovoc/en/
+
+Example of custom concept aligned with AGROVOC:
   ex:myOliveType a skos:Concept ;
       skos:prefLabel "Picual Olive"@en ;
-      skos:broader agrovoc:c_12926 ."""@en .
+      skos:broader agrovoc:c_12926 .  # AGROVOC: olives"""@en .
 
 :AgroVocab rdf:type owl:NamedIndividual ,
                     skos:ConceptScheme ;
@@ -142,7 +144,7 @@ Example of local concept with alignment:
                 skos:definition "Beta vulgaris for sugar production."@en ;
                 skos:broader :agriculture ;
                 skos:inScheme :AgroVocab ;
-                skos:exactMeatch agrovoc:c_7460 .  # AGROVOC: sugar beet
+                skos:exactMatch agrovoc:c_7460 .  # AGROVOC: sugar beet
 
 #################################################################
 #    Agricultural Practices

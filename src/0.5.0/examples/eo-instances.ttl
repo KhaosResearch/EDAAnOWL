@@ -20,20 +20,37 @@
 @prefix bigwf: <https://w3id.org/BIGOWLWorkflows/> .
 @prefix opmw: <http://www.opmw.org/ontology/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
 
 <http://example.org/data/eo/> rdf:type owl:Ontology ;
     owl:imports <https://w3id.org/EDAAnOWL/> ;
     dct:title "Earth Observation (EO) Instance Examples"@en ;
-    dct:description "Example instances demonstrating EDAAnOWL v0.5.0 features with external vocabulary references (AGROVOC)."@en .
+    dct:description "Example instances demonstrating EDAAnOWL v0.5.0 features with external vocabulary references (AGROVOC, EU Data Theme NAL, BIGOWL)."@en .
 
 ###
-### AGROVOC Stub Definitions (for offline SHACL validation)
-### Codes verified from observed-properties.ttl and agro-vocab.ttl exactMatch alignments
+### EU Data Theme NAL Stub Definitions (for offline SHACL validation)
+### Source: http://publications.europa.eu/resource/authority/data-theme
 ###
 
-# Domain Sectors (no AGROVOC exactMatch in sector-scheme, using local)
-:agriculture a skos:Concept ;
-    skos:prefLabel "Agriculture"@en .
+theme:AGRI a skos:Concept ;
+    skos:prefLabel "Agriculture, fisheries, forestry and food"@en ,
+                   "Agricultura, pesca, silvicultura y alimentación"@es .
+
+###
+### BIGOWL Data Class Stubs (for offline SHACL validation)
+### Source: https://w3id.org/BIGOWLData
+###
+
+bigdat:Data a owl:Class ;
+    skos:prefLabel "Data"@en .
+
+bigdat:TabularDataSet a owl:Class ;
+    rdfs:subClassOf bigdat:Data ;
+    skos:prefLabel "Tabular Dataset"@en .
+
+bigdat:Image a owl:Class ;
+    rdfs:subClassOf bigdat:Data ;
+    skos:prefLabel "Image"@en .
 
 # Observable Properties - VERIFIED AGROVOC CODES
 agrovoc:c_ce585e0d a skos:Concept ;     # NDVI (normalized difference vegetation index)
@@ -82,7 +99,7 @@ agrovoc:c_7176 a skos:Concept ;          # Soil management
 ###
 ex:Sentinel2_NDVI_Jaen_2024 a :SpatialTemporalAsset, :DataAsset ;
     dct:title "Sentinel-2 NDVI for Jaén (2024)"@en ;
-    :hasDomainSector :agriculture ;
+    :hasDomainSector theme:AGRI ;
     :topic agrovoc:c_12926 ;                       # Olives
     :supportContact [
         rdf:type vcard:Kind ;
@@ -134,7 +151,7 @@ data:SentinelOliveJaen2024_Artifact a ids:Artifact ;
 ###
 ex:WaterStressCalculator a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
     dct:title "Water Stress Calculator"@en ;
-    :hasDomainSector :agriculture ;
+    :hasDomainSector theme:AGRI ;
     :supportContact [
         rdf:type vcard:Kind ;
         vcard:hasEmail <mailto:data@eo.example.com> ;
@@ -151,7 +168,7 @@ ex:WaterStressCalculator a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
 ###
 ex:WeatherStation_Jaen_2024 a :DataAsset ;
     dct:title "Jaén Weather Station (2024)"@en ;
-    :hasDomainSector :agriculture ;
+    :hasDomainSector theme:AGRI ;
     :servesObservableProperty agrovoc:c_7657,        # Temperature
                                agrovoc:c_6161,        # Precipitation
                                agrovoc:c_6496,        # Relative humidity
@@ -169,7 +186,7 @@ ex:WeatherCSV a :DataRepresentation ;
 # NOTE: Profiles use :declaresObservedProperty with external URIs
 
 ex:Profile_Sentinel_NDVI a :DataProfile ;
-    :declaresDataClass :georaster ;
+    :declaresDataClass bigdat:Image ;
     :declaresObservedProperty agrovoc:c_ce585e0d ;  # NDVI
     dcat:spatialResolutionInMeters "10.0"^^xsd:decimal ;
     dcat:temporalResolution "P5D"^^xsd:duration ;
@@ -187,7 +204,7 @@ ex:Profile_Sentinel_NDVI a :DataProfile ;
     ] .
 
 ex:Profile_Weather_Station a :DataProfile ;
-    :declaresDataClass :tabular ;
+    :declaresDataClass bigdat:TabularDataSet ;
     :declaresObservedProperty agrovoc:c_7657,        # Temperature
                                agrovoc:c_6161,        # Precipitation
                                agrovoc:c_6496,        # Relative humidity
@@ -211,7 +228,7 @@ ex:OliveYieldAndalucia a :DataAsset ;
     dct:title "Olive Yield Data - Andalucía 2024"@en ;
     :servesObservableProperty agrovoc:c_8488 ;  # Yield
     :topic agrovoc:c_12926 ;                     # Olives
-    :hasDomainSector :agriculture ;
+    :hasDomainSector theme:AGRI ;
     ids:representation ex:OliveYieldCSV ;
     :isAlive true ;
     :auditLogAvailable true ;
@@ -236,7 +253,7 @@ ex:OliveYieldCSV a :DataRepresentation ;
     :conformsToProfile ex:Profile_OliveYield .
 
 ex:Profile_OliveYield a :DataProfile ;
-    :declaresDataClass :tabular ;
+    :declaresDataClass bigdat:TabularDataSet ;
     :declaresObservedProperty agrovoc:c_8488 ;  # Yield
     :hasMetric [
         a :Metric, :QualityMetric ;
@@ -268,7 +285,7 @@ ex:PredictionOutputCSV a :DataRepresentation ;
 
 ex:OliveYieldPredictor a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
     dct:title "Olive Yield Predictor"@en ;
-    :hasDomainSector :agriculture ;
+    :hasDomainSector theme:AGRI ;
     :requiresObservableProperty agrovoc:c_ce585e0d,   # NDVI
                                  agrovoc:c_8488,       # Yield
                                  agrovoc:c_7208 ;      # Soil moisture
@@ -280,7 +297,7 @@ ex:OliveYieldPredictor a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
     ] .
 
 ex:Profile_PredictionOutput a :DataProfile ;
-    :declaresDataClass :tabular ;
+    :declaresDataClass bigdat:TabularDataSet ;
     :declaresObservedProperty :yieldForecast ;  # Local concept
     :hasMetric [
         a :Metric, :PerformanceMetric ;
@@ -298,7 +315,7 @@ ex:Profile_PredictionOutput a :DataProfile ;
 ex:NDVICalculatorService a :AnalyzerApp, ids:SmartDataApp, ids:DataApp ;
     dct:title "NDVI Calculator Microservice"@en ;
     dct:description "Calculates NDVI from multispectral bands (Red, NIR)"@en ;
-    :hasDomainSector :agriculture ;
+    :hasDomainSector theme:AGRI ;
     :requiresObservableProperty :reflectance_red,     # Local concept (no AGROVOC)
                                  :reflectance_nir ;    # Local concept (no AGROVOC)
     :producesObservableProperty agrovoc:c_ce585e0d ;  # NDVI
@@ -332,7 +349,7 @@ ex:NDVICalculatorService :implementsComponent ex:VegetationAnalysisStep ;
 
 ex:MultispectralInputProfile a :DataProfile ;
     dct:title "Multispectral Input Profile"@en ;
-    :declaresDataClass :georaster ;
+    :declaresDataClass bigdat:Image ;
     :declaresObservedProperty :reflectance_red, :reflectance_nir ;  # Local concepts
     :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
     :hasMetric [
@@ -343,7 +360,7 @@ ex:MultispectralInputProfile a :DataProfile ;
 
 ex:NDVIOutputProfile a :DataProfile ;
     dct:title "NDVI Output Profile"@en ;
-    :declaresDataClass :georaster ;
+    :declaresDataClass bigdat:Image ;
     :declaresObservedProperty agrovoc:c_ce585e0d ;  # NDVI
     dcat:spatialResolutionInMeters "10.0"^^xsd:decimal ;
     :hasMetric [
@@ -370,7 +387,7 @@ ex:NDVIOutputRepresentation a :DataRepresentation ;
 
 ex:SoilAnalysis_Jaen a :DataAsset ;
     dct:title "Soil Analysis Data - Jaén Region"@en ;
-    :hasDomainSector :agriculture ;
+    :hasDomainSector theme:AGRI ;
     :topic agrovoc:c_7176 ;                          # Soil management
     :servesObservableProperty agrovoc:c_7208,        # Soil moisture
                                agrovoc:c_34901,       # Soil pH
@@ -386,7 +403,7 @@ ex:SoilAnalysisCSV a :DataRepresentation ;
     :conformsToProfile ex:Profile_SoilData .
 
 ex:Profile_SoilData a :DataProfile ;
-    :declaresDataClass :tabular ;
+    :declaresDataClass bigdat:TabularDataSet ;
     :declaresObservedProperty agrovoc:c_7208,        # Soil moisture
                                agrovoc:c_34901,       # Soil pH
                                :electricalConductivity,

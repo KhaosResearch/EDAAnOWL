@@ -9,7 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **BIGOWL Data class stubs**: Added stub definitions for `bigdat:TabularDataSet`, `bigdat:Image`, `bigdat:Data` in `datatype-scheme.ttl` for offline SHACL validation.
+- **BIGOWL integration guidance**: Updated `AGENTS.md` and `CONTRIBUTING.md` with BIGOWL alignment documentation.
+
 ### Changed
+
+- **`datatype-scheme.ttl`**: Converted to reference alignment document showing BIGOWL Data class mappings. Local concepts (`:tabular`, `:georaster`) deprecated with `skos:exactMatch` to BIGOWL equivalents.
+- **`:spatialGranularityConcept`**: Updated comment to recommend EU NUTS/INSPIRE vocabularies.
+- **Examples**: Replaced local data class references with BIGOWL classes (`bigdat:TabularDataSet`, `bigdat:Image`) in `eo-instances.ttl`.
+- **Documentation**: Expanded `CONTRIBUTING.md` with comprehensive versioning checklist and external vocabulary strategy.
+
+### Deprecated
+
+- **`:realizesWorkflow`**: Deprecated with explanation. A DataApp implements a Component (single processing step), not a Workflow (pipeline). Use `:implementsComponent` instead.
 
 ### Fixed
 

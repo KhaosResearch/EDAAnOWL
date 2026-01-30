@@ -8,8 +8,19 @@
 @base <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/metric-types> .
 
 <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/metric-types> rdf:type owl:Ontology ;
-    dct:title "Metric Types Vocabulary"@en ;
-    dct:description "Controlled vocabulary for standardized metric types, aligned with W3C DQV dimensions."@en .
+    dct:title "Metric Types Vocabulary - Reference"@en ;
+    dct:description """Reference vocabulary for standardized metric types, aligned with W3C DQV dimensions.
+
+NOT IMPORTED by EDAAnOWL - for documentation and reference only.
+
+Quality metrics use skos:broader to link to W3C DQV dimensions:
+- dqv:Completeness - Data completeness
+- dqv:Accuracy - Data accuracy
+- dqv:Consistency - Data consistency
+- dqv:Timeliness - Data timeliness
+- dqv:Uniqueness - Data uniqueness (no duplicates)
+
+W3C Data Quality Vocabulary: https://www.w3.org/TR/vocab-dqv/"""@en .
 
 #################################################################
 #    Metric Type Scheme

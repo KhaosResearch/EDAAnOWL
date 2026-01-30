@@ -25,7 +25,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix agrovocab: <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/agro-vocab> .
 @prefix metric-types: <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/metric-types> .
-@prefix sector-scheme: <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/sector-scheme> .
+@prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
 @prefix datatype-scheme: <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/datatype-scheme> .
 @prefix observed-properties: <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/observed-properties> .
 @base <https://w3id.org/EDAAnOWL/> .
@@ -373,8 +373,26 @@ prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
                  rdfs:domain ids:DataApp ,
                              ids:Resource ;
                  rdfs:range skos:Concept ;
-                 rdfs:comment "A sub-property of dcat:theme, specifically linking a resource to a concept from a domain sector vocabulary."@en ,
-                              "Una sub-propiedad de dcat:theme, que vincula específicamente un recurso con un concepto de un vocabulario de sector de dominio."@es ;
+                 rdfs:comment """A sub-property of dcat:theme linking a resource to its domain sector.
+
+RECOMMENDED: Use EU Publications Office Data Theme NAL (DCAT-AP 3.0.1):
+  http://publications.europa.eu/resource/authority/data-theme/AGRI  # Agriculture
+  http://publications.europa.eu/resource/authority/data-theme/ENER  # Energy
+  http://publications.europa.eu/resource/authority/data-theme/HEAL  # Health
+  http://publications.europa.eu/resource/authority/data-theme/TRAN  # Transport
+  http://publications.europa.eu/resource/authority/data-theme/ENVI  # Environment
+  http://publications.europa.eu/resource/authority/data-theme/TECH  # Science/Technology
+
+Reference: http://publications.europa.eu/resource/authority/data-theme"""@en ,
+                              """Una sub-propiedad de dcat:theme que vincula un recurso con su sector de dominio.
+
+RECOMENDADO: Usar EU Publications Office Data Theme NAL (DCAT-AP 3.0.1):
+  http://publications.europa.eu/resource/authority/data-theme/AGRI  # Agricultura
+  http://publications.europa.eu/resource/authority/data-theme/ENER  # Energía
+  http://publications.europa.eu/resource/authority/data-theme/HEAL  # Salud
+  http://publications.europa.eu/resource/authority/data-theme/TRAN  # Transporte
+
+Referencia: http://publications.europa.eu/resource/authority/data-theme"""@es ;
                  rdfs:label "has domain sector"@en ,
                             "tiene sector de dominio"@es .
 
@@ -506,10 +524,19 @@ prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
 :realizesWorkflow rdf:type owl:ObjectProperty ;
                   rdfs:domain ids:DataApp ;
                   rdfs:range opmw:WorkflowTemplate ;
-                  rdfs:comment "Links a DataApp to the OPMW Workflow Template it executes."@en ,
-                               "Vincula una DataApp con la Plantilla de Flujo de Trabajo OPMW que ejecuta."@es ;
-                  rdfs:label "realiza flujo de trabajo"@es ,
-                             "realizes workflow"@en .
+                  rdfs:comment """DEPRECATED: A DataApp implements a Component, not a Workflow.
+
+Use :implementsComponent instead to link a DataApp to the BIGOWL Component it implements.
+A Workflow is a pipeline composed of multiple Components connected via Tasks.
+
+If you need to indicate workflow membership, consider using bigwf:hasComponent (inverse)."""@en ,
+                               """OBSOLETO: Una DataApp implementa un Component, no un Workflow.
+
+Use :implementsComponent para vincular una DataApp con el Component BIGOWL que implementa.
+Un Workflow es un pipeline compuesto por múltiples Components conectados via Tasks."""@es ;
+                  rdfs:label "realiza flujo de trabajo (obsoleto)"@es ,
+                             "realizes workflow (deprecated)"@en ;
+                  owl:deprecated true .
 
 
 ###  https://w3id.org/EDAAnOWL/requiresObservableProperty
@@ -546,8 +573,20 @@ prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
 :spatialGranularityConcept rdf:type owl:ObjectProperty ;
                            rdfs:domain ids:Resource ;
                            rdfs:range skos:Concept ;
-                           rdfs:comment "Links a resource to a SKOS concept describing its spatial granularity (e.g., 'Municipal', 'Provincial')."@en ,
-                                        "Vincula un recurso con un concepto SKOS que describe su granularidad espacial (p. ej., 'Municipal', 'Provincial')."@es ;
+                           rdfs:comment """Links a resource to a SKOS concept describing its spatial granularity.
+
+RECOMMENDED vocabularies:
+- EU NUTS: http://publications.europa.eu/resource/authority/nuts
+- INSPIRE: http://inspire.ec.europa.eu/codelist/
+- ISO 3166: http://publications.europa.eu/resource/authority/country
+
+Examples: NUTS level 1 (country), NUTS level 2 (region), NUTS level 3 (province)."""@en ,
+                                         """Vincula un recurso con un concepto SKOS que describe su granularidad espacial.
+
+Vocabularios RECOMENDADOS:
+- EU NUTS: http://publications.europa.eu/resource/authority/nuts
+- INSPIRE: http://inspire.ec.europa.eu/codelist/
+- ISO 3166: http://publications.europa.eu/resource/authority/country"""@es ;
                            rdfs:label "granularidad espacial (concepto)"@es ,
                                       "spatial granularity (concept)"@en .
 

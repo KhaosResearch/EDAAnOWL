@@ -65,8 +65,8 @@ EDAanOWL provides the “connective tissue” between IDSA’s resource/contract
   - `:requiresObservableProperty` / `:producesObservableProperty (ids:SmartDataApp ↔ :ObservableProperty)`: Apps declare semantic I/O needs—enables simple, meaningful matchmaking (semantic compatibility).
   - `:servesObservableProperty (:DataAsset ↔ :ObservableProperty)`: Assets declare the variables they provide—completing the matchmaking triangle.
   - `:implementsComponent (ids:DataApp ↔ bigwf:Component)`: Bridges IDSA apps to BIGOWL components, grounding apps in executable workflow units.
-  - `:realizesWorkflow (ids:DataApp ↔ opmw:WorkflowTemplate)`: Links apps to abstract workflows (OPMW) for documentation and reasoning.
-  - `:hasDomainSector (⊑ dcat:theme)`: DCAT-aligned domain tagging using SKOS schemes, ensuring interoperable cataloguing and filtering across domains.
+  - `:realizesWorkflow` **(DEPRECATED)**: Use `:implementsComponent` instead. A DataApp = Component (single step), not a Workflow (pipeline).
+  - `:hasDomainSector (⊑ dcat:theme)`: DCAT-aligned domain tagging using external SKOS vocabularies (e.g., EU Data Theme NAL).
   - `:hasCRS`: Links to a formal Coordinate Reference System (e.g., EPSG URI).
   - `:supportContact`: Standard contact point for support, using vCard (fn, email, telephone, URL).
   - `:legalContact`: A specific contact point for legal inquiries about the resource.

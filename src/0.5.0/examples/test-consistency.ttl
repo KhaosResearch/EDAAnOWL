@@ -17,6 +17,7 @@
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
 
 <https://w3id.org/EDAAnOWL/test/> rdf:type owl:Ontology ;
     owl:imports <https://w3id.org/EDAAnOWL/> ;
@@ -24,10 +25,12 @@
     dct:description "Minimal test instances for SHACL validation using AGROVOC URIs verified from vocabularies."@en .
 
 ### Stub definitions for external concepts (enables offline validation)
-### VERIFIED AGROVOC codes from observed-properties.ttl exactMatch alignments
+### EU Data Theme NAL: http://publications.europa.eu/resource/authority/data-theme
 
-:agriculture a skos:Concept ;
-    skos:prefLabel "Agriculture"@en .
+theme:AGRI a skos:Concept ;
+    skos:prefLabel "Agriculture, fisheries, forestry and food"@en .
+
+### VERIFIED AGROVOC codes from observed-properties.ttl exactMatch alignments
 
 agrovoc:c_ce585e0d a skos:Concept, sosa:ObservableProperty ;  # NDVI
     skos:prefLabel "NDVI"@en .
@@ -50,11 +53,11 @@ time:Interval rdf:type owl:Class .
 test:ValidApp a ids:DataApp ;
     dct:title "Valid Test App"@en ;
     :parameter test:TestAlgorithm ; 
-    :hasDomainSector :agriculture .
+    :hasDomainSector theme:AGRI .
 
 test:ValidResource a ids:DataResource ;
     dct:title "Valid Test Resource"@en ;
-    :hasDomainSector :agriculture ;
+    :hasDomainSector theme:AGRI ;
     ids:representation test:ValidResource_Repr .
 
 test:ValidResource_Repr a :DataRepresentation ;
@@ -100,7 +103,7 @@ test:ValidSpatialAsset_Repr a :DataRepresentation ;
 test:ValidService a :PredictionApp ;
     dct:title "Valid Analytical Service"@en ;
     :producesObservableProperty agrovoc:c_24993 ;  # Water stress
-    :hasDomainSector :agriculture .
+    :hasDomainSector theme:AGRI .
 
 test:DummyMetric a :Metric, :QualityMetric, dqv:QualityMetric ;
     :metricName "testMetric" ;
