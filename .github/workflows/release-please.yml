@@ -13,7 +13,7 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v4
+      - uses: googleapis/release-please-action@v4
         with:
           # Use the built-in GITHUB_TOKEN or a PAT if needed
           token: ${{ secrets.GITHUB_TOKEN }}
