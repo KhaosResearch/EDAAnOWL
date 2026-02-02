@@ -1,6 +1,6 @@
 # EDAAnOWL
 
-[![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/release.yml/badge.svg)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/release.yml)
+[![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/deploy-docs.yml)
 
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-1f6feb)](https://khaosresearch.github.io/EDAAnOWL/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -184,7 +184,7 @@ We align with the **[Esquema Nacional de Interoperabilidad (ENI)](https://cred.d
 - **Data Lineage & Provenance**: Support for tracking dataset generation (`prov:wasGeneratedBy`) and derivation chains (`prov:wasDerivedFrom`) using PROV-O properties.
 - **Modular Vocabularies**: Separate, resolvable SKOS vocabularies for domains, observed properties, etc., versioned alongside the main ontology.
 - **Persistent Identifiers**: All ontology and vocabulary modules are resolvable via [https://w3id.org/EDAAnOWL/](https://w3id.org/EDAAnOWL/) for robust content negotiation.
-- **Automated Documentation & CI/CD**: A GitHub Actions workflow (`release.yml`) that, upon creating a new release:
+- **Automated Documentation & CI/CD**: A GitHub Actions workflow (`deploy-docs.yml`) that, upon creating a new release:
   - Builds comprehensive HTML documentation with **Widoco**.
   - Post-processes the HTML (`sed`) to ensure all vocabulary links are correctly versioned.
   - Publishes all artifacts (docs, vocabs, RDF serializations) to the `gh-pages` branch.

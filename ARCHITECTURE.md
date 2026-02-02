@@ -186,7 +186,7 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
 
 - **`gh-pages` branch**:
 
-  - **Purpose**: This branch contains the static output of the `release.yml` workflow. It hosts the public-facing documentation and RDF files served by GitHub Pages.
+  - **Purpose**: This branch contains the static output of the `deploy-docs.yml` workflow. It hosts the public-facing documentation and RDF files served by GitHub Pages.
 
   - **Structure**:
 
