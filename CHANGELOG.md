@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.5.0...v0.6.0) (2026-02-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **ontology:** force minor version bump to v0.6.0 for the new ontology structure.
+
+### Added
+
+* **ontology:** v0.6.0 release ([c0c60bb](https://github.com/KhaosResearch/EDAAnOWL/commit/c0c60bb652c0d588ab58954bfcc3aa3ca43ec10e))
+* **ontology:** v0.6.0 release with Zero-Local policy, DQV alignment, and documentation refactor ([a2c365e](https://github.com/KhaosResearch/EDAAnOWL/commit/a2c365ec18e24b90e755e8c811abe2ceb356cf73))
+
+
+### Changed
+
+* add comprehensive matchmaking documentation with diagrams ([ae49139](https://github.com/KhaosResearch/EDAAnOWL/commit/ae49139a31f7db654c70b8e030a476c1f47245a1))
+* Add Spanish ontology overview diagrams for the EDAAnOWL ontology. ([984c7b7](https://github.com/KhaosResearch/EDAAnOWL/commit/984c7b7c097a00d9932fac1df94d53f660521e6d))
+* remove manual changelog entries to let release-please automate the process ([877094c](https://github.com/KhaosResearch/EDAAnOWL/commit/877094cdc6f989f5c5a706b8ddf66cfc1f982fc9))
+* Rename GitHub Actions workflow `release.yml` to `deploy-docs.yml` across documentation files. ([25f12fa](https://github.com/KhaosResearch/EDAAnOWL/commit/25f12fabd96608d6ae43be224f9823b7f6ed824c))
+* revert manual version header to [Unreleased] for release-please ([7fe519a](https://github.com/KhaosResearch/EDAAnOWL/commit/7fe519ae12f33b6a7a582fb7cb2fd7e08007f321))
+
 ## [0.5.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.1...v0.5.0) (2026-01-30)
 
 ### ⚠ BREAKING CHANGES
