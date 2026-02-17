@@ -5,17 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.6.0] - 2026-02-17
 
 ### Added
+- **Performance Metrics**: Added `:hasPerformanceMetric` specifically for `ids:DataApp` to avoid domain intersection issues with `:hasMetric`.
+- **DCAT-AP Alignment**: Integrated official DCAT-AP SHACL shapes for enhanced catalog interoperability.
+- **IDSA Core Shapes**: Integrated official IDSA Information Model shapes for core compliance.
 
 ### Changed
-
-### Deprecated
+- **Zero-Local Policy (BREAKING)**: Completely removed local vocabulary files (`agro-vocab.ttl`, etc.) in favor of external authoritative IRIs (AGROVOC, EuroSciVoc, QUDT).
+- **DQV/Quality Model (BREAKING)**: Refactored metrics to strictly follow DQV naming. `:Metric` is now a measurement (`dqv:QualityMeasurement`), and `:MetricType` is the definition (`dqv:Metric`).
+- **BIGOWL Standardisation**: Unified all references to use `bigdat:TabularDataSet` (removing the incorrect `bigdat:TabularData`).
+- **Terminology Alignment**: Clarified usage of `ids:representation` as an ObjectProperty.
+- **Documentation Refactor**: Moved `ARCHITECTURE.md` and `AGENTS.md` to `/docs` for a cleaner project root.
 
 ### Fixed
+- **Mermaid Diagrams**: Fixed broken node IDs and aligned terminology in `docs/ARCHITECTURE.md`.
+- **`VerifiableDataProfile`**: Refactored to separate the profile metadata from its cryptographic proof, linking them via `:hasCredential`.
+- **CRS Properties**: Cleaned up deprecated `profileCRSRef` references in comments.
 
 ### Removed
+- **`demo/` directory**: Removed in favor of version-specific examples in `src/0.6.0/examples/`.
+- **Local Vocabularies**: All files in `vocabularies/` have been removed.
 
 ---
 

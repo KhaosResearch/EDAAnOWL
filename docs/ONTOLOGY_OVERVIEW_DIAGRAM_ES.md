@@ -214,7 +214,7 @@ flowchart TB
 
 ## 📋 Resumen de Propiedades Principales
 
-| Desde | Hacia | Propiedad | Significado |
+| Dominio | Rango | Propiedad | Significado |
 |-------|-------|-----------|-------------|
 | DataAsset | ObservableProperty | `servesObservableProperty` | "Este dataset contiene..." |
 | SmartDataApp | ObservableProperty | `requiresObservableProperty` | "Esta app necesita..." |
@@ -543,7 +543,7 @@ flowchart TD
     dcat:temporalResolution "P1D"^^xsd:duration .
 
 :OutputProfile_Forecast_Tabular a :DataProfile ;
-    :declaresDataClass bigdat:TabularData ;
+    :declaresDataClass bigdat:TabularDataSet ;
     :declaresObservedProperty :CropYieldForecast ;
     dcat:temporalResolution "P1M"^^xsd:duration .  # Predicción mensual
 ```
