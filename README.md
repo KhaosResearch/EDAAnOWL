@@ -1,6 +1,6 @@
 # EDAAnOWL
 
-[![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/release.yml/badge.svg)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/release.yml)
+[![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/deploy-docs.yml)
 
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-1f6feb)](https://khaosresearch.github.io/EDAAnOWL/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -14,8 +14,8 @@ A pilot ontology for the semantic exploitation of data assets in the Agri-food (
 - :book: [BIGOWL ontology documentation](https://w3id.org/BIGOWL/)
 
 > [!NOTE]
-> Latest stable: see src/0.5.0/ (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
-> v0.5.0 brings **DQV/PROV alignment** and new **Controlled Vocabulary** properties.
+> Latest stable: see src/0.6.0/ (ontology, shapes, examples, vocabularies) and the rendered docs under GitHub Pages.
+> v0.6.0 adds **Performance Tracking** (`:hasPerformanceMetric`) and **DQV Alignment**.
 > Check out the `demo/` folder for a practical example of transforming a DCAT catalog to EDAAnOWL RDF.
 
 The purpose of `EDAAnOWL` is to serve as an annotation ontology that enriches the description of Data Space assets. It allows for modeling the functional profile (inputs, outputs, parameters) of `ids:DataApp` and `ids:DataResource`, facilitating their semantic discovery, composition into complex services, and compatibility validation.
@@ -147,8 +147,9 @@ To ensure seamless integration and avoid "vocabulary silos", EDAAnOWL promotes *
 1.  **Dual Typing**: A resource should be an instance of both `:DataAsset` (for functional use) and `dcat:Dataset` (for cataloging).
 2.  **EuroSciVoc <-> AGROVOC Alignment**: 
     *   The EU is aligning its general scientific vocabulary (**EuroSciVoc**) with the specialized agricultural vocabulary (**AGROVOC**).
-    *   **Recommendation**: Use **AGROVOC URIs** directly for domain tagging (`dcat:theme`, `:hasDomainSector`).
-    *   **Benefit**: By using AGROVOC (e.g., `<http://aims.fao.org/aos/agrovoc/c_330834>` for 'soil moisture'), your assets become:
+    *   **Recommendation**: Use **EU Data Theme NAL** for sector tagging (`:hasDomainSector`) and **AGROVOC URIs** for specific topics (`:topic`).
+    *   **Standard Alignment**: This ensures compatibility with both European Data Portals (via NAL) and domain-specific knowledge graphs (via AGROVOC).
+    *   **Benefit**: By using AGROVOC (e.g., `<http://aims.fao.org/aos/agrovoc/c_25307>` for 'soil moisture'), your assets become:
         *   Semantically precise for agricultural agents.
         *   **Automatically discoverable** at the European level under broader EuroSciVoc categories thanks to the existing alignment.
 3.  ** Explicit Compliance with DCAT-AP**:
@@ -184,7 +185,7 @@ We align with the **[Esquema Nacional de Interoperabilidad (ENI)](https://cred.d
 - **Data Lineage & Provenance**: Support for tracking dataset generation (`prov:wasGeneratedBy`) and derivation chains (`prov:wasDerivedFrom`) using PROV-O properties.
 - **Modular Vocabularies**: Separate, resolvable SKOS vocabularies for domains, observed properties, etc., versioned alongside the main ontology.
 - **Persistent Identifiers**: All ontology and vocabulary modules are resolvable via [https://w3id.org/EDAAnOWL/](https://w3id.org/EDAAnOWL/) for robust content negotiation.
-- **Automated Documentation & CI/CD**: A GitHub Actions workflow (`release.yml`) that, upon creating a new release:
+- **Automated Documentation & CI/CD**: A GitHub Actions workflow (`deploy-docs.yml`) that, upon creating a new release:
   - Builds comprehensive HTML documentation with **Widoco**.
   - Post-processes the HTML (`sed`) to ensure all vocabulary links are correctly versioned.
   - Publishes all artifacts (docs, vocabs, RDF serializations) to the `gh-pages` branch.

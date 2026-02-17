@@ -10,38 +10,40 @@ graph TB
     subgraph Semantic ["Semantic Layer (Ontology)"]
         subgraph Compliance ["Compliance Layer (Maps)"]
             DCAT["dcat:Dataset<br/>(Discovery)"]
-            IDSA ["IDSA Model (Governance)"]
+            DR_IDSA["ids:DataResource"]
+            DA_IDSA["ids:DataApp"]
         end
 
         subgraph EDAAnOWL ["EDAAnOWL (Deep Semantics)"]
-            DA["DataAsset<br/>(Supply)"]
-            Apps["ids:SmartDataApp Types<br/>(Demand)"]
+            DA[":DataAsset<br/>(Supply)"]
+            Apps[":SmartDataApp Types<br/>(Demand)"]
             
             subgraph Matchmaking ["Matchmaking Core"]
-                Prof["DataProfile<br/>(Structure)"]
-                OP["ObservableProperty<br/>(Meaning)"]
+                Prof[":DataProfile<br/>(Structure)"]
+                OP[":ObservableProperty<br/>(Meaning)"]
             end
             
             subgraph QualityProv ["Quality & Provenance"]
-                Met["Metric / QualityMetric<br/>(DQV)"]
-                Prov["Provenance<br/>(PROV-O)"]
+                Met[":Metric / QualityMetric<br/>(DQV)"]
+                Prov_O[":Provenance<br/>(PROV-O)"]
             end
+            
+            Repr[":DataRepresentation"]
         end
 
         subgraph BIGOWL ["BIGOWL (Workflow)"]
-            WF["Workflow"]
-            Comp["Component"]
+            WF["bigwf:Workflow"]
+            Comp["bigwf:Component"]
         end
     end
 
     %% Relationships
-    DS -->|"described as"| IDR
-    IDR -->|"specialized by"| DA
+    DS -->|"described as"| DR_IDSA
+    DR_IDSA -->|"specialized by"| DA
     DA -.->|"types as"| DCAT
 
-    AP -->|"described as"| IDA
-    IDR -->|"specialized by"| DA
-    IDA -->|"specialized by"| Apps
+    AP -->|"described as"| DA_IDSA
+    DA_IDSA -->|"specialized by"| Apps
     
     DA -- "servesObservableProperty" --> OP
     Apps -- "requiresObservableProperty" --> OP
@@ -65,8 +67,8 @@ graph TB
     classDef core fill:#ffffff,stroke:#2e7d32,stroke-width:1px,stroke-dasharray: 5 5
 
     class DS,AP space
-    class IR,IDR,IDA idsa
-    class DA,Repr,Apps,Prof,OP,Met,Prov edaan
+    class DR_IDSA,DA_IDSA idsa
+    class DA,Repr,Apps,Prof,OP,Met,Prov_O edaan
     class WF,Comp bigowl
     class Matchmaking,QualityProv core
 ```
@@ -186,7 +188,7 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
 
 - **`gh-pages` branch**:
 
-  - **Purpose**: This branch contains the static output of the `release.yml` workflow. It hosts the public-facing documentation and RDF files served by GitHub Pages.
+  - **Purpose**: This branch contains the static output of the `deploy-docs.yml` workflow. It hosts the public-facing documentation and RDF files served by GitHub Pages.
 
   - **Structure**:
 

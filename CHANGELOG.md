@@ -7,7 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.5.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.1...v0.5.0) (2026-01-30)
 
-
 ### ⚠ BREAKING CHANGES
 
 * Align with BIGOWL and enforce external vocabularies.

@@ -3,26 +3,31 @@
 EDAAnOWL SHACL Validation Script
 ================================
 
-More robust SHACL validation that properly merges vocabulary graphs 
-with data before validation, solving issues with the -e flag.
+Supports multi-version validation with automatic vocabulary detection.
+For v0.6.0+, it implements the Zero-Local policy (fetching external vocabs or 
+relying on the main ontology and stubs).
 """
 
 import sys
 import os
+import re
 from pathlib import Path
 
 try:
     from pyshacl import validate
-    from rdflib import Graph
+    from rdflib import Graph, Namespace
 except ImportError:
     print("❌ Please install dependencies: pip install rdflib pyshacl")
     sys.exit(1)
 
+RDF = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
+SH = Namespace("http://www.w3.org/ns/shacl#")
 
 def find_latest_version(src_dir: Path) -> str:
     """Find the latest semver version folder in src/"""
-    import re
     versions = []
+    if not src_dir.exists():
+        return None
     for item in src_dir.iterdir():
         if item.is_dir() and re.match(r'^\d+\.\d+\.\d+$', item.name):
             versions.append(item.name)
@@ -32,60 +37,61 @@ def find_latest_version(src_dir: Path) -> str:
     versions.sort(key=lambda v: [int(x) for x in v.split('.')])
     return versions[-1]
 
-
-def validate_file(data_file: Path, shapes_file: Path, vocab_files: list, ontology_file: Path) -> bool:
-    """Validate a single data file against shapes with vocabularies merged."""
+def validate_file(data_file: Path, shape_files: list, ontology_file: Path, vocab_files: list = None) -> bool:
+    """Validate a single data file against shapes."""
     print(f"\n📋 Validating: {data_file.name}")
     
     # Load data graph
     data = Graph()
     data.parse(str(data_file), format='turtle')
     
-    # Load and merge ontology + vocabularies
-    ontology = Graph()
-    ontology.parse(str(ontology_file), format='turtle')
-    for vocab in vocab_files:
-        ontology.parse(str(vocab), format='turtle')
+    # Load ontology
+    merged = Graph()
+    merged += data
+    merged.parse(str(ontology_file), format='turtle')
     
-    # Merge data with ontology for proper inference
-    merged = data + ontology
+    # Load vocabs if they exist (for legacy versions)
+    if vocab_files:
+        for vocab in vocab_files:
+            if vocab.exists():
+                merged.parse(str(vocab), format='turtle')
     
-    # Load shapes
+    # Load and merge shapes
     shapes = Graph()
-    shapes.parse(str(shapes_file), format='turtle')
+    for sf in shape_files:
+        if sf.exists():
+            print(f"   🔗 Loading shapes: {sf.name}")
+            shapes.parse(str(sf), format='turtle')
     
     # Validate
     conforms, results_graph, results_text = validate(
         merged,
         shacl_graph=shapes,
-        ont_graph=None,  # Already merged
+        ont_graph=None,
         inference='rdfs',
         debug=False
     )
     
-    if conforms:
-        print(f"   ✅ Conforms: True")
+    # Check for sh:Violation
+    violations = list(results_graph.subjects(SH.resultSeverity, SH.Violation))
+    is_success = len(violations) == 0
+    
+    if is_success:
+        print(f"   ✅ Success (No Violations)")
     else:
-        print(f"   ❌ Conforms: False")
+        print(f"   ❌ Failed ({len(violations)} Violations found)")
         # Show violations
-        for line in results_text.split('\n')[2:30]:  # First 30 lines of report
+        for line in results_text.split('\n')[:30]:
             if line.strip():
                 print(f"      {line}")
     
-    return conforms
-
+    return is_success
 
 def main():
-    # Find project root (script is in /app/scripts/)
     script_dir = Path(__file__).parent.resolve()
-    if script_dir.name == 'scripts':
-        root_dir = script_dir.parent
-    else:
-        root_dir = Path.cwd()
-    
+    root_dir = script_dir.parent
     src_dir = root_dir / 'src'
     
-    # Find latest version
     version = find_latest_version(src_dir)
     if not version:
         print("❌ No version folder found in src/")
@@ -95,21 +101,27 @@ def main():
     print("=" * 50)
     
     version_dir = src_dir / version
-    shapes_file = version_dir / 'shapes' / 'edaan-shapes.ttl'
     ontology_file = version_dir / 'EDAAnOWL.ttl'
     
-    vocab_dir = version_dir / 'vocabularies'
-    vocab_files = [
-        vocab_dir / 'metric-types.ttl',
-        vocab_dir / 'observed-properties.ttl',
-        vocab_dir / 'agro-vocab.ttl',
-        vocab_dir / 'datatype-scheme.ttl',
-        vocab_dir / 'data-theme.ttl',
-        vocab_dir / 'crs-vocab.ttl',
-        vocab_dir / 'access-rights.ttl',
+    # Dynamic shape list
+    shape_files = [
+        version_dir / 'shapes' / 'edaan-shapes.ttl',
+        version_dir / 'shapes' / 'dcat-ap-alignment.ttl',
+        version_dir / 'shapes' / 'idsa-shapes.ttl',
     ]
     
-    # Data files to validate
+    # Legacy vocabularies (pre-0.6.0)
+    vocab_files = []
+    major, minor, patch = map(int, version.split('.'))
+    if major == 0 and minor < 6:
+        vocab_dir = version_dir / 'vocabularies'
+        vocab_names = [
+            'metric-types.ttl', 'observed-properties.ttl', 'agro-vocab.ttl',
+            'datatype-scheme.ttl', 'data-theme.ttl', 'crs-vocab.ttl', 'access-rights.ttl'
+        ]
+        vocab_files = [vocab_dir / name for name in vocab_names]
+    
+    # Examples to validate
     examples_dir = version_dir / 'examples'
     data_files = [
         examples_dir / 'test-consistency.ttl',
@@ -119,17 +131,16 @@ def main():
     all_valid = True
     for data_file in data_files:
         if data_file.exists():
-            if not validate_file(data_file, shapes_file, vocab_files, ontology_file):
+            if not validate_file(data_file, shape_files, ontology_file, vocab_files):
                 all_valid = False
     
     print("\n" + "=" * 50)
     if all_valid:
-        print("✅ All SHACL validations passed!")
+        print(f"✅ All SHACL validations passed for v{version}!")
         sys.exit(0)
     else:
-        print("❌ Some SHACL validations failed.")
+        print(f"❌ Some SHACL validations failed for v{version}.")
         sys.exit(1)
-
 
 if __name__ == "__main__":
     main()

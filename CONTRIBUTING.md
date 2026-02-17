@@ -51,7 +51,7 @@ We use [Google Release Please](https://github.com/google-github-actions/release-
     - **Merge** the Release PR.
     - Only then will the bot:
         - Create a GitHub Release tag (`vX.Y.Z`).
-        - Trigger the `release.yml` workflow to build/publish documentation.
+        - Trigger the `deploy-docs.yml` workflow to build/publish documentation.
 
 ### Developer Workflow
 
