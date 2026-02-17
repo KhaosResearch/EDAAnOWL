@@ -198,7 +198,7 @@
     "id" : "99",
     "type" : "owl:Class"
   }, {
-    "id" : "128",
+    "id" : "127",
     "type" : "owl:Class"
   }, {
     "id" : "111",
@@ -219,7 +219,7 @@
     "id" : "88",
     "type" : "owl:Class"
   }, {
-    "id" : "129",
+    "id" : "128",
     "type" : "owl:Class"
   }, {
     "id" : "50",
@@ -258,10 +258,10 @@
     "id" : "152",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "38",
+    "id" : "2",
     "type" : "owl:Class"
   }, {
-    "id" : "2",
+    "id" : "38",
     "type" : "owl:Class"
   }, {
     "id" : "92",
@@ -429,10 +429,10 @@
     "id" : "32",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "112",
+    "id" : "181",
     "type" : "owl:Class"
   }, {
-    "id" : "181",
+    "id" : "112",
     "type" : "owl:Class"
   }, {
     "id" : "9",
@@ -459,7 +459,7 @@
     "id" : "97",
     "type" : "owl:unionOf"
   }, {
-    "id" : "124",
+    "id" : "123",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "46",
@@ -468,7 +468,7 @@
     "id" : "233",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "155",
+    "id" : "156",
     "type" : "owl:Class"
   }, {
     "id" : "47",
@@ -752,8 +752,8 @@
       "en" : "A controlled vocabulary term for standardized metric definitions (e.g., completeness, recordCount, cloudCoverage). Aligned with dqv:Metric. RECOMMENDED: Use W3C DQV for quality metrics or QUDT for units. Use :metricType to link a measurement (:Metric) to its definition.",
       "es" : "Un término de vocabulario controlado para definiciones de métricas estandarizadas (p. ej., completitud, recuento de registros, cobertura de nubes). Alineado con dqv:Metric. RECOMENDADO: Usar W3C DQV para métricas de calidad o QUDT para unidades. Use :metricType para vincular una medición (:Metric) con su definición."
     },
-    "id" : "128",
-    "superClasses" : [ "129" ]
+    "id" : "127",
+    "superClasses" : [ "128" ]
   }, {
     "iri" : "http://www.w3.org/ns/odrl/2/Asset",
     "baseIri" : "http://www.w3.org/ns/odrl/2",
@@ -820,9 +820,9 @@
     "label" : {
       "IRI-based" : "Metric"
     },
-    "subClasses" : [ "128" ],
+    "subClasses" : [ "127" ],
     "attributes" : [ "external" ],
-    "id" : "129"
+    "id" : "128"
   }, {
     "iri" : "https://w3id.org/idsa/core/Artifact",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -832,7 +832,7 @@
     },
     "attributes" : [ "external" ],
     "id" : "50",
-    "superClasses" : [ "12", "111", "99" ]
+    "superClasses" : [ "111", "12", "99" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
@@ -914,16 +914,6 @@
       "IRI-based" : "anyURI"
     }
   }, {
-    "iri" : "https://w3id.org/idsa/core/RouteStep",
-    "baseIri" : "https://w3id.org/idsa/core",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "RouteStep"
-    },
-    "attributes" : [ "external" ],
-    "id" : "38",
-    "superClasses" : [ "95" ]
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/VerifiableDataProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "instances" : 0,
@@ -938,6 +928,16 @@
     },
     "id" : "2",
     "superClasses" : [ "0" ]
+  }, {
+    "iri" : "https://w3id.org/idsa/core/RouteStep",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RouteStep"
+    },
+    "attributes" : [ "external" ],
+    "id" : "38",
+    "superClasses" : [ "95" ]
   }, {
     "iri" : "https://w3id.org/idsa/core/DataResource",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -1383,16 +1383,6 @@
       "undefined" : "Literal"
     }
   }, {
-    "iri" : "https://w3id.org/idsa/core/AppResource",
-    "baseIri" : "https://w3id.org/idsa/core",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "AppResource"
-    },
-    "attributes" : [ "external" ],
-    "id" : "112",
-    "superClasses" : [ "5" ]
-  }, {
     "iri" : "http://www.w3.org/ns/sosa/ObservableProperty",
     "baseIri" : "http://www.w3.org/ns/sosa",
     "instances" : 0,
@@ -1403,17 +1393,27 @@
     "attributes" : [ "external" ],
     "id" : "181"
   }, {
+    "iri" : "https://w3id.org/idsa/core/AppResource",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AppResource"
+    },
+    "attributes" : [ "external" ],
+    "id" : "112",
+    "superClasses" : [ "5" ]
+  }, {
     "iri" : "https://w3id.org/EDAAnOWL/QualityReport",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "instances" : 0,
     "label" : {
       "IRI-based" : "QualityReport",
-      "en" : "External Quality Report",
-      "es" : "Informe de Calidad"
+      "en" : "Quality Report",
+      "es" : "Informe de Calidad Externo"
     },
     "comment" : {
-      "en" : "A class representing an external, structured quality report, containing metadata about the assessment (e.g., a PDF report URL, a quality score).",
-      "es" : "Una clase que representa un informe de calidad externo y estructurado, que contiene metadatos sobre la evaluación (p. ej., una URL de informe PDF, una puntuación de calidad)."
+      "en" : "A structured report containing quality metrics and metadata.",
+      "es" : "Un informe estructurado que contiene métricas de calidad y metadatos."
     },
     "id" : "9"
   }, {
@@ -1432,11 +1432,11 @@
     "id" : "4",
     "superClasses" : [ "46" ]
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#duration",
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "228",
     "label" : {
-      "IRI-based" : "duration"
+      "IRI-based" : "decimal"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
@@ -1479,7 +1479,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "124",
+    "id" : "123",
     "label" : {
       "IRI-based" : "decimal"
     }
@@ -1495,11 +1495,11 @@
     "id" : "46",
     "superClasses" : [ "45" ]
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "iri" : "http://www.w3.org/2001/XMLSchema#duration",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "233",
     "label" : {
-      "IRI-based" : "decimal"
+      "IRI-based" : "duration"
     }
   }, {
     "iri" : "http://www.w3.org/2006/vcard/ns#Kind",
@@ -1509,7 +1509,7 @@
       "IRI-based" : "Kind"
     },
     "attributes" : [ "external" ],
-    "id" : "155"
+    "id" : "156"
   }, {
     "iri" : "https://w3id.org/idsa/core/SoftwareRepresentation",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -1685,15 +1685,15 @@
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "122",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "123",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "124",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "125",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "127",
+    "id" : "129",
     "type" : "owl:objectProperty"
   }, {
     "id" : "131",
@@ -1729,10 +1729,10 @@
     "id" : "154",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "109",
+    "id" : "155",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "156",
+    "id" : "109",
     "type" : "owl:objectProperty"
   }, {
     "id" : "163",
@@ -2054,12 +2054,12 @@
     "range" : "15",
     "label" : {
       "IRI-based" : "hasCRS",
-      "en" : "profile CRS (IRI)",
-      "es" : "CRS de perfil (IRI)"
+      "en" : "has Coordinate Reference System",
+      "es" : "tiene Sistema de Referencia de Coordenadas"
     },
     "domain" : "0",
     "comment" : {
-      "en" : "Deprecated. Use the object property edaan:hasCRS to link to a formal CRS definition.",
+      "en" : "Links a Data Profile to the formal definition of its Coordinate Reference System (CRS), preferably using an EPSG URI (e.g., http://www.opengis.net/def/crs/EPSG/0/4326). Range is skos:Concept for interoperability with controlled vocabularies.",
       "es" : "Vincula un Perfil de Datos con la definición formal de su Sistema de Referencia de Coordenadas (CRS), preferiblemente usando un URI EPSG (p. ej., http://www.opengis.net/def/crs/EPSG/0/4326). El rango es skos:Concept para interoperabilidad con vocabularios controlados."
     },
     "attributes" : [ "object", "deprecated" ],
@@ -2552,11 +2552,21 @@
     },
     "domain" : "120",
     "comment" : {
-      "en" : "Indicates whether the resource includes Personally Identifiable Information (PII).",
+      "en" : "Indicates whether the dataset contains personal data (GDPR).",
       "es" : "Indica si el conjunto de datos contiene datos personales (GDPR)."
     },
     "attributes" : [ "datatype" ],
     "id" : "119"
+  }, {
+    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
+    "baseIri" : "http://www.w3.org/ns/dcat",
+    "range" : "123",
+    "label" : {
+      "IRI-based" : "spatialResolutionInDegrees"
+    },
+    "domain" : "31",
+    "attributes" : [ "datatype", "external" ],
+    "id" : "122"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/implementsComponent",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2572,17 +2582,7 @@
       "es" : "Vincula una DataApp IDSA con el Componente de flujo de trabajo BIGOWL que implementa."
     },
     "attributes" : [ "object" ],
-    "id" : "122"
-  }, {
-    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
-    "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "124",
-    "label" : {
-      "IRI-based" : "spatialResolutionInDegrees"
-    },
-    "domain" : "31",
-    "attributes" : [ "datatype", "external" ],
-    "id" : "123"
+    "id" : "124"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/auditLogAvailable",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2614,7 +2614,7 @@
       "es" : "OBSOLETO: Use consumesDataRepresentation o consumesAppRepresentation en su lugar. Vincula un Componente BIGOWL con una Representación IDSA que consume como entrada."
     },
     "attributes" : [ "object", "deprecated" ],
-    "id" : "127"
+    "id" : "129"
   }, {
     "iri" : "https://w3id.org/idsa/core/checkSum",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -2773,23 +2773,6 @@
     "attributes" : [ "datatype" ],
     "id" : "154"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/supportContact",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "155",
-    "label" : {
-      "IRI-based" : "supportContact",
-      "en" : "support contact",
-      "es" : "contacto de soporte"
-    },
-    "superproperty" : [ "107" ],
-    "domain" : "5",
-    "comment" : {
-      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL).",
-      "es" : "Punto de contacto estándar para soporte, usando vCard (fn, email, telephone, URL)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "109"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "0",
@@ -2804,7 +2787,24 @@
       "es" : "Vincula una DataApp con un DataProfile que produce como salida."
     },
     "attributes" : [ "object" ],
-    "id" : "156"
+    "id" : "155"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/supportContact",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "156",
+    "label" : {
+      "IRI-based" : "supportContact",
+      "en" : "support contact",
+      "es" : "contacto de soporte"
+    },
+    "superproperty" : [ "107" ],
+    "domain" : "5",
+    "comment" : {
+      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL).",
+      "es" : "Punto de contacto estándar para soporte, usando vCard (fn, email, telephone, URL)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "109"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/accessTypeConcept",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -3117,22 +3117,6 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "203"
   }, {
-    "iri" : "https://w3id.org/EDAAnOWL/hasTemporalCoverage",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "137",
-    "label" : {
-      "IRI-based" : "hasTemporalCoverage",
-      "en" : "has temporal coverage",
-      "es" : "tiene cobertura temporal"
-    },
-    "domain" : "88",
-    "comment" : {
-      "en" : "Defines the temporal coverage of the data asset required by Earth Observation CUs.",
-      "es" : "Define la cobertura temporal del activo de datos requerido por las CUs de Observación de la Tierra."
-    },
-    "attributes" : [ "object" ],
-    "id" : "204"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/requiresObservableProperty",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "40",
@@ -3145,6 +3129,22 @@
     "comment" : {
       "en" : "Defines the semantic signature of INPUT for a service (e.g., requires NDVI).",
       "es" : "Define la firma semántica de la ENTRADA para un servicio (p. ej., requiere NDVI)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "204"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/hasTemporalCoverage",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "137",
+    "label" : {
+      "IRI-based" : "hasTemporalCoverage",
+      "en" : "has temporal coverage",
+      "es" : "tiene cobertura temporal"
+    },
+    "domain" : "88",
+    "comment" : {
+      "en" : "Defines the temporal coverage of the data asset required by Earth Observation CUs.",
+      "es" : "Define la cobertura temporal del activo de datos requerido por las CUs de Observación de la Tierra."
     },
     "attributes" : [ "object" ],
     "id" : "205"
@@ -3272,7 +3272,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/legalContact",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "155",
+    "range" : "156",
     "label" : {
       "IRI-based" : "legalContact",
       "en" : "legal contact",
@@ -3342,14 +3342,14 @@
     "attributes" : [ "datatype", "external" ],
     "id" : "226"
   }, {
-    "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
+    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
     "baseIri" : "http://www.w3.org/ns/dcat",
     "range" : "228",
     "label" : {
-      "IRI-based" : "temporalResolution"
+      "IRI-based" : "spatialResolutionInDegrees"
     },
     "domain" : "0",
-    "attributes" : [ "datatype", "allValues", "external" ],
+    "attributes" : [ "allValues", "datatype", "external" ],
     "id" : "227"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
@@ -3359,7 +3359,7 @@
       "IRI-based" : "spatialResolutionInMeters"
     },
     "domain" : "0",
-    "attributes" : [ "datatype", "allValues", "external" ],
+    "attributes" : [ "allValues", "datatype", "external" ],
     "id" : "229"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
@@ -3372,14 +3372,14 @@
     "attributes" : [ "datatype", "external" ],
     "id" : "231"
   }, {
-    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
+    "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
     "baseIri" : "http://www.w3.org/ns/dcat",
     "range" : "233",
     "label" : {
-      "IRI-based" : "spatialResolutionInDegrees"
+      "IRI-based" : "temporalResolution"
     },
     "domain" : "0",
-    "attributes" : [ "datatype", "allValues", "external" ],
+    "attributes" : [ "allValues", "datatype", "external" ],
     "id" : "232"
   }, {
     "range" : "100",
@@ -3418,8 +3418,8 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "238"
   }, {
-    "range" : "129",
-    "domain" : "128",
+    "range" : "128",
+    "domain" : "127",
     "attributes" : [ "object", "anonymous" ],
     "id" : "239"
   }, {
@@ -3440,7 +3440,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/metricType",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "128",
+    "range" : "127",
     "label" : {
       "IRI-based" : "metricType",
       "en" : "metric type",
@@ -3471,7 +3471,7 @@
     "domain" : "216",
     "comment" : {
       "en" : "The technique used to anonymize personal data (e.g., 'k-anonymity', 'differential privacy').",
-      "es" : "La técnica utilizada para anonimizar los datos (por ejemplo, k-anonimato, privacidad diferencial)."
+      "es" : "La técnica utilizada para anonimizar datos personales (p. ej., 'k-anonymity', 'privacidad diferencial')."
     },
     "attributes" : [ "datatype" ],
     "id" : "244"
