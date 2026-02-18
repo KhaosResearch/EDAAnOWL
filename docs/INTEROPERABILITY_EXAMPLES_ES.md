@@ -138,4 +138,25 @@ ex:ProfileMovilidad
         edaan:reportDate "2026-01-01"^^xsd:date
     ] .
 ```
+
 Esto permite filtrar assets no solo por contenido, sino por **confianza y cumplimiento**, pilares de Gaia-X.
+
+---
+
+## 5. Métricas de Rendimiento
+
+Las DataApps pueden declarar su rendimiento esperado para ayudar en la orquestación.
+
+```turtle
+ex:AppTiempoReal a edaan:VisualizationApp ;
+    rdfs:label "Dashboard de Tráfico en Tiempo Real" ;
+    
+    # Métrica de rendimiento
+    edaan:hasPerformanceMetric [
+        a edaan:PerformanceMetric ;
+        edaan:metricName "maxLatency" ;
+        edaan:metricValue 200 ;
+        edaan:metricUnit "ms" ;
+        edaan:computedAt "2025-06-01T12:00:00Z"^^xsd:dateTime
+    ] .
+```

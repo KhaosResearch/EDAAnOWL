@@ -44,9 +44,6 @@ Adhere to these rules in every edit:
 3.  **SHACL**: Add a targeted shape in `shapes/edaan-shapes.ttl`.
 4.  **Example**: Update `examples/` to demonstrate the new property.
 
-### Check demo files
-check if the `demo/` files are updated with the new property or metric.
-
 ### Check scripts
 check if the `scripts/` files are updated with the new property or metric.
 
