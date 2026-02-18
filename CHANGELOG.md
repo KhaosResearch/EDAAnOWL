@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.0...v0.6.1) (2026-02-18)
+
+
+### Fixed
+
+* **ontology:** refine metric definitions and cleanup vocabularies ([d7290d6](https://github.com/KhaosResearch/EDAAnOWL/commit/d7290d6eb5b106e68456c9c51ccca20b4ad347b1))
+* **ontology:** refine metric definitions and cleanup vocabularies ([60cd1ad](https://github.com/KhaosResearch/EDAAnOWL/commit/60cd1adff2cace840432b24558d898dc1b79787b))
+
 ## [0.6.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.5.0...v0.6.0) (2026-02-17)
 
 
