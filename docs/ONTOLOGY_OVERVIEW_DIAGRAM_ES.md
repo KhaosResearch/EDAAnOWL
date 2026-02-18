@@ -156,7 +156,6 @@ flowchart TD
 ---
 
 ## 6️⃣ Diagrama Completo
-
 Vista general con todas las propiedades etiquetadas.
 
 ```mermaid
@@ -210,6 +209,28 @@ flowchart TB
     class DCAT external
 ```
 
+## 7️⃣ Performance Metrics (v0.6.0)
+
+Las **DataApps** pueden declarar métricas de rendimiento (no funcionales) directamente.
+
+```mermaid
+flowchart LR
+    classDef app fill:#bbdefb,stroke:#1976d2,stroke-width:2px
+    classDef metric fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+
+    APP["⚙️ DataApp"]
+    PM["⏱️ PerformanceMetric"]
+
+    APP -- "hasPerformanceMetric" --> PM
+
+    PM -- "metricName" --> N["latency / throughput"]
+    PM -- "metricValue" --> V["150"]
+    PM -- "metricUnit" --> U["ms"]
+
+    class APP app
+    class PM metric
+```
+
 ---
 
 ## 📋 Resumen de Propiedades Principales
@@ -225,6 +246,7 @@ flowchart TB
 | DataApp | bigwf:Component | `implementsComponent` | "Esta app implementa este componente" |
 | DataProfile | bigdat:Data | `declaresDataClass` | "Este perfil es de tipo..." |
 | DataProfile | Metric | `hasMetric` | "Este perfil tiene esta métrica" |
+| DataApp | PerformanceMetric | `hasPerformanceMetric` | "Esta app tiene este rendimiento" |
 
 ---
 

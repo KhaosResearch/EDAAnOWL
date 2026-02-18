@@ -132,9 +132,10 @@ Together, they enable more robust discovery and interoperability between data as
 
 ### Data Quality and Provenance
 
-EDAAnOWL v0.4.0 (building on v0.3.0 through v0.3.2) provides explicit support for data quality and lineage:
+EDAAnOWL v0.6.0 provides explicit support for data quality, lineage, and performance tracking:
 
-- **Metrics (`Metric`, `QualityMetric`)**: A `DataProfile` can define multiple metrics using `:hasMetric`. These align with `dqv:Metric`, allowing users to specify quality indicators (e.g., completeness, accuracy) or descriptive statistics (e.g., record count) with values and units.
+- **Metrics (`Metric`, `QualityMetric`)**: A `DataProfile` can define multiple metrics using `:hasMetric`. These align with `dqv:Metric`, allowing users to specify quality indicators (e.g., completeness, accuracy) or descriptive statistics.
+- **Performance (`PerformanceMetric`)**: (New in v0.6.0) `DataApp`s can declare non-functional properties like execution time or max throughput using `:hasPerformanceMetric`.
 - **Provenance (`prov:wasGeneratedBy`)**: A `DataAsset` can be linked back to the `ids:SmartDataApp` (e.g., a `:PredictionApp`) that created it. This enables full lineage tracing from the raw data, through the processing app, to the derived asset.
 
 ### Workflow perspective with BIGOWL
@@ -174,8 +175,8 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
 
   - **Structure**:
     - `/src/`
-      - `0.0.1/` (Ontology and vocabs for v0.0.1)
-      - `0.0.2/` (Ontology and vocabs for v0.0.2)
+      - `0.5.0/` (Ontology and vocabs for v0.5.0)
+      - `0.6.0/` (Ontology and vocabs for v0.6.0 - Latest)
     - `/.github/workflows/` (The CI/CD workflow)
 
 - **`dev` branch**:
@@ -184,7 +185,7 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
   - All Pull Requests should be targeted at `dev`.
   
   - **Structure**:
-    - Same as `main`, but may contain the _next_ unreleased version folder (e.g., `src/0.0.3/`) while it is in progress.
+    - Same as `main`, but may contain the _next_ unreleased version folder (e.g., `src/0.7.0/`) while it is in progress.
 
 - **`gh-pages` branch**:
 
@@ -193,8 +194,8 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
   - **Structure**:
 
     - `/latest/` (A mirror of the most recent version)
-    - `/0.0.1/` (A snapshot of the v0.0.1 documentation and files)
-    - `/0.0.2/` (A snapshot of the v0.0.2 documentation and files)
+    - `/0.5.0/`
+    - `/0.6.0/`
     - `.nojekyll` (Disables Jekyll on GitHub Pages)
 
 - **Feature Branches (e.g., `feat/my-fix`)**:
