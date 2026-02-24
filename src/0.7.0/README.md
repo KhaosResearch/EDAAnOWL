@@ -6,7 +6,9 @@ This is a **minor release** introducing explicit support for measurement units v
 
 | Change | Impact | Justification |
 |--------|--------|---------------|
-| **Semantic Units** | `edaan:metricUnit` → `edaan:hasMetricUnit` | Enables referencing standardized QUDT URIs natively, improving interoperability and machine reasoning for units of measurement. |
+| **Semantic Standards** | `metricUnit` → `edaan:hasMetricStandard` | Enables referencing standardized QUDT URIs or SKOS ConceptSchemes natively, improving interoperability and machine reasoning for both numerical units and categorical data. |
+| **Operational Meaning** | New Property: `edaan:measuresProperty` | Explicitly links metrics to the `ObservableProperty` they measure (e.g., AGROVOC terms), ensuring type-safe measurements and better matchmaking. |
+| **SIEX Rebranding** | New Namespace: `w3id.org/EDAAnOWL/siex/` | Official URI persistence for SIEX vocabularies, removing all legacy Agrixels dependencies. |
 
 ---
 
@@ -16,7 +18,8 @@ This is a **minor release** introducing explicit support for measurement units v
 
 | Deprecated Property | Replacement | Notes |
 |---------------------|-------------|-------|
-| `:metricUnit` (string) | `:hasMetricUnit` (ObjectProperty → `skos:Concept` or `URI`) | Prefer QUDT URIs for units (e.g., `unit:PERCENT`). |
+| `:metricUnit` (string) | `:hasMetricStandard` (ObjectProperty → QUDT / SKOS) | Prefer QUDT URIs for units (e.g., `unit:PERCENT`) or SKOS for categorical codes. |
+| `:hasMetricUnit` (Object) | `:hasMetricStandard` | Consolidated into standard-agnostic property. |
 | `:accessType` (string) | `:accessTypeConcept` (ObjectProperty → `skos:Concept`) | Use a controlled vocabulary for access modes. |
 | `:appliesToFeature` (string) | `:appliesToFeatureConcept` (ObjectProperty → `skos:Concept`) | Link to formal schema elements when available. |
 
@@ -27,17 +30,18 @@ This is a **minor release** introducing explicit support for measurement units v
 
 ## Detailed Changes
 
-### 1. Semantic Measurement Units (QUDT)
+### 1. Semantic Measurement Standards (QUDT & SKOS)
 
-We have explicitly separated the concept of the phenomenon observed from the unit in which it is measured. 
+We have explicitly separated the concept of the phenomenon observed from the standard in which it is measured, using `hasMetricStandard` for both units and categorical vocabularies.
 
 ```diff
 - :metricUnit rdf:type owl:DatatypeProperty ;
 -             rdfs:range xsd:string .
-+ :hasMetricUnit rdf:type owl:ObjectProperty .
++ :hasMetricStandard rdf:type owl:ObjectProperty .
++ :measuresProperty rdf:type owl:ObjectProperty .
 ```
 
-**Why?** Previously, a unit like "kg" or "%" was a plain `xsd:string` value. Now, using `:hasMetricUnit`, you can link directly to a standardized URI such as `http://qudt.org/vocab/unit/KiloGM-PER-HA`. This enables much richer semantic search, equivalence checking, and unit conversions.
+**Why?** Previously, units were plain strings. Now, using `:hasMetricStandard`, you can link directly to a standardized URI (e.g., QUDT `unit:KiloGM-PER-HA`) or a SKOS ConceptScheme. The new `:measuresProperty` provides the semantic "bridge" to the phenomenon (e.g., AGROVOC yield) being measured.
 
 ---
 
