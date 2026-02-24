@@ -57,9 +57,10 @@ ex:ProfileMeteo a edaan:DataProfile ;
     
     # Requisitos de Calidad específicos para Meteo
     edaan:hasMetric [
-        edaan:metricName "completeness" ;
+        a edaan:Metric ;
+        edaan:metricType <https://w3id.org/EDAAnOWL/Completeness> ; # Definición estandarizada
         edaan:metricValue 0.95 ; # Exige alta completitud
-        edaan:appliesToFeatureConcept <http://purl.obolibrary.org/obo/ENVO_01000203> 
+        edaan:measuresProperty <http://purl.obolibrary.org/obo/ENVO_01000203> 
     ] .
 ```
 
@@ -154,9 +155,9 @@ ex:AppTiempoReal a edaan:VisualizationApp ;
     # Métrica de rendimiento
     edaan:hasPerformanceMetric [
         a edaan:PerformanceMetric ;
-        edaan:metricName "maxLatency" ;
+        edaan:metricType <https://w3id.org/EDAAnOWL/Latency> ;
         edaan:metricValue 200 ;
-        edaan:metricUnit "ms" ;
+        edaan:hasMetricStandard <http://qudt.org/vocab/unit/MilliSEC> ;
         edaan:computedAt "2025-06-01T12:00:00Z"^^xsd:dateTime
     ] .
 ```

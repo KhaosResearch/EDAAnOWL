@@ -146,6 +146,8 @@ flowchart TD
     DP -- "declaresDataClass" --> DC
     DP -- "declaresObservedProperty" --> OP
     DP -- "hasMetric" --> M
+    M -- "hasMetricStandard" --> S["QUDT / SKOS"]
+    M -- "measuresProperty" --> OP
     DP -- "hasCRS" --> CRS
     DP -- "dcat:spatialResolutionInMeters" --> RES
 
@@ -223,9 +225,9 @@ flowchart LR
 
     APP -- "hasPerformanceMetric" --> PM
 
-    PM -- "metricName" --> N["latency / throughput"]
+    PM -- "metricType" --> T[":Latency / :Throughput"]
     PM -- "metricValue" --> V["150"]
-    PM -- "metricUnit" --> U["ms"]
+    PM -- "hasMetricStandard" --> U["unit:MilliSEC"]
 
     class APP app
     class PM metric
@@ -246,6 +248,8 @@ flowchart LR
 | DataApp | bigwf:Component | `implementsComponent` | "Esta app implementa este componente" |
 | DataProfile | bigdat:Data | `declaresDataClass` | "Este perfil es de tipo..." |
 | DataProfile | Metric | `hasMetric` | "Este perfil tiene esta métrica" |
+| Metric | QUDT / SKOS | `hasMetricStandard` | "Usa este estándar/unidad" |
+| Metric | ObservableProperty | `measuresProperty` | "Mide esta propiedad (semántica)" |
 | DataApp | PerformanceMetric | `hasPerformanceMetric` | "Esta app tiene este rendimiento" |
 
 ---
