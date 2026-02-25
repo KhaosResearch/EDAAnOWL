@@ -7352,3 +7352,948 @@
     skos:notation "999" ;
     skos:prefLabel "MEZCLA VEZA-MOSTAZA"@es .
 
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/1> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "1" ;
+    skos:prefLabel "Aire libre"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/10> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "10" ;
+    skos:prefLabel "Bodega Bandejas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/11> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "11" ;
+    skos:prefLabel "Bodega Botellas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/12> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "12" ;
+    skos:prefLabel "Bodega Otros"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/13> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "13" ;
+    skos:prefLabel "Nave Sacos"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/14> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "14" ;
+    skos:prefLabel "Nave Bandejas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/15> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "15" ;
+    skos:prefLabel "Nave Botellas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/16> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "16" ;
+    skos:prefLabel "Nave Otros"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/17> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "17" ;
+    skos:prefLabel "Hoyos"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/18> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "18" ;
+    skos:prefLabel "Zanjas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/19> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "19" ;
+    skos:prefLabel "Invernadero (cubierta accesible)+ enarenado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/2> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "2" ;
+    skos:prefLabel "Malla"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/20> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "20" ;
+    skos:prefLabel "Entutorado de madera"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/21> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "21" ;
+    skos:prefLabel "Entutorado de hormigón"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/22> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "22" ;
+    skos:prefLabel "Entutorado metálico"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/23> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "23" ;
+    skos:prefLabel "Malla de protección antigranizo"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/24> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "24" ;
+    skos:prefLabel "Malla de protección antilluvia"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/25> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "25" ;
+    skos:prefLabel "Malla de sombreado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/26> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "26" ;
+    skos:prefLabel "Tunel de plástico"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/27> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "27" ;
+    skos:prefLabel "Multi tunel de plástico film"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/28> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "28" ;
+    skos:prefLabel "Multi tunel de plástico rígido"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/29> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "29" ;
+    skos:prefLabel "Sustrato de perlita"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/3> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "3" ;
+    skos:prefLabel "Cubierta no accesible"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/30> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "30" ;
+    skos:prefLabel "Sustrato de lana de roca"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/31> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "31" ;
+    skos:prefLabel "Sustrato de fibra de coco"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/32> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "32" ;
+    skos:prefLabel "Sustrato de turba"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/33> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "33" ;
+    skos:prefLabel "Hidropónico"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/4> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "4" ;
+    skos:prefLabel "Invernadero (cubierta accesible)"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/5> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "5" ;
+    skos:prefLabel "Forestales en rotacion corta"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/6> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "6" ;
+    skos:prefLabel "Micorrizado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/7> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "7" ;
+    skos:prefLabel "Acolchado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/8> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "8" ;
+    skos:prefLabel "Enarenado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFarmingSystemValueCode/9> a skos:Concept ;
+    skos:inScheme siex-kos:siexFarmingSystemValueCode ;
+    skos:notation "9" ;
+    skos:prefLabel "Bodega Sacos"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizationMethodValueCode/1> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizationMethodValueCode ;
+    skos:notation "1" ;
+    skos:prefLabel "Esparcido general"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizationMethodValueCode/2> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizationMethodValueCode ;
+    skos:notation "2" ;
+    skos:prefLabel "Esparcido general y enterrado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizationMethodValueCode/3> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizationMethodValueCode ;
+    skos:notation "3" ;
+    skos:prefLabel "Esparcido localizado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizationMethodValueCode/4> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizationMethodValueCode ;
+    skos:notation "4" ;
+    skos:prefLabel "Esparcido localizado y enterrado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizationMethodValueCode/5> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizationMethodValueCode ;
+    skos:notation "5" ;
+    skos:prefLabel "Riego por aspersión (fertirrigación)"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizationMethodValueCode/6> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizationMethodValueCode ;
+    skos:notation "6" ;
+    skos:prefLabel "Riego localizado (fertirrigación)"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizationMethodValueCode/7> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizationMethodValueCode ;
+    skos:notation "7" ;
+    skos:prefLabel "Aplicación foliar"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizationTypeValueCode/1> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizationTypeValueCode ;
+    skos:notation "1" ;
+    skos:prefLabel "Abonado de fondo"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizationTypeValueCode/2> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizationTypeValueCode ;
+    skos:notation "2" ;
+    skos:prefLabel "Abonado de cobertera"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizationTypeValueCode/3> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizationTypeValueCode ;
+    skos:notation "3" ;
+    skos:prefLabel "Aplicación de enmienda"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/0> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "0" ;
+    skos:prefLabel "Otros"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/1> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "1" ;
+    skos:prefLabel "Estiercol líquido de aves"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/10> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "10" ;
+    skos:prefLabel "Otros tipos de estiércol sólido: conejo, visón, zorro"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/11> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "11" ;
+    skos:prefLabel "Productos fertilizantes bioestimulantes"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/12> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "12" ;
+    skos:prefLabel "Productos fertilizantes enmiendas calizas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/13> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "13" ;
+    skos:prefLabel "Productos fertilizantes enmiendas orgánicas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/14> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "14" ;
+    skos:prefLabel "Productos fertilizantes: abonos inorgánicos"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/15> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "15" ;
+    skos:prefLabel "Productos fertilizantes: abonos orgánicos"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/16> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "16" ;
+    skos:prefLabel "Productos fertilizantes: abonos organominerales"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/17> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "17" ;
+    skos:prefLabel "Productos fertilizantes otras enmiendas (retenedoras humedad, ácidas, etc.)"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/18> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "18" ;
+    skos:prefLabel "Residuos: Materiales que, sin haberse empleado en la elaboración de un producto fertilizante, cumplan con todos los requisitos de las CMCS 3, 4, 5, 6, 12, 13 y 14 del Anexo II del Reglamento (UE) 2019/1009."@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/19> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "19" ;
+    skos:prefLabel "Residuos: Subproductos de origen animal no aptos para consumo humano, que hayan sido tratados conforme al artículo 20 del Reglamento (CE) 1069/2009."@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/2> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "2" ;
+    skos:prefLabel "Estiércol líquido de bovino"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/20> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "20" ;
+    skos:prefLabel "Residuos: compost de alperujo"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/21> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "21" ;
+    skos:prefLabel "Residuos: alperujo desecado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/22> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "22" ;
+    skos:prefLabel "Residuos: Lodos de tratamiento de aguas residuales urbanas (lodos EDAR), incluidos en el Real Decreto 1310/1990, de 29 de octubre. siempre que hayan sido tratados."@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/23> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "23" ;
+    skos:prefLabel "Residuos: Lodos calizos procedentes del proceso Kraft de fabricación de pasta de papel, para elevar el pH de suelos ácidos"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/3> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "3" ;
+    skos:prefLabel "Estiércol líquido de porcino"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/4> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "4" ;
+    skos:prefLabel "Estiércol sólido de aves"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/5> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "5" ;
+    skos:prefLabel "Estiércol sólido de bovino"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/6> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "6" ;
+    skos:prefLabel "Estiércol sólido de caprino"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/7> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "7" ;
+    skos:prefLabel "Estiércol sólido de equino"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/8> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "8" ;
+    skos:prefLabel "Estiércol sólido de ovino"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexFertilizerMaterialValueCode/9> a skos:Concept ;
+    skos:inScheme siex-kos:siexFertilizerMaterialValueCode ;
+    skos:notation "9" ;
+    skos:prefLabel "Inhibidores"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/1> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "1" ;
+    skos:prefLabel "Entregada a bodega cooperativa"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/10> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "10" ;
+    skos:prefLabel "Zumo"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/11> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "11" ;
+    skos:prefLabel "Azúcar"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/12> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "12" ;
+    skos:prefLabel "Melaza"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/13> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "13" ;
+    skos:prefLabel "Bagazo"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/14> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "14" ;
+    skos:prefLabel "Molturación torta"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/15> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "15" ;
+    skos:prefLabel "Encurtidos"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/16> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "16" ;
+    skos:prefLabel "Alcohol"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/2> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "2" ;
+    skos:prefLabel "Entregada a explotación agrícola para su cultivo"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/3> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "3" ;
+    skos:prefLabel "Vendidas a un vinificador"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/4> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "4" ;
+    skos:prefLabel "Vinificación y/o conservación por el declarante."@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/5> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "5" ;
+    skos:prefLabel "Bebidas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/6> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "6" ;
+    skos:prefLabel "Conservas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/7> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "7" ;
+    skos:prefLabel "Mermelada"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/8> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "8" ;
+    skos:prefLabel "Mosto concentrado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIntendedCropUseValueCode/9> a skos:Concept ;
+    skos:inScheme siex-kos:siexIntendedCropUseValueCode ;
+    skos:notation "9" ;
+    skos:prefLabel "Pasificado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIrrigationWaterSourceValueCode/1> a skos:Concept ;
+    skos:inScheme siex-kos:siexIrrigationWaterSourceValueCode ;
+    skos:notation "1" ;
+    skos:prefLabel "Superficial"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIrrigationWaterSourceValueCode/2> a skos:Concept ;
+    skos:inScheme siex-kos:siexIrrigationWaterSourceValueCode ;
+    skos:notation "2" ;
+    skos:prefLabel "Subterránea"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIrrigationWaterSourceValueCode/3> a skos:Concept ;
+    skos:inScheme siex-kos:siexIrrigationWaterSourceValueCode ;
+    skos:notation "3" ;
+    skos:prefLabel "Pluvial"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIrrigationWaterSourceValueCode/4> a skos:Concept ;
+    skos:inScheme siex-kos:siexIrrigationWaterSourceValueCode ;
+    skos:notation "4" ;
+    skos:prefLabel "Regeneración"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIrrigationWaterSourceValueCode/5> a skos:Concept ;
+    skos:inScheme siex-kos:siexIrrigationWaterSourceValueCode ;
+    skos:notation "5" ;
+    skos:prefLabel "Desalinización"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexIrrigationWaterSourceValueCode/6> a skos:Concept ;
+    skos:inScheme siex-kos:siexIrrigationWaterSourceValueCode ;
+    skos:notation "6" ;
+    skos:prefLabel "Recursos alternativos (distintos de la regeneración y desalinización)"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/1> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "1" ;
+    skos:prefLabel "1 BLANCHARD"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/10> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "10" ;
+    skos:prefLabel "5 A MARTINEZ ZAPORTA"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/11> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "11" ;
+    skos:prefLabel "41 B MILLARDET GRASSET"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/12> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "12" ;
+    skos:prefLabel "420 MILLARDET GRASSET"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/13> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "13" ;
+    skos:prefLabel "19 62 MILLARDET GRASSET"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/14> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "14" ;
+    skos:prefLabel "101 14 MILLARDET GRASSET"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/15> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "15" ;
+    skos:prefLabel "1103 PAULSEN"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/16> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "16" ;
+    skos:prefLabel "31 RICHTER"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/17> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "17" ;
+    skos:prefLabel "99 RITCHER"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/18> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "18" ;
+    skos:prefLabel "110 RITCHER"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/19> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "19" ;
+    skos:prefLabel "140 RUGGERI"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/2> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "2" ;
+    skos:prefLabel "196 17 CASTEL"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/20> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "20" ;
+    skos:prefLabel "5 BB TELEKI KOBER"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/21> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "21" ;
+    skos:prefLabel "SELEC. OPPENHEIM DE TELEK Nº 4"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/22> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "22" ;
+    skos:prefLabel "RUPESTRIS DE LOT"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/23> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "23" ;
+    skos:prefLabel "PIE FRANCO EN EL TERRITORIO DE LAS ISLAS CANARIAS"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/3> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "3" ;
+    skos:prefLabel "6736 CASTEL"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/34> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "34" ;
+    skos:prefLabel "GRN1"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/35> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "35" ;
+    skos:prefLabel "GRN3"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/36> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "36" ;
+    skos:prefLabel "M 1"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/37> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "37" ;
+    skos:prefLabel "M 2"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/38> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "38" ;
+    skos:prefLabel "M 3"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/39> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "39" ;
+    skos:prefLabel "M 4"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/4> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "4" ;
+    skos:prefLabel "161 49 COUDERC"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/40> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "40" ;
+    skos:prefLabel "RESSEGIER SELEC BIROLLEAU Nº 1"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/41> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "41" ;
+    skos:prefLabel "RG8"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/42> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "42" ;
+    skos:prefLabel "RG9"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/43> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "43" ;
+    skos:prefLabel "RIPARIA GLORIA DE MONTPELLIER"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/5> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "5" ;
+    skos:prefLabel "1616 COURDERC"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/6> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "6" ;
+    skos:prefLabel "3309 COUDERC"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/7> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "7" ;
+    skos:prefLabel "333 ESCUELA DE MONTPELLIER"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/8> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "8" ;
+    skos:prefLabel "13 5 EVE JEREZ"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexRootstockValueCode/9> a skos:Concept ;
+    skos:inScheme siex-kos:siexRootstockValueCode ;
+    skos:notation "9" ;
+    skos:prefLabel "FERCAL"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/0> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "0" ;
+    skos:prefLabel "No realiza buenas prácticas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/1> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "1" ;
+    skos:prefLabel "Aplicación de purines mediante sistema de bandas con mangueras o tubos rígidos"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/10> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "10" ;
+    skos:prefLabel "Emplear gránulos de urea recubiertos de un polímero"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/11> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "11" ;
+    skos:prefLabel "Aplicar un riego inmediatamente después de la fertilización con abonos a base de urea"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/12> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "12" ;
+    skos:prefLabel "Realizar la fertilización nitrogenada mediante fertirrigación (Sólo cuando haya necesidades de regadío)"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/13> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "13" ;
+    skos:prefLabel "En el cultivo de arroz, realizar el abonado nitrogenado con el terreno seco"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/14> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "14" ;
+    skos:prefLabel "Empleo de inhibidores de la ureasa con productos fertilizantes a base de urea"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/15> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "15" ;
+    skos:prefLabel "Enterrado de purines y, productos y materiales líquidos lo antes posible y siempre en las primeras 4 horas tras su aplicación"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/16> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "16" ;
+    skos:prefLabel "Empleo de inhibidores de la ureasa o de la nitrificación aplicados a purines, con supervisión profesional en caso de aplicación directa de los purines al suelo o a la balsa de purín"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/17> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "17" ;
+    skos:prefLabel "Aplicación de la tecnología de dosificación variable dentro de una misma parcela"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/18> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "18" ;
+    skos:prefLabel "Enterrado de la urea, en el momento de su aplicación al suelo o, por lo menos, en las 4 horas siguientes"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/19> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "19" ;
+    skos:prefLabel "Empleo de productos fertilizantes nitrogenados con inhibidores de la nitrificación"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/2> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "2" ;
+    skos:prefLabel "Aplicación de purines mediante sistema de bandas de discos o rejas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/20> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "20" ;
+    skos:prefLabel "Abonado en verde"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/21> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "21" ;
+    skos:prefLabel "Dosis y frecuencia de riego ajustadas a las necesidades del cultivo y a la capacidad de retención de humedad del suelo, tomando como referencia las recomendaciones de los servicios de asesoramiento al regante (SIAR) de la comunidad autónoma o el Sistema de Información Agroclimática para el Regadío (SiAR) del Ministerio de Agricultura, Pesca y Alimentación, y/o empleo de sensores de contenido de humedad del suelo."@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/22> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "22" ;
+    skos:prefLabel "En el caso de que el propio material usado en el abonado aporte agua en una cantidad considerable al cultivo (como cuando se utilizan estiércoles líquidos), se tendrá en cuenta el volumen de agua incorporado por el mismo para el cálculo."@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/23> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "23" ;
+    skos:prefLabel "Riego localizado."@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/24> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "24" ;
+    skos:prefLabel "En cultivos con riego por inundación, el abonado nitrogenado se aplicará cuando el suelo se encuentre en sazón y se enterrará inmediatamente mediante una labor."@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/25> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "25" ;
+    skos:prefLabel "En los cultivos con riego localizado, la fertilización se efectuará disolviendo los abonos en el agua de riego y aplicándolos al suelo a través de ésta. Éstos se dosificarán fraccionadamente, durante el periodo de actividad vegetativa del cultivo, pudiéndose adaptar las concentraciones y las cantidades parciales aportadas a los momentos de mayor requerimiento dentro del ciclo del cultivo."@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/26> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "26" ;
+    skos:prefLabel "En el riego localizado, el número de emisores por árbol, el volumen de agua aportado por cada uno de ellos y la frecuencia de riego se recomienda que se establezcan en función de la textura del terreno, de forma que se consiga ajustar la superficie mojada a la profundidad radicular efectiva suficiente para el cultivo y así evitar problemas de saturación, de humedad o de pérdidas de agua en profundidad."@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/27> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "27" ;
+    skos:prefLabel "El aporte de nutrientes conjuntamente con el agua de riego se deberá ajustar de modo que la concentración de nutrientes sea lo más baja posible, adaptándose a su vez a las necesidades hídricas del cultivo. Así mismo, los nutrientes deberán aplicarse en los momentos de máximo requerimiento de cada nutriente, de modo que se maximice el aprovechamiento por parte del cultivo y la efectividad del abonado y se reduzca, así, la acumulación en el suelo de nutrientes en forma de sales."@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/28> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "28" ;
+    skos:prefLabel "Utilización de acolchados"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/29> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "29" ;
+    skos:prefLabel "Siembra directa (SD)"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/3> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "3" ;
+    skos:prefLabel "Aplicación de purines mediante inyección"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/30> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "30" ;
+    skos:prefLabel "Mínimo laboreo (ML)"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/31> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "31" ;
+    skos:prefLabel "Diseño en línea clave (\"key-line\")"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/32> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "32" ;
+    skos:prefLabel "Utilización de mallas antigranizo"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/33> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "33" ;
+    skos:prefLabel "Riego por aspersión nocturno"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/34> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "34" ;
+    skos:prefLabel "Riego deficitario controlado (RDC)"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/35> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "35" ;
+    skos:prefLabel "Siembra en seco (arroz)"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/36> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "36" ;
+    skos:prefLabel "Monitorización de condiciones del suelo, clima y cultivo en tiempo real con sensores IoT"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/37> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "37" ;
+    skos:prefLabel "Uso de drones y satélites para el monitoreo geoespacial de cultivos"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/38> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "38" ;
+    skos:prefLabel "Análisis de datos agrícolas y apoyo a la toma de decisiones (DSS)"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/39> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "39" ;
+    skos:prefLabel "Aplicación variable de insumos con equipos de precisión"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/4> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "4" ;
+    skos:prefLabel "Dilución de purines, seguida de técnicas tales como un sistema de riego de baja presión"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/40> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "40" ;
+    skos:prefLabel "Manejo de maquinaria agrícola equipada con tecnología de precisión"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/41> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "41" ;
+    skos:prefLabel "Implementación de sistemas de riego automatizado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/42> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "42" ;
+    skos:prefLabel "Uso de drones para aplicación precisa de insumos agrícolas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/43> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "43" ;
+    skos:prefLabel "Comunicación en campo mediante redes de sensores inalámbricos"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/44> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "44" ;
+    skos:prefLabel "Acceso a información y servicios agrícolas a través de aplicaciones móviles"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/45> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "45" ;
+    skos:prefLabel "Gestión de la explotación agrícola mediante software específico"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/46> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "46" ;
+    skos:prefLabel "Limpieza y desinfección - Mantener limpias las instalaciones, equipos, vehículos y bebederos"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/47> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "47" ;
+    skos:prefLabel "Formación continua del personal - Capacitar al personal en bienestar, sanidad, higiene, manejo y bioseguridad"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/48> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "48" ;
+    skos:prefLabel "Evaluación y mejora continua - Revisar resultados productivos, sanitarios y ambientales para ajustar prácticas"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/5> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "5" ;
+    skos:prefLabel "Acidificación de los purines"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/6> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "6" ;
+    skos:prefLabel "Dosis y momento de aplicación, el abonado se realizará en aquellos momentos del ciclo del cultivo en los que el aprovechamiento del fertilizante pueda ser más rápido"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/7> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "7" ;
+    skos:prefLabel "Fraccionamiento de los aportes de acuerdo con las necesidades del cultivo, siempre que sea técnicamente posible"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/8> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "8" ;
+    skos:prefLabel "Incorporación de los fertilizantes en el suelo por sistemas de inyección en profundidad"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverActivityValueCode/9> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverActivityValueCode ;
+    skos:notation "9" ;
+    skos:prefLabel "Incorporación de los fertilizantes en el suelo mediante mezcla de los gránulos del fertilizante con el suelo"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverTypeValueCode/1> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverTypeValueCode ;
+    skos:notation "1" ;
+    skos:prefLabel "Suelo desnudo"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverTypeValueCode/2> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverTypeValueCode ;
+    skos:notation "2" ;
+    skos:prefLabel "Cubierta vegetal sembrada"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverTypeValueCode/3> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverTypeValueCode ;
+    skos:notation "3" ;
+    skos:prefLabel "Cubierta vegetal espontánea."@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverTypeValueCode/4> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverTypeValueCode ;
+    skos:notation "4" ;
+    skos:prefLabel "Cubierta inerte de restos de poda"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverTypeValueCode/5> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverTypeValueCode ;
+    skos:notation "5" ;
+    skos:prefLabel "Cubierta inerte de otros materiales (cáscaras de frutos secos, piedras, otros restos vegetales, etc.)"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexSoilCoverTypeValueCode/6> a skos:Concept ;
+    skos:inScheme siex-kos:siexSoilCoverTypeValueCode ;
+    skos:notation "6" ;
+    skos:prefLabel "Regeneración Pastos permanentes"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexTreatmentEffectivenessValueCode/1> a skos:Concept ;
+    skos:inScheme siex-kos:siexTreatmentEffectivenessValueCode ;
+    skos:notation "1" ;
+    skos:prefLabel "Buena"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexTreatmentEffectivenessValueCode/2> a skos:Concept ;
+    skos:inScheme siex-kos:siexTreatmentEffectivenessValueCode ;
+    skos:notation "2" ;
+    skos:prefLabel "Regular"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexTreatmentEffectivenessValueCode/3> a skos:Concept ;
+    skos:inScheme siex-kos:siexTreatmentEffectivenessValueCode ;
+    skos:notation "3" ;
+    skos:prefLabel "Mala"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexTrellisingSystemValueCode/1> a skos:Concept ;
+    skos:inScheme siex-kos:siexTrellisingSystemValueCode ;
+    skos:notation "1" ;
+    skos:prefLabel "Vaso"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexTrellisingSystemValueCode/2> a skos:Concept ;
+    skos:inScheme siex-kos:siexTrellisingSystemValueCode ;
+    skos:notation "2" ;
+    skos:prefLabel "Espaldera"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexTrellisingSystemValueCode/3> a skos:Concept ;
+    skos:inScheme siex-kos:siexTrellisingSystemValueCode ;
+    skos:notation "3" ;
+    skos:prefLabel "Parral"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexTrellisingSystemValueCode/4> a skos:Concept ;
+    skos:inScheme siex-kos:siexTrellisingSystemValueCode ;
+    skos:notation "4" ;
+    skos:prefLabel "Empalizado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexTrellisingSystemValueCode/5> a skos:Concept ;
+    skos:inScheme siex-kos:siexTrellisingSystemValueCode ;
+    skos:notation "5" ;
+    skos:prefLabel "Emparrado"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexTrellisingSystemValueCode/6> a skos:Concept ;
+    skos:inScheme siex-kos:siexTrellisingSystemValueCode ;
+    skos:notation "6" ;
+    skos:prefLabel "Elevación individual"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexTrellisingSystemValueCode/7> a skos:Concept ;
+    skos:inScheme siex-kos:siexTrellisingSystemValueCode ;
+    skos:notation "7" ;
+    skos:prefLabel "Rastras"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexTrellisingSystemValueCode/8> a skos:Concept ;
+    skos:inScheme siex-kos:siexTrellisingSystemValueCode ;
+    skos:notation "8" ;
+    skos:prefLabel "Cordones"@es .
+
+<https://w3id.org/EDAAnOWL/siex/kos/siexTrellisingSystemValueCode/9> a skos:Concept ;
+    skos:inScheme siex-kos:siexTrellisingSystemValueCode ;
+    skos:notation "9" ;
+    skos:prefLabel "Formas libres"@es .
+
