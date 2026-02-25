@@ -23,10 +23,12 @@ graph TB
                 OP[":ObservableProperty<br/>(Meaning)"]
             end
             
-            subgraph QualityProv ["Quality & Provenance"]
+            subgraph QualityStandard ["Quality & Standards"]
                 Met[":Metric / QualityMetric<br/>(DQV)"]
-                Prov_O[":Provenance<br/>(PROV-O)"]
+                QUDT["QUDT Units / SKOS Vocabs"]
             end
+            
+            Prov_O[":Provenance<br/>(PROV-O)"]
             
             Repr[":DataRepresentation"]
         end
@@ -53,6 +55,9 @@ graph TB
     Apps -- "requiresProfile" --> Prof
 
     Prof -- "hasMetric" --> Met
+    Met -- "hasMetricStandard" --> QUDT
+    Met -- "measuresProperty" --> OP
+    
     DA -.->|"prov:wasGeneratedBy"| Apps
     DA -.->|"prov:wasDerivedFrom"| DA
 
@@ -134,9 +139,15 @@ Together, they enable more robust discovery and interoperability between data as
 
 EDAAnOWL v0.6.0 provides explicit support for data quality, lineage, and performance tracking:
 
-- **Metrics (`Metric`, `QualityMetric`)**: A `DataProfile` can define multiple metrics using `:hasMetric`. These align with `dqv:Metric`, allowing users to specify quality indicators (e.g., completeness, accuracy) or descriptive statistics.
-- **Performance (`PerformanceMetric`)**: (New in v0.6.0) `DataApp`s can declare non-functional properties like execution time or max throughput using `:hasPerformanceMetric`.
-- **Provenance (`prov:wasGeneratedBy`)**: A `DataAsset` can be linked back to the `ids:SmartDataApp` (e.g., a `:PredictionApp`) that created it. This enables full lineage tracing from the raw data, through the processing app, to the derived asset.
+- **Metrics (`Metric`, `QualityMetric`)**: A `DataProfile` can define multiple metrics using `:hasMetric`. These align with `dqv:QualityMeasurement`.
+- **Standards (`hasMetricStandard`)**: (New in v0.7.0) Replaces `metricUnit`. Links a metric to a semantic definition, such as a **QUDT Unit** (`qudt:KiloGM`) or a **SKOS Concept** for categorical data.
+- **Meaning (`measuresProperty`)**: (New in v0.7.0) Explicitly links a metric to the `ObservableProperty` it measures, enabling safer unit conversions and validation.
+- **Performance (`PerformanceMetric`)**: `DataApp`s can declare non-functional properties like execution time or max throughput using `:hasPerformanceMetric`.
+- **Provenance (`prov:wasGeneratedBy`)**: A `DataAsset` can be linked back to the processing app that created it, enabling full lineage tracing.
+
+> [!TIP]
+> **Domain-Specific Catalogs: SIEX (FEGA)**
+> Although EDAAnOWL follows a "Zero-Local" vocabulary policy, we include a strategic exception for the **[SIEX (Spain)](https://www3.sede.fega.gob.es/bdcsixpor/catalogos)** catalogs. These codes are essential for the Spanish agricultural sector and government aid (CAP/PAC). Since no official RDF version exists, we curate them locally via automated CSV-to-SKOS transformation to support the [EDAAn Data Space](https://edaan.agora-datalab.eu/).
 
 ### Workflow perspective with BIGOWL
 
@@ -175,8 +186,8 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
 
   - **Structure**:
     - `/src/`
-      - `0.5.0/` (Ontology and vocabs for v0.5.0)
-      - `0.6.0/` (Ontology and vocabs for v0.6.0 - Latest)
+      - `0.6.0/` (Ontology and vocabs for v0.6.0)
+      - `0.7.0/` (Ontology and vocabs for v0.7.0 - Latest)
     - `/.github/workflows/` (The CI/CD workflow)
 
 - **`dev` branch**:
@@ -194,8 +205,8 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
   - **Structure**:
 
     - `/latest/` (A mirror of the most recent version)
-    - `/0.5.0/`
     - `/0.6.0/`
+    - `/0.7.0/`
     - `.nojekyll` (Disables Jekyll on GitHub Pages)
 
 - **Feature Branches (e.g., `feat/my-fix`)**:
