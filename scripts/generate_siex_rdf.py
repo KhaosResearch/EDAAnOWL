@@ -153,7 +153,7 @@ def generate_rdf():
     # Our Namespace is .../siex/ (with slash)
     
     # Serialize to siex.ttl
-    unified_g.serialize(destination=BASE_ONTOLOGY, format="turtle")
+    unified_g.serialize(destination=BASE_ONTOLOGY, format="turtle", base=SIEX_DEF)
     print(f"Generated unified vocabulary at {BASE_ONTOLOGY}")
 
 if __name__ == "__main__":
