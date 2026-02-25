@@ -4,8 +4,8 @@ from rdflib import Graph, Literal, RDF, URIRef, Namespace
 from rdflib.namespace import SKOS, DCTERMS, RDFS, XSD
 
 # Namespaces
-SIEX_DEF = Namespace("https://agrixels.upc.edu/def/medio-rural-pesca/agrixel/")
-SIEX_KOS = Namespace("https://agrixels.upc.edu/kos/medio-rural-pesca/siex/")
+SIEX_DEF = Namespace("https://w3id.org/EDAAnOWL/siex/")
+SIEX_KOS = Namespace("https://w3id.org/EDAAnOWL/siex/kos/")
 EDAAN = Namespace("https://w3id.org/EDAAnOWL/")
 
 # Configuration: Mapping SIEX Schemes to CSV file names and their columns
@@ -80,7 +80,7 @@ MAPPING = {
 }
 
 CSV_DIR = r"c:\Users\khaosdev\Downloads\Catalogos_csv"
-OUTPUT_FILE = r"c:\Users\khaosdev\Downloads\EDAAnOWL_ultimo\EDAAnOWL\src\0.6.1\vocabularies\siex-data.ttl"
+OUTPUT_FILE = r"c:\Users\khaosdev\Downloads\EDAAnOWL_ultimo\EDAAnOWL\src\0.7.0\vocabularies\siex-data.ttl"
 
 def generate_rdf():
     g = Graph()

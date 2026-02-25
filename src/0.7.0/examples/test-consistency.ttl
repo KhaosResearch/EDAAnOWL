@@ -18,6 +18,7 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
 @prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
 
 <https://w3id.org/EDAAnOWL/test/> rdf:type owl:Ontology ;
     owl:imports <https://w3id.org/EDAAnOWL/> ;
@@ -122,4 +123,6 @@ test:ValidService a :PredictionApp ;
 
 test:DummyMetric a :Metric, :QualityMetric, dqv:QualityMetric ;
     :metricName "testMetric" ;
-    :metricValue "1.0"^^xsd:decimal .
+    :metricValue "1.0"^^xsd:decimal ;
+    :hasMetricStandard unit:PERCENT ;
+    :measuresProperty agrovoc:c_ce585e0d .

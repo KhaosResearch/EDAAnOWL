@@ -210,6 +210,20 @@
         sh:severity sh:Warning
     ] ;
     sh:property [
+        sh:path :hasMetricStandard ;
+        sh:minCount 0 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "Metric SHOULD use :hasMetricStandard to link to a QUDT unit or SKOS vocabulary (resolves #35)"@en ;
+        sh:severity sh:Info
+    ] ;
+    sh:property [
+        sh:path :measuresProperty ;
+        sh:minCount 0 ;
+        sh:class :ObservableProperty ;
+        sh:message "Metric SHOULD use :measuresProperty to link to the ObservableProperty it quantifies"@en ;
+        sh:severity sh:Info
+    ] ;
+    sh:property [
         sh:path :metricValue ;  # subPropertyOf dqv:value
         sh:minCount 1 ;
         sh:maxCount 1 ;
