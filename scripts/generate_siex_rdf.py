@@ -125,9 +125,19 @@ def generate_rdf():
 
                 processed_ids.add(concept_id)
 
-    # Save the graph
-    g.serialize(destination=OUTPUT_FILE, format="turtle", base=SIEX_DEF) # Added base URI
-    print(f"Generated {OUTPUT_FILE}")
+    # Merge with the base ontology file
+    BASE_ONTOLOGY = r"c:\Users\khaosdev\Downloads\EDAAnOWL_ultimo\EDAAnOWL\src\0.7.0\vocabularies\siex.ttl"
+    if os.path.exists(BASE_ONTOLOGY):
+        g.parse(BASE_ONTOLOGY, format="turtle")
+    
+    # Save the unified graph to siex.ttl
+    g.bind("skos", SKOS)
+    g.bind("siex", SIEX_DEF)
+    g.bind("kos", SIEX_KOS)
+    
+    # We output to siex.ttl to ensure resolvability via the existing /vocabularies/filename rule
+    g.serialize(destination=BASE_ONTOLOGY, format="turtle", base=SIEX_DEF)
+    print(f"Generated unified vocabulary at {BASE_ONTOLOGY}")
 
 if __name__ == "__main__":
     generate_rdf()
