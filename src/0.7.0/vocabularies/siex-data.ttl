@@ -1,3 +1,4 @@
+@base <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/> .
 @prefix siex-kos: <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 

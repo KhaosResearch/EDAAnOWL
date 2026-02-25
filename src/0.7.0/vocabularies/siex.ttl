@@ -1,4 +1,5 @@
 @prefix : <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/> .
+@prefix kos: <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -6,8 +7,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix locn: <http://www.w3.org/ns/locn#> .
-@prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
 @base <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/> .
 
 <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex> a owl:Ontology ;
@@ -29,41 +28,41 @@
 #    Concept Schemes (SIEX Catalogs)
 #################################################################
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexCropProductValueCode> a skos:ConceptScheme ;
+kos:siexCropProductValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Crop Product Value Codes"@en , "Códigos de Producto Vegetal SIEX"@es .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexCropTypeValueCode> a skos:ConceptScheme ;
+kos:siexCropTypeValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Crop Type Value Codes"@en , "Códigos de Tipo de Cultivo SIEX"@es .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexFarmingSystemValueCode> a skos:ConceptScheme ;
+kos:siexFarmingSystemValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Farming System Value Codes"@en , "Códigos de Sistema de Cultivo SIEX"@es .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexFertilizationMethodValueCode> a skos:ConceptScheme ;
+kos:siexFertilizationMethodValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Fertilization Method Value Codes"@en , "Códigos de Método de Aplicación de Fertilizante SIEX"@es .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexFertilizationTypeValueCode> a skos:ConceptScheme ;
+kos:siexFertilizationTypeValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Fertilization Type Value Codes"@en , "Códigos de Tipo de Fertilización SIEX"@es .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexFertilizerMaterialValueCode> a skos:ConceptScheme ;
+kos:siexFertilizerMaterialValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Fertilizer Material Value Codes"@en , "Códigos de Material Fertilizante SIEX"@es .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexIntendedCropUseValueCode> a skos:ConceptScheme ;
+kos:siexIntendedCropUseValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Intended Crop Use Value Codes"@en , "Códigos de Finalidad de la Cosecha SIEX"@es .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexIrrigationWaterSourceValueCode> a skos:ConceptScheme ;
+kos:siexIrrigationWaterSourceValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Irrigation Water Source Value Codes"@en , "Códigos de Procedencia del Agua de Riego SIEX"@es .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexRootstockValueCode> a skos:ConceptScheme ;
+kos:siexRootstockValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Rootstock Value Codes"@en , "Códigos de Portainjerto SIEX"@es .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexSoilCoverActivityValueCode> a skos:ConceptScheme ;
+kos:siexSoilCoverActivityValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Soil Cover Activity Value Codes"@en , "Códigos de Actividad de Cobertura del Suelo SIEX"@es .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexSoilCoverTypeValueCode> a skos:ConceptScheme ;
+kos:siexSoilCoverTypeValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Soil Cover Type Value Codes"@en , "Códigos de Tipo de Cobertura del Suelo SIEX"@es .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexTreatmentEffectivenessValueCode> a skos:ConceptScheme ;
+kos:siexTreatmentEffectivenessValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Treatment Effectiveness Value Codes"@en , "Códigos de Eficacia del Tratamiento SIEX"@es .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/siexTrellisingSystemValueCode> a skos:ConceptScheme ;
+kos:siexTrellisingSystemValueCode a skos:ConceptScheme ;
     rdfs:label "SIEX Trellising System Value Codes"@en , "Códigos de Sistema de Conducción SIEX"@es .

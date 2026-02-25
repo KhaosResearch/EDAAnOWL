@@ -125,7 +125,8 @@ def generate_rdf():
 
                 processed_ids.add(concept_id)
 
-    g.serialize(destination=OUTPUT_FILE, format="turtle")
+    # Save the graph
+    g.serialize(destination=OUTPUT_FILE, format="turtle", base=SIEX_DEF) # Added base URI
     print(f"Generated {OUTPUT_FILE}")
 
 if __name__ == "__main__":
