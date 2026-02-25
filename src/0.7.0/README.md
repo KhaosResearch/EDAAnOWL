@@ -6,7 +6,7 @@ This is a **minor release** introducing explicit support for measurement units v
 
 | Change | Impact | Justification |
 |--------|--------|---------------|
-| **Semantic Standards** | `metricUnit` → `edaan:hasMetricStandard` | Enables referencing standardized QUDT URIs or SKOS ConceptSchemes natively, improving interoperability and machine reasoning for both numerical units and categorical data. (resolves #35) |
+| **Semantic Standards** | `metricUnit` → `edaan:hasMetricStandard` | Enables referencing standardized QUDT URIs or SKOS ConceptSchemes natively, improving interoperability and machine reasoning for both numerical units and categorical data. [(resolves #35)](https://github.com/KhaosResearch/EDAAnOWL/issues/35) |
 | **Operational Meaning** | New Property: `edaan:measuresProperty` | Explicitly links metrics to the `ObservableProperty` they measure (e.g., AGROVOC terms), ensuring type-safe measurements and better matchmaking. |
 | **SIEX Rebranding** | New Namespace: `w3id.org/EDAAnOWL/siex/` | Official URI persistence for SIEX vocabularies, removing all legacy Agrixels dependencies. |
 
