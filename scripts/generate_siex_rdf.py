@@ -4,8 +4,8 @@ from rdflib import Graph, Literal, RDF, URIRef, Namespace
 from rdflib.namespace import SKOS, DCTERMS, RDFS, XSD
 
 # Namespaces
-SIEX_DEF = Namespace("https://w3id.org/EDAAnOWL/siex/")
-SIEX_KOS = Namespace("https://w3id.org/EDAAnOWL/siex/kos/")
+SIEX_DEF = Namespace("https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/")
+SIEX_KOS = Namespace("https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/")
 EDAAN = Namespace("https://w3id.org/EDAAnOWL/")
 
 # Configuration: Mapping SIEX Schemes to CSV file names and their columns
