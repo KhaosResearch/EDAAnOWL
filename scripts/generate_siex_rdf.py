@@ -2,6 +2,7 @@ import csv
 import os
 from rdflib import Graph, Literal, RDF, URIRef, Namespace
 from rdflib.namespace import SKOS, DCTERMS, RDFS, XSD, OWL
+import re
 
 # Namespaces
 SIEX_DEF = Namespace("https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/")
@@ -131,30 +132,47 @@ def generate_rdf():
     # We create a new graph to ensure a clean serialization of the unified vocabulary
     unified_g = Graph()
     
-    # Bind prefixes (VERY IMPORTANT for clean Turtle)
+    # Bind prefixes (v0.4.0 style)
+    unified_g.bind("", EDAAN)
     unified_g.bind("skos", SKOS)
     unified_g.bind("dct", DCTERMS)
     unified_g.bind("rdfs", RDFS)
     unified_g.bind("owl", OWL)
     unified_g.bind("xsd", XSD)
-    unified_g.bind("", SIEX_DEF) # Empty prefix for the ontology base
-    unified_g.bind("kos", SIEX_KOS)
     
     # Load the base part (the ontology and schemes)
     if os.path.exists(BASE_ONTOLOGY):
         unified_g.parse(BASE_ONTOLOGY, format="turtle")
     
-    # Add the generated data from our current graph
+    # Process and add the generated data from our current graph
     for s, p, o in g:
-        unified_g.add((s, p, o))
-    
-    # Correct the Ontology URI to use the prefixable version (without trailing slash if preferred, or with it)
-    # The user URI was <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex> (no slash)
-    # Our Namespace is .../siex/ (with slash)
+        # Convert the temporary URIs to the new permanent pattern
+        # From: .../siex/kos/siexCropProductValueCode/1
+        # To: https://w3id.org/EDAAnOWL/siex_CropProduct_1
+        
+        s_str = str(s)
+        if "/kos/" in s_str:
+            parts = s_str.split("/")
+            scheme_full = parts[-2] # e.g. siexCropProductValueCode
+            item_id = parts[-1]
+            
+            # Simple extraction of the core name
+            core_name = scheme_full.replace("siex", "").replace("ValueCode", "")
+            new_s = EDAAN[f"siex_{core_name}_{item_id}"]
+            
+            # Translate Scheme URI too if it matches
+            new_o = o
+            if p == SKOS.inScheme:
+                new_o = EDAAN[f"siex_{core_name}_Scheme"]
+            
+            unified_g.add((new_s, p, new_o))
+        else:
+            unified_g.add((s, p, o))
     
     # Serialize to siex.ttl
-    unified_g.serialize(destination=BASE_ONTOLOGY, format="turtle", base=SIEX_DEF)
-    print(f"Generated unified vocabulary at {BASE_ONTOLOGY}")
+    # With no slashes in local names, rdflib will use :prefix automatically
+    unified_g.serialize(destination=BASE_ONTOLOGY, format="turtle")
+    print(f"Generated unified and NATIVE vocabulary at {BASE_ONTOLOGY}")
 
 if __name__ == "__main__":
     generate_rdf()
