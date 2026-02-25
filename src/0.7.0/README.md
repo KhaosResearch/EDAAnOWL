@@ -140,10 +140,11 @@ Starting with v0.6.0, EDAAnOWL **no longer bundles local SKOS vocabularies** for
 
 | Domain | Recommended Vocabulary | URI Pattern |
 |--------|------------------------|-------------|
-| Agriculture | [AGROVOC](http://aims.fao.org/aos/agrovoc/) | `http://aims.fao.org/aos/agrovoc/c_*` |
-| General Science | [EuroSciVoc](http://data.europa.eu/8mn/) | `http://data.europa.eu/8mn/*` |
+| Agriculture (Global) | [AGROVOC](http://aims.fao.org/aos/agrovoc/) | `http://aims.fao.org/aos/agrovoc/c_*` |
+| Agriculture (Spain) | [SIEX (local)](vocabularies/siex.ttl) | `https://w3id.org/EDAAnOWL/siex/kos/*` |
+| Units of Measure | [QUDT](http://qudt.org/vocab/unit/) | `http://qudt.org/vocab/unit/*` |
 | Data Quality | [DQV](http://www.w3.org/ns/dqv#) | `http://www.w3.org/ns/dqv#*` |
-| Units | [QUDT](http://qudt.org/vocab/unit/) | `http://qudt.org/vocab/unit/*` |
+| General Science | [EuroSciVoc](http://data.europa.eu/8mn/) | `http://data.europa.eu/8mn/*` |
 | Geospatial | [EPSG](http://www.opengis.net/def/crs/EPSG/) | `http://www.opengis.net/def/crs/EPSG/0/*` |
 
 > [!IMPORTANT]
@@ -151,6 +152,11 @@ Starting with v0.6.0, EDAAnOWL **no longer bundles local SKOS vocabularies** for
 
 ### Zero-Local Policy
 As of v0.6.0, all local vocabulary files (previously in `vocabularies/`) have been removed. Semantic interoperability is now achieved by directly referencing external normative IRIs.
+
+### Regional Catalogs (Exception: SIEX)
+For the [EDAAn Data Space](https://edaan.agora-datalab.eu/), which is specialized in Spanish agriculture, we have reintroduced a **local exception** for the **[SIEX (FEGA)](https://www3.sede.fega.gob.es/bdcsixpor/catalogos)** catalogs.
+
+Since SIEX does not provide an official ontology or hosted SKOS vocabulary, we have curated these codes locally to ensure immediate operational value for Spanish participants who already use these codes for government aid (CAP/PAC). These have been generated using internal scripts from official CSV sources to bridge the gap while waiting for official RDF publications from the administration.
 
 ---
 

@@ -145,6 +145,10 @@ EDAAnOWL v0.6.0 provides explicit support for data quality, lineage, and perform
 - **Performance (`PerformanceMetric`)**: `DataApp`s can declare non-functional properties like execution time or max throughput using `:hasPerformanceMetric`.
 - **Provenance (`prov:wasGeneratedBy`)**: A `DataAsset` can be linked back to the processing app that created it, enabling full lineage tracing.
 
+> [!TIP]
+> **Domain-Specific Catalogs: SIEX (FEGA)**
+> Although EDAAnOWL follows a "Zero-Local" vocabulary policy, we include a strategic exception for the **[SIEX (Spain)](https://www3.sede.fega.gob.es/bdcsixpor/catalogos)** catalogs. These codes are essential for the Spanish agricultural sector and government aid (CAP/PAC). Since no official RDF version exists, we curate them locally via automated CSV-to-SKOS transformation to support the [EDAAn Data Space](https://edaan.agora-datalab.eu/).
+
 ### Workflow perspective with BIGOWL
 
 The **BIGOWL** part of the diagram introduces the workflow view:

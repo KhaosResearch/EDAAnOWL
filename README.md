@@ -55,6 +55,8 @@ We align with the **[Esquema Nacional de Interoperabilidad (ENI)](https://cred.d
 *   **Enhanced Reuse (ENI)**: The ENI mandates facilitating information reuse. EDAAnOWL takes this further by enabling **automated reuse** through detailed functional semantics, reducing integration costs.
 *   **Sectoral Semantic Interoperability (MIT)**: The [Marco de Interoperabilidad Técnico](https://cred.digital.gob.es/content/dam/cred/img/docs/MarcoInteroperabilidadTecnico.pdf) (p. 59) highlights the need for organizations to share a "common meaning" to enable reuse across sectors.
     *   **EDAAnOWL's Solution**: We address this challenge by providing a **Cross-Domain Annotation Layer**. By decoupling the *technical profile* (`DataProfile`) from *domain semantics* (`ObservableProperty`), EDAAnOWL allows assets from diverse sectors (e.g., Agriculture, Mobility, Health) to be modeled with the same grammar, facilitating the creation of transverse Data Spaces.
+*   **Sector-Specific Alignment (SIEX & FEGA)**: To support the [EDAAn Data Space](https://edaan.agora-datalab.eu/), we provide explicit alignment with the **[SIEX (Spain)](https://www3.sede.fega.gob.es/bdcsixpor/catalogos)** catalogs from FEGA.
+    *   **Rationale**: These codes are the *de facto* standard for the Spanish agricultural sector, used by participants to manage government aid (CAP/PAC). By transforming these official catalogs into SKOS concepts, we ensure that the data space is immediately operational and intuitive for Spanish users, bridging the gap between administrative requirements and semantic interoperability.
 
 ---
 

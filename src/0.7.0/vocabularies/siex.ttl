@@ -11,6 +11,7 @@
 <https://w3id.org/EDAAnOWL/siex/> a owl:Ontology ;
     dct:title "SIEX Ontology Alignment"@en , "Ontología de Alineación SIEX"@es ;
     dct:description "Ontology for representing SIEX (Sistema de Información de Explotaciones Agrarias) codes as SKOS concepts. Rebranded from Agrixels to official EDAAnOWL namespace."@en ;
+    rdfs:comment "Provisional local SKOS representation of the official SIEX (FEGA) catalogs. Since there is no official RDF/SKOS publication for these codes, they are curated here to support the EDAAn Data Space (Spanish Agri-food sector). The codes are automatically transformed from CSV official catalogs (https://www3.sede.fega.gob.es/bdcsixpor/catalogos) to facilitate government aid compliance (CAP/PAC) for Spanish participants."@en ;
     owl:versionInfo "0.7.0" .
 
 #################################################################
