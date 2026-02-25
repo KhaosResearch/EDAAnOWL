@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.1...v0.7.0) (2026-02-25)
+
+
+### Added
+
+* complete v0.7.0 feature set with updated validation and documentation ([0a673ed](https://github.com/KhaosResearch/EDAAnOWL/commit/0a673ed5f54038d93a8c49dd2b3c9afac37f4510))
+* release v0.7.0 with QUDT integration, SIEX rebranding, and doc updates ([59c7c30](https://github.com/KhaosResearch/EDAAnOWL/commit/59c7c308269f4ce08d4bb2c9064ba72e1cf6c873))
+
+
+### Fixed
+
+* **siex:** correct catalog mappings and regenerate RDF data ([765e740](https://github.com/KhaosResearch/EDAAnOWL/commit/765e7400136bb5cc4b85615f9b5c0924fb1566b6))
+
+
+### Changed
+
+* Add SIEX/FEGA vocabularies ([c49e924](https://github.com/KhaosResearch/EDAAnOWL/commit/c49e924b03ab647bce8c409aac3d7a0090e2989e))
+* explicitly link v0.7.0 semantic units to [#35](https://github.com/KhaosResearch/EDAAnOWL/issues/35) ([b8164fe](https://github.com/KhaosResearch/EDAAnOWL/commit/b8164fe790ae4057fbf95b17af06ddadb3fd0b7e))
+* finalize v0.7.0 README with correct property names ([244bce3](https://github.com/KhaosResearch/EDAAnOWL/commit/244bce341de6820b0607fb24d23d4b517b6c09fd))
+* force next release to 0.7.0 ([3c8fe3f](https://github.com/KhaosResearch/EDAAnOWL/commit/3c8fe3f5be9c35db029e53f3290a169ebd954198))
+* remove unreleased v0.7.0 changelog entry ([658aeed](https://github.com/KhaosResearch/EDAAnOWL/commit/658aeed62886d9ed4e0385c6fa8b805b2dfc5d93))
+* use explicit hyperlink for issue [#35](https://github.com/KhaosResearch/EDAAnOWL/issues/35) in README ([07a3563](https://github.com/KhaosResearch/EDAAnOWL/commit/07a35634dade0f2394676937e72558e1f780a558))
+
 ## [0.6.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.0...v0.6.1) (2026-02-18)
 
 
