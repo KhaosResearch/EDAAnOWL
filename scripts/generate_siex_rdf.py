@@ -1,7 +1,7 @@
 import csv
 import os
 from rdflib import Graph, Literal, RDF, URIRef, Namespace
-from rdflib.namespace import SKOS, DCTERMS, RDFS, XSD
+from rdflib.namespace import SKOS, DCTERMS, RDFS, XSD, OWL
 
 # Namespaces
 SIEX_DEF = Namespace("https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/")
@@ -127,16 +127,33 @@ def generate_rdf():
 
     # Merge with the base ontology file
     BASE_ONTOLOGY = r"c:\Users\khaosdev\Downloads\EDAAnOWL_ultimo\EDAAnOWL\src\0.7.0\vocabularies\siex.ttl"
+    
+    # We create a new graph to ensure a clean serialization of the unified vocabulary
+    unified_g = Graph()
+    
+    # Bind prefixes (VERY IMPORTANT for clean Turtle)
+    unified_g.bind("skos", SKOS)
+    unified_g.bind("dct", DCTERMS)
+    unified_g.bind("rdfs", RDFS)
+    unified_g.bind("owl", OWL)
+    unified_g.bind("xsd", XSD)
+    unified_g.bind("", SIEX_DEF) # Empty prefix for the ontology base
+    unified_g.bind("kos", SIEX_KOS)
+    
+    # Load the base part (the ontology and schemes)
     if os.path.exists(BASE_ONTOLOGY):
-        g.parse(BASE_ONTOLOGY, format="turtle")
+        unified_g.parse(BASE_ONTOLOGY, format="turtle")
     
-    # Save the unified graph to siex.ttl
-    g.bind("skos", SKOS)
-    g.bind("siex", SIEX_DEF)
-    g.bind("kos", SIEX_KOS)
+    # Add the generated data from our current graph
+    for s, p, o in g:
+        unified_g.add((s, p, o))
     
-    # We output to siex.ttl to ensure resolvability via the existing /vocabularies/filename rule
-    g.serialize(destination=BASE_ONTOLOGY, format="turtle", base=SIEX_DEF)
+    # Correct the Ontology URI to use the prefixable version (without trailing slash if preferred, or with it)
+    # The user URI was <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex> (no slash)
+    # Our Namespace is .../siex/ (with slash)
+    
+    # Serialize to siex.ttl
+    unified_g.serialize(destination=BASE_ONTOLOGY, format="turtle")
     print(f"Generated unified vocabulary at {BASE_ONTOLOGY}")
 
 if __name__ == "__main__":

@@ -1,9 +1,8 @@
-@base <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/> .
+@prefix : <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix kos: <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix siex: <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex> a owl:Ontology ;
@@ -8309,7 +8308,7 @@
     skos:notation "9" ;
     skos:prefLabel "Formas libres"@es .
 
-<siexConcept> a owl:ObjectProperty ;
+:siexConcept a owl:ObjectProperty ;
     rdfs:label "siex concept"@en,
         "concepto siex"@es ;
     rdfs:comment "Links an entity to a SIEX SKOS Concept."@en ;
