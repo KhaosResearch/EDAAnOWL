@@ -1,10 +1,11 @@
-@prefix : <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/> .
+@prefix : <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix siex: <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-<https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex> a owl:Ontology ;
+siex: a owl:Ontology ;
     dct:description "Ontology for representing SIEX (Sistema de Información de Explotaciones Agrarias) codes as SKOS concepts. Aligned with version 0.7.0."@en ;
     dct:title "SIEX Ontology Alignment"@en,
         "Ontología de Alineación SIEX"@es ;
