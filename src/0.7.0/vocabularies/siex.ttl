@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -8308,54 +8308,54 @@
     skos:prefLabel "Formas libres"@es .
 
 :siex_FertilizationType_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Fertilization Type Value Codes"@en,
-        "Códigos de Tipo de Fertilización SIEX"@es .
+    skos:notation "siexFertilizationTypeValueCode" ;
+    skos:prefLabel "Esquema SIEX: Tipo de fertilización"@es .
 
 :siex_TreatmentEffectiveness_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Treatment Effectiveness Value Codes"@en,
-        "Códigos de Eficacia del Tratamiento SIEX"@es .
+    skos:notation "siexTreatmentEffectivenessValueCode" ;
+    skos:prefLabel "Esquema SIEX: Eficacia del tratamiento"@es .
 
 :siex_IrrigationWaterSource_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Irrigation Water Source Value Codes"@en,
-        "Códigos de Procedencia del Agua de Riego SIEX"@es .
+    skos:notation "siexIrrigationWaterSourceValueCode" ;
+    skos:prefLabel "Esquema SIEX: Procedencia del agua de riego"@es .
 
 :siex_SoilCoverType_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Soil Cover Type Value Codes"@en,
-        "Códigos de Tipo de Cobertura del Suelo SIEX"@es .
+    skos:notation "siexSoilCoverTypeValueCode" ;
+    skos:prefLabel "Esquema SIEX: Tipo de cobertura del suelo"@es .
 
 :siex_FertilizationMethod_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Fertilization Method Value Codes"@en,
-        "Códigos de Método de Aplicación de Fertilizante SIEX"@es .
+    skos:notation "siexFertilizationMethodValueCode" ;
+    skos:prefLabel "Esquema SIEX: Método de aplicación de fertilizante"@es .
 
 :siex_TrellisingSystem_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Trellising System Value Codes"@en,
-        "Códigos de Sistema de Conducción SIEX"@es .
+    skos:notation "siexTrellisingSystemValueCode" ;
+    skos:prefLabel "Esquema SIEX: Sistema de conducción"@es .
 
 :siex_IntendedCropUse_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Intended Crop Use Value Codes"@en,
-        "Códigos de Finalidad de la Cosecha SIEX"@es .
+    skos:notation "siexIntendedCropUseValueCode" ;
+    skos:prefLabel "Esquema SIEX: Finalidad de la cosecha"@es .
 
 :siex_FertilizerMaterial_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Fertilizer Material Value Codes"@en,
-        "Códigos de Material Fertilizante SIEX"@es .
+    skos:notation "siexFertilizerMaterialValueCode" ;
+    skos:prefLabel "Esquema SIEX: Material fertilizante"@es .
 
 :siex_FarmingSystem_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Farming System Value Codes"@en,
-        "Códigos de Sistema de Cultivo SIEX"@es .
+    skos:notation "siexFarmingSystemValueCode" ;
+    skos:prefLabel "Esquema SIEX: Sistema de cultivo"@es .
 
 :siex_Rootstock_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Rootstock Value Codes"@en,
-        "Códigos de Portainjerto SIEX"@es .
+    skos:notation "siexRootstockValueCode" ;
+    skos:prefLabel "Esquema SIEX: Portainjerto"@es .
 
 :siex_SoilCoverActivity_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Soil Cover Activity Value Codes"@en,
-        "Códigos de Buenas Prácticas SIEX"@es .
+    skos:notation "siexSoilCoverActivityValueCode" ;
+    skos:prefLabel "Esquema SIEX: Buenas prácticas"@es .
 
 :siex_CropProduct_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Crop Product Value Codes"@en,
-        "Códigos de Producto Vegetal SIEX"@es .
+    skos:notation "siexCropProductValueCode" ;
+    skos:prefLabel "Esquema SIEX: Producto Vegetal"@es .
 
 :siex_CropType_Scheme a skos:ConceptScheme ;
-    rdfs:label "SIEX Crop Type Value Codes"@en,
-        "Códigos de Cultivo SIEX"@es .
+    skos:notation "siexCropTypeValueCode" ;
+    skos:prefLabel "Esquema SIEX: Cultivo"@es .
 

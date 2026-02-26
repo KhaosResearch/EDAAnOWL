@@ -97,7 +97,16 @@ def generate_rdf():
             continue
 
         scheme_uri = SIEX_KOS[scheme_name]
-        print(f"Processing {scheme_name} from {config['file']}...")
+        core_name_simple = scheme_name.replace("siex", "").replace("ValueCode", "")
+        
+        print(f"Processing {scheme_name} ({core_name_simple}) from {config['file']}...")
+
+        # Add the scheme definition
+        g.add((scheme_uri, RDF.type, SKOS.ConceptScheme))
+        g.add((scheme_uri, SKOS.notation, Literal(scheme_name)))
+        # Use the name of the file or a custom label
+        scheme_label = config["file"].replace(".csv", "")
+        g.add((scheme_uri, SKOS.prefLabel, Literal(f"Esquema SIEX: {scheme_label}", lang="es")))
 
         with open(file_path, mode='r', encoding='latin-1') as f:
             # Using semicolon as delimiter based on previous head output
@@ -132,17 +141,32 @@ def generate_rdf():
     # We create a new graph to ensure a clean serialization of the unified vocabulary
     unified_g = Graph()
     
-    # Bind prefixes (v0.4.0 style)
-    unified_g.bind("", EDAAN)
+    # Bind prefixes (v0.7.0 style)
+    unified_g.bind("", SIEX_DEF)
     unified_g.bind("skos", SKOS)
     unified_g.bind("dct", DCTERMS)
     unified_g.bind("rdfs", RDFS)
     unified_g.bind("owl", OWL)
     unified_g.bind("xsd", XSD)
+    unified_g.bind("edaan", EDAAN)
     
     # Load the base part (the ontology and schemes)
     if os.path.exists(BASE_ONTOLOGY):
         unified_g.parse(BASE_ONTOLOGY, format="turtle")
+        
+        # Cleanup: Remove ALL existing SIEX concepts and schemes 
+        # to avoid duplicates and stale labels (like old English ones)
+        # We match both versioned and unversioned patterns
+        patterns = [
+            re.compile(r"https://w3id.org/EDAAnOWL/siex_.*"),
+            re.compile(r"https://w3id.org/EDAAnOWL/0\.7\.0/vocabularies/siex/siex_.*")
+        ]
+        
+        for s in list(unified_g.subjects()):
+            s_str = str(s)
+            if any(p.match(s_str) for p in patterns):
+                for p, o in list(unified_g.predicate_objects(s)):
+                    unified_g.remove((s, p, o))
     
     # Process and add the generated data from our current graph
     for s, p, o in g:
@@ -153,18 +177,39 @@ def generate_rdf():
         s_str = str(s)
         if "/kos/" in s_str:
             parts = s_str.split("/")
-            scheme_full = parts[-2] # e.g. siexCropProductValueCode
-            item_id = parts[-1]
-            
-            # Simple extraction of the core name
-            core_name = scheme_full.replace("siex", "").replace("ValueCode", "")
-            new_s = EDAAN[f"siex_{core_name}_{item_id}"]
-            
-            # Translate Scheme URI too if it matches
+            idx_kos = parts.index("kos")
+            remaining = parts[idx_kos + 1 :]
+
+            if len(remaining) == 2:  # It's a Concept: .../kos/SchemeName/ID
+                scheme_full = remaining[0]
+                item_id = remaining[1]
+                core_name = scheme_full.replace("siex", "").replace("ValueCode", "")
+                new_s = SIEX_DEF[f"siex_{core_name}_{item_id}"]
+            elif len(remaining) == 1:  # It's the Scheme itself: .../kos/SchemeName
+                scheme_full = remaining[0]
+                core_name = scheme_full.replace("siex", "").replace("ValueCode", "")
+                new_s = SIEX_DEF[f"siex_{core_name}_Scheme"]
+            else:
+                new_s = s
+
+            # Translate Objects too if they are SIEX URIs
             new_o = o
-            if p == SKOS.inScheme:
-                new_o = EDAAN[f"siex_{core_name}_Scheme"]
-            
+            o_str = str(o)
+            if "/kos/" in o_str:
+                o_parts = o_str.split("/")
+                o_idx_kos = o_parts.index("kos")
+                o_remaining = o_parts[o_idx_kos + 1 :]
+                
+                if len(o_remaining) == 2: # Concept as object
+                    o_scheme_full = o_remaining[0]
+                    o_item_id = o_remaining[1]
+                    o_core_name = o_scheme_full.replace("siex", "").replace("ValueCode", "")
+                    new_o = SIEX_DEF[f"siex_{o_core_name}_{o_item_id}"]
+                elif len(o_remaining) == 1: # Scheme as object (common for skos:inScheme)
+                    o_scheme_full = o_remaining[0]
+                    o_core_name = o_scheme_full.replace("siex", "").replace("ValueCode", "")
+                    new_o = SIEX_DEF[f"siex_{o_core_name}_Scheme"]
+
             unified_g.add((new_s, p, new_o))
         else:
             unified_g.add((s, p, o))
