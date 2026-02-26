@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.7.0...v0.7.1) (2026-02-26)
+
+
+### Fixed
+
+* **siex:** fix uris ([7fd87eb](https://github.com/KhaosResearch/EDAAnOWL/commit/7fd87ebbf3b7ec16eb800d0a383e66309984459c))
+
 ## [0.7.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.1...v0.7.0) (2026-02-25)
 
 
