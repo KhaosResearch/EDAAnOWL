@@ -8,7 +8,7 @@ This is a **minor release** introducing explicit support for measurement units v
 |--------|--------|---------------|
 | **Semantic Standards** | `metricUnit` → `edaan:hasMetricStandard` | Enables referencing standardized QUDT URIs or SKOS ConceptSchemes natively, improving interoperability and machine reasoning for both numerical units and categorical data. [(resolves #35)](https://github.com/KhaosResearch/EDAAnOWL/issues/35) |
 | **Operational Meaning** | New Property: `edaan:measuresProperty` | Explicitly links metrics to the `ObservableProperty` they measure (e.g., AGROVOC terms), ensuring type-safe measurements and better matchmaking. |
-| **SIEX Rebranding** | New Namespace: `w3id.org/EDAAnOWL/siex/` | Official URI persistence for SIEX vocabularies, removing all legacy Agrixels dependencies. |
+| **SIEX Integration** | Versioned Namespace: `w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/` | Local SIEX alignment mapped to the versioned vocabulary path to ensure immediate resolvability with existing PURL rules. |
 
 ---
 
@@ -141,7 +141,7 @@ Starting with v0.6.0, EDAAnOWL **no longer bundles local SKOS vocabularies** for
 | Domain | Recommended Vocabulary | URI Pattern |
 |--------|------------------------|-------------|
 | Agriculture (Global) | [AGROVOC](http://aims.fao.org/aos/agrovoc/) | `http://aims.fao.org/aos/agrovoc/c_*` |
-| Agriculture (Spain) | [SIEX (local)](vocabularies/siex.ttl) | `https://w3id.org/EDAAnOWL/siex/kos/*` |
+| Agriculture (Spain) | [SIEX (local)](vocabularies/siex.ttl) | `https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/*` |
 | Units of Measure | [QUDT](http://qudt.org/vocab/unit/) | `http://qudt.org/vocab/unit/*` |
 | Data Quality | [DQV](http://www.w3.org/ns/dqv#) | `http://www.w3.org/ns/dqv#*` |
 | General Science | [EuroSciVoc](http://data.europa.eu/8mn/) | `http://data.europa.eu/8mn/*` |

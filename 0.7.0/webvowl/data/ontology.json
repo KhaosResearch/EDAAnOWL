@@ -132,7 +132,7 @@
   },
   "namespace" : [ ],
   "class" : [ {
-    "id" : "3",
+    "id" : "0",
     "type" : "owl:Class"
   }, {
     "id" : "6",
@@ -189,7 +189,7 @@
     "id" : "12",
     "type" : "owl:Class"
   }, {
-    "id" : "2",
+    "id" : "5",
     "type" : "owl:Class"
   }, {
     "id" : "36",
@@ -198,7 +198,7 @@
     "id" : "105",
     "type" : "owl:Class"
   }, {
-    "id" : "132",
+    "id" : "131",
     "type" : "owl:Class"
   }, {
     "id" : "115",
@@ -210,7 +210,7 @@
     "id" : "141",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "142",
+    "id" : "143",
     "type" : "owl:Class"
   }, {
     "id" : "15",
@@ -219,7 +219,7 @@
     "id" : "94",
     "type" : "owl:Class"
   }, {
-    "id" : "133",
+    "id" : "132",
     "type" : "owl:Class"
   }, {
     "id" : "55",
@@ -231,7 +231,7 @@
     "id" : "29",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "152",
+    "id" : "150",
     "type" : "owl:Class"
   }, {
     "id" : "153",
@@ -258,10 +258,10 @@
     "id" : "125",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "5",
+    "id" : "45",
     "type" : "owl:Class"
   }, {
-    "id" : "45",
+    "id" : "2",
     "type" : "owl:Class"
   }, {
     "id" : "98",
@@ -279,7 +279,7 @@
     "id" : "167",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "138",
+    "id" : "140",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "168",
@@ -288,10 +288,10 @@
     "id" : "169",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "140",
+    "id" : "138",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "127",
+    "id" : "128",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "170",
@@ -357,13 +357,13 @@
     "id" : "177",
     "type" : "owl:Class"
   }, {
-    "id" : "68",
+    "id" : "67",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "4",
+    "id" : "1",
     "type" : "owl:Class"
   }, {
-    "id" : "67",
+    "id" : "66",
     "type" : "owl:unionOf"
   }, {
     "id" : "192",
@@ -435,7 +435,7 @@
     "id" : "145",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "151",
+    "id" : "152",
     "type" : "owl:Thing"
   }, {
     "id" : "17",
@@ -450,7 +450,7 @@
     "id" : "9",
     "type" : "owl:Class"
   }, {
-    "id" : "1",
+    "id" : "4",
     "type" : "owl:Class"
   }, {
     "id" : "239",
@@ -480,13 +480,13 @@
     "id" : "244",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "165",
-    "type" : "owl:Class"
-  }, {
-    "id" : "160",
+    "id" : "164",
     "type" : "owl:Class"
   }, {
     "id" : "38",
+    "type" : "owl:Class"
+  }, {
+    "id" : "160",
     "type" : "owl:Class"
   }, {
     "id" : "13",
@@ -504,13 +504,13 @@
       "en" : "Data Profile",
       "es" : "Perfil de Datos"
     },
-    "subClasses" : [ "5" ],
+    "subClasses" : [ "2" ],
     "comment" : {
       "en" : "Facet bag describing data characteristics (domain, type, observed properties, CRS, geometry, spatial/temporal resolution).\n    \nTypical properties:\n• dcat:temporalResolution: temporal granularity (xsd:duration, e.g., P1D)\n• dcat:spatialResolutionInMeters or InDegrees: spatial granularity (xsd:decimal)\n• :declaresObservedProperty: semantic variables from concept schemes\n• :declaresDataClass: data type classification\n• :hasCRS: coordinate reference system (IRI)\n\nAligned with W3C DCAT 3 for dataset cataloguing interoperability.",
       "es" : "Bolsa de facetas que describe las características de los datos (dominio, tipo, propiedades observadas, CRS, geometría, resolución espacial/temporal).\n    \nPropiedades típicas:\n• dcat:temporalResolution: granularidad temporal (xsd:duration, p. ej., P1D)\n• dcat:spatialResolutionInMeters o InDegrees: granularidad espacial (xsd:decimal)\n• :declaresObservedProperty: variables semánticas de esquemas de conceptos\n• :declaresDataClass: clasificación de tipo de datos\n• :hasCRS: sistema de referencia de coordenadas (IRI)\n\nAlineado con W3C DCAT 3 para interoperabilidad de catalogación de conjuntos de datos."
     },
-    "id" : "3",
-    "superClasses" : [ "4" ]
+    "id" : "0",
+    "superClasses" : [ "1" ]
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/Completeness",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -533,7 +533,7 @@
     "label" : {
       "IRI-based" : "DigitalContent"
     },
-    "subClasses" : [ "2" ],
+    "subClasses" : [ "5" ],
     "attributes" : [ "external" ],
     "id" : "11",
     "superClasses" : [ "12", "13" ]
@@ -728,7 +728,7 @@
     },
     "subClasses" : [ "116", "98" ],
     "attributes" : [ "external" ],
-    "id" : "2",
+    "id" : "5",
     "superClasses" : [ "43", "106", "115", "11" ]
   }, {
     "iri" : "https://w3id.org/idsa/core/SmartDataApp",
@@ -764,8 +764,8 @@
       "en" : "A controlled vocabulary term for standardized metric definitions (e.g., completeness, recordCount, cloudCoverage). Aligned with dqv:Metric. RECOMMENDED: Use external vocabularies like DDI (SummaryStatisticType), STATO (Statistical Methods Ontology), or W3C DQV for quality metrics. Use :metricType to link a measurement (:Metric) to its definition.",
       "es" : "Un término de vocabulario controlado para definiciones de métricas estandarizadas (p. ej., completitud, recuento de registros, cobertura de nubes). Alineado con dqv:Metric. RECOMENDADO: Usar vocabularios externos como DDI (SummaryStatisticType), STATO (Statistical Methods Ontology) o W3C DQV para métricas de calidad. Use :metricType para vincular una medición (:Metric) con su definición."
     },
-    "id" : "132",
-    "superClasses" : [ "133" ]
+    "id" : "131",
+    "superClasses" : [ "132" ]
   }, {
     "iri" : "http://www.w3.org/ns/odrl/2/Asset",
     "baseIri" : "http://www.w3.org/ns/odrl/2",
@@ -773,7 +773,7 @@
     "label" : {
       "IRI-based" : "Asset"
     },
-    "subClasses" : [ "2", "55" ],
+    "subClasses" : [ "5", "55" ],
     "attributes" : [ "external" ],
     "id" : "115"
   }, {
@@ -800,7 +800,7 @@
       "IRI-based" : "Interval"
     },
     "attributes" : [ "external" ],
-    "id" : "142"
+    "id" : "143"
   }, {
     "iri" : "http://www.w3.org/2004/02/skos/core#Concept",
     "baseIri" : "http://www.w3.org/2004/02/skos/core",
@@ -832,9 +832,9 @@
     "label" : {
       "IRI-based" : "Metric"
     },
-    "subClasses" : [ "132" ],
+    "subClasses" : [ "131" ],
     "attributes" : [ "external" ],
-    "id" : "133"
+    "id" : "132"
   }, {
     "iri" : "https://w3id.org/idsa/core/Artifact",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -868,7 +868,7 @@
       "IRI-based" : "VerifiableCredential"
     },
     "attributes" : [ "external" ],
-    "id" : "152"
+    "id" : "150"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
@@ -926,6 +926,16 @@
       "IRI-based" : "boolean"
     }
   }, {
+    "iri" : "https://w3id.org/idsa/core/RouteStep",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RouteStep"
+    },
+    "attributes" : [ "external" ],
+    "id" : "45",
+    "superClasses" : [ "101" ]
+  }, {
     "iri" : "https://w3id.org/EDAAnOWL/VerifiableDataProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "instances" : 0,
@@ -938,18 +948,8 @@
       "en" : "A DataProfile that is intended to be cryptographically verified. It should be linked to a Verifiable Credential using :hasCredential. This enables trusted quality assertions in data spaces by separating the profile metadata from its cryptographic proof.",
       "es" : "Un DataProfile destinado a ser verificado criptográficamente. Debe vincularse a una Credencial Verificable usando :hasCredential. Esto permite aserciones de calidad confiables en espacios de datos separando los metadatos del perfil de su prueba criptográfica."
     },
-    "id" : "5",
-    "superClasses" : [ "3" ]
-  }, {
-    "iri" : "https://w3id.org/idsa/core/RouteStep",
-    "baseIri" : "https://w3id.org/idsa/core",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "RouteStep"
-    },
-    "attributes" : [ "external" ],
-    "id" : "45",
-    "superClasses" : [ "101" ]
+    "id" : "2",
+    "superClasses" : [ "0" ]
   }, {
     "iri" : "https://w3id.org/idsa/core/DataResource",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -960,7 +960,7 @@
     "subClasses" : [ "74" ],
     "attributes" : [ "external" ],
     "id" : "98",
-    "superClasses" : [ "2" ]
+    "superClasses" : [ "5" ]
   }, {
     "iri" : "https://w3id.org/BIGOWLData/Data",
     "baseIri" : "https://w3id.org/BIGOWLData",
@@ -994,7 +994,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "138",
+    "id" : "140",
     "label" : {
       "IRI-based" : "string"
     }
@@ -1015,7 +1015,7 @@
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "140",
+    "id" : "138",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -1023,7 +1023,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "127",
+    "id" : "128",
     "label" : {
       "IRI-based" : "decimal"
     }
@@ -1119,7 +1119,7 @@
     "label" : {
       "IRI-based" : "ManagedEntity"
     },
-    "subClasses" : [ "2" ],
+    "subClasses" : [ "5" ],
     "attributes" : [ "external" ],
     "id" : "106",
     "superClasses" : [ "12" ]
@@ -1203,7 +1203,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "68",
+    "id" : "67",
     "label" : {
       "IRI-based" : "dateTime"
     }
@@ -1214,14 +1214,14 @@
     "label" : {
       "IRI-based" : "Standard"
     },
-    "subClasses" : [ "3" ],
+    "subClasses" : [ "0" ],
     "attributes" : [ "external" ],
-    "id" : "4"
+    "id" : "1"
   }, {
     "instances" : 0,
     "union" : [ "9", "99" ],
     "attributes" : [ "anonymous", "union" ],
-    "id" : "67"
+    "id" : "66"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
@@ -1310,7 +1310,7 @@
     "superClasses" : [ "36" ]
   }, {
     "instances" : 0,
-    "union" : [ "3", "2" ],
+    "union" : [ "0", "5" ],
     "attributes" : [ "anonymous", "union" ],
     "id" : "124"
   }, {
@@ -1329,7 +1329,7 @@
     }
   }, {
     "instances" : 0,
-    "union" : [ "3", "2" ],
+    "union" : [ "0", "5" ],
     "attributes" : [ "anonymous", "union" ],
     "id" : "217"
   }, {
@@ -1411,7 +1411,7 @@
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
-    "id" : "151",
+    "id" : "152",
     "label" : {
       "undefined" : "Thing"
     }
@@ -1441,19 +1441,19 @@
     },
     "attributes" : [ "external" ],
     "id" : "116",
-    "superClasses" : [ "2" ]
+    "superClasses" : [ "5" ]
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/QualityReport",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "instances" : 0,
     "label" : {
       "IRI-based" : "QualityReport",
-      "en" : "Quality Report",
+      "en" : "External Quality Report",
       "es" : "Informe de Calidad"
     },
     "comment" : {
       "en" : "A class representing an external, structured quality report, containing metadata about the assessment (e.g., a PDF report URL, a quality score).",
-      "es" : "Un informe estructurado que contiene métricas de calidad y metadatos."
+      "es" : "Una clase que representa un informe de calidad externo y estructurado, que contiene metadatos sobre la evaluación (p. ej., una URL de informe PDF, una puntuación de calidad)."
     },
     "id" : "9"
   }, {
@@ -1469,7 +1469,7 @@
       "en" : "Physical representation of (structured) data. Specializes ids:DataRepresentation \n    from the IDSA taxonomy to add EDAAnOWL-specific semantics for data profiles and quality metrics.\n    \n    Alignment: ids:DataRepresentation extends dcat:Distribution (W3C DCAT 2+), \n    ensuring interoperability with DCAT-based catalogs while maintaining IDSA compliance.",
       "es" : "Representación física de datos (estructurados). Especializa ids:DataRepresentation \n    de la taxonomía IDSA para añadir semántica específica de EDAAnOWL para perfiles de datos y métricas de calidad.\n    \n    Alineación: ids:DataRepresentation extiende dcat:Distribution (W3C DCAT 2+), \n    asegurando interoperabilidad con catálogos basados en DCAT mientras mantiene conformidad IDSA."
     },
-    "id" : "1",
+    "id" : "4",
     "superClasses" : [ "40" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#duration",
@@ -1487,12 +1487,12 @@
     }
   }, {
     "instances" : 0,
-    "union" : [ "3", "20", "74" ],
+    "union" : [ "0", "20", "74" ],
     "attributes" : [ "anonymous", "union" ],
     "id" : "223"
   }, {
     "instances" : 0,
-    "union" : [ "2", "20" ],
+    "union" : [ "5", "20" ],
     "attributes" : [ "anonymous", "union" ],
     "id" : "157"
   }, {
@@ -1518,7 +1518,7 @@
     "id" : "103"
   }, {
     "instances" : 0,
-    "union" : [ "3", "28" ],
+    "union" : [ "0", "28" ],
     "attributes" : [ "anonymous", "union" ],
     "id" : "225"
   }, {
@@ -1528,7 +1528,7 @@
     "label" : {
       "IRI-based" : "DataRepresentation"
     },
-    "subClasses" : [ "1" ],
+    "subClasses" : [ "4" ],
     "attributes" : [ "external" ],
     "id" : "40",
     "superClasses" : [ "52" ]
@@ -1547,16 +1547,7 @@
       "IRI-based" : "Kind"
     },
     "attributes" : [ "external" ],
-    "id" : "165"
-  }, {
-    "iri" : "http://xmlns.com/foaf/0.1/Document",
-    "baseIri" : "http://xmlns.com/foaf/0.1",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Document"
-    },
-    "attributes" : [ "external" ],
-    "id" : "160"
+    "id" : "164"
   }, {
     "iri" : "https://w3id.org/idsa/core/SoftwareRepresentation",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -1568,6 +1559,15 @@
     "attributes" : [ "external" ],
     "id" : "38",
     "superClasses" : [ "52" ]
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/Document",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Document"
+    },
+    "attributes" : [ "external" ],
+    "id" : "160"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#Dataset",
     "baseIri" : "http://www.w3.org/ns/dcat",
@@ -1585,12 +1585,12 @@
     "label" : {
       "IRI-based" : "DescribedSemantically"
     },
-    "subClasses" : [ "2" ],
+    "subClasses" : [ "5" ],
     "attributes" : [ "external" ],
     "id" : "43"
   } ],
   "property" : [ {
-    "id" : "0",
+    "id" : "3",
     "type" : "owl:objectProperty"
   }, {
     "id" : "8",
@@ -1654,10 +1654,10 @@
     "type" : "owl:objectProperty"
   }, {
     "id" : "65",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "66",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "68",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "69",
     "type" : "owl:datatypeProperty"
@@ -1683,7 +1683,7 @@
     "id" : "81",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "82",
+    "id" : "83",
     "type" : "owl:objectProperty"
   }, {
     "id" : "84",
@@ -1735,21 +1735,21 @@
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "126",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "128",
     "type" : "owl:objectProperty"
+  }, {
+    "id" : "127",
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "129",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "131",
+    "id" : "133",
     "type" : "owl:objectProperty"
   }, {
     "id" : "135",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "83",
+    "id" : "82",
     "type" : "owl:objectProperty"
   }, {
     "id" : "137",
@@ -1758,7 +1758,7 @@
     "id" : "139",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "143",
+    "id" : "142",
     "type" : "owl:objectProperty"
   }, {
     "id" : "144",
@@ -1773,7 +1773,7 @@
     "id" : "109",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "150",
+    "id" : "151",
     "type" : "owl:objectProperty"
   }, {
     "id" : "155",
@@ -1788,10 +1788,10 @@
     "id" : "163",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "164",
+    "id" : "114",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "114",
+    "id" : "165",
     "type" : "owl:objectProperty"
   }, {
     "id" : "171",
@@ -2031,13 +2031,13 @@
   "propertyAttribute" : [ {
     "iri" : "https://w3id.org/idsa/core/dataTypeSchema",
     "baseIri" : "https://w3id.org/idsa/core",
-    "range" : "2",
+    "range" : "5",
     "label" : {
       "IRI-based" : "dataTypeSchema"
     },
-    "domain" : "1",
-    "attributes" : [ "object", "external" ],
-    "id" : "0"
+    "domain" : "4",
+    "attributes" : [ "external", "object" ],
+    "id" : "3"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/qualityReportURI",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2063,7 +2063,7 @@
       "en" : "spatial granularity (concept)",
       "es" : "granularidad espacial (concepto)"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "Links a resource to a SKOS concept describing its spatial granularity.\n\nRECOMMENDED vocabularies:\n- EU NUTS: http://publications.europa.eu/resource/authority/nuts\n- INSPIRE: http://inspire.ec.europa.eu/codelist/\n- ISO 3166: http://publications.europa.eu/resource/authority/country\n\nExamples: NUTS level 1 (country), NUTS level 2 (region), NUTS level 3 (province).",
       "es" : "Vincula un recurso con un concepto SKOS que describe su granularidad espacial.\n\nVocabularios RECOMENDADOS:\n- EU NUTS: http://publications.europa.eu/resource/authority/nuts\n- INSPIRE: http://inspire.ec.europa.eu/codelist/\n- ISO 3166: http://publications.europa.eu/resource/authority/country"
@@ -2079,7 +2079,7 @@
     },
     "domain" : "17",
     "subproperty" : [ "18" ],
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "16"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/realizesWorkflow",
@@ -2113,12 +2113,12 @@
     "range" : "15",
     "label" : {
       "IRI-based" : "hasCRS",
-      "en" : "profile CRS (IRI)",
-      "es" : "CRS de perfil (IRI)"
+      "en" : "has Coordinate Reference System",
+      "es" : "tiene Sistema de Referencia de Coordenadas"
     },
-    "domain" : "3",
+    "domain" : "0",
     "comment" : {
-      "en" : "Deprecated. Use the object property edaan:hasCRS to link to a formal CRS definition.",
+      "en" : "Links a Data Profile to the formal definition of its Coordinate Reference System (CRS), preferably using an EPSG URI (e.g., http://www.opengis.net/def/crs/EPSG/0/4326). Range is skos:Concept for interoperability with controlled vocabularies.",
       "es" : "Obsoleto. Use la propiedad de objeto edaan:hasCRS para vincular a una definición formal de CRS."
     },
     "attributes" : [ "object", "deprecated" ],
@@ -2157,27 +2157,27 @@
       "IRI-based" : "source"
     },
     "domain" : "31",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "34"
   }, {
     "range" : "38",
     "domain" : "23",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "37"
   }, {
     "range" : "40",
-    "domain" : "1",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "4",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "39"
   }, {
     "range" : "13",
     "domain" : "11",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "41"
   }, {
     "range" : "43",
-    "domain" : "2",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "42"
   }, {
     "iri" : "https://w3id.org/idsa/core/requiredDataApp",
@@ -2187,7 +2187,7 @@
       "IRI-based" : "requiredDataApp"
     },
     "domain" : "45",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "44"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesObservableProperty",
@@ -2223,7 +2223,7 @@
       "IRI-based" : "appEndpoint"
     },
     "domain" : "20",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "53"
   }, {
     "iri" : "https://w3id.org/idsa/core/fileName",
@@ -2262,6 +2262,22 @@
     "attributes" : [ "object" ],
     "id" : "63"
   }, {
+    "iri" : "https://w3id.org/EDAAnOWL/reportDate",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "67",
+    "label" : {
+      "IRI-based" : "reportDate",
+      "en" : "report date",
+      "es" : "fecha del informe"
+    },
+    "domain" : "66",
+    "comment" : {
+      "en" : "The date when the report was issued.",
+      "es" : "La fecha en que se emitió el informe."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "65"
+  }, {
     "iri" : "https://w3id.org/idsa/core/dataAppInformation",
     "baseIri" : "https://w3id.org/idsa/core",
     "range" : "20",
@@ -2269,24 +2285,8 @@
       "IRI-based" : "dataAppInformation"
     },
     "domain" : "23",
-    "attributes" : [ "object", "external" ],
-    "id" : "65"
-  }, {
-    "iri" : "https://w3id.org/EDAAnOWL/reportDate",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "68",
-    "label" : {
-      "IRI-based" : "reportDate",
-      "en" : "report date",
-      "es" : "fecha del informe"
-    },
-    "domain" : "67",
-    "comment" : {
-      "en" : "The date when the report was issued.",
-      "es" : "La fecha en que se emitió el informe."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "66"
+    "attributes" : [ "external", "object" ],
+    "id" : "68"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/refundPolicy",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2296,7 +2296,7 @@
       "en" : "refund policy",
       "es" : "política de reembolso"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "A text description of the refund policy applicable to the resource.",
       "es" : "Una descripción textual de la política de reembolso aplicable al recurso."
@@ -2312,7 +2312,7 @@
       "en" : "profile spatial resolution",
       "es" : "resolución espacial de perfil"
     },
-    "domain" : "3",
+    "domain" : "0",
     "comment" : {
       "en" : "Deprecated. Use dcat:spatialResolutionInMeters or dcat:spatialResolutionInDegrees.",
       "es" : "Obsoleto. Use dcat:spatialResolutionInMeters o dcat:spatialResolutionInDegrees."
@@ -2353,7 +2353,7 @@
       "IRI-based" : "wasDerivedFrom"
     },
     "domain" : "74",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "77"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/appliesToFeatureConcept",
@@ -2380,23 +2380,13 @@
       "en" : "recommended use",
       "es" : "uso recomendado"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "Human-readable description of the intended or recommended use cases for the resource.",
       "es" : "Descripción legible de los casos de uso previstos o recomendados para el recurso."
     },
     "attributes" : [ "datatype" ],
     "id" : "79"
-  }, {
-    "iri" : "https://w3id.org/idsa/core/defaultRepresentation",
-    "baseIri" : "https://w3id.org/idsa/core",
-    "range" : "52",
-    "label" : {
-      "IRI-based" : "defaultRepresentation"
-    },
-    "domain" : "11",
-    "attributes" : [ "object", "external" ],
-    "id" : "81"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasPerformanceMetric",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2406,14 +2396,24 @@
       "en" : "has performance metric",
       "es" : "tiene métrica de rendimiento"
     },
-    "superproperty" : [ "83" ],
+    "superproperty" : [ "82" ],
     "domain" : "20",
     "comment" : {
       "en" : "Links a DataApp to a specific performance metric (e.g., accuracy, execution time).",
       "es" : "Vincula una DataApp con una métrica de rendimiento específica (p. ej., precisión, tiempo de ejecución)."
     },
     "attributes" : [ "object" ],
-    "id" : "82"
+    "id" : "81"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/defaultRepresentation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "52",
+    "label" : {
+      "IRI-based" : "defaultRepresentation"
+    },
+    "domain" : "11",
+    "attributes" : [ "external", "object" ],
+    "id" : "83"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#theme",
     "baseIri" : "http://www.w3.org/ns/dcat",
@@ -2423,7 +2423,7 @@
     },
     "domain" : "31",
     "subproperty" : [ "85" ],
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "84"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/computedAt",
@@ -2450,7 +2450,7 @@
       "en" : "profile CRS",
       "es" : "CRS de perfil"
     },
-    "domain" : "3",
+    "domain" : "0",
     "attributes" : [ "datatype", "deprecated" ],
     "id" : "88"
   }, {
@@ -2488,7 +2488,7 @@
       "en" : "external quality report",
       "es" : "informe de calidad externo"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "Links a resource to a structured object describing an external quality report.",
       "es" : "Vincula un recurso con un objeto estructurado que describe un informe de calidad externo."
@@ -2535,7 +2535,7 @@
       "IRI-based" : "instance"
     },
     "domain" : "52",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "104"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasCertification",
@@ -2546,7 +2546,7 @@
       "en" : "has certification",
       "es" : "tiene certificación"
     },
-    "domain" : "3",
+    "domain" : "0",
     "comment" : {
       "en" : "Links a Data Profile to a Certification Report attesting compliance with a standard (e.g., Gaia-X Label).",
       "es" : "Vincula un Perfil de Datos con un Informe de Certificación que atestigua el cumplimiento de un estándar (p. ej., Etiqueta Gaia-X)."
@@ -2563,7 +2563,7 @@
       "es" : "tema"
     },
     "superproperty" : [ "109" ],
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "A sub-property of dct:subject for linking a resource to a descriptive SKOS concept (e.g., from AGROVOC).",
       "es" : "Una sub-propiedad de dct:subject para vincular un recurso con un concepto SKOS descriptivo (p. ej., de AGROVOC)."
@@ -2589,7 +2589,7 @@
     },
     "domain" : "31",
     "subproperty" : [ "113", "114" ],
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "112"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/spatialGranularity",
@@ -2600,7 +2600,7 @@
       "en" : "spatial granularity",
       "es" : "granularidad espacial"
     },
-    "domain" : "2",
+    "domain" : "5",
     "attributes" : [ "datatype", "deprecated" ],
     "id" : "119"
   }, {
@@ -2632,20 +2632,10 @@
     "domain" : "124",
     "comment" : {
       "en" : "Indicates whether the resource includes Personally Identifiable Information (PII).",
-      "es" : "Indica si el recurso incluye información de identificación personal (PII)."
+      "es" : "Indica si el conjunto de datos contiene datos personales (GDPR)."
     },
     "attributes" : [ "datatype" ],
     "id" : "123"
-  }, {
-    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
-    "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "127",
-    "label" : {
-      "IRI-based" : "spatialResolutionInDegrees"
-    },
-    "domain" : "31",
-    "attributes" : [ "datatype", "external" ],
-    "id" : "126"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/implementsComponent",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2661,7 +2651,17 @@
       "es" : "Vincula una DataApp IDSA con el Componente de flujo de trabajo BIGOWL que implementa."
     },
     "attributes" : [ "object" ],
-    "id" : "128"
+    "id" : "126"
+  }, {
+    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
+    "baseIri" : "http://www.w3.org/ns/dcat",
+    "range" : "128",
+    "label" : {
+      "IRI-based" : "spatialResolutionInDegrees"
+    },
+    "domain" : "31",
+    "attributes" : [ "datatype", "external" ],
+    "id" : "127"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/auditLogAvailable",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2671,7 +2671,7 @@
       "en" : "audit log available",
       "es" : "registro de auditoría disponible"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "Indicates if audit logs for the resource usage are available.",
       "es" : "Indica si los registros de auditoría para el uso del recurso están disponibles."
@@ -2693,7 +2693,7 @@
       "es" : "OBSOLETO: Use consumesDataRepresentation o consumesAppRepresentation en su lugar. Vincula un Componente BIGOWL con una Representación IDSA que consume como entrada."
     },
     "attributes" : [ "object", "deprecated" ],
-    "id" : "131"
+    "id" : "133"
   }, {
     "iri" : "https://w3id.org/idsa/core/checkSum",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -2714,45 +2714,45 @@
       "es" : "tiene métrica"
     },
     "minCardinality" : "1",
-    "domain" : "3",
-    "subproperty" : [ "82" ],
+    "domain" : "0",
+    "subproperty" : [ "81" ],
     "comment" : {
       "en" : "Links a Data Profile to a specific quality, performance, or descriptive metric.",
       "es" : "Vincula un Perfil de Datos con una métrica específica de calidad, rendimiento o descriptiva."
     },
     "attributes" : [ "object" ],
-    "id" : "83"
-  }, {
-    "iri" : "https://w3id.org/EDAAnOWL/accessType",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "138",
-    "label" : {
-      "IRI-based" : "accessType",
-      "en" : "access type (deprecated)",
-      "es" : "tipo de acceso (obsoleto)"
-    },
-    "domain" : "2",
-    "comment" : {
-      "en" : "DEPRECATED: Use :accessTypeConcept instead. Indicates the primary access mode for the resource (e.g., download, compute, ...).",
-      "es" : "OBSOLETO: Use :accessTypeConcept en su lugar. Indica el modo de acceso principal para el recurso (p. ej., descarga, cómputo, ...)."
-    },
-    "attributes" : [ "datatype", "deprecated" ],
-    "id" : "137"
+    "id" : "82"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/alternativeName",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "140",
+    "range" : "138",
     "label" : {
       "IRI-based" : "alternativeName",
       "en" : "alternate name",
       "es" : "nombre alternativo"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "Alternative title or name for a resource.",
       "es" : "Título o nombre alternativo para un recurso."
     },
     "attributes" : [ "datatype" ],
+    "id" : "137"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/accessType",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "140",
+    "label" : {
+      "IRI-based" : "accessType",
+      "en" : "access type (deprecated)",
+      "es" : "tipo de acceso (obsoleto)"
+    },
+    "domain" : "5",
+    "comment" : {
+      "en" : "DEPRECATED: Use :accessTypeConcept instead. Indicates the primary access mode for the resource (e.g., download, compute, ...).",
+      "es" : "OBSOLETO: Use :accessTypeConcept en su lugar. Indica el modo de acceso principal para el recurso (p. ej., descarga, cómputo, ...)."
+    },
+    "attributes" : [ "datatype", "deprecated" ],
     "id" : "139"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/measuresProperty",
@@ -2769,7 +2769,7 @@
       "es" : "Vincula una métrica (medición) con la propiedad observable que está cuantificando. De este modo, se asocia de forma indirecta una Unidad de Medida (vía Metric) con un fenómeno físico (ObservableProperty)."
     },
     "attributes" : [ "object" ],
-    "id" : "143"
+    "id" : "142"
   }, {
     "iri" : "https://w3id.org/idsa/core/endpointURI",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -2816,12 +2816,12 @@
     },
     "domain" : "17",
     "subproperty" : [ "108" ],
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "109"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasMetricUnit",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "151",
+    "range" : "152",
     "label" : {
       "IRI-based" : "hasMetricUnit",
       "en" : "has metric unit (deprecated)",
@@ -2833,7 +2833,7 @@
       "es" : "OBSOLETO: Use :hasMetricStandard en su lugar. La unidad de medida para el valor de la métrica referenciando una URI (p. ej., qudt:KiloGM, unit:PERCENT)."
     },
     "attributes" : [ "object", "deprecated" ],
-    "id" : "150"
+    "id" : "151"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/isStreaming",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2843,7 +2843,7 @@
       "en" : "is streaming",
       "es" : "es flujo continuo (streaming)"
     },
-    "domain" : "3",
+    "domain" : "0",
     "comment" : {
       "en" : "Indicates whether the data is provided in real-time as a continuous stream instead of a static dataset.",
       "es" : "Indica si los datos se proporcionan en tiempo real como un flujo continuo (streaming) en lugar de un conjunto de datos estático."
@@ -2876,7 +2876,7 @@
       "en" : "has DPIA",
       "es" : "tiene DPIA"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "Links the resource to its Data Protection Impact Assessment (DPIA) document.",
       "es" : "Vincula el recurso con su documento de Evaluación de Impacto de Protección de Datos (DPIA)."
@@ -2892,7 +2892,7 @@
       "en" : "known limitations",
       "es" : "limitaciones conocidas"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "Human-readable description of any known limitations, biases, or quality issues of the resource.",
       "es" : "Descripción legible de cualquier limitación conocida, sesgo o problema de calidad del recurso."
@@ -2900,9 +2900,26 @@
     "attributes" : [ "datatype" ],
     "id" : "163"
   }, {
+    "iri" : "https://w3id.org/EDAAnOWL/supportContact",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "164",
+    "label" : {
+      "IRI-based" : "supportContact",
+      "en" : "support contact",
+      "es" : "contacto de soporte"
+    },
+    "superproperty" : [ "112" ],
+    "domain" : "5",
+    "comment" : {
+      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL).",
+      "es" : "Punto de contacto estándar para soporte, usando vCard (fn, email, telephone, URL)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "114"
+  }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "3",
+    "range" : "0",
     "label" : {
       "IRI-based" : "producesProfile",
       "en" : "produces profile",
@@ -2914,24 +2931,7 @@
       "es" : "Vincula una DataApp con un DataProfile que produce como salida."
     },
     "attributes" : [ "object" ],
-    "id" : "164"
-  }, {
-    "iri" : "https://w3id.org/EDAAnOWL/supportContact",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "165",
-    "label" : {
-      "IRI-based" : "supportContact",
-      "en" : "support contact",
-      "es" : "contacto de soporte"
-    },
-    "superproperty" : [ "112" ],
-    "domain" : "2",
-    "comment" : {
-      "en" : "Standard contact point for support, using vCard (fn, email, telephone, URL).",
-      "es" : "Punto de contacto estándar para soporte, usando vCard (fn, email, telephone, URL)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "114"
+    "id" : "165"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/accessTypeConcept",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -2941,7 +2941,7 @@
       "en" : "access type (concept)",
       "es" : "tipo de acceso (concepto)"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "Links a resource to a SKOS concept describing its access mode (e.g., 'download', 'compute-in-place'). Replaces the deprecated :accessType string property.",
       "es" : "Vincula un recurso con un concepto SKOS que describe su modo de acceso (p. ej., 'descarga', 'cómputo-in-situ'). Reemplaza la propiedad string obsoleta :accessType."
@@ -2967,7 +2967,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasMetricStandard",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "151",
+    "range" : "152",
     "label" : {
       "IRI-based" : "hasMetricStandard",
       "en" : "has metric standard",
@@ -2990,7 +2990,7 @@
       "es" : "se ajusta al esquema"
     },
     "superproperty" : [ "176" ],
-    "domain" : "3",
+    "domain" : "0",
     "comment" : {
       "en" : "Links a profile to a formal technical schema (e.g., JSON Schema, XSD, SQL DDL). Unlike the (semantic) profile, the schema defines the exact physical structure.",
       "es" : "Vincula un perfil con un esquema técnico formal (p. ej., JSON Schema, XSD, SQL DDL). A diferencia del perfil (semántico), el esquema define la estructura física exacta."
@@ -3000,7 +3000,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesDataRepresentation",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "1",
+    "range" : "4",
     "label" : {
       "IRI-based" : "producesDataRepresentation",
       "en" : "produces data representation",
@@ -3042,7 +3042,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/conformsToProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "3",
+    "range" : "0",
     "label" : {
       "IRI-based" : "conformsToProfile",
       "en" : "conforms to profile",
@@ -3097,7 +3097,7 @@
       "en" : "collection method",
       "es" : "método de recolección"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "The method used to collect the data (e.g., 'sensor', 'survey', 'satellite').",
       "es" : "El método utilizado para recolectar los datos (p. ej., 'sensor', 'encuesta', 'satélite')."
@@ -3113,7 +3113,7 @@
       "en" : "declares data class",
       "es" : "declara clase de datos"
     },
-    "domain" : "3",
+    "domain" : "0",
     "comment" : {
       "en" : "Links a DataProfile to a BIGOWL Data class (e.g., bigdat:TabularDataSet, bigdat:Image).",
       "es" : "Vincula un DataProfile con una clase de Datos BIGOWL (p. ej., bigdat:TabularDataSet, bigdat:Image)."
@@ -3129,7 +3129,7 @@
       "en" : "is alive",
       "es" : "está activo"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "Indicates if the dataset is actively maintained and expects future updates.",
       "es" : "Indica si el conjunto de datos se mantiene activamente y espera actualizaciones futuras."
@@ -3139,27 +3139,27 @@
   }, {
     "range" : "20",
     "domain" : "36",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "197"
   }, {
     "range" : "62",
     "domain" : "7",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "198"
   }, {
     "range" : "101",
     "domain" : "45",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "199"
   }, {
     "range" : "74",
     "domain" : "94",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "200"
   }, {
     "range" : "60",
     "domain" : "61",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "201"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasSchemaType",
@@ -3170,7 +3170,7 @@
       "en" : "has schema type",
       "es" : "tiene tipo de esquema"
     },
-    "domain" : "3",
+    "domain" : "0",
     "comment" : {
       "en" : "Identifies the technology or standard of the associated technical schema (e.g., JSON Schema, Google Protobuf, XML Schema).",
       "es" : "Identifica la tecnología o estándar del esquema técnico asociado (p. ej., JSON Schema, Google Protobuf, XML Schema)."
@@ -3185,7 +3185,7 @@
       "IRI-based" : "endpointArtifact"
     },
     "domain" : "61",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "203"
   }, {
     "iri" : "https://w3id.org/idsa/core/resourceEndpoint",
@@ -3194,8 +3194,8 @@
     "label" : {
       "IRI-based" : "resourceEndpoint"
     },
-    "domain" : "2",
-    "attributes" : [ "object", "external" ],
+    "domain" : "5",
+    "attributes" : [ "external", "object" ],
     "id" : "204"
   }, {
     "iri" : "https://w3id.org/idsa/core/representation",
@@ -3204,8 +3204,8 @@
     "label" : {
       "IRI-based" : "representation"
     },
-    "domain" : "2",
-    "attributes" : [ "object", "external" ],
+    "domain" : "5",
+    "attributes" : [ "external", "object" ],
     "id" : "205"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/profileTemporalResolution",
@@ -3224,7 +3224,7 @@
       "en" : "profile temporal resolution",
       "es" : "resolución temporal de perfil"
     },
-    "domain" : "3",
+    "domain" : "0",
     "comment" : {
       "en" : "Deprecated. Use dcat:temporalResolution for temporal resolution of datasets/profiles.",
       "es" : "Obsoleto. Use dcat:temporalResolution para la resolución temporal de conjuntos de datos/perfiles."
@@ -3244,17 +3244,17 @@
   }, {
     "range" : "60",
     "domain" : "49",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "209"
   }, {
     "range" : "52",
     "domain" : "38",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "210"
   }, {
-    "range" : "3",
-    "domain" : "5",
-    "attributes" : [ "object", "anonymous" ],
+    "range" : "0",
+    "domain" : "2",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "211"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/sampleValue",
@@ -3275,13 +3275,29 @@
   }, {
     "range" : "52",
     "domain" : "40",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "213"
   }, {
     "range" : "11",
-    "domain" : "2",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "214"
+  }, {
+    "iri" : "https://w3id.org/EDAAnOWL/hasTemporalCoverage",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "143",
+    "label" : {
+      "IRI-based" : "hasTemporalCoverage",
+      "en" : "has temporal coverage",
+      "es" : "tiene cobertura temporal"
+    },
+    "domain" : "94",
+    "comment" : {
+      "en" : "Defines the temporal coverage of the data asset required by Earth Observation CUs.",
+      "es" : "Define la cobertura temporal del activo de datos requerido por las CUs de Observación de la Tierra."
+    },
+    "attributes" : [ "object" ],
+    "id" : "215"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/requiresObservableProperty",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -3295,22 +3311,6 @@
     "comment" : {
       "en" : "Defines the semantic signature of INPUT for a service (e.g., requires NDVI).",
       "es" : "Define la firma semántica de la ENTRADA para un servicio (p. ej., requiere NDVI)."
-    },
-    "attributes" : [ "object" ],
-    "id" : "215"
-  }, {
-    "iri" : "https://w3id.org/EDAAnOWL/hasTemporalCoverage",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "142",
-    "label" : {
-      "IRI-based" : "hasTemporalCoverage",
-      "en" : "has temporal coverage",
-      "es" : "tiene cobertura temporal"
-    },
-    "domain" : "94",
-    "comment" : {
-      "en" : "Defines the temporal coverage of the data asset required by Earth Observation CUs.",
-      "es" : "Define la cobertura temporal del activo de datos requerido por las CUs de Observación de la Tierra."
     },
     "attributes" : [ "object" ],
     "id" : "216"
@@ -3333,7 +3333,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/requiresProfile",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "3",
+    "range" : "0",
     "label" : {
       "IRI-based" : "requiresProfile",
       "en" : "requires profile",
@@ -3355,7 +3355,7 @@
       "en" : "declares observed property",
       "es" : "declara propiedad observada"
     },
-    "domain" : "3",
+    "domain" : "0",
     "comment" : {
       "en" : "Links a DataProfile to a semantic concept it describes, typically from a controlled vocabulary (e.g., an AGROVOC term).",
       "es" : "Vincula un DataProfile con un concepto semántico que describe, típicamente de un vocabulario controlado (p. ej., un término AGROVOC)."
@@ -3371,12 +3371,12 @@
     },
     "domain" : "31",
     "subproperty" : [ "174", "184" ],
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "176"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasCredential",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "152",
+    "range" : "150",
     "label" : {
       "IRI-based" : "hasCredential",
       "en" : "has credential",
@@ -3412,8 +3412,8 @@
     "label" : {
       "IRI-based" : "contractOffer"
     },
-    "domain" : "2",
-    "attributes" : [ "object", "external" ],
+    "domain" : "5",
+    "attributes" : [ "external", "object" ],
     "id" : "226"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/qualityScore",
@@ -3439,19 +3439,19 @@
       "IRI-based" : "supportedUsagePolicies"
     },
     "domain" : "20",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "228"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/legalContact",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "165",
+    "range" : "164",
     "label" : {
       "IRI-based" : "legalContact",
       "en" : "legal contact",
       "es" : "contacto legal"
     },
     "superproperty" : [ "112" ],
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "A specific contact point for legal inquiries about the resource.",
       "es" : "Un punto de contacto específico para consultas legales sobre el recurso."
@@ -3461,7 +3461,7 @@
   }, {
     "range" : "193",
     "domain" : "47",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "229"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
@@ -3471,37 +3471,37 @@
       "IRI-based" : "wasGeneratedBy"
     },
     "domain" : "74",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "230"
   }, {
-    "range" : "4",
-    "domain" : "3",
-    "attributes" : [ "object", "anonymous" ],
+    "range" : "1",
+    "domain" : "0",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "231"
   }, {
     "range" : "7",
     "domain" : "6",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "232"
   }, {
     "range" : "7",
     "domain" : "51",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "233"
   }, {
     "range" : "28",
     "domain" : "7",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "234"
   }, {
     "range" : "177",
     "domain" : "28",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "235"
   }, {
     "range" : "106",
-    "domain" : "2",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "236"
   }, {
     "iri" : "https://schema.org/thumbnailUrl",
@@ -3510,7 +3510,7 @@
     "label" : {
       "IRI-based" : "thumbnailUrl"
     },
-    "domain" : "2",
+    "domain" : "5",
     "attributes" : [ "datatype", "external" ],
     "id" : "237"
   }, {
@@ -3520,17 +3520,17 @@
     "label" : {
       "IRI-based" : "temporalResolution"
     },
-    "domain" : "3",
+    "domain" : "0",
     "attributes" : [ "datatype", "allValues", "external" ],
     "id" : "238"
   }, {
-    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
+    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
     "baseIri" : "http://www.w3.org/ns/dcat",
     "range" : "241",
     "label" : {
-      "IRI-based" : "spatialResolutionInMeters"
+      "IRI-based" : "spatialResolutionInDegrees"
     },
-    "domain" : "3",
+    "domain" : "0",
     "attributes" : [ "datatype", "allValues", "external" ],
     "id" : "240"
   }, {
@@ -3544,29 +3544,29 @@
     "attributes" : [ "datatype", "external" ],
     "id" : "242"
   }, {
-    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees",
+    "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
     "baseIri" : "http://www.w3.org/ns/dcat",
     "range" : "244",
     "label" : {
-      "IRI-based" : "spatialResolutionInDegrees"
+      "IRI-based" : "spatialResolutionInMeters"
     },
-    "domain" : "3",
+    "domain" : "0",
     "attributes" : [ "datatype", "allValues", "external" ],
     "id" : "243"
   }, {
-    "range" : "133",
-    "domain" : "132",
-    "attributes" : [ "object", "anonymous" ],
+    "range" : "132",
+    "domain" : "131",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "245"
   }, {
     "range" : "115",
     "domain" : "55",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "246"
   }, {
     "range" : "28",
     "domain" : "57",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "247"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesResource",
@@ -3587,32 +3587,32 @@
   }, {
     "range" : "98",
     "domain" : "74",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "249"
   }, {
     "range" : "36",
     "domain" : "35",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "250"
   }, {
     "range" : "36",
     "domain" : "118",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "251"
   }, {
     "range" : "115",
-    "domain" : "2",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "252"
   }, {
     "range" : "105",
     "domain" : "55",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "253"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/metricType",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "132",
+    "range" : "131",
     "label" : {
       "IRI-based" : "metricType",
       "en" : "metric type",
@@ -3629,7 +3629,7 @@
   }, {
     "range" : "36",
     "domain" : "117",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "254"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/anonymizationTechnique",
@@ -3642,15 +3642,15 @@
     },
     "domain" : "217",
     "comment" : {
-      "en" : "The technique used to anonymize the data (e.g., k-anonymity, differential privacy).",
+      "en" : "The technique used to anonymize personal data (e.g., 'k-anonymity', 'differential privacy').",
       "es" : "La técnica utilizada para anonimizar datos personales (p. ej., 'k-anonymity', 'privacidad diferencial')."
     },
     "attributes" : [ "datatype" ],
     "id" : "255"
   }, {
-    "range" : "2",
+    "range" : "5",
     "domain" : "98",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "256"
   }, {
     "iri" : "http://www.w3.org/ns/dqv#value",
@@ -3681,7 +3681,7 @@
       "en" : "payment model description",
       "es" : "descripción del modelo de pago"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "A human-readable description of the pricing or payment model (e.g., 'Monthly Subscription', 'Pay-per-use'). This complements the formal ODRL policy.",
       "es" : "Una descripción legible del modelo de precios o pago (p. ej., 'Suscripción Mensual', 'Pago por uso'). Esto complementa la política formal ODRL."
@@ -3697,7 +3697,7 @@
       "en" : "security classification",
       "es" : "clasificación de seguridad"
     },
-    "domain" : "2",
+    "domain" : "5",
     "comment" : {
       "en" : "The security classification level of the resource (e.g., Public, Confidential).",
       "es" : "El nivel de clasificación de seguridad del recurso (por ejemplo, Público, Confidencial)."
@@ -3705,29 +3705,29 @@
     "attributes" : [ "datatype" ],
     "id" : "260"
   }, {
-    "range" : "2",
+    "range" : "5",
     "domain" : "116",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "261"
   }, {
     "range" : "12",
     "domain" : "106",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "262"
   }, {
     "range" : "12",
     "domain" : "101",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "263"
   }, {
     "range" : "12",
     "domain" : "55",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "264"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/consumesDataRepresentation",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "1",
+    "range" : "4",
     "label" : {
       "IRI-based" : "consumesDataRepresentation",
       "en" : "consumes data representation",
@@ -3743,7 +3743,7 @@
   }, {
     "range" : "12",
     "domain" : "11",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "266"
   } ]
 }
