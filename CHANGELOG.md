@@ -5,19 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.7.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.1...v0.7.0) (2026-02-25)
-
+## [0.7.0] (2026-02-27)
 
 ### Added
 
+* **ontology:** explicit support for measurement units via QUDT ontology.
+* **ontology:** added `edaan:hasMetricStandard` to link metrics to standardized units or SKOS concepts.
+* **ontology:** added `edaan:measuresProperty` to link metrics to the `ObservableProperty` they measure.
+* **ontology:** new namespace `w3id.org/EDAAnOWL/siex/` for SIEX vocabularies.
 * complete v0.7.0 feature set with updated validation and documentation ([0a673ed](https://github.com/KhaosResearch/EDAAnOWL/commit/0a673ed5f54038d93a8c49dd2b3c9afac37f4510))
 * release v0.7.0 with QUDT integration, SIEX rebranding, and doc updates ([59c7c30](https://github.com/KhaosResearch/EDAAnOWL/commit/59c7c308269f4ce08d4bb2c9064ba72e1cf6c873))
-
 
 ### Fixed
 
 * **siex:** correct catalog mappings and regenerate RDF data ([765e740](https://github.com/KhaosResearch/EDAAnOWL/commit/765e7400136bb5cc4b85615f9b5c0924fb1566b6))
 
+### Deprecated
+
+* `:metricUnit` (string) in favor of `:hasMetricStandard`.
+* `:hasMetricUnit` in favor of `:hasMetricStandard`.
+* `:accessType` (string) in favor of `:accessTypeConcept`.
+* `:appliesToFeature` (string) in favor of `:appliesToFeatureConcept`.
 
 ### Changed
 
@@ -28,7 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * remove unreleased v0.7.0 changelog entry ([658aeed](https://github.com/KhaosResearch/EDAAnOWL/commit/658aeed62886d9ed4e0385c6fa8b805b2dfc5d93))
 * use explicit hyperlink for issue [#35](https://github.com/KhaosResearch/EDAAnOWL/issues/35) in README ([07a3563](https://github.com/KhaosResearch/EDAAnOWL/commit/07a35634dade0f2394676937e72558e1f780a558))
 
-## [0.6.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.0...v0.6.1) (2026-02-18)
+## [0.6.1] (2026-02-18)
 
 
 ### Fixed
@@ -36,7 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * **ontology:** refine metric definitions and cleanup vocabularies ([d7290d6](https://github.com/KhaosResearch/EDAAnOWL/commit/d7290d6eb5b106e68456c9c51ccca20b4ad347b1))
 * **ontology:** refine metric definitions and cleanup vocabularies ([60cd1ad](https://github.com/KhaosResearch/EDAAnOWL/commit/60cd1adff2cace840432b24558d898dc1b79787b))
 
-## [0.6.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.5.0...v0.6.0) (2026-02-17)
+## [0.6.0] (2026-02-17)
 
 
 ### ⚠ BREAKING CHANGES
@@ -57,7 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Rename GitHub Actions workflow `release.yml` to `deploy-docs.yml` across documentation files. ([25f12fa](https://github.com/KhaosResearch/EDAAnOWL/commit/25f12fabd96608d6ae43be224f9823b7f6ed824c))
 * revert manual version header to [Unreleased] for release-please ([7fe519a](https://github.com/KhaosResearch/EDAAnOWL/commit/7fe519ae12f33b6a7a582fb7cb2fd7e08007f321))
 
-## [0.5.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.1...v0.5.0) (2026-01-30)
+## [0.5.0] (2026-01-30)
 
 ### ⚠ BREAKING CHANGES
 
@@ -373,7 +381,10 @@ With this both annotations we help to widoco to generate a better documentation 
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.1...v0.7.0
+[0.6.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.0...v0.6.1
+[0.6.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.3.2...v0.4.0
