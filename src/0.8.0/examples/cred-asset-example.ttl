@@ -85,7 +85,7 @@
     :servesObservableProperty agrovoc:c_ce585e0d ;  # NDVI
     :hasDomainSector theme:AGRI ;
     :isAlive true ;
-    dct:conformsTo <http://data.europa.eu/v8u/dcat-ap/3.0.1> ;
+    dct:conformsTo <http://data.europa.eu/r5r/dcat-ap/3.0.1> ;
     # ── ODRL policy ──
     odrl:hasPolicy <policy/olive-data-offer> .
 
@@ -121,16 +121,29 @@
     dcat:spatialResolutionInMeters "10.0"^^xsd:decimal ;
     :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
     :hasMetric <metric/olive-record-count> ,
-               <metric/olive-completeness> .
+               <metric/olive-completeness> ,
+               <metric/olive-ndvi-avg> .
 
 <metric/olive-record-count> a :Metric ;
+    :metricType :QualityMetric ;
     :metricName "recordCount" ;
     :metricValue "365000"^^xsd:integer ;
+    :hasMetricStandard <http://qudt.org/vocab/unit/NUM> ; # Count
     :computedAt "2026-03-01T10:00:00"^^xsd:dateTime .
 
 <metric/olive-completeness> a :QualityMetric ;
+    :metricType :Completeness ;
     :metricName "completeness" ;
     :metricValue "0.97"^^xsd:decimal ;
+    :hasMetricStandard <http://qudt.org/vocab/unit/PERCENT> ; # Represented as ratio/percent
+    :computedAt "2026-03-01T10:00:00"^^xsd:dateTime .
+
+# Profiling Metric for Matchmaking
+<metric/olive-ndvi-avg> a :Metric ;
+    :metricName "average_ndvi" ;
+    :measuresProperty agrovoc:c_ce585e0d ; # NDVI Phenomenon
+    :metricValue "0.65"^^xsd:decimal ;     # The actual average value
+    :hasMetricStandard <http://qudt.org/vocab/unit/UNITLESS> ; # The reference standard (NDVI has no dimension)
     :computedAt "2026-03-01T10:00:00"^^xsd:dateTime .
 
 
