@@ -5,6 +5,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.0] - 2026-03-04
+
+### ⚠ BREAKING CHANGES
+- **ontology:** major update for CRED (Spanish Data Office) and UNE 0087:2025 alignment.
+- Added mandatory hierarchy: `dcat:Catalog` -> `dcat:Dataset` -> `dcat:Distribution`.
+- Enforced `xsd:nonNegativeInteger` for `dcat:byteSize`.
+
+### Added
+- **ontology:** alignment with DCAT-AP 3.0, ODRL 2.2, and FOAF.
+- **shapes:** created `src/0.8.0/shapes/cred-alignment-shapes.ttl` for SHACL validation of CRED entities (Catalogs, Services, Offers, Agents).
+- **classes:** added `dcat:Catalog`, `dcat:DataService`, `dcat:Resource`, `odrl:Policy`, `odrl:Offer`, `odrl:Rule`, `odrl:Constraint`, `odrl:Asset`, `foaf:Agent`, `dct:Location`, `dct:RightsStatement`, `dct:LicenseDocument`, `dcatap:LegalResource`.
+- **properties:** added 25 Object Properties and 6 Data Properties from CRED recommendation.
+- **documentation:** updated `ARCHITECTURE.md` with CRED layer diagram and explanation.
+
+### Changed
+- **hierarchy:** established `dcat:Catalog subClassOf dcat:Dataset`, `dcat:Dataset subClassOf dcat:Resource`, `dcat:DataService subClassOf dcat:Resource`.
+- **metadata:** updated ontology version to 0.8.0 with updated abstract and descriptions for CRED.
+- **properties:** added strict `rdfs:domain` and `rdfs:range` to CRED-aligned properties to support automated reasoning and validation.
+
+## [0.7.0] - 2026-02-24
+
+### Added
+- **ontology:** full integration with QUDT units (replacing `metricUnit` with `hasMetricStandard`).
+- **ontology:** introduced `measuresProperty` to explicitly link metrics to the `ObservableProperty` they measure.
+- **ontology:** added IDSA-aligned security properties for access control and confidentiality.
+- **vocabularies:** integrated SIEX (Spain) agricultural catalogs as automated SKOS transformations.
+- **documentation:** comprehensive rebranding of diagrams and Widoco documentation.
+- **examples:** improved interoperability examples with real-world sector-specific cases.
+
+### Fixed
+- **ontology:** fixed inconsistent prefix mappings for QUDT and provenance.
+- **vocabularies:** corrected encoding issues and SIEX URI resolution patterns.
+- **metadata:** ensured all versioned files (0.7.0) point to the correct release IRIs.
+
 ## [0.6.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.0...v0.6.1) (2026-02-18)
 
 

@@ -8,7 +8,14 @@ graph TB
     end
 
     subgraph Semantic ["Semantic Layer (Ontology)"]
-        subgraph Compliance ["Compliance Layer (Maps)"]
+        subgraph CRED ["CRED / UNE 0087 Compliance (v0.8.0)"]
+            CAT["dcat:Catalog<br/>(Federated Registry)"]
+            SRV["dcat:DataService<br/>(Access Interface)"]
+            POL["odrl:Policy / Offer<br/>(Usage Rights)"]
+            AGN["foaf:Agent<br/>(Publisher/Provider)"]
+        end
+
+        subgraph Compliance ["IDSA Alignment (Base)"]
             DCAT["dcat:Dataset<br/>(Discovery)"]
             DR_IDSA["ids:DataResource"]
             DA_IDSA["ids:DataApp"]
@@ -42,7 +49,13 @@ graph TB
     %% Relationships
     DS -->|"described as"| DR_IDSA
     DR_IDSA -->|"specialized by"| DA
-    DA -.->|"types as"| DCAT
+    DA -.->|"mapped to"| DCAT
+    CAT -- "dcat:dataset" --> DCAT
+    CAT -- "dcat:service" --> SRV
+    SRV -- "dcat:servesDataset" --> DCAT
+    
+    DCAT -- "odrl:hasPolicy" --> POL
+    DCAT -- "dct:publisher" --> AGN
 
     AP -->|"described as"| DA_IDSA
     DA_IDSA -->|"specialized by"| Apps
@@ -69,30 +82,38 @@ graph TB
     classDef idsa fill:#fce4ec,stroke:#c2185b,stroke-width:2px
     classDef edaan fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
     classDef bigowl fill:#fffde7,stroke:#fbc02d,stroke-width:2px
+    classDef cred fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2.5px
     classDef core fill:#ffffff,stroke:#2e7d32,stroke-width:1px,stroke-dasharray: 5 5
 
     class DS,AP space
     class DR_IDSA,DA_IDSA idsa
     class DA,Repr,Apps,Prof,OP,Met,Prov_O edaan
     class WF,Comp bigowl
+    class CAT,SRV,POL,AGN cred
     class Matchmaking,QualityProv core
 ```
 
 ## 🖼 Architecture diagram
 
-![EDAAnOWL architecture — IDS ↔ BIGOWL (high-level)](images/eda-an-architecture-en.svg)
+![EDAAnOWL architecture — IDS ↔ BIGOWL (v0.8.0 CRED updated)](images/eda-an-architecture-en.svg)
 
-Figure: High-level architecture showing how EDAAnOWL maps IDSA concepts (DataApp/DataResource) to BIGOWL components and publishes artifacts via DCAT, linking policies (ODRL/DPV). The image is stored in `images/` and can be reused in versioned READMEs.
+Figure: High-level architecture showing how EDAAnOWL maps IDSA concepts to BIGOWL components, all wrapped within a **CRED / DCAT-AP 3.0** compliant cataloguing layer.
 
 ### Architecture overview
 
-The figure below shows how EDAAnOWL connects real-world data-space assets with semantic models from IDSA and BIGOWL.
+The figure above shows how EDAAnOWL connects real-world data-space assets with semantic models from IDSA, BIGOWL, and the **CRED (UNE 0087:2025)** recommendations.
 
-The **Data Space Layer (Real World)** contains the actual assets:
-- **Data Space Assets (Datasets, Files)** represent the raw or curated data made available in the space.
-- **Applications/Services (Algos, Models)** represent smart data apps, analytics pipelines, or services that consume or produce data.
+### CRED / DCAT-AP 3.0 Alignment (New in v0.8.0)
 
-These assets are semantically described in the **Semantic Layer (Ontology)**, which combines three main vocabularies: the IDSA Information Model, EDAAnOWL, and BIGOWL.
+As of version 0.8.0, EDAAnOWL incorporates a **Compliance Layer** that follows the recommendations of the **Spanish Data Office (CRED)** and the **UNE 0087:2025** standard. This ensures that assets described in EDAAnOWL are fully interoperable with national and European federated catalogs.
+
+- **`dcat:Catalog`**: Acts as the root container for all assets and services within an EDAAn data space instance.
+- **`dcat:DataService`**: Describes the technical access points (APIs) to the data, effectively wrapping `ids:DataApp` or smart data apps.
+- **`odrl:Policy` / `odrl:Offer`**: Provides a standardized way to describe usage conditions, rights, and prohibitions, replacing generic text with machine-readable rules.
+- **`foaf:Agent`**: Standardizes the representation of publishers, providers, and consumers.
+- **ADMS Metadata**: Uses the Asset Description Metadata Schema for versioning (`adms:versionNotes`) and status tracking (`adms:status`).
+
+This layer provides the "Discovery" and "Governance" metadata, while EDAAnOWL's core provides the "Deep Semantics" required for automated processing and quality assessment.
 
 ### Alignment with the IDSA Information Model
 
@@ -104,12 +125,6 @@ In EDAAnOWL, these classes are specialised to capture more domain-specific conce
 - **`DataAsset`** is aligned with and specialises `ids:DataResource` (supply side).
 - **Smart data app types** specialise `ids:DataApp` (demand side).
 
-In practice:
-- A real dataset (**Data Space Asset**) is **described as** an `ids:DataResource`, and further specialised as a `DataAsset`.
-- A real application or service (**Application/Service**) is **described as** an `ids:DataApp`, and further specialised as a smart data app type.
-
-This keeps compatibility with the IDSA Information Model while allowing EDAAnOWL to add more precise concepts for the project.
-
 ### Observable properties: matching supply and demand
 
 EDAAnOWL introduces **`ObservableProperty`** to represent **what is being measured or described** (the semantic “meaning” of the data).
@@ -119,8 +134,6 @@ EDAAnOWL introduces **`ObservableProperty`** to represent **what is being measur
 - A **Smart Data App** *requires* one or more observable properties  
   – “I need X” → the app expects data about X as input.
 
-By connecting both sides to the same `ObservableProperty`, the architecture supports semantic matching between what datasets offer and what applications need.
-
 ### Data profiles: structural compatibility
 
 Semantic meaning is not enough; the **structure** of the data also matters. For this, EDAAnOWL defines **`DataProfile`**:
@@ -129,21 +142,16 @@ Semantic meaning is not enough; the **structure** of the data also matters. For 
 - That **Representation** **conformsToProfile** a `DataProfile`, which describes its schema, formats, and structural constraints.
 - A **Smart Data App** **requiresProfile** a `DataProfile`, which describes the expected input structure.
 
-This creates a two-dimensional matching space:
-- **ObservableProperty** → meaning (what is described).
-- **DataProfile** → structure (how it is represented).
-
-Together, they enable more robust discovery and interoperability between data assets and smart data apps.
-
 ### Data Quality and Provenance
 
-EDAAnOWL v0.6.0 provides explicit support for data quality, lineage, and performance tracking:
+EDAAnOWL v0.8.0 provides explicit support for data quality, lineage, and performance tracking:
 
 - **Metrics (`Metric`, `QualityMetric`)**: A `DataProfile` can define multiple metrics using `:hasMetric`. These align with `dqv:QualityMeasurement`.
-- **Standards (`hasMetricStandard`)**: (New in v0.7.0) Replaces `metricUnit`. Links a metric to a semantic definition, such as a **QUDT Unit** (`qudt:KiloGM`) or a **SKOS Concept** for categorical data.
-- **Meaning (`measuresProperty`)**: (New in v0.7.0) Explicitly links a metric to the `ObservableProperty` it measures, enabling safer unit conversions and validation.
-- **Performance (`PerformanceMetric`)**: `DataApp`s can declare non-functional properties like execution time or max throughput using `:hasPerformanceMetric`.
-- **Provenance (`prov:wasGeneratedBy`)**: A `DataAsset` can be linked back to the processing app that created it, enabling full lineage tracing.
+- **Standards (`hasMetricStandard`)**: Replaces `metricUnit`. Links a metric to a semantic definition, such as a **QUDT Unit** (`qudt:KiloGM`) or a **SKOS Concept** for categorical data.
+- **Meaning (`measuresProperty`)**: Explicitly links a metric to the `ObservableProperty` it measures.
+- **Performance (`PerformanceMetric`)**: `DataApp`s can declare non-functional properties like execution time or max throughput.
+- **Provenance (`prov:wasGeneratedBy`)**: A `DataAsset` can be linked back to the processing app that created it.
+
 
 > [!TIP]
 > **Domain-Specific Catalogs: SIEX (FEGA)**
