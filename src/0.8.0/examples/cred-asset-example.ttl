@@ -1,0 +1,232 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix bigdat: <https://w3id.org/BIGOWLData/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+
+@base <https://w3id.org/EDAAnOWL/examples/cred/> .
+
+# ═══════════════════════════════════════════════════════════════
+#  CRED-compliant Asset Annotation Example (EDAAnOWL v0.8.0)
+#
+#  This example demonstrates how to annotate a data space asset
+#  following the CRED (Centro de Referencia de Espacios de Datos)
+#  recommendations, aligned with UNE 0087:2025, DCAT-AP 3.0,
+#  ODRL 2.2, and FOAF.
+# ═══════════════════════════════════════════════════════════════
+
+
+# ─────────────────────────────────────────────────────────────
+#  1. CATALOG — Semantic resource catalog of a data space
+# ─────────────────────────────────────────────────────────────
+
+<catalog/agri-data-space> a dcat:Catalog ;
+    dct:title "Catálogo del Espacio de Datos Agrícola"@es ,
+              "Agricultural Data Space Catalog"@en ;
+    dct:description "Catálogo de recursos semánticos del espacio de datos agrícola de Andalucía"@es ;
+    dct:publisher <agent/junta-andalucia> ;
+    dcat:dataset <dataset/olive-grove-monitoring> ;
+    dcat:service <service/crop-forecast-api> ;
+    dcatap:applicableLegislation <https://www.boe.es/eli/es-ga/2024/10/01> .
+
+
+# ─────────────────────────────────────────────────────────────
+#  2. PUBLISHER — FOAF Agent
+# ─────────────────────────────────────────────────────────────
+
+<agent/junta-andalucia> a foaf:Agent ;
+    foaf:name "Junta de Andalucía"@es ;
+    dct:type <http://publications.europa.eu/resource/authority/corporate-body> .
+
+<agent/khaos-research> a foaf:Agent ;
+    foaf:name "Khaos Research Group"@en ;
+    dct:type <http://publications.europa.eu/resource/authority/corporate-body> .
+
+
+# ─────────────────────────────────────────────────────────────
+#  3. DATASET — Data Asset annotated with DCAT-AP 3.0 metadata
+# ─────────────────────────────────────────────────────────────
+
+<dataset/olive-grove-monitoring> a :DataAsset , dcat:Dataset ;
+    dct:title "Datos de Monitorización de Olivares"@es ,
+              "Olive Grove Monitoring Data"@en ;
+    dct:description "Datos de sensores y satélite sobre el estado de olivares en la provincia de Jaén"@es ;
+    dct:identifier "olive-grove-monitoring-2026" ;
+    dct:modified "2026-03-01"^^xsd:date ;
+    dct:issued "2025-06-15"^^xsd:date ;
+    dct:publisher <agent/junta-andalucia> ;
+    dct:creator <agent/khaos-research> ;
+    dct:language <http://publications.europa.eu/resource/authority/language/SPA> ,
+                 <http://publications.europa.eu/resource/authority/language/ENG> ;
+    dct:type <http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL> ;
+    dct:spatial <http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Andalucia> ;
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    dcat:theme theme:AGRI , theme:ENVI ;
+    dcat:keyword "olivar"@es , "NDVI"@en , "teledetección"@es , "remote sensing"@en ;
+    dct:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/DAILY> ;
+    owl:versionInfo "2.1.0" ;
+    dcatap:applicableLegislation <https://www.boe.es/eli/es/rd/2023/12/19/1089> ;
+    dcat:landingPage <https://datos.juntadeandalucia.es/olivar-monitoring> ;
+    dcat:distribution <distribution/olive-csv> ;
+    ids:representation <distribution/olive-csv> ;
+    # ── EDAAnOWL-specific ──
+    :servesObservableProperty agrovoc:c_ce585e0d ;  # NDVI
+    :hasDomainSector theme:AGRI ;
+    :isAlive true ;
+    dct:conformsTo <http://data.europa.eu/r5r/dcat-ap/3.0.1> ;
+    # ── ODRL policy ──
+    odrl:hasPolicy <policy/olive-data-offer> .
+
+
+# ─────────────────────────────────────────────────────────────
+#  4. DISTRIBUTION — Concrete delivery form with DCAT-AP 3.0
+# ─────────────────────────────────────────────────────────────
+
+<distribution/olive-csv> a :DataRepresentation , dcat:Distribution ;
+    dct:title "Distribución CSV de datos de olivar"@es ,
+              "Olive grove CSV distribution"@en ;
+    dct:description "Archivo CSV con datos tabulares de monitorización de olivar"@es ;
+    dcat:accessURL <https://datos.juntadeandalucia.es/api/v1/olivar/download> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dct:rights <https://datos.gob.es/catalogo/derechos-de-acceso> ;
+    dcat:byteSize "15728640"^^xsd:decimal ;
+    dct:issued "2025-06-15"^^xsd:date ;
+    dct:modified "2026-03-01"^^xsd:date ;
+    adms:status <http://purl.org/adms/status/Completed> ;
+    :conformsToProfile <profile/olive-monitoring-profile> .
+
+
+# ─────────────────────────────────────────────────────────────
+#  5. DATA PROFILE — EDAAnOWL semantic profile
+# ─────────────────────────────────────────────────────────────
+
+<profile/olive-monitoring-profile> a :DataProfile ;
+    :declaresDataClass bigdat:TabularDataSet ;
+    :declaresObservedProperty agrovoc:c_ce585e0d ;  # NDVI
+    dcat:temporalResolution "P1D"^^xsd:duration ;
+    dcat:spatialResolutionInMeters "10.0"^^xsd:decimal ;
+    :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
+    :hasMetric <metric/olive-record-count> ,
+               <metric/olive-completeness> ,
+               <metric/olive-ndvi-avg> .
+
+<metric/olive-record-count> a :Metric ;
+    :metricType :QualityMetric ;
+    :metricName "recordCount" ;
+    :metricValue "365000"^^xsd:integer ;
+    :hasMetricStandard <http://qudt.org/vocab/unit/NUM> ; # Count
+    :computedAt "2026-03-01T10:00:00"^^xsd:dateTime .
+
+<metric/olive-completeness> a :QualityMetric ;
+    :metricType :Completeness ;
+    :metricName "completeness" ;
+    :metricValue "0.97"^^xsd:decimal ;
+    :hasMetricStandard <http://qudt.org/vocab/unit/PERCENT> ; # Represented as ratio/percent
+    :computedAt "2026-03-01T10:00:00"^^xsd:dateTime .
+
+# Profiling Metric for Matchmaking
+<metric/olive-ndvi-avg> a :Metric ;
+    :metricName "average_ndvi" ;
+    :measuresProperty agrovoc:c_ce585e0d ; # NDVI Phenomenon
+    :metricValue "0.65"^^xsd:decimal ;     # The actual average value
+    :hasMetricStandard <http://qudt.org/vocab/unit/UNITLESS> ; # The reference standard (NDVI has no dimension)
+    :computedAt "2026-03-01T10:00:00"^^xsd:dateTime .
+
+
+# ─────────────────────────────────────────────────────────────
+#  6. ODRL POLICY — Usage conditions (CRED model)
+# ─────────────────────────────────────────────────────────────
+
+<policy/olive-data-offer> a odrl:Offer ;
+    odrl:target <dataset/olive-grove-monitoring> ;
+    odrl:permission [
+        odrl:action odrl:use ;
+        odrl:assigner <agent/junta-andalucia> ;
+        odrl:constraint [
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand "research"
+        ]
+    ] ;
+    odrl:prohibition [
+        odrl:action odrl:distribute ;
+        odrl:assigner <agent/junta-andalucia>
+    ] .
+
+
+# ─────────────────────────────────────────────────────────────
+#  7. DATA SERVICE — API endpoint (DCAT-AP 3.0)
+# ─────────────────────────────────────────────────────────────
+
+<service/crop-forecast-api> a dcat:DataService ;
+    dct:title "Servicio de Predicción de Cosecha"@es ,
+              "Crop Forecast Service"@en ;
+    dct:description "API REST de predicción de cosecha de olivar basada en machine learning"@es ;
+    dcat:endpointURL <https://api.agrispace.es/v1/forecast> ;
+    dct:publisher <agent/khaos-research> ;
+    dcat:servesDataset <dataset/olive-grove-monitoring> ;
+    dcatap:applicableLegislation <https://www.boe.es/eli/es/rd/2023/12/19/1089> .
+
+
+# ─────────────────────────────────────────────────────────────
+#  8. VOCABULARY as DATASET — Library model (CRED Ilustración 17)
+# ─────────────────────────────────────────────────────────────
+
+<dataset/edaanowl-catalog-entry> a dcat:Dataset ;
+    dct:identifier "edaanowl-ontology" ;
+    dct:title "Ontología EDAAnOWL"@es ;
+    dct:description "Ontología para la anotación semántica de activos en espacios de datos"@es ;
+    dct:modified "2026-03-04"^^xsd:date ;
+    dct:publisher <agent/khaos-research> ;
+    dct:type <http://publications.europa.eu/resource/authority/dataset-type/ONTOLOGY> ;
+    owl:versionInfo "0.8.0" ;
+    dcat:distribution <distribution/edaanowl-ttl> ;
+    dcat:theme theme:TECH ;
+    dct:accessRights <https://creativecommons.org/licenses/by/4.0/> .
+
+<distribution/edaanowl-ttl> a dcat:Distribution ;
+    dct:description "Serialización Turtle de la ontología EDAAnOWL"@es ;
+    dct:rights <https://creativecommons.org/licenses/by/4.0/> ;
+    dcat:accessURL <https://github.com/KhaosResearch/EDAAnOWL/raw/refs/heads/main/src/0.8.0/EDAAnOWL.ttl> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> .
+
+
+# ─────────────────────────────────────────────────────────────
+#  9. ACCESS RIGHTS & LICENSE — Supporting instances
+# ─────────────────────────────────────────────────────────────
+
+<http://publications.europa.eu/resource/authority/access-right/PUBLIC> a dct:RightsStatement ;
+    rdfs:label "Public"@en , "Público"@es .
+
+<https://creativecommons.org/licenses/by/4.0/> a dct:LicenseDocument ;
+    skos:inScheme <http://publications.europa.eu/resource/authority/licence> ;
+    rdfs:label "Creative Commons Attribution 4.0 International"@en .
+
+<https://datos.gob.es/catalogo/derechos-de-acceso> a dct:RightsStatement ;
+    rdfs:label "Derechos relativos a la reutilización del Catálogo de Datos Abiertos"@es .
+
+
+# ─────────────────────────────────────────────────────────────
+#  10. STUB DEFINITIONS for SHACL Validation
+# ─────────────────────────────────────────────────────────────
+
+agrovoc:c_ce585e0d a skos:Concept ;
+    skos:prefLabel "NDVI"@en .
+
+<http://www.opengis.net/def/crs/EPSG/0/4326> a skos:Concept ;
+    skos:prefLabel "WGS 84"@en ;
+    owl:sameAs <http://www.opengis.net/def/crs/EPSG/0/4326> .

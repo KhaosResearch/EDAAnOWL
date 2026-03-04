@@ -5,6 +5,7 @@ We provide security fixes for the following versions:
 
 | Version  | Supported |
 |---------:|:---------:|
+| 0.7.x    | ✅        |
 | 0.6.x    | ✅        |
 | 0.5.x    | ✅        |
 | 0.4.x    | ✅        |

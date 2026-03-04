@@ -146,12 +146,20 @@ flowchart TD
     DP -- "declaresDataClass" --> DC
     DP -- "declaresObservedProperty" --> OP
     DP -- "hasMetric" --> M
+    M -- "hasMetricStandard" --> S["QUDT / SKOS"]
+    M -- "measuresProperty" --> OP
     DP -- "hasCRS" --> CRS
     DP -- "dcat:spatialResolutionInMeters" --> RES
 
     class DP profile
     class DC,OP,M,CRS,RES content
 ```
+
+> [!NOTE]
+> **Métricas de Calidad vs Métricas de Perfilado**
+> En EAAAnOWL, distinguimos dos usos para la clase `Metric`:
+> 1. **Métricas de Calidad (DQV)**: Describen el dataset en sí (ej. Completitud, Número de filas). **NO** deben usar `:measuresProperty`, ya que no miden un fenómeno físico.
+> 2. **Métricas de Perfilado/Agregación**: Ofrecen resúmenes matemáticos de una variable (ej. NDVI Medio). Estas **SÍ** usan `:measuresProperty` para vincular qué fenómeno están agregando, posibilitando el Matchmaking Semántico estricto.
 
 ---
 
@@ -223,9 +231,9 @@ flowchart LR
 
     APP -- "hasPerformanceMetric" --> PM
 
-    PM -- "metricName" --> N["latency / throughput"]
+    PM -- "metricType" --> T[":Latency / :Throughput"]
     PM -- "metricValue" --> V["150"]
-    PM -- "metricUnit" --> U["ms"]
+    PM -- "hasMetricStandard" --> U["unit:MilliSEC"]
 
     class APP app
     class PM metric
@@ -246,6 +254,8 @@ flowchart LR
 | DataApp | bigwf:Component | `implementsComponent` | "Esta app implementa este componente" |
 | DataProfile | bigdat:Data | `declaresDataClass` | "Este perfil es de tipo..." |
 | DataProfile | Metric | `hasMetric` | "Este perfil tiene esta métrica" |
+| Metric | QUDT / SKOS | `hasMetricStandard` | "Usa este estándar/unidad" |
+| Metric | ObservableProperty | `measuresProperty` | "Mide esta propiedad (Solo para Métricas de Perfilado)" |
 | DataApp | PerformanceMetric | `hasPerformanceMetric` | "Esta app tiene este rendimiento" |
 
 ---
