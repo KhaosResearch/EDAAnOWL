@@ -5,30 +5,36 @@ from rdflib.namespace import SKOS, DCTERMS, RDFS, XSD, OWL
 import re
 
 # Namespaces
-SIEX_ONT = URIRef("https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex")
-SIEX_DEF = Namespace("https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex#")
-SIEX_KOS = Namespace("https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/")
+SIEX_ONT = URIRef("https://w3id.org/EDAAnOWL/0.8.0/vocabularies/siex")
+SIEX_DEF = Namespace("https://w3id.org/EDAAnOWL/0.8.0/vocabularies/siex#")
+SIEX_KOS = Namespace("https://w3id.org/EDAAnOWL/0.8.0/vocabularies/siex/kos/")
 EDAAN = Namespace("https://w3id.org/EDAAnOWL/")
 
 # Configuration: Mapping SIEX Schemes to CSV file names
 MAPPING = {
     "siexCropProductValueCode": {"file": "Producto Vegetal.csv", "id_col": "Código SIEX", "label_col": "Cultivo SIEX"},
     "siexCropTypeValueCode": {"file": "Cultivo.csv", "id_col": "Código", "label_col": "Cultivo", "alt_label_col": "Latín"},
-    "siexFarmingSystemValueCode": {"file": "Sistema de cultivo.csv", "id_col": "Código SIEX", "label_col": "Sistema de cultivo"},
-    "siexFertilizationMethodValueCode": {"file": "Método de aplicación de fertilizante.csv", "id_col": "Código SIEX", "label_col": "Método de fertilización"},
-    "siexFertilizationTypeValueCode": {"file": "Tipo de fertilización.csv", "id_col": "Código SIEX", "label_col": "Tipo de fertilización"},
-    "siexFertilizerMaterialValueCode": {"file": "Material fertilizante.csv", "id_col": "Código SIEX", "label_col": "Tipo de material"},
-    "siexIntendedCropUseValueCode": {"file": "Finalidad de la cosecha.csv", "id_col": "Código SIEX", "label_col": "Declaración de cosecha / producción"},
-    "siexIrrigationWaterSourceValueCode": {"file": "Procedencia del agua de riego.csv", "id_col": "Código SIEX", "label_col": "Procedencia del agua de riego"},
-    "siexRootstockValueCode": {"file": "Portainjerto.csv", "id_col": "Código SIEX", "label_col": "Portainjerto"},
-    "siexSoilCoverActivityValueCode": {"file": "Buenas prácticas.csv", "id_col": "Código SIEX", "label_col": "Buenas prácticas"},
-    "siexSoilCoverTypeValueCode": {"file": "Tipo de cobertura del suelo.csv", "id_col": "Código SIEX", "label_col": "Tipo de cobertura del suelo"},
-    "siexTreatmentEffectivenessValueCode": {"file": "Eficacia del tratamiento.csv", "id_col": "Código SIEX", "label_col": "Eficacia del tratamiento"},
-    "siexTrellisingSystemValueCode": {"file": "Sistema de conducción.csv", "id_col": "Código SIEX", "label_col": "Sistema de conducción"}
+    # "siexFarmingSystemValueCode": {"file": "Sistema de cultivo.csv", "id_col": "Código SIEX", "label_col": "Sistema de cultivo"},
+    # "siexFertilizationMethodValueCode": {"file": "Método de aplicación de fertilizante.csv", "id_col": "Código SIEX", "label_col": "Método de fertilización"},
+    # "siexFertilizationTypeValueCode": {"file": "Tipo de fertilización.csv", "id_col": "Código SIEX", "label_col": "Tipo de fertilización"},
+    # "siexFertilizerMaterialValueCode": {"file": "Material fertilizante.csv", "id_col": "Código SIEX", "label_col": "Tipo de material"},
+    # "siexIntendedCropUseValueCode": {"file": "Finalidad de la cosecha.csv", "id_col": "Código SIEX", "label_col": "Declaración de cosecha / producción"},
+    # "siexIrrigationWaterSourceValueCode": {"file": "Procedencia del agua de riego.csv", "id_col": "Código SIEX", "label_col": "Procedencia del agua de riego"},
+    # "siexRootstockValueCode": {"file": "Portainjerto.csv", "id_col": "Código SIEX", "label_col": "Portainjerto"},
+    # "siexSoilCoverActivityValueCode": {"file": "Buenas prácticas.csv", "id_col": "Código SIEX", "label_col": "Buenas prácticas"},
+    # "siexSoilCoverTypeValueCode": {"file": "Tipo de cobertura del suelo.csv", "id_col": "Código SIEX", "label_col": "Tipo de cobertura del suelo"},
+    # "siexTreatmentEffectivenessValueCode": {"file": "Eficacia del tratamiento.csv", "id_col": "Código SIEX", "label_col": "Eficacia del tratamiento"},
+    # "siexTrellisingSystemValueCode": {"file": "Sistema de conducción.csv", "id_col": "Código SIEX", "label_col": "Sistema de conducción"}
 }
 
-CSV_DIR = r"c:\Users\khaosdev\Downloads\Catalogos_csv"
-BASE_ONTOLOGY = r"c:\Users\khaosdev\Downloads\EDAAnOWL_ultimo\EDAAnOWL\src\0.7.0\vocabularies\siex.ttl"
+# Paths relative to this script's location
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
+# CSV_DIR is assumed to be a sibling of the project source folder in Downloads
+CSV_DIR = os.path.abspath(os.path.join(PROJECT_ROOT, "..", "..", "Catalogos_csv"))
+# BASE_ONTOLOGY is inside the project structure
+BASE_ONTOLOGY = os.path.join(PROJECT_ROOT, "src", "0.8.0", "vocabularies", "siex.ttl")
 
 def generate_rdf():
     g = Graph()
@@ -110,8 +116,8 @@ def generate_rdf():
     out = unified_g.serialize(format="turtle")
     
     # Find the prefix RDFlib generated for the base URI if it didn't use 'siex'
-    # Look for @prefix defaultXX: <https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex> .
-    match = re.search(r"@prefix (\w+): <https://w3id\.org/EDAAnOWL/0\.7\.0/vocabularies/siex> \.", out)
+    # Look for @prefix defaultXX: <https://w3id.org/EDAAnOWL/0.8.0/vocabularies/siex> .
+    match = re.search(r"@prefix (\w+): <https://w3id\.org/EDAAnOWL/0\.8\.0/vocabularies/siex> \.", out)
     if match:
         prefix_name = match.group(1)
         # 1. Add siex prefix if missing
