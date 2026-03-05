@@ -155,6 +155,12 @@ flowchart TD
     class DC,OP,M,CRS,RES content
 ```
 
+> [!NOTE]
+> **Métricas de Calidad vs Métricas de Perfilado**
+> En EAAAnOWL, distinguimos dos usos para la clase `Metric`:
+> 1. **Métricas de Calidad (DQV)**: Describen el dataset en sí (ej. Completitud, Número de filas). **NO** deben usar `:measuresProperty`, ya que no miden un fenómeno físico.
+> 2. **Métricas de Perfilado/Agregación**: Ofrecen resúmenes matemáticos de una variable (ej. NDVI Medio). Estas **SÍ** usan `:measuresProperty` para vincular qué fenómeno están agregando, posibilitando el Matchmaking Semántico estricto.
+
 ---
 
 ## 6️⃣ Diagrama Completo
@@ -249,7 +255,7 @@ flowchart LR
 | DataProfile | bigdat:Data | `declaresDataClass` | "Este perfil es de tipo..." |
 | DataProfile | Metric | `hasMetric` | "Este perfil tiene esta métrica" |
 | Metric | QUDT / SKOS | `hasMetricStandard` | "Usa este estándar/unidad" |
-| Metric | ObservableProperty | `measuresProperty` | "Mide esta propiedad (semántica)" |
+| Metric | ObservableProperty | `measuresProperty` | "Mide esta propiedad (Solo para Métricas de Perfilado)" |
 | DataApp | PerformanceMetric | `hasPerformanceMetric` | "Esta app tiene este rendimiento" |
 
 ---

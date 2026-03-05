@@ -5,38 +5,41 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.7.0] (2026-02-27)
+## [0.8.0] - 2026-03-04
+
+### ⚠ BREAKING CHANGES
+- **ontology:** major update for CRED (Spanish Data Office) and UNE 0087:2025 alignment.
+- Added mandatory hierarchy: `dcat:Catalog` -> `dcat:Dataset` -> `dcat:Distribution`.
+- Enforced `xsd:nonNegativeInteger` for `dcat:byteSize`.
 
 ### Added
-
-* **ontology:** explicit support for measurement units via QUDT ontology.
-* **ontology:** added `edaan:hasMetricStandard` to link metrics to standardized units or SKOS concepts.
-* **ontology:** added `edaan:measuresProperty` to link metrics to the `ObservableProperty` they measure.
-* **ontology:** new namespace `w3id.org/EDAAnOWL/siex/` for SIEX vocabularies.
-* complete v0.7.0 feature set with updated validation and documentation ([0a673ed](https://github.com/KhaosResearch/EDAAnOWL/commit/0a673ed5f54038d93a8c49dd2b3c9afac37f4510))
-* release v0.7.0 with QUDT integration, SIEX rebranding, and doc updates ([59c7c30](https://github.com/KhaosResearch/EDAAnOWL/commit/59c7c308269f4ce08d4bb2c9064ba72e1cf6c873))
-
-### Fixed
-
-* **siex:** correct catalog mappings and regenerate RDF data ([765e740](https://github.com/KhaosResearch/EDAAnOWL/commit/765e7400136bb5cc4b85615f9b5c0924fb1566b6))
-
-### Deprecated
-
-* `:metricUnit` (string) in favor of `:hasMetricStandard`.
-* `:hasMetricUnit` in favor of `:hasMetricStandard`.
-* `:accessType` (string) in favor of `:accessTypeConcept`.
-* `:appliesToFeature` (string) in favor of `:appliesToFeatureConcept`.
+- **ontology:** alignment with DCAT-AP 3.0, ODRL 2.2, and FOAF.
+- **shapes:** created `src/0.8.0/shapes/cred-alignment-shapes.ttl` for SHACL validation of CRED entities (Catalogs, Services, Offers, Agents).
+- **classes:** added `dcat:Catalog`, `dcat:DataService`, `dcat:Resource`, `odrl:Policy`, `odrl:Offer`, `odrl:Rule`, `odrl:Constraint`, `odrl:Asset`, `foaf:Agent`, `dct:Location`, `dct:RightsStatement`, `dct:LicenseDocument`, `dcatap:LegalResource`.
+- **properties:** added 25 Object Properties and 6 Data Properties from CRED recommendation.
+- **documentation:** updated `ARCHITECTURE.md` with CRED layer diagram and explanation.
 
 ### Changed
+- **hierarchy:** established `dcat:Catalog subClassOf dcat:Dataset`, `dcat:Dataset subClassOf dcat:Resource`, `dcat:DataService subClassOf dcat:Resource`.
+- **metadata:** updated ontology version to 0.8.0 with updated abstract and descriptions for CRED.
+- **properties:** added strict `rdfs:domain` and `rdfs:range` to CRED-aligned properties to support automated reasoning and validation.
 
-* Add SIEX/FEGA vocabularies ([c49e924](https://github.com/KhaosResearch/EDAAnOWL/commit/c49e924b03ab647bce8c409aac3d7a0090e2989e))
-* explicitly link v0.7.0 semantic units to [#35](https://github.com/KhaosResearch/EDAAnOWL/issues/35) ([b8164fe](https://github.com/KhaosResearch/EDAAnOWL/commit/b8164fe790ae4057fbf95b17af06ddadb3fd0b7e))
-* finalize v0.7.0 README with correct property names ([244bce3](https://github.com/KhaosResearch/EDAAnOWL/commit/244bce341de6820b0607fb24d23d4b517b6c09fd))
-* force next release to 0.7.0 ([3c8fe3f](https://github.com/KhaosResearch/EDAAnOWL/commit/3c8fe3f5be9c35db029e53f3290a169ebd954198))
-* remove unreleased v0.7.0 changelog entry ([658aeed](https://github.com/KhaosResearch/EDAAnOWL/commit/658aeed62886d9ed4e0385c6fa8b805b2dfc5d93))
-* use explicit hyperlink for issue [#35](https://github.com/KhaosResearch/EDAAnOWL/issues/35) in README ([07a3563](https://github.com/KhaosResearch/EDAAnOWL/commit/07a35634dade0f2394676937e72558e1f780a558))
+## [0.7.0] - 2026-02-24
 
-## [0.6.1] (2026-02-18)
+### Added
+- **ontology:** full integration with QUDT units (replacing `metricUnit` with `hasMetricStandard`).
+- **ontology:** introduced `measuresProperty` to explicitly link metrics to the `ObservableProperty` they measure.
+- **ontology:** added IDSA-aligned security properties for access control and confidentiality.
+- **vocabularies:** integrated SIEX (Spain) agricultural catalogs as automated SKOS transformations.
+- **documentation:** comprehensive rebranding of diagrams and Widoco documentation.
+- **examples:** improved interoperability examples with real-world sector-specific cases.
+
+### Fixed
+- **ontology:** fixed inconsistent prefix mappings for QUDT and provenance.
+- **vocabularies:** corrected encoding issues and SIEX URI resolution patterns.
+- **metadata:** ensured all versioned files (0.7.0) point to the correct release IRIs.
+
+## [0.6.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.0...v0.6.1) (2026-02-18)
 
 
 ### Fixed
@@ -381,7 +384,8 @@ With this both annotations we help to widoco to generate a better documentation 
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.8.0...HEAD
+[0.8.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.1...v0.7.0
 [0.6.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.5.0...v0.6.0

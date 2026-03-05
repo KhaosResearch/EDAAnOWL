@@ -80,10 +80,16 @@ def validate_file(data_file: Path, shape_files: list, ontology_file: Path, vocab
         print(f"   ✅ Success (No Violations)")
     else:
         print(f"   ❌ Failed ({len(violations)} Violations found)")
-        # Show violations
-        for line in results_text.split('\n')[:30]:
-            if line.strip():
-                print(f"      {line}")
+        # Show ONLY violations
+        results_text_clean = results_text
+        for result in results_graph.subjects(SH.resultSeverity, SH.Violation):
+            # Extract relevant info for this specific violation
+            msg = results_graph.value(result, SH.resultMessage)
+            path = results_graph.value(result, SH.resultPath)
+            focus = results_graph.value(result, SH.focusNode)
+            print(f"      - Violation: {msg}")
+            print(f"        Focus: {focus}")
+            print(f"        Path: {path}")
     
     return is_success
 
@@ -108,6 +114,7 @@ def main():
         version_dir / 'shapes' / 'edaan-shapes.ttl',
         version_dir / 'shapes' / 'dcat-ap-alignment.ttl',
         version_dir / 'shapes' / 'idsa-shapes.ttl',
+        version_dir / 'shapes' / 'cred-alignment-shapes.ttl',
     ]
     
     # Legacy vocabularies (pre-0.6.0)
@@ -126,6 +133,7 @@ def main():
     data_files = [
         examples_dir / 'test-consistency.ttl',
         examples_dir / 'eo-instances.ttl',
+        examples_dir / 'cred-asset-example.ttl',
     ]
     
     all_valid = True

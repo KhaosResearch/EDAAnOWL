@@ -80,19 +80,34 @@ Detailed documentation is available in the `docs/` folder:
 @prefix edaan: <https://w3id.org/EDAAnOWL/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix qudt: <http://qudt.org/vocab/unit/> .
 
-# A Data Asset (Supply)
+# A Data Asset (Supply) offering Soil Temperature in Celsius
 :MyAsset a edaan:DataAsset ;
     edaan:servesObservableProperty <http://aims.fao.org/aos/agrovoc/c_3527> ; # Soil Temperature
     ids:representation [
         a dcat:Distribution ;
-        edaan:conformsToProfile :MyTechnicalProfile 
+        edaan:conformsToProfile [
+            a edaan:DataProfile ;
+            edaan:hasMetric [
+                a edaan:Metric ;
+                edaan:measuresProperty <http://aims.fao.org/aos/agrovoc/c_3527> ;
+                edaan:hasMetricStandard qudt:DEG_C # Supplied in Celsius
+            ]
+        ]
     ] .
 
-# A Smart App (Demand)
+# A Smart App (Demand) requiring Soil Temperature strictly in Celsius
 :MyApp a edaan:PredictionApp ;
     edaan:requiresObservableProperty <http://aims.fao.org/aos/agrovoc/c_3527> ;
-    edaan:requiresProfile :MyTechnicalProfile .
+    edaan:requiresProfile [
+        a edaan:DataProfile ;
+        edaan:hasMetric [
+            a edaan:Metric ;
+            edaan:measuresProperty <http://aims.fao.org/aos/agrovoc/c_3527> ;
+            edaan:hasMetricStandard qudt:DEG_C # Required in Celsius for Safe Matchmaking
+        ]
+    ] .
 ```
 
 ## ✍️ Citation
