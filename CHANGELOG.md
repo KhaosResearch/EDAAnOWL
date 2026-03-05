@@ -47,7 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * **ontology:** refine metric definitions and cleanup vocabularies ([d7290d6](https://github.com/KhaosResearch/EDAAnOWL/commit/d7290d6eb5b106e68456c9c51ccca20b4ad347b1))
 * **ontology:** refine metric definitions and cleanup vocabularies ([60cd1ad](https://github.com/KhaosResearch/EDAAnOWL/commit/60cd1adff2cace840432b24558d898dc1b79787b))
 
-## [0.6.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.5.0...v0.6.0) (2026-02-17)
+## [0.6.0] (2026-02-17)
 
 
 ### ⚠ BREAKING CHANGES
@@ -68,7 +68,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Rename GitHub Actions workflow `release.yml` to `deploy-docs.yml` across documentation files. ([25f12fa](https://github.com/KhaosResearch/EDAAnOWL/commit/25f12fabd96608d6ae43be224f9823b7f6ed824c))
 * revert manual version header to [Unreleased] for release-please ([7fe519a](https://github.com/KhaosResearch/EDAAnOWL/commit/7fe519ae12f33b6a7a582fb7cb2fd7e08007f321))
 
-## [0.5.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.4.1...v0.5.0) (2026-01-30)
+## [0.5.0] (2026-01-30)
 
 ### ⚠ BREAKING CHANGES
 
