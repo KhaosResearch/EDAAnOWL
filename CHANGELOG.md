@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.7.0...v0.7.1) (2026-03-05)
+
+
+### Added
+
+* **ontology:** v0.8.0 release with CRED alignment, DCAT-AP 3.0 and ODRL 2.2 ([feac434](https://github.com/KhaosResearch/EDAAnOWL/commit/feac434074cb74b647d2d7899190bb3c517cd54e))
+
+
+### Changed
+
+* **matchmaking:** clarify measuresProperty usage and update CRED example for semantic matchmaking ([9da6e60](https://github.com/KhaosResearch/EDAAnOWL/commit/9da6e6009d3d58866215dc08d67170ae45d989b6))
+* update changelog links, citation and security for v0.8.0 ([f4cc9bb](https://github.com/KhaosResearch/EDAAnOWL/commit/f4cc9bb7172ad27ff582147c1a39ccf6ef58cf9c))
+* update changelog links, citation and security for v0.8.0 ([be7aa64](https://github.com/KhaosResearch/EDAAnOWL/commit/be7aa64f37daff078a7161fa1815dfee7db2aae7))
+
 ## [0.8.0] - 2026-03-04
 
 ### ⚠ BREAKING CHANGES
