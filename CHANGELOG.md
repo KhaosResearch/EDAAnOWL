@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.8.0...v0.8.1) (2026-03-06)
+
+
+### Added
+
+* **siex:** integrate additional FEGA catalogs and sanitize project paths ([df74826](https://github.com/KhaosResearch/EDAAnOWL/commit/df7482622cea32770eb85b4fc0e1ecf0f324b530))
+
+
+### Fixed
+
+* **siex-codes:** update uris with version 0.8.0 ([d038cbf](https://github.com/KhaosResearch/EDAAnOWL/commit/d038cbf6840ce3d4e61911fcb3ed77f7b6f1b271))
+
 ## [0.8.0] - 2026-03-04
 
 ### ⚠ BREAKING CHANGES
