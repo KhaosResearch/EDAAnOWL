@@ -16,8 +16,8 @@ When starting a session or resuming work, perform these checks to establish curr
 
 Adhere to these rules in every edit:
 
-- **Structure over Content**: Do NOT create local concepts for domains with established standards (e.g., Agriculture, Units).
-- **Externalize or Die (v0.6.0+)**: Use external normative IRIs (AGROVOC, EU Data Themes, DQV, PROV).
+- **Structure over Content**: Prefer external authoritative concepts for mature domains (e.g., Agriculture, Units).
+- **External-First (v0.6.0+)**: Use external normative IRIs (AGROVOC, EU Data Themes, DQV, PROV) by default; add local bridge vocabularies only when they improve discoverability, acronyms, or mappings.
 - **Matchmaking Integrity**: Always maintain the triangular link: `DataAsset` ↔ `DataProfile` ↔ `DataApp`.
 - **Validation First**: Every change to `.ttl` files MUST be validated using `scripts/local-validate.bat` (Windows).
 

@@ -8,7 +8,7 @@ graph TB
     end
 
     subgraph Semantic ["Semantic Layer (Ontology)"]
-        subgraph CRED ["CRED / UNE 0087 Compliance (v0.8.0)"]
+        subgraph CRED ["CRED / UNE 0087 Compliance (v0.8.1)"]
             CAT["dcat:Catalog<br/>(Federated Registry)"]
             SRV["dcat:DataService<br/>(Access Interface)"]
             POL["odrl:Policy / Offer<br/>(Usage Rights)"]
@@ -95,7 +95,7 @@ graph TB
 
 ## 🖼 Architecture diagram
 
-![EDAAnOWL architecture — IDS ↔ BIGOWL (v0.8.0 CRED updated)](images/eda-an-architecture-en.svg)
+![EDAAnOWL architecture — IDS ↔ BIGOWL (v0.8.1 CRED updated)](images/eda-an-architecture-en.svg)
 
 Figure: High-level architecture showing how EDAAnOWL maps IDSA concepts to BIGOWL components, all wrapped within a **CRED / DCAT-AP 3.0** compliant cataloguing layer.
 
@@ -103,9 +103,9 @@ Figure: High-level architecture showing how EDAAnOWL maps IDSA concepts to BIGOW
 
 The figure above shows how EDAAnOWL connects real-world data-space assets with semantic models from IDSA, BIGOWL, and the **CRED (UNE 0087:2025)** recommendations.
 
-### CRED / DCAT-AP 3.0 Alignment (New in v0.8.0)
+### CRED / DCAT-AP 3.0 Alignment (New in v0.8.1)
 
-As of version 0.8.0, EDAAnOWL incorporates a **Compliance Layer** that follows the recommendations of the **Spanish Data Office (CRED)** and the **UNE 0087:2025** standard. This ensures that assets described in EDAAnOWL are fully interoperable with national and European federated catalogs.
+As of version 0.8.1, EDAAnOWL incorporates a **Compliance Layer** that follows the recommendations of the **Spanish Data Office (CRED)** and the **UNE 0087:2025** standard. This ensures that assets described in EDAAnOWL are fully interoperable with national and European federated catalogs.
 
 - **`dcat:Catalog`**: Acts as the root container for all assets and services within an EDAAn data space instance.
 - **`dcat:DataService`**: Describes the technical access points (APIs) to the data, effectively wrapping `ids:DataApp` or smart data apps.
@@ -144,7 +144,7 @@ Semantic meaning is not enough; the **structure** of the data also matters. For 
 
 ### Data Quality and Provenance
 
-EDAAnOWL v0.8.0 provides explicit support for data quality, lineage, and performance tracking:
+EDAAnOWL v0.8.1 provides explicit support for data quality, lineage, and performance tracking:
 
 - **Metrics (`Metric`, `QualityMetric`)**: A `DataProfile` can define multiple metrics using `:hasMetric`. These align with `dqv:QualityMeasurement`.
 - **Standards (`hasMetricStandard`)**: Replaces `metricUnit`. Links a metric to a semantic definition, such as a **QUDT Unit** (`qudt:KiloGM`) or a **SKOS Concept** for categorical data.

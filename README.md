@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Latest Release](https://img.shields.io/github/v/release/KhaosResearch/EDAAnOWL?display_name=tag)](https://github.com/KhaosResearch/EDAAnOWL/releases)
 [![PURL](https://img.shields.io/badge/purl-w3id.org-blue)](https://w3id.org/EDAAnOWL/)
-[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/0.7.0/shapes/edaan-shapes.ttl)
+[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/0.8.1/shapes/edaan-shapes.ttl)
 
 > **Semantic Bridge for Data Spaces**: Linking IDSA governance with BIGOWL workflows.
 
@@ -70,7 +70,7 @@ Detailed documentation is available in the `docs/` folder:
 
 ## 📦 Repository Structure
 
-- `src/`: Contains the ontology versions (e.g., `0.7.0/`), vocabularies, and SHACL shapes.
+- `src/`: Contains the ontology versions (e.g., `0.8.1/`), vocabularies, and SHACL shapes.
 - `docs/`: Supplementary documentation and diagrams.
 - `scripts/`: Validation and utility scripts.
 
