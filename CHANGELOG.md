@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.8.0...v0.8.1) (2026-03-10)
+
+
+### Fixed
+
+* add Spanish labels to observed-properties and update examples for release v0.8.1 ([641d927](https://github.com/KhaosResearch/EDAAnOWL/commit/641d9271281f691281e0905daaba1e43fa56b881))
+* add Spanish labels to observed-properties and update examples for release v0.8.1 ([11f78e1](https://github.com/KhaosResearch/EDAAnOWL/commit/11f78e1c71fcb9e44f4821d2c07bdadd492c5524))
+
 ## [0.8.0] - 2026-03-04
 
 ### ⚠ BREAKING CHANGES
