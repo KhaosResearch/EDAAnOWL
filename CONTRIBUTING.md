@@ -68,9 +68,9 @@ git commit -m "docs: update contributor guide"
 ## External Vocabulary Strategy (v0.5.0+)
 
 > [!IMPORTANT]
-> **EDAAnOWL does NOT import local vocabularies.** We use external standardized URIs directly.
+> **EDAAnOWL follows an external-first strategy.** Use external standardized URIs directly whenever possible, and use local bridge vocabularies only when they add value through aliases, acronyms, explicit mappings, or missing concepts.
 
-### Why External Vocabularies?
+### Why External-First Vocabularies?
 
 1. **Maintenance burden**: Local vocabularies require constant updates
 2. **Interoperability**: External URIs are recognized across data spaces
@@ -89,12 +89,13 @@ git commit -m "docs: update contributor guide"
 
 ### What About Local Vocabulary Files?
 
-Files in `vocabularies/` are **reference documents only**:
+Files in `vocabularies/` are **bridge or reference documents**:
 - `datatype-scheme.ttl` - Alignment with BIGOWL Data classes
 - `metric-types.ttl` - DQV-aligned metric instances
 - `data-theme.ttl` - EU NAL stubs for SHACL validation
+- `observed-properties.ttl` - Local bridge concepts for observable properties with labels, acronyms, and alignments to external vocabularies
 
-They are NOT owl:imported by the main ontology.
+They are NOT owl:imported by the main ontology unless a future release explicitly states otherwise.
 
 ### For Examples & SHACL Validation
 
