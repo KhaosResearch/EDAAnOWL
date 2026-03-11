@@ -75,7 +75,7 @@ test:ValidApp a ids:DataApp ;
 
 test:ValidResource a ids:DataResource, dcat:Dataset ;
     dct:title "Valid Test Resource"@en ;
-    :hasDomainSector theme:AGRI ;
+    dcat:theme theme:AGRI ;
     dcat:theme theme:AGRI ;
     ids:representation test:ValidResource_Repr .
 
@@ -124,8 +124,10 @@ test:ValidSpatialAsset_Repr a :DataRepresentation ;
 
 test:ValidService a :PredictionApp ;
     dct:title "Valid Analytical Service"@en ;
-    :producesObservableProperty agrovoc:c_24993 ;  # Water stress
-    :hasDomainSector theme:AGRI .
+    dcat:theme theme:AGRI ;
+    # Discovery Semantics (v0.9.0)
+    :requiresFeatureOfInterest agrovoc:c_12926 ; # Olive
+    :producesObservableProperty agrovoc:c_24993 . # Water stress
 
 test:DummyMetric a :Metric ;
     :metricName "testMetric" ;
