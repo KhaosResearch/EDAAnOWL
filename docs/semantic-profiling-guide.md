@@ -2,7 +2,7 @@
 
 Es muy normal hacerse un lío con la diferencia entre la **Calidad del Dato (DQV)** y las **Unidades de Medida (QUDT)**, porque ambas forman la idea abstracta de una "Métrica". 
 
-En la versión **v0.7.0** de EDAAnOWL, hemos clarificado esta separación. Aquí tienes la regla de oro:
+En la versión **v0.9.0** de EDAAnOWL, hemos clarificado esta separación. Aquí tienes la regla de oro:
 
 - **DQV (Data Quality Vocabulary):** Define **QUÉ** estás midiendo y **CUÁL** es su valor. 
   Por ejemplo: *"Estoy midiendo la Completitud de la columna"* o *"Estoy calculando el Rendimiento Medio"*. (Usa `dqv:value`).
@@ -14,7 +14,7 @@ En la versión **v0.7.0** de EDAAnOWL, hemos clarificado esta separación. Aquí
 Una duda común es: *¿Por qué no ponemos la unidad directamente en la Propiedad Observable (ej. en el concepto de AGROVOC)?*
 La respuesta es por **Interoperabilidad**: El fenómeno físico "Rendimiento" es universal, pero puede medirse en Kilos, Toneladas o Libras. Si fijamos la unidad en el concepto, rompemos el estándar.
 
-La solución de EDAAnOWL v0.7.0 es el **vínculo a través de la Métrica** usando la nueva propiedad `edaan:measuresProperty` y fijando su sistema de referencia con `edaan:hasMetricStandard`. La métrica actúa como el "pegamento" que dice: *"Este valor (dqv:value), expresado en este estándar (hasMetricStandard), es una medición de esta propiedad (measuresProperty)"*.
+La solución de EDAAnOWL v0.9.0 es el **vínculo a través de la Métrica** usando la nueva propiedad `edaan:measuresProperty` y fijando su sistema de referencia con `edaan:hasMetricStandard`. La métrica actúa como el "pegamento" que dice: *"Este valor (dqv:value), expresado en este estándar (hasMetricStandard), es una medición de esta propiedad (measuresProperty)"*.
 
 A continuación, vamos a ver un caso real: un archivo `CSV` de una granja que registra las cosechas, el agua de riego aplicada y el abono empleado, columnas por columna.
 
@@ -36,7 +36,7 @@ Este CSV ofrece datos sobre 3 cosas físicas reales (**Propiedades Observables -
 
 ---
 
-## 2. Modelando con EDAAnOWL v0.7.0 (Turtle)
+## 2. Modelando con EDAAnOWL v0.9.0 (Turtle)
 
 Vamos a modelar el `DataAsset`, la `DataRepresentation` del CSV, y su `DataProfile`. 
 Fíjate bien en el perfil (`Profile_RegistroCampo`): ahí es donde creamos las **Métricas**. Algunas métricas describen la *calidad* del CSV (ej. valores nulos) y otras describen un *resumen de los datos* (ej. la media total de rendimiento para la gente que busque por volumen).
@@ -275,11 +275,42 @@ ex:Profile_RealTime_Weather a :DataProfile ;
 
 ---
 
+## 2.4 El Sujeto de Estudio: Característica de Interés (Feature of Interest)
+
+A menudo, no basta con saber *qué* estamos midiendo (Rendimiento), sino *de qué* lo estamos midiendo (¿Es una naranja? ¿Es una parcela? ¿Es un lote de aceite?).
+
+Desde la versión **v0.9.0**, EDAAnOWL integra el concepto de **`sosa:FeatureOfInterest`** para resolver esta ambigüedad.
+
+### La Regla de los Dos Niveles:
+
+1.  **Nivel Perfil (Clase genérica):** Usamos `edaan:declaresFeatureOfInterest` para decir qué *tipo* de objeto describe este esquema.
+    - Ejemplo: *"Este perfil CSV está diseñado para datos de **Olivos** (agrovoc:c_12926)"*.
+2.  **Nivel Activo (Instancia real):** Usamos `edaan:hasFeatureOfInterest` para decir a qué *objeto físico* pertenece este archivo concreto.
+    - Ejemplo: *"Este archivo contiene los sensores de la **Parcela A-42** (individuo real)"*.
+
+### Ejemplo Turtle (FOI):
+```turtle
+# El Perfil dice: "Soy un esquema para Naranjas"
+ex:Profile_Naranjas a :DataProfile ;
+    :declaresFeatureOfInterest agrovoc:c_3136 . # Categoría Naranjas
+
+# El Activo dice: "Soy el reporte del Lote #99"
+ex:Asset_Lote99 a :DataAsset ;
+    :hasFeatureOfInterest ex:Lote_Produccion_99 ;
+    ids:representation [
+        dct:conformsTo ex:Profile_Naranjas
+    ] .
+```
+
+Esta separación permite que un buscador encuentre "Todos los archivos sobre Naranjas" (buscando por Perfil) o "Los datos específicos de mi parcela" (buscando por Activo).
+
+---
+
 ## 3. Compras Seguras: Matchmaking Semántico en el Espacio de Datos
 
 El usuario ha planteado una pregunta clave: *"¿Para qué sirve todo esto si yo soy el creador de una App y quiero comprar datos?"*
 
-En un **Data Space** (como el propuesto por IDSA), el pago por datos es un intercambio común, y comprar el dataset incorrecto puede ser un problema grave. Aquí es donde brilla la separación entre "Fenómeno Físico" y "Unidad de Medida" de EDAAnOWL v0.7.0.
+En un **Data Space** (como el propuesto por IDSA), el pago por datos es un intercambio común, y comprar el dataset incorrecto puede ser un problema grave. Aquí es donde brilla la separación entre "Fenómeno Físico", "Sujeto de Estudio" y "Unidad de Medida" de EDAAnOWL v0.9.0.
 
 ### El Escenario de Matchmaking
 

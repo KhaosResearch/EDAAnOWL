@@ -8,7 +8,7 @@ graph TB
     end
 
     subgraph Semantic ["Semantic Layer (Ontology)"]
-        subgraph CRED ["CRED / UNE 0087 Compliance (v0.8.1)"]
+        subgraph CRED ["CRED / UNE 0087 Compliance (v0.9.0)"]
             CAT["dcat:Catalog<br/>(Federated Registry)"]
             SRV["dcat:DataService<br/>(Access Interface)"]
             POL["odrl:Policy / Offer<br/>(Usage Rights)"]
@@ -28,6 +28,7 @@ graph TB
             subgraph Matchmaking ["Matchmaking Core"]
                 Prof[":DataProfile<br/>(Structure)"]
                 OP[":ObservableProperty<br/>(Meaning)"]
+                FOI[":FeatureOfInterest<br/>(Subject)"]
             end
             
             subgraph QualityStandard ["Quality & Standards"]
@@ -61,11 +62,13 @@ graph TB
     DA_IDSA -->|"specialized by"| Apps
     
     DA -- "servesObservableProperty" --> OP
+    DA -- "hasFeatureOfInterest" --> FOI
     Apps -- "requiresObservableProperty" --> OP
     
     DA -- "ids:representation" --> Repr
     Repr -- "conformsToProfile" --> Prof
     Apps -- "requiresProfile" --> Prof
+    Prof -- "declaresFeatureOfInterest" --> FOI
 
     Prof -- "hasMetric" --> Met
     Met -- "hasMetricStandard" --> QUDT
@@ -87,7 +90,7 @@ graph TB
 
     class DS,AP space
     class DR_IDSA,DA_IDSA idsa
-    class DA,Repr,Apps,Prof,OP,Met,Prov_O edaan
+    class DA,Repr,Apps,Prof,OP,FOI,Met,Prov_O edaan
     class WF,Comp bigowl
     class CAT,SRV,POL,AGN cred
     class Matchmaking,QualityProv core
@@ -95,7 +98,7 @@ graph TB
 
 ## 🖼 Architecture diagram
 
-![EDAAnOWL architecture — IDS ↔ BIGOWL (v0.8.1 CRED updated)](images/eda-an-architecture-en.svg)
+![EDAAnOWL architecture — IDS ↔ BIGOWL (v0.9.0 FOI updated)](images/eda-an-architecture-en.svg)
 
 Figure: High-level architecture showing how EDAAnOWL maps IDSA concepts to BIGOWL components, all wrapped within a **CRED / DCAT-AP 3.0** compliant cataloguing layer.
 
@@ -134,6 +137,19 @@ EDAAnOWL introduces **`ObservableProperty`** to represent **what is being measur
 - A **Smart Data App** *requires* one or more observable properties  
   – “I need X” → the app expects data about X as input.
 
+### Features of Interest: the subject of study
+
+As of version 0.9.0, EDAAnOWL introduces **`FeatureOfInterest`** (aligned with SOSA/SSN) to decouple **what is being measured** from **what object we are talking about**.
+
+- A **DataAsset** *has* a feature of interest (`hasFeatureOfInterest`)  
+  – “This file is about **Plot #42**”.
+- A **DataProfile** *declares* a feature of interest (`declaresFeatureOfInterest`)  
+  – “This schema is designed for **Crop Plots** (generic category)”.
+
+This distinction enables a two-level matchmaking:
+1.  **Semantic Type**: Find all datasets about "Olives" (via Profile → FOI Category).
+2.  **Specific Entity**: Target data specifically belonging to "Finca La Loma" (via Asset → FOI Instance).
+
 ### Data profiles: structural compatibility
 
 Semantic meaning is not enough; the **structure** of the data also matters. For this, EDAAnOWL defines **`DataProfile`**:
@@ -144,7 +160,7 @@ Semantic meaning is not enough; the **structure** of the data also matters. For 
 
 ### Data Quality and Provenance
 
-EDAAnOWL v0.8.1 provides explicit support for data quality, lineage, and performance tracking:
+EDAAnOWL v0.9.0 provides explicit support for data quality, lineage, and performance tracking:
 
 - **Metrics (`Metric`, `QualityMetric`)**: A `DataProfile` can define multiple metrics using `:hasMetric`. These align with `dqv:QualityMeasurement`.
 - **Standards (`hasMetricStandard`)**: Replaces `metricUnit`. Links a metric to a semantic definition, such as a **QUDT Unit** (`qudt:KiloGM`) or a **SKOS Concept** for categorical data.
@@ -194,8 +210,7 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
 
   - **Structure**:
     - `/src/`
-      - `0.6.0/` (Ontology and vocabs for v0.6.0)
-      - `0.7.0/` (Ontology and vocabs for v0.7.0 - Latest)
+      - `0.9.0/` (Ontology and vocabs for v0.9.0 - Latest)
     - `/.github/workflows/` (The CI/CD workflow)
 
 - **`dev` branch**:

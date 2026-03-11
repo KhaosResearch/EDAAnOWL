@@ -160,4 +160,47 @@ ex:AppTiempoReal a edaan:VisualizationApp ;
         edaan:hasMetricStandard <http://qudt.org/vocab/unit/MilliSEC> ;
         edaan:computedAt "2025-06-01T12:00:00Z"^^xsd:dateTime
     ] .
+
+---
+
+## 6. Caso 4: Matchmaking por Sujeto (Feature of Interest)
+
+Este escenario demuestra cómo encontrar datos sobre un **objeto específico** (ej: Olivos) independientemente de las propiedades medidas.
+
+### A. El Perfil de Producción de Aceituna
+Declara que el sujeto de estudio son los Olivos.
+
+```turtle
+ex:ProfileProduccionOlivar a edaan:DataProfile ;
+    rdfs:label "Perfil de Producción Olivarera" ;
+    # El sujeto de interés es el Olivo (AGROVOC)
+    edaan:declaresFeatureOfInterest <http://aims.fao.org/aos/agrovoc/c_12926> .
+```
+
+### B. El Activo del Lote Experimental
+Vincula el archivo físico a una parcela específica.
+
+```turtle
+ex:AssetParcelaJaen_001 a edaan:DataAsset ;
+    dct:title "Sensores Parcela Jaen 001" ;
+    # Este activo trata específicamente sobre esta parcela (individuo)
+    edaan:hasFeatureOfInterest ex:ParcelaJaen_001 ;
+    ids:representation [
+        edaan:conformsToProfile ex:ProfileProduccionOlivar
+    ] .
+```
+
+### C. La DataApp de Inventario Agrícola
+Busca cualquier dataset que trate sobre Olivos para actualizar su inventario.
+
+```turtle
+ex:AppInventarioOlivares a ids:SmartDataApp ;
+    # Esta App busca datos sobre el sujeto Olivo
+    edaan:requiresProfile [
+        a edaan:DataProfile ;
+        edaan:declaresFeatureOfInterest <http://aims.fao.org/aos/agrovoc/c_12926> 
+    ] .
+```
+
+**Resultado:** ¡MATCH! El motor semántico descubre que `ex:AssetParcelaJaen_001` es apto porque su perfil declara que el sujeto de estudio es el Olivo.
 ```

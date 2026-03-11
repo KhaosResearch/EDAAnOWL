@@ -27,15 +27,17 @@ flowchart TD
     PA[":PredictionApp"]
     AA[":AnalyzerApp"]
     VA[":VisualizationApp"]
+    FOI[":FeatureOfInterest"]
 
     DR --> DataAsset
     DataAsset --> STA
     SDA --> PA
     SDA --> AA
     SDA --> VA
+    SOSA_FOI["sosa:FeatureOfInterest"] --> FOI
 
     class R,DR,DA,SDA idsa
-    class DataAsset,STA,PA,AA,VA edaan
+    class DataAsset,STA,PA,AA,VA,FOI edaan
 ```
 
 **Leyenda:**
@@ -57,15 +59,18 @@ flowchart LR
 
     DA["📦 DataAsset<br/>(Oferta)"]
     OP["🎯 ObservableProperty<br/>(ej: NDVI, Temperatura)"]
+    FOI["🍊 FeatureOfInterest<br/>(ej: Naranja, Parcela)"]
     APP["⚙️ SmartDataApp<br/>(Demanda)"]
 
     DA -- "servesObservableProperty" --> OP
+    DA -- "hasFeatureOfInterest" --> FOI
     APP -- "requiresObservableProperty" --> OP
     APP -- "producesObservableProperty" --> OP
 
     class DA supply
     class APP demand
     class OP bridge
+    class FOI bridge
 ```
 
 ---
@@ -86,9 +91,11 @@ flowchart TD
     APP["⚙️ DataApp"]
 
     DA -- "ids:representation" --> DIST
+    DA -- "hasFeatureOfInterest" --> FOI["FeatureOfInterest"]
     DIST -- "conformsToProfile" --> DP
     APP -- "requiresProfile" --> DP
     APP -- "producesProfile" --> DP
+    DP -- "declaresFeatureOfInterest" --> FOI
 
     class DA data
     class DIST data
@@ -139,12 +146,14 @@ flowchart TD
     
     DC["bigdat:Data<br/>(Tipo: Tabular, Imagen...)"]
     OP["ObservableProperty<br/>(Variables semánticas)"]
+    FOI["FeatureOfInterest<br/>(Sujeto de estudio)"]
     M["Metric<br/>(Métricas de calidad)"]
     CRS["skos:Concept<br/>(Sistema coordenadas)"]
     RES["xsd:decimal / xsd:duration<br/>(Resolución)"]
 
     DP -- "declaresDataClass" --> DC
     DP -- "declaresObservedProperty" --> OP
+    DP -- "declaresFeatureOfInterest" --> FOI
     DP -- "hasMetric" --> M
     M -- "hasMetricStandard" --> S["QUDT / SKOS"]
     M -- "measuresProperty" --> OP
@@ -152,7 +161,7 @@ flowchart TD
     DP -- "dcat:spatialResolutionInMeters" --> RES
 
     class DP profile
-    class DC,OP,M,CRS,RES content
+    class DC,OP,FOI,M,CRS,RES content
 ```
 
 > [!NOTE]
@@ -183,6 +192,7 @@ flowchart TB
         Asset[":DataAsset"]
         Profile[":DataProfile"]
         ObsProp[":ObservableProperty"]
+        FOI[":FeatureOfInterest"]
         Metric[":Metric"]
         Apps[":PredictionApp"]
     end
@@ -200,6 +210,7 @@ flowchart TB
     SDA -.->|"subClassOf"| Apps
     
     Asset -->|"servesObservableProperty"| ObsProp
+    Asset -->|"hasFeatureOfInterest"| FOI
     Apps -->|"requiresObservableProperty"| ObsProp
     
     Asset -->|"ids:representation"| DCAT
@@ -207,17 +218,18 @@ flowchart TB
     Apps -->|"requiresProfile"| Profile
     
     Profile -->|"declaresDataClass"| Data
+    Profile -->|"declaresFeatureOfInterest"| FOI
     Profile -->|"hasMetric"| Metric
     
     DA -->|"implementsComponent"| Comp
 
     class DR,DA,SDA idsa
-    class Asset,Profile,ObsProp,Metric,Apps edaan
+    class Asset,Profile,ObsProp,FOI,Metric,Apps edaan
     class Comp,Data bigowl
     class DCAT external
 ```
 
-## 7️⃣ Performance Metrics (v0.6.0)
+## 7️⃣ Performance Metrics (v0.9.0)
 
 Las **DataApps** pueden declarar métricas de rendimiento (no funcionales) directamente.
 
@@ -246,6 +258,7 @@ flowchart LR
 | Dominio | Rango | Propiedad | Significado |
 |-------|-------|-----------|-------------|
 | DataAsset | ObservableProperty | `servesObservableProperty` | "Este dataset contiene..." |
+| DataAsset | FeatureOfInterest | `hasFeatureOfInterest` | "Este dataset trata sobre (entidad)..." |
 | SmartDataApp | ObservableProperty | `requiresObservableProperty` | "Esta app necesita..." |
 | SmartDataApp | ObservableProperty | `producesObservableProperty` | "Esta app genera..." |
 | dcat:Distribution | DataProfile | `conformsToProfile` | "Esta distribución tiene este perfil" |
@@ -253,6 +266,7 @@ flowchart LR
 | DataApp | DataProfile | `producesProfile` | "Esta app genera este perfil" |
 | DataApp | bigwf:Component | `implementsComponent` | "Esta app implementa este componente" |
 | DataProfile | bigdat:Data | `declaresDataClass` | "Este perfil es de tipo..." |
+| DataProfile | FeatureOfInterest | `declaresFeatureOfInterest` | "Este perfil describe el sujeto..." |
 | DataProfile | Metric | `hasMetric` | "Este perfil tiene esta métrica" |
 | Metric | QUDT / SKOS | `hasMetricStandard` | "Usa este estándar/unidad" |
 | Metric | ObservableProperty | `measuresProperty` | "Mide esta propiedad (Solo para Métricas de Perfilado)" |
@@ -277,6 +291,7 @@ EDAAnOWL define **tres niveles diferentes** de compatibilidad entre datos y apli
 | Nivel | Concepto | Pregunta que responde | Ejemplo |
 |-------|----------|----------------------|---------|
 | **Semántico** | `ObservableProperty` | *¿De qué trata el dato?* | "NDVI", "Temperatura del suelo", "Precipitación" |
+| **Sujeto** | `FeatureOfInterest` | *¿A qué objeto se refiere?* | "Naranja", "Lote #42", "Parcela A" |
 | **Estructural** | `DataProfile` | *¿Qué estructura/características tiene?* | "Tabular, 10m resolución, EPSG:4326, actualización diaria" |
 | **Técnico** | `dcat:Distribution` | *¿Cómo se entrega?* | "CSV", "GeoTIFF", "application/json" |
 
