@@ -1,14 +1,15 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://w3id.org/EDAAnOWL/0.8.1/vocabularies/observed-properties#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix observed-properties: <https://w3id.org/EDAAnOWL/0.8.1/vocabularies/observed-properties> .
+@prefix edaan: <https://w3id.org/EDAAnOWL/> .
 
-@base <https://w3id.org/EDAAnOWL/0.8.1/vocabularies/observed-properties> .
 
-<https://w3id.org/EDAAnOWL/0.8.1/vocabularies/observed-properties> rdf:type owl:Ontology ;
+observed-properties: rdf:type owl:Ontology ;
     dct:title "Observed Properties Vocabulary - Bridge Alignments"@en ,
               "Vocabulario de Propiedades Observadas - Alineaciones Puente"@es ;
     dct:description """Bridge vocabulary for observable properties used with EDAAnOWL.
@@ -53,7 +54,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
 #    Vegetation and spectral indices
 #################################################################
 
-:ndvi rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:ndvi rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Normalized Difference Vegetation Index"@en ,
                    "Índice de Vegetación de Diferencia Normalizada"@es ;
     skos:altLabel "NDVI"@en , "NDVI"@es ;
@@ -64,7 +65,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_ce585e0d .
 
-:ndwi rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:ndwi rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Normalized Difference Water Index"@en ,
                    "Índice de Agua de Diferencia Normalizada"@es ;
     skos:altLabel "NDWI"@en , "NDWI"@es ;
@@ -74,7 +75,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
                     "Índice espectral usado para resaltar el contenido de agua o el contenido hídrico de la vegetación, según la definición de banda."@es ;
     skos:inScheme :ObservedPropertyScheme .
 
-:ndsi rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:ndsi rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Normalized Difference Snow Index"@en ,
                    "Índice de Nieve de Diferencia Normalizada"@es ;
     skos:altLabel "NDSI"@en , "NDSI"@es ;
@@ -84,7 +85,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
                     "Índice espectral utilizado habitualmente para detectar la cubierta de nieve."@es ;
     skos:inScheme :ObservedPropertyScheme .
 
-:evi rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:evi rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Enhanced Vegetation Index"@en ,
                    "Índice de Vegetación Mejorado"@es ;
     skos:altLabel "EVI"@en , "EVI"@es ;
@@ -94,7 +95,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
                     "Índice de vegetación optimizado para vegetación densa y corrección atmosférica."@es ;
     skos:inScheme :ObservedPropertyScheme .
 
-:savi rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:savi rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Soil-Adjusted Vegetation Index"@en ,
                    "Índice de Vegetación Ajustado al Suelo"@es ;
     skos:altLabel "SAVI"@en , "SAVI"@es ;
@@ -104,7 +105,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
                     "Índice de vegetación que compensa el brillo del suelo."@es ;
     skos:inScheme :ObservedPropertyScheme .
 
-:fapar rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:fapar rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Fraction of Absorbed Photosynthetically Active Radiation"@en ,
                    "Fracción de Radiación Fotosintéticamente Activa Absorbida"@es ;
     skos:altLabel "FAPAR"@en , "FAPAR"@es ;
@@ -115,7 +116,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:closeMatch <http://vocabs.lter-europe.net/EnvThes/22330> .
 
-:lai rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:lai rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Leaf Area Index"@en ,
                    "Índice de Área Foliar"@es ;
     skos:altLabel "LAI"@en , "LAI"@es ;
@@ -126,7 +127,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_35196 .
 
-:ari rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:ari rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Anthocyanin Reflectance Index"@en ,
                    "Índice de Reflectancia de Antocianinas"@es ;
     skos:altLabel "ARI"@en , "ARI"@es ;
@@ -136,7 +137,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
                     "Índice hiperespectral usado como indicador del contenido de antocianinas."@es ;
     skos:inScheme :ObservedPropertyScheme .
 
-:cri rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:cri rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Carotenoid Reflectance Index"@en ,
                    "Índice de Reflectancia de Carotenoides"@es ;
     skos:altLabel "CRI"@en , "CRI"@es ;
@@ -146,7 +147,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
                     "Índice hiperespectral usado como indicador del contenido de carotenoides."@es ;
     skos:inScheme :ObservedPropertyScheme .
 
-:ndni rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:ndni rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Normalized Difference Nitrogen Index"@en ,
                    "Índice de Nitrógeno de Diferencia Normalizada"@es ;
     skos:altLabel "NDNI"@en , "NDNI"@es ;
@@ -156,7 +157,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
                     "Índice hiperespectral usado como indicador de características de absorción relacionadas con el nitrógeno."@es ;
     skos:inScheme :ObservedPropertyScheme .
 
-:ndli rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:ndli rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Normalized Difference Lignin Index"@en ,
                    "Índice de Lignina de Diferencia Normalizada"@es ;
     skos:altLabel "NDLI"@en , "NDLI"@es ;
@@ -166,7 +167,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
                     "Índice hiperespectral usado como indicador del contenido de lignina o materia seca."@es ;
     skos:inScheme :ObservedPropertyScheme .
 
-:cai rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:cai rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Cellulose Absorption Index"@en ,
                    "Índice de Absorción de Celulosa"@es ;
     skos:altLabel "CAI"@en , "CAI"@es ;
@@ -180,7 +181,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
 #    RGB-derived indices
 #################################################################
 
-:gcc rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:gcc rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Green Chromatic Coordinate"@en ,
                    "Coordenada Cromática Verde"@es ;
     skos:altLabel "GCC"@en , "GCC"@es ;
@@ -190,7 +191,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
                     "Índice cromático derivado de RGB usado como indicador de verdor."@es ;
     skos:inScheme :ObservedPropertyScheme .
 
-:rcc rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:rcc rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Red Chromatic Coordinate"@en ,
                    "Coordenada Cromática Roja"@es ;
     skos:altLabel "RCC"@en , "RCC"@es ;
@@ -200,7 +201,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
                     "Índice cromático derivado de RGB que enfatiza la contribución del canal rojo."@es ;
     skos:inScheme :ObservedPropertyScheme .
 
-:gi rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:gi rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Greenness Index"@en ,
                    "Índice de Verdor"@es ;
     skos:altLabel "GI"@en , "GI"@es ;
@@ -210,7 +211,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
                     "Índice derivado de RGB usado como indicador del verdor de la vegetación."@es ;
     skos:inScheme :ObservedPropertyScheme .
 
-:ri rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:ri rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Redness Index"@en ,
                    "Índice de Rojez"@es ;
     skos:altLabel "RI"@en , "RI"@es ;
@@ -224,7 +225,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
 #    Spectral and physical properties
 #################################################################
 
-:reflectance rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:reflectance rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Reflectance"@en ,
                    "Reflectancia"@es ;
     rdfs:label "Reflectance"@en , "Reflectancia"@es ;
@@ -234,7 +235,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:exactMatch agrovoc:c_28538 ;
     skos:closeMatch <http://sweetontology.net/propFraction/Reflectance> .
 
-:reflectance_red rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:reflectance_red rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Red Reflectance"@en ,
                    "Reflectancia en Rojo"@es ;
     skos:altLabel "Reflectance Red"@en ,
@@ -245,7 +246,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:broader :reflectance ;
     skos:inScheme :ObservedPropertyScheme .
 
-:reflectance_nir rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:reflectance_nir rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Near-Infrared Reflectance"@en ,
                    "Reflectancia en Infrarrojo Cercano"@es ;
     skos:altLabel "NIR Reflectance"@en ,
@@ -256,7 +257,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:broader :reflectance ;
     skos:inScheme :ObservedPropertyScheme .
 
-:radiance rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:radiance rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Radiance"@en ,
                    "Radiancia"@es ;
     rdfs:label "Radiance"@en , "Radiancia"@es ;
@@ -266,7 +267,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:exactMatch agrovoc:c_f2046035 ;
     skos:closeMatch <http://sweetontology.net/propEnergyFlux/Radiance> .
 
-:emissivity rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:emissivity rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Emissivity"@en ,
                    "Emisividad"@es ;
     rdfs:label "Emissivity"@en , "Emisividad"@es ;
@@ -276,7 +277,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:exactMatch agrovoc:c_2af4a35c ;
     skos:closeMatch <http://sweetontology.net/propFraction/Emissivity> .
 
-:chlorophyllContent rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:chlorophyllContent rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Chlorophyll Content"@en ,
                    "Contenido de Clorofila"@es ;
     rdfs:label "Chlorophyll Content"@en , "Contenido de Clorofila"@es ;
@@ -285,7 +286,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:closeMatch agrovoc:c_1577 .
 
-:celluloseContent rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:celluloseContent rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Cellulose Content"@en ,
                    "Contenido de Celulosa"@es ;
     rdfs:label "Cellulose Content"@en , "Contenido de Celulosa"@es ;
@@ -295,7 +296,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:closeMatch agrovoc:c_1423 ;
     skos:closeMatch <http://www.eionet.europa.eu/gemet/concept/1244> .
 
-:nitrogenContent rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:nitrogenContent rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Nitrogen Content"@en ,
                    "Contenido de Nitrógeno"@es ;
     rdfs:label "Nitrogen Content"@en , "Contenido de Nitrógeno"@es ;
@@ -309,7 +310,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
 #    Meteorology, soil, crop, and stress
 #################################################################
 
-:temperature rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:temperature rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Temperature"@en ,
                    "Temperatura"@es ;
     rdfs:label "Temperature"@en , "Temperatura"@es ;
@@ -318,7 +319,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_7657 .
 
-:precipitation rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:precipitation rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Precipitation"@en ,
                    "Precipitación"@es ;
     rdfs:label "Precipitation"@en , "Precipitación"@es ;
@@ -327,7 +328,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_6161 .
 
-:relativeHumidity rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:relativeHumidity rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Relative Humidity"@en ,
                    "Humedad Relativa"@es ;
     rdfs:label "Relative Humidity"@en , "Humedad Relativa"@es ;
@@ -336,7 +337,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_6496 .
 
-:windSpeed rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:windSpeed rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Wind Speed"@en ,
                    "Velocidad del Viento"@es ;
     rdfs:label "Wind Speed"@en , "Velocidad del Viento"@es ;
@@ -345,7 +346,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_37675 .
 
-:solarRadiation rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:solarRadiation rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Solar Radiation"@en ,
                    "Radiación Solar"@es ;
     rdfs:label "Solar Radiation"@en , "Radiación Solar"@es ;
@@ -354,7 +355,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_14415 .
 
-:evapotranspiration rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:evapotranspiration rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Evapotranspiration"@en ,
                    "Evapotranspiración"@es ;
     rdfs:label "Evapotranspiration"@en , "Evapotranspiración"@es ;
@@ -363,7 +364,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_2741 .
 
-:soilMoisture rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:soilMoisture rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Soil Moisture"@en ,
                    "Humedad del Suelo"@es ;
     rdfs:label "Soil Moisture"@en , "Humedad del Suelo"@es ;
@@ -372,7 +373,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_7208 .
 
-:soilTemperature rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:soilTemperature rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Soil Temperature"@en ,
                    "Temperatura del Suelo"@es ;
     rdfs:label "Soil Temperature"@en , "Temperatura del Suelo"@es ;
@@ -381,7 +382,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:broader :temperature ;
     skos:inScheme :ObservedPropertyScheme .
 
-:soilPH rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:soilPH rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Soil pH"@en ,
                    "pH del Suelo"@es ;
     rdfs:label "Soil pH"@en , "pH del Suelo"@es ;
@@ -390,7 +391,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_34901 .
 
-:electricalConductivity rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:electricalConductivity rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Electrical Conductivity"@en ,
                    "Conductividad Eléctrica"@es ;
     skos:altLabel "EC"@en , "CE"@es ;
@@ -399,7 +400,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
                     "Capacidad de la solución del suelo para conducir corriente eléctrica, usada como indicador de salinidad."@es ;
     skos:inScheme :ObservedPropertyScheme .
 
-:organicMatter rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:organicMatter rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Organic Matter"@en ,
                    "Materia Orgánica"@es ;
     rdfs:label "Organic Matter"@en , "Materia Orgánica"@es ;
@@ -408,7 +409,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_35657 .
 
-:yield rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:yield rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Crop Yield"@en ,
                    "Rendimiento del Cultivo"@es ;
     rdfs:label "Crop Yield"@en , "Rendimiento del Cultivo"@es ;
@@ -417,7 +418,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_8488 .
 
-:yieldForecast rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:yieldForecast rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Yield Forecast"@en ,
                    "Previsión de Rendimiento"@es ;
     rdfs:label "Yield Forecast"@en , "Previsión de Rendimiento"@es ;
@@ -426,7 +427,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:broader :yield ;
     skos:inScheme :ObservedPropertyScheme .
 
-:biomass rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:biomass rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Biomass"@en ,
                    "Biomasa"@es ;
     rdfs:label "Biomass"@en , "Biomasa"@es ;
@@ -435,7 +436,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_926 .
 
-:productivity rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:productivity rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Productivity"@en ,
                    "Productividad"@es ;
     rdfs:label "Productivity"@en , "Productividad"@es ;
@@ -445,7 +446,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:exactMatch agrovoc:c_6210 ;
     skos:closeMatch <http://sweetontology.net/humanCommerce/Productivity> .
 
-:waterStress rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:waterStress rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Water Stress"@en ,
                    "Estrés Hídrico"@es ;
     rdfs:label "Water Stress"@en , "Estrés Hídrico"@es ;
@@ -454,7 +455,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_24993 .
 
-:irrigationNeed rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:irrigationNeed rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Irrigation Need"@en ,
                    "Necesidad de Riego"@es ;
     rdfs:label "Irrigation Need"@en , "Necesidad de Riego"@es ;
@@ -463,7 +464,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:broader :waterStress ;
     skos:inScheme :ObservedPropertyScheme .
 
-:pestIncidence rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:pestIncidence rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Pest Incidence"@en ,
                    "Incidencia de Plagas"@es ;
     rdfs:label "Pest Incidence"@en , "Incidencia de Plagas"@es ;
@@ -472,7 +473,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_3855 .
 
-:diseaseIncidence rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:diseaseIncidence rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Disease Incidence"@en ,
                    "Incidencia de Enfermedades"@es ;
     rdfs:label "Disease Incidence"@en , "Incidencia de Enfermedades"@es ;
@@ -481,7 +482,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:inScheme :ObservedPropertyScheme ;
     skos:exactMatch agrovoc:c_5962 .
 
-:repiloIncidence rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:repiloIncidence rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Repilo Incidence"@en ,
                    "Incidencia de Repilo"@es ;
     rdfs:label "Repilo Incidence"@en , "Incidencia de Repilo"@es ;
@@ -490,7 +491,7 @@ Las características de interés como Edificio, Agua o Vegetación están fuera 
     skos:broader :diseaseIncidence ;
     skos:inScheme :ObservedPropertyScheme .
 
-:occupancy rdf:type owl:NamedIndividual , skos:Concept , :ObservableProperty ;
+:occupancy rdf:type owl:NamedIndividual , skos:Concept , edaan:ObservableProperty ;
     skos:prefLabel "Occupancy"@en ,
                    "Ocupación"@es ;
     rdfs:label "Occupancy"@en , "Ocupación"@es ;
