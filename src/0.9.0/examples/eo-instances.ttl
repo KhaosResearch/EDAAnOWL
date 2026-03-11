@@ -173,12 +173,14 @@ data:SentinelOliveJaen2024_Artifact a ids:Artifact ;
 ###
 ex:WaterStressCalculator a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
     dct:title "Water Stress Calculator"@en ;
-    :hasDomainSector theme:AGRI ;
+    dcat:theme theme:AGRI ;
     :supportContact [
         rdf:type vcard:Kind ;
         vcard:hasEmail <mailto:data@eo.example.com> ;
         vcard:fn "EO Data Support"
     ] ;
+    # Discovery Semantics (v0.9.0)
+    :requiresFeatureOfInterest agrovoc:c_12926 ;     # Olives (Generic category)
     :requiresObservableProperty agrovoc:c_ce585e0d,   # NDVI
                                  agrovoc:c_7657,       # Temperature
                                  agrovoc:c_7208 ;      # Soil moisture
@@ -190,7 +192,6 @@ ex:WaterStressCalculator a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
 ###
 ex:WeatherStation_Jaen_2024 a :DataAsset, dcat:Dataset ;
     dct:title "Jaén Weather Station (2024)"@en ;
-    :hasDomainSector theme:AGRI ;
     dcat:theme theme:AGRI ;
     :servesObservableProperty agrovoc:c_7657,        # Temperature
                                agrovoc:c_6161,        # Precipitation
@@ -253,7 +254,6 @@ ex:OliveYieldAndalucia a :DataAsset, dcat:Dataset ;
     dct:title "Olive Yield Data - Andalucía 2024"@en ;
     :servesObservableProperty agrovoc:c_8488 ;  # Yield
     :topic agrovoc:c_12926 ;                     # Olives
-    :hasDomainSector theme:AGRI ;
     dcat:theme theme:AGRI ;
     ids:representation ex:OliveYieldCSV ;
     :isAlive true ;
@@ -306,7 +306,7 @@ ex:YieldPrediction_2024 a :DataAsset, dcat:Dataset ;
     dct:title "Olive Yield Predictions 2024"@en ;
     :servesObservableProperty :yieldForecast ;  # Local concept (no AGROVOC exactMatch)
     dcat:theme theme:AGRI ;
-    :hasDomainSector theme:AGRI ;
+    dcat:theme theme:AGRI ;
     ids:representation ex:PredictionOutputCSV ;
     prov:wasGeneratedBy ex:OliveYieldPredictor ;
     prov:wasDerivedFrom ex:OliveYieldAndalucia, ex:Sentinel2_NDVI_Jaen_2024 .
@@ -320,7 +320,9 @@ ex:PredictionOutputCSV a :DataRepresentation ;
 
 ex:OliveYieldPredictor a :PredictionApp, ids:SmartDataApp, ids:DataApp ;
     dct:title "Olive Yield Predictor"@en ;
-    :hasDomainSector theme:AGRI ;
+    dcat:theme theme:AGRI ;
+    # Discovery Semantics (v0.9.0)
+    :requiresFeatureOfInterest agrovoc:c_12926 ;     # Olives
     :requiresObservableProperty agrovoc:c_ce585e0d,   # NDVI
                                  agrovoc:c_8488,       # Yield
                                  agrovoc:c_7208 ;      # Soil moisture
@@ -350,7 +352,9 @@ ex:Profile_PredictionOutput a :DataProfile ;
 ex:NDVICalculatorService a :AnalyzerApp, ids:SmartDataApp, ids:DataApp ;
     dct:title "NDVI Calculator Microservice"@en ;
     dct:description "Calculates NDVI from multispectral bands (Red, NIR)"@en ;
-    :hasDomainSector theme:AGRI ;
+    dcat:theme theme:AGRI ;
+    # Discovery Semantics (v0.9.0)
+    :requiresFeatureOfInterest agrovoc:c_12926 ;     # Olives 
     :requiresObservableProperty :reflectance_red,     # Local concept (no AGROVOC)
                                  :reflectance_nir ;    # Local concept (no AGROVOC)
     :producesObservableProperty agrovoc:c_ce585e0d ;  # NDVI
@@ -423,7 +427,6 @@ ex:NDVIOutputRepresentation a :DataRepresentation ;
 
 ex:SoilAnalysis_Jaen a :DataAsset, dcat:Dataset ;
     dct:title "Soil Analysis Data - Jaén Region"@en ;
-    :hasDomainSector theme:AGRI ;
     dcat:theme theme:AGRI ;
     :topic agrovoc:c_7176 ;                          # Soil management
     :servesObservableProperty agrovoc:c_7208,        # Soil moisture

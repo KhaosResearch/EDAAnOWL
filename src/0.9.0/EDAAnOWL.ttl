@@ -597,6 +597,16 @@ Referencia: http://publications.europa.eu/resource/authority/data-theme"""@es ;
                             "produces profile"@en .
 
 
+###  https://w3id.org/EDAAnOWL/producesFeatureOfInterest
+:producesFeatureOfInterest rdf:type owl:ObjectProperty ;
+                           rdfs:domain ids:SmartDataApp ;
+                           rdfs:range :FeatureOfInterest ;
+                           rdfs:comment "Define la categoría semántica del sujeto o fenómeno que el servicio PRODUCE o sobre el que genera información (p. ej., produce zonas de salud, polígonos de cultivo)."@es ,
+                                        "Defines the semantic category of the subject or phenomenon that the service PRODUCES or generates information about (e.g., produces health zones, crop polygons)."@en ;
+                           rdfs:label "produce característica de interés"@es ,
+                                      "produces feature of interest"@en .
+
+
 ###  https://w3id.org/EDAAnOWL/producesResource
 :producesResource rdf:type owl:ObjectProperty ;
                   rdfs:domain bigwf:Component ;
@@ -649,6 +659,16 @@ Un Workflow es un pipeline compuesto por múltiples Components conectados via Ta
                                          "Defines the semantic signature of INPUT for a service (e.g., requires NDVI)."@en ;
                             rdfs:label "requiere propiedad observable"@es ,
                                        "requires observable property"@en .
+
+
+###  https://w3id.org/EDAAnOWL/requiresFeatureOfInterest
+:requiresFeatureOfInterest rdf:type owl:ObjectProperty ;
+                           rdfs:domain ids:SmartDataApp ;
+                           rdfs:range :FeatureOfInterest ;
+                           rdfs:comment "Define la categoría semántica del sujeto o fenómeno que el servicio REQUIERE como entrada (p. ej., requiere parcelas, requiere pacientes)."@es ,
+                                        "Defines the semantic category of the subject or phenomenon that the service REQUIRES as input (e.g., requires plots, requires patients)."@en ;
+                           rdfs:label "requiere característica de interés"@es ,
+                                      "requires feature of interest"@en .
 
 
 ###  https://w3id.org/EDAAnOWL/requiresProfile

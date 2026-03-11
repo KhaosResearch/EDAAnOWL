@@ -13,13 +13,12 @@ Este ÚNICO asset tendrá **3 Perfiles Semánticos** asociados.
 
 ### 1. El Asset (Físico)
 
-```turtle
-@prefix ex: <https://example.org/> .
-@prefix edaan: <https://w3id.org/EDAAnOWL/> .
-@prefix bigdat: <https://w3id.org/BIGOWLData/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
 
 ex:AssetMalagaMultiuso a edaan:DataAsset ;
     dct:title "Datos Urbanos Integrados Málaga" ;
+    dcat:theme theme:ENVI, theme:TRAN ; # Medio Ambiente y Transporte
     ids:representation ex:ReprCSV .
 
 ex:ReprCSV a edaan:DataRepresentation ;
@@ -84,10 +83,19 @@ ex:ProfileMovilidad a edaan:DataProfile ;
 
 ```turtle
 ex:AppPrediccionCosecha a ids:SmartDataApp ;
-    # Esta App busca datos de temperatura
+    dcat:theme theme:AGRI ;
+    # Descubrimiento de alto nivel (Matchmaking Semántico)
+    edaan:requiresFeatureOfInterest <http://aims.fao.org/aos/agrovoc/c_5333> ; # Olivos
+    edaan:requiresObservableProperty <http://purl.obolibrary.org/obo/ENVO_01000203> ; # Temperatura
+    
+    # Requisitos Técnicos (Validación de Payload)
     edaan:requiresProfile [
         a edaan:DataProfile ;
-        edaan:declaresObservedProperty <http://purl.obolibrary.org/obo/ENVO_01000203> 
+        edaan:hasMetric [
+            a edaan:Metric ;
+            edaan:measuresProperty <http://purl.obolibrary.org/obo/ENVO_01000203> ;
+            edaan:hasMetricStandard <http://qudt.org/vocab/unit/DEG_C>
+        ]
     ] .
 ```
 **Resultado:** ¡MATCH! `AssetMalagaMultiuso` tiene `ProfileMeteo` que declara esa propiedad.
@@ -96,7 +104,10 @@ ex:AppPrediccionCosecha a ids:SmartDataApp ;
 
 ```turtle
 ex:AppSemaforosInteligentes a ids:SmartDataApp ;
-    # Esta App busca datos de tráfico
+    dcat:theme theme:TRAN ;
+    edaan:requiresFeatureOfInterest <https://w3id.org/transport/Vehicle> ;
+    edaan:requiresObservableProperty <https://w3id.org/transport/TrafficFlow> ;
+    
     edaan:requiresProfile [
         a edaan:DataProfile ;
         edaan:declaresObservedProperty <https://w3id.org/transport/TrafficFlow> 
@@ -195,7 +206,10 @@ Busca cualquier dataset que trate sobre Olivos para actualizar su inventario.
 
 ```turtle
 ex:AppInventarioOlivares a ids:SmartDataApp ;
-    # Esta App busca datos sobre el sujeto Olivo
+    dcat:theme theme:AGRI ;
+    # La App declara directamente sobre qué objetos puede operar
+    edaan:requiresFeatureOfInterest <http://aims.fao.org/aos/agrovoc/c_12926> ; # Olivo
+    
     edaan:requiresProfile [
         a edaan:DataProfile ;
         edaan:declaresFeatureOfInterest <http://aims.fao.org/aos/agrovoc/c_12926> 
