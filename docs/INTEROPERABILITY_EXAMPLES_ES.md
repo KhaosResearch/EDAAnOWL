@@ -13,6 +13,10 @@ Este ÚNICO asset tendrá **3 Perfiles Semánticos** asociados.
 
 ### 1. El Asset (Físico)
 
+```turtle
+@prefix ex: <https://example.org/> .
+@prefix edaan: <https://w3id.org/EDAAnOWL/> .
+@prefix bigdat: <https://w3id.org/BIGOWLData/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
 

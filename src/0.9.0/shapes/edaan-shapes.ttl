@@ -28,10 +28,10 @@
     ] ;
     
     sh:property [
-        sh:path :hasDomainSector ;
+        sh:path [ sh:alternativePath ( :hasDomainSector dcat:theme ) ] ;
         sh:minCount 1 ;
         sh:class skos:Concept ;
-        sh:message "DataApp must have at least one :hasDomainSector (which must be a skos:Concept)"@en ;
+        sh:message "DataApp must have at least one :hasDomainSector or dcat:theme (which must be a skos:Concept)"@en ;
     ] .
 
 :DataResourceShape a sh:NodeShape ;

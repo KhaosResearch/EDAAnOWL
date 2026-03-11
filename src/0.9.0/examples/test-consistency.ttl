@@ -75,7 +75,7 @@ test:ValidApp a ids:DataApp ;
 
 test:ValidResource a ids:DataResource, dcat:Dataset ;
     dct:title "Valid Test Resource"@en ;
-    dcat:theme theme:AGRI ;
+    :hasDomainSector theme:AGRI ;
     dcat:theme theme:AGRI ;
     ids:representation test:ValidResource_Repr .
 
@@ -140,6 +140,8 @@ test:ValidFOIAsset a :DataAsset ;
     dct:title "Valid FOI Asset"@en ;
     :hasFeatureOfInterest test:SpecificOliveTree ;
     ids:representation [
+        a dcat:Distribution ;
+        dcat:accessURL <https://example.org/foi/valid.csv> ;
         :conformsToProfile test:TestProfile
     ] .
 
@@ -151,5 +153,7 @@ test:InvalidFOIAsset a :DataAsset ;
     dct:title "Invalid FOI Asset (Coherence Failure)"@en ;
     :hasFeatureOfInterest agrovoc:c_330833 ; # "Citrus" (just a placeholder URI)
     ids:representation [
+        a dcat:Distribution ;
+        dcat:accessURL <https://example.org/foi/invalid.csv> ;
         :conformsToProfile test:TestProfile # Declares Olive, not Citrus
     ] .
