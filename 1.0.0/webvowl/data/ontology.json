@@ -10,16 +10,16 @@
       "es" : "EDAAnOWL"
     },
     "other" : {
-      "image" : [ {
-        "identifier" : "image",
-        "language" : "undefined",
-        "value" : "https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/refs/heads/main/images/eda-an-architecture-en.svg",
-        "type" : "iri"
-      } ],
       "priorVersion" : [ {
         "identifier" : "priorVersion",
         "language" : "undefined",
         "value" : "https://w3id.org/EDAAnOWL/0.9.0",
+        "type" : "iri"
+      } ],
+      "image" : [ {
+        "identifier" : "image",
+        "language" : "undefined",
+        "value" : "https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/refs/heads/main/images/eda-an-architecture-en.svg",
         "type" : "iri"
       } ],
       "created" : [ {
@@ -34,21 +34,21 @@
         "value" : "edaan",
         "type" : "label"
       } ],
-      "preferredNamespaceUri" : [ {
-        "identifier" : "preferredNamespaceUri",
-        "language" : "undefined",
-        "value" : "https://w3id.org/EDAAnOWL/",
-        "type" : "label"
-      } ],
       "abstract" : [ {
+        "identifier" : "abstract",
+        "language" : "es",
+        "value" : "Ontología ligera para espacios de datos. La versión 1.0.0 refactoriza los Perfiles de Datos en unidades atómicas reutilizables desacopladas de los detalles técnicos de la distribución mediante FieldMappings. Esto permite un matchmaking de alto rendimiento, librerías semánticas independientes del esquema y restricciones de calidad granulares para las aplicaciones.",
+        "type" : "label"
+      }, {
         "identifier" : "abstract",
         "language" : "en",
         "value" : "Lightweight ontology for data spaces. Version 1.0.0 refactors DataSpecifications into atomic reusable units decoupled from technical distribution details via FieldMappings. This enables high-performance matchmaking, schema-agnostic semantic libraries, and granular quality constraints for DataApps.",
         "type" : "label"
-      }, {
-        "identifier" : "abstract",
-        "language" : "es",
-        "value" : "Ontología ligera para espacios de datos. La versión 1.0.0 refactoriza los Perfiles de Datos en unidades atómicas reutilizables desacopladas de los detalles técnicos de la distribución mediante FieldMappings. Esto permite un matchmaking de alto rendimiento, librerías semánticas independientes del esquema y restricciones de calidad granulares para las aplicaciones.",
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "https://w3id.org/EDAAnOWL/",
         "type" : "label"
       } ],
       "bibliographicCitation" : [ {
@@ -57,17 +57,17 @@
         "value" : "Salvachúa Galimberti, M. J.; Khaos Research. (2026). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 1.0.0.",
         "type" : "label"
       } ],
-      "versionInfo" : [ {
-        "identifier" : "versionInfo",
-        "language" : "undefined",
-        "value" : "1.0.0",
-        "type" : "label"
-      } ],
       "codeRepository" : [ {
         "identifier" : "codeRepository",
         "language" : "undefined",
         "value" : "https://github.com/KhaosResearch/EDAAnOWL",
         "type" : "iri"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "1.0.0",
+        "type" : "label"
       } ],
       "introduction" : [ {
         "identifier" : "introduction",
@@ -162,7 +162,7 @@
     "id" : "182",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "189",
+    "id" : "187",
     "type" : "owl:Class"
   }, {
     "id" : "190",
@@ -453,16 +453,16 @@
     "id" : "203",
     "type" : "owl:Thing"
   }, {
-    "id" : "305",
+    "id" : "181",
     "type" : "owl:Thing"
   }, {
     "id" : "23",
     "type" : "owl:Thing"
   }, {
-    "id" : "188",
+    "id" : "189",
     "type" : "owl:Thing"
   }, {
-    "id" : "181",
+    "id" : "305",
     "type" : "owl:Thing"
   }, {
     "id" : "67",
@@ -722,13 +722,13 @@
       } ],
       "prefLabel" : [ {
         "identifier" : "prefLabel",
-        "language" : "en",
-        "value" : "Accuracy",
+        "language" : "es",
+        "value" : "Exactitud",
         "type" : "label"
       }, {
         "identifier" : "prefLabel",
-        "language" : "es",
-        "value" : "Exactitud",
+        "language" : "en",
+        "value" : "Accuracy",
         "type" : "label"
       } ]
     },
@@ -810,13 +810,13 @@
       "annotations" : {
         "prefLabel" : [ {
           "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Equal",
+          "language" : "es",
+          "value" : "Igual",
           "type" : "label"
         }, {
           "identifier" : "prefLabel",
-          "language" : "es",
-          "value" : "Igual",
+          "language" : "en",
+          "value" : "Equal",
           "type" : "label"
         } ]
       },
@@ -829,13 +829,13 @@
       "annotations" : {
         "prefLabel" : [ {
           "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Less Than",
+          "language" : "es",
+          "value" : "Menor que",
           "type" : "label"
         }, {
           "identifier" : "prefLabel",
-          "language" : "es",
-          "value" : "Menor que",
+          "language" : "en",
+          "value" : "Less Than",
           "type" : "label"
         } ]
       },
@@ -848,13 +848,13 @@
       "annotations" : {
         "prefLabel" : [ {
           "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Greater Than",
+          "language" : "es",
+          "value" : "Mayor que",
           "type" : "label"
         }, {
           "identifier" : "prefLabel",
-          "language" : "es",
-          "value" : "Mayor que",
+          "language" : "en",
+          "value" : "Greater Than",
           "type" : "label"
         } ]
       },
@@ -867,13 +867,13 @@
       "annotations" : {
         "prefLabel" : [ {
           "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Greater or Equal",
+          "language" : "es",
+          "value" : "Mayor o Igual",
           "type" : "label"
         }, {
           "identifier" : "prefLabel",
-          "language" : "es",
-          "value" : "Mayor o Igual",
+          "language" : "en",
+          "value" : "Greater or Equal",
           "type" : "label"
         } ]
       },
@@ -886,13 +886,13 @@
       "annotations" : {
         "prefLabel" : [ {
           "identifier" : "prefLabel",
-          "language" : "es",
-          "value" : "Menor o Igual",
+          "language" : "en",
+          "value" : "Less or Equal",
           "type" : "label"
         }, {
           "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Less or Equal",
+          "language" : "es",
+          "value" : "Menor o Igual",
           "type" : "label"
         } ]
       },
@@ -1053,7 +1053,7 @@
       "IRI-based" : "VerifiableCredential"
     },
     "attributes" : [ "external" ],
-    "id" : "189"
+    "id" : "187"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#duration",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
@@ -1826,7 +1826,7 @@
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
-    "id" : "305",
+    "id" : "181",
     "label" : {
       "undefined" : "Thing"
     }
@@ -1840,14 +1840,14 @@
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
-    "id" : "188",
+    "id" : "189",
     "label" : {
       "undefined" : "Thing"
     }
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
-    "id" : "181",
+    "id" : "305",
     "label" : {
       "undefined" : "Thing"
     }
@@ -1946,13 +1946,13 @@
       } ],
       "prefLabel" : [ {
         "identifier" : "prefLabel",
-        "language" : "en",
-        "value" : "Uniqueness",
+        "language" : "es",
+        "value" : "Unicidad",
         "type" : "label"
       }, {
         "identifier" : "prefLabel",
-        "language" : "es",
-        "value" : "Unicidad",
+        "language" : "en",
+        "value" : "Uniqueness",
         "type" : "label"
       } ]
     },
@@ -2121,13 +2121,13 @@
       "annotations" : {
         "prefLabel" : [ {
           "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Timeliness",
+          "language" : "es",
+          "value" : "Puntualidad",
           "type" : "label"
         }, {
           "identifier" : "prefLabel",
-          "language" : "es",
-          "value" : "Puntualidad",
+          "language" : "en",
+          "value" : "Timeliness",
           "type" : "label"
         } ]
       },
@@ -2811,7 +2811,7 @@
     "id" : "185",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "187",
+    "id" : "188",
     "type" : "owl:objectProperty"
   }, {
     "id" : "192",
@@ -3030,10 +3030,10 @@
     "id" : "337",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "338",
+    "id" : "169",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "169",
+    "id" : "338",
     "type" : "owl:objectProperty"
   }, {
     "id" : "339",
@@ -3289,7 +3289,7 @@
       "en" : "The most recent date on which the resource was changed (DCAT-AP 3.0).",
       "es" : "La fecha mas reciente en la que se cambio el recurso (DCAT-AP 3.0)."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "22"
   }, {
     "range" : "28",
@@ -3334,7 +3334,7 @@
       "IRI-based" : "dataAppDistributionService"
     },
     "domain" : "42",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "41"
   }, {
     "range" : "46",
@@ -3433,7 +3433,7 @@
       "IRI-based" : "appEndpointProtocol"
     },
     "domain" : "45",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "69"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#byteSize",
@@ -3449,7 +3449,7 @@
       "en" : "The size of a Distribution in bytes (DCAT-AP 3.0).",
       "es" : "El tamaño de una Distribución en bytes (DCAT-AP 3.0)."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "71"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/reportDate",
@@ -3507,7 +3507,7 @@
       "IRI-based" : "alternative"
     },
     "domain" : "23",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "80"
   }, {
     "iri" : "http://purl.org/dc/terms/title",
@@ -3523,7 +3523,7 @@
       "en" : "A name given to the resource (DCAT-AP 3.0).",
       "es" : "Un nombre dado al recurso (DCAT-AP 3.0)."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "82"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/appliesToFeatureConcept",
@@ -3829,7 +3829,7 @@
       "IRI-based" : "spatialResolutionInDegrees"
     },
     "domain" : "23",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "160"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasObservationMetric",
@@ -3856,7 +3856,7 @@
       "en" : "DEPRECATED: Use consumesDataRepresentation or consumesAppRepresentation instead. Links a BIGOWL Component to an IDSA Representation it consumes as input.",
       "es" : "OBSOLETO: Use consumesDataRepresentation o consumesAppRepresentation en su lugar. Vincula un Componente BIGOWL con una Representación IDSA que consume como entrada."
     },
-    "attributes" : [ "object", "deprecated" ],
+    "attributes" : [ "deprecated", "object" ],
     "id" : "164"
   }, {
     "range" : "21",
@@ -3888,7 +3888,7 @@
       "IRI-based" : "checkSum"
     },
     "domain" : "13",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "170"
   }, {
     "range" : "21",
@@ -3940,7 +3940,7 @@
       "IRI-based" : "endpointURI"
     },
     "domain" : "23",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "178"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasFeatureOfInterest",
@@ -3977,12 +3977,12 @@
       "IRI-based" : "appStorageConfiguration"
     },
     "domain" : "28",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "185"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasMetricUnit",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "188",
+    "range" : "189",
     "label" : {
       "IRI-based" : "hasMetricUnit",
       "en" : "has metric unit (deprecated)",
@@ -3993,8 +3993,8 @@
       "en" : "DEPRECATED: Use :hasMetricStandard instead. The unit of measurement for the metric value referencing a URI (e.g., qudt:KiloGM, unit:PERCENT).",
       "es" : "OBSOLETO: Use :hasMetricStandard en su lugar. La unidad de medida para el valor de la métrica referenciando una URI (p. ej., qudt:KiloGM, unit:PERCENT)."
     },
-    "attributes" : [ "object", "deprecated" ],
-    "id" : "187"
+    "attributes" : [ "deprecated", "object" ],
+    "id" : "188"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/isStreaming",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -4249,7 +4249,7 @@
     "id" : "244"
   }, {
     "domain" : "90",
-    "range" : "84",
+    "range" : "110",
     "id" : "253",
     "label" : {
       "IRI-based" : "72",
@@ -4257,7 +4257,7 @@
     }
   }, {
     "domain" : "90",
-    "range" : "108",
+    "range" : "84",
     "id" : "255",
     "label" : {
       "IRI-based" : "74",
@@ -4265,7 +4265,7 @@
     }
   }, {
     "domain" : "90",
-    "range" : "110",
+    "range" : "108",
     "id" : "256",
     "label" : {
       "IRI-based" : "73",
@@ -4371,7 +4371,7 @@
       "IRI-based" : "expirationDate"
     },
     "domain" : "23",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "265"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/sampleValue",
@@ -4456,7 +4456,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasCredential",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "189",
+    "range" : "187",
     "label" : {
       "IRI-based" : "hasCredential",
       "en" : "has credential",
@@ -4525,7 +4525,7 @@
       "en" : "An account of the resource (DCAT-AP 3.0).",
       "es" : "Una descripcion del recurso (DCAT-AP 3.0)."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "284"
   }, {
     "iri" : "http://www.w3.org/ns/odrl/2/assigner",
@@ -4568,7 +4568,7 @@
       "IRI-based" : "thumbnailUrl"
     },
     "domain" : "16",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "293"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
@@ -4578,7 +4578,7 @@
       "IRI-based" : "temporalResolution"
     },
     "domain" : "23",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "294"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#keyword",
@@ -4594,7 +4594,7 @@
       "en" : "A keyword or tag describing the Dataset (DCAT-AP 3.0).",
       "es" : "Una palabra clave o etiqueta que describe el Dataset (DCAT-AP 3.0)."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "295"
   }, {
     "iri" : "http://www.w3.org/ns/adms#status",
@@ -4626,7 +4626,7 @@
       "en" : "DEPRECATED: Use producesDataRepresentation or producesAppRepresentation instead. Links a BIGOWL Component to an IDSA Representation it produces as output.",
       "es" : "OBSOLETO: Use producesDataRepresentation o producesAppRepresentation en su lugar. Vincula un Componente BIGOWL con una Representación IDSA que produce como salida."
     },
-    "attributes" : [ "object", "deprecated" ],
+    "attributes" : [ "deprecated", "object" ],
     "id" : "299"
   }, {
     "iri" : "https://w3id.org/idsa/core/appEnvironmentVariables",
@@ -4636,7 +4636,7 @@
       "IRI-based" : "appEnvironmentVariables"
     },
     "domain" : "28",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "303"
   }, {
     "iri" : "http://purl.org/dc/terms/creator",
@@ -4678,7 +4678,7 @@
       "en" : "A description of changes between this version and the previous version (ADMS).",
       "es" : "Una descripción de los cambios entre esta versión y la versión anterior (ADMS)."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "307"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/qualityReportURI",
@@ -4751,7 +4751,7 @@
       "en" : "DEPRECATED: A DataApp implements a Component, not a Workflow.\n\nUse :implementsComponent instead to link a DataApp to the BIGOWL Component it implements.\nA Workflow is a pipeline composed of multiple Components connected via Tasks.\n\nIf you need to indicate workflow membership, consider using bigwf:hasComponent (inverse).",
       "es" : "OBSOLETO: Una DataApp implementa un Component, no un Workflow.\n\nUse :implementsComponent para vincular una DataApp con el Component BIGOWL que implementa.\nUn Workflow es un pipeline compuesto por múltiples Components conectados via Tasks."
     },
-    "attributes" : [ "object", "deprecated" ],
+    "attributes" : [ "deprecated", "object" ],
     "id" : "314"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/constraintOperator",
@@ -4804,7 +4804,7 @@
       "IRI-based" : "generatedAtTime"
     },
     "domain" : "23",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "318"
   }, {
     "iri" : "http://purl.org/dc/terms/source",
@@ -4830,7 +4830,7 @@
       "en" : "The name of an Agent (person or organization) (FOAF / DCAT-AP 3.0).",
       "es" : "El nombre de un Agente (persona u organización) (FOAF / DCAT-AP 3.0)."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "322"
   }, {
     "iri" : "https://w3id.org/idsa/core/requiredDataApp",
@@ -4877,7 +4877,7 @@
       "IRI-based" : "fileName"
     },
     "domain" : "13",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "327"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
@@ -4887,7 +4887,7 @@
       "IRI-based" : "spatialResolutionInMeters"
     },
     "domain" : "23",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "328"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesAppRepresentation",
@@ -4994,7 +4994,7 @@
       "en" : "The date of formal issuance/publication of the resource (DCAT-AP 3.0).",
       "es" : "La fecha de publicación formal del recurso (DCAT-AP 3.0)."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "335"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasDerivedFrom",
@@ -5023,16 +5023,6 @@
     "attributes" : [ "datatype" ],
     "id" : "337"
   }, {
-    "iri" : "https://w3id.org/idsa/core/defaultRepresentation",
-    "baseIri" : "https://w3id.org/idsa/core",
-    "range" : "4",
-    "label" : {
-      "IRI-based" : "defaultRepresentation"
-    },
-    "domain" : "11",
-    "attributes" : [ "object", "external" ],
-    "id" : "338"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasPerformanceMetric",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "157",
@@ -5049,6 +5039,16 @@
     },
     "attributes" : [ "object" ],
     "id" : "169"
+  }, {
+    "iri" : "https://w3id.org/idsa/core/defaultRepresentation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "4",
+    "label" : {
+      "IRI-based" : "defaultRepresentation"
+    },
+    "domain" : "11",
+    "attributes" : [ "object", "external" ],
+    "id" : "338"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#theme",
     "baseIri" : "http://www.w3.org/ns/dcat",
@@ -5091,7 +5091,7 @@
       "IRI-based" : "appEndpointPort"
     },
     "domain" : "45",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "343"
   }, {
     "iri" : "http://purl.org/dc/terms/identifier",
@@ -5107,7 +5107,7 @@
       "en" : "An unambiguous reference to the resource within a given context (DCAT-AP 3.0).",
       "es" : "Una referencia inequívoca al recurso dentro de un contexto dado (DCAT-AP 3.0)."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "345"
   }, {
     "iri" : "http://www.w3.org/ns/odrl/2/hasPolicy",
@@ -5214,7 +5214,7 @@
       "IRI-based" : "appDocumentation"
     },
     "domain" : "28",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "351"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#contactPoint",
@@ -5480,7 +5480,7 @@
       "en" : "The right operand value of an ODRL Constraint. This lightweight alignment models the common literal case used in CRED examples.",
       "es" : "El valor del operando derecho de una Restriccion ODRL. Esta alineacion ligera modela el caso literal habitual usado en los ejemplos CRED."
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "367"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/conformsToSchema",
@@ -5507,7 +5507,7 @@
       "IRI-based" : "accessURL"
     },
     "domain" : "46",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "370"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#landingPage",
@@ -5688,7 +5688,7 @@
       "en" : "DEPRECATED: Use :hasMetricStandard instead. Links a profile or a metric to a concept scheme (controlled vocabulary) that defines the allowed values for the data (e.g., a SIEX or AGROVOC thesaurus). Useful for categorical columns.",
       "es" : "OBSOLETO: Use :hasMetricStandard en su lugar. Vincula un perfil o una métrica con un esquema de conceptos (vocabulario controlado) que define los valores permitidos para los datos (p. ej., un tesauro SIEX o AGROVOC). Útil para columnas categóricas."
     },
-    "attributes" : [ "object", "deprecated" ],
+    "attributes" : [ "deprecated", "object" ],
     "id" : "382"
   }, {
     "iri" : "https://w3id.org/idsa/core/supportedUsagePolicies",
@@ -5736,7 +5736,7 @@
       "en" : "Links a FieldMapping, DataSpecification, DataAsset, or Distribution to a quality, performance, or descriptive metric.",
       "es" : "Vincula un FieldMapping, DataSpecification, DataAsset o Distribution con una métrica de calidad, rendimiento o descriptiva."
     },
-    "attributes" : [ "object", "allValues" ],
+    "attributes" : [ "allValues", "object" ],
     "id" : "386"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#accessURL",
@@ -5762,7 +5762,7 @@
       "IRI-based" : "spatialResolutionInMeters"
     },
     "domain" : "4",
-    "attributes" : [ "external", "allValues", "datatype" ],
+    "attributes" : [ "allValues", "datatype", "external" ],
     "id" : "388"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/declaresDataClass",
@@ -5778,7 +5778,7 @@
       "en" : "Links a DataSpecification to a BIGOWL Data class (e.g., bigdat:TabularDataSet, bigdat:Image).",
       "es" : "Vincula un DataSpecification con una clase de Datos BIGOWL (p. ej., bigdat:TabularDataSet, bigdat:Image)."
     },
-    "attributes" : [ "object", "allValues" ],
+    "attributes" : [ "allValues", "object" ],
     "id" : "390"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasMetric",
@@ -5795,7 +5795,7 @@
       "en" : "Links a FieldMapping, DataSpecification, DataAsset, or Distribution to a quality, performance, or descriptive metric.",
       "es" : "Vincula un FieldMapping, DataSpecification, DataAsset o Distribution con una métrica de calidad, rendimiento o descriptiva."
     },
-    "attributes" : [ "object", "allValues" ],
+    "attributes" : [ "allValues", "object" ],
     "id" : "391"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasDataConstraint",
@@ -5811,7 +5811,7 @@
       "en" : "Links an input requirement to a specific quality threshold that must be met by the data.",
       "es" : "Vincula un requisito de entrada con un umbral de calidad específico que deben cumplir los datos."
     },
-    "attributes" : [ "object", "allValues" ],
+    "attributes" : [ "allValues", "object" ],
     "id" : "392"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#temporalResolution",
@@ -5821,7 +5821,7 @@
       "IRI-based" : "temporalResolution"
     },
     "domain" : "4",
-    "attributes" : [ "external", "allValues", "datatype" ],
+    "attributes" : [ "allValues", "datatype", "external" ],
     "id" : "393"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/metricType",
@@ -5864,7 +5864,7 @@
       "IRI-based" : "value"
     },
     "domain" : "23",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "396"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/paymentModelDescription",

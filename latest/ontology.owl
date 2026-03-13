@@ -13,75 +13,67 @@
      xmlns:vocab="https://w3id.org/widoco/vocab#"
      xmlns:schema="https://schema.org/">
     <owl:Ontology rdf:about="https://w3id.org/EDAAnOWL/">
-        <owl:versionIRI rdf:resource="https://w3id.org/EDAAnOWL/0.9.0"/>
-        <terms:abstract xml:lang="en">Lightweight ontology for data spaces. It aligns IDSA and BIGOWL, focusing on the strong semantic description of Data Assets and Data Apps through Data Profiles, which include technical characteristics (DCAT 3) and granular quality metrics. Version 0.9.0 introduces SOSA-aligned Features of Interest to decouple subjects from properties, refines DQV/ODRL/CRED alignment, and improves validation consistency.</terms:abstract>
-        <terms:abstract xml:lang="es">Ontología ligera para espacios de datos. Alinea IDSA y BIGOWL, enfocándose en la descripción semántica robusta de Activos de Datos y Aplicaciones de Datos a través de Perfiles de Datos, que incluyen características técnicas (DCAT 3) y métricas de calidad granulares. La versión 0.9.0 introduce el concepto de Feature of Interest (alineado con SOSA) para desacoplar sujetos de propiedades, refina la alineación con CRED (UNE 0087:2025) y optimiza el matchmaking semántico.</terms:abstract>
-        <terms:bibliographicCitation>Salvachúa Galimberti, M. J.; Khaos Research. (2026). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.9.0.</terms:bibliographicCitation>
+        <owl:versionIRI rdf:resource="https://w3id.org/EDAAnOWL/1.0.0"/>
+        <terms:abstract xml:lang="en">Lightweight ontology for data spaces. Version 1.0.0 refactors DataSpecifications into atomic reusable units decoupled from technical distribution details via FieldMappings. This enables high-performance matchmaking, schema-agnostic semantic libraries, and granular quality constraints for DataApps.</terms:abstract>
+        <terms:abstract xml:lang="es">Ontología ligera para espacios de datos. La versión 1.0.0 refactoriza los Perfiles de Datos en unidades atómicas reutilizables desacopladas de los detalles técnicos de la distribución mediante FieldMappings. Esto permite un matchmaking de alto rendimiento, librerías semánticas independientes del esquema y restricciones de calidad granulares para las aplicaciones.</terms:abstract>
+        <terms:bibliographicCitation>Salvachúa Galimberti, M. J.; Khaos Research. (2026). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 1.0.0.</terms:bibliographicCitation>
         <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-10-10</terms:created>
         <vann:preferredNamespacePrefix>edaan</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/EDAAnOWL/</vann:preferredNamespaceUri>
         <rdfs:label xml:lang="en">EDAAnOWL</rdfs:label>
         <rdfs:label xml:lang="es">EDAAnOWL</rdfs:label>
-        <owl:priorVersion rdf:resource="https://w3id.org/EDAAnOWL/0.8.1"/>
-        <owl:versionInfo>0.9.0</owl:versionInfo>
+        <owl:priorVersion rdf:resource="https://w3id.org/EDAAnOWL/0.9.0"/>
+        <owl:versionInfo>1.0.0</owl:versionInfo>
         <schema:codeRepository rdf:resource="https://github.com/KhaosResearch/EDAAnOWL"/>
         <schema:image rdf:resource="https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/refs/heads/main/images/eda-an-architecture-en.svg"/>
-        <vocab:introduction xml:lang="es">EDAAnOWL proporciona un vocabulario compacto pero expresivo para describir la semántica operacional de los espacios de datos y los artefactos analíticos que fluyen a través de ellos. Mientras que el resumen motiva la necesidad, esta introducción clarifica el alcance, las decisiones de diseño y el uso típico.
+        <vocab:introduction xml:lang="es">&lt;div style=&apos;text-align: center;&apos;&gt;&lt;img src=&apos;https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/main/images/edaanowl-v1-matchmaking-flow.jpeg&apos; width=&apos;80%&apos; /&gt;&lt;br/&gt;&lt;i&gt;Figura: Flujo conceptual de matchmaking semántico en v1.0.0&lt;/i&gt;&lt;/div&gt;
+&lt;br/&gt;
+EDAAnOWL proporciona un vocabulario compacto pero expresivo para describir la semántica operacional de los espacios de datos. La versión 1.0.0 introduce una arquitectura evolucionada para la descripción de activos basada en perfiles de datos atómicos.
 
-Alcance. EDAAnOWL se enfoca en (i) participantes y roles, (ii) activos de datos y sus perfiles, (iii) ofertas y políticas de uso, y (iv) flujos de trabajo analíticos y aplicaciones. Se alinea con el modelo de información de International Data Spaces (IDSA) para nociones contractuales y de políticas, y se conecta con la familia BIGOWL para describir algoritmos, problemas y flujos de trabajo—vinculando entradas/salidas a través de puertos y perfiles de datos. La ontología fomenta el uso de vocabularios externos curados (AGROVOC, EU Data Theme, DQV) para asegurar anotaciones consistentes e interoperables.
+### Perfiles Atómicos y Reutilizables
+A diferencia de versiones anteriores, la arquitectura actual separa la semántica del dominio de los detalles técnicos de la implementación:
+- **DataSpecification (Atómico)**: Es una unidad pura y reutilizable que define QUÉ se mide (p. ej., Temperatura de Naranja en °C). No contiene nombres de columnas ni detalles de archivos.
+- **FieldMapping (Puente)**: Vincula un DataSpecification a un campo físico concreto (`edaan:mapsField`) de una distribución y describe su calidad específica.
+- **Distribution (Técnico)**: Centraliza las propiedades físicas (formato, resolución temporal/espacial, CRS) siguiendo estrictamente DCAT-AP 3.0.
 
-Reutilización sobre reinvención. EDAAnOWL reutiliza vocabularios ampliamente adoptados: DCAT para metadatos, SOSA/SSN para observaciones, OWL-Time para tiempo, ODRL/IDSA para políticas, DQV para calidad y PROV-O para procedencia. Estas alineaciones se expresan mediante puentes ligeros para que los activos existentes se integren sin duplicación.
+&lt;div style=&apos;text-align: center;&apos;&gt;&lt;img src=&apos;https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/main/images/edaanowl-v1-class-diagram.jpeg&apos; width=&apos;80%&apos; /&gt;&lt;br/&gt;&lt;i&gt;Figura: Diagrama de clases de la arquitectura desacoplada v1.0.0&lt;/i&gt;&lt;/div&gt;
+&lt;br/&gt;
 
-Estructura modular. La ontología distingue un núcleo estable de módulos específicos de proyecto. EDAAnOWL adopta una estrategia external-first: prioriza vocabularios normativos internacionales (FAO, UE, OGC), pero permite vocabularios puente locales mínimos cuando aportan alias, acrónimos, alineamientos curados o conceptos ausentes en las fuentes externas.
+Uso típico en v1.0.0:
+1. **Publicar Datos**:
+   - Crear una `dcat:Distribution` con sus metadatos técnicos (formato, resolución).
+   - Vincular N `edaan:FieldMapping` a la distribución.
+   - Cada binding apunta a un `edaan:DataSpecification` (preferiblemente de una librería compartida) e indica el nombre del campo (`edaan:mapsField`).
 
-Versionado y persistencia. Cada versión tiene un IRI persistente y versionado. Esto permite la citación inequívoca de una versión concreta (&quot;Esta versión&quot;) mientras se preserva un punto de entrada canónico (&quot;Última versión&quot;) para facilitar el descubrimiento y la persistencia de enlaces.
+2. **Publicar DataApp**:
+   - Declarar requisitos mediante `edaan:hasInputProfile`, especificando el perfil necesario y, opcionalmente, restricciones de calidad (`edaan:DataConstraint`).
 
-Uso típico.
-- Describir un conjunto de datos (DataAsset): 
-  1. Crear una `dcat:Distribution` (o `:DataRepresentation`) y vincularla al DataAsset mediante `ids:representation`.
-  2. Vincular el perfil a la Distribution usando `edaan:conformsToProfile`.
+3. **Matchmaking**:
+   - Los agentes pueden encontrar activos comparando directamente las URIs de los perfiles reutilizados, permitiendo un descubrimiento de alta precisión e interoperabilidad entre diferentes fuentes de datos.</vocab:introduction>
+        <vocab:introduction xml:lang="en">&lt;div style=&apos;text-align: center;&apos;&gt;&lt;img src=&apos;https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/main/images/edaanowl-v1-matchmaking-flow.jpeg&apos; width=&apos;80%&apos; /&gt;&lt;br/&gt;&lt;i&gt;Figure: Semantic matchmaking conceptual flow in v1.0.0&lt;/i&gt;&lt;/div&gt;
+&lt;br/&gt;
+EDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces. Version 1.0.0 introduces an evolved architecture for asset description based on atomic data profiles.
 
-- Definir el perfil:
-    - Clasificar su tipo (p. ej., `edaan:declaresDataClass bigdat:TabularDataSet`).
-    - Definir sus propiedades técnicas (p. ej., `dcat:temporalResolution &quot;P1D&quot;^^xsd:duration`, `edaan:hasCRS &lt;http://.../EPSG/4326&gt;`).
-    - Declarar su sujeto de estudio con `edaan:declaresFeatureOfInterest` (p. ej., su objeto es una Parcela de Cultivo).
-    - Listar sus métricas usando `edaan:hasMetric`, describiendo cada `edaan:Metric` con `:metricType` (alineado con `dqv:Metric`), `:metricValue` (valor de la métrica), y `:appliesToFeature` (para métricas por columna).
+### Atomic and Reusable Profiles
+Unlike previous versions, the current architecture decouples domain semantics from technical implementation details:
+- **DataSpecification (Atomic)**: A pure, reusable unit defining WHAT is measured (e.g., Orange Temperature in °C). It contains no column names or file-specific details.
+- **FieldMapping (Bridge)**: Links a DataSpecification to a specific physical field (`edaan:mapsField`) in a distribution and describes its specific quality metrics.
+- **Distribution (Technical)**: Centralizes physical properties (format, temporal/spatial resolution, CRS) strictly following DCAT-AP 3.0 guidelines.
 
-- Publicar una DataApp: Declarar los perfiles que requiere (`edaan:requiresProfile`) y produce (`edaan:producesProfile`), y sus métricas de rendimiento con `:hasPerformanceMetric`.
+&lt;div style=&apos;text-align: center;&apos;&gt;&lt;img src=&apos;https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/main/images/edaanowl-v1-class-diagram.jpeg&apos; width=&apos;80%&apos; /&gt;&lt;br/&gt;&lt;i&gt;Figure: Class diagram of the v1.0.0 decoupled architecture&lt;/i&gt;&lt;/div&gt;
+&lt;br/&gt;
 
-- Habilitar Matchmaking: Permitir que un intermediario encuentre activos que coincidan semánticamente con los requisitos técnicos y de calidad de una aplicación.
+Typical usage in v1.0.0:
+1. **Publish Data**:
+   - Create a `dcat:Distribution` with its technical metadata (format, resolution).
+   - Link N `edaan:FieldMapping` instances to the distribution.
+   - Each binding points to an `edaan:DataSpecification` (preferably from a shared library) and specifies the field name (`edaan:mapsField`).
 
-- Validar Instancias: Usar las formas SHACL proporcionadas, incluyendo el soporte integrado para el Information Model de IDSA (`idsa-shapes.ttl`) y las reglas de EDAAnOWL (`edaan-shapes.ttl`).
+2. **Publish DataApp**:
+   - Declare requirements via `edaan:hasInputProfile`, specifying the required profile and, optionally, quality thresholds (`edaan:DataConstraint`).
 
-No-objetivos. EDAAnOWL no es una ontología de dominio monolítica. Proporciona el &quot;tejido conectivo&quot; semántico requerido para publicar, descubrir y componer datos y análisis a través de dominios, delegando la semántica específica a vocabularios autoritativos externos.</vocab:introduction>
-        <vocab:introduction xml:lang="en">EDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces and the analytical artefacts that flow through them. While the abstract motivates the need, this introduction clarifies scope, design choices, and typical usage.
-
-Scope. EDAAnOWL focuses on (i) participants and roles, (ii) data assets and their profiles, (iii) offers and usage policies, and (iv) analytical workflows and applications. It aligns with the International Data Spaces (IDSA) information model for contractual and policy notions, and connects to the BIGOWL family to describe algorithms, problems, and workflows—linking inputs/outputs through ports and data profiles. The ontology encourages the use of curated external concept schemes (AGROVOC, EU Data Theme, DQV) to ensure consistent and interoperable annotations.
-
-Reuse over reinvention. EDAAnOWL reuses widely adopted vocabularies: DCAT for metadata, SOSA/SSN for observations, OWL-Time for time, ODRL/IDSA for policies, DQV for quality and PROV-O for provenance. These alignments are expressed via lightweight bridges so existing assets can be integrated without duplication.
-
-Modular structure. The ontology distinguishes a stable core from project-specific modules. EDAAnOWL adopts an external-first strategy: it prioritizes international normative vocabularies (FAO, EU, OGC), but allows minimal local bridge vocabularies when they add aliases, acronyms, curated mappings, or concepts missing from external sources.
-
-Versioning and persistence. Each release has a persistent, versioned IRI. This enables unambiguous citation of a concrete release (“This version”) while preserving a canonical entry point (“Latest version”) to facilitate discovery and link persistence.
-
-Typical usage.
-- Describe a dataset (DataAsset): 
-  1. Create a `dcat:Distribution` (or `:DataRepresentation`) and link it to the DataAsset via `ids:representation`.
-  2. Link the profile to the Distribution using `edaan:conformsToProfile`.
-
-- Define the profile:
-    - Classify its type (e.g., `edaan:declaresDataClass bigdat:TabularDataSet`).
-    - Define its technical properties (e.g., `dcat:temporalResolution &quot;P1D&quot;^^xsd:duration`, `edaan:hasCRS &lt;http://.../EPSG/4326&gt;`).
-    - Declare its subject of study with `edaan:declaresFeatureOfInterest` (e.g., its object is a Crop Plot).
-    - List its metrics using `edaan:hasMetric`, describing each `edaan:Metric` with `:metricType` (aligned with `dqv:Metric`), `:metricValue` (the measured value), and `:appliesToFeature` (for column-level metrics).
-
-- Publish a DataApp: Declare the profiles it requires (`edaan:requiresProfile`) and produces (`edaan:producesProfile`), and its performance metrics with `:hasPerformanceMetric`.
-
-- Enable Matchmaking: Allow a broker to find assets that semantically match the quality and technical requirements of an application.
-
-- Validate Instances: Use the provided SHACL shapes, including integrated support for the IDSA Information Model (`idsa-shapes.ttl`) and EDAAnOWL specific rules (`edaan-shapes.ttl`).
-
-Non-goals. EDAAnOWL is not a monolithic domain ontology. It provides the semantic “connective tissue” required to publish, discover, and compose data and analytics across domains, delegating domain-specific semantics to external authoritative vocabularies.</vocab:introduction>
+3. **Matchmaking**:
+   - Agents can find assets by directly comparing the URIs of reused profiles, enabling high-precision discovery and interoperability across different data sources.</vocab:introduction>
     </owl:Ontology>
     
 
@@ -130,6 +122,13 @@ Non-goals. EDAAnOWL is not a monolithic domain ontology. It provides the semanti
 
 
     <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#qualifiedCardinality -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#qualifiedCardinality"/>
     
 
 
@@ -723,7 +722,7 @@ Non-goals. EDAAnOWL is not a monolithic domain ontology. It provides the semanti
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasGeneratedBy">
         <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataAsset"/>
-        <rdfs:range rdf:resource="https://w3id.org/idsa/core/DataApp"/>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/DataApp"/>
     </owl:ObjectProperty>
     
 
@@ -746,7 +745,6 @@ Non-goals. EDAAnOWL is not a monolithic domain ontology. It provides the semanti
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/appliesToFeatureConcept">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Links a metric to a formal schema element (as a SKOS Concept) describing the feature/column it applies to. Use this when a formal schema definition exists. For simple JSONPath strings, the deprecated :appliesToFeature (string) may still be used.</rdfs:comment>
         <rdfs:comment xml:lang="es">Vincula una métrica con un elemento de esquema formal (como un Concepto SKOS) que describe la característica/columna a la que aplica. Use esto cuando exista una definición de esquema formal. Para strings JSONPath simples, aún puede usarse la obsoleta :appliesToFeature (string).</rdfs:comment>
@@ -756,31 +754,30 @@ Non-goals. EDAAnOWL is not a monolithic domain ontology. It provides the semanti
     
 
 
-    <!-- https://w3id.org/EDAAnOWL/conformsToProfile -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/conformsToProfile">
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/conformsTo"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
-        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
-        <rdfs:comment xml:lang="en">Links a distribution/representation to a DataProfile that describes its structure and characteristics. In IDSA/DCAT, technical profiles are associated with the concrete delivery form (Distribution), not the abstract product (Resource).</rdfs:comment>
-        <rdfs:comment xml:lang="es">Vincula una distribución/representación con un DataProfile que describe su estructura y características. En IDSA/DCAT, los perfiles técnicos se asocian con la forma concreta de entrega (Distribution), no con el producto abstracto (Resource).</rdfs:comment>
-        <rdfs:label xml:lang="en">conforms to profile</rdfs:label>
-        <rdfs:label xml:lang="es">se ajusta al perfil</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/EDAAnOWL/conformsToSchema -->
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/conformsToSchema">
         <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/conformsTo"/>
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
         <rdfs:comment xml:lang="en">Links a profile to a formal technical schema (e.g., JSON Schema, XSD, SQL DDL). Unlike the (semantic) profile, the schema defines the exact physical structure.</rdfs:comment>
         <rdfs:comment xml:lang="es">Vincula un perfil con un esquema técnico formal (p. ej., JSON Schema, XSD, SQL DDL). A diferencia del perfil (semántico), el esquema define la estructura física exacta.</rdfs:comment>
         <rdfs:label xml:lang="en">conforms to schema</rdfs:label>
         <rdfs:label xml:lang="es">se ajusta al esquema</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/constraintMetricType -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/constraintMetricType">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataConstraint"/>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/MetricType"/>
+        <rdfs:comment xml:lang="es">Identifica el tipo de métrica de calidad al que se aplica una restricción.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Identifies the type of quality metric a constraint applies to.</rdfs:comment>
+        <rdfs:label xml:lang="en">constraint metric type</rdfs:label>
+        <rdfs:label xml:lang="es">tipo de métrica de restricción</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -832,40 +829,11 @@ Non-goals. EDAAnOWL is not a monolithic domain ontology. It provides the semanti
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/declaresDataClass">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
         <rdfs:range rdf:resource="https://w3id.org/BIGOWLData/Data"/>
-        <rdfs:comment xml:lang="en">Links a DataProfile to a BIGOWL Data class (e.g., bigdat:TabularDataSet, bigdat:Image).</rdfs:comment>
-        <rdfs:comment xml:lang="es">Vincula un DataProfile con una clase de Datos BIGOWL (p. ej., bigdat:TabularDataSet, bigdat:Image).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Links a DataSpecification to a BIGOWL Data class (e.g., bigdat:TabularDataSet, bigdat:Image).</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula un DataSpecification con una clase de Datos BIGOWL (p. ej., bigdat:TabularDataSet, bigdat:Image).</rdfs:comment>
         <rdfs:label xml:lang="es">declara clase de datos</rdfs:label>
         <rdfs:label xml:lang="en">declares data class</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/EDAAnOWL/declaresFeatureOfInterest -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/declaresFeatureOfInterest">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
-        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/FeatureOfInterest"/>
-        <rdfs:comment xml:lang="en">Links a DataProfile to the semantic category of the objects or phenomena being described (e.g., &apos;Orange&apos;, &apos;Crop Plot&apos;). Aligned with sosa:FeatureOfInterest.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Vincula un DataProfile con la categoría semántica de los objetos o fenómenos que se describen (p. ej., &apos;Naranja&apos;, &apos;Parcela&apos;). Alineado con sosa:FeatureOfInterest.</rdfs:comment>
-        <rdfs:label xml:lang="es">declara característica de interés</rdfs:label>
-        <rdfs:label xml:lang="en">declares feature of interest</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/EDAAnOWL/declaresObservedProperty -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/declaresObservedProperty">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
-        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/ObservableProperty"/>
-        <rdfs:comment xml:lang="en">Links a DataProfile to a semantic concept it describes, typically from a controlled vocabulary (e.g., an AGROVOC term).</rdfs:comment>
-        <rdfs:comment xml:lang="es">Vincula un DataProfile con un concepto semántico que describe, típicamente de un vocabulario controlado (p. ej., un término AGROVOC).</rdfs:comment>
-        <rdfs:label xml:lang="es">declara propiedad observada</rdfs:label>
-        <rdfs:label xml:lang="en">declares observed property</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -888,8 +856,11 @@ Non-goals. EDAAnOWL is not a monolithic domain ontology. It provides the semanti
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasCRS">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
         <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">Links a resource (Profile, Distribution, or Asset) to a SKOS Concept representing its Coordinate Reference System (e.g., EPSG:4326).</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula un recurso (Perfil, Distribución o Activo) con un concepto SKOS que representa su Sistema de Referencia de Coordenadas (p. ej., EPSG:4326).</rdfs:comment>
+        <rdfs:label xml:lang="en">has CRS</rdfs:label>
+        <rdfs:label xml:lang="es">tiene CRS</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -898,9 +869,9 @@ Non-goals. EDAAnOWL is not a monolithic domain ontology. It provides the semanti
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasCertification">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
+        <rdfs:domain rdf:resource="https://w3id.org/idsa/core/Resource"/>
         <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/CertificationReport"/>
-        <rdfs:comment xml:lang="en">Links a Data Profile to a Certification Report attesting compliance with a standard (e.g., Gaia-X Label).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Links a Data Specification to a Certification Report attesting compliance with a standard (e.g., Gaia-X Label).</rdfs:comment>
         <rdfs:comment xml:lang="es">Vincula un Perfil de Datos con un Informe de Certificación que atestigua el cumplimiento de un estándar (p. ej., Etiqueta Gaia-X).</rdfs:comment>
         <rdfs:label xml:lang="en">has certification</rdfs:label>
         <rdfs:label xml:lang="es">tiene certificación</rdfs:label>
@@ -915,9 +886,9 @@ Non-goals. EDAAnOWL is not a monolithic domain ontology. It provides the semanti
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/DataApp"/>
                     <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/DataAsset"/>
-                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/DataProfile"/>
-                    <rdf:Description rdf:about="https://w3id.org/idsa/core/DataApp"/>
+                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/DataSpecification"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -944,6 +915,52 @@ Non-goals. EDAAnOWL is not a monolithic domain ontology. It provides the semanti
     
 
 
+    <!-- https://w3id.org/EDAAnOWL/hasDataConstraint -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasDataConstraint">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/InputProfile"/>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/DataConstraint"/>
+        <rdfs:comment xml:lang="en">Links an input requirement to a specific quality threshold that must be met by the data.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula un requisito de entrada con un umbral de calidad específico que deben cumplir los datos.</rdfs:comment>
+        <rdfs:label xml:lang="en">has quality constraint</rdfs:label>
+        <rdfs:label xml:lang="es">tiene restricción de calidad</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/hasDataSpecification -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasDataSpecification">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/DataProfile"/>
+                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/InputProfile"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
+        <rdfs:comment xml:lang="en">Links a DataProfile or InputProfile to the DataSpecifications it contains or requires.</rdfs:comment>
+        <rdfs:label xml:lang="en">has data specification</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/hasDataType -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasDataType">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment xml:lang="en">Expected data type for the profile variable (e.g., xsd:float, xsd:dateTime).</rdfs:comment>
+        <rdfs:comment xml:lang="es">Tipo de dato esperado para la variable del perfil (p. ej., xsd:float, xsd:dateTime).</rdfs:comment>
+        <rdfs:label xml:lang="en">has data type</rdfs:label>
+        <rdfs:label xml:lang="es">tiene tipo de dato</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/EDAAnOWL/hasDomainSector -->
 
 
@@ -952,7 +969,7 @@ Non-goals. EDAAnOWL is not a monolithic domain ontology. It provides the semanti
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/idsa/core/DataApp"/>
+                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/DataApp"/>
                     <rdf:Description rdf:about="https://w3id.org/idsa/core/Resource"/>
                 </owl:unionOf>
             </owl:Class>
@@ -988,12 +1005,39 @@ Referencia: http://publications.europa.eu/resource/authority/data-theme</rdfs:co
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasFeatureOfInterest">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataAsset"/>
         <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/FeatureOfInterest"/>
-        <rdfs:comment xml:lang="en">Links a data asset to the entity or phenomenon it concerns (e.g., a specific crop or product). High-level bridge to sosa:hasFeatureOfInterest for cataloguing purposes.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Vincula un activo de datos con la entidad o fenómeno sobre el que versa (p. ej., un cultivo o producto específico). Puente de alto nivel con sosa:hasFeatureOfInterest para propósitos de catalogación.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Links a DataAsset, Metric, or DataSpecification to the entity or phenomenon it concerns (e.g., a specific crop or product). v1.0.0 uses this to define atomic profiles.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula un activo de datos, métrica o Perfil de Datos con el entidad o fenómeno sobre el que versa (p. ej., un cultivo específico). v1.0.0 usa esto para definir perfiles atómicos.</rdfs:comment>
         <rdfs:label xml:lang="en">has feature of interest</rdfs:label>
         <rdfs:label xml:lang="es">tiene característica de interés</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/hasFieldMapping -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasFieldMapping">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/FieldMapping"/>
+        <rdfs:comment xml:lang="en">Links a distribution to a FieldMapping, which maps an atomic semantic profile to a specific field in the physical file.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula una distribución con un FieldMapping, que mapea un perfil semántico atómico a un campo específico en el archivo físico.</rdfs:comment>
+        <rdfs:label xml:lang="en">has profile binding</rdfs:label>
+        <rdfs:label xml:lang="es">tiene vínculo de perfil</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/hasInputProfile -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasInputProfile">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataApp"/>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/InputProfile"/>
+        <rdfs:comment xml:lang="en">Links a DataApp to a structured input requirement, aggregating a required profile and optional quality constraints.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula una DataApp con un requisito de entrada estructurado, agregando un perfil requerido y restricciones de calidad opcionales.</rdfs:comment>
+        <rdfs:label xml:lang="en">has input requirement</rdfs:label>
+        <rdfs:label xml:lang="es">tiene requisito de entrada</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1002,10 +1046,19 @@ Referencia: http://publications.europa.eu/resource/authority/data-theme</rdfs:co
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasMetric">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/dcat#Distribution"/>
+                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/DataAsset"/>
+                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/DataSpecification"/>
+                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/FieldMapping"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/Metric"/>
-        <rdfs:comment xml:lang="en">Links a Data Profile to a specific quality, performance, or descriptive metric.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Vincula un Perfil de Datos con una métrica específica de calidad, rendimiento o descriptiva.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Links a FieldMapping, DataSpecification, DataAsset, or Distribution to a quality, performance, or descriptive metric.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula un FieldMapping, DataSpecification, DataAsset o Distribution con una métrica de calidad, rendimiento o descriptiva.</rdfs:comment>
         <rdfs:label xml:lang="en">has metric</rdfs:label>
         <rdfs:label xml:lang="es">tiene métrica</rdfs:label>
     </owl:ObjectProperty>
@@ -1016,9 +1069,8 @@ Referencia: http://publications.europa.eu/resource/authority/data-theme</rdfs:co
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasMetricStandard">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/Metric"/>
-        <rdfs:comment xml:lang="en">Links a metric to the standard or reference system used for its value. It can be a unit of measurement (QUDT) or a concept scheme/vocabulary (SKOS). Unifies the previous hasMetricUnit and usesVocabulary properties.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Vincula una métrica con el estándar o sistema de referencia utilizado para su valor. Puede ser una unidad de medida (QUDT) o un esquema de conceptos/vocabulario (SKOS). Unifica las propiedades anteriores hasMetricUnit y usesVocabulary.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Links a metric or profile to the standard or reference system used for its value. It can be a unit of measurement (QUDT) or a concept scheme/vocabulary (SKOS). Unifies the previous hasMetricUnit and usesVocabulary properties.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula una métrica o perfil con el estándar o sistema de referencia utilizado para su valor. Puede ser una unidad de medida (QUDT) o un esquema de conceptos/vocabulario (SKOS). Unifica las propiedades anteriores hasMetricUnit y usesVocabulary.</rdfs:comment>
         <rdfs:label xml:lang="en">has metric standard</rdfs:label>
         <rdfs:label xml:lang="es">tiene estándar de métrica</rdfs:label>
     </owl:ObjectProperty>
@@ -1039,12 +1091,47 @@ Referencia: http://publications.europa.eu/resource/authority/data-theme</rdfs:co
     
 
 
+    <!-- https://w3id.org/EDAAnOWL/hasObservableProperty -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasObservableProperty">
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/ObservableProperty"/>
+        <rdfs:comment xml:lang="en">Links a DataAsset, Metric, or DataSpecification to the specific characteristic or phenomenon being measured. v1.0.0 uses this to define atomic profiles.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula un activo de datos, métrica o Perfil de Datos con el fenómeno o característica específica que se mide. v1.0.0 usa esto para definir perfiles atómicos.</rdfs:comment>
+        <rdfs:label xml:lang="en">has observable property</rdfs:label>
+        <rdfs:label xml:lang="es">tiene propiedad observable</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/hasObservationMetric -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasObservationMetric">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/FieldMapping"/>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/ObservationMetric"/>
+        <rdfs:label xml:lang="en">has observation metric</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/hasOutputProfile -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasOutputProfile">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataApp"/>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/OutputProfile"/>
+        <rdfs:label xml:lang="en">has output profile</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/EDAAnOWL/hasPerformanceMetric -->
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasPerformanceMetric">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/EDAAnOWL/hasMetric"/>
-        <rdfs:domain rdf:resource="https://w3id.org/idsa/core/DataApp"/>
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataApp"/>
         <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/PerformanceMetric"/>
         <rdfs:comment xml:lang="en">Links a DataApp to a specific performance metric (e.g., accuracy, execution time).</rdfs:comment>
         <rdfs:comment xml:lang="es">Vincula una DataApp con una métrica de rendimiento específica (p. ej., precisión, tiempo de ejecución).</rdfs:comment>
@@ -1054,11 +1141,22 @@ Referencia: http://publications.europa.eu/resource/authority/data-theme</rdfs:co
     
 
 
+    <!-- https://w3id.org/EDAAnOWL/hasProfile -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasProfile">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
+        <rdfs:label xml:lang="en">has profile</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/EDAAnOWL/hasSchemaType -->
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasSchemaType">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
         <rdfs:comment xml:lang="es">Identifica la tecnología o estándar del esquema técnico asociado (p. ej., JSON Schema, Google Protobuf, XML Schema).</rdfs:comment>
         <rdfs:comment xml:lang="en">Identifies the technology or standard of the associated technical schema (e.g., JSON Schema, Google Protobuf, XML Schema).</rdfs:comment>
         <rdfs:label xml:lang="en">has schema type</rdfs:label>
@@ -1095,11 +1193,22 @@ Referencia: http://publications.europa.eu/resource/authority/data-theme</rdfs:co
     
 
 
+    <!-- https://w3id.org/EDAAnOWL/hasUnit -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/hasUnit">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/FieldMapping"/>
+        <rdfs:range rdf:resource="http://qudt.org/vocab/unit/Unit"/>
+        <rdfs:label xml:lang="en">has unit</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/EDAAnOWL/implementsComponent -->
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/implementsComponent">
-        <rdfs:domain rdf:resource="https://w3id.org/idsa/core/DataApp"/>
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataApp"/>
         <rdfs:range rdf:resource="https://w3id.org/BIGOWLWorkflows/Component"/>
         <rdfs:comment xml:lang="en">Links an IDSA DataApp to the BIGOWL workflow Component it implements.</rdfs:comment>
         <rdfs:comment xml:lang="es">Vincula una DataApp IDSA con el Componente de flujo de trabajo BIGOWL que implementa.</rdfs:comment>
@@ -1120,6 +1229,20 @@ Referencia: http://publications.europa.eu/resource/authority/data-theme</rdfs:co
         <rdfs:comment xml:lang="es">Un punto de contacto específico para consultas legales sobre el recurso.</rdfs:comment>
         <rdfs:label xml:lang="es">contacto legal</rdfs:label>
         <rdfs:label xml:lang="en">legal contact</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/mapsToSpecification -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/mapsToSpecification">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/FieldMapping"/>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
+        <rdfs:comment xml:lang="en">Links a FieldMapping to the atomic reusable DataSpecification it instantiates for a specific field.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula un FieldMapping con el DataSpecification atómico reutilizable que instancia para un campo específico.</rdfs:comment>
+        <rdfs:label xml:lang="en">binds profile</rdfs:label>
+        <rdfs:label xml:lang="es">vincula perfil</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1157,7 +1280,7 @@ Referencia: http://publications.europa.eu/resource/authority/data-theme</rdfs:co
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/parameter">
-        <rdfs:domain rdf:resource="https://w3id.org/idsa/core/DataApp"/>
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataApp"/>
         <rdfs:range rdf:resource="http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#Parameter"/>
         <rdfs:comment xml:lang="en">Links a DataApp to an execution parameter it accepts.</rdfs:comment>
         <rdfs:comment xml:lang="es">Vincula una DataApp con un parámetro de ejecución que acepta.</rdfs:comment>
@@ -1195,42 +1318,14 @@ Referencia: http://publications.europa.eu/resource/authority/data-theme</rdfs:co
     
 
 
-    <!-- https://w3id.org/EDAAnOWL/producesFeatureOfInterest -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/producesFeatureOfInterest">
-        <rdfs:domain rdf:resource="https://w3id.org/idsa/core/SmartDataApp"/>
-        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/FeatureOfInterest"/>
-        <rdfs:comment xml:lang="es">Define la categoría semántica del sujeto o fenómeno que el servicio PRODUCE o sobre el que genera información (p. ej., produce zonas de salud, polígonos de cultivo).</rdfs:comment>
-        <rdfs:comment xml:lang="en">Defines the semantic category of the subject or phenomenon that the service PRODUCES or generates information about (e.g., produces health zones, crop polygons).</rdfs:comment>
-        <rdfs:label xml:lang="es">produce característica de interés</rdfs:label>
-        <rdfs:label xml:lang="en">produces feature of interest</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/EDAAnOWL/producesObservableProperty -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/producesObservableProperty">
-        <rdfs:domain rdf:resource="https://w3id.org/idsa/core/SmartDataApp"/>
-        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/ObservableProperty"/>
-        <rdfs:comment xml:lang="es">Define la firma semántica de la SALIDA de un servicio (p. ej., produce Crop_Forecast).</rdfs:comment>
-        <rdfs:comment xml:lang="en">Defines the semantic signature of the OUTPUT of a service (e.g., produces Crop_Forecast).</rdfs:comment>
-        <rdfs:label xml:lang="es">produce propiedad observable</rdfs:label>
-        <rdfs:label xml:lang="en">produces observable property</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/EDAAnOWL/producesProfile -->
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/producesProfile">
-        <rdfs:domain rdf:resource="https://w3id.org/idsa/core/DataApp"/>
-        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
-        <rdfs:comment xml:lang="en">Links a DataApp to a DataProfile it produces as output.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Vincula una DataApp con un DataProfile que produce como salida.</rdfs:comment>
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataApp"/>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
+        <rdfs:comment xml:lang="en">Links a DataApp to a DataSpecification it produces as output.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula una DataApp con un DataSpecification que produce como salida.</rdfs:comment>
         <rdfs:label xml:lang="es">produce perfil</rdfs:label>
         <rdfs:label xml:lang="en">produces profile</rdfs:label>
     </owl:ObjectProperty>
@@ -1256,7 +1351,7 @@ Referencia: http://publications.europa.eu/resource/authority/data-theme</rdfs:co
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/realizesWorkflow">
-        <rdfs:domain rdf:resource="https://w3id.org/idsa/core/DataApp"/>
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataApp"/>
         <rdfs:range rdf:resource="http://www.opmw.org/ontology/WorkflowTemplate"/>
         <rdfs:comment xml:lang="en">DEPRECATED: A DataApp implements a Component, not a Workflow.
 
@@ -1296,30 +1391,13 @@ Un Workflow es un pipeline compuesto por múltiples Components conectados via Ta
     
 
 
-    <!-- https://w3id.org/EDAAnOWL/requiresFeatureOfInterest -->
+    <!-- https://w3id.org/EDAAnOWL/requiresMetric -->
 
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/requiresFeatureOfInterest">
-        <rdfs:domain rdf:resource="https://w3id.org/idsa/core/SmartDataApp"/>
-        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/FeatureOfInterest"/>
-        <rdfs:comment xml:lang="es">Define la categoría semántica del sujeto o fenómeno que el servicio REQUIERE como entrada (p. ej., requiere parcelas, requiere pacientes).</rdfs:comment>
-        <rdfs:comment xml:lang="en">Defines the semantic category of the subject or phenomenon that the service REQUIRES as input (e.g., requires plots, requires patients).</rdfs:comment>
-        <rdfs:label xml:lang="es">requiere característica de interés</rdfs:label>
-        <rdfs:label xml:lang="en">requires feature of interest</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/EDAAnOWL/requiresObservableProperty -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/requiresObservableProperty">
-        <rdfs:domain rdf:resource="https://w3id.org/idsa/core/SmartDataApp"/>
-        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/ObservableProperty"/>
-        <rdfs:comment xml:lang="es">Define la firma semántica de la ENTRADA para un servicio (p. ej., requiere NDVI).</rdfs:comment>
-        <rdfs:comment xml:lang="en">Defines the semantic signature of INPUT for a service (e.g., requires NDVI).</rdfs:comment>
-        <rdfs:label xml:lang="es">requiere propiedad observable</rdfs:label>
-        <rdfs:label xml:lang="en">requires observable property</rdfs:label>
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/requiresMetric">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataConstraint"/>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/ObservationMetric"/>
+        <rdfs:label xml:lang="en">requires metric</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1328,26 +1406,30 @@ Un Workflow es un pipeline compuesto por múltiples Components conectados via Ta
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/requiresProfile">
-        <rdfs:domain rdf:resource="https://w3id.org/idsa/core/DataApp"/>
-        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
-        <rdfs:comment xml:lang="en">Links a DataApp to a DataProfile it requires as input.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Vincula una DataApp con un DataProfile que requiere como entrada.</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/DataApp"/>
+                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/InputProfile"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
+        <rdfs:comment xml:lang="en">Links a DataApp or InputProfile to a DataSpecification it requires as input.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Vincula una DataApp o InputProfile con un DataSpecification que requiere como entrada.</rdfs:comment>
         <rdfs:label xml:lang="es">requiere perfil</rdfs:label>
         <rdfs:label xml:lang="en">requires profile</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/EDAAnOWL/servesObservableProperty -->
+    <!-- https://w3id.org/EDAAnOWL/requiresUnit -->
 
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/servesObservableProperty">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataAsset"/>
-        <rdfs:range rdf:resource="https://w3id.org/EDAAnOWL/ObservableProperty"/>
-        <rdfs:comment xml:lang="en">Links a data asset (DataAsset) to the semantic variable it describes (e.g., NDVI).</rdfs:comment>
-        <rdfs:comment xml:lang="es">Vincula un activo de datos (DataAsset) con la variable semántica que describe (p. ej., NDVI).</rdfs:comment>
-        <rdfs:label xml:lang="en">serves observable property</rdfs:label>
-        <rdfs:label xml:lang="es">sirve propiedad observable</rdfs:label>
+    <owl:ObjectProperty rdf:about="https://w3id.org/EDAAnOWL/requiresUnit">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataConstraint"/>
+        <rdfs:range rdf:resource="http://qudt.org/vocab/unit/Unit"/>
+        <rdfs:label xml:lang="en">requires unit</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1417,7 +1499,7 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/DataProfile"/>
+                    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/DataSpecification"/>
                     <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/Metric"/>
                 </owl:unionOf>
             </owl:Class>
@@ -1778,7 +1860,7 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
 
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/EDAAnOWL/anonymizationTechnique">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
         <rdfs:domain rdf:resource="https://w3id.org/idsa/core/Resource"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="es">La técnica utilizada para anonimizar datos personales (p. ej., &apos;k-anonymity&apos;, &apos;privacidad diferencial&apos;).</rdfs:comment>
@@ -1861,26 +1943,45 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
     
 
 
+    <!-- https://w3id.org/EDAAnOWL/constraintOperator -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/EDAAnOWL/constraintOperator">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataConstraint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Define el operador de comparación para una restricción de calidad (p. ej., &apos;&gt;=&apos;, &apos;==&apos;).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Defines the comparison operator for a quality constraint (e.g., &apos;&gt;=&apos;, &apos;==&apos;).</rdfs:comment>
+        <rdfs:label xml:lang="en">constraint operator</rdfs:label>
+        <rdfs:label xml:lang="es">operador de restricción</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/constraintValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/EDAAnOWL/constraintValue">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataConstraint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="es">Define el valor umbral para una restricción de calidad.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Defines the threshold value for a quality constraint.</rdfs:comment>
+        <rdfs:label xml:lang="en">constraint value</rdfs:label>
+        <rdfs:label xml:lang="es">valor de restricción</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://w3id.org/EDAAnOWL/containsPersonalData -->
 
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/EDAAnOWL/containsPersonalData">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
         <rdfs:domain rdf:resource="https://w3id.org/idsa/core/Resource"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <rdfs:comment xml:lang="es">Indica si el recurso incluye información de identificación personal (PII) o datos sujetos a GDPR.</rdfs:comment>
         <rdfs:comment xml:lang="en">Indicates whether the resource includes Personally Identifiable Information (PII) or data subject to GDPR.</rdfs:comment>
         <rdfs:label xml:lang="en">contains personal data</rdfs:label>
         <rdfs:label xml:lang="es">contiene datos personales</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- https://w3id.org/EDAAnOWL/hasCRS -->
-
-
-    <owl:DatatypeProperty rdf:about="https://w3id.org/EDAAnOWL/hasCRS">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
     </owl:DatatypeProperty>
     
 
@@ -1903,10 +2004,10 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
 
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/EDAAnOWL/isStreaming">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <rdfs:comment xml:lang="es">Indica si los datos se proporcionan en tiempo real como un flujo continuo (streaming) en lugar de un conjunto de datos estático.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Indicates whether the data is provided in real-time as a continuous stream instead of a static dataset.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Indica si los datos de esta distribución se proporcionan en tiempo real como un flujo continuo (streaming) en lugar de un conjunto de datos estático.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Indicates whether the data in this distribution is provided in real-time as a continuous stream instead of a static dataset.</rdfs:comment>
         <rdfs:label xml:lang="es">es flujo continuo (streaming)</rdfs:label>
         <rdfs:label xml:lang="en">is streaming</rdfs:label>
     </owl:DatatypeProperty>
@@ -1923,6 +2024,20 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
         <rdfs:comment xml:lang="en">Human-readable description of any known limitations, biases, or quality issues of the resource.</rdfs:comment>
         <rdfs:label xml:lang="en">known limitations</rdfs:label>
         <rdfs:label xml:lang="es">limitaciones conocidas</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/mapsField -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/EDAAnOWL/mapsField">
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/FieldMapping"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">El identificador físico (nombre de columna, JSONPath, XPath) del campo en la distribución que corresponde al perfil atómico vinculado.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The physical identifier (column name, JSONPath, XPath) of the field in the distribution that corresponds to the bound atomic profile.</rdfs:comment>
+        <rdfs:label xml:lang="en">maps to field</rdfs:label>
+        <rdfs:label xml:lang="es">se mapea al campo</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1947,8 +2062,8 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
     <owl:DatatypeProperty rdf:about="https://w3id.org/EDAAnOWL/metricUnit">
         <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">DEPRECATED: Use :hasMetricUnit with semantic URIs instead. The unit of measurement for the metric value (e.g., &apos;%&apos;, &apos;kg/ha&apos;, &apos;ppm&apos;).</rdfs:comment>
-        <rdfs:comment xml:lang="es">OBSOLETO: Use :hasMetricUnit con URIs semánticas en su lugar. La unidad de medida para el valor de la métrica (p. ej., &apos;%&apos;, &apos;kg/ha&apos;, &apos;ppm&apos;).</rdfs:comment>
+        <rdfs:comment xml:lang="en">DEPRECATED: Use :hasMetricStandard instead. The unit of measurement for the metric value (e.g., &apos;%&apos;, &apos;kg/ha&apos;, &apos;ppm&apos;).</rdfs:comment>
+        <rdfs:comment xml:lang="es">OBSOLETO: Use :hasMetricStandard en su lugar. La unidad de medida para el valor de la métrica (p. ej., &apos;%&apos;, &apos;kg/ha&apos;, &apos;ppm&apos;).</rdfs:comment>
         <rdfs:label xml:lang="en">metric unit (deprecated)</rdfs:label>
         <rdfs:label xml:lang="es">unidad de métrica (obsoleto)</rdfs:label>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
@@ -2003,7 +2118,7 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
 
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/EDAAnOWL/profileCRS">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:label xml:lang="es">CRS de perfil</rdfs:label>
         <rdfs:label xml:lang="en">profile CRS</rdfs:label>
@@ -2016,7 +2131,7 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
 
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/EDAAnOWL/profileSpatialResolution">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">Deprecated. Use dcat:spatialResolutionInMeters or dcat:spatialResolutionInDegrees.</rdfs:comment>
         <rdfs:comment xml:lang="es">Obsoleto. Use dcat:spatialResolutionInMeters o dcat:spatialResolutionInDegrees.</rdfs:comment>
@@ -2031,7 +2146,7 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
 
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/EDAAnOWL/profileTemporalResolution">
-        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
+        <rdfs:domain rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
         <rdfs:comment xml:lang="en">Deprecated. Use dcat:temporalResolution for temporal resolution of datasets/profiles.</rdfs:comment>
         <rdfs:comment xml:lang="es">Obsoleto. Use dcat:temporalResolution para la resolución temporal de conjuntos de datos/perfiles.</rdfs:comment>
@@ -2305,6 +2420,13 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
     
 
 
+    <!-- http://org.semanticweb.owlapi/error#Error1 -->
+
+
+    <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error1"/>
+    
+
+
     <!-- http://purl.org/dc/terms/Frequency -->
 
 
@@ -2382,6 +2504,13 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
 
 
     <owl:Class rdf:about="http://purl.org/dc/terms/Standard"/>
+    
+
+
+    <!-- http://qudt.org/vocab/unit/Unit -->
+
+
+    <owl:Class rdf:about="http://qudt.org/vocab/unit/Unit"/>
     
 
 
@@ -2484,7 +2613,38 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
     <!-- http://www.w3.org/ns/dcat#Distribution -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/ns/dcat#Distribution"/>
+    <owl:Class rdf:about="http://www.w3.org/ns/dcat#Distribution">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/declaresDataClass"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/BIGOWLData/Data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/hasMetric"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/EDAAnOWL/Metric"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/hasFieldMapping"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/dcat#spatialResolutionInMeters"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/dcat#temporalResolution"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -2657,12 +2817,22 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
     
 
 
+    <!-- https://w3id.org/EDAAnOWL/Accuracy -->
+
+
+    <owl:Class rdf:about="https://w3id.org/EDAAnOWL/Accuracy">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/EDAAnOWL/QualityMetric"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/EDAAnOWL/AnalyzerApp -->
 
 
     <owl:Class rdf:about="https://w3id.org/EDAAnOWL/AnalyzerApp">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/EDAAnOWL/DataApp"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/idsa/core/SmartDataApp"/>
-        <rdfs:comment xml:lang="en">A smart data app for descriptive/diagnosticanalysis (profiling, summarization, outlier detection).</rdfs:comment>
+        <rdfs:comment xml:lang="en">A smart data app for descriptive/diagnostic analysis (profiling, summarization, outlier detection).</rdfs:comment>
         <rdfs:comment xml:lang="es">Una aplicación de datos inteligente para análisis descriptivo/diagnóstico (perfilado, resumen, detección de valores atípicos).</rdfs:comment>
         <rdfs:label xml:lang="en">Analyzer App</rdfs:label>
         <rdfs:label xml:lang="es">Aplicación Analizadora</rdfs:label>
@@ -2687,13 +2857,26 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
 
     <owl:Class rdf:about="https://w3id.org/EDAAnOWL/Completeness">
         <rdfs:subClassOf rdf:resource="https://w3id.org/EDAAnOWL/QualityMetric"/>
-        <rdfs:comment xml:lang="en">Metric representing the degree to which all required data is present.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Métrica que representa el grado en que todos los datos requeridos están presentes.</rdfs:comment>
-        <rdfs:label xml:lang="en">Completeness</rdfs:label>
-        <rdfs:label xml:lang="es">Completitud</rdfs:label>
-        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/metric-types"/>
-        <skos:prefLabel xml:lang="en">Completeness</skos:prefLabel>
-        <skos:prefLabel xml:lang="es">Completitud</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/ConstraintOperator -->
+
+
+    <owl:Class rdf:about="https://w3id.org/EDAAnOWL/ConstraintOperator"/>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/DataApp -->
+
+
+    <owl:Class rdf:about="https://w3id.org/EDAAnOWL/DataApp">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/idsa/core/DataApp"/>
+        <rdfs:comment xml:lang="es">Especialización de ids:DataApp para EDAAnOWL. Permite la declaración de requisitos de entrada (hasInputProfile), perfiles de salida (producesProfile) y métricas de rendimiento (hasPerformanceMetric).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Specialization of ids:DataApp for EDAAnOWL. Enables declaration of input requirements (hasInputProfile), output profiles (producesProfile), and performance metrics (hasPerformanceMetric).</rdfs:comment>
+        <rdfs:label xml:lang="es">Aplicación de Datos</rdfs:label>
+        <rdfs:label xml:lang="en">Data App</rdfs:label>
     </owl:Class>
     
 
@@ -2703,10 +2886,36 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
 
     <owl:Class rdf:about="https://w3id.org/EDAAnOWL/DataAsset">
         <rdfs:subClassOf rdf:resource="https://w3id.org/idsa/core/DataResource"/>
-        <rdfs:comment xml:lang="en">Bridge class for a data asset. Specialises ids:DataResource to add the EDAA domain-specific semantic description (e.g., servesObservableProperty, hasFeatureOfInterest). Can be linked to the DataApp that generated it using prov:wasGeneratedBy. In v0.4.0+, profiles are linked via ids:representation → dcat:Distribution → :conformsToProfile, not directly on the DataAsset.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Clase puente para un activo de datos. Especializa ids:DataResource para añadir la descripción semántica específica del dominio EDAA (p. ej., servesObservableProperty, hasFeatureOfInterest). Puede vincularse a la DataApp que lo generó usando prov:wasGeneratedBy. En v0.4.0+, los perfiles se vinculan mediante ids:representation → dcat:Distribution → :conformsToProfile, no directamente en el DataAsset.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Especializa ids:DataResource para añadir la capa semántica específica de EDAAnOWL. Los perfiles se vinculan mediante ids:representation → dcat:Distribution → hasFieldMapping → mapsToSpecification. Puede vincularse a la DataApp que lo generó usando prov:wasGeneratedBy.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Specialises ids:DataResource to add the EDAAnOWL domain-specific semantic layer. Profiles are linked via ids:representation → dcat:Distribution → hasFieldMapping → mapsToSpecification. Can be linked to the DataApp that generated it using prov:wasGeneratedBy.</rdfs:comment>
         <rdfs:label xml:lang="es">Activo de Datos</rdfs:label>
         <rdfs:label xml:lang="en">Data Asset</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/DataConstraint -->
+
+
+    <owl:Class rdf:about="https://w3id.org/EDAAnOWL/DataConstraint">
+        <rdfs:subClassOf rdf:resource="http://org.semanticweb.owlapi/error#Error1"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/constraintMetricType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/EDAAnOWL/MetricType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/constraintValue"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es">Define una restricción de umbral de calidad (p. ej., completitud &gt;= 0.9) para ser utilizada en el matchmaking.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Defines a quality threshold constraint (e.g., completeness &gt;= 0.9) to be used in matchmaking.</rdfs:comment>
+        <rdfs:label xml:lang="en">Data Constraint</rdfs:label>
+        <rdfs:label xml:lang="es">Restricción de Calidad</rdfs:label>
     </owl:Class>
     
 
@@ -2715,60 +2924,8 @@ Ejemplos: NUTS nivel 1 (país), NUTS nivel 2 (región), NUTS nivel 3 (provincia)
 
 
     <owl:Class rdf:about="https://w3id.org/EDAAnOWL/DataProfile">
-        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Standard"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/hasMetric"/>
-                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/declaresDataClass"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/BIGOWLData/Data"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/dcat#spatialResolutionInDegrees"/>
-                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/dcat#spatialResolutionInMeters"/>
-                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/dcat#temporalResolution"/>
-                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="es">Bolsa de facetas que describe las características de los datos (dominio, tipo, propiedades observadas, CRS, geometría, resolución espacial/temporal).
-    
-Propiedades típicas:
-• dcat:temporalResolution: granularidad temporal (xsd:duration, p. ej., P1D)
-• dcat:spatialResolutionInMeters o InDegrees: granularidad espacial (xsd:decimal)
-• :declaresObservedProperty: variables semánticas de esquemas de conceptos
-• :declaresFeatureOfInterest: entidad o fenómeno de estudio (p. ej., Naranja)
-• :declaresDataClass: clasificación de tipo de datos
-• :hasCRS: sistema de referencia de coordenadas (IRI)
-
-Alineado con W3C DCAT 3 para interoperabilidad de catalogación de conjuntos de datos.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Facet bag describing data characteristics (domain, type, observed properties, CRS, geometry, spatial/temporal resolution).
-    
-Typical properties:
-• dcat:temporalResolution: temporal granularity (xsd:duration, e.g., P1D)
-• dcat:spatialResolutionInMeters or InDegrees: spatial granularity (xsd:decimal)
-• :declaresObservedProperty: semantic variables from concept schemes
-• :declaresFeatureOfInterest: entity or phenomenon under study (e.g., Orange)
-• :declaresDataClass: data type classification
-• :hasCRS: coordinate reference system (IRI)
-
-Aligned with W3C DCAT 3 for dataset cataloguing interoperability.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A grouping of multiple DataSpecifications. Useful to represent the set of variables that a dataset offers or an application requires.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Una agrupación de múltiples DataSpecifications. Útil para representar el conjunto de variables que ofrece un dataset o requiere una aplicación.</rdfs:comment>
         <rdfs:label xml:lang="en">Data Profile</rdfs:label>
         <rdfs:label xml:lang="es">Perfil de Datos</rdfs:label>
     </owl:Class>
@@ -2796,6 +2953,50 @@ Aligned with W3C DCAT 3 for dataset cataloguing interoperability.</rdfs:comment>
     
 
 
+    <!-- https://w3id.org/EDAAnOWL/DataSpecification -->
+
+
+    <owl:Class rdf:about="https://w3id.org/EDAAnOWL/DataSpecification">
+        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Standard"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/hasFeatureOfInterest"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/EDAAnOWL/FeatureOfInterest"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/hasObservableProperty"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/EDAAnOWL/ObservableProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/hasDataType"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/hasMetricStandard"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Atomic and reusable semantic unit that describes WHAT is being observed (Feature of Interest), WHICH property is measured (Observable Property), and HOW it is represented (Data Type, Metric Standard).
+    
+DataSpecifications are now schema-agnostic. They no longer contain mapping information (mapsField) or technical distribution details (resolutions, CRS), which have been moved to Distribution or FieldMapping.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Unidad semántica atómica y reutilizable que describe QUÉ se está observando (Feature of Interest), QUÉ propiedad se mide (Observable Property) y CÓMO se representa (Tipo de Dato, Estándar de Métrica).
+    
+Los DataSpecifications son ahora independientes del esquema. Ya no contienen información de mapeo (mapsField) ni detalles técnicos de la distribución (resoluciones, CRS), los cuales se han movido a Distribution o FieldMapping.</rdfs:comment>
+        <rdfs:label xml:lang="en">Data Specification</rdfs:label>
+        <rdfs:label xml:lang="es">Perfil de Datos</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/EDAAnOWL/FeatureOfInterest -->
 
 
@@ -2805,6 +3006,63 @@ Aligned with W3C DCAT 3 for dataset cataloguing interoperability.</rdfs:comment>
         <rdfs:comment xml:lang="en">The phenomenon or entity being observed or described (the &apos;thing&apos; itself). Examples: an orange, a plot of land, a batch of oil. RECOMMENDED: Use SIEX or AGROVOC to classify the object type.</rdfs:comment>
         <rdfs:label xml:lang="es">Característica de Interés</rdfs:label>
         <rdfs:label xml:lang="en">Feature of Interest</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/FieldMapping -->
+
+
+    <owl:Class rdf:about="https://w3id.org/EDAAnOWL/FieldMapping">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/hasMetric"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/EDAAnOWL/Metric"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/mapsToSpecification"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/mapsField"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es">La clase &apos;puente&apos; que instancia un DataSpecification reutilizable para un campo específico en una distribución. Mapea el concepto semántico a un identificador físico (mapsField) y proporciona métricas de calidad específicas del campo.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The &apos;bridge&apos; class that instantiates a reusable DataSpecification for a specific field in a distribution. It maps the semantic concept to a physical identifier (mapsField) and provides field-specific quality metrics.</rdfs:comment>
+        <rdfs:label xml:lang="en">Field Mapping</rdfs:label>
+        <rdfs:label xml:lang="es">Vínculo de Perfil</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/InputProfile -->
+
+
+    <owl:Class rdf:about="https://w3id.org/EDAAnOWL/InputProfile">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/hasDataConstraint"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/EDAAnOWL/DataConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/EDAAnOWL/hasDataSpecification"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es">Define un requisito estructurado para una entrada de DataApp, especificando exactamente qué DataSpecification se necesita y qué umbrales de calidad deben cumplirse.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Defines a structured requirement for a DataApp input, specifying exactly which DataSpecification is needed and what quality thresholds must be met.</rdfs:comment>
+        <rdfs:label xml:lang="en">Input Profile</rdfs:label>
+        <rdfs:label xml:lang="es">Requisito de Entrada</rdfs:label>
     </owl:Class>
     
 
@@ -2861,6 +3119,27 @@ Aligned with W3C DCAT 3 for dataset cataloguing interoperability.</rdfs:comment>
     
 
 
+    <!-- https://w3id.org/EDAAnOWL/ObservationMetric -->
+
+
+    <owl:Class rdf:about="https://w3id.org/EDAAnOWL/ObservationMetric">
+        <rdfs:comment xml:lang="en">Statistical or aggregation metric of the observation (e.g., DailyAverage, Maximum, Instantaneous).</rdfs:comment>
+        <rdfs:label xml:lang="en">Observation Metric</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/OutputProfile -->
+
+
+    <owl:Class rdf:about="https://w3id.org/EDAAnOWL/OutputProfile">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
+        <rdfs:comment xml:lang="en">Specifies the profile of output data a DataApp produces.</rdfs:comment>
+        <rdfs:label xml:lang="en">Output Profile</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/EDAAnOWL/PerformanceMetric -->
 
 
@@ -2878,6 +3157,7 @@ Aligned with W3C DCAT 3 for dataset cataloguing interoperability.</rdfs:comment>
 
 
     <owl:Class rdf:about="https://w3id.org/EDAAnOWL/PredictionApp">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/EDAAnOWL/DataApp"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/idsa/core/SmartDataApp"/>
         <rdfs:comment xml:lang="en">A smart data app that produces predictions/inferences from input data using a model or algorithm.</rdfs:comment>
         <rdfs:comment xml:lang="es">Una aplicación de datos inteligente que produce predicciones/inferencias a partir de datos de entrada usando un modelo o algoritmo.</rdfs:comment>
@@ -2905,13 +3185,9 @@ Aligned with W3C DCAT 3 for dataset cataloguing interoperability.</rdfs:comment>
 
 
     <owl:Class rdf:about="https://w3id.org/EDAAnOWL/QualityReport">
-        <rdfs:comment xml:lang="en">A class representing an external, structured quality report, containing metadata about the assessment (e.g., a PDF report URL, a quality score).</rdfs:comment>
-        <rdfs:comment xml:lang="en">A structured report containing quality metrics and metadata.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Un informe estructurado que contiene métricas de calidad y metadatos.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Una clase que representa un informe de calidad externo y estructurado, que contiene metadatos sobre la evaluación (p. ej., una URL de informe PDF, una puntuación de calidad).</rdfs:comment>
-        <rdfs:label xml:lang="en">External Quality Report</rdfs:label>
+        <rdfs:comment xml:lang="en">An external, structured quality report containing metadata about a quality assessment (e.g., a PDF report URL, a quality score).</rdfs:comment>
+        <rdfs:comment xml:lang="es">Un informe de calidad externo y estructurado que contiene metadatos sobre una evaluación de calidad (p. ej., una URL de informe PDF, una puntuación de calidad).</rdfs:comment>
         <rdfs:label xml:lang="es">Informe de Calidad</rdfs:label>
-        <rdfs:label xml:lang="es">Informe de Calidad Externo</rdfs:label>
         <rdfs:label xml:lang="en">Quality Report</rdfs:label>
     </owl:Class>
     
@@ -2935,23 +3211,19 @@ Aligned with W3C DCAT 3 for dataset cataloguing interoperability.</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/EDAAnOWL/Uniqueness">
         <rdfs:subClassOf rdf:resource="https://w3id.org/EDAAnOWL/QualityMetric"/>
-        <rdfs:comment xml:lang="en">Metric representing the degree to which data values are unique.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Métrica que representa el grado en que los valores de los datos son únicos.</rdfs:comment>
-        <rdfs:label xml:lang="es">Unicidad</rdfs:label>
-        <rdfs:label xml:lang="en">Uniqueness</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/EDAAnOWL/VerifiableDataProfile -->
+    <!-- https://w3id.org/EDAAnOWL/VerifiableDataSpecification -->
 
 
-    <owl:Class rdf:about="https://w3id.org/EDAAnOWL/VerifiableDataProfile">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/EDAAnOWL/DataProfile"/>
-        <rdfs:comment xml:lang="en">A DataProfile that is intended to be cryptographically verified. It should be linked to a Verifiable Credential using :hasCredential. This enables trusted quality assertions in data spaces by separating the profile metadata from its cryptographic proof.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Un DataProfile destinado a ser verificado criptográficamente. Debe vincularse a una Credencial Verificable usando :hasCredential. Esto permite aserciones de calidad confiables en espacios de datos separando los metadatos del perfil de su prueba criptográfica.</rdfs:comment>
+    <owl:Class rdf:about="https://w3id.org/EDAAnOWL/VerifiableDataSpecification">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/EDAAnOWL/DataSpecification"/>
+        <rdfs:comment xml:lang="en">A DataSpecification that is intended to be cryptographically verified. It should be linked to a Verifiable Credential using :hasCredential. This enables trusted quality assertions in data spaces by separating the profile metadata from its cryptographic proof.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Un DataSpecification destinado a ser verificado criptográficamente. Debe vincularse a una Credencial Verificable usando :hasCredential. Esto permite aserciones de calidad confiables en espacios de datos separando los metadatos del perfil de su prueba criptográfica.</rdfs:comment>
         <rdfs:label xml:lang="es">Perfil de Datos Verificable</rdfs:label>
-        <rdfs:label xml:lang="en">Verifiable Data Profile</rdfs:label>
+        <rdfs:label xml:lang="en">Verifiable Data Specification</rdfs:label>
     </owl:Class>
     
 
@@ -2960,6 +3232,7 @@ Aligned with W3C DCAT 3 for dataset cataloguing interoperability.</rdfs:comment>
 
 
     <owl:Class rdf:about="https://w3id.org/EDAAnOWL/VisualizationApp">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/EDAAnOWL/DataApp"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/idsa/core/SmartDataApp"/>
         <rdfs:comment xml:lang="en">A smart data app that renders data into visual views/reports without altering underlying data.</rdfs:comment>
         <rdfs:comment xml:lang="es">Una aplicación de datos inteligente que renderiza datos en vistas/informes visuales sin alterar los datos subyacentes.</rdfs:comment>
@@ -3204,11 +3477,104 @@ Aligned with W3C DCAT 3 for dataset cataloguing interoperability.</rdfs:comment>
         <terms:creator rdf:resource="https://khaos.uma.es/"/>
         <terms:creator rdf:resource="https://www.linkedin.com/in/martin-jeronimo-salvachua/"/>
         <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <terms:description xml:lang="en">Ontology for data spaces that bridges the IDSA Information Model with the BIGOWL analytical family. Its core function is to describe `DataAssets` (assets) and `DataApps` (services) using `DataProfiles` (profiles): semantic models that detail technical specifications (like DCAT 3 resolutions, CRS) and granular quality metrics (like completeness or uniqueness per feature). This enables robust, automated discovery and compatibility checking (matchmaking) for data and services. Additionally, it declares lightweight bridges to DCAT-AP 3.0 (Catalog, DataService, Distribution), ODRL 2.2 (Offer, Rule, Constraint), FOAF (Agent), and ADMS vocabulary metadata, following CRED guidelines for data space asset annotation.</terms:description>
-        <terms:description xml:lang="es">Ontología para espacios de datos que conecta el Modelo de Información IDSA con la familia analítica BIGOWL. Su función principal es describir `DataAssets` (activos) y `DataApps` (servicios) usando `DataProfiles` (perfiles): modelos semánticos que detallan especificaciones técnicas (como resoluciones DCAT 3, CRS) y métricas de calidad granulares (como completitud o unicidad por característica). Esto permite un descubrimiento automatizado robusto y verificación de compatibilidad (matchmaking) para datos y servicios. Además, declara puentes ligeros con DCAT-AP 3.0 (Catalog, DataService, Distribution), ODRL 2.2 (Offer, Rule, Constraint), FOAF (Agent) y metadatos de vocabularios ADMS, siguiendo las directrices del CRED para la anotación de activos de espacios de datos.</terms:description>
-        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-11</terms:modified>
+        <terms:description xml:lang="en">Ontology for data spaces that bridges the IDSA Information Model with the BIGOWL analytical family. Version 1.0.0 introduces atomic reusable DataSpecifications linked to Distributions via FieldMappings, enabling a &apos;Profile Library&apos; approach where semantic logic is separated from physical schema (mapsField). It also adds advanced matchmaking with DataConstraints for DataApps.</terms:description>
+        <terms:description xml:lang="es">Ontología para espacios de datos que conecta el Modelo de Información IDSA con la familia analítica BIGOWL. La versión 1.0.0 introduce Perfiles de Datos atómicos y reutilizables vinculados a las Distribuciones mediante FieldMappings, permitiendo un enfoque de &apos;Librería de Perfiles&apos; donde la lógica semántica se separa del esquema físico (mapsField). También añade matchmaking avanzado con DataConstraints para Aplicaciones de Datos.</terms:description>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-12</terms:modified>
         <terms:title xml:lang="en">EDAAnOWL Ontology</terms:title>
         <terms:title xml:lang="es">Ontología EDAAnOWL</terms:title>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/Accuracy -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/Accuracy">
+        <rdf:type rdf:resource="https://w3id.org/EDAAnOWL/MetricType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/Completeness -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/Completeness">
+        <rdf:type rdf:resource="https://w3id.org/EDAAnOWL/MetricType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/Equal -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/Equal">
+        <rdf:type rdf:resource="https://w3id.org/EDAAnOWL/ConstraintOperator"/>
+        <skos:prefLabel xml:lang="en">Equal</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Igual</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/GreaterOrEqual -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/GreaterOrEqual">
+        <rdf:type rdf:resource="https://w3id.org/EDAAnOWL/ConstraintOperator"/>
+        <skos:prefLabel xml:lang="en">Greater or Equal</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Mayor o Igual</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/GreaterThan -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/GreaterThan">
+        <rdf:type rdf:resource="https://w3id.org/EDAAnOWL/ConstraintOperator"/>
+        <skos:prefLabel xml:lang="en">Greater Than</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Mayor que</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/LessOrEqual -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/LessOrEqual">
+        <rdf:type rdf:resource="https://w3id.org/EDAAnOWL/ConstraintOperator"/>
+        <skos:prefLabel xml:lang="en">Less or Equal</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Menor o Igual</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/LessThan -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/LessThan">
+        <rdf:type rdf:resource="https://w3id.org/EDAAnOWL/ConstraintOperator"/>
+        <skos:prefLabel xml:lang="en">Less Than</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Menor que</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/Timeliness -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/Timeliness">
+        <rdf:type rdf:resource="https://w3id.org/EDAAnOWL/MetricType"/>
+        <skos:prefLabel xml:lang="es">Puntualidad</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Timeliness</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/EDAAnOWL/Uniqueness -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/EDAAnOWL/Uniqueness">
+        <rdf:type rdf:resource="https://w3id.org/EDAAnOWL/MetricType"/>
     </owl:NamedIndividual>
     
 
@@ -3220,6 +3586,9 @@ Aligned with W3C DCAT 3 for dataset cataloguing interoperability.</rdfs:comment>
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <foaf:name xml:lang="en">Martin Jeronimo Salvachua</foaf:name>
     </owl:NamedIndividual>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
     
 
 
@@ -3232,16 +3601,32 @@ Aligned with W3C DCAT 3 for dataset cataloguing interoperability.</rdfs:comment>
      -->
 
 
-    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/hasCRS">
-        <rdfs:comment xml:lang="en">Deprecated. Use the object property edaan:hasCRS to link to a formal CRS definition.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Links a Data Profile to the formal definition of its Coordinate Reference System (CRS), preferably using an EPSG URI (e.g., http://www.opengis.net/def/crs/EPSG/0/4326). Range is skos:Concept for interoperability with controlled vocabularies.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Obsoleto. Use la propiedad de objeto edaan:hasCRS para vincular a una definición formal de CRS.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Vincula un Perfil de Datos con la definición formal de su Sistema de Referencia de Coordenadas (CRS), preferiblemente usando un URI EPSG (p. ej., http://www.opengis.net/def/crs/EPSG/0/4326). El rango es skos:Concept para interoperabilidad con vocabularios controlados.</rdfs:comment>
-        <rdfs:label xml:lang="es">CRS de perfil (IRI)</rdfs:label>
-        <rdfs:label xml:lang="en">has Coordinate Reference System</rdfs:label>
-        <rdfs:label xml:lang="en">profile CRS (IRI)</rdfs:label>
-        <rdfs:label xml:lang="es">tiene Sistema de Referencia de Coordenadas</rdfs:label>
-        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/Accuracy">
+        <rdfs:comment xml:lang="en">Metric representing the degree to which data values correctly represent the real-world entity or event.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Métrica que representa el grado en que los valores de los datos representan correctamente la entidad o evento del mundo real.</rdfs:comment>
+        <rdfs:label xml:lang="en">Accuracy</rdfs:label>
+        <rdfs:label xml:lang="es">Exactitud</rdfs:label>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/metric-types"/>
+        <skos:prefLabel xml:lang="en">Accuracy</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Exactitud</skos:prefLabel>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/Completeness">
+        <rdfs:comment xml:lang="en">Metric representing the degree to which all required data is present.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Métrica que representa el grado en que todos los datos requeridos están presentes.</rdfs:comment>
+        <rdfs:label xml:lang="en">Completeness</rdfs:label>
+        <rdfs:label xml:lang="es">Completitud</rdfs:label>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/metric-types"/>
+        <skos:prefLabel xml:lang="en">Completeness</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Completitud</skos:prefLabel>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://w3id.org/EDAAnOWL/Uniqueness">
+        <rdfs:comment xml:lang="en">Metric representing the degree to which data values are unique.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Métrica que representa el grado en que los valores de los datos son únicos.</rdfs:comment>
+        <rdfs:label xml:lang="es">Unicidad</rdfs:label>
+        <rdfs:label xml:lang="en">Uniqueness</rdfs:label>
+        <skos:inScheme rdf:resource="https://w3id.org/EDAAnOWL/metric-types"/>
+        <skos:prefLabel xml:lang="es">Unicidad</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Uniqueness</skos:prefLabel>
     </rdf:Description>
 </rdf:RDF>
 

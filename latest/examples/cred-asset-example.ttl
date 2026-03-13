@@ -16,16 +16,16 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
 @prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix qudt: <http://qudt.org/vocab/unit/> .
 
 @base <https://w3id.org/EDAAnOWL/examples/cred/> .
 
 # ═══════════════════════════════════════════════════════════════
-#  CRED-compliant Asset Annotation Example (EDAAnOWL v0.9.0)
+#  CRED-compliant Asset Annotation Example (EDAAnOWL v1.0.0)
 #
 #  This example demonstrates how to annotate a data space asset
-#  following the CRED (Centro de Referencia de Espacios de Datos)
-#  recommendations, aligned with UNE 0087:2025, DCAT-AP 3.0,
-#  ODRL 2.2, and FOAF.
+#  following the v1.0.0 decoupled Semantic Architecture.
 # ═══════════════════════════════════════════════════════════════
 
 
@@ -77,13 +77,12 @@
     dcat:theme theme:AGRI , theme:ENVI ;
     dcat:keyword "olivar"@es , "NDVI"@en , "teledetección"@es , "remote sensing"@en ;
     dct:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/DAILY> ;
-    owl:versionInfo "0.9.0" ;
+    owl:versionInfo "1.0.0" ;
     dcatap:applicableLegislation <https://www.boe.es/eli/es/rd/2023/12/19/1089> ;
     dcat:landingPage <https://datos.juntadeandalucia.es/olivar-monitoring> ;
     dcat:distribution <distribution/olive-csv> ;
     ids:representation <distribution/olive-csv> ;
     # ── EDAAnOWL-specific ──
-    :servesObservableProperty agrovoc:c_ce585e0d ;  # NDVI
     :hasDomainSector theme:AGRI ;
     :isAlive true ;
     dct:conformsTo <http://data.europa.eu/r5r/dcat-ap/3.0.1> ;
@@ -104,32 +103,53 @@
     dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
     dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dct:rights <https://datos.gob.es/catalogo/derechos-de-acceso> ;
+    dct:rights <https://datos.gob.es/catalogo/derechos-de-access> ;
     dcat:byteSize "15728640"^^xsd:decimal ;
     dct:issued "2025-06-15"^^xsd:date ;
     dct:modified "2026-03-01"^^xsd:date ;
     adms:status <http://purl.org/adms/status/Completed> ;
-    :conformsToProfile <profile/olive-monitoring-profile> .
-
-
-# ─────────────────────────────────────────────────────────────
-#  5. DATA PROFILE — EDAAnOWL semantic profile
-# ─────────────────────────────────────────────────────────────
-
-<profile/olive-monitoring-profile> a :DataProfile ;
-    :declaresDataClass bigdat:TabularDataSet ;
-    :declaresObservedProperty agrovoc:c_ce585e0d ;  # NDVI
+    # v1.0.0: Technical metadata on Distribution
     dcat:temporalResolution "P1D"^^xsd:duration ;
     dcat:spatialResolutionInMeters "10.0"^^xsd:decimal ;
     :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
-    :hasMetric <metric/olive-record-count> ,
-               <metric/olive-completeness> ,
-               <metric/olive-ndvi-avg> .
+    # v1.0.0: FieldMapping links to Specification and adds technical details
+    :hasFieldMapping [
+        a :FieldMapping ;
+        :mapsToSpecification <spec/ndvi-daily-spec> ;
+        :mapsField "ndvi_daily" ;
+        :hasUnit qudt:UNITLESS ;
+        :hasDataType xsd:float ;
+        :hasObservationMetric :DailyAverage ;
+        :hasMetric <metric/olive-record-count> ,
+                    <metric/olive-completeness> ,
+                    <metric/olive-ndvi-avg>
+    ] .
+
+
+# ─────────────────────────────────────────────────────────────
+#  5. DATA SPECIFICATION — Atomic semantic variable (v1.0.0)
+# ─────────────────────────────────────────────────────────────
+
+<spec/ontology-schema-spec> a :DataSpecification ;
+    rdfs:label "EDAAnOWL Ontology Specification"@en ;
+    :hasObservableProperty <spec/OntologyConcept> ;
+    :hasFeatureOfInterest <spec/OntologyFeature> .
+
+<spec/OntologyConcept> a :ObservableProperty ;
+    skos:prefLabel "Ontology"@en .
+
+<spec/OntologyFeature> a :FeatureOfInterest ;
+    skos:prefLabel "Software Specification"@en .
+
+<spec/ndvi-daily-spec> a :DataSpecification ;
+    rdfs:label "NDVI Daily Specification"@en ;
+    :hasObservableProperty agrovoc:c_ce585e0d ;  # NDVI
+    :hasFeatureOfInterest agrovoc:c_12926 .      # Olives
 
 <metric/olive-record-count> a :Metric ;
     :metricName "recordCount" ;
     :metricValue "365000"^^xsd:integer ;
-    :hasMetricStandard <http://qudt.org/vocab/unit/NUM> ; # Count
+    :hasMetricStandard <http://qudt.org/vocab/unit/NUM> ;
     :computedAt "2026-03-01T10:00:00"^^xsd:dateTime ;
     dqv:computedOn <dataset/olive-grove-monitoring> .
 
@@ -137,23 +157,22 @@
     :metricType :Completeness ;
     :metricName "completeness" ;
     :metricValue "0.97"^^xsd:decimal ;
-    :hasMetricStandard <http://qudt.org/vocab/unit/PERCENT> ; # Represented as ratio/percent
+    :hasMetricStandard <http://qudt.org/vocab/unit/PERCENT> ;
     :computedAt "2026-03-01T10:00:00"^^xsd:dateTime ;
     dqv:computedOn <dataset/olive-grove-monitoring> .
 
-# Profiling Metric for Matchmaking
 <metric/olive-ndvi-avg> a :Metric ;
     :metricName "average_ndvi" ;
-    :measuresProperty agrovoc:c_ce585e0d ; # NDVI Phenomenon
-    :metricValue "0.65"^^xsd:decimal ;     # The actual average value
-    :hasMetricStandard <http://qudt.org/vocab/unit/UNITLESS> ; # The reference standard (NDVI has no dimension)
+    :measuresProperty agrovoc:c_ce585e0d ;
+    :metricValue "0.65"^^xsd:decimal ;
+    :hasMetricStandard <http://qudt.org/vocab/unit/UNITLESS> ;
     :computedAt "2026-03-01T10:00:00"^^xsd:dateTime ;
     dqv:computedOn <dataset/olive-grove-monitoring> .
 
 <quality/olive-dataset-assessment> a dqv:QualityMetadata ;
     dqv:hasQualityMeasurement <metric/olive-record-count> ,
-                              <metric/olive-completeness> ,
-                              <metric/olive-ndvi-avg> .
+                               <metric/olive-completeness> ,
+                               <metric/olive-ndvi-avg> .
 
 
 # ─────────────────────────────────────────────────────────────
@@ -199,19 +218,27 @@
     dct:identifier "edaanowl-ontology" ;
     dct:title "Ontología EDAAnOWL"@es ;
     dct:description "Ontología para la anotación semántica de activos en espacios de datos"@es ;
-    dct:modified "2026-03-10"^^xsd:date ;
+    dct:modified "2026-03-12"^^xsd:date ;
     dct:publisher <agent/khaos-research> ;
     dct:type <http://publications.europa.eu/resource/authority/dataset-type/ONTOLOGY> ;
-    owl:versionInfo "0.9.0" ;
+    owl:versionInfo "1.0.0" ;
     dcat:distribution <distribution/edaanowl-ttl> ;
     dcat:theme theme:TECH ;
     dct:accessRights <https://creativecommons.org/licenses/by/4.0/> .
 
 <distribution/edaanowl-ttl> a dcat:Distribution ;
     dct:description "Serialización Turtle de la ontología EDAAnOWL"@es ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
     dct:rights <https://creativecommons.org/licenses/by/4.0/> ;
-    dcat:accessURL <https://github.com/KhaosResearch/EDAAnOWL/raw/refs/heads/main/src/0.8.1/EDAAnOWL.ttl> ;
-    dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> .
+    dcat:accessURL <https://github.com/KhaosResearch/EDAAnOWL/raw/refs/heads/main/src/1.0.0/EDAAnOWL.ttl> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ;
+    # Technical file: include a mapping for its semantic nature
+    :hasFieldMapping [
+        a :FieldMapping ;
+        :mapsToSpecification <spec/ontology-schema-spec> ;
+        :mapsField "RDF_CONTENT" ;
+        :hasDataType xsd:string 
+    ] .
 
 
 # ─────────────────────────────────────────────────────────────
@@ -225,7 +252,7 @@
     skos:inScheme <http://publications.europa.eu/resource/authority/licence> ;
     rdfs:label "Creative Commons Attribution 4.0 International"@en .
 
-<https://datos.gob.es/catalogo/derechos-de-acceso> a dct:RightsStatement ;
+<https://datos.gob.es/catalogo/derechos-de-access> a dct:RightsStatement ;
     rdfs:label "Derechos relativos a la reutilización del Catálogo de Datos Abiertos"@es .
 
 
@@ -236,7 +263,8 @@
 agrovoc:c_ce585e0d a skos:Concept ;
     skos:prefLabel "NDVI"@en .
 
-<http://www.opengis.net/def/crs/EPSG/0/4326> a skos:Concept ;
-    skos:prefLabel "WGS 84"@en ;
-    owl:sameAs <http://www.opengis.net/def/crs/EPSG/0/4326> .
+agrovoc:c_12926 a skos:Concept ;
+    skos:prefLabel "Olive"@en , "Olivo"@es .
 
+<http://www.opengis.net/def/crs/EPSG/0/4326> a skos:Concept ;
+    skos:prefLabel "WGS 84"@en .

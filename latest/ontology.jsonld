@@ -3,11 +3,11 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
+      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+    }, {
       "@id" : "https://w3id.org/EDAAnOWL/DataAsset"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
-    }, {
-      "@id" : "https://w3id.org/idsa/core/DataApp"
+      "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
     } ]
   } ]
 }, {
@@ -15,13 +15,17 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+      "@id" : "http://www.w3.org/ns/dcat#Distribution"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/Metric"
+      "@id" : "https://w3id.org/EDAAnOWL/DataAsset"
+    }, {
+      "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    }, {
+      "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
     } ]
   } ]
 }, {
-  "@id" : "_:genid14",
+  "@id" : "_:genid16",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -31,39 +35,65 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid17",
+  "@id" : "_:genid19",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+    }, {
+      "@id" : "https://w3id.org/EDAAnOWL/InputProfile"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid22",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    }, {
+      "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid25",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/EDAAnOWL/CertificationReport"
+    }, {
+      "@id" : "https://w3id.org/EDAAnOWL/QualityReport"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid28",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "https://w3id.org/BIGOWLData/Data"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/declaresDataClass"
+  } ]
+}, {
+  "@id" : "_:genid29",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/Metric"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "https://w3id.org/EDAAnOWL/hasMetric"
   } ]
 }, {
-  "@id" : "_:genid18",
+  "@id" : "_:genid30",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/BIGOWLData/Data"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/declaresDataClass"
-  } ],
-  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+  "http://www.w3.org/2002/07/owl#minCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ]
-}, {
-  "@id" : "_:genid19",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
+    "@value" : "0"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.w3.org/ns/dcat#spatialResolutionInDegrees"
+    "@id" : "https://w3id.org/EDAAnOWL/hasFieldMapping"
   } ]
 }, {
-  "@id" : "_:genid20",
+  "@id" : "_:genid31",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
@@ -72,7 +102,7 @@
     "@id" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters"
   } ]
 }, {
-  "@id" : "_:genid21",
+  "@id" : "_:genid32",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#duration"
@@ -81,7 +111,136 @@
     "@id" : "http://www.w3.org/ns/dcat#temporalResolution"
   } ]
 }, {
-  "@id" : "_:genid22",
+  "@id" : "_:genid33",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/constraintMetricType"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid34",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#cardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/constraintValue"
+  } ]
+}, {
+  "@id" : "_:genid35",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/FeatureOfInterest"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/hasFeatureOfInterest"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid36",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/ObservableProperty"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/hasObservableProperty"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid37",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/hasDataType"
+  } ]
+}, {
+  "@id" : "_:genid38",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/hasMetricStandard"
+  } ]
+}, {
+  "@id" : "_:genid39",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/hasMetric"
+  } ]
+}, {
+  "@id" : "_:genid40",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/mapsToSpecification"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid41",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onDataRange" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/mapsField"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid42",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/hasDataConstraint"
+  } ]
+}, {
+  "@id" : "_:genid43",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/hasDataSpecification"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid44",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
@@ -94,7 +253,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid23",
+  "@id" : "_:genid45",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#cardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -104,13 +263,19 @@
     "@id" : "https://w3id.org/EDAAnOWL/metricValue"
   } ]
 }, {
+  "@id" : "_:genid46",
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
   "@id" : "_:genid5",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/idsa/core/DataApp"
+      "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
     }, {
-      "@id" : "https://w3id.org/idsa/core/Resource"
+      "@id" : "https://w3id.org/EDAAnOWL/InputProfile"
     } ]
   } ]
 }, {
@@ -118,9 +283,9 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/CertificationReport"
+      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/QualityReport"
+      "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
   } ]
 }, {
@@ -160,6 +325,9 @@
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://data.europa.eu/r5r/LegalResource"
   } ]
+}, {
+  "@id" : "http://org.semanticweb.owlapi/error#Error1",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "http://purl.org/dc/terms/Frequency",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
@@ -602,6 +770,9 @@
   "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
+  "@id" : "http://qudt.org/vocab/unit/Unit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
   "@id" : "http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#Parameter",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
@@ -616,6 +787,9 @@
 }, {
   "@id" : "http://www.w3.org/2001/XMLSchema#duration",
   "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
+}, {
+  "@id" : "http://www.w3.org/2002/07/owl#qualifiedCardinality",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://www.w3.org/2004/02/skos/core#Concept",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
@@ -745,7 +919,18 @@
   } ]
 }, {
   "@id" : "http://www.w3.org/ns/dcat#Distribution",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "_:genid28"
+  }, {
+    "@id" : "_:genid29"
+  }, {
+    "@id" : "_:genid30"
+  }, {
+    "@id" : "_:genid31"
+  }, {
+    "@id" : "_:genid32"
+  } ]
 }, {
   "@id" : "http://www.w3.org/ns/dcat#Resource",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
@@ -1446,7 +1631,7 @@
     "@id" : "https://w3id.org/EDAAnOWL/DataAsset"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/idsa/core/DataApp"
+    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
   } ]
 }, {
   "@id" : "http://www.w3.org/ns/sosa/FeatureOfInterest",
@@ -1549,13 +1734,13 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://purl.org/dc/terms/abstract" : [ {
     "@language" : "en",
-    "@value" : "Lightweight ontology for data spaces. It aligns IDSA and BIGOWL, focusing on the strong semantic description of Data Assets and Data Apps through Data Profiles, which include technical characteristics (DCAT 3) and granular quality metrics. Version 0.9.0 introduces SOSA-aligned Features of Interest to decouple subjects from properties, refines DQV/ODRL/CRED alignment, and improves validation consistency."
+    "@value" : "Lightweight ontology for data spaces. Version 1.0.0 refactors DataSpecifications into atomic reusable units decoupled from technical distribution details via FieldMappings. This enables high-performance matchmaking, schema-agnostic semantic libraries, and granular quality constraints for DataApps."
   }, {
     "@language" : "es",
-    "@value" : "Ontología ligera para espacios de datos. Alinea IDSA y BIGOWL, enfocándose en la descripción semántica robusta de Activos de Datos y Aplicaciones de Datos a través de Perfiles de Datos, que incluyen características técnicas (DCAT 3) y métricas de calidad granulares. La versión 0.9.0 introduce el concepto de Feature of Interest (alineado con SOSA) para desacoplar sujetos de propiedades, refina la alineación con CRED (UNE 0087:2025) y optimiza el matchmaking semántico."
+    "@value" : "Ontología ligera para espacios de datos. La versión 1.0.0 refactoriza los Perfiles de Datos en unidades atómicas reutilizables desacopladas de los detalles técnicos de la distribución mediante FieldMappings. Esto permite un matchmaking de alto rendimiento, librerías semánticas independientes del esquema y restricciones de calidad granulares para las aplicaciones."
   } ],
   "http://purl.org/dc/terms/bibliographicCitation" : [ {
-    "@value" : "Salvachúa Galimberti, M. J.; Khaos Research. (2026). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 0.9.0."
+    "@value" : "Salvachúa Galimberti, M. J.; Khaos Research. (2026). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 1.0.0."
   } ],
   "http://purl.org/dc/terms/created" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
@@ -1570,17 +1755,17 @@
   } ],
   "http://purl.org/dc/terms/description" : [ {
     "@language" : "en",
-    "@value" : "Ontology for data spaces that bridges the IDSA Information Model with the BIGOWL analytical family. Its core function is to describe `DataAssets` (assets) and `DataApps` (services) using `DataProfiles` (profiles): semantic models that detail technical specifications (like DCAT 3 resolutions, CRS) and granular quality metrics (like completeness or uniqueness per feature). This enables robust, automated discovery and compatibility checking (matchmaking) for data and services. Additionally, it declares lightweight bridges to DCAT-AP 3.0 (Catalog, DataService, Distribution), ODRL 2.2 (Offer, Rule, Constraint), FOAF (Agent), and ADMS vocabulary metadata, following CRED guidelines for data space asset annotation."
+    "@value" : "Ontology for data spaces that bridges the IDSA Information Model with the BIGOWL analytical family. Version 1.0.0 introduces atomic reusable DataSpecifications linked to Distributions via FieldMappings, enabling a 'Profile Library' approach where semantic logic is separated from physical schema (mapsField). It also adds advanced matchmaking with DataConstraints for DataApps."
   }, {
     "@language" : "es",
-    "@value" : "Ontología para espacios de datos que conecta el Modelo de Información IDSA con la familia analítica BIGOWL. Su función principal es describir `DataAssets` (activos) y `DataApps` (servicios) usando `DataProfiles` (perfiles): modelos semánticos que detallan especificaciones técnicas (como resoluciones DCAT 3, CRS) y métricas de calidad granulares (como completitud o unicidad por característica). Esto permite un descubrimiento automatizado robusto y verificación de compatibilidad (matchmaking) para datos y servicios. Además, declara puentes ligeros con DCAT-AP 3.0 (Catalog, DataService, Distribution), ODRL 2.2 (Offer, Rule, Constraint), FOAF (Agent) y metadatos de vocabularios ADMS, siguiendo las directrices del CRED para la anotación de activos de espacios de datos."
+    "@value" : "Ontología para espacios de datos que conecta el Modelo de Información IDSA con la familia analítica BIGOWL. La versión 1.0.0 introduce Perfiles de Datos atómicos y reutilizables vinculados a las Distribuciones mediante FieldMappings, permitiendo un enfoque de 'Librería de Perfiles' donde la lógica semántica se separa del esquema físico (mapsField). También añade matchmaking avanzado con DataConstraints para Aplicaciones de Datos."
   } ],
   "http://purl.org/dc/terms/license" : [ {
     "@id" : "https://creativecommons.org/licenses/by/4.0/"
   } ],
   "http://purl.org/dc/terms/modified" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
-    "@value" : "2026-03-11"
+    "@value" : "2026-03-12"
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@language" : "en",
@@ -1603,13 +1788,13 @@
     "@value" : "EDAAnOWL"
   } ],
   "http://www.w3.org/2002/07/owl#priorVersion" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/0.8.1"
-  } ],
-  "http://www.w3.org/2002/07/owl#versionIRI" : [ {
     "@id" : "https://w3id.org/EDAAnOWL/0.9.0"
   } ],
+  "http://www.w3.org/2002/07/owl#versionIRI" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/1.0.0"
+  } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
-    "@value" : "0.9.0"
+    "@value" : "1.0.0"
   } ],
   "https://schema.org/codeRepository" : [ {
     "@id" : "https://github.com/KhaosResearch/EDAAnOWL"
@@ -1619,17 +1804,50 @@
   } ],
   "https://w3id.org/widoco/vocab#introduction" : [ {
     "@language" : "es",
-    "@value" : "EDAAnOWL proporciona un vocabulario compacto pero expresivo para describir la semántica operacional de los espacios de datos y los artefactos analíticos que fluyen a través de ellos. Mientras que el resumen motiva la necesidad, esta introducción clarifica el alcance, las decisiones de diseño y el uso típico.\n\nAlcance. EDAAnOWL se enfoca en (i) participantes y roles, (ii) activos de datos y sus perfiles, (iii) ofertas y políticas de uso, y (iv) flujos de trabajo analíticos y aplicaciones. Se alinea con el modelo de información de International Data Spaces (IDSA) para nociones contractuales y de políticas, y se conecta con la familia BIGOWL para describir algoritmos, problemas y flujos de trabajo—vinculando entradas/salidas a través de puertos y perfiles de datos. La ontología fomenta el uso de vocabularios externos curados (AGROVOC, EU Data Theme, DQV) para asegurar anotaciones consistentes e interoperables.\n\nReutilización sobre reinvención. EDAAnOWL reutiliza vocabularios ampliamente adoptados: DCAT para metadatos, SOSA/SSN para observaciones, OWL-Time para tiempo, ODRL/IDSA para políticas, DQV para calidad y PROV-O para procedencia. Estas alineaciones se expresan mediante puentes ligeros para que los activos existentes se integren sin duplicación.\n\nEstructura modular. La ontología distingue un núcleo estable de módulos específicos de proyecto. EDAAnOWL adopta una estrategia external-first: prioriza vocabularios normativos internacionales (FAO, UE, OGC), pero permite vocabularios puente locales mínimos cuando aportan alias, acrónimos, alineamientos curados o conceptos ausentes en las fuentes externas.\n\nVersionado y persistencia. Cada versión tiene un IRI persistente y versionado. Esto permite la citación inequívoca de una versión concreta (\"Esta versión\") mientras se preserva un punto de entrada canónico (\"Última versión\") para facilitar el descubrimiento y la persistencia de enlaces.\n\nUso típico.\n- Describir un conjunto de datos (DataAsset): \n  1. Crear una `dcat:Distribution` (o `:DataRepresentation`) y vincularla al DataAsset mediante `ids:representation`.\n  2. Vincular el perfil a la Distribution usando `edaan:conformsToProfile`.\n\n- Definir el perfil:\n    - Clasificar su tipo (p. ej., `edaan:declaresDataClass bigdat:TabularDataSet`).\n    - Definir sus propiedades técnicas (p. ej., `dcat:temporalResolution \"P1D\"^^xsd:duration`, `edaan:hasCRS <http://.../EPSG/4326>`).\n    - Declarar su sujeto de estudio con `edaan:declaresFeatureOfInterest` (p. ej., su objeto es una Parcela de Cultivo).\n    - Listar sus métricas usando `edaan:hasMetric`, describiendo cada `edaan:Metric` con `:metricType` (alineado con `dqv:Metric`), `:metricValue` (valor de la métrica), y `:appliesToFeature` (para métricas por columna).\n\n- Publicar una DataApp: Declarar los perfiles que requiere (`edaan:requiresProfile`) y produce (`edaan:producesProfile`), y sus métricas de rendimiento con `:hasPerformanceMetric`.\n\n- Habilitar Matchmaking: Permitir que un intermediario encuentre activos que coincidan semánticamente con los requisitos técnicos y de calidad de una aplicación.\n\n- Validar Instancias: Usar las formas SHACL proporcionadas, incluyendo el soporte integrado para el Information Model de IDSA (`idsa-shapes.ttl`) y las reglas de EDAAnOWL (`edaan-shapes.ttl`).\n\nNo-objetivos. EDAAnOWL no es una ontología de dominio monolítica. Proporciona el \"tejido conectivo\" semántico requerido para publicar, descubrir y componer datos y análisis a través de dominios, delegando la semántica específica a vocabularios autoritativos externos."
+    "@value" : "<div style='text-align: center;'><img src='https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/main/images/edaanowl-v1-matchmaking-flow.jpeg' width='80%' /><br/><i>Figura: Flujo conceptual de matchmaking semántico en v1.0.0</i></div>\n<br/>\nEDAAnOWL proporciona un vocabulario compacto pero expresivo para describir la semántica operacional de los espacios de datos. La versión 1.0.0 introduce una arquitectura evolucionada para la descripción de activos basada en perfiles de datos atómicos.\n\n### Perfiles Atómicos y Reutilizables\nA diferencia de versiones anteriores, la arquitectura actual separa la semántica del dominio de los detalles técnicos de la implementación:\n- **DataSpecification (Atómico)**: Es una unidad pura y reutilizable que define QUÉ se mide (p. ej., Temperatura de Naranja en °C). No contiene nombres de columnas ni detalles de archivos.\n- **FieldMapping (Puente)**: Vincula un DataSpecification a un campo físico concreto (`edaan:mapsField`) de una distribución y describe su calidad específica.\n- **Distribution (Técnico)**: Centraliza las propiedades físicas (formato, resolución temporal/espacial, CRS) siguiendo estrictamente DCAT-AP 3.0.\n\n<div style='text-align: center;'><img src='https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/main/images/edaanowl-v1-class-diagram.jpeg' width='80%' /><br/><i>Figura: Diagrama de clases de la arquitectura desacoplada v1.0.0</i></div>\n<br/>\n\nUso típico en v1.0.0:\n1. **Publicar Datos**:\n   - Crear una `dcat:Distribution` con sus metadatos técnicos (formato, resolución).\n   - Vincular N `edaan:FieldMapping` a la distribución.\n   - Cada binding apunta a un `edaan:DataSpecification` (preferiblemente de una librería compartida) e indica el nombre del campo (`edaan:mapsField`).\n\n2. **Publicar DataApp**:\n   - Declarar requisitos mediante `edaan:hasInputProfile`, especificando el perfil necesario y, opcionalmente, restricciones de calidad (`edaan:DataConstraint`).\n\n3. **Matchmaking**:\n   - Los agentes pueden encontrar activos comparando directamente las URIs de los perfiles reutilizados, permitiendo un descubrimiento de alta precisión e interoperabilidad entre diferentes fuentes de datos."
   }, {
     "@language" : "en",
-    "@value" : "EDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces and the analytical artefacts that flow through them. While the abstract motivates the need, this introduction clarifies scope, design choices, and typical usage.\n\nScope. EDAAnOWL focuses on (i) participants and roles, (ii) data assets and their profiles, (iii) offers and usage policies, and (iv) analytical workflows and applications. It aligns with the International Data Spaces (IDSA) information model for contractual and policy notions, and connects to the BIGOWL family to describe algorithms, problems, and workflows—linking inputs/outputs through ports and data profiles. The ontology encourages the use of curated external concept schemes (AGROVOC, EU Data Theme, DQV) to ensure consistent and interoperable annotations.\n\nReuse over reinvention. EDAAnOWL reuses widely adopted vocabularies: DCAT for metadata, SOSA/SSN for observations, OWL-Time for time, ODRL/IDSA for policies, DQV for quality and PROV-O for provenance. These alignments are expressed via lightweight bridges so existing assets can be integrated without duplication.\n\nModular structure. The ontology distinguishes a stable core from project-specific modules. EDAAnOWL adopts an external-first strategy: it prioritizes international normative vocabularies (FAO, EU, OGC), but allows minimal local bridge vocabularies when they add aliases, acronyms, curated mappings, or concepts missing from external sources.\n\nVersioning and persistence. Each release has a persistent, versioned IRI. This enables unambiguous citation of a concrete release (“This version”) while preserving a canonical entry point (“Latest version”) to facilitate discovery and link persistence.\n\nTypical usage.\n- Describe a dataset (DataAsset): \n  1. Create a `dcat:Distribution` (or `:DataRepresentation`) and link it to the DataAsset via `ids:representation`.\n  2. Link the profile to the Distribution using `edaan:conformsToProfile`.\n\n- Define the profile:\n    - Classify its type (e.g., `edaan:declaresDataClass bigdat:TabularDataSet`).\n    - Define its technical properties (e.g., `dcat:temporalResolution \"P1D\"^^xsd:duration`, `edaan:hasCRS <http://.../EPSG/4326>`).\n    - Declare its subject of study with `edaan:declaresFeatureOfInterest` (e.g., its object is a Crop Plot).\n    - List its metrics using `edaan:hasMetric`, describing each `edaan:Metric` with `:metricType` (aligned with `dqv:Metric`), `:metricValue` (the measured value), and `:appliesToFeature` (for column-level metrics).\n\n- Publish a DataApp: Declare the profiles it requires (`edaan:requiresProfile`) and produces (`edaan:producesProfile`), and its performance metrics with `:hasPerformanceMetric`.\n\n- Enable Matchmaking: Allow a broker to find assets that semantically match the quality and technical requirements of an application.\n\n- Validate Instances: Use the provided SHACL shapes, including integrated support for the IDSA Information Model (`idsa-shapes.ttl`) and EDAAnOWL specific rules (`edaan-shapes.ttl`).\n\nNon-goals. EDAAnOWL is not a monolithic domain ontology. It provides the semantic “connective tissue” required to publish, discover, and compose data and analytics across domains, delegating domain-specific semantics to external authoritative vocabularies."
+    "@value" : "<div style='text-align: center;'><img src='https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/main/images/edaanowl-v1-matchmaking-flow.jpeg' width='80%' /><br/><i>Figure: Semantic matchmaking conceptual flow in v1.0.0</i></div>\n<br/>\nEDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces. Version 1.0.0 introduces an evolved architecture for asset description based on atomic data profiles.\n\n### Atomic and Reusable Profiles\nUnlike previous versions, the current architecture decouples domain semantics from technical implementation details:\n- **DataSpecification (Atomic)**: A pure, reusable unit defining WHAT is measured (e.g., Orange Temperature in °C). It contains no column names or file-specific details.\n- **FieldMapping (Bridge)**: Links a DataSpecification to a specific physical field (`edaan:mapsField`) in a distribution and describes its specific quality metrics.\n- **Distribution (Technical)**: Centralizes physical properties (format, temporal/spatial resolution, CRS) strictly following DCAT-AP 3.0 guidelines.\n\n<div style='text-align: center;'><img src='https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/main/images/edaanowl-v1-class-diagram.jpeg' width='80%' /><br/><i>Figure: Class diagram of the v1.0.0 decoupled architecture</i></div>\n<br/>\n\nTypical usage in v1.0.0:\n1. **Publish Data**:\n   - Create a `dcat:Distribution` with its technical metadata (format, resolution).\n   - Link N `edaan:FieldMapping` instances to the distribution.\n   - Each binding points to an `edaan:DataSpecification` (preferably from a shared library) and specifies the field name (`edaan:mapsField`).\n\n2. **Publish DataApp**:\n   - Declare requirements via `edaan:hasInputProfile`, specifying the required profile and, optionally, quality thresholds (`edaan:DataConstraint`).\n\n3. **Matchmaking**:\n   - Agents can find assets by directly comparing the URIs of reused profiles, enabling high-precision discovery and interoperability across different data sources."
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/Accuracy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Metric representing the degree to which data values correctly represent the real-world entity or event."
+  }, {
+    "@language" : "es",
+    "@value" : "Métrica que representa el grado en que los valores de los datos representan correctamente la entidad o evento del mundo real."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Accuracy"
+  }, {
+    "@language" : "es",
+    "@value" : "Exactitud"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/QualityMetric"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#inScheme" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/metric-types"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Accuracy"
+  }, {
+    "@language" : "es",
+    "@value" : "Exactitud"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/AnalyzerApp",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "A smart data app for descriptive/diagnosticanalysis (profiling, summarization, outlier detection)."
+    "@value" : "A smart data app for descriptive/diagnostic analysis (profiling, summarization, outlier detection)."
   }, {
     "@language" : "es",
     "@value" : "Una aplicación de datos inteligente para análisis descriptivo/diagnóstico (perfilado, resumen, detección de valores atípicos)."
@@ -1642,6 +1860,8 @@
     "@value" : "Aplicación Analizadora"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+  }, {
     "@id" : "https://w3id.org/idsa/core/SmartDataApp"
   } ]
 }, {
@@ -1663,7 +1883,10 @@
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/Completeness",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Metric representing the degree to which all required data is present."
@@ -1692,14 +1915,37 @@
     "@value" : "Completitud"
   } ]
 }, {
+  "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/DataApp",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "es",
+    "@value" : "Especialización de ids:DataApp para EDAAnOWL. Permite la declaración de requisitos de entrada (hasInputProfile), perfiles de salida (producesProfile) y métricas de rendimiento (hasPerformanceMetric)."
+  }, {
+    "@language" : "en",
+    "@value" : "Specialization of ids:DataApp for EDAAnOWL. Enables declaration of input requirements (hasInputProfile), output profiles (producesProfile), and performance metrics (hasPerformanceMetric)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "es",
+    "@value" : "Aplicación de Datos"
+  }, {
+    "@language" : "en",
+    "@value" : "Data App"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/idsa/core/DataApp"
+  } ]
+}, {
   "@id" : "https://w3id.org/EDAAnOWL/DataAsset",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Bridge class for a data asset. Specialises ids:DataResource to add the EDAA domain-specific semantic description (e.g., servesObservableProperty, hasFeatureOfInterest). Can be linked to the DataApp that generated it using prov:wasGeneratedBy. In v0.4.0+, profiles are linked via ids:representation → dcat:Distribution → :conformsToProfile, not directly on the DataAsset."
-  }, {
     "@language" : "es",
-    "@value" : "Clase puente para un activo de datos. Especializa ids:DataResource para añadir la descripción semántica específica del dominio EDAA (p. ej., servesObservableProperty, hasFeatureOfInterest). Puede vincularse a la DataApp que lo generó usando prov:wasGeneratedBy. En v0.4.0+, los perfiles se vinculan mediante ids:representation → dcat:Distribution → :conformsToProfile, no directamente en el DataAsset."
+    "@value" : "Especializa ids:DataResource para añadir la capa semántica específica de EDAAnOWL. Los perfiles se vinculan mediante ids:representation → dcat:Distribution → hasFieldMapping → mapsToSpecification. Puede vincularse a la DataApp que lo generó usando prov:wasGeneratedBy."
+  }, {
+    "@language" : "en",
+    "@value" : "Specialises ids:DataResource to add the EDAAnOWL domain-specific semantic layer. Profiles are linked via ids:representation → dcat:Distribution → hasFieldMapping → mapsToSpecification. Can be linked to the DataApp that generated it using prov:wasGeneratedBy."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -1712,14 +1958,38 @@
     "@id" : "https://w3id.org/idsa/core/DataResource"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/DataProfile",
+  "@id" : "https://w3id.org/EDAAnOWL/DataConstraint",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
-    "@value" : "Bolsa de facetas que describe las características de los datos (dominio, tipo, propiedades observadas, CRS, geometría, resolución espacial/temporal).\n    \nPropiedades típicas:\n• dcat:temporalResolution: granularidad temporal (xsd:duration, p. ej., P1D)\n• dcat:spatialResolutionInMeters o InDegrees: granularidad espacial (xsd:decimal)\n• :declaresObservedProperty: variables semánticas de esquemas de conceptos\n• :declaresFeatureOfInterest: entidad o fenómeno de estudio (p. ej., Naranja)\n• :declaresDataClass: clasificación de tipo de datos\n• :hasCRS: sistema de referencia de coordenadas (IRI)\n\nAlineado con W3C DCAT 3 para interoperabilidad de catalogación de conjuntos de datos."
+    "@value" : "Define una restricción de umbral de calidad (p. ej., completitud >= 0.9) para ser utilizada en el matchmaking."
   }, {
     "@language" : "en",
-    "@value" : "Facet bag describing data characteristics (domain, type, observed properties, CRS, geometry, spatial/temporal resolution).\n    \nTypical properties:\n• dcat:temporalResolution: temporal granularity (xsd:duration, e.g., P1D)\n• dcat:spatialResolutionInMeters or InDegrees: spatial granularity (xsd:decimal)\n• :declaresObservedProperty: semantic variables from concept schemes\n• :declaresFeatureOfInterest: entity or phenomenon under study (e.g., Orange)\n• :declaresDataClass: data type classification\n• :hasCRS: coordinate reference system (IRI)\n\nAligned with W3C DCAT 3 for dataset cataloguing interoperability."
+    "@value" : "Defines a quality threshold constraint (e.g., completeness >= 0.9) to be used in matchmaking."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Data Constraint"
+  }, {
+    "@language" : "es",
+    "@value" : "Restricción de Calidad"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://org.semanticweb.owlapi/error#Error1"
+  }, {
+    "@id" : "_:genid33"
+  }, {
+    "@id" : "_:genid34"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/DataProfile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A grouping of multiple DataSpecifications. Useful to represent the set of variables that a dataset offers or an application requires."
+  }, {
+    "@language" : "es",
+    "@value" : "Una agrupación de múltiples DataSpecifications. Útil para representar el conjunto de variables que ofrece un dataset o requiere una aplicación."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -1727,19 +1997,6 @@
   }, {
     "@language" : "es",
     "@value" : "Perfil de Datos"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://purl.org/dc/terms/Standard"
-  }, {
-    "@id" : "_:genid17"
-  }, {
-    "@id" : "_:genid18"
-  }, {
-    "@id" : "_:genid19"
-  }, {
-    "@id" : "_:genid20"
-  }, {
-    "@id" : "_:genid21"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/DataRepresentation",
@@ -1762,6 +2019,47 @@
     "@id" : "https://w3id.org/idsa/core/DataRepresentation"
   } ]
 }, {
+  "@id" : "https://w3id.org/EDAAnOWL/DataSpecification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Atomic and reusable semantic unit that describes WHAT is being observed (Feature of Interest), WHICH property is measured (Observable Property), and HOW it is represented (Data Type, Metric Standard).\n    \nDataSpecifications are now schema-agnostic. They no longer contain mapping information (mapsField) or technical distribution details (resolutions, CRS), which have been moved to Distribution or FieldMapping."
+  }, {
+    "@language" : "es",
+    "@value" : "Unidad semántica atómica y reutilizable que describe QUÉ se está observando (Feature of Interest), QUÉ propiedad se mide (Observable Property) y CÓMO se representa (Tipo de Dato, Estándar de Métrica).\n    \nLos DataSpecifications son ahora independientes del esquema. Ya no contienen información de mapeo (mapsField) ni detalles técnicos de la distribución (resoluciones, CRS), los cuales se han movido a Distribution o FieldMapping."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Data Specification"
+  }, {
+    "@language" : "es",
+    "@value" : "Perfil de Datos"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://purl.org/dc/terms/Standard"
+  }, {
+    "@id" : "_:genid35"
+  }, {
+    "@id" : "_:genid36"
+  }, {
+    "@id" : "_:genid37"
+  }, {
+    "@id" : "_:genid38"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/Equal",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Equal"
+  }, {
+    "@language" : "es",
+    "@value" : "Igual"
+  } ]
+}, {
   "@id" : "https://w3id.org/EDAAnOWL/FeatureOfInterest",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1780,6 +2078,104 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/sosa/FeatureOfInterest"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/FieldMapping",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "es",
+    "@value" : "La clase 'puente' que instancia un DataSpecification reutilizable para un campo específico en una distribución. Mapea el concepto semántico a un identificador físico (mapsField) y proporciona métricas de calidad específicas del campo."
+  }, {
+    "@language" : "en",
+    "@value" : "The 'bridge' class that instantiates a reusable DataSpecification for a specific field in a distribution. It maps the semantic concept to a physical identifier (mapsField) and provides field-specific quality metrics."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Field Mapping"
+  }, {
+    "@language" : "es",
+    "@value" : "Vínculo de Perfil"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "_:genid39"
+  }, {
+    "@id" : "_:genid40"
+  }, {
+    "@id" : "_:genid41"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/GreaterOrEqual",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Greater or Equal"
+  }, {
+    "@language" : "es",
+    "@value" : "Mayor o Igual"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/GreaterThan",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Greater Than"
+  }, {
+    "@language" : "es",
+    "@value" : "Mayor que"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/InputProfile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "es",
+    "@value" : "Define un requisito estructurado para una entrada de DataApp, especificando exactamente qué DataSpecification se necesita y qué umbrales de calidad deben cumplirse."
+  }, {
+    "@language" : "en",
+    "@value" : "Defines a structured requirement for a DataApp input, specifying exactly which DataSpecification is needed and what quality thresholds must be met."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Input Profile"
+  }, {
+    "@language" : "es",
+    "@value" : "Requisito de Entrada"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "_:genid42"
+  }, {
+    "@id" : "_:genid43"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/LessOrEqual",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Less or Equal"
+  }, {
+    "@language" : "es",
+    "@value" : "Menor o Igual"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/LessThan",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Less Than"
+  }, {
+    "@language" : "es",
+    "@value" : "Menor que"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/Metric",
@@ -1801,9 +2197,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/dqv#QualityMeasurement"
   }, {
-    "@id" : "_:genid22"
+    "@id" : "_:genid44"
   }, {
-    "@id" : "_:genid23"
+    "@id" : "_:genid45"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/MetricType",
@@ -1846,6 +2242,31 @@
     "@id" : "http://www.w3.org/ns/sosa/ObservableProperty"
   } ]
 }, {
+  "@id" : "https://w3id.org/EDAAnOWL/ObservationMetric",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Statistical or aggregation metric of the observation (e.g., DailyAverage, Maximum, Instantaneous)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Observation Metric"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/OutputProfile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Specifies the profile of output data a DataApp produces."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Output Profile"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+  } ]
+}, {
   "@id" : "https://w3id.org/EDAAnOWL/PerformanceMetric",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1883,6 +2304,8 @@
     "@value" : "Prediction App"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+  }, {
     "@id" : "https://w3id.org/idsa/core/SmartDataApp"
   } ]
 }, {
@@ -1912,26 +2335,14 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "A class representing an external, structured quality report, containing metadata about the assessment (e.g., a PDF report URL, a quality score)."
-  }, {
-    "@language" : "en",
-    "@value" : "A structured report containing quality metrics and metadata."
+    "@value" : "An external, structured quality report containing metadata about a quality assessment (e.g., a PDF report URL, a quality score)."
   }, {
     "@language" : "es",
-    "@value" : "Un informe estructurado que contiene métricas de calidad y metadatos."
-  }, {
-    "@language" : "es",
-    "@value" : "Una clase que representa un informe de calidad externo y estructurado, que contiene metadatos sobre la evaluación (p. ej., una URL de informe PDF, una puntuación de calidad)."
+    "@value" : "Un informe de calidad externo y estructurado que contiene metadatos sobre una evaluación de calidad (p. ej., una URL de informe PDF, una puntuación de calidad)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "External Quality Report"
-  }, {
     "@language" : "es",
     "@value" : "Informe de Calidad"
-  }, {
-    "@language" : "es",
-    "@value" : "Informe de Calidad Externo"
   }, {
     "@language" : "en",
     "@value" : "Quality Report"
@@ -1957,8 +2368,24 @@
     "@id" : "https://w3id.org/EDAAnOWL/DataAsset"
   } ]
 }, {
+  "@id" : "https://w3id.org/EDAAnOWL/Timeliness",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "es",
+    "@value" : "Puntualidad"
+  }, {
+    "@language" : "en",
+    "@value" : "Timeliness"
+  } ]
+}, {
   "@id" : "https://w3id.org/EDAAnOWL/Uniqueness",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Metric representing the degree to which data values are unique."
@@ -1975,26 +2402,36 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/EDAAnOWL/QualityMetric"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#inScheme" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/metric-types"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "es",
+    "@value" : "Unicidad"
+  }, {
+    "@language" : "en",
+    "@value" : "Uniqueness"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/VerifiableDataProfile",
+  "@id" : "https://w3id.org/EDAAnOWL/VerifiableDataSpecification",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "A DataProfile that is intended to be cryptographically verified. It should be linked to a Verifiable Credential using :hasCredential. This enables trusted quality assertions in data spaces by separating the profile metadata from its cryptographic proof."
+    "@value" : "A DataSpecification that is intended to be cryptographically verified. It should be linked to a Verifiable Credential using :hasCredential. This enables trusted quality assertions in data spaces by separating the profile metadata from its cryptographic proof."
   }, {
     "@language" : "es",
-    "@value" : "Un DataProfile destinado a ser verificado criptográficamente. Debe vincularse a una Credencial Verificable usando :hasCredential. Esto permite aserciones de calidad confiables en espacios de datos separando los metadatos del perfil de su prueba criptográfica."
+    "@value" : "Un DataSpecification destinado a ser verificado criptográficamente. Debe vincularse a una Credencial Verificable usando :hasCredential. Esto permite aserciones de calidad confiables en espacios de datos separando los metadatos del perfil de su prueba criptográfica."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
     "@value" : "Perfil de Datos Verificable"
   }, {
     "@language" : "en",
-    "@value" : "Verifiable Data Profile"
+    "@value" : "Verifiable Data Specification"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/VisualizationApp",
@@ -2014,6 +2451,8 @@
     "@value" : "Visualization App"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+  }, {
     "@id" : "https://w3id.org/idsa/core/SmartDataApp"
   } ]
 }, {
@@ -2103,7 +2542,7 @@
     "@value" : "The technique used to anonymize personal data (e.g., 'k-anonymity', 'differential privacy')."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
   }, {
     "@id" : "https://w3id.org/idsa/core/Resource"
   } ],
@@ -2153,9 +2592,6 @@
   }, {
     "@language" : "es",
     "@value" : "Vincula una métrica con un elemento de esquema formal (como un Concepto SKOS) que describe la característica/columna a la que aplica. Use esto cuando exista una definición de esquema formal. Para strings JSONPath simples, aún puede usarse la obsoleta :appliesToFeature (string)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2263,32 +2699,6 @@
     "@id" : "http://www.w3.org/ns/prov#generatedAtTime"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/conformsToProfile",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a distribution/representation to a DataProfile that describes its structure and characteristics. In IDSA/DCAT, technical profiles are associated with the concrete delivery form (Distribution), not the abstract product (Resource)."
-  }, {
-    "@language" : "es",
-    "@value" : "Vincula una distribución/representación con un DataProfile que describe su estructura y características. En IDSA/DCAT, los perfiles técnicos se asocian con la forma concreta de entrega (Distribution), no con el producto abstracto (Resource)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.w3.org/ns/dcat#Distribution"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "conforms to profile"
-  }, {
-    "@language" : "es",
-    "@value" : "se ajusta al perfil"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://purl.org/dc/terms/conformsTo"
-  } ]
-}, {
   "@id" : "https://w3id.org/EDAAnOWL/conformsToSchema",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -2299,7 +2709,7 @@
     "@value" : "Vincula un perfil con un esquema técnico formal (p. ej., JSON Schema, XSD, SQL DDL). A diferencia del perfil (semántico), el esquema define la estructura física exacta."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2310,6 +2720,75 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://purl.org/dc/terms/conformsTo"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/constraintMetricType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "es",
+    "@value" : "Identifica el tipo de métrica de calidad al que se aplica una restricción."
+  }, {
+    "@language" : "en",
+    "@value" : "Identifies the type of quality metric a constraint applies to."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "constraint metric type"
+  }, {
+    "@language" : "es",
+    "@value" : "tipo de métrica de restricción"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/constraintOperator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "es",
+    "@value" : "Define el operador de comparación para una restricción de calidad (p. ej., '>=', '==')."
+  }, {
+    "@language" : "en",
+    "@value" : "Defines the comparison operator for a quality constraint (e.g., '>=', '==')."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "constraint operator"
+  }, {
+    "@language" : "es",
+    "@value" : "operador de restricción"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/constraintValue",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "es",
+    "@value" : "Define el valor umbral para una restricción de calidad."
+  }, {
+    "@language" : "en",
+    "@value" : "Defines the threshold value for a quality constraint."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "constraint value"
+  }, {
+    "@language" : "es",
+    "@value" : "valor de restricción"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/consumesAppRepresentation",
@@ -2395,7 +2874,7 @@
     "@value" : "Indicates whether the resource includes Personally Identifiable Information (PII) or data subject to GDPR."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
   }, {
     "@id" : "https://w3id.org/idsa/core/Resource"
   } ],
@@ -2414,13 +2893,10 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Links a DataProfile to a BIGOWL Data class (e.g., bigdat:TabularDataSet, bigdat:Image)."
+    "@value" : "Links a DataSpecification to a BIGOWL Data class (e.g., bigdat:TabularDataSet, bigdat:Image)."
   }, {
     "@language" : "es",
-    "@value" : "Vincula un DataProfile con una clase de Datos BIGOWL (p. ej., bigdat:TabularDataSet, bigdat:Image)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@value" : "Vincula un DataSpecification con una clase de Datos BIGOWL (p. ej., bigdat:TabularDataSet, bigdat:Image)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -2431,52 +2907,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "https://w3id.org/BIGOWLData/Data"
-  } ]
-}, {
-  "@id" : "https://w3id.org/EDAAnOWL/declaresFeatureOfInterest",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a DataProfile to the semantic category of the objects or phenomena being described (e.g., 'Orange', 'Crop Plot'). Aligned with sosa:FeatureOfInterest."
-  }, {
-    "@language" : "es",
-    "@value" : "Vincula un DataProfile con la categoría semántica de los objetos o fenómenos que se describen (p. ej., 'Naranja', 'Parcela'). Alineado con sosa:FeatureOfInterest."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "es",
-    "@value" : "declara característica de interés"
-  }, {
-    "@language" : "en",
-    "@value" : "declares feature of interest"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/FeatureOfInterest"
-  } ]
-}, {
-  "@id" : "https://w3id.org/EDAAnOWL/declaresObservedProperty",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a DataProfile to a semantic concept it describes, typically from a controlled vocabulary (e.g., an AGROVOC term)."
-  }, {
-    "@language" : "es",
-    "@value" : "Vincula un DataProfile con un concepto semántico que describe, típicamente de un vocabulario controlado (p. ej., un término AGROVOC)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "es",
-    "@value" : "declara propiedad observada"
-  }, {
-    "@language" : "en",
-    "@value" : "declares observed property"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservableProperty"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/externalQualityReport",
@@ -2503,57 +2933,36 @@
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/hasCRS",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Deprecated. Use the object property edaan:hasCRS to link to a formal CRS definition."
-  }, {
-    "@language" : "en",
-    "@value" : "Links a Data Profile to the formal definition of its Coordinate Reference System (CRS), preferably using an EPSG URI (e.g., http://www.opengis.net/def/crs/EPSG/0/4326). Range is skos:Concept for interoperability with controlled vocabularies."
+    "@value" : "Links a resource (Profile, Distribution, or Asset) to a SKOS Concept representing its Coordinate Reference System (e.g., EPSG:4326)."
   }, {
     "@language" : "es",
-    "@value" : "Obsoleto. Use la propiedad de objeto edaan:hasCRS para vincular a una definición formal de CRS."
-  }, {
-    "@language" : "es",
-    "@value" : "Vincula un Perfil de Datos con la definición formal de su Sistema de Referencia de Coordenadas (CRS), preferiblemente usando un URI EPSG (p. ej., http://www.opengis.net/def/crs/EPSG/0/4326). El rango es skos:Concept para interoperabilidad con vocabularios controlados."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@value" : "Vincula un recurso (Perfil, Distribución o Activo) con un concepto SKOS que representa su Sistema de Referencia de Coordenadas (p. ej., EPSG:4326)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "es",
-    "@value" : "CRS de perfil (IRI)"
-  }, {
     "@language" : "en",
-    "@value" : "has Coordinate Reference System"
-  }, {
-    "@language" : "en",
-    "@value" : "profile CRS (IRI)"
+    "@value" : "has CRS"
   }, {
     "@language" : "es",
-    "@value" : "tiene Sistema de Referencia de Coordenadas"
+    "@value" : "tiene CRS"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
-  }, {
-    "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
-  } ],
-  "http://www.w3.org/2002/07/owl#deprecated" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
-    "@value" : "true"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/hasCertification",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Links a Data Profile to a Certification Report attesting compliance with a standard (e.g., Gaia-X Label)."
+    "@value" : "Links a Data Specification to a Certification Report attesting compliance with a standard (e.g., Gaia-X Label)."
   }, {
     "@language" : "es",
     "@value" : "Vincula un Perfil de Datos con un Informe de Certificación que atestigua el cumplimiento de un estándar (p. ej., Etiqueta Gaia-X)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/idsa/core/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2612,6 +3021,66 @@
     "@id" : "http://xmlns.com/foaf/0.1/Document"
   } ]
 }, {
+  "@id" : "https://w3id.org/EDAAnOWL/hasDataConstraint",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an input requirement to a specific quality threshold that must be met by the data."
+  }, {
+    "@language" : "es",
+    "@value" : "Vincula un requisito de entrada con un umbral de calidad específico que deben cumplir los datos."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/InputProfile"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has quality constraint"
+  }, {
+    "@language" : "es",
+    "@value" : "tiene restricción de calidad"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/hasDataSpecification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a DataProfile or InputProfile to the DataSpecifications it contains or requires."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "_:genid5"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has data specification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/hasDataType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Expected data type for the profile variable (e.g., xsd:float, xsd:dateTime)."
+  }, {
+    "@language" : "es",
+    "@value" : "Tipo de dato esperado para la variable del perfil (p. ej., xsd:float, xsd:dateTime)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has data type"
+  }, {
+    "@language" : "es",
+    "@value" : "tiene tipo de dato"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ]
+}, {
   "@id" : "https://w3id.org/EDAAnOWL/hasDomainSector",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -2622,7 +3091,7 @@
     "@value" : "Una sub-propiedad de dcat:theme que vincula un recurso con su sector de dominio.\n\nRECOMENDADO: Usar EU Publications Office Data Theme NAL (DCAT-AP 3.0.1):\n  http://publications.europa.eu/resource/authority/data-theme/AGRI  # Agricultura\n  http://publications.europa.eu/resource/authority/data-theme/ENER  # Energía\n  http://publications.europa.eu/resource/authority/data-theme/HEAL  # Salud\n  http://publications.europa.eu/resource/authority/data-theme/TRAN  # Transporte\n\nReferencia: http://publications.europa.eu/resource/authority/data-theme"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid5"
+    "@id" : "_:genid8"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2642,13 +3111,10 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Links a data asset to the entity or phenomenon it concerns (e.g., a specific crop or product). High-level bridge to sosa:hasFeatureOfInterest for cataloguing purposes."
+    "@value" : "Links a DataAsset, Metric, or DataSpecification to the entity or phenomenon it concerns (e.g., a specific crop or product). v1.0.0 uses this to define atomic profiles."
   }, {
     "@language" : "es",
-    "@value" : "Vincula un activo de datos con la entidad o fenómeno sobre el que versa (p. ej., un cultivo o producto específico). Puente de alto nivel con sosa:hasFeatureOfInterest para propósitos de catalogación."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataAsset"
+    "@value" : "Vincula un activo de datos, métrica o Perfil de Datos con el entidad o fenómeno sobre el que versa (p. ej., un cultivo específico). v1.0.0 usa esto para definir perfiles atómicos."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2661,17 +3127,63 @@
     "@id" : "https://w3id.org/EDAAnOWL/FeatureOfInterest"
   } ]
 }, {
+  "@id" : "https://w3id.org/EDAAnOWL/hasFieldMapping",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a distribution to a FieldMapping, which maps an atomic semantic profile to a specific field in the physical file."
+  }, {
+    "@language" : "es",
+    "@value" : "Vincula una distribución con un FieldMapping, que mapea un perfil semántico atómico a un campo específico en el archivo físico."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has profile binding"
+  }, {
+    "@language" : "es",
+    "@value" : "tiene vínculo de perfil"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/hasInputProfile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a DataApp to a structured input requirement, aggregating a required profile and optional quality constraints."
+  }, {
+    "@language" : "es",
+    "@value" : "Vincula una DataApp con un requisito de entrada estructurado, agregando un perfil requerido y restricciones de calidad opcionales."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has input requirement"
+  }, {
+    "@language" : "es",
+    "@value" : "tiene requisito de entrada"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/InputProfile"
+  } ]
+}, {
   "@id" : "https://w3id.org/EDAAnOWL/hasMetric",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Links a Data Profile to a specific quality, performance, or descriptive metric."
+    "@value" : "Links a FieldMapping, DataSpecification, DataAsset, or Distribution to a quality, performance, or descriptive metric."
   }, {
     "@language" : "es",
-    "@value" : "Vincula un Perfil de Datos con una métrica específica de calidad, rendimiento o descriptiva."
+    "@value" : "Vincula un FieldMapping, DataSpecification, DataAsset o Distribution con una métrica de calidad, rendimiento o descriptiva."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "_:genid11"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2688,13 +3200,10 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Links a metric to the standard or reference system used for its value. It can be a unit of measurement (QUDT) or a concept scheme/vocabulary (SKOS). Unifies the previous hasMetricUnit and usesVocabulary properties."
+    "@value" : "Links a metric or profile to the standard or reference system used for its value. It can be a unit of measurement (QUDT) or a concept scheme/vocabulary (SKOS). Unifies the previous hasMetricUnit and usesVocabulary properties."
   }, {
     "@language" : "es",
-    "@value" : "Vincula una métrica con el estándar o sistema de referencia utilizado para su valor. Puede ser una unidad de medida (QUDT) o un esquema de conceptos/vocabulario (SKOS). Unifica las propiedades anteriores hasMetricUnit y usesVocabulary."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@value" : "Vincula una métrica o perfil con el estándar o sistema de referencia utilizado para su valor. Puede ser una unidad de medida (QUDT) o un esquema de conceptos/vocabulario (SKOS). Unifica las propiedades anteriores hasMetricUnit y usesVocabulary."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2728,6 +3237,52 @@
     "@value" : "true"
   } ]
 }, {
+  "@id" : "https://w3id.org/EDAAnOWL/hasObservableProperty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a DataAsset, Metric, or DataSpecification to the specific characteristic or phenomenon being measured. v1.0.0 uses this to define atomic profiles."
+  }, {
+    "@language" : "es",
+    "@value" : "Vincula un activo de datos, métrica o Perfil de Datos con el fenómeno o característica específica que se mide. v1.0.0 usa esto para definir perfiles atómicos."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has observable property"
+  }, {
+    "@language" : "es",
+    "@value" : "tiene propiedad observable"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/ObservableProperty"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/hasObservationMetric",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has observation metric"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/ObservationMetric"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/hasOutputProfile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has output profile"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/OutputProfile"
+  } ]
+}, {
   "@id" : "https://w3id.org/EDAAnOWL/hasPerformanceMetric",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -2738,7 +3293,7 @@
     "@value" : "Vincula una DataApp con una métrica de rendimiento específica (p. ej., precisión, tiempo de ejecución)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/idsa/core/DataApp"
+    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2754,6 +3309,19 @@
     "@id" : "https://w3id.org/EDAAnOWL/hasMetric"
   } ]
 }, {
+  "@id" : "https://w3id.org/EDAAnOWL/hasProfile",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has profile"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+  } ]
+}, {
   "@id" : "https://w3id.org/EDAAnOWL/hasSchemaType",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -2764,7 +3332,7 @@
     "@value" : "Identifies the technology or standard of the associated technical schema (e.g., JSON Schema, Google Protobuf, XML Schema)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2820,6 +3388,19 @@
     "@id" : "http://www.w3.org/2006/time#Interval"
   } ]
 }, {
+  "@id" : "https://w3id.org/EDAAnOWL/hasUnit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has unit"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://qudt.org/vocab/unit/Unit"
+  } ]
+}, {
   "@id" : "https://w3id.org/EDAAnOWL/implementsComponent",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -2830,7 +3411,7 @@
     "@value" : "Vincula una DataApp IDSA con el Componente de flujo de trabajo BIGOWL que implementa."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/idsa/core/DataApp"
+    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -2870,13 +3451,13 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
-    "@value" : "Indica si los datos se proporcionan en tiempo real como un flujo continuo (streaming) en lugar de un conjunto de datos estático."
+    "@value" : "Indica si los datos de esta distribución se proporcionan en tiempo real como un flujo continuo (streaming) en lugar de un conjunto de datos estático."
   }, {
     "@language" : "en",
-    "@value" : "Indicates whether the data is provided in real-time as a continuous stream instead of a static dataset."
+    "@value" : "Indicates whether the data in this distribution is provided in real-time as a continuous stream instead of a static dataset."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -2936,6 +3517,52 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/ns/dcat#contactPoint"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/mapsField",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "es",
+    "@value" : "El identificador físico (nombre de columna, JSONPath, XPath) del campo en la distribución que corresponde al perfil atómico vinculado."
+  }, {
+    "@language" : "en",
+    "@value" : "The physical identifier (column name, JSONPath, XPath) of the field in the distribution that corresponds to the bound atomic profile."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "maps to field"
+  }, {
+    "@language" : "es",
+    "@value" : "se mapea al campo"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/mapsToSpecification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a FieldMapping to the atomic reusable DataSpecification it instantiates for a specific field."
+  }, {
+    "@language" : "es",
+    "@value" : "Vincula un FieldMapping con el DataSpecification atómico reutilizable que instancia para un campo específico."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "binds profile"
+  }, {
+    "@language" : "es",
+    "@value" : "vincula perfil"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/measuresProperty",
@@ -3014,10 +3641,10 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "DEPRECATED: Use :hasMetricUnit with semantic URIs instead. The unit of measurement for the metric value (e.g., '%', 'kg/ha', 'ppm')."
+    "@value" : "DEPRECATED: Use :hasMetricStandard instead. The unit of measurement for the metric value (e.g., '%', 'kg/ha', 'ppm')."
   }, {
     "@language" : "es",
-    "@value" : "OBSOLETO: Use :hasMetricUnit con URIs semánticas en su lugar. La unidad de medida para el valor de la métrica (p. ej., '%', 'kg/ha', 'ppm')."
+    "@value" : "OBSOLETO: Use :hasMetricStandard en su lugar. La unidad de medida para el valor de la métrica (p. ej., '%', 'kg/ha', 'ppm')."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/EDAAnOWL/Metric"
@@ -3096,7 +3723,7 @@
     "@value" : "Vincula una DataApp con un parámetro de ejecución que acepta."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/idsa/core/DataApp"
+    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3178,63 +3805,17 @@
     "@id" : "https://w3id.org/EDAAnOWL/DataRepresentation"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/producesFeatureOfInterest",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "es",
-    "@value" : "Define la categoría semántica del sujeto o fenómeno que el servicio PRODUCE o sobre el que genera información (p. ej., produce zonas de salud, polígonos de cultivo)."
-  }, {
-    "@language" : "en",
-    "@value" : "Defines the semantic category of the subject or phenomenon that the service PRODUCES or generates information about (e.g., produces health zones, crop polygons)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/idsa/core/SmartDataApp"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "es",
-    "@value" : "produce característica de interés"
-  }, {
-    "@language" : "en",
-    "@value" : "produces feature of interest"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/FeatureOfInterest"
-  } ]
-}, {
-  "@id" : "https://w3id.org/EDAAnOWL/producesObservableProperty",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "es",
-    "@value" : "Define la firma semántica de la SALIDA de un servicio (p. ej., produce Crop_Forecast)."
-  }, {
-    "@language" : "en",
-    "@value" : "Defines the semantic signature of the OUTPUT of a service (e.g., produces Crop_Forecast)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/idsa/core/SmartDataApp"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "es",
-    "@value" : "produce propiedad observable"
-  }, {
-    "@language" : "en",
-    "@value" : "produces observable property"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservableProperty"
-  } ]
-}, {
   "@id" : "https://w3id.org/EDAAnOWL/producesProfile",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Links a DataApp to a DataProfile it produces as output."
+    "@value" : "Links a DataApp to a DataSpecification it produces as output."
   }, {
     "@language" : "es",
-    "@value" : "Vincula una DataApp con un DataProfile que produce como salida."
+    "@value" : "Vincula una DataApp con un DataSpecification que produce como salida."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/idsa/core/DataApp"
+    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -3244,7 +3825,7 @@
     "@value" : "produces profile"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/producesResource",
@@ -3277,7 +3858,7 @@
   "@id" : "https://w3id.org/EDAAnOWL/profileCRS",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -3304,7 +3885,7 @@
     "@value" : "Obsoleto. Use dcat:spatialResolutionInMeters o dcat:spatialResolutionInDegrees."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3331,7 +3912,7 @@
     "@value" : "Obsoleto. Use dcat:temporalResolution para la resolución temporal de conjuntos de datos/perfiles."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3407,7 +3988,7 @@
     "@value" : "OBSOLETO: Una DataApp implementa un Component, no un Workflow.\n\nUse :implementsComponent para vincular una DataApp con el Component BIGOWL que implementa.\nUn Workflow es un pipeline compuesto por múltiples Components conectados via Tasks."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/idsa/core/DataApp"
+    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -3480,7 +4061,7 @@
     "@value" : "The date when the report was issued."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid14"
+    "@id" : "_:genid25"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -3503,7 +4084,7 @@
     "@value" : "The organization that issued the quality or certification report."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid8"
+    "@id" : "_:genid16"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -3516,63 +4097,30 @@
     "@id" : "http://www.w3.org/ns/org#Organization"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/requiresFeatureOfInterest",
+  "@id" : "https://w3id.org/EDAAnOWL/requiresMetric",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "es",
-    "@value" : "Define la categoría semántica del sujeto o fenómeno que el servicio REQUIERE como entrada (p. ej., requiere parcelas, requiere pacientes)."
-  }, {
-    "@language" : "en",
-    "@value" : "Defines the semantic category of the subject or phenomenon that the service REQUIRES as input (e.g., requires plots, requires patients)."
-  } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/idsa/core/SmartDataApp"
+    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "es",
-    "@value" : "requiere característica de interés"
-  }, {
     "@language" : "en",
-    "@value" : "requires feature of interest"
+    "@value" : "requires metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/FeatureOfInterest"
-  } ]
-}, {
-  "@id" : "https://w3id.org/EDAAnOWL/requiresObservableProperty",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "es",
-    "@value" : "Define la firma semántica de la ENTRADA para un servicio (p. ej., requiere NDVI)."
-  }, {
-    "@language" : "en",
-    "@value" : "Defines the semantic signature of INPUT for a service (e.g., requires NDVI)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/idsa/core/SmartDataApp"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "es",
-    "@value" : "requiere propiedad observable"
-  }, {
-    "@language" : "en",
-    "@value" : "requires observable property"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservableProperty"
+    "@id" : "https://w3id.org/EDAAnOWL/ObservationMetric"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/requiresProfile",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Links a DataApp to a DataProfile it requires as input."
+    "@value" : "Links a DataApp or InputProfile to a DataSpecification it requires as input."
   }, {
     "@language" : "es",
-    "@value" : "Vincula una DataApp con un DataProfile que requiere como entrada."
+    "@value" : "Vincula una DataApp o InputProfile con un DataSpecification que requiere como entrada."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/idsa/core/DataApp"
+    "@id" : "_:genid19"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -3582,7 +4130,20 @@
     "@value" : "requires profile"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+  } ]
+}, {
+  "@id" : "https://w3id.org/EDAAnOWL/requiresUnit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "requires unit"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://qudt.org/vocab/unit/Unit"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/sampleValue",
@@ -3629,29 +4190,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ]
-}, {
-  "@id" : "https://w3id.org/EDAAnOWL/servesObservableProperty",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a data asset (DataAsset) to the semantic variable it describes (e.g., NDVI)."
-  }, {
-    "@language" : "es",
-    "@value" : "Vincula un activo de datos (DataAsset) con la variable semántica que describe (p. ej., NDVI)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataAsset"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "serves observable property"
-  }, {
-    "@language" : "es",
-    "@value" : "sirve propiedad observable"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservableProperty"
   } ]
 }, {
   "@id" : "https://w3id.org/EDAAnOWL/spatialGranularity",
@@ -3782,7 +4320,7 @@
     "@value" : "OBSOLETO: Use :hasMetricStandard en su lugar. Vincula un perfil o una métrica con un esquema de conceptos (vocabulario controlado) que define los valores permitidos para los datos (p. ej., un tesauro SIEX o AGROVOC). Útil para columnas categóricas."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid11"
+    "@id" : "_:genid22"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",

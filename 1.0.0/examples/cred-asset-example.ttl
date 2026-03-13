@@ -77,7 +77,7 @@
     dcat:theme theme:AGRI , theme:ENVI ;
     dcat:keyword "olivar"@es , "NDVI"@en , "teledetección"@es , "remote sensing"@en ;
     dct:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/DAILY> ;
-    owl:versionInfo "2.1.0" ;
+    owl:versionInfo "1.0.0" ;
     dcatap:applicableLegislation <https://www.boe.es/eli/es/rd/2023/12/19/1089> ;
     dcat:landingPage <https://datos.juntadeandalucia.es/olivar-monitoring> ;
     dcat:distribution <distribution/olive-csv> ;
