@@ -1,147 +1,151 @@
 import svgwrite
 
 def create_architecture_diagram(filename):
-    # Dimensions and Grid
+    # Dimensions
     width = 1000
-    height = 850
+    height = 900
     dwg = svgwrite.Drawing(filename, profile='full', size=(f'{width}px', f'{height}px'))
     
     # --- Modern Design System ---
     dwg.defs.add(dwg.style("""
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
         
-        text { font-family: 'Inter', -apple-system, sans-serif; fill: #2d3436; }
-        .layer-bg { rx: 12; ry: 12; stroke-width: 2; fill-opacity: 0.1; }
+        text { font-family: 'Inter', sans-serif; fill: #2d3436; }
+        .layer-bg { rx: 15; ry: 15; stroke-width: 2; fill-opacity: 0.05; }
         .component-box { rx: 8; ry: 8; stroke-width: 1.5; fill: #ffffff; }
         
-        .label-title { font-size: 18px; font-weight: 600; text-anchor: middle; fill: #2d3436; }
-        .label-header { font-size: 15px; font-weight: 600; text-anchor: middle; }
+        .label-title { font-size: 20px; font-weight: 600; text-anchor: middle; fill: #2d3436; text-transform: uppercase; letter-spacing: 1px; }
+        .label-header { font-size: 16px; font-weight: 600; text-anchor: middle; }
         .label-text { font-size: 13px; text-anchor: middle; }
-        .label-italic { font-size: 11px; font-style: italic; opacity: 0.8; text-anchor: middle; }
+        .label-italic { font-size: 12px; font-style: italic; opacity: 0.7; text-anchor: middle; }
         
-        /* Layer Colors */
-        .color-ds { fill: #0984e3; stroke: #0984e3; }
-        .color-cred { fill: #6c5ce7; stroke: #6c5ce7; }
-        .color-edaan { fill: #00b894; stroke: #00b894; }
-        .color-idsa { fill: #d63031; stroke: #d63031; }
-        .color-bigowl { fill: #fdcb6e; stroke: #e17055; }
+        /* Professional Palette */
+        .color-ds { fill: #0984e3; stroke: #0984e3; }      /* Blue - Physical World */
+        .color-cred { fill: #6c5ce7; stroke: #6c5ce7; }    /* Purple - Compliance */
+        .color-edaan { fill: #00b894; stroke: #00b894; }   /* Green - Core Logic */
+        .color-idsa { fill: #d63031; stroke: #d63031; }    /* Red - Standard */
+        .color-bigowl { fill: #e67e22; stroke: #d35400; }  /* Orange - Workflow */
         
-        .arrow { stroke: #636e72; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
-        .arrow-dashed { stroke-dasharray: 6,4; }
+        .arrow { stroke: #636e72; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+        .arrow-dashed { stroke-dasharray: 8,5; }
+        .arrow-label { font-size: 11px; font-weight: 600; fill: #636e72; }
     """))
     
     # Arrowhead
-    marker = dwg.marker(id='arrowhead', insert=(10,5), size=(5,5), orient='auto')
+    marker = dwg.marker(id='arrowhead', insert=(10,5), size=(4,4), orient='auto')
     marker.add(dwg.path(d='M0,0 L10,5 L0,10 Z', fill='#636e72'))
     dwg.defs.add(marker)
 
-    # --- 1. DATA SPACE LAYER ---
-    dwg.add(dwg.rect(insert=(50, 40), size=(900, 100), class_='layer-bg color-ds'))
-    dwg.add(dwg.text('DATA SPACE LAYER (Physical Domain)', insert=(500, 70), class_='label-title'))
+    # --- 1. PHYSICAL/DATA SPACE LAYER (TOP) ---
+    dwg.add(dwg.rect(insert=(50, 40), size=(900, 120), class_='layer-bg color-ds'))
+    dwg.add(dwg.text('Data Space (Physical Assets)', insert=(500, 70), class_='label-title'))
     
-    # Data Assets Box
-    dwg.add(dwg.rect(insert=(120, 85), size=(220, 40), class_='component-box color-ds'))
-    dwg.add(dwg.text('Data Assets & Distributions', insert=(230, 110), class_='label-header'))
+    # Physical Assets
+    dwg.add(dwg.rect(insert=(120, 95), size=(250, 45), class_='component-box color-ds'))
+    dwg.add(dwg.text('Data Assets & Files', insert=(245, 123), class_='label-header'))
     
-    # Apps Box
-    dwg.add(dwg.rect(insert=(660, 85), size=(220, 40), class_='component-box color-ds'))
-    dwg.add(dwg.text('Data Apps & Services', insert=(770, 110), class_='label-header'))
+    # Apps
+    dwg.add(dwg.rect(insert=(630, 95), size=(250, 45), class_='component-box color-ds'))
+    dwg.add(dwg.text('Algorithms & App Services', insert=(755, 123), class_='label-header'))
 
-    # --- 2. SEMANTIC LAYER CONTAINER ---
-    dwg.add(dwg.rect(insert=(50, 170), size=(900, 520), fill='#fdfdfd', stroke='#b2bec3', class_='layer-bg'))
-    dwg.add(dwg.text('SEMANTIC INTEROPERABILITY LAYER', insert=(500, 195), class_='label-title'))
+    # --- 2. SEMANTIC LAYER (CENTER) ---
+    dwg.add(dwg.rect(insert=(50, 220), size=(900, 480), fill='#fdfdfd', stroke='#b2bec3', class_='layer-bg'))
+    dwg.add(dwg.text('Semantic Interoperability (Ontology)', insert=(500, 245), class_='label-title'))
 
-    # CRED Section
-    dwg.add(dwg.rect(insert=(70, 230), size=(220, 240), class_='layer-bg color-cred'))
-    dwg.add(dwg.text('CRED / DCAT-AP 3.0', insert=(180, 255), class_='label-header'))
+    # Left: CRED / Cataloging
+    dwg.add(dwg.rect(insert=(70, 280), size=(220, 240), class_='layer-bg color-cred'))
+    dwg.add(dwg.text('CRED Cataloging', insert=(180, 305), class_='label-header color-cred'))
     
-    cred_nodes = [('dcat:Catalog', 275), ('dcat:Dataset', 315), ('dcat:DataService', 355), ('odrl:Policy', 395), ('foaf:Agent', 435)]
-    for text, y in cred_nodes:
-        dwg.add(dwg.rect(insert=(90, y), size=(180, 30), class_='component-box color-cred'))
-        dwg.add(dwg.text(text, insert=(180, y+20), class_='label-text'))
+    nodes_cred = [('dcat:Catalog', 325), ('dcat:Dataset', 365), ('dcat:DataService', 405), ('odrl:Offer / Policy', 445), ('foaf:Agent', 485)]
+    for txt, y in nodes_cred:
+        dwg.add(dwg.rect(insert=(90, y), size=(180, 32), class_='component-box color-cred'))
+        dwg.add(dwg.text(txt, insert=(180, y+21), class_='label-text'))
 
-    # IDSA Section
-    dwg.add(dwg.rect(insert=(710, 230), size=(220, 140), class_='layer-bg color-idsa'))
-    dwg.add(dwg.text('IDSA ALIGNMENT', insert=(820, 255), class_='label-header'))
+    # Right: IDSA Standards
+    dwg.add(dwg.rect(insert=(710, 280), size=(220, 120), class_='layer-bg color-idsa'))
+    dwg.add(dwg.text('IDSA Standards', insert=(820, 305), class_='label-header color-idsa'))
+    dwg.add(dwg.rect(insert=(730, 325), size=(180, 35), class_='component-box color-idsa'))
+    dwg.add(dwg.text('ids:DataResource', insert=(820, 348), class_='label-text'))
+    dwg.add(dwg.rect(insert=(730, 365), size=(180, 35), class_='component-box color-idsa'))
+    dwg.add(dwg.text('ids:DataApp', insert=(820, 388), class_='label-text'))
+
+    # Center: EDAAnOWL Core
+    dwg.add(dwg.rect(insert=(310, 280), size=(380, 400), class_='layer-bg color-edaan'))
+    dwg.add(dwg.text('EDAAnOWL v1.0.0 Core', insert=(500, 305), class_='label-header color-edaan'))
+
+    # Top Part: DataAsset & DataApp
+    dwg.add(dwg.rect(insert=(330, 325), size=(160, 50), class_='component-box color-edaan'))
+    dwg.add(dwg.text('DataAsset', insert=(410, 348), class_='label-header'))
+    dwg.add(dwg.text('(Supply Side)', insert=(410, 365), class_='label-italic'))
+
+    dwg.add(dwg.rect(insert=(510, 325), size=(160, 50), class_='component-box color-edaan'))
+    dwg.add(dwg.text('SmartDataApp', insert=(590, 348), class_='label-header'))
+    dwg.add(dwg.text('(Demand Side)', insert=(590, 365), class_='label-italic'))
+
+    # Matchmaking Core (DECOUPLED)
+    match_y = 400
+    dwg.add(dwg.rect(insert=(330, match_y), size=(340, 160), class_='layer-bg color-edaan', style='fill-opacity: 0.1; stroke-dasharray: 4,4;'))
+    dwg.add(dwg.text('v1.0.0 MATCHMAKING', insert=(500, match_y+20), class_='label-italic'))
     
-    dwg.add(dwg.rect(insert=(730, 275), size=(180, 30), class_='component-box color-idsa'))
-    dwg.add(dwg.text('ids:DataResource', insert=(820, 295), class_='label-text'))
-    dwg.add(dwg.rect(insert=(730, 315), size=(180, 30), class_='component-box color-idsa'))
-    dwg.add(dwg.text('ids:DataApp', insert=(820, 335), class_='label-text'))
+    dwg.add(dwg.rect(insert=(350, match_y+30), size=(300, 35), class_='component-box color-edaan'))
+    dwg.add(dwg.text('DataSpecification (Atomic Meaning)', insert=(500, match_y+53), class_='label-header'))
 
-    # EDAAnOWL Core v1.0.0
-    dwg.add(dwg.rect(insert=(310, 230), size=(380, 440), class_='layer-bg color-edaan'))
-    dwg.add(dwg.text('EDAAnOWL CORE (v1.0.0)', insert=(500, 255), class_='label-header'))
+    # Supply Bridge
+    dwg.add(dwg.rect(insert=(350, match_y+75), size=(140, 35), class_='component-box color-edaan'))
+    dwg.add(dwg.text('FieldMapping', insert=(420, match_y+98), class_='label-text'))
+    dwg.add(dwg.rect(insert=(350, match_y+115), size=(140, 35), class_='component-box color-edaan'))
+    dwg.add(dwg.text('Metric / Unit', insert=(420, match_y+138), class_='label-text'))
 
-    # Supply/Demand split
-    dwg.add(dwg.rect(insert=(330, 275), size=(160, 60), class_='component-box color-edaan'))
-    dwg.add(dwg.text('DataAsset', insert=(410, 300), class_='label-header'))
-    dwg.add(dwg.text('(Supply Side)', insert=(410, 320), class_='label-italic'))
+    # Demand Bridge
+    dwg.add(dwg.rect(insert=(510, match_y+75), size=(140, 35), class_='component-box color-edaan'))
+    dwg.add(dwg.text('InputProfile', insert=(580, match_y+98), class_='label-text'))
+    dwg.add(dwg.rect(insert=(510, match_y+115), size=(140, 35), class_='component-box color-edaan'))
+    dwg.add(dwg.text('DataConstraint', insert=(580, match_y+138), class_='label-text'))
 
-    dwg.add(dwg.rect(insert=(510, 275), size=(160, 60), class_='component-box color-edaan'))
-    dwg.add(dwg.text('Smart Data App', insert=(590, 300), class_='label-header'))
-    dwg.add(dwg.text('(Demand Side)', insert=(590, 320), class_='label-italic'))
+    # Base: Semantic Anchors
+    dwg.add(dwg.rect(insert=(330, 580), size=(340, 80), class_='component-box color-edaan', style='fill:#f0fbf0; stroke-dasharray: 2,2;'))
+    dwg.add(dwg.text('SOSA/QUDT Semantic Anchoring', insert=(500, 605), class_='label-header'))
+    dwg.add(dwg.text('ObservableProperty / FeatureOfInterest / Unit', insert=(500, 630), class_='label-text'))
+    dwg.add(dwg.text('(Domain Interoperability)', insert=(500, 650), class_='label-italic'))
 
-    # Matchmaking Sub-group
-    dwg.add(dwg.rect(insert=(330, 350), size=(340, 180), class_='layer-bg color-edaan', style='fill-opacity: 0.05; stroke-dasharray: 4,4;'))
-    dwg.add(dwg.text('V1.0.0 MATCHMAKING DECOUPLING', insert=(500, 370), class_='label-italic'))
+    # --- 3. ANALYTICAL LAYER (BOTTOM) ---
+    dwg.add(dwg.rect(insert=(710, 580), size=(220, 140), class_='layer-bg color-bigowl'))
+    dwg.add(dwg.text('BIGOWL Workflows', insert=(820, 605), class_='label-header color-bigowl'))
+    dwg.add(dwg.rect(insert=(730, 630), size=(180, 32), class_='component-box color-bigowl'))
+    dwg.add(dwg.text('bigwf:Workflow', insert=(820, 651), class_='label-text'))
+    dwg.add(dwg.rect(insert=(730, 670), size=(180, 32), class_='component-box color-bigowl'))
+    dwg.add(dwg.text('bigwf:Component', insert=(820, 691), class_='label-text'))
 
-    dwg.add(dwg.rect(insert=(350, 385), size=(300, 35), class_='component-box color-edaan'))
-    dwg.add(dwg.text('DataSpecification (Atomic Meaning)', insert=(500, 408), class_='label-header'))
-
-    dwg.add(dwg.rect(insert=(350, 435), size=(140, 35), class_='component-box color-edaan'))
-    dwg.add(dwg.text('FieldMapping', insert=(420, 458), class_='label-text'))
-
-    dwg.add(dwg.rect(insert=(510, 435), size=(140, 35), class_='component-box color-edaan'))
-    dwg.add(dwg.text('InputProfile', insert=(580, 458), class_='label-text'))
-
-    dwg.add(dwg.rect(insert=(350, 480), size=(140, 35), class_='component-box color-edaan'))
-    dwg.add(dwg.text('Metric / Unit', insert=(420, 503), class_='label-text'))
-
-    dwg.add(dwg.rect(insert=(510, 480), size=(140, 35), class_='component-box color-edaan'))
-    dwg.add(dwg.text('DataConstraint', insert=(580, 503), class_='label-text'))
-
-    # Grounding (Bottom of Core)
-    dwg.add(dwg.rect(insert=(350, 550), size=(300, 100), class_='component-box color-edaan', style='fill: #ffffff; stroke-dasharray: 2,2;'))
-    dwg.add(dwg.text('Semantic Anchoring (SOSA)', insert=(500, 575), class_='label-header'))
-    dwg.add(dwg.text('ObservableProperty & FeatureOfInterest', insert=(500, 605), class_='label-text'))
-    dwg.add(dwg.text('(Cross-Domain Interoperability)', insert=(500, 630), class_='label-italic'))
-
-    # --- 3. WORKFLOW LAYER (Bottom) ---
-    dwg.add(dwg.rect(insert=(710, 550), size=(220, 140), class_='layer-bg color-bigowl'))
-    dwg.add(dwg.text('BIGOWL ANALYTICS', insert=(820, 575), class_='label-header'))
+    # --- CLEAN ARROWS/FLOWS ---
+    # Straight down from Data Space to Semantic Layer
+    dwg.add(dwg.line(start=(245, 140), end=(245, 280), class_='arrow'))
+    dwg.add(dwg.text('Describe', insert=(215, 210), class_='arrow-label'))
     
-    dwg.add(dwg.rect(insert=(730, 600), size=(180, 30), class_='component-box color-bigowl'))
-    dwg.add(dwg.text('bigwf:Workflow', insert=(820, 620), class_='label-text'))
-    dwg.add(dwg.rect(insert=(730, 640), size=(180, 30), class_='component-box color-bigowl'))
-    dwg.add(dwg.text('bigwf:Component', insert=(820, 660), class_='label-text'))
+    dwg.add(dwg.line(start=(755, 140), end=(755, 280), class_='arrow'))
+    dwg.add(dwg.text('Describe', insert=(725, 210), class_='arrow-label'))
 
-    # --- ARROWS ---
-    # Assets to Semantics
-    dwg.add(dwg.line(start=(230, 125), end=(230, 275), class_='arrow'))
-    dwg.add(dwg.line(start=(770, 125), end=(770, 275), class_='arrow'))
+    # Supply Internal Flow (Clear vertical line)
+    dwg.add(dwg.line(start=(410, 375), end=(410, 475), class_='arrow'))
+    dwg.add(dwg.text('mapped via', insert=(365, 415), class_='arrow-label'))
 
-    # Cross-layer links
-    dwg.add(dwg.line(start=(290, 260), end=(330, 275), class_='arrow arrow-dashed')) # CRED -> Assets
-    dwg.add(dwg.line(start=(710, 260), end=(490, 275), class_='arrow')) # IDSA -> Assets
+    # Demand Internal Flow (Clear vertical line)
+    dwg.add(dwg.line(start=(590, 375), end=(590, 475), class_='arrow'))
+    dwg.add(dwg.text('requires', insert=(625, 415), class_='arrow-label'))
 
-    # Supply Side
-    dwg.add(dwg.line(start=(410, 335), end=(420, 435), class_='arrow'))
-    dwg.add(dwg.line(start=(420, 470), end=(420, 480), class_='arrow'))
-    
-    # Demand Side
-    dwg.add(dwg.line(start=(590, 335), end=(580, 435), class_='arrow'))
+    # Converge to Specification (Diagonal but clear)
+    dwg.add(dwg.line(start=(420, 475), end=(450, 435), class_='arrow'))
+    dwg.add(dwg.line(start=(580, 475), end=(550, 435), class_='arrow'))
 
-    # All converging to Spec
-    dwg.add(dwg.line(start=(420, 435), end=(450, 420), class_='arrow'))
-    dwg.add(dwg.line(start=(580, 435), end=(550, 420), class_='arrow'))
+    # Down to Anchoring
+    dwg.add(dwg.line(start=(500, 435), end=(500, 580), class_='arrow arrow-dashed'))
 
-    # Spec to Grounding
-    dwg.add(dwg.line(start=(500, 420), end=(500, 550), class_='arrow'))
+    # Horizontal Bridge: CRED/IDs -> Core
+    dwg.add(dwg.line(start=(290, 348), end=(330, 348), class_='arrow arrow-dashed')) # CRED Metadata
+    dwg.add(dwg.line(start=(710, 348), end=(490, 348), class_='arrow')) # IDSA specialization
 
-    # BIGOWL connection
-    dwg.add(dwg.line(start=(670, 320), end=(730, 330), class_='arrow')) # App -> IdsApp
-    dwg.add(dwg.line(start=(820, 370), end=(820, 550), class_='arrow')) # IdsApp -> Workflow
+    # App to Analytics
+    dwg.add(dwg.line(start=(670, 388), end=(710, 388), class_='arrow')) # SmartApp -> ids:DataApp
+    dwg.add(dwg.line(start=(820, 400), end=(820, 580), class_='arrow')) # ids:DataApp -> BIGOWL
 
     dwg.save()
 
