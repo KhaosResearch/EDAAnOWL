@@ -31,7 +31,7 @@ shapes:
     dct:publisher ids:IDSA ;
     dct:created "2019-10-14"^^xsd:date ;
     dct:modified "2022-06-01"^^xsd:date ;
-    owl:versionInfo "4.2.0" ;
+    owl:versionInfo "0.9.0" ;
     owl:versionIRI <https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing/4.2.0> ;
     vann:preferredNamespaceUri "https://github.com/International-Data-Spaces-Association/InformationModel/tree/master/testing" ;
     vann:preferredNamespacePrefix "shapes" ;

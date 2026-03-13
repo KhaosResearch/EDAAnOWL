@@ -96,10 +96,10 @@
     "id" : "67",
     "type" : "owl:Class"
   }, {
-    "id" : "72",
+    "id" : "26",
     "type" : "owl:Class"
   }, {
-    "id" : "26",
+    "id" : "72",
     "type" : "owl:Class"
   }, {
     "id" : "81",
@@ -111,7 +111,7 @@
     "id" : "102",
     "type" : "owl:Class"
   }, {
-    "id" : "77",
+    "id" : "80",
     "type" : "owl:Class"
   }, {
     "id" : "16",
@@ -138,7 +138,7 @@
     "id" : "157",
     "type" : "owl:Class"
   }, {
-    "id" : "161",
+    "id" : "163",
     "type" : "owl:Class"
   }, {
     "id" : "167",
@@ -186,7 +186,7 @@
     "id" : "224",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "226",
+    "id" : "225",
     "type" : "owl:Class"
   }, {
     "id" : "40",
@@ -285,7 +285,7 @@
     "id" : "137",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "163",
+    "id" : "162",
     "type" : "rdfs:Literal"
   }, {
     "id" : "120",
@@ -414,10 +414,10 @@
     "id" : "56",
     "type" : "owl:Class"
   }, {
-    "id" : "80",
+    "id" : "78",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "79",
+    "id" : "77",
     "type" : "owl:Thing"
   }, {
     "id" : "19",
@@ -426,7 +426,7 @@
     "id" : "109",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "251",
+    "id" : "250",
     "type" : "owl:Thing"
   }, {
     "id" : "236",
@@ -447,10 +447,10 @@
     "id" : "287",
     "type" : "owl:Class"
   }, {
-    "id" : "131",
+    "id" : "62",
     "type" : "owl:Class"
   }, {
-    "id" : "62",
+    "id" : "131",
     "type" : "owl:Class"
   }, {
     "id" : "85",
@@ -480,10 +480,10 @@
     "id" : "278",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "215",
+    "id" : "53",
     "type" : "owl:Class"
   }, {
-    "id" : "53",
+    "id" : "215",
     "type" : "owl:Class"
   }, {
     "id" : "34",
@@ -602,13 +602,13 @@
       } ],
       "prefLabel" : [ {
         "identifier" : "prefLabel",
-        "language" : "es",
-        "value" : "Completitud",
+        "language" : "en",
+        "value" : "Completeness",
         "type" : "label"
       }, {
         "identifier" : "prefLabel",
-        "language" : "en",
-        "value" : "Completeness",
+        "language" : "es",
+        "value" : "Completitud",
         "type" : "label"
       } ]
     },
@@ -644,22 +644,6 @@
     "attributes" : [ "external" ],
     "id" : "67"
   }, {
-    "iri" : "http://www.w3.org/ns/dcat#Resource",
-    "baseIri" : "http://www.w3.org/ns/dcat",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Resource",
-      "en" : "Resource",
-      "es" : "Recurso"
-    },
-    "subClasses" : [ "73", "38" ],
-    "comment" : {
-      "en" : "Resource published or curated by a single agent (DCAT 3). In DCAT-AP, this is the abstract base class for Dataset and DataService.",
-      "es" : "Recurso publicado o curado por un solo agente (DCAT 3). En DCAT-AP, esta es la clase base abstracta para Dataset y DataService."
-    },
-    "attributes" : [ "external" ],
-    "id" : "72"
-  }, {
     "iri" : "http://www.w3.org/ns/odrl/2/Offer",
     "baseIri" : "http://www.w3.org/ns/odrl/2",
     "instances" : 0,
@@ -675,6 +659,22 @@
     "attributes" : [ "external" ],
     "id" : "26",
     "superClasses" : [ "27" ]
+  }, {
+    "iri" : "http://www.w3.org/ns/dcat#Resource",
+    "baseIri" : "http://www.w3.org/ns/dcat",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Resource",
+      "en" : "Resource",
+      "es" : "Recurso"
+    },
+    "subClasses" : [ "73", "38" ],
+    "comment" : {
+      "en" : "Resource published or curated by a single agent (DCAT 3). In DCAT-AP, this is the abstract base class for Dataset and DataService.",
+      "es" : "Recurso publicado o curado por un solo agente (DCAT 3). En DCAT-AP, esta es la clase base abstracta para Dataset y DataService."
+    },
+    "attributes" : [ "external" ],
+    "id" : "72"
   }, {
     "iri" : "https://w3id.org/idsa/core/ContractOffer",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -723,7 +723,7 @@
     },
     "subClasses" : [ "105", "106" ],
     "attributes" : [ "external" ],
-    "id" : "77"
+    "id" : "80"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/PerformanceMetric",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -820,7 +820,7 @@
       "IRI-based" : "Organization"
     },
     "attributes" : [ "external" ],
-    "id" : "161"
+    "id" : "163"
   }, {
     "iri" : "http://purl.org/dc/terms/MediaTypeOrExtent",
     "baseIri" : "http://purl.org/dc/terms",
@@ -1021,7 +1021,7 @@
       "IRI-based" : "Interval"
     },
     "attributes" : [ "external" ],
-    "id" : "226"
+    "id" : "225"
   }, {
     "iri" : "http://www.w3.org/2004/02/skos/core#Concept",
     "baseIri" : "http://www.w3.org/2004/02/skos/core",
@@ -1342,7 +1342,7 @@
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "163",
+    "id" : "162",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -1723,7 +1723,7 @@
     "superClasses" : [ "57" ]
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "80",
+    "id" : "78",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -1731,7 +1731,7 @@
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
-    "id" : "79",
+    "id" : "77",
     "label" : {
       "undefined" : "Thing"
     }
@@ -1752,7 +1752,7 @@
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
-    "id" : "251",
+    "id" : "250",
     "label" : {
       "undefined" : "Thing"
     }
@@ -1801,21 +1801,6 @@
     "attributes" : [ "external" ],
     "id" : "287"
   }, {
-    "iri" : "http://www.w3.org/ns/odrl/2/Rule",
-    "baseIri" : "http://www.w3.org/ns/odrl/2",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Rule",
-      "en" : "Rule",
-      "es" : "Regla"
-    },
-    "comment" : {
-      "en" : "An abstract concept for a Permission, Prohibition, or Obligation (ODRL 2.2).",
-      "es" : "Un concepto abstracto para un Permiso, Prohibición u Obligación (ODRL 2.2)."
-    },
-    "attributes" : [ "external" ],
-    "id" : "131"
-  }, {
     "iri" : "https://w3id.org/EDAAnOWL/AnalyzerApp",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "instances" : 0,
@@ -1830,6 +1815,21 @@
     },
     "id" : "62",
     "superClasses" : [ "57" ]
+  }, {
+    "iri" : "http://www.w3.org/ns/odrl/2/Rule",
+    "baseIri" : "http://www.w3.org/ns/odrl/2",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Rule",
+      "en" : "Rule",
+      "es" : "Regla"
+    },
+    "comment" : {
+      "en" : "An abstract concept for a Permission, Prohibition, or Obligation (ODRL 2.2).",
+      "es" : "Un concepto abstracto para un Permiso, Prohibición u Obligación (ODRL 2.2)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "131"
   }, {
     "iri" : "http://purl.org/dc/terms/LinguisticSystem",
     "baseIri" : "http://purl.org/dc/terms",
@@ -1905,16 +1905,6 @@
       "IRI-based" : "anyURI"
     }
   }, {
-    "iri" : "http://www.w3.org/ns/sosa/ObservableProperty",
-    "baseIri" : "http://www.w3.org/ns/sosa",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "ObservableProperty"
-    },
-    "subClasses" : [ "98" ],
-    "attributes" : [ "external" ],
-    "id" : "215"
-  }, {
     "iri" : "https://w3id.org/idsa/core/AppResource",
     "baseIri" : "https://w3id.org/idsa/core",
     "instances" : 0,
@@ -1925,13 +1915,23 @@
     "id" : "53",
     "superClasses" : [ "8" ]
   }, {
+    "iri" : "http://www.w3.org/ns/sosa/ObservableProperty",
+    "baseIri" : "http://www.w3.org/ns/sosa",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ObservableProperty"
+    },
+    "subClasses" : [ "98" ],
+    "attributes" : [ "external" ],
+    "id" : "215"
+  }, {
     "iri" : "https://w3id.org/EDAAnOWL/QualityReport",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "instances" : 0,
     "label" : {
       "IRI-based" : "QualityReport",
-      "en" : "External Quality Report",
-      "es" : "Informe de Calidad Externo"
+      "en" : "Quality Report",
+      "es" : "Informe de Calidad"
     },
     "comment" : {
       "en" : "A class representing an external, structured quality report, containing metadata about the assessment (e.g., a PDF report URL, a quality score).",
@@ -2013,7 +2013,7 @@
     "subClasses" : [ "7" ],
     "attributes" : [ "external" ],
     "id" : "105",
-    "superClasses" : [ "77" ]
+    "superClasses" : [ "80" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
@@ -2095,7 +2095,7 @@
     "subClasses" : [ "59" ],
     "attributes" : [ "external" ],
     "id" : "106",
-    "superClasses" : [ "77" ]
+    "superClasses" : [ "80" ]
   }, {
     "iri" : "http://xmlns.com/foaf/0.1/Document",
     "baseIri" : "http://xmlns.com/foaf/0.1",
@@ -2254,10 +2254,10 @@
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "76",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "78",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "79",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "82",
     "type" : "owl:objectProperty"
@@ -2349,7 +2349,7 @@
     "id" : "142",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "144",
+    "id" : "143",
     "type" : "owl:objectProperty"
   }, {
     "id" : "145",
@@ -2373,7 +2373,7 @@
     "id" : "159",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "162",
+    "id" : "161",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "164",
@@ -2463,11 +2463,11 @@
     "id" : "214",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "143",
-    "type" : "owl:objectProperty"
-  }, {
     "id" : "216",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "144",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "218",
     "type" : "rdfs:SubClassOf"
@@ -2481,7 +2481,7 @@
     "id" : "222",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "225",
+    "id" : "226",
     "type" : "owl:objectProperty"
   }, {
     "id" : "227",
@@ -2517,7 +2517,7 @@
     "id" : "249",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "250",
+    "id" : "251",
     "type" : "owl:objectProperty"
   }, {
     "id" : "252",
@@ -2548,10 +2548,10 @@
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "268",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "269",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "271",
     "type" : "owl:objectProperty"
@@ -2763,7 +2763,7 @@
   "propertyAttribute" : [ {
     "range" : "2",
     "domain" : "1",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "0"
   }, {
     "iri" : "https://w3id.org/idsa/core/dataTypeSchema",
@@ -2778,17 +2778,17 @@
   }, {
     "range" : "11",
     "domain" : "10",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "9"
   }, {
     "range" : "14",
     "domain" : "13",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "12"
   }, {
     "range" : "17",
     "domain" : "16",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "15"
   }, {
     "iri" : "http://www.w3.org/ns/adms#versionNotes",
@@ -2809,22 +2809,22 @@
   }, {
     "range" : "22",
     "domain" : "8",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "21"
   }, {
     "range" : "24",
     "domain" : "17",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "23"
   }, {
     "range" : "27",
     "domain" : "26",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "25"
   }, {
     "range" : "4",
     "domain" : "3",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "28"
   }, {
     "iri" : "http://purl.org/dc/terms/modified",
@@ -2904,37 +2904,37 @@
   }, {
     "range" : "47",
     "domain" : "8",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "46"
   }, {
     "range" : "47",
     "domain" : "49",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "48"
   }, {
     "range" : "37",
     "domain" : "36",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "50"
   }, {
     "range" : "37",
     "domain" : "49",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "51"
   }, {
     "range" : "8",
     "domain" : "53",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "52"
   }, {
     "range" : "8",
     "domain" : "11",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "54"
   }, {
     "range" : "57",
     "domain" : "56",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "55"
   }, {
     "iri" : "https://w3id.org/idsa/core/dataAppDistributionService",
@@ -2949,22 +2949,22 @@
   }, {
     "range" : "57",
     "domain" : "62",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "61"
   }, {
     "range" : "57",
     "domain" : "64",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "63"
   }, {
     "range" : "66",
     "domain" : "49",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "65"
   }, {
     "range" : "1",
     "domain" : "30",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "68"
   }, {
     "iri" : "http://purl.org/dc/terms/accrualPeriodicity",
@@ -2988,8 +2988,8 @@
     "range" : "40",
     "label" : {
       "IRI-based" : "hasCRS",
-      "en" : "profile CRS (IRI)",
-      "es" : "CRS de perfil (IRI)"
+      "en" : "has Coordinate Reference System",
+      "es" : "tiene Sistema de Referencia de Coordenadas"
     },
     "domain" : "3",
     "comment" : {
@@ -3015,9 +3015,19 @@
     "attributes" : [ "datatype", "deprecated" ],
     "id" : "74"
   }, {
+    "iri" : "http://www.w3.org/ns/prov#generatedAtTime",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "78",
+    "label" : {
+      "IRI-based" : "generatedAtTime"
+    },
+    "domain" : "77",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "76"
+  }, {
     "iri" : "http://www.w3.org/ns/dcat#distribution",
     "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "77",
+    "range" : "80",
     "label" : {
       "IRI-based" : "distribution",
       "en" : "distribution",
@@ -3029,25 +3039,15 @@
       "es" : "Vincula un Dataset con una de sus Distribuciones (DCAT-AP 3.0)."
     },
     "attributes" : [ "external", "object" ],
-    "id" : "76"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#generatedAtTime",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "80",
-    "label" : {
-      "IRI-based" : "generatedAtTime"
-    },
-    "domain" : "79",
-    "attributes" : [ "external", "datatype" ],
-    "id" : "78"
+    "id" : "79"
   }, {
     "iri" : "http://purl.org/dc/terms/source",
     "baseIri" : "http://purl.org/dc/terms",
-    "range" : "79",
+    "range" : "77",
     "label" : {
       "IRI-based" : "source"
     },
-    "domain" : "79",
+    "domain" : "77",
     "attributes" : [ "external", "object" ],
     "id" : "82"
   }, {
@@ -3069,12 +3069,12 @@
   }, {
     "range" : "88",
     "domain" : "87",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "86"
   }, {
     "range" : "10",
     "domain" : "90",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "89"
   }, {
     "iri" : "http://xmlns.com/foaf/0.1/name",
@@ -3095,12 +3095,12 @@
   }, {
     "range" : "37",
     "domain" : "88",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "94"
   }, {
     "range" : "37",
     "domain" : "22",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "95"
   }, {
     "iri" : "https://w3id.org/idsa/core/requiredDataApp",
@@ -3147,7 +3147,7 @@
       "en" : "byte size",
       "es" : "tamaño en bytes"
     },
-    "domain" : "77",
+    "domain" : "80",
     "comment" : {
       "en" : "The size of a Distribution in bytes (DCAT-AP 3.0).",
       "es" : "El tamaño de una Distribución en bytes (DCAT-AP 3.0)."
@@ -3181,7 +3181,7 @@
     "label" : {
       "IRI-based" : "spatialResolutionInMeters"
     },
-    "domain" : "79",
+    "domain" : "77",
     "attributes" : [ "external", "datatype" ],
     "id" : "110"
   }, {
@@ -3329,7 +3329,7 @@
     "label" : {
       "IRI-based" : "alternative"
     },
-    "domain" : "79",
+    "domain" : "77",
     "attributes" : [ "external", "datatype" ],
     "id" : "132"
   }, {
@@ -3341,7 +3341,7 @@
       "en" : "title",
       "es" : "titulo"
     },
-    "domain" : "79",
+    "domain" : "77",
     "comment" : {
       "en" : "A name given to the resource (DCAT-AP 3.0).",
       "es" : "Un nombre dado al recurso (DCAT-AP 3.0)."
@@ -3357,7 +3357,7 @@
       "en" : "date issued",
       "es" : "fecha de publicación"
     },
-    "domain" : "79",
+    "domain" : "77",
     "comment" : {
       "en" : "The date of formal issuance/publication of the resource (DCAT-AP 3.0).",
       "es" : "La fecha de publicación formal del recurso (DCAT-AP 3.0)."
@@ -3407,6 +3407,16 @@
     "attributes" : [ "datatype" ],
     "id" : "140"
   }, {
+    "iri" : "https://w3id.org/idsa/core/defaultRepresentation",
+    "baseIri" : "https://w3id.org/idsa/core",
+    "range" : "80",
+    "label" : {
+      "IRI-based" : "defaultRepresentation"
+    },
+    "domain" : "36",
+    "attributes" : [ "external", "object" ],
+    "id" : "142"
+  }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasPerformanceMetric",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "16",
@@ -3415,32 +3425,22 @@
       "en" : "has performance metric",
       "es" : "tiene métrica de rendimiento"
     },
-    "superproperty" : [ "143" ],
+    "superproperty" : [ "144" ],
     "domain" : "44",
     "comment" : {
       "en" : "Links a DataApp to a specific performance metric (e.g., accuracy, execution time).",
       "es" : "Vincula una DataApp con una métrica de rendimiento específica (p. ej., precisión, tiempo de ejecución)."
     },
     "attributes" : [ "object" ],
-    "id" : "142"
-  }, {
-    "iri" : "https://w3id.org/idsa/core/defaultRepresentation",
-    "baseIri" : "https://w3id.org/idsa/core",
-    "range" : "77",
-    "label" : {
-      "IRI-based" : "defaultRepresentation"
-    },
-    "domain" : "36",
-    "attributes" : [ "external", "object" ],
-    "id" : "144"
+    "id" : "143"
   }, {
     "iri" : "http://www.w3.org/ns/dcat#theme",
     "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "79",
+    "range" : "77",
     "label" : {
       "IRI-based" : "theme"
     },
-    "domain" : "79",
+    "domain" : "77",
     "subproperty" : [ "146" ],
     "attributes" : [ "external", "object" ],
     "id" : "145"
@@ -3533,19 +3533,19 @@
   }, {
     "iri" : "http://purl.org/dc/terms/identifier",
     "baseIri" : "http://purl.org/dc/terms",
-    "range" : "163",
+    "range" : "162",
     "label" : {
       "IRI-based" : "identifier",
       "en" : "identifier",
       "es" : "identificador"
     },
-    "domain" : "79",
+    "domain" : "77",
     "comment" : {
       "en" : "An unambiguous reference to the resource within a given context (DCAT-AP 3.0).",
       "es" : "Una referencia inequívoca al recurso dentro de un contexto dado (DCAT-AP 3.0)."
     },
     "attributes" : [ "external", "datatype" ],
-    "id" : "162"
+    "id" : "161"
   }, {
     "iri" : "http://www.w3.org/ns/odrl/2/hasPolicy",
     "baseIri" : "http://www.w3.org/ns/odrl/2",
@@ -3613,7 +3613,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/reportingEntity",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "161",
+    "range" : "163",
     "label" : {
       "IRI-based" : "reportingEntity",
       "en" : "reporting entity",
@@ -3633,7 +3633,7 @@
     "label" : {
       "IRI-based" : "instance"
     },
-    "domain" : "77",
+    "domain" : "80",
     "attributes" : [ "external", "object" ],
     "id" : "173"
   }, {
@@ -3698,38 +3698,38 @@
   }, {
     "iri" : "http://www.w3.org/ns/dcat#contactPoint",
     "baseIri" : "http://www.w3.org/ns/dcat",
-    "range" : "79",
+    "range" : "77",
     "label" : {
       "IRI-based" : "contactPoint"
     },
-    "domain" : "79",
+    "domain" : "77",
     "subproperty" : [ "182", "183" ],
     "attributes" : [ "external", "object" ],
     "id" : "181"
   }, {
     "range" : "105",
     "domain" : "7",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "184"
   }, {
     "range" : "186",
     "domain" : "150",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "185"
   }, {
     "range" : "106",
     "domain" : "59",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "188"
   }, {
     "range" : "38",
     "domain" : "36",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "189"
   }, {
     "range" : "38",
     "domain" : "126",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "190"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/spatialGranularity",
@@ -3746,7 +3746,7 @@
   }, {
     "range" : "187",
     "domain" : "8",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "193"
   }, {
     "iri" : "http://purl.org/dc/terms/rights",
@@ -3773,7 +3773,7 @@
       "en" : "format",
       "es" : "formato"
     },
-    "domain" : "77",
+    "domain" : "80",
     "comment" : {
       "en" : "The file format of the Distribution (DCAT-AP 3.0).",
       "es" : "El formato de archivo de la Distribución (DCAT-AP 3.0)."
@@ -3836,7 +3836,7 @@
     "label" : {
       "IRI-based" : "spatialResolutionInDegrees"
     },
-    "domain" : "79",
+    "domain" : "77",
     "attributes" : [ "external", "datatype" ],
     "id" : "204"
   }, {
@@ -3890,7 +3890,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/consumesResource",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "77",
+    "range" : "80",
     "label" : {
       "IRI-based" : "consumesResource",
       "en" : "consumes representation (deprecated)",
@@ -3906,26 +3906,8 @@
   }, {
     "range" : "215",
     "domain" : "98",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "214"
-  }, {
-    "iri" : "https://w3id.org/EDAAnOWL/hasMetric",
-    "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "17",
-    "label" : {
-      "IRI-based" : "hasMetric",
-      "en" : "has metric",
-      "es" : "tiene métrica"
-    },
-    "minCardinality" : "1",
-    "domain" : "3",
-    "subproperty" : [ "142" ],
-    "comment" : {
-      "en" : "Links a Data Profile to a specific quality, performance, or descriptive metric.",
-      "es" : "Vincula un Perfil de Datos con una métrica específica de calidad, rendimiento o descriptiva."
-    },
-    "attributes" : [ "object" ],
-    "id" : "143"
   }, {
     "iri" : "https://w3id.org/idsa/core/checkSum",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -3937,14 +3919,32 @@
     "attributes" : [ "external", "datatype" ],
     "id" : "216"
   }, {
+    "iri" : "https://w3id.org/EDAAnOWL/hasMetric",
+    "baseIri" : "https://w3id.org/EDAAnOWL",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "hasMetric",
+      "en" : "has metric",
+      "es" : "tiene métrica"
+    },
+    "minCardinality" : "1",
+    "domain" : "3",
+    "subproperty" : [ "143" ],
+    "comment" : {
+      "en" : "Links a Data Profile to a specific quality, performance, or descriptive metric.",
+      "es" : "Vincula un Perfil de Datos con una métrica específica de calidad, rendimiento o descriptiva."
+    },
+    "attributes" : [ "object" ],
+    "id" : "144"
+  }, {
     "range" : "30",
     "domain" : "102",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "218"
   }, {
     "range" : "30",
     "domain" : "29",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "219"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/alternativeName",
@@ -3993,7 +3993,7 @@
       "es" : "Vincula una métrica (medición) con la propiedad observable que está cuantificando. De este modo, se asocia de forma indirecta una Unidad de Medida (vía Metric) con un fenómeno físico (ObservableProperty)."
     },
     "attributes" : [ "object" ],
-    "id" : "225"
+    "id" : "226"
   }, {
     "iri" : "https://w3id.org/idsa/core/endpointURI",
     "baseIri" : "https://w3id.org/idsa/core",
@@ -4140,6 +4140,22 @@
     "attributes" : [ "external", "object" ],
     "id" : "248"
   }, {
+    "iri" : "http://purl.org/dc/terms/license",
+    "baseIri" : "http://purl.org/dc/terms",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "license",
+      "en" : "license",
+      "es" : "licencia"
+    },
+    "domain" : "250",
+    "comment" : {
+      "en" : "A legal document under which the resource is made available (DCAT-AP 3.0).",
+      "es" : "Un documento legal bajo el cual se pone a disposición el recurso (DCAT-AP 3.0)."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "249"
+  }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesFeatureOfInterest",
     "baseIri" : "https://w3id.org/EDAAnOWL",
     "range" : "150",
@@ -4154,23 +4170,7 @@
       "es" : "Define la categoría semántica del sujeto o fenómeno que el servicio PRODUCE o sobre el que genera información (p. ej., produce zonas de salud, polígonos de cultivo)."
     },
     "attributes" : [ "object" ],
-    "id" : "249"
-  }, {
-    "iri" : "http://purl.org/dc/terms/license",
-    "baseIri" : "http://purl.org/dc/terms",
-    "range" : "13",
-    "label" : {
-      "IRI-based" : "license",
-      "en" : "license",
-      "es" : "licencia"
-    },
-    "domain" : "251",
-    "comment" : {
-      "en" : "A legal document under which the resource is made available (DCAT-AP 3.0).",
-      "es" : "Un documento legal bajo el cual se pone a disposición el recurso (DCAT-AP 3.0)."
-    },
-    "attributes" : [ "external", "object" ],
-    "id" : "250"
+    "id" : "251"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/declaresFeatureOfInterest",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -4228,7 +4228,7 @@
       "en" : "media type",
       "es" : "tipo de medio"
     },
-    "domain" : "77",
+    "domain" : "80",
     "comment" : {
       "en" : "The media type of the Distribution as defined by IANA (DCAT-AP 3.0).",
       "es" : "El tipo de medio de la Distribución según lo definido por IANA (DCAT-AP 3.0)."
@@ -4309,29 +4309,13 @@
       "en" : "right operand",
       "es" : "operando derecho"
     },
-    "domain" : "79",
+    "domain" : "77",
     "comment" : {
       "en" : "The right operand value of an ODRL Constraint. This lightweight alignment models the common literal case used in CRED examples.",
       "es" : "El valor del operando derecho de una Restriccion ODRL. Esta alineacion ligera modela el caso literal habitual usado en los ejemplos CRED."
     },
     "attributes" : [ "external", "datatype" ],
     "id" : "267"
-  }, {
-    "iri" : "http://purl.org/dc/terms/accessRights",
-    "baseIri" : "http://purl.org/dc/terms",
-    "range" : "14",
-    "label" : {
-      "IRI-based" : "accessRights",
-      "en" : "access rights",
-      "es" : "derechos de acceso"
-    },
-    "domain" : "195",
-    "comment" : {
-      "en" : "Information about who can access the resource or an indication of its security status (DCAT-AP 3.0).",
-      "es" : "Información sobre quién puede acceder al recurso o una indicación de su estado de seguridad (DCAT-AP 3.0)."
-    },
-    "attributes" : [ "external", "object" ],
-    "id" : "268"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/certificationLevel",
     "baseIri" : "https://w3id.org/EDAAnOWL",
@@ -4347,6 +4331,22 @@
       "es" : "El nivel de certificación alcanzado (p. ej., 'Gaia-X Label 1', 'Gold')."
     },
     "attributes" : [ "datatype" ],
+    "id" : "268"
+  }, {
+    "iri" : "http://purl.org/dc/terms/accessRights",
+    "baseIri" : "http://purl.org/dc/terms",
+    "range" : "14",
+    "label" : {
+      "IRI-based" : "accessRights",
+      "en" : "access rights",
+      "es" : "derechos de acceso"
+    },
+    "domain" : "195",
+    "comment" : {
+      "en" : "Information about who can access the resource or an indication of its security status (DCAT-AP 3.0).",
+      "es" : "Información sobre quién puede acceder al recurso o una indicación de su estado de seguridad (DCAT-AP 3.0)."
+    },
+    "attributes" : [ "external", "object" ],
     "id" : "269"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasMetricStandard",
@@ -4433,7 +4433,7 @@
       "es" : "se ajusta al perfil"
     },
     "superproperty" : [ "274" ],
-    "domain" : "77",
+    "domain" : "80",
     "comment" : {
       "en" : "Links a distribution/representation to a DataProfile that describes its structure and characteristics. In IDSA/DCAT, technical profiles are associated with the concrete delivery form (Distribution), not the abstract product (Resource).",
       "es" : "Vincula una distribución/representación con un DataProfile que describe su estructura y características. En IDSA/DCAT, los perfiles técnicos se asocian con la forma concreta de entrega (Distribution), no con el producto abstracto (Resource)."
@@ -4607,7 +4607,7 @@
   }, {
     "iri" : "https://w3id.org/idsa/core/representation",
     "baseIri" : "https://w3id.org/idsa/core",
-    "range" : "77",
+    "range" : "80",
     "label" : {
       "IRI-based" : "representation"
     },
@@ -4645,7 +4645,7 @@
     "label" : {
       "IRI-based" : "expirationDate"
     },
-    "domain" : "79",
+    "domain" : "77",
     "attributes" : [ "external", "datatype" ],
     "id" : "304"
   }, {
@@ -4715,7 +4715,7 @@
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/hasTemporalCoverage",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "226",
+    "range" : "225",
     "label" : {
       "IRI-based" : "hasTemporalCoverage",
       "en" : "has temporal coverage",
@@ -4795,11 +4795,11 @@
   }, {
     "iri" : "http://purl.org/dc/terms/conformsTo",
     "baseIri" : "http://purl.org/dc/terms",
-    "range" : "79",
+    "range" : "77",
     "label" : {
       "IRI-based" : "conformsTo"
     },
-    "domain" : "79",
+    "domain" : "77",
     "subproperty" : [ "272", "281" ],
     "attributes" : [ "external", "object" ],
     "id" : "274"
@@ -4886,7 +4886,7 @@
       "en" : "description",
       "es" : "descripcion"
     },
-    "domain" : "79",
+    "domain" : "77",
     "comment" : {
       "en" : "An account of the resource (DCAT-AP 3.0).",
       "es" : "Una descripcion del recurso (DCAT-AP 3.0)."
@@ -4939,7 +4939,7 @@
   }, {
     "range" : "112",
     "domain" : "113",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "326"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
@@ -4954,32 +4954,32 @@
   }, {
     "range" : "112",
     "domain" : "100",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "328"
   }, {
     "range" : "44",
     "domain" : "57",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "329"
   }, {
     "range" : "114",
     "domain" : "30",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "330"
   }, {
     "range" : "72",
     "domain" : "38",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "331"
   }, {
-    "range" : "77",
+    "range" : "80",
     "domain" : "106",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "332"
   }, {
-    "range" : "77",
+    "range" : "80",
     "domain" : "105",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "333"
   }, {
     "iri" : "https://schema.org/thumbnailUrl",
@@ -5010,7 +5010,7 @@
       "en" : "access URL",
       "es" : "URL de acceso"
     },
-    "domain" : "77",
+    "domain" : "80",
     "comment" : {
       "en" : "The URL that gives access to a Distribution of the Dataset (DCAT-AP 3.0 mandatory).",
       "es" : "La URL que da acceso a una Distribución del Dataset (DCAT-AP 3.0 obligatorio)."
@@ -5034,7 +5034,7 @@
     "label" : {
       "IRI-based" : "temporalResolution"
     },
-    "domain" : "79",
+    "domain" : "77",
     "attributes" : [ "external", "datatype" ],
     "id" : "340"
   }, {
@@ -5046,7 +5046,7 @@
       "en" : "keyword",
       "es" : "palabra clave"
     },
-    "domain" : "79",
+    "domain" : "77",
     "comment" : {
       "en" : "A keyword or tag describing the Dataset (DCAT-AP 3.0).",
       "es" : "Una palabra clave o etiqueta que describe el Dataset (DCAT-AP 3.0)."
@@ -5082,17 +5082,17 @@
   }, {
     "range" : "3",
     "domain" : "5",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "346"
   }, {
     "range" : "72",
     "domain" : "73",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "347"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/producesResource",
     "baseIri" : "https://w3id.org/EDAAnOWL",
-    "range" : "77",
+    "range" : "80",
     "label" : {
       "IRI-based" : "producesResource",
       "en" : "produces representation (deprecated)",
@@ -5108,7 +5108,7 @@
   }, {
     "range" : "36",
     "domain" : "8",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "349"
   }, {
     "iri" : "https://w3id.org/EDAAnOWL/metricType",
@@ -5150,7 +5150,7 @@
     "label" : {
       "IRI-based" : "value"
     },
-    "domain" : "79",
+    "domain" : "77",
     "attributes" : [ "external", "datatype" ],
     "id" : "354"
   }, {
