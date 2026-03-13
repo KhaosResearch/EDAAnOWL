@@ -1,0 +1,190 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix test: <https://w3id.org/EDAAnOWL/test/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix bigalg: <https://w3id.org/BIGOWLAlgorithms/> .
+@prefix bigprob: <https://w3id.org/BIGOWLProblems/> .
+@prefix bigdat: <https://w3id.org/BIGOWLData/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+<https://w3id.org/EDAAnOWL/test/> rdf:type owl:Ontology ;
+    owl:imports <https://w3id.org/EDAAnOWL/> ;
+    dct:title "EDAAnOWL Test Instances (v1.0.0)"@en ;
+    dct:description "Minimal test instances for SHACL validation using the v1.0.0 atomic profiles architecture."@en .
+
+### Stub definitions for external concepts (enables offline validation)
+
+theme:AGRI a skos:Concept ;
+    skos:prefLabel "Agriculture, fisheries, forestry and food"@en ,
+    "Agricultura, pesca, silvicultura y alimentación"@es .
+
+### VERIFIED AGROVOC codes
+
+agrovoc:c_ce585e0d a skos:Concept, :ObservableProperty, sosa:ObservableProperty ;  # NDVI
+    skos:prefLabel "NDVI"@en , "NDVI"@es .
+
+agrovoc:c_24993 a skos:Concept, :ObservableProperty, sosa:ObservableProperty ;     # Water stress
+    skos:prefLabel "Water Stress"@en , "Estrés Hídrico"@es .
+
+agrovoc:c_12926 a skos:Concept, :FeatureOfInterest ;      # Olive
+    skos:prefLabel "Olive"@en , "Olivo"@es .
+
+### Mock BIGOWL concepts for testing
+test:TestAlgorithm a bigalg:Algorithm ;
+    skos:prefLabel "Test Algorithm"@en .
+test:TestProblem a bigprob:Problem ;
+    skos:prefLabel "Test Problem"@en .
+test:TestDataClass a bigdat:Data ;
+    skos:prefLabel "Test Data Class"@en .
+
+:yieldForecast a :ObservableProperty ;
+    skos:prefLabel "Yield Forecast"@en , "Previsión de Rendimiento"@es .
+:electricalConductivity a :ObservableProperty ;
+    skos:prefLabel "Electrical Conductivity"@en , "Conductividad Eléctrica"@es .
+:reflectance_red a :ObservableProperty ;
+    skos:prefLabel "Red Reflectance"@en , "Reflectancia en Rojo"@es .
+:reflectance_nir a :ObservableProperty ;
+    skos:prefLabel "Near-Infrared Reflectance"@en , "Reflectancia en Infrarrojo Cercano"@es .
+
+### External class declarations for reasoning
+sosa:ObservableProperty rdf:type owl:Class .
+gsp:Geometry rdf:type owl:Class .
+time:Interval rdf:type owl:Class .
+
+#################################################################
+#    Reusable Atomic Profiles (Profile Library)
+#################################################################
+
+test:NDVIProfile a :DataProfile ;
+    dct:title "NDVI Profile"@en ;
+    :hasFeatureOfInterest agrovoc:c_12926 ;       # Olive
+    :hasObservableProperty agrovoc:c_ce585e0d ;    # NDVI
+    :hasDataType xsd:float ;
+    :declaresDataClass test:TestDataClass .
+
+test:WaterStressProfile a :DataProfile ;
+    dct:title "Water Stress Profile"@en ;
+    :hasFeatureOfInterest agrovoc:c_12926 ;       # Olive
+    :hasObservableProperty agrovoc:c_24993 ;       # Water stress
+    :hasDataType xsd:decimal .
+
+#################################################################
+#    Test Instances — v1.0.0 Architecture
+#################################################################
+
+### 1. Valid DataApp with InputRequirement
+test:ValidApp a :AnalyzerApp ;
+    dct:title "Valid Test App"@en ;
+    :parameter test:TestAlgorithm ;
+    :hasDomainSector theme:AGRI ;
+    :hasInputProfile [
+        a :InputProfile ;
+        :hasDataSpecification test:NDVIProfile ;
+        :hasDataConstraint [
+            a :DataConstraint ;
+            :constraintMetricType :Completeness ;
+            :constraintOperator ">=" ;
+            :constraintValue "0.9"^^xsd:decimal
+        ]
+    ] .
+
+### 2. Valid DataAsset with Distribution using ProfileBinding
+test:ValidDataAsset a :DataAsset, dcat:Dataset ;
+    dct:title "Valid Data Asset"@en ;
+    dcat:theme theme:AGRI ;
+    ids:representation test:ValidDataAsset_Repr ;
+    prov:wasGeneratedBy test:ValidApp .
+
+test:ValidDataAsset_Repr a :DataRepresentation ;
+    dct:format <https://www.iana.org/assignments/media-types/text/csv> ;
+    dcat:accessURL <https://example.org/asset/data.csv> ;
+    dct:license <http://example.org/license> ;
+    ids:instance [ a ids:Artifact ; ids:fileName "data.csv" ] ;
+    :hasFieldMapping [
+        a :FieldMapping ;
+        :mapsToSpecification test:NDVIProfile ;
+        :mapsField "ndvi_value" ;
+        :hasMetric test:DummyMetric
+    ] .
+
+### 3. Valid PredictionApp producing a profile
+test:ValidService a :PredictionApp ;
+    dct:title "Valid Analytical Service"@en ;
+    dcat:theme theme:AGRI ;
+    :producesProfile test:WaterStressProfile ;
+    :hasInputProfile [
+        a :InputProfile ;
+        :hasDataSpecification test:NDVIProfile
+    ] .
+
+### 4. Quality Metric Instance
+test:DummyMetric a :Metric ;
+    :metricName "testMetric" ;
+    :metricValue "1.0"^^xsd:decimal ;
+    :hasMetricStandard unit:PERCENT ;
+    :measuresProperty agrovoc:c_ce585e0d .
+
+### 5. Spatial Temporal Asset with ProfileBinding
+test:ValidSpatialAsset a :SpatialTemporalAsset, dcat:Dataset ;
+    dct:title "Valid Spatial Asset"@en ;
+    dcat:theme theme:AGRI ;
+    :hasSpatialCoverage [ a gsp:Geometry ] ;
+    :hasTemporalCoverage [ a time:Interval ] ;
+    ids:representation test:ValidSpatialAsset_Repr .
+
+test:ValidSpatialAsset_Repr a :DataRepresentation ;
+    dct:format <https://www.iana.org/assignments/media-types/image/tiff> ;
+    dcat:accessURL <https://example.org/spatial/data.tif> ;
+    dct:license <http://example.org/license> ;
+    ids:instance [ a ids:Artifact ; ids:fileName "data.tif" ] ;
+    :hasFieldMapping [
+        a :FieldMapping ;
+        :mapsToSpecification test:NDVIProfile ;
+        :mapsField "band_ndvi"
+    ] .
+
+### 6. FOI Coherence Tests
+test:ValidFOIAsset a :DataAsset ;
+    dct:title "Valid FOI Asset"@en ;
+    :hasFeatureOfInterest test:SpecificOliveTree ;
+    ids:representation [
+        a :DataRepresentation, dcat:Distribution ;
+        dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+        dcat:accessURL <https://example.org/foi/valid.csv> ;
+        :hasFieldMapping [
+            a :FieldMapping ;
+            :mapsToSpecification test:NDVIProfile ;
+            :mapsField "ndvi_col"
+        ]
+    ] .
+
+test:SpecificOliveTree a :FeatureOfInterest ;
+    rdfs:label "Olive Tree #42"@en ;
+    skos:broader agrovoc:c_12926 . # Links to Olive category in profile
+
+test:InvalidFOIAsset a :DataAsset ;
+    dct:title "Invalid FOI Asset (Coherence Failure)"@en ;
+    :hasFeatureOfInterest agrovoc:c_330833 ; # "Citrus" — mismatch!
+    ids:representation [
+        a :DataRepresentation, dcat:Distribution ;
+        dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+        dcat:accessURL <https://example.org/foi/invalid.csv> ;
+        :hasFieldMapping [
+            a :FieldMapping ;
+            :mapsToSpecification test:NDVIProfile ; # Profile declares Olive, not Citrus
+            :mapsField "ndvi_col"
+        ]
+    ] .

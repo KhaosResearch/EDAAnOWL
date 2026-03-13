@@ -11,7 +11,10 @@ if errorlevel 1 goto :build_error
 echo --- Finding latest version ---
 set LATEST_VERSION=
 pushd "%ROOT_DIR%\src"
-for /d %%d in (0.*) do set LATEST_VERSION=%%d
+:: Find all directories that match d.d.d pattern and sort them to find the latest
+for /f "delims=" %%i in ('dir /b /ad ^| findstr /r "^[0-9]*\.[0-9]*\.[0-9]*$"') do (
+    set LATEST_VERSION=%%i
+)
 popd
 
 if "!LATEST_VERSION!"=="" goto :version_error
