@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.9.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.8.1...v0.9.0) (2026-03-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* Decoupled property declarations from subjects in matchmaking through the introduction of FeatureOfInterest. DataAssets and DataProfiles now require FOI associations for accurate semantic discovery.
+
+### Added
+
+* incorporate Feature of Interest (SOSA/SSN) and release v0.9.0 ([df651a2](https://github.com/KhaosResearch/EDAAnOWL/commit/df651a2776b77a00d78ef588998636f132e8f103))
+
+
+### Fixed
+
+* **shacl:** align shapes with dcat:theme and fix test distribution requirements ([38c83b8](https://github.com/KhaosResearch/EDAAnOWL/commit/38c83b8a1e5285a237fc827f33f2ba536eb86b75))
+
+
+### Changed
+
+* enrich documentation and examples with FOI and dcat:theme ([3a011f1](https://github.com/KhaosResearch/EDAAnOWL/commit/3a011f14d4ecb54fc76f0b85d86bd7ee64041c1e))
+
 ## [0.8.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.8.0...v0.8.1) (2026-03-10)
 
 
