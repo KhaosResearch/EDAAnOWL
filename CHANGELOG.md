@@ -5,7 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.8.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.8.0...v0.8.1) (2026-03-10)
+## [1.0.0] - 2026-03-13
+
+### ⚠ BREAKING CHANGES
+- **Architecture Evolution:** Shifted from monolithic profiles to a modular 3-layer model: Semantic (`DataSpecification`), Binding (`FieldMapping`), and Technical (`Distribution`).
+- **Matchmaking Layer:** Introduced `DataSpecification` as the core atomic unit for both supply and demand.
+- **Removed Properties:** Streamlined the ontology by removing 8 redundant properties that bypassed the modular architecture (e.g., `:requiresObservableProperty`, `:conformsToProfile`).
+- **Metadata Separation:** Moved technical attributes (CRS, resolutions) to the `dcat:Distribution` level to keep specifications purely semantic.
+
+### Added
+- **Classes:** `:DataSpecification`, `:FieldMapping`, `:InputProfile`, `:DataConstraint`, `:ObservationMetric`.
+- **Properties:** `:hasFieldMapping`, `:mapsToSpecification`, `:hasInputProfile`, `:hasDataSpecification`, `:hasDataConstraint`, `:requiresUnit`, `:requiresMetric`, `:constraintMetricType`, `:constraintOperator`, `:constraintValue`.
+- **Matchmaking:** High-precision discovery mechanism based on URI comparison of atomic specifications and evaluation of granular constraints.
+
+### Changed
+- **`shacl` shapes:** Refactored all shapes in `edaan-shapes.ttl` to enforce the v1.0.0 architectural patterns.
+- **`dcat` alignment:** Enhanced compliance with DCAT-AP 3.0 and Spanish Data Office (CRED) recommendations.
+
+---
+
+## [0.8.1] (2026-03-10)
 
 
 ### Fixed

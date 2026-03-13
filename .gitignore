@@ -208,3 +208,6 @@ __marimo__/
 
 #xml files
 *.xml
+
+#temp files
+temp/

@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Latest Release](https://img.shields.io/github/v/release/KhaosResearch/EDAAnOWL?display_name=tag)](https://github.com/KhaosResearch/EDAAnOWL/releases)
 [![PURL](https://img.shields.io/badge/purl-w3id.org-blue)](https://w3id.org/EDAAnOWL/)
-[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/0.9.0/shapes/edaan-shapes.ttl)
+[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/1.0.0/shapes/edaan-shapes.ttl)
 
 > **Semantic Bridge for Data Spaces**: Linking IDSA governance with BIGOWL workflows.
 
@@ -13,10 +13,10 @@
 
 **EDAAnOWL** is a lightweight ontology designed to operationalize Data Spaces. It bridges the gap between the **IDSA Information Model** (governance, contracts) and **BIGOWL** (analytics, workflows), enabling:
 
-1.  **Deep Semantic Matchmaking**: Discovery of assets based on *what they mean* (Observable Properties) not just metadata.
-2.  **Structural Compatibility**: Automated validation of data shapes (Data Profiles) for smart application composition.
-3.  **Performance & Quality Tracking**: Explicit support for DQV-aligned quality metrics and performance benchmarks.
-4.  **Cross-Domain Interoperability**: Enabling data exchange between different sectors (e.g., Agri-food ↔ Mobility) by providing a unified functional meta-model, breaking vertical silos.
+1.  **Deep Semantic Matchmaking**: Discovery of assets based on *what they mean* (Atomic Data Specifications) not just metadata.
+2.  **Structural Compatibility**: Decoupled "Field Mappings" to link semantic concepts to physical schemas (CSV/Parquet/etc) adding units and types at the edge.
+3.  **Performance & Quality Tracking**: Granular data constraints for DataApps with explicit technical thresholds.
+4.  **Cross-Domain Interoperability**: Decentralized "Specification Libraries" that allow reusing the same semantic definition across different sectors and schemas.
 
 ---
 
@@ -54,7 +54,7 @@ We align with the **[Esquema Nacional de Interoperabilidad (ENI)](https://cred.d
 
 *   **Enhanced Reuse (ENI)**: The ENI mandates facilitating information reuse. EDAAnOWL takes this further by enabling **automated reuse** through detailed functional semantics, reducing integration costs.
 *   **Sectoral Semantic Interoperability (MIT)**: The [Marco de Interoperabilidad Técnico](https://cred.digital.gob.es/content/dam/cred/img/docs/MarcoInteroperabilidadTecnico.pdf) (p. 59) highlights the need for organizations to share a "common meaning" to enable reuse across sectors.
-    *   **EDAAnOWL's Solution**: We address this challenge by providing a **Cross-Domain Annotation Layer**. By decoupling the *technical profile* (`DataProfile`) from *domain semantics* (`ObservableProperty`), EDAAnOWL allows assets from diverse sectors (e.g., Agriculture, Mobility, Health) to be modeled with the same grammar, facilitating the creation of transverse Data Spaces.
+    *   **EDAAnOWL's Solution**: We address this challenge by providing a **Cross-Domain Annotation Layer**. By decoupling the *technical mapping* (`FieldMapping`) from *domain semantics* (`DataSpecification`), EDAAnOWL allows assets from diverse sectors to reuse the same semantic library, facilitating the creation of transverse Data Spaces.
 *   **Sector-Specific Alignment (SIEX & FEGA)**: To support the [EDAAn Data Space](https://edaan.agora-datalab.eu/), we provide explicit alignment with the **[SIEX (Spain)](https://www3.sede.fega.gob.es/bdcsixpor/catalogos)** catalogs from FEGA.
     *   **Rationale**: These codes are the *de facto* standard for the Spanish agricultural sector, used by participants to manage government aid (CAP/PAC). By transforming these official catalogs into SKOS concepts, we ensure that the data space is immediately operational and intuitive for Spanish users, bridging the gap between administrative requirements and semantic interoperability.
 
@@ -70,48 +70,57 @@ Detailed documentation is available in the `docs/` folder:
 
 ## 📦 Repository Structure
 
-- `src/`: Contains the ontology versions (e.g., `0.9.0/`), vocabularies, and SHACL shapes.
+- `src/`: Contains the ontology versions (e.g., `1.0.0/`), vocabularies, and SHACL shapes.
 - `docs/`: Supplementary documentation and diagrams.
 - `scripts/`: Validation and utility scripts.
 
-## ⚡ Quick Start
+## ⚡ Quick Start (v1.0.0 Architecture)
 
 ```turtle
 @prefix edaan: <https://w3id.org/EDAAnOWL/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix qudt: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
 
-# A Data Asset (Supply) about Olive Plots
+# 1. Define an Atomic Reusable Specification (e.g., in a Library)
+:NDVISpec a edaan:DataSpecification ;
+    edaan:hasFeatureOfInterest <http://aims.fao.org/aos/agrovoc/c_12926> ; # Olives
+    edaan:hasObservableProperty <http://aims.fao.org/aos/agrovoc/c_ce585e0d> . # NDVI
+
+# 2. A Data Asset (Supply) with a Distribution that MAPS to the spec
 :MyAsset a edaan:DataAsset ;
     dcat:theme theme:AGRI ;
-    edaan:hasFeatureOfInterest <http://aims.fao.org/aos/agrovoc/c_5333> ; # Olive (Specific Subject)
-    edaan:servesObservableProperty <http://aims.fao.org/aos/agrovoc/c_3527> ;   # Soil Temperature
-    ids:representation [
-        a dcat:Distribution ;
-        edaan:conformsToProfile [
-            a edaan:DataProfile ;
-            edaan:declaresFeatureOfInterest edaan:FeatureOfInterest ; # Generic FOI category
-            edaan:hasMetric [
-                a edaan:Metric ;
-                edaan:measuresProperty <http://aims.fao.org/aos/agrovoc/c_3527> ;
-                edaan:hasMetricStandard qudt:DEG_C 
-            ]
+    ids:representation :MyDistribution .
+
+:MyDistribution a dcat:Distribution ;
+    dct:format <https://www.iana.org/assignments/media-types/text/csv> ;
+    edaan:hasFieldMapping [
+        a edaan:FieldMapping ;
+        edaan:mapsToSpecification :NDVISpec ;
+        edaan:mapsField "ndvi_val" ; # Column name in the CSV
+        edaan:hasUnit <http://qudt.org/vocab/unit/UNITLESS> ;
+        edaan:hasDataType xsd:float ;
+        edaan:hasMetric [
+            a edaan:Metric ;
+            edaan:metricType edaan:Accuracy ;
+            edaan:metricValue "0.98"^^xsd:decimal
         ]
     ] .
 
-# A Smart App (Demand) specifically processing Olive features
-:MyApp a edaan:PredictionApp ;
+# 3. Define an App (Demand) with Input Profiles
+:MyApp a edaan:DataApp ;
     dcat:theme theme:AGRI ;
-    edaan:requiresFeatureOfInterest <http://aims.fao.org/aos/agrovoc/c_5333> ; # Target: Olives
-    edaan:requiresObservableProperty <http://aims.fao.org/aos/agrovoc/c_3527> ; # Need: Temperature
-    edaan:requiresProfile [
-        a edaan:DataProfile ;
-        edaan:hasMetric [
-            a edaan:Metric ;
-            edaan:measuresProperty <http://aims.fao.org/aos/agrovoc/c_3527> ;
-            edaan:hasMetricStandard qudt:DEG_C # Required in Celsius for Safe Matchmaking
+    edaan:hasInputProfile [
+        a edaan:InputProfile ;
+        edaan:hasDataSpecification :NDVISpec ;
+        edaan:hasConstraint [
+            a edaan:DataConstraint ;
+            edaan:requiresUnit <http://qudt.org/vocab/unit/UNITLESS> ;
+            edaan:constraintMetricType edaan:Accuracy ;
+            edaan:constraintOperator ">=" ;
+            edaan:constraintValue "0.95"^^xsd:decimal
         ]
     ] .
 ```
