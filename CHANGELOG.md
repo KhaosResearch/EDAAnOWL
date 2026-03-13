@@ -5,26 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2026-03-13
+## [0.9.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.8.1...v0.9.0) (2026-03-13)
+
 
 ### ⚠ BREAKING CHANGES
-- **Architecture Evolution:** Shifted from monolithic profiles to a modular 3-layer model: Semantic (`DataSpecification`), Binding (`FieldMapping`), and Technical (`Distribution`).
-- **Matchmaking Layer:** Introduced `DataSpecification` as the core atomic unit for both supply and demand.
-- **Removed Properties:** Streamlined the ontology by removing 8 redundant properties that bypassed the modular architecture (e.g., `:requiresObservableProperty`, `:conformsToProfile`).
-- **Metadata Separation:** Moved technical attributes (CRS, resolutions) to the `dcat:Distribution` level to keep specifications purely semantic.
+
+* Decoupled property declarations from subjects in matchmaking through the introduction of FeatureOfInterest. DataAssets and DataProfiles now require FOI associations for accurate semantic discovery.
 
 ### Added
-- **Classes:** `:DataSpecification`, `:FieldMapping`, `:InputProfile`, `:DataConstraint`, `:ObservationMetric`.
-- **Properties:** `:hasFieldMapping`, `:mapsToSpecification`, `:hasInputProfile`, `:hasDataSpecification`, `:hasDataConstraint`, `:requiresUnit`, `:requiresMetric`, `:constraintMetricType`, `:constraintOperator`, `:constraintValue`.
-- **Matchmaking:** High-precision discovery mechanism based on URI comparison of atomic specifications and evaluation of granular constraints.
+
+* incorporate Feature of Interest (SOSA/SSN) and release v0.9.0 ([df651a2](https://github.com/KhaosResearch/EDAAnOWL/commit/df651a2776b77a00d78ef588998636f132e8f103))
+
+
+### Fixed
+
+* **shacl:** align shapes with dcat:theme and fix test distribution requirements ([38c83b8](https://github.com/KhaosResearch/EDAAnOWL/commit/38c83b8a1e5285a237fc827f33f2ba536eb86b75))
+
 
 ### Changed
-- **`shacl` shapes:** Refactored all shapes in `edaan-shapes.ttl` to enforce the v1.0.0 architectural patterns.
-- **`dcat` alignment:** Enhanced compliance with DCAT-AP 3.0 and Spanish Data Office (CRED) recommendations.
 
----
+* enrich documentation and examples with FOI and dcat:theme ([3a011f1](https://github.com/KhaosResearch/EDAAnOWL/commit/3a011f14d4ecb54fc76f0b85d86bd7ee64041c1e))
 
-## [0.8.1] (2026-03-10)
+## [0.8.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.8.0...v0.8.1) (2026-03-10)
 
 
 ### Fixed

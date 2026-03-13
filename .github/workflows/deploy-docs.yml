@@ -34,6 +34,30 @@ jobs:
       - name: Download Widoco
         run: wget -O widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-17.jar
 
+      - name: Post-process RDF source files
+        shell: bash
+        run: |
+          set -euo pipefail
+          V="${{ steps.get_version.outputs.VERSION_NO_V }}"
+          echo "Updating version references to $V in TTL files..."
+          # Find all TTL files in the versioned source directory
+          find src/$V -name "*.ttl" -type f | while read f; do
+            # 1. Update versioned URIs in prefixes and deep links
+            sed -i -E "s|https://w3id.org/EDAAnOWL/[0-9]+\.[0-9]+\.[0-9]+/|https://w3id.org/EDAAnOWL/${V}/|g" "$f"
+            
+            # 2. Update owl:versionInfo (flexible whitespace)
+            sed -i -E "s/owl:versionInfo[[:space:]]+\"[0-9]+\.[0-9]+\.[0-9]+\"/owl:versionInfo \"${V}\"/g" "$f"
+            
+            # 3. Update owl:versionIRI (flexible whitespace, no trailing slash)
+            sed -i -E "s|owl:versionIRI[[:space:]]+<https://w3id.org/EDAAnOWL/[0-9]+\.[0-9]+\.[0-9]+>|owl:versionIRI <https://w3id.org/EDAAnOWL/${V}>|g" "$f"
+            
+            # 4. Update bibliographic citations and general "Version X.Y.Z" mentions
+            sed -i -E "s/Version [0-9]+\.[0-9]+\.[0-9]+/Version ${V}/g" "$f"
+            
+            # 5. Update "EDAAnOWL vX.Y.Z" occurrences
+            sed -i -E "s/EDAAnOWL v[0-9]+\.[0-9]+\.[0-9]+/EDAAnOWL v${V}/g" "$f"
+          done
+
       - name: Generate documentation with Widoco
         shell: bash
         run: |
