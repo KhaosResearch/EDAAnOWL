@@ -135,8 +135,18 @@ jobs:
           if [ -d "src/assets" ]; then
             cp -r "src/assets" "deploy/assets"
             echo "Assets copied successfully"
-          else
-            echo "--- WARN: src/assets not found. Styles and scripts will be missing. ---"
+          fi
+
+          echo "Copying images..."
+          if [ -d "images" ]; then
+            cp -r "images" "deploy/images"
+            echo "Images copied successfully"
+          fi
+
+          echo "Copying global documentation..."
+          if [ -d "docs" ]; then
+            cp -r "docs" "deploy/docs"
+            echo "Docs copied successfully"
           fi
 
           echo "Syncing 'latest'..."
