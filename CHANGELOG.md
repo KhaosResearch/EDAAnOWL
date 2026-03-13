@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.9.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.8.1...v0.9.0) (2026-03-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* Decoupled semantic layer from technical distributions. Renamed several properties and introduced FieldMapping bridge class. Updated validation scripts to support major versioning.
+* Decoupled property declarations from subjects in matchmaking through the introduction of FeatureOfInterest. DataAssets and DataProfiles now require FOI associations for accurate semantic discovery.
+
+### Added
+
+* implement modular v1.0.0 architecture with atomic DataSpecifications ([903fe5d](https://github.com/KhaosResearch/EDAAnOWL/commit/903fe5d2e8a05ba5017222e51e9888790eca4d49))
+* incorporate Feature of Interest (SOSA/SSN) and release v0.9.0 ([df651a2](https://github.com/KhaosResearch/EDAAnOWL/commit/df651a2776b77a00d78ef588998636f132e8f103))
+
+
+### Fixed
+
+* **shacl:** align shapes with dcat:theme and fix test distribution requirements ([38c83b8](https://github.com/KhaosResearch/EDAAnOWL/commit/38c83b8a1e5285a237fc827f33f2ba536eb86b75))
+
+
+### Changed
+
+* enrich documentation and examples with FOI and dcat:theme ([3a011f1](https://github.com/KhaosResearch/EDAAnOWL/commit/3a011f14d4ecb54fc76f0b85d86bd7ee64041c1e))
+* fix broken arrows and visual artifacts in architecture diagram ([04a3bae](https://github.com/KhaosResearch/EDAAnOWL/commit/04a3bae8e1e36b3b87be55921853f2da873e1c98))
+* refresh high-level architecture diagram and CI/CD assets ([ac04caa](https://github.com/KhaosResearch/EDAAnOWL/commit/ac04caa33375e471cf1ac82f081b2d63092648c1))
+* restructure architecture diagram with clean orthogonal routing ([412f9a7](https://github.com/KhaosResearch/EDAAnOWL/commit/412f9a78f667376c521c17062c0f2dd476cc73bd))
+* simplify architecture diagram layout and clarify flows ([3a0d7ea](https://github.com/KhaosResearch/EDAAnOWL/commit/3a0d7ea25e45bdb6f8aa686e9b5771165405a3d8))
+* update architecture documentation and guides for v1.0.0 ([ad5b7b7](https://github.com/KhaosResearch/EDAAnOWL/commit/ad5b7b7d976eee70bbc781305d4762341ead716e))
+
 ## [1.0.0] - 2026-03-13
 
 ### ⚠ BREAKING CHANGES
