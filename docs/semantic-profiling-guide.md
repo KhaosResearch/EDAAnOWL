@@ -1,0 +1,146 @@
+# Guía de Perfilado Semántico: Dataset Real y Matchmaking (v1.0.0)
+
+En la versión **v1.0.0** de EDAAnOWL, hemos simplificado y robustecido la arquitectura para permitir una interoperabilidad extrema. La clave es la **separación en 3 capas**:
+
+1.  **Capa Semántica (¿Qué es?):** `DataSpecification`. Define el fenómeno físico (ej. Humedad) y el sujeto (ej. Suelo). Es pura y reutilizable.
+2.  **Capa de Vinculación (¿Cómo viene?):** `FieldMapping`. Une la especificación semántica con una columna física, definiendo la **Unidad**, el **Tipo de Dato** y la **Métrica de Observación**.
+3.  **Capa Técnica (¿Dónde está?):** `Distribution`. Contiene los metadatos del archivo (formato, resolución temporal, CRS).
+
+---
+
+## 1. El Dataset Real (Archivo CSV)
+
+Imagina un fichero CSV llamado `monitoreo-sensores.csv` con estas columnas:
+
+| fecha      | sensor_id | temp_c | humedad_suelo_p |
+|------------|-----------|--------|-----------------|
+| 2026-05-10 | S-01      | 22.5   | 45.2            |
+| 2026-05-10 | S-02      | 23.0   | 44.8            |
+
+Este CSV ofrece datos sobre 2 variables semánticas:
+1. **Temperatura del Aire** (`agrovoc:c_7657` + `agrovoc:c_331557`): Medido en grados Celsius.
+2. **Humedad del Suelo** (`agrovoc:c_7208`): Medido en porcentaje.
+
+---
+
+## 2. Modelando con EDAAnOWL v1.0.0 (Turtle)
+
+### 2.1 Especificaciones Semánticas (Librería Reutilizable)
+Estas definiciones se crean una vez y se reutilizan en todo el espacio de datos.
+
+```turtle
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+
+# Especificación de Humedad del Suelo
+<spec/soil-moisture> a :DataSpecification ;
+    rdfs:label "Especificación de Humedad del Suelo"@es ;
+    :hasObservableProperty agrovoc:c_7208 ;
+    :hasFeatureOfInterest agrovoc:c_7176 .  # Soil
+
+# Especificación de Temperatura
+<spec/air-temperature> a :DataSpecification ;
+    rdfs:label "Especificación de Temperatura del Aire"@es ;
+    :hasObservableProperty agrovoc:c_7657 ;
+    :hasFeatureOfInterest agrovoc:c_331557 . # Air
+```
+
+### 2.2 El Activo y su Distribución (Supply)
+Aquí es donde vinculamos la semántica con la realidad física del archivo.
+
+```turtle
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix qudt: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<dataset/sensor-data-2026> a :DataAsset, dcat:Dataset ;
+    dct:title "Datos de Sensores de Campo 2026"@es ;
+    dcat:distribution <distribution/field-sensors-csv> .
+
+<distribution/field-sensors-csv> a :DataRepresentation, dcat:Distribution ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    
+    # Metadatos Técnicos (Capa 3)
+    dcat:temporalResolution "PT1H"^^xsd:duration ;
+    :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
+
+    # Vinculación (Capa 2): Aquí definimos unidades y mapeos
+    :hasFieldMapping [
+        a :FieldMapping ;
+        :mapsToSpecification <spec/air-temperature> ;
+        :mapsField "temp_c" ;
+        :hasUnit qudt:DEG_C ;           # La unidad va en el mapeo, no en la spec
+        :hasDataType xsd:float ;
+        :hasObservationMetric :Instantaneous 
+    ] ,
+    [
+        a :FieldMapping ;
+        :mapsToSpecification <spec/soil-moisture> ;
+        :mapsField "humedad_suelo_p" ;
+        :hasUnit qudt:PERCENT ;
+        :hasDataType xsd:float ;
+        :hasObservationMetric :DailyAverage
+    ] .
+```
+
+---
+
+## 3. Matchmaking: ¿Cómo una App pide lo que necesita?
+
+En v1.0.0, las aplicaciones no solo piden "Humedad", sino que pueden exigir requisitos técnicos específicos mediante **Constraints**.
+
+### 3.1 La DataApp y su perfil de entrada (Demand)
+
+```turtle
+<app/smart-irrigator> a :DataApp, ids:DataApp ;
+    dct:title "Irrigador Inteligente v1.0"@es ;
+    
+    # Requisitos de entrada
+    :hasInputProfile [
+        a :InputProfile ;
+        :hasDataSpecification <spec/soil-moisture> ;
+        
+        # Constraint: Mi algoritmo SOLO entiende grados Celsius y medias diarias
+        :hasConstraint [
+            a :DataConstraint ;
+            :requiresUnit qudt:PERCENT ;
+            :requiresMetric :DailyAverage 
+        ]
+    ] .
+```
+
+### 3.2 ¿Por qué es mejor este modelo?
+
+1.  **Flexibilidad:** Si otro Dataset tiene la humedad en una escala de 0 a 1 (unit:UNITLESS), el `FieldMapping` de ese dataset lo declarará así. La App, al ver que no coincide con su `requiresUnit: PERCENT`, sabrá que necesita una conversión previa.
+2.  **Precisión:** Una App de climatología podría pedir "Temperatura" pero con la constraint `requiresMetric: DailyMax` para detectar olas de calor, descartando datasets que solo den la media.
+3.  **Simplicidad en la Búsqueda:** El motor de búsqueda solo tiene que comparar URIs de `DataSpecification`. Si coinciden, luego verifica las `DataConstraint`.
+
+---
+
+## 4. Calidad del Dato (DQV)
+
+Las métricas de calidad (precisión, completitud) se asocian ahora al `FieldMapping`, permitiendo saber la calidad de cada columna individualmente.
+
+```turtle
+# Dentro del FieldMapping de temperatura
+:hasFieldMapping [
+    a :FieldMapping ;
+    :mapsToSpecification <spec/air-temperature> ;
+    :hasMetric [
+        a :Metric ;
+        :metricType :Accuracy ;
+        :metricValue "0.98"^^xsd:decimal ;
+        prov:generatedAtTime "2026-05-11T10:00:00Z"^^xsd:dateTime
+    ]
+] .
+```
+
+---
+
+## Resumen: Regla de Oro v1.0.0
+
+- **DataSpecification:** Es el "Fenómeno Puro" (ej. Precipitación). No cambia nunca.
+- **FieldMapping:** Es el "Cómo se entrega" (ej. en la columna 'rain_mm' como float en Milímetros).
+- **DataConstraint:** Es el "Cómo se necesita" (ej. Necesito mm con error < 5%).
+
+Este desacoplamiento permite que los espacios de datos escalen sin crear diccionarios infinitos de propiedades hardcodeadas con unidades.
