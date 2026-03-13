@@ -1,0 +1,486 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix bigdat: <https://w3id.org/BIGOWLData/> .
+
+#################################################################
+### Shapes for IDSA Classes (DataApp, DataResource)
+#################################################################
+
+:DataAppShape a sh:NodeShape ;
+    sh:targetClass ids:DataApp ;
+    rdfs:label "Data App Shape"@en ;
+    
+    sh:property [
+        sh:path dct:title ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:message "DataApp must have at least one dct:title"@en ;
+    ] ;
+    
+    sh:property [
+        sh:path [ sh:alternativePath ( :hasDomainSector dcat:theme ) ] ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ;
+        sh:message "DataApp must have at least one :hasDomainSector or dcat:theme (which must be a skos:Concept)"@en ;
+    ] .
+
+:DataResourceShape a sh:NodeShape ;
+    sh:targetClass ids:DataResource ;
+    rdfs:label "Data Resource Shape"@en ;
+    rdfs:comment "Validates basic DataResource properties."@en ;
+
+    sh:property [
+        sh:path dct:title ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:message "DataResource must have at least one dct:title"@en ;
+    ] ;
+    
+    sh:property [
+        sh:path ids:representation ;
+        sh:minCount 0 ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+        sh:message "DataResource should have an ids:representation linking to a Distribution"@en ;
+    ] .
+
+#################################################################
+#    SHAPES: DataRepresentation & Artifacts
+#################################################################
+
+:DataRepresentationShape a sh:NodeShape ;
+    sh:targetClass :DataRepresentation ;
+    rdfs:label "Data Representation Shape (v0.9.0)"@en ;
+    sh:property [
+        sh:path dct:format ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:class dct:MediaTypeOrExtent ]
+            [ sh:nodeKind sh:IRI ]
+        ) ;
+        sh:message "DataRepresentation MUST have exactly one dct:format expressed as a MediaType/Extent resource or IRI."@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path [ sh:alternativePath ( :conformsToProfile dct:conformsTo ) ] ;
+        sh:minCount 1 ;
+        sh:class :DataProfile ;
+        sh:message "DataRepresentation MUST link to at least one DataProfile for semantic interoperability. Preferred property: :conformsToProfile."@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path ids:instance ;
+        sh:minCount 1 ;
+        sh:class ids:RepresentationInstance ;
+        sh:message "DataRepresentation SHOULD have at least one instance (Artifact or Value)"@en ;
+        sh:severity sh:Warning
+    ] ;
+    sh:property [
+        sh:path ids:representationStandard ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:pattern "^https?://" ;
+        sh:message "representationStandard SHOULD be a valid HTTP(S) URI pointing to a technical standard"@en ;
+        sh:severity sh:Info
+    ] .
+
+:ArtifactInstanceShape a sh:NodeShape ;
+    sh:targetClass ids:Artifact ;
+    rdfs:label "Artifact Shape"@en ;
+    sh:property [
+        sh:path ids:fileName ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Artifact MUST have exactly one fileName"@en
+    ] ;
+    sh:property [
+        sh:path ids:checkSum ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^(sha256:|md5:|sha1:)" ;
+        sh:message "checkSum SHOULD use standard hash format (sha256:, md5:, sha1:)"@en ;
+        sh:severity sh:Warning
+    ] ;
+    sh:property [
+        sh:path ids:byteSize ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:long ;
+        sh:minInclusive 0 ;
+        sh:message "byteSize MUST be a non-negative long integer"@en
+    ] .
+
+:DCATAPComplianceShape a sh:NodeShape ;
+    sh:targetClass :DataRepresentation ;
+    rdfs:label "DCAT-AP Compliance Shape"@en ;
+    sh:property [
+        sh:path dcat:accessURL ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "DCAT-AP 3.0 REQUIRES at least one dcat:accessURL"@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path dct:license ;
+        sh:minCount 1 ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:class dct:LicenseDocument ]
+        ) ;
+        sh:message "DCAT-AP 3.0 RECOMMENDS dct:license"@en ;
+        sh:severity sh:Warning
+    ] ;
+    sh:property [
+        sh:path dct:issued ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:date ]
+            [ sh:datatype xsd:dateTime ]
+        ) ;
+        sh:message "DCAT-AP 3.0 RECOMMENDS dct:issued (date or dateTime)"@en ;
+        sh:severity sh:Info
+    ] ;
+    sh:property [
+        sh:path dcat:byteSize ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:message "DCAT-AP 3.0 allows dcat:byteSize as decimal (bytes)"@en ;
+        sh:severity sh:Info
+    ] .
+
+#################################################################
+#    SHAPES: DataProfile & Metrics (DQV Compliant)
+#################################################################
+
+:DataProfileShape a sh:NodeShape ;
+    sh:targetClass :DataProfile ;
+    sh:property [
+        sh:path :declaresDataClass ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "DataProfile MUST have exactly one :declaresDataClass."@en ;
+    ] ;
+    sh:property [
+        sh:path :hasMetric ;
+        sh:minCount 1 ;
+        sh:class :Metric ;
+        sh:message "DataProfile MUST have at least one :hasMetric."@en ;
+    ] ;
+    sh:property [
+        sh:path :declaresFeatureOfInterest ;
+        sh:minCount 0 ;
+        sh:class :FeatureOfInterest ;
+        sh:message "DataProfile SHOULD link to a :FeatureOfInterest category for semantic matchmaking."@en ;
+        sh:severity sh:Info
+    ] ;
+    # Replaced simple CRS check with CRS Concept Schema check
+    sh:property [
+        sh:path :hasCRS ;
+        sh:class skos:Concept ;
+        sh:node :CRSConceptValidation ;
+        sh:message "DataProfile CRS MUST be a valid SKOS Concept with proper labels and EPSG alignment"@en ;
+        sh:severity sh:Violation
+    ] .
+
+:CRSConceptValidation a sh:NodeShape ;
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:minCount 1 ;
+        sh:message "CRS Concept MUST have at least one skos:prefLabel"@en
+    ] ;
+    sh:property [
+        sh:path owl:sameAs ;
+        sh:pattern "^http://www\\.opengis\\.net/def/crs/(EPSG|OGC)/" ;
+        sh:message "CRS Concept SHOULD link to official EPSG/OGC definition via owl:sameAs"@en ;
+        sh:severity sh:Warning
+    ] .
+
+:MetricDQVComplianceShape a sh:NodeShape ;
+    sh:targetClass :Metric ;
+    sh:property [
+        sh:path :metricType ;
+        sh:maxCount 1 ;
+        sh:class :MetricType ;
+        sh:message "Metric SHOULD use :metricType (subPropertyOf dqv:isMeasurementOf) to link to MetricType"@en ;
+        sh:severity sh:Warning
+    ] ;
+    sh:property [
+        sh:path :hasMetricStandard ;
+        sh:minCount 0 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "Metric SHOULD use :hasMetricStandard to link to a QUDT unit or SKOS vocabulary (resolves #35)"@en ;
+        sh:severity sh:Info
+    ] ;
+    sh:property [
+        sh:path :measuresProperty ;
+        sh:minCount 0 ;
+        sh:class :ObservableProperty ;
+        sh:message "Metric SHOULD use :measuresProperty to link to the ObservableProperty it quantifies"@en ;
+        sh:severity sh:Info
+    ] ;
+    sh:property [
+        sh:path :metricValue ;  # subPropertyOf dqv:value
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Metric MUST have exactly one value (use :metricValue or dqv:value)"@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path :computedAt ;  # subPropertyOf prov:generatedAtTime
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime ;
+        sh:message "Metric SHOULD have computedAt timestamp for provenance"@en ;
+        sh:severity sh:Info
+    ] ;
+    sh:or (
+        [ sh:property [ sh:path :metricType ; sh:minCount 1 ] ]
+        [ sh:property [ sh:path :metricName ; sh:minCount 1 ] ]
+    ) ;
+    sh:message "Metric MUST have either :metricType (recommended) OR :metricName (fallback)"@en ;
+    sh:severity sh:Violation .
+
+:QualityMetricValueRangeShape a sh:NodeShape ;
+    sh:targetClass :Metric ;
+    sh:property [
+        sh:path :metricValue ;
+        sh:or (
+            # Ratio between 0 and 1
+            [ sh:datatype xsd:decimal ; sh:minInclusive 0.0 ; sh:maxInclusive 1.0 ]
+            # Percentage 0-100
+            [ sh:datatype xsd:decimal ; sh:minInclusive 0.0 ; sh:maxInclusive 100.0 ]
+            # General non-negative decimal values
+            [ sh:datatype xsd:decimal ; sh:minInclusive 0.0 ]
+            # Non-negative integer counts
+            [ sh:datatype xsd:integer ; sh:minInclusive 0 ]
+            # Qualitative strings
+            [ sh:datatype xsd:string ]
+        ) ;
+        sh:message """QualityMetric value MUST be: 
+        - decimal ratio [0.0, 1.0], OR 
+        - percentage [0, 100], OR 
+        - non-negative decimal value, OR
+        - non-negative integer count, OR 
+        - qualitative string"""@en ;
+        sh:severity sh:Violation
+    ] .
+
+:DQVQualityMetadataShape a sh:NodeShape ;
+    sh:targetClass dqv:QualityMetadata ;
+    sh:property [
+        sh:path dqv:hasQualityMeasurement ;
+        sh:minCount 1 ;
+        sh:class dqv:QualityMeasurement ;
+        sh:message "dqv:QualityMetadata SHOULD link to at least one dqv:QualityMeasurement."@en ;
+        sh:severity sh:Warning
+    ] .
+
+:DQVQualityMeasurementShape a sh:NodeShape ;
+    sh:targetClass dqv:QualityMeasurement ;
+    sh:property [
+        sh:path dqv:computedOn ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+        sh:message "dqv:QualityMeasurement SHOULD indicate the resource it was computed on using dqv:computedOn."@en ;
+        sh:severity sh:Info
+    ] .
+
+#################################################################
+#    SHAPES: Semantic Coherence & SPARQL
+#################################################################
+
+:ObservablePropertyCoherenceShape a sh:NodeShape ;
+    sh:targetClass :DataAsset ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "DataAsset serves ObservableProperty {?obs} but no representation profile declares it"@en ;
+        sh:prefixes : , ids: ;
+        sh:select """
+            SELECT $this ?obs
+            WHERE {
+                $this :servesObservableProperty ?obs .
+                $this ids:representation ?repr .
+                ?repr (:conformsToProfile|dct:conformsTo) ?profile .
+                FILTER NOT EXISTS {
+                    ?profile :declaresObservedProperty ?obs .
+                }
+            }
+        """ ;
+        sh:severity sh:Warning
+    ] .
+
+:FeatureOfInterestCoherenceShape a sh:NodeShape ;
+    sh:targetClass :DataAsset ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "DataAsset has FeatureOfInterest {?foi} but no representation profile declares it (or its parent category)"@en ;
+        sh:prefixes : , ids: , skos: ;
+        sh:select """
+            SELECT $this ?foi
+            WHERE {
+                $this :hasFeatureOfInterest ?foi .
+                $this ids:representation ?repr .
+                ?repr (:conformsToProfile|dct:conformsTo) ?profile .
+                FILTER NOT EXISTS {
+                    ?profile :declaresFeatureOfInterest ?category .
+                    # Either the exact FOI is declared, or the profile declares a broader category
+                    FILTER(?foi = ?category || EXISTS { ?foi skos:broader ?category })
+                }
+            }
+        """ ;
+        sh:severity sh:Warning
+    ] .
+
+:StandardDataClassCoherenceShape a sh:NodeShape ;
+    sh:targetClass :DataRepresentation ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message """Representation claims standard {?standard} but profile declares incompatible data class {?dataClass}.
+        For example, CSV standard expects TabularData class."""@en ;
+        sh:prefixes : , ids: , bigdat: ;
+        sh:select """
+            SELECT $this ?standard ?dataClass
+            WHERE {
+                $this ids:representationStandard ?standard .
+                $this (:conformsToProfile|dct:conformsTo) ?profile .
+                ?profile :declaresDataClass ?dataClass .
+                
+                # CSV standard must have TabularData
+                FILTER(
+                    (CONTAINS(STR(?standard), "csv") && ?dataClass != bigdat:TabularDataSet) ||
+                    (CONTAINS(STR(?standard), "geotiff") && ?dataClass != bigdat:Image) ||
+                    (CONTAINS(STR(?standard), "json") && ?dataClass != bigdat:StructuredData)
+                )
+            }
+        """ ;
+        sh:severity sh:Warning
+    ] .
+
+:AppOutputCoherenceShape a sh:NodeShape ;
+    sh:targetClass ids:SmartDataApp ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message """App produces profile {?profile} but it doesn't declare observable property {?obs} 
+        that the app claims to produce"""@en ;
+        sh:prefixes : , ids: ;
+        sh:select """
+            SELECT $this ?profile ?obs
+            WHERE {
+                $this :producesObservableProperty ?obs .
+                $this :producesProfile ?profile .
+                FILTER NOT EXISTS {
+                    ?profile :declaresObservedProperty ?obs .
+                }
+            }
+        """ ;
+        sh:severity sh:Violation
+    ] .
+
+:AppInputCoherenceShape a sh:NodeShape ;
+    sh:targetClass ids:SmartDataApp ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message """App requires profile {?profile} but it doesn't declare observable property {?obs} 
+        that the app claims to need"""@en ;
+        sh:prefixes : , ids: ;
+        sh:select """
+            SELECT $this ?profile ?obs
+            WHERE {
+                $this :requiresObservableProperty ?obs .
+                $this :requiresProfile ?profile .
+                FILTER NOT EXISTS {
+                    ?profile :declaresObservedProperty ?obs .
+                }
+            }
+        """ ;
+        sh:severity sh:Violation
+    ] .
+
+#################################################################
+#    SHAPES: Vocabulary Validation
+#################################################################
+
+:MetricTypeShape a sh:NodeShape ;
+    sh:targetClass :MetricType ;
+    rdfs:label "Metric Type Shape"@en ;
+    
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:message "MetricType must have at least one skos:prefLabel"@en ;
+    ] ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:minCount 1 ;
+        sh:message "MetricType should be in a skos:ConceptScheme"@en ;
+    ] .
+
+:ObservablePropertyShape a sh:NodeShape ;
+    sh:targetClass :ObservableProperty ;
+    rdfs:label "Observable Property Shape"@en ;
+    
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:message "ObservableProperty must have at least one skos:prefLabel"@en ;
+    ] .
+
+:FeatureOfInterestShape a sh:NodeShape ;
+    sh:targetClass :FeatureOfInterest ;
+    rdfs:label "Feature of Interest Shape"@en ;
+    
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 0 ;
+        sh:nodeKind sh:Literal ;
+    ] ;
+    sh:property [
+        sh:path skos:broader ;
+        sh:maxCount 1 ;
+        sh:class skos:Concept ;
+        sh:message "Individual Features of Interest SHOULD link to a broader SKOS category (e.g., from AGROVOC/SIEX)."@en ;
+        sh:severity sh:Info
+    ] .
+
+#################################################################
+#    SHAPES: Verifiable Credentials
+#################################################################
+
+:VerifiableCredentialShape a sh:NodeShape ;
+    sh:targetClass <https://www.w3.org/2018/credentials#VerifiableCredential> ;
+    sh:property [
+        sh:path <https://www.w3.org/2018/credentials#issuer> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:pattern "^did:" ;
+        sh:message "Verifiable Credential MUST have exactly one issuer with a DID"@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path <https://www.w3.org/2018/credentials#credentialSubject> ;
+        sh:minCount 1 ;
+        sh:message "Verifiable Credential MUST have at least one credentialSubject"@en ;
+        sh:severity sh:Violation
+    ] ;
+    sh:property [
+        sh:path <https://www.w3.org/2018/credentials#issuanceDate> ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime ;
+        sh:message "Verifiable Credential MUST have exactly one issuanceDate"@en ;
+        sh:severity sh:Violation
+    ] .

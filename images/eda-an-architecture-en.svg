@@ -1,106 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" width="840">
-<!--Definitions for gradients and markers-->
-  <defs>
-    <linearGradient id="gradDataSpace" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e3f2fd;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#bbdefb;stop-opacity:1"/>
-    </linearGradient>
-    <linearGradient id="gradSemantic" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1"/>
-    </linearGradient>
-    <filter id="dropShadow" height="130%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-      <feOffset dx="2" dy="2" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3"/>
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#546e7a"/>
-    </marker>
-  </defs>
-<!--Backgrounds for Layers-->
-<!--Data Space Layer-->
-  <rect x="20" y="20" width="860" height="120" rx="15" fill="url(#gradDataSpace)" stroke="#90caf9" stroke-width="2"/>
-  <text x="450" y="50" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="bold" fill="#1565c0" text-anchor="middle">DATA SPACE LAYER (Real World)</text>
-<!--Semantic Layer-->
-  <rect x="20" y="160" width="860" height="470" rx="15" fill="url(#gradSemantic)" stroke="#bdbdbd" stroke-width="2"/>
-  <text x="450" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="bold" fill="#616161" text-anchor="middle">SEMANTIC LAYER (Ontology)</text>
-<!--ZONES within Semantic Layer-->
-<!--IDSA Zone-->
-  <rect x="50" y="210" width="220" height="380" rx="10" fill="#fce4ec" stroke="#f48fb1" stroke-width="2" stroke-dasharray="5,5"/>
-  <text x="160" y="240" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="bold" fill="#880e4f" text-anchor="middle">IDSA Model</text>
-  <text x="160" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#ad1457" text-anchor="middle">(Governance &amp; Base)</text>
-<!--EDAAnOWL Zone-->
-  <rect x="300" y="210" width="300" height="380" rx="10" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2"/>
-  <text x="450" y="240" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="bold" fill="#2e7d32" text-anchor="middle">EDAAnOWL</text>
-  <text x="450" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#2e7d32" text-anchor="middle">(Domain Semantics)</text>
-<!--BIGOWL Zone-->
-  <rect x="630" y="210" width="220" height="380" rx="10" fill="#fffde7" stroke="#fff59d" stroke-width="2" stroke-dasharray="5,5"/>
-  <text x="740" y="240" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="bold" fill="#f57f17" text-anchor="middle">BIGOWL</text>
-  <text x="740" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#f9a825" text-anchor="middle">(Workflows)</text>
-<!--NODES-->
-<!--Real World Nodes-->
-  <g filter="url(#dropShadow)">
-    <rect x="100" y="70" width="160" height="50" rx="5" fill="#ffffff" stroke="#0277bd" stroke-width="2"/>
-    <text x="180" y="100" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#0277bd" text-anchor="middle">Data Assets</text>
-    <rect x="640" y="70" width="160" height="50" rx="5" fill="#ffffff" stroke="#0277bd" stroke-width="2"/>
-    <text x="720" y="100" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#0277bd" text-anchor="middle">Applications</text>
-  </g>
-<!--IDSA Nodes-->
-  <g filter="url(#dropShadow)">
-    <rect x="80" y="300" width="160" height="40" rx="5" fill="#ffffff" stroke="#c2185b" stroke-width="2"/>
-    <text x="160" y="325" font-family="Consolas, monospace" font-size="14" fill="#c2185b" text-anchor="middle">ids:DataResource</text>
-    <rect x="80" y="450" width="160" height="40" rx="5" fill="#ffffff" stroke="#c2185b" stroke-width="2"/>
-    <text x="160" y="475" font-family="Consolas, monospace" font-size="14" fill="#c2185b" text-anchor="middle">ids:DataApp</text>
-  </g>
-<!--EDAAnOWL Nodes-->
-  <g filter="url(#dropShadow)">
-<!--DataAsset-->
-    <rect x="350" y="300" width="200" height="40" rx="5" fill="#ffffff" stroke="#2e7d32" stroke-width="2"/>
-    <text x="450" y="325" font-family="Consolas, monospace" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="middle">:DataAsset</text>
-<!--SmartDataApp-->
-    <rect x="350" y="450" width="200" height="40" rx="5" fill="#ffffff" stroke="#2e7d32" stroke-width="2"/>
-    <text x="450" y="475" font-family="Consolas, monospace" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="middle">ids:SmartDataApp</text>
-<!--Profile & Observable-->
-    <rect x="320" y="380" width="120" height="40" rx="15" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1"/>
-    <text x="380" y="405" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1b5e20" text-anchor="middle">DataProfile</text>
-    <rect x="460" y="380" width="130" height="40" rx="15" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1"/>
-    <text x="525" y="405" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1b5e20" text-anchor="middle">ObservableProp</text>
-<!--Quality & Prov-->
-    <rect x="350" y="530" width="200" height="30" rx="5" fill="#fff3e0" stroke="#ef6c00" stroke-width="1" stroke-dasharray="3,3"/>
-    <text x="450" y="550" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#ef6c00" text-anchor="middle">Quality (DQV) &amp; Provenance (PROV)</text>
-  </g>
-<!--BIGOWL Nodes-->
-  <g filter="url(#dropShadow)">
-    <rect x="660" y="450" width="160" height="40" rx="5" fill="#ffffff" stroke="#f57f17" stroke-width="2"/>
-    <text x="740" y="475" font-family="Consolas, monospace" font-size="14" fill="#f57f17" text-anchor="middle">bigwf:Component</text>
-    <rect x="660" y="350" width="160" height="40" rx="5" fill="#ffffff" stroke="#f57f17" stroke-width="2"/>
-    <text x="740" y="375" font-family="Consolas, monospace" font-size="14" fill="#f57f17" text-anchor="middle">bigwf:Workflow</text>
-  </g>
-<!--CONNECTORS-->
-<!--Added fill="none" to all paths to prevent unwanted black fills-->
-<!--Real World to IDSA-->
-  <path d="M180,120 L180,150, L80 150, L80 290" stroke="#546e7a" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow)" fill="none"/>
-  <text x="100" y="145" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#546e7a" transform="rotate(0 175,200)">described as</text>
-  <path d="M720,120 L720,150 L250,150 L250,440" stroke="#546e7a" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow)" fill="none"/>
-  <text x="600" y="145" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#546e7a" transform="rotate(0 175,200)">described as</text>
-<!--IDSA to EDAAnOWL-->
-  <path d="M240,320 L340,320" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <text x="290" y="315" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#2e7d32" text-anchor="middle">specializes</text>
-  <path d="M240,470 L340,470" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <text x="290" y="465" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#2e7d32" text-anchor="middle">specializes</text>
-<!--EDAAnOWL Internal-->
-  <path d="M450,340 L450,370" stroke="#1b5e20" stroke-width="1.5" marker-end="url(#arrow)" fill="none"/>
-  <path d="M450,450 L450,430" stroke="#1b5e20" stroke-width="1.5" marker-end="url(#arrow)" fill="none"/>
-<!--EDAAnOWL to BIGOWL-->
-  <path d="M550,470 L650,470" stroke="#f57f17" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <text x="600" y="465" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#f57f17" text-anchor="middle">implements</text>
-  <path d="M740,450 L740,400" stroke="#f57f17" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <text x="745" y="410" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#f57f17" transform="rotate(-90 745,430)">part of</text>
-</svg>
+<?xml version="1.0" encoding="utf-8" ?>
+<svg baseProfile="full" height="920px" version="1.1" width="1150px" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"><![CDATA[
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+        
+        text { font-family: 'Inter', sans-serif; fill: #2d3436; }
+        .bg-canvas { fill: #ffffff; }
+        
+        /* Layer/Box Styles */
+        .layer-box { rx: 12; ry: 12; stroke-width: 2; fill-opacity: 0.1; }
+        .node-box { rx: 6; ry: 6; stroke-width: 1.5; fill: #ffffff; }
+        
+        /* Text Styles */
+        .title { font-size: 20px; font-weight: 600; text-anchor: middle; letter-spacing: 1.5px; fill: #2c3e50; }
+        .header { font-size: 15px; font-weight: 600; text-anchor: middle; }
+        .text { font-size: 13px; text-anchor: middle; fill: #2d3436; }
+        .italic { font-size: 12px; font-style: italic; text-anchor: middle; fill: #636e72; }
+        .label { font-size: 11px; font-weight: 600; fill: #636e72; text-anchor: middle; }
+        
+        /* Thematic Colors */
+        .theme-ds { fill: #3498db; stroke: #2980b9; }      /* Blue DataSpace */
+        .theme-cred { fill: #9b59b6; stroke: #8e44ad; }    /* Purple CRED */
+        .theme-edaan { fill: #2ecc71; stroke: #27ae60; }   /* Green EDAAnOWL */
+        .theme-idsa { fill: #e74c3c; stroke: #c0392b; }    /* Red IDSA */
+        .theme-bigowl { fill: #f1c40f; stroke: #f39c12; }  /* Yellow BIGOWL */
+        
+        /* Edges */
+        .edge { stroke: #535c68; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+        .edge-dashed { stroke-dasharray: 6,5; }
+        .edge-label-bg { fill: #ffffff; }
+    ]]></style><marker id="arrowhead" markerHeight="8" markerUnits="strokeWidth" markerWidth="8" orient="auto" refX="8" refY="4"><path d="M 0 0 L 8 4 L 0 8 Z" fill="#535c68" /></marker></defs><rect class="bg-canvas" height="100%" width="100%" x="0" y="0" /><rect class="layer-box theme-ds" height="120" width="1050" x="50" y="40" /><text class="title" x="575.0" y="65">DATA SPACE (Physical Assets)</text><rect class="node-box theme-ds" height="45" width="200" x="180" y="90" /><text class="text" x="280.0" y="116.5">Data Assets &amp; Files</text><rect class="node-box theme-ds" height="45" width="200" x="770" y="90" /><text class="text" x="870.0" y="116.5">Algorithms &amp; Apps</text><rect class="layer-box theme-edaan" height="680" width="1050" x="50" y="200" /><text class="title" x="575.0" y="225">SEMANTIC INTEROPERABILITY (Ontology)</text><rect class="layer-box theme-cred" height="280" width="220" x="70" y="260" /><text class="title" x="180.0" y="285">CRED / DCAT-AP</text><rect class="node-box theme-cred" height="32" width="180" x="90" y="310" /><text class="text" x="180.0" y="330.0">dcat:Catalog</text><rect class="node-box theme-cred" height="32" width="180" x="90" y="350" /><text class="text" x="180.0" y="370.0">dcat:Dataset</text><rect class="node-box theme-cred" height="32" width="180" x="90" y="390" /><text class="text" x="180.0" y="410.0">dcat:DataService</text><rect class="node-box theme-cred" height="32" width="180" x="90" y="430" /><text class="text" x="180.0" y="450.0">odrl:Policy</text><rect class="node-box theme-cred" height="32" width="180" x="90" y="470" /><text class="text" x="180.0" y="490.0">foaf:Agent</text><rect class="layer-box theme-idsa" height="150" width="220" x="860" y="260" /><text class="title" x="970.0" y="285">IDSA STANDARDS</text><rect class="node-box theme-idsa" height="35" width="180" x="880" y="310" /><text class="text" x="970.0" y="331.5">ids:DataResource</text><rect class="node-box theme-idsa" height="35" width="180" x="880" y="360" /><text class="text" x="970.0" y="381.5">ids:DataApp</text><rect class="layer-box theme-bigowl" height="140" width="220" x="860" y="680" /><text class="title" x="970.0" y="705">BIGOWL ANALYTICS</text><rect class="node-box theme-bigowl" height="35" width="180" x="880" y="730" /><text class="text" x="970.0" y="751.5">bigwf:Workflow</text><rect class="node-box theme-bigowl" height="35" width="180" x="880" y="780" /><text class="text" x="970.0" y="801.5">bigwf:Component</text><rect class="layer-box theme-edaan" height="560" width="510" x="320" y="260" /><text class="title" x="575.0" y="285">EDAAnOWL CORE v1.0.0</text><rect class="node-box theme-edaan" height="50" width="180" x="350" y="310" /><text class="italic" x="440.0" y="352.0">(Supply Side)</text><text class="header" x="440.0" y="332.0">DataAsset</text><rect class="node-box theme-edaan" height="50" width="180" x="620" y="310" /><text class="italic" x="710.0" y="352.0">(Demand Side)</text><text class="header" x="710.0" y="332.0">SmartDataApp</text><rect class="layer-box theme-edaan" fill="#f1f8f1" height="220" stroke-dasharray="4,4" width="470" x="340" y="400" /><text class="italic" x="575" y="420">MATCHMAKING DECOUPLING</text><rect class="node-box theme-edaan" height="40" width="150" x="365" y="440" /><text class="text" x="440.0" y="464.0">FieldMapping</text><rect class="node-box theme-edaan" height="40" width="150" x="365" y="495" /><text class="text" x="440.0" y="519.0">Metric / Unit</text><rect class="node-box theme-edaan" height="40" width="150" x="635" y="440" /><text class="text" x="710.0" y="464.0">InputProfile</text><rect class="node-box theme-edaan" height="40" width="150" x="635" y="495" /><text class="text" x="710.0" y="519.0">DataConstraint</text><rect class="node-box theme-edaan" height="45" width="330" x="410" y="560" /><text class="header" x="575.0" y="587.5">DataSpecification (Meaning)</text><rect class="node-box theme-edaan" height="75" width="470" x="340" y="720" /><text class="italic" x="575.0" y="774.5">(ObservableProperty / FeatureOfInterest / Unit URI)</text><text class="header" x="575.0" y="754.5">Semantic Anchoring (SOSA/QUDT)</text><path class="edge" d="M 280,135 L 280,170 L 440,170 L 440,310" /><text class="label" x="280" y="160">Describe</text><path class="edge" d="M 870,135 L 870,170 L 710,170 L 710,310" /><text class="label" x="870" y="160">Describe</text><path class="edge" d="M 440,360 L 440,440" /><path class="edge" d="M 440,480 L 440,560" /><path class="edge" d="M 710,360 L 710,440" /><path class="edge" d="M 710,480 L 710,560" /><path class="edge edge-dashed" d="M 575,605 L 575,720" /><path class="edge edge-dashed" d="M 270,326 L 350,326" /><path class="edge" d="M 880,327 L 835,327 L 835,290 L 510,290 L 510,310" /><path class="edge" d="M 800,345 L 860,345 L 860,377 L 880,377" /><path class="edge" d="M 970,395 L 970,680" /></svg>

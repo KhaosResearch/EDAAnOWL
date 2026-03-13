@@ -18,19 +18,19 @@ Adhere to these rules in every edit:
 
 - **Structure over Content**: Prefer external authoritative concepts for mature domains (e.g., Agriculture, Units).
 - **External-First (v0.6.0+)**: Use external normative IRIs (AGROVOC, EU Data Themes, DQV, PROV) by default; add local bridge vocabularies only when they improve discoverability, acronyms, or mappings.
-- **Matchmaking Integrity**: Always maintain the triangular link: `DataAsset` ↔ `DataProfile` ↔ `DataApp`.
+- **Matchmaking Integrity**: Always maintain the triangular link: `DataAsset` ↔ `[FieldMapping → DataSpecification]` ↔ `[InputProfile → DataSpecification]`.
 - **Validation First**: Every change to `.ttl` files MUST be validated using `scripts/local-validate.bat` (Windows).
 
 ## 3. Standard Procedures
 
-### Procedure A: Generating a New Version (e.g., 0.6.0 → 0.7.0, it depends on the mayor, minor or patch)
+### Procedure A: Generating a New Version (e.g., 0.9.0 → 1.0.0)
 
 1.  **Folder Hierarchy**: 
-    - Duplicate the latest version folder: `cp -r src/0.6.0/ src/0.7.0/`
+    - Duplicate the latest version folder: `cp -r src/0.9.0/ src/1.0.0/`
 2.  **Ontology Metadata**:
-    - Update `owl:versionIRI` to `.../0.7.0`
-    - Update `owl:versionInfo` to `0.7.0`
-    - Update `owl:priorVersion` to `.../0.6.0`
+    - Update `owl:versionIRI` to `.../1.0.0`
+    - Update `owl:versionInfo` to `1.0.0`
+    - Update `owl:priorVersion` to `.../0.9.0`
 3.  **Global Updates**:
     - Update `CITATION.cff` and root `README.md`.
     - Update `src/index.html` (Available Versions grid and Latest badge).
@@ -56,6 +56,8 @@ check if the `docs/` files are updated with the new property or metric.
 | :--- | :--- |
 | **Quality Metric** | `dqv:QualityMeasurement` |
 | **Metric Definition** | `dqv:Metric` |
+| **Field Mapping** | `edaan:FieldMapping` |
+| **Data Specification** | `edaan:DataSpecification` |
 | **Data App** | `ids:DataApp` / `bigwf:Component` |
 | **Data Asset** | `ids:Resource` / `dcat:Dataset` |
 | **Lineage** | `prov:generatedAtTime` |

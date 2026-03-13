@@ -8,7 +8,7 @@ graph TB
     end
 
     subgraph Semantic ["Semantic Layer (Ontology)"]
-        subgraph CRED ["CRED / UNE 0087 Compliance (v0.8.1)"]
+        subgraph CRED ["CRED / UNE 0087 Compliance (v1.0.0)"]
             CAT["dcat:Catalog<br/>(Federated Registry)"]
             SRV["dcat:DataService<br/>(Access Interface)"]
             POL["odrl:Policy / Offer<br/>(Usage Rights)"]
@@ -25,19 +25,26 @@ graph TB
             DA[":DataAsset<br/>(Supply)"]
             Apps[":SmartDataApp Types<br/>(Demand)"]
             
-            subgraph Matchmaking ["Matchmaking Core"]
-                Prof[":DataProfile<br/>(Structure)"]
+            subgraph Matchmaking ["v1.0.0 Matchmaking"]
+                Spec[":DataSpecification<br/>(Atomic Variable)"]
+                Prof[":DataProfile<br/>(Grouping)"]
+                Mapping[":FieldMapping<br/>(Bridge Layer)"]
+                InputProf[":InputProfile<br/>(App Demand)"]
+                Cons[":DataConstraint<br/>(Thresholds)"]
+            end
+
+            subgraph Metadata ["Distribution Metadata"]
+                Res["Technical Resolutions / CRS"]
+            end
+            
+            subgraph Meaning ["Semantic Core"]
                 OP[":ObservableProperty<br/>(Meaning)"]
+                FOI[":FeatureOfInterest<br/>(Subject)"]
             end
             
-            subgraph QualityStandard ["Quality & Standards"]
-                Met[":Metric / QualityMetric<br/>(DQV)"]
-                QUDT["QUDT Units / SKOS Vocabs"]
-            end
-            
+            Metric[":Metric (v1.0.0)"]
             Prov_O[":Provenance<br/>(PROV-O)"]
-            
-            Repr[":DataRepresentation"]
+            Repr[":DataRepresentation<br/>(Distribution)"]
         end
 
         subgraph BIGOWL ["BIGOWL (Workflow)"]
@@ -60,16 +67,26 @@ graph TB
     AP -->|"described as"| DA_IDSA
     DA_IDSA -->|"specialized by"| Apps
     
-    DA -- "servesObservableProperty" --> OP
-    Apps -- "requiresObservableProperty" --> OP
-    
-    DA -- "ids:representation" --> Repr
-    Repr -- "conformsToProfile" --> Prof
-    Apps -- "requiresProfile" --> Prof
+    DA -- "hasFeatureOfInterest" --> FOI
 
-    Prof -- "hasMetric" --> Met
-    Met -- "hasMetricStandard" --> QUDT
-    Met -- "measuresProperty" --> OP
+    DA -- "ids:representation" --> Repr
+    Repr -- "hasFieldMapping" --> Mapping
+    Mapping -- "mapsToSpecification" --> Spec
+    Mapping -- "mapsField" --> Field["Physical Field"]
+    Mapping -- "hasUnit / hasDataType" --> U["Unit / Type"]
+    
+    Apps -- "hasInputProfile" --> InputProf
+    InputProf -- "hasDataSpecification" --> Spec
+    InputProf -- "hasConstraint" --> Cons
+    
+    Spec -- "hasFeatureOfInterest" --> FOI
+    Spec -- "hasObservableProperty" --> OP
+    
+    Repr -- "technicalMetadata" --> Res
+    
+    Mapping -- "hasMetric" --> Metric
+    Metric -- "hasMetricStandard" --> QUDT["QUDT / SKOS"]
+    Metric -- "measuresProperty" --> OP
     
     DA -.->|"prov:wasGeneratedBy"| Apps
     DA -.->|"prov:wasDerivedFrom"| DA
@@ -87,25 +104,37 @@ graph TB
 
     class DS,AP space
     class DR_IDSA,DA_IDSA idsa
-    class DA,Repr,Apps,Prof,OP,Met,Prov_O edaan
+    class DA,Repr,Apps,Spec,Prof,Mapping,InputProf,Cons,OP,FOI,Metric,Prov_O edaan
     class WF,Comp bigowl
     class CAT,SRV,POL,AGN cred
-    class Matchmaking,QualityProv core
+    class Matchmaking,Metadata,Meaning core
 ```
 
 ## 🖼 Architecture diagram
 
-![EDAAnOWL architecture — IDS ↔ BIGOWL (v0.8.1 CRED updated)](images/eda-an-architecture-en.svg)
+![EDAAnOWL architecture — IDS ↔ BIGOWL (v0.9.0 FOI updated)](images/eda-an-architecture-en.svg)
 
-Figure: High-level architecture showing how EDAAnOWL maps IDSA concepts to BIGOWL components, all wrapped within a **CRED / DCAT-AP 3.0** compliant cataloguing layer.
+*Figure 1: High-level architecture showing how EDAAnOWL maps IDSA concepts to BIGOWL components, all wrapped within a CRED / DCAT-AP 3.0 compliant cataloguing layer.*
+
+### 🔄 Semantic Matchmaking Flow (v1.0.0)
+
+![Matchmaking flow concept](images/edaanowl-v1-matchmaking-flow.jpeg)
+
+*Figure 2: Conceptual flow showing the interaction between the Semantic, Dataset, Quality, and App layers.*
+
+### 🧬 Class Diagram (v1.0.0)
+
+![Detailed Class Diagram](images/edaanowl-v1-class-diagram.jpeg)
+
+*Figure 3: Core classes and relationships in the version 1.0.0 decoupled architecture.*
 
 ### Architecture overview
 
 The figure above shows how EDAAnOWL connects real-world data-space assets with semantic models from IDSA, BIGOWL, and the **CRED (UNE 0087:2025)** recommendations.
 
-### CRED / DCAT-AP 3.0 Alignment (New in v0.8.1)
+### CRED / DCAT-AP 3.0 Alignment (Updated in v1.0.0)
 
-As of version 0.8.1, EDAAnOWL incorporates a **Compliance Layer** that follows the recommendations of the **Spanish Data Office (CRED)** and the **UNE 0087:2025** standard. This ensures that assets described in EDAAnOWL are fully interoperable with national and European federated catalogs.
+As of version 1.0.0, EDAAnOWL refines its alignment with the **Spanish Data Office (CRED)** and the **UNE 0087:2025** standard by moving technical distribution metadata to the `dcat:Distribution` level, keeping semantic profiles pure and reusable.
 
 - **`dcat:Catalog`**: Acts as the root container for all assets and services within an EDAAn data space instance.
 - **`dcat:DataService`**: Describes the technical access points (APIs) to the data, effectively wrapping `ids:DataApp` or smart data apps.
@@ -125,35 +154,55 @@ In EDAAnOWL, these classes are specialised to capture more domain-specific conce
 - **`DataAsset`** is aligned with and specialises `ids:DataResource` (supply side).
 - **Smart data app types** specialise `ids:DataApp` (demand side).
 
-### Observable properties: matching supply and demand
+### Matchmaking Layer: Atomic Specifications and Field Mappings (v1.0.0)
 
-EDAAnOWL introduces **`ObservableProperty`** to represent **what is being measured or described** (the semantic “meaning” of the data).
+In version 1.0.0, EDAAnOWL decouples semantic meaning from technical schema to enable extreme reusability.
 
-- A **DataAsset** *serves* one or more observable properties  
-  – “I provide X” → the dataset contains observations of X.
-- A **Smart Data App** *requires* one or more observable properties  
-  – “I need X” → the app expects data about X as input.
+#### 1. Atomic Data Specifications (`DataSpecification`)
+Specifications are now **pure semantic units** that define WHAT is being measured (e.g., "NDVI for Olives", "Soil Moisture"). They contain:
+- `:hasFeatureOfInterest` (generic category, e.g., Olives).
+- `:hasObservableProperty` (semantic concept, e.g., NDVI).
+They do **NOT** contain column names, units, or metrics.
 
-### Data profiles: structural compatibility
+#### 2. Field Mappings (`FieldMapping`)
+This bridge layer connects an atomic specification to a physical distribution:
+- `:mapsToSpecification`: Points to the reusable atomic specification.
+- `:mapsField`: Specifies the column name or field (e.g., "ndvi_column").
+- `:hasUnit`: Defines the unit of measure (QUDT) used in this specific distribution.
+- `:hasDataType`: Defines the XSD data type.
+- `:hasObservationMetric`: Defines the aggregation or statistical metric (e.g., DailyAverage).
+- `:hasMetric`: Links technical quality metrics (e.g., Accuracy).
 
-Semantic meaning is not enough; the **structure** of the data also matters. For this, EDAAnOWL defines **`DataProfile`**:
+#### 3. DataApp Profiles (`InputProfile` / `OutputProfile`)
+Apps define their needs through profiles:
+- `:hasDataSpecification`: Specifies the needed atomic variables.
+- `:hasConstraint`: Defines requirements for units, metrics, or thresholds (e.g., requiresUnit: Celsius, requiresMetric: DailyAverage).
 
-- A **DataAsset** has a **Representation** (via `ids:representation`).
-- That **Representation** **conformsToProfile** a `DataProfile`, which describes its schema, formats, and structural constraints.
-- A **Smart Data App** **requiresProfile** a `DataProfile`, which describes the expected input structure.
+This enables high-precision matchmaking where an app's semantic and technical needs are compared against the distribution's mappings.
 
-### Data Quality and Provenance
+#### 4. Automatic Discovery (Matchmaking)
+By reusing the same semantic variable (`DataSpecification`) across supply (Datasets) and demand (Apps), the system can perform automated discovery:
+- **Datasets** declare what specifications they provide via `FieldMapping`.
+- **Apps** specify what specifications they require via `InputProfile`.
+- Discovery is performed by comparing the URIs of the required and provided atomic specifications.
 
-EDAAnOWL v0.8.1 provides explicit support for data quality, lineage, and performance tracking:
+---
 
-- **Metrics (`Metric`, `QualityMetric`)**: A `DataProfile` can define multiple metrics using `:hasMetric`. These align with `dqv:QualityMeasurement`.
-- **Standards (`hasMetricStandard`)**: Replaces `metricUnit`. Links a metric to a semantic definition, such as a **QUDT Unit** (`qudt:KiloGM`) or a **SKOS Concept** for categorical data.
-- **Meaning (`measuresProperty`)**: Explicitly links a metric to the `ObservableProperty` it measures.
-- **Performance (`PerformanceMetric`)**: `DataApp`s can declare non-functional properties like execution time or max throughput.
-- **Provenance (`prov:wasGeneratedBy`)**: A `DataAsset` can be linked back to the processing app that created it.
+## 🏛 Strategic Design Principles
 
+This model follows three core principles for resilient data space annotation:
 
-> [!TIP]
+### 1. Reusable Semantic Variables
+`DataSpecification` represents a scientific variable (e.g., *SoilMoisture*, *AirTemperature*). These are schema-agnostic and can be reused by hundreds of datasets, making them the "common language" of the data space.
+
+### 2. Profiles as Grouping Units
+`DataProfile` (and its specialisations `InputProfile` / `OutputProfile`) allows grouping multiple variables into a single logical unit. An app doesn't just need "data"; it needs a specific *profile* of variables to function.
+
+### 3. Separation of Concerns
+By separating the **Meaning** (Specification), **Structure** (FieldMapping), and **Requirement** (Constraint), we ensure that an application remains decoupled from the physical format (CSV, JSON, SQL) of the data asset.
+
+---
+
 > **Domain-Specific Catalogs: SIEX (FEGA)**
 > Although EDAAnOWL follows a "Zero-Local" vocabulary policy, we include a strategic exception for the **[SIEX (Spain)](https://www3.sede.fega.gob.es/bdcsixpor/catalogos)** catalogs. These codes are essential for the Spanish agricultural sector and government aid (CAP/PAC). Since no official RDF version exists, we curate them locally via automated CSV-to-SKOS transformation to support the [EDAAn Data Space](https://edaan.agora-datalab.eu/).
 
@@ -194,8 +243,7 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
 
   - **Structure**:
     - `/src/`
-      - `0.6.0/` (Ontology and vocabs for v0.6.0)
-      - `0.7.0/` (Ontology and vocabs for v0.7.0 - Latest)
+      - `1.0.0/` (Ontology and vocabs for v1.0.0 - Latest)
     - `/.github/workflows/` (The CI/CD workflow)
 
 - **`dev` branch**:

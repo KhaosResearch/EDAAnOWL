@@ -1,0 +1,128 @@
+@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix ex: <http://example.org/data/eo/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix bigdat: <https://w3id.org/BIGOWLData/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix data: <http://example.org/data/> .
+@prefix spec: <http://example.org/spec/> .
+@prefix bigwf: <https://w3id.org/BIGOWLWorkflows/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
+@prefix qudt: <http://qudt.org/vocab/unit/> .
+
+<http://example.org/data/eo/> rdf:type owl:Ontology ;
+    owl:imports <https://w3id.org/EDAAnOWL/> ;
+    dct:title "Examples for Earth Observation (v1.0.0)"@en ;
+    dct:description "Earth Observation examples using the v1.0.0 decoupled architecture."@en .
+
+# --- Reusable Data Specifications (Semantic Layer) ---
+
+spec:NDVI_Olives a :DataSpecification ;
+    rdfs:label "NDVI for Olives Specification"@en ;
+    :hasFeatureOfInterest agrovoc:c_12926 ;     # Olives
+    :hasObservableProperty agrovoc:c_ce585e0d .  # NDVI
+
+spec:Temperature_Olives a :DataSpecification ;
+    rdfs:label "Temperature for Olives Specification"@en ;
+    :hasFeatureOfInterest agrovoc:c_12926 ;
+    :hasObservableProperty agrovoc:c_7657 .      # Temperature
+
+spec:SoilMoisture_Olives a :DataSpecification ;
+    rdfs:label "Soil Moisture for Olives Specification"@en ;
+    :hasFeatureOfInterest agrovoc:c_12926 ;
+    :hasObservableProperty agrovoc:c_7208 .      # Soil moisture
+
+# --- Use Case 1: Sentinel-2 Data Asset (Supply) ---
+
+ex:Sentinel2_NDVI_Jaen_2024 a :DataAsset, dcat:Dataset ;
+    dct:title "Sentinel-2 NDVI for Jaén (2024)"@en ;
+    dcat:theme theme:AGRI ;
+    ids:representation ex:Sentinel2Distribution .
+
+ex:Sentinel2Distribution a :DataRepresentation, dcat:Distribution ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/TIFF> ;
+    
+    # Technical Layer (Metadata on Distribution)
+    dcat:spatialResolutionInMeters "10.0"^^xsd:decimal ;
+    dcat:temporalResolution "P5D"^^xsd:duration ;
+    :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
+    dcat:accessURL <http://example.org/downloads/jaen_ndvi.tif> ;
+
+    # Binding Layer (FieldMappings)
+    :hasFieldMapping [
+        a :FieldMapping ;
+        :mapsToSpecification spec:NDVI_Olives ;
+        :mapsField "NDVI_BAND" ;
+        :hasUnit qudt:UNITLESS ;
+        :hasDataType xsd:float ;
+        :hasMetric [
+            a :Metric ;
+            :metricType :Completeness ;
+            :metricValue "0.98"^^xsd:decimal
+        ]
+    ] .
+
+# --- Use Case 2: Smart Irrigation App (Demand) ---
+
+ex:SmartIrrigatorApp a :DataApp, ids:DataApp ;
+    dct:title "Automated Irrigation App"@en ;
+    dcat:theme theme:AGRI ;
+    
+    # Matching Requirements via InputProfile
+    :hasInputProfile [
+        a :InputProfile ;
+        :hasDataSpecification spec:SoilMoisture_Olives ;
+        :hasConstraint [
+            a :DataConstraint ;
+            :requiresUnit qudt:PERCENT ;
+            :requiresMetric :DailyAverage ;
+            :constraintMetricType :Accuracy ;
+            :constraintOperator ">=" ;
+            :constraintValue "0.90"^^xsd:decimal
+        ]
+    ] .
+
+# --- Use Case 3: Mixed CSV (Weather Station) ---
+
+ex:JaenWeatherStation a :DataAsset, dcat:Dataset ;
+    dct:title "Jaén Weather Station Data (2026)"@en ;
+    dcat:distribution ex:WeatherCSV .
+
+ex:WeatherCSV a :DataRepresentation, dcat:Distribution ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    dcat:accessURL <http://example.org/downloads/weather.csv> ;
+    
+    # Multiple FieldMappings for different semantic variables in the same distribution
+    :hasFieldMapping [
+        a :FieldMapping ;
+        :mapsToSpecification spec:Temperature_Olives ;
+        :mapsField "temp_c" ;
+        :hasUnit qudt:DEG_C ;
+        :hasDataType xsd:float 
+    ] ,
+    [
+        a :FieldMapping ;
+        :mapsToSpecification spec:SoilMoisture_Olives ;
+        :mapsField "moisture_p" ;
+        :hasUnit qudt:PERCENT ;
+        :hasDataType xsd:float 
+    ] .
+
+# --- Supporting Stubs ---
+agrovoc:c_12926 a skos:Concept ; skos:prefLabel "Olives"@en .
+agrovoc:c_ce585e0d a skos:Concept ; skos:prefLabel "NDVI"@en .
+agrovoc:c_7657 a skos:Concept ; skos:prefLabel "Temperature"@en .
+agrovoc:c_7208 a skos:Concept ; skos:prefLabel "Soil Moisture"@en .
+theme:AGRI a skos:Concept ; skos:prefLabel "Agriculture"@en .
