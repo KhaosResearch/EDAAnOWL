@@ -1,10 +1,10 @@
-# Guía de Perfilado Semántico: Dataset Real y Matchmaking (v1.0.0)
+# Guía de Perfilado Semántico: Dataset Real y Matchmaking (v1.1.0)
 
-En la versión **v1.0.0** de EDAAnOWL, hemos simplificado y robustecido la arquitectura para permitir una interoperabilidad extrema. La clave es la **separación en 3 capas**:
+En la versión **v1.1.0** de EDAAnOWL, hemos simplificado y robustecido la arquitectura para permitir una interoperabilidad extrema. La clave es la **separación en 3 capas**:
 
-1.  **Capa Semántica (¿Qué es?):** `DataSpecification`. Define el fenómeno físico (ej. Humedad) y el sujeto (ej. Suelo). Es pura y reutilizable.
-2.  **Capa de Vinculación (¿Cómo viene?):** `FieldMapping`. Une la especificación semántica con una columna física, definiendo la **Unidad**, el **Tipo de Dato** y la **Métrica de Observación**.
-3.  **Capa Técnica (¿Dónde está?):** `Distribution`. Contiene los metadatos del archivo (formato, resolución temporal, CRS).
+1.  **Capa 1: Semántica (¿Qué es?):** `DataSpecification`. Define el fenómeno físico (ej. Humedad) y el sujeto (ej. Suelo). Es pura y reutilizable.
+2.  **Capa 2: Puente (¿Cómo viene?):** `FieldMapping`. Une la especificación semántica con una columna física, definiendo la **Unidad**, el **Tipo de Dato** y la **Métrica de Observación**.
+3.  **Capa 3: Técnica (¿Dónde está?):** `Distribution`. Contiene los metadatos del archivo (formato, resolución temporal, CRS).
 
 ---
 
@@ -23,7 +23,7 @@ Este CSV ofrece datos sobre 2 variables semánticas:
 
 ---
 
-## 2. Modelando con EDAAnOWL v1.0.0 (Turtle)
+## 2. Modelando con EDAAnOWL v1.1.0 (Turtle)
 
 ### 2.1 Especificaciones Semánticas (Librería Reutilizable)
 Estas definiciones se crean una vez y se reutilizan en todo el espacio de datos.
@@ -87,7 +87,7 @@ Aquí es donde vinculamos la semántica con la realidad física del archivo.
 
 ## 3. Matchmaking: ¿Cómo una App pide lo que necesita?
 
-En v1.0.0, las aplicaciones no solo piden "Humedad", sino que pueden exigir requisitos técnicos específicos mediante **Constraints**.
+En v1.1.0, las aplicaciones no solo piden "Humedad", sino que pueden exigir requisitos técnicos específicos mediante **Constraints**.
 
 ### 3.1 La DataApp y su perfil de entrada (Demand)
 
@@ -137,7 +137,7 @@ Las métricas de calidad (precisión, completitud) se asocian ahora al `FieldMap
 
 ---
 
-## Resumen: Regla de Oro v1.0.0
+## Resumen: Regla de Oro v1.1.0
 
 - **DataSpecification:** Es el "Fenómeno Puro" (ej. Precipitación). No cambia nunca.
 - **FieldMapping:** Es el "Cómo se entrega" (ej. en la columna 'rain_mm' como float en Milímetros).

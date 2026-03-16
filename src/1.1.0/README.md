@@ -29,6 +29,34 @@ The previous monolithic profile approach has been evolved into a modular, three-
 
 ---
 
+
+---
+
+<details>
+<summary><b>v0.7.0 Highlights (Semantic Data Matching)</b></summary>
+
+| Feature | Description |
+| :--- | :--- |
+| **DataProfile class** | New structure for grouping multiple semantic variables. |
+| **hasMetricStandard** | Formal link to QUDT units and statistical metrics. |
+| **measuresProperty** | Direct link between a profile and its observed property. |
+| **Unit-Aware Matchmaking** | Compatibility logic based on unit normalization. |
+
+</details>
+
+<details>
+<summary><b>v0.6.0 Highlights (IDSA & BIGOWL Alignment)</b></summary>
+
+| Feature | Description |
+| :--- | :--- |
+| **ids:Resource Alignment** | Native support for IDSA core conceptual model. |
+| **bigwf:Workflow Integration** | Linking DataApps to BIGOWL analytical pipelines. |
+| **Technical Resolution** | Properties for spatial and temporal granularity. |
+
+</details>
+
+---
+
 ## CRED and Validation
 
 1. **Catalog** — `dcat:Catalog` aggregating data space resources
@@ -40,55 +68,6 @@ The previous monolithic profile approach has been evolved into a modular, three-
 7. **DataService** — `dcat:DataService` with endpoint and served datasets
 8. **Vocabulary-as-Dataset** — Ontology catalogued using CRED library model
 9. **Rights & License** — `dct:RightsStatement` and `dct:LicenseDocument` instances
-
-> [!TIP]
-> The CRED example demonstrates how EDAAnOWL's unique DataSpecification semantics (metrics, properties, CRS) complement the standard DCAT-AP cataloguing metadata.
-
----
-
-## Breaking Changes (Cleanup)
-
-The v1.0.0 line introduced a **major cleanup** that streamlined the ontology by removing 8 redundant properties that previously bypassed the modular architecture. v1.1.0 keeps that model and consolidates it for semantic discovery and matchmaking.
-
-| Removed Property | Replacement / Strategy |
-|------------------|------------------------|
-| `:requiresObservableProperty` | Use `hasInputProfile → hasDataSpecification`. |
-| `:requiresFeatureOfInterest` | Use `hasInputProfile → hasDataSpecification`. |
-| `:producesObservableProperty` | Use `producesProfile → OutputProfile`. |
-| `:producesFeatureOfInterest`  | Use `producesProfile → OutputProfile`. |
-| `:servesObservableProperty`   | Inherited from Bound Specification via Distribution. |
-| `:declaresObservedProperty`   | Use `:hasObservableProperty`. |
-| `:declaresFeatureOfInterest`  | Use `:hasFeatureOfInterest`. |
-| `:conformsToProfile`          | Use `hasFieldMapping → mapsToSpecification`. |
-
----
-
-## Previous v0.7.0 Highlights
-
-v0.7.0 introduced explicit support for measurement units via [QUDT](https://qudt.org/) and SIEX vocabulary rebranding.
-
-| Change | Impact | Justification |
-|--------|--------|---------------|
-| **Semantic Standards** | `metricUnit` → `edaan:hasMetricStandard` | Enables referencing standardized QUDT URIs or SKOS ConceptSchemes natively. |
-| **Operational Meaning** | New Property: `edaan:measuresProperty` | Explicitly links metrics to the `ObservableProperty` they measure. |
-| **SIEX Rebranding** | New Namespace: `w3id.org/EDAAnOWL/siex/` | Official URI persistence for SIEX vocabularies. |
-
----
-
-## Previous v0.6.0 Highlights (Core Semantic Update)
-
-| Change | Impact | Justification |
-|--------|--------|---------------|
-| **DQV Alignment** | `:metricType` → `dqv:isMeasurementOf`, `:metricValue` → `dqv:value` | Enables DQV-aware tools to interpret EDAAnOWL metrics natively. |
-| **PROV Alignment** | `:computedAt` → `prov:generatedAtTime` | Establishes lineage tracking for metric measurements. |
-| **Vocabulary Strategy** | External-First + Bridge Vocabs | Use external normative IRIs by default, plus minimal local bridge vocabularies when they improve discoverability or provide missing concepts. |
-| **Validation** | IDSA & DCAT-AP SHACL | Integrated authoritative SHACL shapes for deeper semantic compliance. |
-
----
-
-## Vocabulary Strategy
-
-EDAAnOWL follows an **external-first vocabulary strategy**. We recommend using **established external vocabularies** directly whenever they are sufficient, while allowing **minimal local bridge vocabularies** for cases such as acronyms, aliases, curated alignments, or missing concepts:
 
 | Domain | Recommended Vocabulary | URI Pattern |
 |--------|------------------------|-------------|

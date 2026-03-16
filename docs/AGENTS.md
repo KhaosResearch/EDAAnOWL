@@ -9,7 +9,7 @@ When starting a session or resuming work, perform these checks to establish curr
 
 1.  **Current Version**: Check `owl:versionInfo` in the root `EDAAnOWL.ttl` (usually symlinked or copied to the latest version).
 2.  **Recent Changes**: Read `CHANGELOG.md` to understand what was implemented in the last few increments.
-3.  **Critical Feedback**: Review `docs/REVIEW_FEEDBACK.md` for pending semantic fixes or architectural debts.
+3.  **Critical Feedback**: Review `docs/REVIEW_v1.1.0_ES.md` for pending semantic fixes or architectural debts.
 4.  **Active Version Path**: Documentation and source code reside in `src/<version>/`.
 
 ## 2. Technical Commandments
@@ -23,10 +23,10 @@ Adhere to these rules in every edit:
 
 ## 3. Standard Procedures
 
-### Procedure A: Generating a New Version (e.g., 0.9.0 → 1.0.0)
+### Procedure A: Generating a New Version (e.g., 1.0.0 → 1.1.0)
 
 1.  **Folder Hierarchy**: 
-    - Duplicate the latest version folder: `cp -r src/0.9.0/ src/1.0.0/`
+    - Duplicate the latest version folder: `cp -r src/1.0.0/ src/1.1.0/`
 2.  **Ontology Metadata**:
     - Update `owl:versionIRI` to `.../1.0.0`
     - Update `owl:versionInfo` to `1.0.0`
@@ -64,7 +64,7 @@ check if the `docs/` files are updated with the new property or metric.
 | **Format** | `dct:format` (MIME or URI) |
 
 ### DCAT-AP-ES Compliance Schema
-![DCAT All Attributes Diagram](file:///C:/Users/marti/Downloads/EDAAnOWL/docs/assets/dcat-all-attributes.svg)
+![DCAT All Attributes Diagram](assets/dcat-all-attributes.svg)
 *Reference diagram for Full DCAT-AP-ES 1.0.0 compliance.*
 
 ## 5. Troubleshooting for AI Agents
