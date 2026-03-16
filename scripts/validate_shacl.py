@@ -37,20 +37,24 @@ def find_latest_version(src_dir: Path) -> str:
     versions.sort(key=lambda v: [int(x) for x in v.split('.')])
     return versions[-1]
 
-def validate_file(data_file: Path, shape_files: list, ontology_file: Path, vocab_files: list = None) -> bool:
+def validate_file(data_file: Path, shape_files: list, ontology_file: Path, vocab_files: list = None, fmt: str = 'turtle') -> bool:
     """Validate a single data file against shapes."""
-    print(f"\n📋 Validating: {data_file.name}")
+    print(f"\n📋 Validating: {data_file.name} (Format: {fmt})")
     
+    report_dir = Path("validation_reports")
+    report_dir.mkdir(exist_ok=True)
+    report_file = report_dir / f"report_{data_file.stem}.txt"
+
     # Load data graph
     data = Graph()
-    data.parse(str(data_file), format='turtle')
+    data.parse(str(data_file), format=fmt)
     
     # Load ontology
     merged = Graph()
     merged += data
     merged.parse(str(ontology_file), format='turtle')
     
-    # Load vocabs if they exist (for legacy versions)
+    # Load vocabs if they exist
     if vocab_files:
         for vocab in vocab_files:
             if vocab.exists():
@@ -60,7 +64,6 @@ def validate_file(data_file: Path, shape_files: list, ontology_file: Path, vocab
     shapes = Graph()
     for sf in shape_files:
         if sf.exists():
-            print(f"   🔗 Loading shapes: {sf.name}")
             shapes.parse(str(sf), format='turtle')
     
     # Validate
@@ -80,16 +83,9 @@ def validate_file(data_file: Path, shape_files: list, ontology_file: Path, vocab
         print(f"   ✅ Success (No Violations)")
     else:
         print(f"   ❌ Failed ({len(violations)} Violations found)")
-        # Show ONLY violations
-        results_text_clean = results_text
-        for result in results_graph.subjects(SH.resultSeverity, SH.Violation):
-            # Extract relevant info for this specific violation
-            msg = results_graph.value(result, SH.resultMessage)
-            path = results_graph.value(result, SH.resultPath)
-            focus = results_graph.value(result, SH.focusNode)
-            print(f"      - Violation: {msg}")
-            print(f"        Focus: {focus}")
-            print(f"        Path: {path}")
+        with open(report_file, "w", encoding="utf-8") as f:
+            f.write(results_text)
+        print(f"      📄 Report saved to: {report_file}")
     
     return is_success
 
@@ -109,10 +105,17 @@ def main():
     version_dir = src_dir / version
     ontology_file = version_dir / 'EDAAnOWL.ttl'
     
-    # Dynamic shape list
+    # Official DCAT-AP-ES SHACL shapes (modular)
+    shape_dir = version_dir / 'shapes' / 'compliance' / 'dcat-ap-es' / '1.0.0'
     shape_files = [
+        shape_dir / 'shacl_common_shapes.ttl',
+        shape_dir / 'shacl_catalog_shape.ttl',
+        shape_dir / 'shacl_dataset_shape.ttl',
+        shape_dir / 'shacl_distribution_shape.ttl',
+        shape_dir / 'shacl_dataservice_shape.ttl',
+        shape_dir / 'shacl_mdr-vocabularies.shape.ttl',
+        # Our own internal shapes
         version_dir / 'shapes' / 'edaan-shapes.ttl',
-        version_dir / 'shapes' / 'dcat-ap-alignment.ttl',
         version_dir / 'shapes' / 'idsa-shapes.ttl',
         version_dir / 'shapes' / 'cred-alignment-shapes.ttl',
     ]
@@ -130,16 +133,24 @@ def main():
     
     # Examples to validate
     examples_dir = version_dir / 'examples'
+    official_examples_dir = examples_dir / 'dcat-ap-es' / 'rdf' / '1.0.0'
+    
     data_files = [
-        examples_dir / 'test-consistency.ttl',
-        examples_dir / 'eo-instances.ttl',
-        examples_dir / 'cred-asset-example.ttl',
+        (ontology_file, 'turtle'),
+        (examples_dir / 'test-consistency.ttl', 'turtle'),
+        (examples_dir / 'eo-instances.ttl', 'turtle'),
+        (examples_dir / 'cred-asset-example.ttl', 'turtle'),
     ]
     
+    # Add official examples if they exist
+    if official_examples_dir.exists():
+        for rdf_file in official_examples_dir.glob('*.rdf'):
+            data_files.append((rdf_file, 'xml'))
+
     all_valid = True
-    for data_file in data_files:
+    for data_file, fmt in data_files:
         if data_file.exists():
-            if not validate_file(data_file, shape_files, ontology_file, vocab_files):
+            if not validate_file(data_file, shape_files, ontology_file, vocab_files, fmt):
                 all_valid = False
     
     print("\n" + "=" * 50)
