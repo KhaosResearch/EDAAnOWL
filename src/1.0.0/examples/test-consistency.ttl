@@ -1,160 +1,190 @@
 @prefix : <https://w3id.org/EDAAnOWL/> .
 @prefix test: <https://w3id.org/EDAAnOWL/test/> .
+@prefix ids: <https://w3id.org/idsa/core/> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix bigalg: <https://w3id.org/BIGOWLAlgorithms/> .
+@prefix bigprob: <https://w3id.org/BIGOWLProblems/> .
+@prefix bigdat: <https://w3id.org/BIGOWLData/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
-@prefix time: <http://www.w3.org/2006/time#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
-@prefix es-sector: <http://datos.gob.es/kos/sector-publico/sector/> .
-@prefix qudt: <http://qudt.org/vocab/unit/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
-@prefix ids: <https://w3id.org/idsa/core/> .
-@prefix dcatap: <http://data.europa.eu/r5r/> .
-@prefix locn: <http://www.w3.org/ns/locn#> .
-@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
 
-<https://w3id.org/EDAAnOWL/test/> a owl:Ontology ;
+<https://w3id.org/EDAAnOWL/test/> rdf:type owl:Ontology ;
     owl:imports <https://w3id.org/EDAAnOWL/> ;
-    dct:title "Consistency Test Instances"@en , "Instancias de Prueba de Consistencia"@es ;
-    dct:description "Test cases for verifying EDAAnOWL SHACL rules and DCAT-AP-ES compliance."@en , "Casos de prueba para verificar las reglas SHACL de EDAAnOWL y el cumplimiento de DCAT-AP-ES."@es ;
-    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567> ;
-    dct:language <http://publications.europa.eu/resource/authority/language/ENG> , <http://publications.europa.eu/resource/authority/language/SPA> .
+    dct:title "EDAAnOWL Test Instances (v1.0.0)"@en ;
+    dct:description "Minimal test instances for SHACL validation using the v1.0.0 atomic profiles architecture."@en .
 
-# --- Agents ---
-<http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567> a foaf:Agent ;
-    foaf:name "Test Organization"@en , "Organización de Prueba"@es ;
-    dct:identifier "E01234567" ;
-    dct:type <http://purl.org/adms/publishertype/PublicBody> .
+### Stub definitions for external concepts (enables offline validation)
 
-# --- Specifications ---
-test:NDVIProfile a :DataSpecification ;
-    rdfs:label "NDVI Profile"@en , "Perfil NDVI"@es ;
-    :hasFeatureOfInterest agrovoc:c_12926 ;
-    :hasObservableProperty agrovoc:c_ce585e0d .
+theme:AGRI a skos:Concept ;
+    skos:prefLabel "Agriculture, fisheries, forestry and food"@en ,
+    "Agricultura, pesca, silvicultura y alimentación"@es .
 
-# --- Activities ---
-test:ValidApp a prov:Activity ;
-    rdfs:label "Data Generation App"@en , "App de Generación de Datos"@es ;
-    dct:title "Data Generation App"@en , "App de Generación de Datos"@es ;
-    prov:startedAtTime "2026-01-01T10:00:00Z"^^xsd:dateTime ;
-    prov:endedAtTime "2026-01-01T11:00:00Z"^^xsd:dateTime .
+### VERIFIED AGROVOC codes
 
-# --- Datasets ---
+agrovoc:c_ce585e0d a skos:Concept, :ObservableProperty, sosa:ObservableProperty ;  # NDVI
+    skos:prefLabel "NDVI"@en , "NDVI"@es .
 
-### 1. Valid DataAsset with Distribution
-test:ValidDataAsset a :DataAsset, dcat:Dataset ;
-    dct:title "Valid Data Asset"@en , "Activo de Datos Válido"@es ;
-    dct:description "A fully compliant data asset for testing."@en , "Un activo de datos totalmente conforme para pruebas."@es ;
-    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567> ;
-    dcat:theme theme:AGRI , <http://datos.gob.es/kos/sector-publico/sector/medio-rural-pesca> ;
-    dcat:keyword "Test"@en, "Prueba"@es ;
-    dcat:contactPoint [ 
-        a vcard:Individual ; 
-        vcard:fn "Test Developer"@en , "Desarrollador de Prueba"@es ;
-        vcard:organization-name "Test Org"@es ;
-        vcard:hasEmail <mailto:test@example.org> ;
-        vcard:hasURL <https://test.example.org> ;
-        vcard:hasTelephone <tel:+34000000000> ;
-        vcard:hasUID <https://test.example.org/uid/1>
-    ] ;
-    dct:spatial [ 
-        a dct:Location ; 
-        rdfs:label "Malaga, Spain"@en , "Málaga, España"@es ;
-        locn:geometry "POINT(-4.4214 36.7213)"^^gsp:wktLiteral
-    ] ;
-    dct:temporal [ 
-        a dct:PeriodOfTime ; 
-        dcat:startDate "2026-01-01"^^xsd:date 
-    ] ;
-    dcat:distribution test:ValidRepresentation ;
-    ids:representation test:ValidRepresentation ;
-    prov:wasGeneratedBy test:ValidApp .
+agrovoc:c_24993 a skos:Concept, :ObservableProperty, sosa:ObservableProperty ;     # Water stress
+    skos:prefLabel "Water Stress"@en , "Estrés Hídrico"@es .
 
-### 2. Valid Spatial Temporal Asset
-test:ValidSpatialAsset a :SpatialTemporalAsset, dcat:Dataset ;
-    dct:title "Valid Spatial Asset"@en , "Activo Espacial Válido"@es ;
-    dct:description "A spatial asset with coordinate reference system."@en , "Un activo espacial con sistema de referencia de coordenadas."@es ;
-    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567> ;
-    dcat:theme theme:AGRI , <http://datos.gob.es/kos/sector-publico/sector/medio-rural-pesca> ;
-    dcat:keyword "Spatial"@en, "Espacial"@es ;
-    dcat:contactPoint [ 
-        a vcard:Individual ; 
-        vcard:fn "Test Developer"@en , "Desarrollador de Prueba"@es ;
-        vcard:organization-name "Test Org"@es ;
-        vcard:hasEmail <mailto:test@example.org> ;
-        vcard:hasURL <https://test.example.org> ;
-        vcard:hasTelephone <tel:+34000000000> ;
-        vcard:hasUID <https://test.example.org/uid/2>
-    ] ;
-    dct:spatial [ 
-        a dct:Location ; 
-        rdfs:label "Andalusia"@en , "Andalucía"@es ;
-        locn:geometry "POLYGON((-7.5 36.0, -7.5 38.7, -1.6 38.7, -1.6 36.0, -7.5 36.0))"^^gsp:wktLiteral
-    ] ;
-    dct:temporal [ 
-        a dct:PeriodOfTime ; 
-        dcat:startDate "2026-01-01"^^xsd:date 
-    ] ;
-    dcat:distribution test:ValidRepresentation ;
-    :hasSpatialCoverage [ a gsp:Geometry ] ;
-    :hasTemporalCoverage [ a time:Interval ] ;
-    ids:representation test:ValidRepresentation .
+agrovoc:c_12926 a skos:Concept, :FeatureOfInterest ;      # Olive
+    skos:prefLabel "Olive"@en , "Olivo"@es .
 
-# --- Distributions ---
+### Mock BIGOWL concepts for testing
+test:TestAlgorithm a bigalg:Algorithm ;
+    skos:prefLabel "Test Algorithm"@en .
+test:TestProblem a bigprob:Problem ;
+    skos:prefLabel "Test Problem"@en .
+test:TestDataClass a bigdat:Data ;
+    skos:prefLabel "Test Data Class"@en .
 
-test:ValidRepresentation a :DataRepresentation, dcat:Distribution ;
-    dct:title "Valid CSV Distribution"@en , "Distribución CSV Válida"@es ;
-    dct:description "Compliant CSV distribution."@en , "Distribución CSV conforme."@es ;
-    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
-    dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
-    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
-    dcat:accessURL <https://example.org/test/valid.csv> ;
-    dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE> ;
-    dcatap:applicableLegislation <https://www.boe.es/eli/es/rd/2023/12/19/1089> ;
-    :hasFieldMapping [
-        a :FieldMapping ;
-        :mapsField "ndvi_col" ;
-        :mapsToSpecification test:NDVIProfile ;
-        :hasUnit qudt:UNITLESS ;
-        :hasDataType xsd:float 
+:yieldForecast a :ObservableProperty ;
+    skos:prefLabel "Yield Forecast"@en , "Previsión de Rendimiento"@es .
+:electricalConductivity a :ObservableProperty ;
+    skos:prefLabel "Electrical Conductivity"@en , "Conductividad Eléctrica"@es .
+:reflectance_red a :ObservableProperty ;
+    skos:prefLabel "Red Reflectance"@en , "Reflectancia en Rojo"@es .
+:reflectance_nir a :ObservableProperty ;
+    skos:prefLabel "Near-Infrared Reflectance"@en , "Reflectancia en Infrarrojo Cercano"@es .
+
+### External class declarations for reasoning
+sosa:ObservableProperty rdf:type owl:Class .
+gsp:Geometry rdf:type owl:Class .
+time:Interval rdf:type owl:Class .
+
+#################################################################
+#    Reusable Atomic Profiles (Profile Library)
+#################################################################
+
+test:NDVIProfile a :DataProfile ;
+    dct:title "NDVI Profile"@en ;
+    :hasFeatureOfInterest agrovoc:c_12926 ;       # Olive
+    :hasObservableProperty agrovoc:c_ce585e0d ;    # NDVI
+    :hasDataType xsd:float ;
+    :declaresDataClass test:TestDataClass .
+
+test:WaterStressProfile a :DataProfile ;
+    dct:title "Water Stress Profile"@en ;
+    :hasFeatureOfInterest agrovoc:c_12926 ;       # Olive
+    :hasObservableProperty agrovoc:c_24993 ;       # Water stress
+    :hasDataType xsd:decimal .
+
+#################################################################
+#    Test Instances — v1.0.0 Architecture
+#################################################################
+
+### 1. Valid DataApp with InputRequirement
+test:ValidApp a :AnalyzerApp ;
+    dct:title "Valid Test App"@en ;
+    :parameter test:TestAlgorithm ;
+    :hasDomainSector theme:AGRI ;
+    :hasInputProfile [
+        a :InputProfile ;
+        :hasDataSpecification test:NDVIProfile ;
+        :hasDataConstraint [
+            a :DataConstraint ;
+            :constraintMetricType :Completeness ;
+            :constraintOperator ">=" ;
+            :constraintValue "0.9"^^xsd:decimal
+        ]
     ] .
 
-<http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> a dct:LicenseDocument ;
-    dct:type <http://purl.org/adms/licencetype/Attribution> .
+### 2. Valid DataAsset with Distribution using ProfileBinding
+test:ValidDataAsset a :DataAsset, dcat:Dataset ;
+    dct:title "Valid Data Asset"@en ;
+    dcat:theme theme:AGRI ;
+    ids:representation test:ValidDataAsset_Repr ;
+    prov:wasGeneratedBy test:ValidApp .
 
-# --- Invalid Case ---
-test:InvalidFOIAsset a :DataAsset, dcat:Dataset ;
-    dct:title "Invalid Asset Case"@en , "Caso de Activo Inválido"@es ;
-    dct:description "This asset is intentionally incomplete for SHACL testing."@en , "Este activo es intencionalmente incompleto para pruebas SHACL."@es ;
-    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567> ;
-    dcat:theme theme:AGRI , <http://datos.gob.es/kos/sector-publico/sector/medio-rural-pesca> ;
-    dcat:keyword "Incomplete"@en, "Incompleto"@es ;
-    dcat:contactPoint [ 
-        a vcard:Individual ; 
-        vcard:fn "Troubleshooter"@en, "Localizador de Errores"@es ;
-        vcard:organization-name "Khaos Research"@es ;
-        vcard:hasEmail <mailto:test@example.org> ;
-        vcard:hasTelephone <tel:+34000000000> ;
-        vcard:hasUID <https://test.example.org/uid/trouble> ;
-        vcard:hasURL <https://test.example.org>
-    ] ;
-    dct:spatial [ 
-        a dct:Location ; 
-        rdfs:label "Nowhere"@en ;
-        locn:geometry "POINT(0 0)"^^gsp:wktLiteral
-    ] ;
-    dct:temporal [ 
-        a dct:PeriodOfTime ; 
-        dcat:startDate "2000-01-01"^^xsd:date 
-    ] ;
-    dcat:distribution test:ValidRepresentation .
+test:ValidDataAsset_Repr a :DataRepresentation ;
+    dct:format <https://www.iana.org/assignments/media-types/text/csv> ;
+    dcat:accessURL <https://example.org/asset/data.csv> ;
+    dct:license <http://example.org/license> ;
+    ids:instance [ a ids:Artifact ; ids:fileName "data.csv" ] ;
+    :hasFieldMapping [
+        a :FieldMapping ;
+        :mapsToSpecification test:NDVIProfile ;
+        :mapsField "ndvi_value" ;
+        :hasMetric test:DummyMetric
+    ] .
 
-agrovoc:c_ce585e0d a skos:Concept, :ObservableProperty ; skos:prefLabel "NDVI"@en .
-agrovoc:c_12926 a skos:Concept, :FeatureOfInterest ; skos:prefLabel "Olive"@en .
+### 3. Valid PredictionApp producing a profile
+test:ValidService a :PredictionApp ;
+    dct:title "Valid Analytical Service"@en ;
+    dcat:theme theme:AGRI ;
+    :producesProfile test:WaterStressProfile ;
+    :hasInputProfile [
+        a :InputProfile ;
+        :hasDataSpecification test:NDVIProfile
+    ] .
+
+### 4. Quality Metric Instance
+test:DummyMetric a :Metric ;
+    :metricName "testMetric" ;
+    :metricValue "1.0"^^xsd:decimal ;
+    :hasMetricStandard unit:PERCENT ;
+    :measuresProperty agrovoc:c_ce585e0d .
+
+### 5. Spatial Temporal Asset with ProfileBinding
+test:ValidSpatialAsset a :SpatialTemporalAsset, dcat:Dataset ;
+    dct:title "Valid Spatial Asset"@en ;
+    dcat:theme theme:AGRI ;
+    :hasSpatialCoverage [ a gsp:Geometry ] ;
+    :hasTemporalCoverage [ a time:Interval ] ;
+    ids:representation test:ValidSpatialAsset_Repr .
+
+test:ValidSpatialAsset_Repr a :DataRepresentation ;
+    dct:format <https://www.iana.org/assignments/media-types/image/tiff> ;
+    dcat:accessURL <https://example.org/spatial/data.tif> ;
+    dct:license <http://example.org/license> ;
+    ids:instance [ a ids:Artifact ; ids:fileName "data.tif" ] ;
+    :hasFieldMapping [
+        a :FieldMapping ;
+        :mapsToSpecification test:NDVIProfile ;
+        :mapsField "band_ndvi"
+    ] .
+
+### 6. FOI Coherence Tests
+test:ValidFOIAsset a :DataAsset ;
+    dct:title "Valid FOI Asset"@en ;
+    :hasFeatureOfInterest test:SpecificOliveTree ;
+    ids:representation [
+        a :DataRepresentation, dcat:Distribution ;
+        dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+        dcat:accessURL <https://example.org/foi/valid.csv> ;
+        :hasFieldMapping [
+            a :FieldMapping ;
+            :mapsToSpecification test:NDVIProfile ;
+            :mapsField "ndvi_col"
+        ]
+    ] .
+
+test:SpecificOliveTree a :FeatureOfInterest ;
+    rdfs:label "Olive Tree #42"@en ;
+    skos:broader agrovoc:c_12926 . # Links to Olive category in profile
+
+test:InvalidFOIAsset a :DataAsset ;
+    dct:title "Invalid FOI Asset (Coherence Failure)"@en ;
+    :hasFeatureOfInterest agrovoc:c_330833 ; # "Citrus" — mismatch!
+    ids:representation [
+        a :DataRepresentation, dcat:Distribution ;
+        dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+        dcat:accessURL <https://example.org/foi/invalid.csv> ;
+        :hasFieldMapping [
+            a :FieldMapping ;
+            :mapsToSpecification test:NDVIProfile ; # Profile declares Olive, not Citrus
+            :mapsField "ndvi_col"
+        ]
+    ] .

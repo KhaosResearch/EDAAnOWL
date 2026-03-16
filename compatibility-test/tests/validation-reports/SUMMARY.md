@@ -1,6 +1,6 @@
 # Informe de Validación DCAT-AP-ES
 
-**Generado:** 2026-03-16 12:52:47
+**Generado:** 2026-03-16 13:52:12
 
 ## Visión General de las Fases de Validación
 
@@ -20,7 +20,7 @@ El proceso de validación de DCAT-AP-ES consta de tres fases complementarias:
 
 ## Estadísticas
 
-- **Fase 2 (Semántica):** Fallos en pruebas: 0
+- **Fase 2 (Semántica):** Fallos en pruebas: 4
 
 ## Informes Detallados
 

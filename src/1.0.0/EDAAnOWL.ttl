@@ -44,13 +44,8 @@
                                               "Ontología para espacios de datos que conecta el Modelo de Información IDSA con la familia analítica BIGOWL. La versión 1.0.0 introduce Perfiles de Datos atómicos y reutilizables vinculados a las Distribuciones mediante FieldMappings, permitiendo un enfoque de 'Librería de Perfiles' donde la lógica semántica se separa del esquema físico (mapsField). También añade matchmaking avanzado con DataConstraints para Aplicaciones de Datos."@es ;
                               dct:license <https://creativecommons.org/licenses/by/4.0/> ;
                               dct:modified "2026-03-12"^^xsd:date ;
-                              dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E00123456> ;
-                              dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE> ;
-                              dct:language <http://publications.europa.eu/resource/authority/language/ENG> ,
-                                            <http://publications.europa.eu/resource/authority/language/SPA> ;
                               dct:title "EDAAnOWL Ontology"@en ,
-                                         "Ontología EDAAnOWL"@es ;
-                              dcat:theme <http://publications.europa.eu/resource/authority/data-theme/TECH> , <http://datos.gob.es/kos/sector-publico/sector/ciencia-tecnologia> ;
+                                        "Ontología EDAAnOWL"@es ;
                               vann:preferredNamespacePrefix "edaan" ;
                               vann:preferredNamespaceUri "https://w3id.org/EDAAnOWL/" ;
                               rdfs:label "EDAAnOWL"@en ,
@@ -2407,14 +2402,6 @@ ids:UsagePolicyClass rdf:type owl:Class .
 
 <https://www.linkedin.com/in/martin-jeronimo-salvachua/> a foaf:Agent ;
     foaf:name "Martin Jeronimo Salvachua"@en .
-
-<http://datos.gob.es/recurso/sector-publico/org/Organismo/E00123456> a foaf:Agent ;
-    foaf:name "Khaos Research"@en , "Khaos Research"@es ;
-    dct:identifier "E00123456" ;
-    dct:type <http://purl.org/adms/publishertype/PublicBody> .
-
-<https://creativecommons.org/licenses/by/4.0/> a dct:LicenseDocument ;
-    dct:type <http://purl.org/adms/licencetype/Attribution> .
 
 
 

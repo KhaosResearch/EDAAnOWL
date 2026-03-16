@@ -1,11 +1,13 @@
-# EDAAnOWL
+# EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL
 
 [![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/deploy-docs.yml)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-1f6feb)](https://khaosresearch.github.io/EDAAnOWL/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Latest Release](https://img.shields.io/github/v/release/KhaosResearch/EDAAnOWL?display_name=tag)](https://github.com/KhaosResearch/EDAAnOWL/releases)
+[![Ontology Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://w3id.org/EDAAnOWL/1.1.0)
+[![Latest Stable Version](https://img.shields.io/badge/latest-1.1.0-green.svg)](https://w3id.org/EDAAnOWL/)
 [![PURL](https://img.shields.io/badge/purl-w3id.org-blue)](https://w3id.org/EDAAnOWL/)
 [![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/1.0.0/shapes/edaan-shapes.ttl)
+[![DCAT-AP-ES Compliance](https://img.shields.io/badge/DCAT--AP--ES-Full%20Compliance-brightgreen.svg)](https://github.com/datosgobes/DCAT-AP-ES)
 
 > **Semantic Bridge for Data Spaces**: Linking IDSA governance with BIGOWL workflows.
 
@@ -13,10 +15,12 @@
 
 **EDAAnOWL** is a lightweight ontology designed to operationalize Data Spaces. It bridges the gap between the **IDSA Information Model** (governance, contracts) and **BIGOWL** (analytics, workflows), enabling:
 
-1.  **Deep Semantic Matchmaking**: Discovery of assets based on *what they mean* (Atomic Data Specifications) not just metadata.
-2.  **Structural Compatibility**: Decoupled "Field Mappings" to link semantic concepts to physical schemas (CSV/Parquet/etc) adding units and types at the edge.
-3.  **Performance & Quality Tracking**: Granular data constraints for DataApps with explicit technical thresholds.
-4.  **Cross-Domain Interoperability**: Decentralized "Specification Libraries" that allow reusing the same semantic definition across different sectors and schemas.
+- **Full DCAT-AP-ES 1.0.0 Compliance**: Verified by official Spanish Government tools.
+- **Atomic DataSpecifications**: Decoupled from technical distribution via `FieldMappings`.
+- **Matchmaking 2.0**: Enhanced unit-aware constraints and semantic alignment.
+- **Structural Compatibility**: Decoupled "Field Mappings" to link semantic concepts to physical schemas (CSV/Parquet/etc) adding units and types at the edge.
+- **Performance & Quality Tracking**: Granular data constraints for DataApps with explicit technical thresholds.
+- **Cross-Domain Interoperability**: Decentralized "Specification Libraries" that allow reusing the same semantic definition across different sectors and schemas.
 
 ---
 

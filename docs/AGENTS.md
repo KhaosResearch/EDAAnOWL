@@ -63,6 +63,10 @@ check if the `docs/` files are updated with the new property or metric.
 | **Lineage** | `prov:generatedAtTime` |
 | **Format** | `dct:format` (MIME or URI) |
 
+### DCAT-AP-ES Compliance Schema
+![DCAT All Attributes Diagram](file:///C:/Users/marti/Downloads/EDAAnOWL/docs/assets/dcat-all-attributes.svg)
+*Reference diagram for Full DCAT-AP-ES 1.0.0 compliance.*
+
 ## 5. Troubleshooting for AI Agents
 
 - **rdflib errors**: Usually caused by non-UTF-8 characters. Ensure encoding is explicit.

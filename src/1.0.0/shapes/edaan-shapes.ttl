@@ -57,8 +57,8 @@
 #    SHAPES: Distribution & Field Mapping (v1.0.0)
 #################################################################
 
-:TechnicalDataRepresentationShape a sh:NodeShape ;
-    sh:targetObjectsOf ids:representation ;
+:DistributionShape a sh:NodeShape ;
+    sh:targetClass :DataRepresentation ;
     rdfs:label "Distribution Shape (v1.0.0)"@en ;
     
     sh:property [
