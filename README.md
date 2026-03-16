@@ -3,13 +3,15 @@
 [![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/deploy-docs.yml)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-1f6feb)](https://khaosresearch.github.io/EDAAnOWL/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Ontology Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://w3id.org/EDAAnOWL/1.1.0)
-[![Latest Stable Version](https://img.shields.io/badge/latest-1.1.0-green.svg)](https://w3id.org/EDAAnOWL/)
+[![Ontology Version](https://img.shields.io/badge/stable-1.0.0-blue.svg)](https://w3id.org/EDAAnOWL/1.0.0)
+[![Next Version](https://img.shields.io/badge/next-1.1.0-orange.svg)](src/1.1.0/)
 [![PURL](https://img.shields.io/badge/purl-w3id.org-blue)](https://w3id.org/EDAAnOWL/)
 [![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/1.0.0/shapes/edaan-shapes.ttl)
 [![DCAT-AP-ES Compliance](https://img.shields.io/badge/DCAT--AP--ES-Full%20Compliance-brightgreen.svg)](https://github.com/datosgobes/DCAT-AP-ES)
 
 > **Semantic Bridge for Data Spaces**: Linking IDSA governance with BIGOWL workflows.
+
+> **Release status**: `v1.0.0` is the latest published release on `main`. The `1.1.0` content in this branch is the next planned release and is not published yet.
 
 ## 🚀 Overview
 
@@ -82,29 +84,33 @@ Detailed documentation is available in the `docs/` folder:
 
 ```turtle
 @prefix edaan: <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://example.org/edaan/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix qudt: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
 
-# 1. Define an Atomic Reusable Specification (e.g., in a Library)
-:NDVISpec a edaan:DataSpecification ;
-    edaan:hasFeatureOfInterest <http://aims.fao.org/aos/agrovoc/c_12926> ; # Olives
-    edaan:hasObservableProperty <http://aims.fao.org/aos/agrovoc/c_ce585e0d> . # NDVI
+# 1. Define a reusable, domain-neutral specification
+:TemperatureAirSpec a edaan:DataSpecification ;
+    edaan:hasFeatureOfInterest <http://aims.fao.org/aos/agrovoc/c_331557> ; # Air
+    edaan:hasObservableProperty <http://aims.fao.org/aos/agrovoc/c_7657> . # Temperature
 
-# 2. A Data Asset (Supply) with a Distribution that MAPS to the spec
-:MyAsset a edaan:DataAsset ;
-    dcat:theme theme:AGRI ;
-    ids:representation :MyDistribution .
+# 2. A Data Asset (supply) publishes a distribution with field mappings
+:WeatherDataset a edaan:DataAsset, dcat:Dataset ;
+    dct:title "Weather station observations"@en ;
+    dcat:theme theme:ENVI ;
+    ids:representation :WeatherCsv ;
+    dcat:distribution :WeatherCsv .
 
-:MyDistribution a dcat:Distribution ;
-    dct:format <https://www.iana.org/assignments/media-types/text/csv> ;
+:WeatherCsv a dcat:Distribution ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
     edaan:hasFieldMapping [
         a edaan:FieldMapping ;
-        edaan:mapsToSpecification :NDVISpec ;
-        edaan:mapsField "ndvi_val" ; # Column name in the CSV
-        edaan:hasUnit <http://qudt.org/vocab/unit/UNITLESS> ;
+        edaan:mapsToSpecification :TemperatureAirSpec ;
+        edaan:mapsField "air_temp_c" ;
+        edaan:hasUnit qudt:DEG_C ;
         edaan:hasDataType xsd:float ;
         edaan:hasMetric [
             a edaan:Metric ;
@@ -113,15 +119,15 @@ Detailed documentation is available in the `docs/` folder:
         ]
     ] .
 
-# 3. Define an App (Demand) with Input Profiles
-:MyApp a edaan:DataApp ;
-    dcat:theme theme:AGRI ;
+# 3. A Data App (demand) declares the specification it needs
+:ForecastApp a edaan:DataApp ;
+    dcat:theme theme:ENVI ;
     edaan:hasInputProfile [
         a edaan:InputProfile ;
-        edaan:hasDataSpecification :NDVISpec ;
+        edaan:hasDataSpecification :TemperatureAirSpec ;
         edaan:hasConstraint [
             a edaan:DataConstraint ;
-            edaan:requiresUnit <http://qudt.org/vocab/unit/UNITLESS> ;
+            edaan:requiresUnit qudt:DEG_C ;
             edaan:constraintMetricType edaan:Accuracy ;
             edaan:constraintOperator ">=" ;
             edaan:constraintValue "0.95"^^xsd:decimal
@@ -130,5 +136,7 @@ Detailed documentation is available in the `docs/` folder:
 ```
 
 ## ✍️ Citation
+
+For a fuller agricultural example aligned with DCAT-AP-ES, see [src/1.1.0/examples/eo-instances.ttl](src/1.1.0/examples/eo-instances.ttl) and [src/1.1.0/examples/cred-asset-example.ttl](src/1.1.0/examples/cred-asset-example.ttl).
 
 Please reference this work using the metadata in [CITATION.cff](CITATION.cff).

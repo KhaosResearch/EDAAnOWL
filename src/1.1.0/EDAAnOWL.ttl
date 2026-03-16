@@ -55,58 +55,52 @@
                               vann:preferredNamespaceUri "https://w3id.org/EDAAnOWL/" ;
                               rdfs:label "EDAAnOWL"@en ,
                                          "EDAAnOWL"@es ;
-                              owl:priorVersion <https://w3id.org/EDAAnOWL/0.9.0> ;
-                              owl:versionInfo "1.0.0" ;
+                              owl:priorVersion <https://w3id.org/EDAAnOWL/1.0.0> ;
+                              owl:versionInfo "1.1.0" ;
                               schema:codeRepository <https://github.com/KhaosResearch/EDAAnOWL> ;
                               schema:image <https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/refs/heads/main/images/eda-an-architecture-en.svg> ;
-                              widoco:introduction """<div style='text-align: center;'><img src='https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/main/images/edaanowl-v1-matchmaking-flow.jpeg' width='80%' /><br/><i>Figura: Flujo conceptual de matchmaking semántico en v1.0.0</i></div>
-<br/>
-EDAAnOWL proporciona un vocabulario compacto pero expresivo para describir la semántica operacional de los espacios de datos. La versión 1.0.0 introduce una arquitectura evolucionada para la descripción de activos basada en perfiles de datos atómicos.
+                              widoco:introduction """EDAAnOWL proporciona un vocabulario compacto pero expresivo para describir la semántica operacional de los espacios de datos. La versión 1.1.0 consolida una arquitectura desacoplada para describir activos de datos, aplicaciones y requisitos de compatibilidad semántica.
 
 ### Perfiles Atómicos y Reutilizables
-A diferencia de versiones anteriores, la arquitectura actual separa la semántica del dominio de los detalles técnicos de la implementación:
-- **DataSpecification (Atómico)**: Es una unidad pura y reutilizable que define QUÉ se mide (p. ej., Temperatura de Naranja en °C). No contiene nombres de columnas ni detalles de archivos.
-- **FieldMapping (Puente)**: Vincula un DataSpecification a un campo físico concreto (`edaan:mapsField`) de una distribución y describe su calidad específica.
-- **Distribution (Técnico)**: Centraliza las propiedades físicas (formato, resolución temporal/espacial, CRS) siguiendo estrictamente DCAT-AP 3.0.
+La arquitectura actual separa la semántica del dominio de los detalles técnicos de implementación:
+- **DataSpecification (Atómico)**: Unidad semántica reutilizable que define QUÉ se observa o describe mediante `FeatureOfInterest` y `ObservableProperty`. No contiene nombres de columna, unidades ni metadatos técnicos de distribución.
+- **FieldMapping (Puente)**: Vincula un `DataSpecification` a un campo físico concreto (`edaan:mapsField`) de una distribución. Aquí viven los detalles específicos del campo, como la unidad, el tipo de dato, la métrica de observación y las métricas de calidad asociadas.
+- **Distribution (Técnico)**: Centraliza las propiedades físicas de acceso y publicación, como formato, resolución temporal o espacial, URL de acceso y CRS, siguiendo DCAT-AP 3.0.
 
-<div style='text-align: center;'><img src='https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/main/images/edaanowl-v1-class-diagram.jpeg' width='80%' /><br/><i>Figura: Diagrama de clases de la arquitectura desacoplada v1.0.0</i></div>
-<br/>
-
-Uso típico en v1.0.0:
+Uso típico en v1.1.0:
 1. **Publicar Datos**:
-   - Crear una `dcat:Distribution` con sus metadatos técnicos (formato, resolución).
+   - Crear una `dcat:Distribution` con sus metadatos técnicos.
    - Vincular N `edaan:FieldMapping` a la distribución.
-   - Cada binding apunta a un `edaan:DataSpecification` (preferiblemente de una librería compartida) e indica el nombre del campo (`edaan:mapsField`).
+   - Cada binding apunta a un `edaan:DataSpecification` compartido e indica cómo aparece esa variable en el esquema físico.
 
 2. **Publicar DataApp**:
-   - Declarar requisitos mediante `edaan:hasInputProfile`, especificando el perfil necesario y, opcionalmente, restricciones de calidad (`edaan:DataConstraint`).
+   - Declarar requisitos mediante `edaan:hasInputProfile`, especificando la especificación semántica requerida y, opcionalmente, restricciones técnicas o de calidad mediante `edaan:hasConstraint`.
 
 3. **Matchmaking**:
-   - Los agentes pueden encontrar activos comparando directamente las URIs de los perfiles reutilizados, permitiendo un descubrimiento de alta precisión e interoperabilidad entre diferentes fuentes de datos."""@es ,
-                                                  """<div style='text-align: center;'><img src='https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/main/images/edaanowl-v1-matchmaking-flow.jpeg' width='80%' /><br/><i>Figure: Semantic matchmaking conceptual flow in v1.0.0</i></div>
-<br/>
-EDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces. Version 1.0.0 introduces an evolved architecture for asset description based on atomic data profiles.
+   - Los agentes pueden descubrir compatibilidades comparando especificaciones reutilizadas y verificando después las restricciones de unidad, calidad o perfilado técnico.
+
+Para diagramas y figuras de arquitectura, consulte la documentación complementaria del repositorio y las imágenes publicadas en GitHub Pages."""@es ,
+                                                  """EDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces. Version 1.1.0 consolidates a decoupled architecture for describing data assets, applications, and semantic compatibility requirements.
 
 ### Atomic and Reusable Profiles
-Unlike previous versions, the current architecture decouples domain semantics from technical implementation details:
-- **DataSpecification (Atomic)**: A pure, reusable unit defining WHAT is measured (e.g., Orange Temperature in °C). It contains no column names or file-specific details.
-- **FieldMapping (Bridge)**: Links a DataSpecification to a specific physical field (`edaan:mapsField`) in a distribution and describes its specific quality metrics.
-- **Distribution (Technical)**: Centralizes physical properties (format, temporal/spatial resolution, CRS) strictly following DCAT-AP 3.0 guidelines.
+The current architecture separates domain semantics from technical implementation details:
+- **DataSpecification (Atomic)**: A reusable semantic unit that defines WHAT is being observed or described through `FeatureOfInterest` and `ObservableProperty`. It does not contain column names, units, or technical distribution metadata.
+- **FieldMapping (Bridge)**: Links a `DataSpecification` to a specific physical field (`edaan:mapsField`) in a distribution. Field-specific details such as unit, data type, observation metric, and quality metrics live here.
+- **Distribution (Technical)**: Centralizes physical access and publication properties such as format, temporal or spatial resolution, access URL, and CRS, following DCAT-AP 3.0.
 
-<div style='text-align: center;'><img src='https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/main/images/edaanowl-v1-class-diagram.jpeg' width='80%' /><br/><i>Figure: Class diagram of the v1.0.0 decoupled architecture</i></div>
-<br/>
-
-Typical usage in v1.0.0:
+Typical usage in v1.1.0:
 1. **Publish Data**:
-   - Create a `dcat:Distribution` with its technical metadata (format, resolution).
+   - Create a `dcat:Distribution` with its technical metadata.
    - Link N `edaan:FieldMapping` instances to the distribution.
-   - Each binding points to an `edaan:DataSpecification` (preferably from a shared library) and specifies the field name (`edaan:mapsField`).
+   - Each binding points to a shared `edaan:DataSpecification` and explains how that variable appears in the physical schema.
 
 2. **Publish DataApp**:
-   - Declare requirements via `edaan:hasInputProfile`, specifying the required profile and, optionally, quality thresholds (`edaan:DataConstraint`).
+   - Declare requirements via `edaan:hasInputProfile`, specifying the required semantic specification and, optionally, technical or quality thresholds via `edaan:hasConstraint`.
 
 3. **Matchmaking**:
-   - Agents can find assets by directly comparing the URIs of reused profiles, enabling high-precision discovery and interoperability across different data sources."""@en .
+   - Agents can discover compatibilities by comparing reused specifications and then checking unit, quality, or technical profiling constraints.
+
+For architecture diagrams and figures, see the complementary repository documentation and the images published through GitHub Pages."""@en .
 
 #################################################################
 #    Annotation properties
@@ -349,9 +343,8 @@ prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/EDAAnOWL/hasDataType
 :hasDataType rdf:type owl:ObjectProperty ;
-             rdfs:range rdfs:Resource ;
-             rdfs:comment "Expected data type for the profile variable (e.g., xsd:float, xsd:dateTime)."@en ,
-                          "Tipo de dato esperado para la variable del perfil (p. ej., xsd:float, xsd:dateTime)."@es ;
+             rdfs:comment "Expected data type for a mapped field or constrained variable (e.g., xsd:float, xsd:dateTime)."@en ,
+                          "Tipo de dato esperado para un campo mapeado o una variable restringida (p. ej., xsd:float, xsd:dateTime)."@es ;
              rdfs:label "has data type"@en ,
                         "tiene tipo de dato"@es .
 
@@ -376,8 +369,19 @@ prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
                               "tiene vínculo de perfil"@es .
 
 
+###  https://w3id.org/EDAAnOWL/hasConstraint
+:hasConstraint rdf:type owl:ObjectProperty ;
+               rdfs:domain :InputProfile ;
+               rdfs:range :DataConstraint ;
+               rdfs:comment "Links an input requirement to a specific quality or technical constraint that must be met by the data."@en ,
+                            "Vincula un requisito de entrada con una restricción técnica o de calidad específica que deben cumplir los datos."@es ;
+               rdfs:label "has constraint"@en ,
+                          "tiene restricción"@es .
+
+
 ###  https://w3id.org/EDAAnOWL/hasDataConstraint
 :hasDataConstraint rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :hasConstraint ;
                       rdfs:domain :InputProfile ;
                       rdfs:range :DataConstraint ;
                       rdfs:comment "Links an input requirement to a specific quality threshold that must be met by the data."@en ,
@@ -770,8 +774,8 @@ Un Workflow es un pipeline compuesto por múltiples Components conectados via Ta
 ###  https://w3id.org/EDAAnOWL/hasFeatureOfInterest
 :hasFeatureOfInterest rdf:type owl:ObjectProperty ;
                        rdfs:range :FeatureOfInterest ;
-                      rdfs:comment "Links a DataAsset, Metric, or DataSpecification to the entity or phenomenon it concerns (e.g., a specific crop or product). v1.0.0 uses this to define atomic profiles."@en ,
-                                   "Vincula un activo de datos, métrica o Perfil de Datos con el entidad o fenómeno sobre el que versa (p. ej., un cultivo específico). v1.0.0 usa esto para definir perfiles atómicos."@es ;
+                      rdfs:comment "Links a DataAsset, Metric, or DataSpecification to the entity or phenomenon it concerns (e.g., a specific crop or product). Used to define atomic semantic specifications."@en ,
+                                   "Vincula un activo de datos, métrica o Perfil de Datos con la entidad o fenómeno sobre el que versa (p. ej., un cultivo específico). Se usa para definir especificaciones semánticas atómicas."@es ;
                       rdfs:label "has feature of interest"@en ,
                                  "tiene característica de interés"@es .
 
@@ -779,8 +783,8 @@ Un Workflow es un pipeline compuesto por múltiples Components conectados via Ta
 ###  https://w3id.org/EDAAnOWL/hasObservableProperty
 :hasObservableProperty rdf:type owl:ObjectProperty ;
                        rdfs:range :ObservableProperty ;
-                       rdfs:comment "Links a DataAsset, Metric, or DataSpecification to the specific characteristic or phenomenon being measured. v1.0.0 uses this to define atomic profiles."@en ,
-                                    "Vincula un activo de datos, métrica o Perfil de Datos con el fenómeno o característica específica que se mide. v1.0.0 usa esto para definir perfiles atómicos."@es ;
+                       rdfs:comment "Links a DataAsset, Metric, or DataSpecification to the specific characteristic or phenomenon being measured. Used to define atomic semantic specifications."@en ,
+                                    "Vincula un activo de datos, métrica o Perfil de Datos con el fenómeno o característica específica que se mide. Se usa para definir especificaciones semánticas atómicas."@es ;
                        rdfs:label "has observable property"@en ,
                                   "tiene propiedad observable"@es .
 
@@ -831,7 +835,7 @@ Examples: NUTS level 1 (country), NUTS level 2 (region), NUTS level 3 (province)
                   "topic"@en .
 ###  https://w3id.org/EDAAnOWL/hasMetricStandard
 :hasMetricStandard rdf:type owl:ObjectProperty ;
-                    rdfs:comment "Links a metric or profile to the standard or reference system used for its value. It can be a unit of measurement (QUDT) or a concept scheme/vocabulary (SKOS). Unifies the previous hasMetricUnit and usesVocabulary properties."@en ,
+                    rdfs:comment "Links a metric or field-level value constraint to the standard or reference system used for its value. It can be a unit of measurement (QUDT) or a concept scheme/vocabulary (SKOS). Unifies the previous hasMetricUnit and usesVocabulary properties."@en ,
                                  "Vincula una métrica o perfil con el estándar o sistema de referencia utilizado para su valor. Puede ser una unidad de medida (QUDT) o un esquema de conceptos/vocabulario (SKOS). Unifica las propiedades anteriores hasMetricUnit y usesVocabulary."@es ;
                     rdfs:label "has metric standard"@en ,
                                "tiene estándar de métrica"@es .
@@ -2061,19 +2065,10 @@ bigwf:Component rdf:type owl:Class .
                                owl:onProperty :hasObservableProperty ;
                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                owl:onClass :ObservableProperty
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasDataType ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass rdfs:Resource
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasMetricStandard ;
-                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
                              ] ;
-             rdfs:comment """Atomic and reusable semantic unit that describes WHAT is being observed (Feature of Interest), WHICH property is measured (Observable Property), and HOW it is represented (Data Type, Metric Standard).
+             rdfs:comment """Atomic and reusable semantic unit that describes WHAT is being observed (Feature of Interest) and WHICH property is measured (Observable Property).
     
-DataSpecifications are now schema-agnostic. They no longer contain mapping information (mapsField) or technical distribution details (resolutions, CRS), which have been moved to Distribution or FieldMapping."""@en ,
+DataSpecifications are schema-agnostic. They do not contain mapping information (mapsField), units, or technical distribution details (resolutions, CRS), which belong to Distribution, FieldMapping, or explicit constraints."""@en ,
                           """Unidad semántica atómica y reutilizable que describe QUÉ se está observando (Feature of Interest), QUÉ propiedad se mide (Observable Property) y CÓMO se representa (Tipo de Dato, Estándar de Métrica).
     
 Los DataSpecifications son ahora independientes del esquema. Ya no contienen información de mapeo (mapsField) ni detalles técnicos de la distribución (resoluciones, CRS), los cuales se han movido a Distribution o FieldMapping."""@es ;
@@ -2089,7 +2084,7 @@ Los DataSpecifications son ahora independientes del esquema. Ya no contienen inf
                                     owl:onClass :DataSpecification
                                   ] ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasDataConstraint ;
+                                    owl:onProperty :hasConstraint ;
                                     owl:allValuesFrom :DataConstraint
                                   ] ;
                   rdfs:comment "Defines a structured requirement for a DataApp input, specifying exactly which DataSpecification is needed and what quality thresholds must be met."@en ,
@@ -2114,7 +2109,7 @@ Los DataSpecifications son ahora independientes del esquema. Ya no contienen inf
                                   owl:onProperty :hasMetric ;
                                   owl:allValuesFrom :Metric
                                 ] ;
-                rdfs:comment "The 'bridge' class that instantiates a reusable DataSpecification for a specific field in a distribution. It maps the semantic concept to a physical identifier (mapsField) and provides field-specific quality metrics."@en ,
+                rdfs:comment "The 'bridge' class that instantiates a reusable DataSpecification for a specific field in a distribution. It maps the semantic concept to a physical identifier (mapsField) and carries field-level technical details such as unit, data type, observation metric, and quality metrics."@en ,
                              "La clase 'puente' que instancia un DataSpecification reutilizable para un campo específico en una distribución. Mapea el concepto semántico a un identificador físico (mapsField) y proporciona métricas de calidad específicas del campo."@es ;
                 rdfs:label "Field Mapping"@en ,
                            "Vínculo de Perfil"@es .
@@ -2130,7 +2125,7 @@ Los DataSpecifications son ahora independientes del esquema. Ya no contienen inf
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty :constraintOperator ;
                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass rdfs:Resource
+                                      owl:onDataRange xsd:string
                                    ] ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty :constraintValue ;

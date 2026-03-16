@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.0] - 2026-03-16
+## [Unreleased]
 
 ### Added
 - **Compliance**: Full DCAT-AP-ES 1.0.0 and DCAT 3.0 compliance.
@@ -434,7 +434,7 @@ With this both annotations we help to widoco to generate a better documentation 
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v1.0.0...HEAD
 [1.1.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.9.0...v1.0.0
 [0.8.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.7.0...v0.8.0

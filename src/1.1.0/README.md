@@ -1,6 +1,6 @@
 # EDAAnOWL v1.1.0
 
-This release achieves **Full DCAT-AP-ES 1.0.0 Compliance**, verified by official Spanish Government validation tools. It refines the v1.0.0 architecture with stricter metadata and surgical SHACL constraints.
+This release achieves **Full DCAT-AP-ES 1.0.0 Compliance**, verified by official Spanish Government validation tools. It refines the v1.0.0 architecture introduced in the previous release with stricter metadata and surgical SHACL constraints.
 
 ## v1.1.0 Highlights (Full Compliance)
 
@@ -9,11 +9,11 @@ This release achieves **Full DCAT-AP-ES 1.0.0 Compliance**, verified by official
 | **DCAT-AP-ES Compliance** | 100% Green Validation | Verified against official Spanish Government SHACL shapes using Dockerized validation. |
 | **Surgical SHACL Targets** | Prevents technical leakage | Renamed distribution shapes and calibrated targets to only affect technical representations, not Catalogs. |
 | **Standardized Metadata** | Authoritative Agents/Contacts | Integrated DIR3-compliant IRIs and mandatory vCard recommended fields for Spanish data portals. |
-| **Atomic DataSpecifications** | Semantic variables refined | Maintained the v1.0.0 decoupling while adding explicit Agrovoc types for broader interoperability. |
+| **Atomic DataSpecifications** | Semantic variables refined | Maintains the v1.0.0 decoupling while adding explicit Agrovoc types for broader interoperability. |
 
 ---
 
-## The New v1.0.0 Architecture
+## v1.1.0 Architecture
 
 The previous monolithic profile approach has been evolved into a modular, three-layer model:
 
@@ -48,7 +48,7 @@ The previous monolithic profile approach has been evolved into a modular, three-
 
 ## Breaking Changes (Cleanup)
 
-Version 1.0.0 is a **major release** that streamlines the ontology by removing 8 redundant properties that previously bypassed the modular architecture. This ensures a single, clear path for semantic discovery and matchmaking.
+The v1.0.0 line introduced a **major cleanup** that streamlined the ontology by removing 8 redundant properties that previously bypassed the modular architecture. v1.1.0 keeps that model and consolidates it for semantic discovery and matchmaking.
 
 | Removed Property | Replacement / Strategy |
 |------------------|------------------------|
