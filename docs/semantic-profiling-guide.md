@@ -1,10 +1,11 @@
-# Guía de Perfilado Semántico: Dataset Real y Matchmaking (v1.1.0)
+# Guía de Perfilado Semántico: Dataset Real y Matchmaking (v1.2.0)
 
-En la versión **v1.1.0** de EDAAnOWL, hemos simplificado y robustecido la arquitectura para permitir una interoperabilidad extrema. La clave es la **separación en 3 capas**:
+En la versión **v1.2.0** de EDAAnOWL, hemos evolucionado la arquitectura para permitir un perfilado simétrico. La clave es la **separación en 4 capas**:
 
 1.  **Capa 1: Semántica (¿Qué es?):** `DataSpecification`. Define el fenómeno físico (ej. Humedad) y el sujeto (ej. Suelo). Es pura y reutilizable.
 2.  **Capa 2: Puente (¿Cómo viene?):** `FieldMapping`. Une la especificación semántica con una columna física, definiendo la **Unidad**, el **Tipo de Dato** y la **Métrica de Observación**.
-3.  **Capa 3: Técnica (¿Dónde está?):** `Distribution`. Contiene los metadatos del archivo (formato, resolución temporal, CRS).
+3.  **Capa 3: Técnica (¿Dónde está?):** `Distribution`. Contiene los metadatos del archivo (formato, resoluciones, CRS).
+4.  **Capa 4: Requisitos/Ofertas (¿Cómo se pide/entrega?):** `InputProfile` y `OutputProfile`. Define los puertos de entrada y salida de las Apps.
 
 ---
 
@@ -23,7 +24,7 @@ Este CSV ofrece datos sobre 2 variables semánticas:
 
 ---
 
-## 2. Modelando con EDAAnOWL v1.1.0 (Turtle)
+## 2. Modelando con EDAAnOWL v1.2.0 (Turtle)
 
 ### 2.1 Especificaciones Semánticas (Librería Reutilizable)
 Estas definiciones se crean una vez y se reutilizan en todo el espacio de datos.
@@ -87,7 +88,7 @@ Aquí es donde vinculamos la semántica con la realidad física del archivo.
 
 ## 3. Matchmaking: ¿Cómo una App pide lo que necesita?
 
-En v1.1.0, las aplicaciones no solo piden "Humedad", sino que pueden exigir requisitos técnicos específicos mediante **Constraints**.
+En v1.2.0, las aplicaciones no solo piden "Humedad", sino que pueden exigir requisitos técnicos específicos (como el `xsd:float`) mediante **Constraints**.
 
 ### 3.1 La DataApp y su perfil de entrada (Demand)
 
@@ -100,12 +101,19 @@ En v1.1.0, las aplicaciones no solo piden "Humedad", sino que pueden exigir requ
         a :InputProfile ;
         :hasDataSpecification <spec/soil-moisture> ;
         
-        # Constraint: Mi algoritmo SOLO entiende grados Celsius y medias diarias
+        # Constraint: Mi algoritmo SOLO entiende float y medias diarias
         :hasConstraint [
             a :DataConstraint ;
             :requiresUnit qudt:PERCENT ;
+            :requiresDataType xsd:float ;
             :requiresMetric :DailyAverage 
         ]
+    ] ;
+
+    # Perfil de Salida (Symmetric Profiling)
+    :hasOutputProfile [
+        a :OutputProfile ;
+        :hasDataSpecification <spec/irrigation-volume> 
     ] .
 ```
 
@@ -137,10 +145,11 @@ Las métricas de calidad (precisión, completitud) se asocian ahora al `FieldMap
 
 ---
 
-## Resumen: Regla de Oro v1.1.0
+## Resumen: Regla de Oro v1.2.0
 
 - **DataSpecification:** Es el "Fenómeno Puro" (ej. Precipitación). No cambia nunca.
 - **FieldMapping:** Es el "Cómo se entrega" (ej. en la columna 'rain_mm' como float en Milímetros).
-- **DataConstraint:** Es el "Cómo se necesita" (ej. Necesito mm con error < 5%).
+- **DataConstraint:** Es el "Cómo se necesita" (ej. Necesito mm con error < 5% y tipo float).
+- **Profiles:** Son los puertos de la App (Entrada/Salida).
 
 Este desacoplamiento permite que los espacios de datos escalen sin crear diccionarios infinitos de propiedades hardcodeadas con unidades.

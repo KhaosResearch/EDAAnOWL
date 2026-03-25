@@ -3,15 +3,15 @@
 [![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/deploy-docs.yml)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-1f6feb)](https://khaosresearch.github.io/EDAAnOWL/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Ontology Version](https://img.shields.io/badge/stable-1.0.0-blue.svg)](https://w3id.org/EDAAnOWL/1.0.0)
-[![Next Version](https://img.shields.io/badge/next-1.1.0-orange.svg)](src/1.1.0/)
+[![Ontology Version](https://img.shields.io/badge/stable-1.1.0-blue.svg)](https://w3id.org/EDAAnOWL/1.1.0)
+[![Next Version](https://img.shields.io/badge/next-1.2.0-orange.svg)](src/1.2.0/)
 [![PURL](https://img.shields.io/badge/purl-w3id.org-blue)](https://w3id.org/EDAAnOWL/)
-[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/1.0.0/shapes/edaan-shapes.ttl)
+[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/1.1.0/shapes/edaan-shapes.ttl)
 [![DCAT-AP-ES Compliance](https://img.shields.io/badge/DCAT--AP--ES-Full%20Compliance-brightgreen.svg)](https://github.com/datosgobes/DCAT-AP-ES)
 
 > **Semantic Bridge for Data Spaces**: Linking IDSA governance with BIGOWL workflows.
 
-> **Release status**: `v1.0.0` is the latest published release on `main`. The `1.1.0` content in this branch is the next planned release and is not published yet.
+> **Release status**: `v1.1.0` is the latest stable release. The `1.2.0` content in this branch includes **Symmetric App Profiling** and generalized metadata, and is currently the proposed release.
 
 ## 🚀 Overview
 
@@ -142,7 +142,7 @@ Detailed documentation is available in the `docs/` folder:
 - `docs/`: Supplementary documentation and diagrams.
 - `scripts/`: Validation and utility scripts.
 
-## ⚡ Quick Start (v1.1.0 Architecture)
+## ⚡ Quick Start (v1.2.0 Architecture)
 
 ```turtle
 @prefix edaan: <https://w3id.org/EDAAnOWL/> .
@@ -199,6 +199,6 @@ Detailed documentation is available in the `docs/` folder:
 
 ## ✍️ Citation
 
-For a fuller agricultural example aligned with DCAT-AP-ES, see [src/1.1.0/examples/eo-instances.ttl](src/1.1.0/examples/eo-instances.ttl) and [src/1.1.0/examples/cred-asset-example.ttl](src/1.1.0/examples/cred-asset-example.ttl).
+For a fuller agricultural example aligned with DCAT-AP-ES, see [src/1.1.0/examples/eo-instances.ttl](src/1.1.0/examples/eo-instances.ttl) and [src/1.2.0/examples/cred-asset-example.ttl](src/1.2.0/examples/cred-asset-example.ttl).
 
 Please reference this work using the metadata in [CITATION.cff](CITATION.cff).
