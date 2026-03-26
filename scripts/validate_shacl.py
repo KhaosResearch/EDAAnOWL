@@ -82,13 +82,15 @@ def validate_file(
     violations = list(results_graph.subjects(SH.resultSeverity, SH.Violation))
     is_success = len(violations) == 0
 
+    with open(report_file, "w", encoding="utf-8") as handle:
+        handle.write(results_text)
+
     if is_success:
         print("   [OK] Success (No Violations)")
     else:
         print(f"   [FAIL] Failed ({len(violations)} Violations found)")
-        with open(report_file, "w", encoding="utf-8") as handle:
-            handle.write(results_text)
-        print(f"      Report saved to: {report_file}")
+    
+    print(f"      Report saved to: {report_file}")
 
     return is_success
 
@@ -148,6 +150,7 @@ def main() -> None:
         (examples_dir / "test-consistency.ttl", "turtle"),
         (examples_dir / "eo-instances.ttl", "turtle"),
         (examples_dir / "cred-asset-example.ttl", "turtle"),
+        (examples_dir / "energy-example.ttl", "turtle"),
     ]
 
     if include_official_examples and official_examples_dir.exists():

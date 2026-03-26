@@ -5,14 +5,11 @@ We provide security fixes for the following versions:
 
 | Version  | Supported |
 |---------:|:---------:|
-| 0.9.x    | ✅        |
-| 0.8.x    | ✅        |
-| 0.7.x    | ✅        |
-| 0.6.x    | ✅        |
-| 0.5.x    | ✅        |
-| 0.4.x    | ✅        |
-| 0.3.x    | ⚠️ Critical fixes only |
-| < 0.3.0  | ❌        |
+| 1.2.x    | ✅        |
+| 1.1.x    | ✅        |
+| 1.0.x    | ✅        |
+| 0.9.x    | ⚠️ Critical fixes only |
+| < 0.9.0  | ❌        |
 
 ## Reporting a Vulnerability
 Please **do not** open a public issue for security matters.

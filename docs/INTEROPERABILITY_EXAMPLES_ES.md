@@ -1,6 +1,6 @@
-# Ejemplos de Interoperabilidad Semántica y Polimorfismo (v1.1.0)
+# Ejemplos de Interoperabilidad Semántica y Polimorfismo (v1.2.0)
 
-Este documento ilustra cómo la arquitectura de 3 capas de EDAAnOWL v1.1.0 permite que un único activo de datos sirva a múltiples aplicaciones de distintos dominios de manera eficiente.
+Este documento ilustra cómo la arquitectura de 4 capas de EDAAnOWL v1.2.0 permite que un único activo de datos sirva a múltiples aplicaciones de distintos dominios.
 
 ---
 
@@ -115,10 +115,11 @@ ex:AppTrafficControl a edaan:DataApp ;
 
 ---
 
-## 3. Beneficios de la Arquitectura v1.1.0
+## 3. Beneficios de la Arquitectura v1.2.0
 
 1.  **Sin Redundancia:** No hace falta crear perfiles específicos para cada combinación de columnas. El `FieldMapping` es granular (por columna).
 2.  **Matchmaking Desacoplado:** Las aplicaciones no necesitan conocer el nombre de la columna (`air_temp` vs `temperature`). Solo buscan por la URI de la `DataSpecification`.
-3.  **Seguridad en el Tipo de Dato:** Gracias a `hasUnit` y `hasDataType` en el mapeo, la App sabe exactamente cómo parsear el valor antes de procesarlo.
+3.  **Seguridad en el Tipo de Dato:** Gracias a `hasUnit` y `requiresDataType` en el mapeo/constraints, la App sabe exactamente cómo parsear el valor antes de procesarlo.
+4. **Simetría**: Las Apps que producen datos declaran sus salidas con `:OutputProfile`, permitiendo el encadenamiento automático de Apps.
 
 Este modelo permite crear un verdadero **Mercado de Datos Semántico** donde la oferta y la demanda se encuentran mediante definiciones abstractas de variables reales.
