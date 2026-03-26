@@ -1,12 +1,12 @@
-# EDAAnOWL v1.1.0 - Diagramas de Arquitectura
+# EDAAnOWL v1.2.0 - Diagramas de Arquitectura y Capas
 
-Este documento presenta diagramas actualizados que reflejan la arquitectura adoptada en la versión 1.1.0, enfocada en el desacoplamiento semántico y técnico.
+Este documento presenta los diagramas actualizados que reflejan la arquitectura **simétrica de 4 capas** adoptada en la versión 1.2.0.
 
 ---
 
-## 1️⃣ La Arquitectura de 3 Capas
+## 1️⃣ La Arquitectura Simétrica de 4 Capas
 
-EDAAnOWL v1.1.0 organiza la información en tres niveles claros para maximizar la reutilización.
+EDAAnOWL v1.2.0 organiza la información en cuatro niveles para desacoplar totalmente la semántica de la implementación técnica.
 
 ```mermaid
 graph TD
@@ -35,11 +35,26 @@ graph TD
         Dist -- ":hasFieldMapping" --> Mapping
         Dist -- "Technical Metadata" --> Res
     end
+
+    subgraph Capa4 ["Capa 4: Requisitos y Ofertas (Profiles)"]
+        App[":DataApp"]
+        InProf[":InputProfile"]
+        OutProf[":OutputProfile"]
+        Cons[":DataConstraint"]
+        
+        App -- ":hasInputProfile" --> InProf
+        App -- ":hasOutputProfile" --> OutProf
+        InProf -- ":hasDataSpecification" --> Spec
+        InProf -- ":hasConstraint" --> Cons
+        OutProf -- ":hasDataSpecification" --> Spec
+    end
 ```
 
 ---
 
-## 2️⃣ Jerarquía de Clases: IDSA → EDAAnOWL (v1.1.0)
+## 2️⃣ Jerarquía de Clases: IDSA → EDAAnOWL (v1.2.0)
+
+La versión 1.2.0 consolida el perfilado simétrico para aplicaciones e introduce nuevas propiedades de cumplimiento.
 
 ```mermaid
 flowchart TD
@@ -48,32 +63,36 @@ flowchart TD
 
     R["ids:Resource"]
     DR["ids:DataResource"]
-    DA["ids:DataApp"]
+    DA_IDSA["ids:DataApp"]
 
     R --> DR
-    R --> DA
+    R --> DA_IDSA
 
     DataAsset[":DataAsset"]
+    DataApp[":DataApp"]
     FieldMap[":FieldMapping"]
     DataSpec[":DataSpecification"]
-    DataProf[":DataProfile"]
-    InProf[":InputProfile"]
-    OutProf[":OutputProfile"]
+    
+    subgraph Profiles ["Symmetric Profiling"]
+        InProf[":InputProfile"]
+        OutProf[":OutputProfile"]
+    end
 
     DR --> DataAsset
-    DataAsset -.-> DataProf
-    DataProf --> InProf
-    DataProf --> OutProf
+    DA_IDSA --> DataApp
     
-    class R,DR,DA idsa
-    class DataAsset,FieldMap,DataSpec,DataProf,InProf,OutProf edaan
+    DataApp -- "hasInputProfile" --> InProf
+    DataApp -- "hasOutputProfile" --> OutProf
+    
+    class R,DR,DA_IDSA idsa
+    class DataAsset,DataApp,FieldMap,DataSpec,InProf,OutProf edaan
 ```
 
 ---
 
-## 3️⃣ Matchmaking: Demanda vs Oferta (v1.1.0)
+## 3️⃣ Matchmaking: Simetría entre Oferta y Demanda
 
-Cómo una **DataApp** encuentra un **DataAsset** compatible comparando especificaciones y restricciones.
+En v1.2.0, el matchmaking es bidireccional, permitiendo descubrir qué activos alimentan una App y qué Apps pueden procesar un Activo.
 
 ```mermaid
 flowchart LR
@@ -81,12 +100,12 @@ flowchart LR
     classDef demand fill:#bbdefb,stroke:#1976d2,stroke-width:2px
     classDef bridge fill:#fff9c4,stroke:#f9a825,stroke-width:2px
 
-    Asset["📦 DataAsset<br/>(Oferta)"]
+    Asset["📦 DataAsset<br/>(Supply)"]
     Dist["dcat:Distribution"]
     Mapping["🔗 FieldMapping"]
     Spec["🎯 DataSpecification"]
     
-    App["⚙️ DataApp<br/>(Demanda)"]
+    App["⚙️ DataApp<br/>(Demand)"]
     InProf["📋 InputProfile"]
     Cons["⚠️ DataConstraint"]
 
@@ -105,50 +124,20 @@ flowchart LR
 
 ---
 
-## 4️⃣ Componentes de una DataApp (BIGOWL Integration)
+## 4️⃣ Resumen de Propiedades Clave v1.2.0
 
-```mermaid
-flowchart LR
-    classDef idsa fill:#bbdefb,stroke:#1565c0,stroke-width:2px
-    classDef bigowl fill:#fffde7,stroke:#fbc02d,stroke-width:2px
-    classDef edaan fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
-
-    App["ids:DataApp"]
-    Comp["bigwf:Component"]
-    
-    InProf[":InputProfile"]
-    OutProf[":OutputProfile"]
-    Spec[":DataSpecification"]
-
-    App -- "implementsComponent" --> Comp
-    App -- "hasInputProfile" --> InProf
-    App -- "hasOutputProfile" --> OutProf
-    InProf -- "hasDataSpecification" --> Spec
-    OutProf -- "hasDataSpecification" --> Spec
-
-    class App idsa
-    class Comp bigowl
-    class InProf,OutProf,Spec edaan
-```
-
----
-
-## 5️⃣ Resumen de Propiedades v1.1.0
-
-| Dominio | Rango | Propiedad | Significado |
+| Capa | Clase | Propiedad | Significado |
 | :--- | :--- | :--- | :--- |
-| **dcat:Distribution** | FieldMapping | `:hasFieldMapping` | El archivo tiene un mapeo de columna |
-| **FieldMapping** | DataSpecification | `:mapsToSpecification` | Vincula columna a concepto semántico |
-| **FieldMapping**| xsd:string | `:mapsField` | Nombre físico de la columna (ej: "temp_c") |
-| **FieldMapping** | qudt:Unit | `:hasUnit` | Unidad de medida de esta columna |
-| **InputProfile** | DataSpecification | `:hasDataSpecification`| La App requiere esta variable |
-| **InputProfile** | DataConstraint | `:hasConstraint` | Requisitos adicionales (Unidad, Métrica) |
-| **DataConstraint** | qudt:Unit | `:requiresUnit` | "Necesito los datos en..." |
+| **Binding** | FieldMapping | `:hasDataType` | Define el tipo técnico (xsd:float, etc) |
+| **Binding** | FieldMapping | `:hasObservationMetric` | Define la estadística (Media, Máximo, etc) |
+| **Requirement**| DataConstraint | `:requiresDataType` | **(Nuevo v1.2.0)** Exige un tipo de dato específico |
+| **Requirement**| DataConstraint | `:constraintOperator` | **(Nuevo v1.2.0)** Operador formal (vía Vocabulario de Clases) |
+| **Offer** | OutputProfile | `:hasDataSpecification`| **(Nuevo v1.2.0)** La App produce esta variable |
 
 ---
 
-## 🎯 Mensaje Clave v1.1.0
+## 🎯 Mensaje Clave v1.2.0
 
-> **Semántica Pura ↔ Mapeo Técnico**
+> **Sincronización Técnica y Semántica**
 > 
-> En v1.1.0, el **Fenómeno** (Humedad) vive en la `DataSpecification`, mientras que la **Unidad** (Porcentaje) vive en el `FieldMapping`. Esto permite que una App pida datos de "Heredad" y especifique por separado si los necesita en % o en escala 0-1.
+> Mientras que la v1.1.0 separaba el significado del mapeo, la **v1.2.0** permite que la demanda (Apps) y la oferta (Datasets) hablen el mismo lenguaje técnico a través de restricciones explícitas de tipos de datos y operadores formales, facilitando el encadenamiento automático de servicios en el espacio de datos.

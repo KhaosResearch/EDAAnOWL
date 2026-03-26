@@ -8,7 +8,7 @@ graph TB
     end
 
     subgraph Semantic ["Semantic Layer (Ontology)"]
-        subgraph CRED ["CRED / UNE 0087 Compliance (v1.1.0)"]
+        subgraph CRED ["CRED / UNE 0087 Compliance (v1.2.0)"]
             CAT["dcat:Catalog<br/>(Federated Registry)"]
             SRV["dcat:DataService<br/>(Access Interface)"]
             POL["odrl:Policy / Offer<br/>(Usage Rights)"]
@@ -25,11 +25,12 @@ graph TB
             DA[":DataAsset<br/>(Supply)"]
             Apps[":SmartDataApp Types<br/>(Demand)"]
             
-            subgraph Matchmaking ["v1.1.0 Matchmaking"]
+            subgraph Matchmaking ["v1.2.0 Symmetric Matchmaking"]
                 Spec[":DataSpecification<br/>(Atomic Variable)"]
                 Prof[":DataProfile<br/>(Grouping)"]
                 Mapping[":FieldMapping<br/>(Bridge Layer)"]
-                InputProf[":InputProfile<br/>(App Demand)"]
+                InputProf[":InputProfile<br/>(App Input Port)"]
+                OutputProf[":OutputProfile<br/>(App Output Port)"]
                 Cons[":DataConstraint<br/>(Thresholds)"]
             end
 
@@ -42,7 +43,7 @@ graph TB
                 FOI[":FeatureOfInterest<br/>(Subject)"]
             end
             
-            Metric[":Metric (v1.1.0)"]
+            Metric[":Metric (v1.2.0)"]
             Prov_O[":Provenance<br/>(PROV-O)"]
             Repr[":DataRepresentation<br/>(Distribution)"]
         end
@@ -78,6 +79,9 @@ graph TB
     Apps -- "hasInputProfile" --> InputProf
     InputProf -- "hasDataSpecification" --> Spec
     InputProf -- "hasConstraint" --> Cons
+    
+    Apps -- "hasOutputProfile" --> OutputProf
+    OutputProf -- "hasDataSpecification" --> Spec
     
     Spec -- "hasFeatureOfInterest" --> FOI
     Spec -- "hasObservableProperty" --> OP
@@ -116,25 +120,25 @@ graph TB
 
 *Figure 1: High-level architecture showing how EDAAnOWL maps IDSA concepts to BIGOWL components, all wrapped within a CRED / DCAT-AP 3.0 compliant cataloguing layer.*
 
-### 🔄 Semantic Matchmaking Flow (v1.1.0)
+### 🔄 Semantic Matchmaking Flow (v1.2.0 Symmetric)
 
 ![Matchmaking flow concept](images/edaanowl-v1-matchmaking-flow.jpeg)
 
 *Figure 2: Conceptual flow showing the interaction between the Semantic, Dataset, Quality, and App layers.*
 
-### 🧬 Class Diagram (v1.1.0)
+### 🧬 Class Diagram (v1.2.0)
 
 ![Detailed Class Diagram](images/edaanowl-v1-class-diagram.jpeg)
 
-*Figure 3: Core classes and relationships in the version 1.1.0 decoupled architecture.*
+*Figure 3: Core classes and relationships in the version 1.2.0 symmetric profile architecture.*
 
 ### Architecture overview
 
 The figure above shows how EDAAnOWL connects real-world data-space assets with semantic models from IDSA, BIGOWL, and the **CRED (UNE 0087:2025)** recommendations.
 
-### CRED / DCAT-AP 3.0 Alignment (v1.1.0 - Full Compliance)
+### CRED / DCAT-AP 3.0 Alignment (v1.2.0 - Full Compliance)
 
-As of version 1.1.0, EDAAnOWL achieves full alignment with the **Spanish Data Office (CRED)** and the **UNE 0087:2025** standard.
+As of version 1.2.0, EDAAnOWL achieves full alignment with the **Spanish Data Office (CRED)**, the **UNE 0087:2025** standard, and **DCAT-AP 3.0**.
 
 - **`dcat:Catalog`**: Acts as the root container for all assets and services within an EDAAn data space instance.
 - **`dcat:DataService`**: Describes the technical access points (APIs) to the data, effectively wrapping `ids:DataApp` or smart data apps.
@@ -154,9 +158,9 @@ In EDAAnOWL, these classes are specialised to capture more domain-specific conce
 - **`DataAsset`** is aligned with and specialises `ids:DataResource` (supply side).
 - **Smart data app types** specialise `ids:DataApp` (demand side).
 
-### Matchmaking Layer: Atomic Specifications and Field Mappings (v1.1.0)
+### Matchmaking Layer: Atomic Specifications and Field Mappings (v1.2.0)
 
-In version 1.1.0, EDAAnOWL consolidates the decoupled architecture that separates semantic meaning from technical schema to enable extreme reusability.
+In version 1.2.0, EDAAnOWL consolidates the decoupled architecture that separates semantic meaning from technical schema to enable extreme reusability and symmetric app discovery.
 
 #### 1. Atomic Data Specifications (`DataSpecification`)
 Specifications are now **pure semantic units** that define WHAT is being measured (e.g., "NDVI for Olives", "Soil Moisture"). They contain:
@@ -174,9 +178,11 @@ This bridge layer connects an atomic specification to a physical distribution:
 - `:hasMetric`: Links technical quality metrics (e.g., Accuracy).
 
 #### 3. DataApp Profiles (`InputProfile` / `OutputProfile`)
-Apps define their needs through profiles:
-- `:hasDataSpecification`: Specifies the needed atomic variables.
-- `:hasConstraint`: Defines requirements for units, metrics, or thresholds (e.g., requiresUnit: Celsius, requiresMetric: DailyAverage).
+Apps define their ports through profiles:
+- `InputProfile`: Specifies what data an app needs (Demand).
+- `OutputProfile`: Specifies what data an app produces (Supply).
+- `:hasDataSpecification`: Specifies the needed/produced atomic variables.
+- `:hasConstraint`: Defines requirements for units, data types, or thresholds (e.g., `requiresDataType: xsd:float`, `requiresUnit: Celsius`).
 
 This enables high-precision matchmaking where an app's semantic and technical needs are compared against the distribution's mappings.
 
@@ -196,10 +202,11 @@ To ensure full semantic interoperability, agents MUST follow these validation st
 | Step | Rule | Validation Mechanism |
 | :--- | :--- | :--- |
 | **1. Semantic Match** | `InputProfile` and `FieldMapping` MUST share the same `DataSpecification` URI. | RDF Graph Query (SPARQL) |
-| **2. Unit Matching** | The `requiresUnit` in the constraint MUST match the `hasUnit` in the mapping. | Exact Match (QUDT IRI) |
-| **3. Metric Scope** | The `requiresMetric` (e.g., Daily Average) MUST match the `hasObservationMetric` of the field. | SKOS Broader/Exact Match |
-| **4. Quality Threshold** | If present, `constraintOperator` and `expectedValue` MUST be validated against the distribution’s DQV measurements. | SHACL / Logic Validation |
-| **5. Technical Form** | The distribution MUST conform to the `dct:format` and `conformsToSchema` required by the app. | Metadata Check |
+| **2. Technical Match** | The `requiresDataType` (in constraints) MUST match the `hasDataType` in the mapping. | Exact Match (XSD IRI) |
+| **3. Unit Matching** | The `requiresUnit` in the constraint MUST match the `hasUnit` in the mapping. | Exact Match (QUDT IRI) |
+| **4. Metric Scope** | The `requiresMetric` (e.g., Daily Average) MUST match the `hasObservationMetric` of the field. | SKOS Broader/Exact Match |
+| **5. Quality Threshold** | If present, `constraintOperator` and `expectedValue` MUST be validated against the distribution’s DQV measurements. | SHACL / Logic Validation |
+| **6. Technical Form** | The distribution MUST conform to the `dct:format` required by the app. | Metadata Check |
 
 ## 🏛 Strategic Design Principles
 
