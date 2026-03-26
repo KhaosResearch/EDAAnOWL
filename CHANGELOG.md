@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **Compliance**: Full DCAT-AP-ES 1.0.0 and DCAT 3.0 compliance.
+- **Validation**: Integrated official Spanish Government validation tools (Docker + `validate-local.sh`).
+- **Shapes**: New specialized SHACL shapes for Spanish Data Office (CRED) and official vocabularies.
+- **Metadata**: Standardized DIR3-compliant URIs for Agents and vCard alignment for ContactPoints.
+
+### Fixed
+- **SHACL**: Resolved URI collisions and refined technical distribution targets to prevent semantic leakage on Catalogs.
+- **Consistency**: Added mandatory spatial and temporal fields to test suites for full validation.
+
+## [1.0.0] - 2026-03-12
+
+### Added
+- **Architecture**: Decoupled DataSpecifications from technical distributions via FieldMappings.
+- **Library Model**: Enabled "Profile Libraries" for schema-agnostic semantic definitions.
+
+### Changed
+- **Matchmaking**: Upgraded to Matchmaking 2.0 with unit-aware constraints.
+
 ## [0.9.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v0.8.1...v0.9.0) (2026-03-13)
 
 
@@ -413,7 +434,9 @@ With this both annotations we help to widoco to generate a better documentation 
 
 - **Repository Documentation**: Updated `README.md` to describe the project, branching model, and CI/CD process.
 
-[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/KhaosResearch/EDAAnOWL/compare/v1.0.0...HEAD
+[1.1.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.9.0...v1.0.0
 [0.8.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.1...v0.7.0
 [0.6.1]: https://github.com/KhaosResearch/EDAAnOWL/compare/v0.6.0...v0.6.1

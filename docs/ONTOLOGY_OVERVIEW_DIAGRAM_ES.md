@@ -1,12 +1,12 @@
-# EDAAnOWL v1.0.0 - Diagramas de Arquitectura
+# EDAAnOWL v1.1.0 - Diagramas de Arquitectura
 
-Este documento presenta diagramas actualizados que reflejan la arquitectura adoptada en la versión 1.0.0, enfocada en el desacoplamiento semántico y técnico.
+Este documento presenta diagramas actualizados que reflejan la arquitectura adoptada en la versión 1.1.0, enfocada en el desacoplamiento semántico y técnico.
 
 ---
 
 ## 1️⃣ La Arquitectura de 3 Capas
 
-EDAAnOWL v1.0.0 organiza la información en tres niveles claros para maximizar la reutilización.
+EDAAnOWL v1.1.0 organiza la información en tres niveles claros para maximizar la reutilización.
 
 ```mermaid
 graph TD
@@ -39,7 +39,7 @@ graph TD
 
 ---
 
-## 2️⃣ Jerarquía de Clases: IDSA → EDAAnOWL (v1.0.0)
+## 2️⃣ Jerarquía de Clases: IDSA → EDAAnOWL (v1.1.0)
 
 ```mermaid
 flowchart TD
@@ -71,7 +71,7 @@ flowchart TD
 
 ---
 
-## 3️⃣ Matchmaking: Demanda vs Oferta (v1.0.0)
+## 3️⃣ Matchmaking: Demanda vs Oferta (v1.1.0)
 
 Cómo una **DataApp** encuentra un **DataAsset** compatible comparando especificaciones y restricciones.
 
@@ -90,7 +90,7 @@ flowchart LR
     InProf["📋 InputProfile"]
     Cons["⚠️ DataConstraint"]
 
-    Asset -- "ids:representation" --> Dist
+    Asset -- "dcat:distribution" --> Dist
     Dist -- "hasFieldMapping" --> Mapping
     Mapping -- "mapsToSpecification" --> Spec
     
@@ -133,7 +133,7 @@ flowchart LR
 
 ---
 
-## 5️⃣ Resumen de Propiedades v1.0.0
+## 5️⃣ Resumen de Propiedades v1.1.0
 
 | Dominio | Rango | Propiedad | Significado |
 | :--- | :--- | :--- | :--- |
@@ -147,8 +147,8 @@ flowchart LR
 
 ---
 
-## 🎯 Mensaje Clave v1.0.0
+## 🎯 Mensaje Clave v1.1.0
 
 > **Semántica Pura ↔ Mapeo Técnico**
 > 
-> En v1.0.0, el **Fenómeno** (Humedad) vive en la `DataSpecification`, mientras que la **Unidad** (Porcentaje) vive en el `FieldMapping`. Esto permite que una App pida datos de "Heredad" y especifique por separado si los necesita en % o en escala 0-1.
+> En v1.1.0, el **Fenómeno** (Humedad) vive en la `DataSpecification`, mientras que la **Unidad** (Porcentaje) vive en el `FieldMapping`. Esto permite que una App pida datos de "Heredad" y especifique por separado si los necesita en % o en escala 0-1.
