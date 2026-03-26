@@ -8,7 +8,7 @@ graph TB
     end
 
     subgraph Semantic ["Semantic Layer (Ontology)"]
-        subgraph CRED ["CRED / UNE 0087 Compliance (v1.0.0)"]
+        subgraph CRED ["CRED / UNE 0087 Compliance (v1.1.0)"]
             CAT["dcat:Catalog<br/>(Federated Registry)"]
             SRV["dcat:DataService<br/>(Access Interface)"]
             POL["odrl:Policy / Offer<br/>(Usage Rights)"]
@@ -25,7 +25,7 @@ graph TB
             DA[":DataAsset<br/>(Supply)"]
             Apps[":SmartDataApp Types<br/>(Demand)"]
             
-            subgraph Matchmaking ["v1.0.0 Matchmaking"]
+            subgraph Matchmaking ["v1.1.0 Matchmaking"]
                 Spec[":DataSpecification<br/>(Atomic Variable)"]
                 Prof[":DataProfile<br/>(Grouping)"]
                 Mapping[":FieldMapping<br/>(Bridge Layer)"]
@@ -42,7 +42,7 @@ graph TB
                 FOI[":FeatureOfInterest<br/>(Subject)"]
             end
             
-            Metric[":Metric (v1.0.0)"]
+            Metric[":Metric (v1.1.0)"]
             Prov_O[":Provenance<br/>(PROV-O)"]
             Repr[":DataRepresentation<br/>(Distribution)"]
         end
@@ -112,29 +112,29 @@ graph TB
 
 ## 🖼 Architecture diagram
 
-![EDAAnOWL architecture — IDS ↔ BIGOWL (v0.9.0 FOI updated)](images/eda-an-architecture-en.svg)
+![EDAAnOWL architecture — IDS ↔ BIGOWL (v1.1.0 Updated)](images/eda-an-architecture-en.svg)
 
 *Figure 1: High-level architecture showing how EDAAnOWL maps IDSA concepts to BIGOWL components, all wrapped within a CRED / DCAT-AP 3.0 compliant cataloguing layer.*
 
-### 🔄 Semantic Matchmaking Flow (v1.0.0)
+### 🔄 Semantic Matchmaking Flow (v1.1.0)
 
 ![Matchmaking flow concept](images/edaanowl-v1-matchmaking-flow.jpeg)
 
 *Figure 2: Conceptual flow showing the interaction between the Semantic, Dataset, Quality, and App layers.*
 
-### 🧬 Class Diagram (v1.0.0)
+### 🧬 Class Diagram (v1.1.0)
 
 ![Detailed Class Diagram](images/edaanowl-v1-class-diagram.jpeg)
 
-*Figure 3: Core classes and relationships in the version 1.0.0 decoupled architecture.*
+*Figure 3: Core classes and relationships in the version 1.1.0 decoupled architecture.*
 
 ### Architecture overview
 
 The figure above shows how EDAAnOWL connects real-world data-space assets with semantic models from IDSA, BIGOWL, and the **CRED (UNE 0087:2025)** recommendations.
 
-### CRED / DCAT-AP 3.0 Alignment (Updated in v1.0.0)
+### CRED / DCAT-AP 3.0 Alignment (v1.1.0 - Full Compliance)
 
-As of version 1.0.0, EDAAnOWL refines its alignment with the **Spanish Data Office (CRED)** and the **UNE 0087:2025** standard by moving technical distribution metadata to the `dcat:Distribution` level, keeping semantic profiles pure and reusable.
+As of version 1.1.0, EDAAnOWL achieves full alignment with the **Spanish Data Office (CRED)** and the **UNE 0087:2025** standard.
 
 - **`dcat:Catalog`**: Acts as the root container for all assets and services within an EDAAn data space instance.
 - **`dcat:DataService`**: Describes the technical access points (APIs) to the data, effectively wrapping `ids:DataApp` or smart data apps.
@@ -154,9 +154,9 @@ In EDAAnOWL, these classes are specialised to capture more domain-specific conce
 - **`DataAsset`** is aligned with and specialises `ids:DataResource` (supply side).
 - **Smart data app types** specialise `ids:DataApp` (demand side).
 
-### Matchmaking Layer: Atomic Specifications and Field Mappings (v1.0.0)
+### Matchmaking Layer: Atomic Specifications and Field Mappings (v1.1.0)
 
-In version 1.0.0, EDAAnOWL decouples semantic meaning from technical schema to enable extreme reusability.
+In version 1.1.0, EDAAnOWL consolidates the decoupled architecture that separates semantic meaning from technical schema to enable extreme reusability.
 
 #### 1. Atomic Data Specifications (`DataSpecification`)
 Specifications are now **pure semantic units** that define WHAT is being measured (e.g., "NDVI for Olives", "Soil Moisture"). They contain:
@@ -187,6 +187,19 @@ By reusing the same semantic variable (`DataSpecification`) across supply (Datas
 - Discovery is performed by comparing the URIs of the required and provided atomic specifications.
 
 ---
+
+
+#### 5. Matchmaking Specification (Normative Steps)
+
+To ensure full semantic interoperability, agents MUST follow these validation steps:
+
+| Step | Rule | Validation Mechanism |
+| :--- | :--- | :--- |
+| **1. Semantic Match** | `InputProfile` and `FieldMapping` MUST share the same `DataSpecification` URI. | RDF Graph Query (SPARQL) |
+| **2. Unit Matching** | The `requiresUnit` in the constraint MUST match the `hasUnit` in the mapping. | Exact Match (QUDT IRI) |
+| **3. Metric Scope** | The `requiresMetric` (e.g., Daily Average) MUST match the `hasObservationMetric` of the field. | SKOS Broader/Exact Match |
+| **4. Quality Threshold** | If present, `constraintOperator` and `expectedValue` MUST be validated against the distribution’s DQV measurements. | SHACL / Logic Validation |
+| **5. Technical Form** | The distribution MUST conform to the `dct:format` and `conformsToSchema` required by the app. | Metadata Check |
 
 ## 🏛 Strategic Design Principles
 
@@ -243,7 +256,7 @@ This repository uses a `dev` -> `main` -> `gh-pages` git flow.
 
   - **Structure**:
     - `/src/`
-      - `1.0.0/` (Ontology and vocabs for v1.0.0 - Latest)
+      - `1.0.0/` (Ontology and vocabs for v1.1.0 - Latest)
     - `/.github/workflows/` (The CI/CD workflow)
 
 - **`dev` branch**:

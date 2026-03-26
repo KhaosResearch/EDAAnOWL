@@ -1,6 +1,6 @@
-# Ejemplos de Interoperabilidad Semántica y Polimorfismo (v1.0.0)
+# Ejemplos de Interoperabilidad Semántica y Polimorfismo (v1.1.0)
 
-Este documento ilustra cómo la arquitectura de 3 capas de EDAAnOWL v1.0.0 permite que un único activo de datos sirva a múltiples aplicaciones de distintos dominios de manera eficiente.
+Este documento ilustra cómo la arquitectura de 3 capas de EDAAnOWL v1.1.0 permite que un único activo de datos sirva a múltiples aplicaciones de distintos dominios de manera eficiente.
 
 ---
 
@@ -12,6 +12,31 @@ Tenemos un fichero CSV físico (`malaga_smart_city_2026.csv`) que contiene datos
 
 Este ÚNICO activo sirve a dos tipos de aplicaciones totalmente distintas.
 
+ ### 0. Especificaciones Semánticas Reutilizables
+Antes de modelar el activo, definimos las variables atómicas compartidas en el espacio de datos.
+
+```turtle
+@prefix ex: <https://example.org/> .
+@prefix edaan: <https://w3id.org/EDAAnOWL/> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:SpecAirTemp a edaan:DataSpecification ;
+    rdfs:label "Temperatura del Aire"@es ;
+    edaan:hasObservableProperty agrovoc:c_7657 ;
+    edaan:hasFeatureOfInterest agrovoc:c_331557 .
+
+ex:SpecTrafficFlow a edaan:DataSpecification ;
+    rdfs:label "Intensidad de Tráfico"@es ;
+    edaan:hasObservableProperty <http://vocab.datex.org/terms#TrafficFlow> ;
+    edaan:hasFeatureOfInterest <http://vocab.datex.org/terms#RoadSection> .
+
+ex:SpecNO2Concentration a edaan:DataSpecification ;
+    rdfs:label "Concentración de NO2"@es ;
+    edaan:hasObservableProperty <http://purl.oclc.org/NET/ssnext/qu#NO2Concentration> ;
+    edaan:hasFeatureOfInterest agrovoc:c_331557 .
+```
+
 ### 1. El Activo y su Representación Física
 
 ```turtle
@@ -21,6 +46,7 @@ Este ÚNICO activo sirve a dos tipos de aplicaciones totalmente distintas.
 @prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix qudt: <http://qudt.org/vocab/unit/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
 ex:AssetUrbanAgri a edaan:DataAsset, dcat:Dataset ;
     dct:title "Monitoreo Urbano-Agrícola Málaga 2026" ;
@@ -89,7 +115,7 @@ ex:AppTrafficControl a edaan:DataApp ;
 
 ---
 
-## 3. Beneficios de la Arquitectura v1.0.0
+## 3. Beneficios de la Arquitectura v1.1.0
 
 1.  **Sin Redundancia:** No hace falta crear perfiles específicos para cada combinación de columnas. El `FieldMapping` es granular (por columna).
 2.  **Matchmaking Desacoplado:** Las aplicaciones no necesitan conocer el nombre de la columna (`air_temp` vs `temperature`). Solo buscan por la URI de la `DataSpecification`.
