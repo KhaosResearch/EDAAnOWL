@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v1.0.0...v1.1.0) (2026-03-26)
+
+
+### Added
+
+* **ci:** add official DCAT-AP-ES 1.0.0 validation suite and docker environment ([048eafb](https://github.com/KhaosResearch/EDAAnOWL/commit/048eafb4a7c4649fb5eeb40171b6e6a9af96fc5a))
+* **compliance:** achieve full DCAT-AP-ES 1.0.0 compliance and add official validation infrastructure ([67cda14](https://github.com/KhaosResearch/EDAAnOWL/commit/67cda14e6226f287f74c31b29c316ea041e40bf3))
+* **v1.1.0:** achieve full DCAT-AP-ES 1.0.0 compliance and restructure codebase ([1fe3531](https://github.com/KhaosResearch/EDAAnOWL/commit/1fe3531dd45d7fc1b3c0d7d5d367b9166af50428))
+* **v1.1.0:** align documentation and ontology with v1.1.0 standards and fix consistency ([7d00fe7](https://github.com/KhaosResearch/EDAAnOWL/commit/7d00fe70e279c574f3244b3a4776bb2bdadf3eb6))
+
+
+### Fixed
+
+* align v1.1.0 docs, ontology notes and release tooling ([edab072](https://github.com/KhaosResearch/EDAAnOWL/commit/edab072c63974ca84edc2dc6bf605d9c0b7dd350))
+
 ## [Unreleased]
 
 ### Added
