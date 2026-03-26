@@ -27,7 +27,7 @@
     owl:imports <https://w3id.org/EDAAnOWL/> ;
     dct:title "Examples for Earth Observation (v1.2.0)"@en , "Ejemplos de Observación de la Tierra (v1.2.0)"@es ;
     dct:description "Earth Observation examples using the v1.2.0 symmetric profiling architecture."@en , "Ejemplos de observación de la tierra usando la arquitectura de perfilado simétrico v1.2.0."@es ;
-    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E00123456> ;
+    dct:publisher <https://khaos.uma.es/> ;
     dct:language <http://publications.europa.eu/resource/authority/language/ENG> , <http://publications.europa.eu/resource/authority/language/SPA> .
 
 # --- Reusable Data Specifications (Semantic Layer) ---
@@ -52,7 +52,7 @@ spec:SoilMoisture_Olives a :DataSpecification ;
 ex:Sentinel2_NDVI_Jaen_2024 a :DataAsset, dcat:Dataset ;
     dct:title "Sentinel-2 NDVI for Jaén (2024)"@en , "NDVI de Sentinel-2 para Jaén (2024)"@es ;
     dct:description "NDVI time series for olive groves in Jaén province."@en , "Serie temporal de NDVI para olivares en la provincia de Jaén."@es ;
-    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E00123456> ;
+    dct:publisher <https://khaos.uma.es/> ;
     dcat:theme theme:AGRI , <http://datos.gob.es/kos/sector-publico/sector/medio-rural-pesca> ;
     dcat:keyword "NDVI"@en, "Sentinel-2"@en, "Agriculture"@en, "Agricultura"@es ;
     dcat:contactPoint [ 
@@ -115,7 +115,7 @@ ex:Sentinel2Distribution a :DataRepresentation, dcat:Distribution ;
 ex:SmartIrrigatorApp a :DataApp, ids:DataApp ;
     dct:title "Automated Irrigation App"@en , "Aplicación de Riego Automático"@es ;
     dct:description "App that consumes soil moisture data for irrigation control."@en , "Aplicación que consume datos de humedad del suelo para control de riego."@es ;
-    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E00123456> ;
+    dct:publisher <https://khaos.uma.es/> ;
     dcat:theme theme:AGRI , <http://datos.gob.es/kos/sector-publico/sector/medio-rural-pesca> ;
     
     # Matching Requirements via InputProfile
@@ -150,7 +150,7 @@ spec:IrrigationRecommendation a :DataSpecification ;
 ex:JaenWeatherStation a :DataAsset, dcat:Dataset ;
     dct:title "Jaén Weather Station Data (2026)"@en , "Datos de la Estación Meteorológica de Jaén (2026)"@es ;
     dct:description "Daily weather measurements from Jaén station."@en , "Mediciones meteorológicas diarias de la estación de Jaén."@es ;
-    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E00123456> ;
+    dct:publisher <https://khaos.uma.es/> ;
     dcat:theme theme:AGRI , <http://datos.gob.es/kos/sector-publico/sector/medio-rural-pesca> ;
     dcat:keyword "Weather"@en, "Jaén"@en, "Meteorología"@es ;
     dcat:contactPoint [ 
@@ -209,7 +209,7 @@ agrovoc:c_7176 a skos:Concept, :ObservableProperty ; skos:prefLabel "Irrigation 
 theme:AGRI a skos:Concept ; skos:prefLabel "Agriculture"@en .
 <http://datos.gob.es/kos/sector-publico/sector/medio-rural-pesca> a skos:Concept ; skos:prefLabel "Medio rural y pesca"@es .
 
-<http://datos.gob.es/recurso/sector-publico/org/Organismo/E00123456> a foaf:Agent ;
+<https://khaos.uma.es/> a foaf:Agent ;
     foaf:name "Khaos Research"@en , "Khaos Research"@es ;
     dct:identifier "E00123456" ;
     dct:type <http://purl.org/adms/publishertype/PublicBody> .

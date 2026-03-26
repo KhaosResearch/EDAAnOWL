@@ -32,7 +32,7 @@
               "Agricultural Data Space Catalog"@en ;
     dct:description "Catálogo de recursos semánticos del espacio de datos agrícola de Andalucía"@es ,
                     "Semantic resource catalog for the agricultural data space in Andalusia"@en ;
-    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567> ;
+    dct:publisher <https://khaos.uma.es/> ;
     dct:language <http://publications.europa.eu/resource/authority/language/SPA> ;
     dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
     dct:issued "2025-06-15"^^xsd:date ;
@@ -75,7 +75,7 @@
 #  2. AGENTS
 # ─────────────────────────────────────────────────────────────
 
-<http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567> a foaf:Agent ;
+<https://khaos.uma.es/> a foaf:Agent ;
     foaf:name "Khaos Research"@en , "Grupo Khaos"@es ;
     dct:identifier "E01234567" ;
     dct:type <http://purl.org/adms/publishertype/AcademicInstitution> .
@@ -92,7 +92,7 @@
     dct:identifier "olive-grove-monitoring-2026" ;
     dct:modified "2026-03-01"^^xsd:date ;
     dct:issued "2025-06-15"^^xsd:date ;
-    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567> ;
+    dct:publisher <https://khaos.uma.es/> ;
     dct:creator <http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567> ;
     dct:language <http://publications.europa.eu/resource/authority/language/SPA> ,
                   <http://publications.europa.eu/resource/authority/language/ENG> ;

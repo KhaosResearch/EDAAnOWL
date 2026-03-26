@@ -34,6 +34,7 @@
 <https://w3id.org/EDAAnOWL/> rdf:type owl:Ontology ;
                               owl:versionIRI <https://w3id.org/EDAAnOWL/1.2.0> ;
                               dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE> ;
+                              dct:publisher <https://khaos.uma.es/> ;
                               dct:abstract "Lightweight ontology for data spaces. Version 1.2.0 introduces symmetric profiling for DataApps (Input/Output ports), generalizes administrative metadata for both Resources and Apps, and reinforces the schema-agnostic design of DataSpecifications. Achieves full DCAT-AP-ES 1.0.0 and CRED compliance."@en ,
                                            "Ontología ligera para espacios de datos. La versión 1.2.0 introduce el perfilado simétrico para DataApps (puertos de Entrada/Salida), generaliza los metadatos administrativos tanto para Recursos como para Apps, y refuerza el diseño independiente del esquema de los DataSpecifications. Alcanza el cumplimiento total de DCAT-AP-ES 1.0.0 y del modelo CRED."@es ;
                               dct:bibliographicCitation "Salvachúa Galimberti, M. J.; Khaos Research. (2026). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 1.2.0." ;
@@ -2524,12 +2525,12 @@ theme:TECH rdf:type owl:NamedIndividual .
                              dct:language <http://publications.europa.eu/resource/authority/language/ENG> ,
                                           <http://publications.europa.eu/resource/authority/language/SPA> ;
                              dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-                             dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E00123456> ;
+                             dct:publisher <https://khaos.uma.es/> ;
                              dcat:theme <http://datos.gob.es/kos/sector-publico/sector/ciencia-tecnologia> ,
                                         theme:TECH ;
-                             dct:description "Ontology for data spaces that bridges the IDSA Information Model with the BIGOWL analytical family. Version 1.1.0 ensures full alignment with DCAT-AP-ES 1.0.0 and DCAT 3.0. It refines technical distribution constraints (SHACL) to prevent semantic leakage and standardizes metadata for official Spanish data portals (DIR3 IRIs, vCard conventions)."@en ,
-                                             "Ontología para espacios de datos que conecta el Modelo de Información IDSA con la familia analítica BIGOWL. La versión 1.1.0 asegura el alineamiento total con DCAT-AP-ES 1.0.0 y DCAT 3.0. Refina las restricciones técnicas de las distribuciones (SHACL) para evitar fugas semánticas y estandariza los metadatos para portales oficiales españoles (IRIs DIR3, convenciones vCard)."@es ;
-                             dct:modified "2026-03-16"^^xsd:date ;
+                             dct:description "EDAAnOWL aims to achieve sectoral semantic interoperability within data spaces by decoupling physical data distributions from their semantic specifications. Version 1.2.0 ensures full alignment with DCAT-AP-ES 1.0.0 and DCAT 3.0, and introduces symmetric app profiling (Input/Output Profiles) for formal technical matchmaking. For example, a DataApp requiring 'Soil Moisture' in percentage can automatically discover and consume a Dataset whose distribution (CSV/Parquet) is semantically mapped to that specification through FieldMappings."@en ,
+                                             "El objetivo principal de EDAAnOWL es conseguir la interoperabilidad semántica sectorial en los espacios de datos, desacoplando las distribuciones físicas de los activos de sus especificaciones semánticas. La versión 1.2.0 asegura el alineamiento total con DCAT-AP-ES 1.0.0 y DCAT 3.0, e introduce el perfilado simétrico de aplicaciones (Input/Output Profiles) para un emparejamiento técnico formal. Por ejemplo, una aplicación que requiera 'Humedad del Suelo' en porcentaje puede descubrir y consumir automáticamente un Dataset cuya distribución (CSV/Parquet) esté mapeada semánticamente a dicha especificación mediante FieldMappings."@es ;
+                             dct:modified "2026-03-26"^^xsd:date ;
                              dct:title "EDAAnOWL Ontology"@en ,
                                        "Ontología EDAAnOWL"@es .
 
