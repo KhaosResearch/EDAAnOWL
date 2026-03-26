@@ -24,14 +24,14 @@
     owl:imports <https://w3id.org/EDAAnOWL/> ;
     dct:title "Consistency Test Instances"@en , "Instancias de Prueba de Consistencia"@es ;
     dct:description "Test cases for verifying EDAAnOWL SHACL rules and DCAT-AP-ES compliance."@en , "Casos de prueba para verificar las reglas SHACL de EDAAnOWL y el cumplimiento de DCAT-AP-ES."@es ;
-    dct:publisher <https://khaos.uma.es/> ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001> ;
     dct:language <http://publications.europa.eu/resource/authority/language/ENG> , <http://publications.europa.eu/resource/authority/language/SPA> .
 
 # --- Agents ---
-<https://khaos.uma.es/> a foaf:Agent ;
-    foaf:name "Test Organization"@en , "Organización de Prueba"@es ;
-    dct:identifier "E01234567" ;
-    dct:type <http://purl.org/adms/publishertype/PublicBody> .
+<http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001> a foaf:Agent ;
+    foaf:name "Universidad de Málaga - Khaos Research Group"@en , "Universidad de Málaga - Grupo de Investigación Khaos"@es ;
+    dct:identifier "U01100001" ;
+    dct:type <http://purl.org/adms/publishertype/AcademicInstitution> .
 
 # --- Specifications ---
 test:NDVIProfile a :DataSpecification ;
@@ -52,7 +52,7 @@ test:ValidApp a prov:Activity ;
 test:ValidDataAsset a :DataAsset, dcat:Dataset ;
     dct:title "Valid Data Asset"@en , "Activo de Datos Válido"@es ;
     dct:description "A fully compliant data asset for testing."@en , "Un activo de datos totalmente conforme para pruebas."@es ;
-    dct:publisher <https://khaos.uma.es/> ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001> ;
     dcat:theme theme:AGRI , <http://datos.gob.es/kos/sector-publico/sector/medio-rural-pesca> ;
     dcat:keyword "Test"@en, "Prueba"@es ;
     dcat:contactPoint [ 
@@ -81,7 +81,7 @@ test:ValidDataAsset a :DataAsset, dcat:Dataset ;
 test:ValidSpatialAsset a :SpatialTemporalAsset, dcat:Dataset ;
     dct:title "Valid Spatial Asset"@en , "Activo Espacial Válido"@es ;
     dct:description "A spatial asset with coordinate reference system."@en , "Un activo espacial con sistema de referencia de coordenadas."@es ;
-    dct:publisher <https://khaos.uma.es/> ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001> ;
     dcat:theme theme:AGRI , <http://datos.gob.es/kos/sector-publico/sector/medio-rural-pesca> ;
     dcat:keyword "Spatial"@en, "Espacial"@es ;
     dcat:contactPoint [ 
@@ -133,7 +133,7 @@ test:ValidRepresentation a :DataRepresentation, dcat:Distribution ;
 test:InvalidFOIAsset a :DataAsset, dcat:Dataset ;
     dct:title "Invalid Asset Case"@en , "Caso de Activo Inválido"@es ;
     dct:description "This asset is intentionally incomplete for SHACL testing."@en , "Este activo es intencionalmente incompleto para pruebas SHACL."@es ;
-    dct:publisher <https://khaos.uma.es/> ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001> ;
     dcat:theme theme:AGRI , <http://datos.gob.es/kos/sector-publico/sector/medio-rural-pesca> ;
     dcat:keyword "Incomplete"@en, "Incompleto"@es ;
     dcat:contactPoint [ 

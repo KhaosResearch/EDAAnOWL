@@ -32,7 +32,7 @@
               "Agricultural Data Space Catalog"@en ;
     dct:description "Catálogo de recursos semánticos del espacio de datos agrícola de Andalucía"@es ,
                     "Semantic resource catalog for the agricultural data space in Andalusia"@en ;
-    dct:publisher <https://khaos.uma.es/> ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001> ;
     dct:language <http://publications.europa.eu/resource/authority/language/SPA> ;
     dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
     dct:issued "2025-06-15"^^xsd:date ;
@@ -57,7 +57,7 @@
         vcard:hasEmail <mailto:info@khaos.uma.es> ;
         vcard:hasURL <https://khaos.uma.es> ;
         vcard:hasTelephone <tel:+34952131000> ;
-        vcard:hasUID <https://khaos.uma.es/id/E01234567>
+        vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001id/U01100001>
     ] .
 
 # Strictly DCAT-aligned Catalog Distribution
@@ -75,9 +75,9 @@
 #  2. AGENTS
 # ─────────────────────────────────────────────────────────────
 
-<https://khaos.uma.es/> a foaf:Agent ;
-    foaf:name "Khaos Research"@en , "Grupo Khaos"@es ;
-    dct:identifier "E01234567" ;
+<http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001> a foaf:Agent ;
+    foaf:name "Universidad de Málaga - Khaos Research Group"@en , "Universidad de Málaga - Grupo de Investigación Khaos"@es ;
+    dct:identifier "U01100001" ;
     dct:type <http://purl.org/adms/publishertype/AcademicInstitution> .
 
 # ─────────────────────────────────────────────────────────────
@@ -92,8 +92,8 @@
     dct:identifier "olive-grove-monitoring-2026" ;
     dct:modified "2026-03-01"^^xsd:date ;
     dct:issued "2025-06-15"^^xsd:date ;
-    dct:publisher <https://khaos.uma.es/> ;
-    dct:creator <http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567> ;
+    dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001> ;
+    dct:creator <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001> ;
     dct:language <http://publications.europa.eu/resource/authority/language/SPA> ,
                   <http://publications.europa.eu/resource/authority/language/ENG> ;
     dct:type <http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL> ;
@@ -114,7 +114,7 @@
         vcard:hasEmail <mailto:info@khaos.uma.es> ;
         vcard:hasURL <https://khaos.uma.es> ;
         vcard:hasTelephone <tel:+34952131000> ;
-        vcard:hasUID <https://khaos.uma.es/id/E01234567>
+        vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001id/U01100001>
     ] ;
     dct:temporal [ 
         a dct:PeriodOfTime ; 
@@ -197,7 +197,7 @@
     odrl:target <https://w3id.org/EDAAnOWL/examples/cred/dataset/olive-grove-monitoring> ;
     odrl:permission [
         odrl:action odrl:use ;
-        odrl:assigner <http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567> ;
+        odrl:assigner <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001> ;
         odrl:constraint [
             odrl:leftOperand odrl:purpose ;
             odrl:operator odrl:eq ;
@@ -206,7 +206,7 @@
     ] ;
     odrl:prohibition [
         odrl:action odrl:distribute ;
-        odrl:assigner <http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567>
+        odrl:assigner <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001>
     ] .
 
 <http://publications.europa.eu/resource/authority/access-right/PUBLIC> a dct:RightsStatement ;
