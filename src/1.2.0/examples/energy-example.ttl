@@ -16,8 +16,11 @@
     :hasObservableProperty <http://purl.oclc.org/NET/ssnext/qu#ActivePower> ;
     :hasFeatureOfInterest <http://purl.org/energy/ontology#PowerPlant> .
 
-<http://purl.oclc.org/NET/ssnext/qu#ActivePower> a skos:Concept ;
+<http://purl.oclc.org/NET/ssnext/qu#ActivePower> a skos:Concept, :ObservableProperty ;
     skos:prefLabel "Active Power"@en , "Potencia Activa"@es .
+
+<http://purl.org/energy/ontology#PowerPlant> a skos:Concept, :FeatureOfInterest ;
+    skos:prefLabel "Power Plant"@en , "Central Eléctrica"@es .
 
 <https://example.org/energy/PowerPlant_Malaga_2026> a :DataAsset, dcat:Dataset ;
     dct:title "Málaga PV Plant Generation (2026)"@en , "Generación Planta Fotovoltaica Málaga (2026)"@es ;
@@ -33,7 +36,11 @@
     dcat:contactPoint [ 
         a vcard:Organization ;
         vcard:fn "Khaos Research Group"@en , "Grupo de Investigación Khaos"@es ;
-        vcard:hasEmail <mailto:contact@khaos.uma.es> 
+        vcard:organization-name "Khaos Research Group"@en , "Grupo de Investigación Khaos"@es ;
+        vcard:hasEmail <mailto:contact@khaos.uma.es> ;
+        vcard:hasURL <https://khaos.uma.es> ;
+        vcard:hasTelephone <tel:+34952131000> ;
+        vcard:hasUID <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001id/U01100001>
     ] ;
     
     dcat:distribution [

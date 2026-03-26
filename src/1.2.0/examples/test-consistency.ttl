@@ -34,10 +34,21 @@
     dct:type <http://purl.org/adms/publishertype/AcademicInstitution> .
 
 # --- Specifications ---
-test:NDVIProfile a :DataSpecification ;
-    rdfs:label "NDVI Profile"@en , "Perfil NDVI"@es ;
+test:NDVISpecification a :DataSpecification ;
+    rdfs:label "NDVI Specification"@en , "Especificación NDVI"@es ;
     :hasFeatureOfInterest agrovoc:c_12926 ;
     :hasObservableProperty agrovoc:c_ce585e0d .
+
+# --- Profiles (v1.2.0) ---
+test:InputProfileApp a :InputProfile ;
+    rdfs:label "Example Input Profile"@en , "Perfil de Entrada de Ejemplo"@es ;
+    :hasDataSpecification test:NDVISpecification ;
+    :hasConstraint [
+        a :DataConstraint ;
+        :requiresMetric :Accuracy ;
+        :constraintOperator :GreaterOrEqual ;
+        :constraintValue "0.85"^^xsd:float 
+    ] .
 
 # --- Activities ---
 test:ValidApp a prov:Activity ;
@@ -121,7 +132,7 @@ test:ValidRepresentation a :DataRepresentation, dcat:Distribution ;
     :hasFieldMapping [
         a :FieldMapping ;
         :mapsField "ndvi_col" ;
-        :mapsToSpecification test:NDVIProfile ;
+        :mapsToSpecification test:NDVISpecification ;
         :hasUnit qudt:UNITLESS ;
         :hasDataType xsd:float 
     ] .

@@ -201,10 +201,10 @@ ex:WeatherCSV a :DataRepresentation, dcat:Distribution ;
     ] .
 
 # --- Supporting Stubs ---
-agrovoc:c_12926 a skos:Concept ; skos:prefLabel "Olives"@en , "Olivos"@es .
-agrovoc:c_ce585e0d a skos:Concept ; skos:prefLabel "NDVI"@en , "NDVI"@es .
-agrovoc:c_7657 a skos:Concept ; skos:prefLabel "Temperature"@en , "Temperatura"@es .
-agrovoc:c_7208 a skos:Concept ; skos:prefLabel "Soil Moisture"@en , "Humedad del Suelo"@es .
+agrovoc:c_12926 a skos:Concept, :FeatureOfInterest ; skos:prefLabel "Olives"@en , "Olivos"@es .
+agrovoc:c_ce585e0d a skos:Concept, :ObservableProperty ; skos:prefLabel "NDVI"@en , "NDVI"@es .
+agrovoc:c_7657 a skos:Concept, :ObservableProperty ; skos:prefLabel "Temperature"@en , "Temperatura"@es .
+agrovoc:c_7208 a skos:Concept, :ObservableProperty ; skos:prefLabel "Soil Moisture"@en , "Humedad del Suelo"@es .
 agrovoc:c_7176 a skos:Concept, :ObservableProperty ; skos:prefLabel "Irrigation Recommendation"@en .
 theme:AGRI a skos:Concept ; skos:prefLabel "Agriculture"@en .
 <http://datos.gob.es/kos/sector-publico/sector/medio-rural-pesca> a skos:Concept ; skos:prefLabel "Medio rural y pesca"@es .

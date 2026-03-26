@@ -139,7 +139,7 @@
     dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE> ;
     dcatap:applicableLegislation <https://www.boe.es/eli/es/rd/2023/12/19/1089> ;
     dct:rights <https://datos.gob.es/catalogo/derechos-de-access> ;
-    dcat:byteSize "15728640"^^xsd:decimal ;
+    dcat:byteSize "15728640"^^xsd:nonNegativeInteger ;
     dct:issued "2025-06-15"^^xsd:date ;
     dct:modified "2026-03-01"^^xsd:date ;
     adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;

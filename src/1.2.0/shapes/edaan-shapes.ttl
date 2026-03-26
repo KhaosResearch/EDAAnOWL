@@ -11,6 +11,8 @@
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix bigdat: <https://w3id.org/BIGOWLData/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix time: <http://www.w3.org/2006/time#> .
 
 #################################################################
 ### Shapes for IDSA Classes (DataApp, DataResource)
@@ -165,14 +167,8 @@
 
 :InputProfileShape a sh:NodeShape ;
     sh:targetClass :InputProfile ;
-    
-    sh:property [
-        sh:path :hasDataSpecification ;
-        sh:minCount 1 ;
-        sh:class :DataSpecification ;
-        sh:message "InputProfile MUST specify at least one required DataSpecification."@en ;
-    ] ;
-    
+    # hasDataSpecification inherited from DataProfileShape
+
     sh:property [
         sh:path :hasConstraint ;
         sh:class :DataConstraint ;
@@ -180,14 +176,8 @@
     ] .
 
 :OutputProfileShape a sh:NodeShape ;
-    sh:targetClass :OutputProfile ;
-    
-    sh:property [
-        sh:path :hasDataSpecification ;
-        sh:minCount 1 ;
-        sh:class :DataSpecification ;
-        sh:message "OutputProfile MUST specify at least one produced DataSpecification."@en ;
-    ] .
+    sh:targetClass :OutputProfile .
+    # hasDataSpecification inherited from DataProfileShape
 
 :DataConstraintShape a sh:NodeShape ;
     sh:targetClass :DataConstraint ;
@@ -308,6 +298,105 @@
 
 :FeatureOfInterestShape a sh:NodeShape ;
     sh:targetClass :FeatureOfInterest .
+
+#################################################################
+#    SHAPES: DataProfile (v1.2.0)
+#################################################################
+
+:DataProfileShape a sh:NodeShape ;
+    sh:targetClass :DataProfile ;
+    rdfs:label "Data Profile Shape"@en ;
+    sh:property [
+        sh:path :hasDataSpecification ;
+        sh:minCount 1 ;
+        sh:class :DataSpecification ;
+        sh:message "DataProfile MUST contain at least one DataSpecification."@en ;
+        sh:severity sh:Violation
+    ] .
+
+#################################################################
+#    SHAPES: SpatialTemporalAsset (v1.2.0)
+#################################################################
+
+:SpatialTemporalAssetShape a sh:NodeShape ;
+    sh:targetClass :SpatialTemporalAsset ;
+    rdfs:label "Spatial Temporal Asset Shape"@en ;
+
+    sh:property [
+        sh:path :hasSpatialCoverage ;
+        sh:minCount 1 ;
+        sh:message "SpatialTemporalAsset SHOULD have a spatial coverage."@en ;
+        sh:severity sh:Warning
+    ] ;
+
+    sh:property [
+        sh:path :hasTemporalCoverage ;
+        sh:minCount 1 ;
+        sh:message "SpatialTemporalAsset SHOULD have a temporal coverage."@en ;
+        sh:severity sh:Warning
+    ] .
+
+#################################################################
+#    SHAPES: QualityReport (v1.2.0)
+#################################################################
+
+:QualityReportShape a sh:NodeShape ;
+    sh:targetClass :QualityReport ;
+    rdfs:label "Quality Report Shape"@en ;
+
+    sh:property [
+        sh:path :qualityReportURI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:anyURI ;
+        sh:message "QualityReport MUST have exactly one qualityReportURI."@en ;
+        sh:severity sh:Violation
+    ] ;
+
+    sh:property [
+        sh:path :reportDate ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime ;
+        sh:message "QualityReport reportDate MUST be xsd:dateTime."@en ;
+    ] ;
+
+    sh:property [
+        sh:path :reportingEntity ;
+        sh:maxCount 1 ;
+        sh:message "QualityReport SHOULD specify a reporting entity."@en ;
+        sh:severity sh:Info
+    ] .
+
+#################################################################
+#    SHAPES: CertificationReport (v1.2.0)
+#################################################################
+
+:CertificationReportShape a sh:NodeShape ;
+    sh:targetClass :CertificationReport ;
+    rdfs:label "Certification Report Shape"@en ;
+
+    sh:property [
+        sh:path :certificationLevel ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "CertificationReport MUST specify a certification level."@en ;
+        sh:severity sh:Violation
+    ] ;
+
+    sh:property [
+        sh:path :reportDate ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime ;
+        sh:message "CertificationReport reportDate MUST be xsd:dateTime."@en ;
+    ] ;
+
+    sh:property [
+        sh:path :reportingEntity ;
+        sh:maxCount 1 ;
+        sh:message "CertificationReport SHOULD specify a reporting entity."@en ;
+        sh:severity sh:Info
+    ] .
 
 #################################################################
 #    SHAPES: Verifiable Credentials
