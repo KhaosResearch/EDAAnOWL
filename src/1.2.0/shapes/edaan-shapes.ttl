@@ -215,7 +215,8 @@
     sh:property [
         sh:path :constraintOperator ;
         sh:maxCount 1 ;
-        sh:message "Constraint should specify a comparison operator."@en ;
+        sh:class :ConstraintOperator ;
+        sh:message "Constraint should specify a formal comparison operator (e.g., :GreaterOrEqual)."@en ;
     ] ;
 
     sh:property [
