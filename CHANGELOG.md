@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v1.1.0...v1.2.0) (2026-03-26)
+
+
+### Added
+
+* **examples:** achieve 100% DCAT-AP-ES compliance with official UMA DIR3 and add energy demo ([f0f1cdf](https://github.com/KhaosResearch/EDAAnOWL/commit/f0f1cdfb08e4a818313d3fa871ec928baea34856))
+* **ontology:** finalize metadata and formal constraint operators for v1.2.0 ([ee64ebd](https://github.com/KhaosResearch/EDAAnOWL/commit/ee64ebd079bd053dd4125844de05c259c5e47224))
+
+
+### Changed
+
+* **metadata:** update v1.2.0 description and publisher URI to Khaos Research Group ([990ccb0](https://github.com/KhaosResearch/EDAAnOWL/commit/990ccb0ff1e4028d28b21b2d32415dc9e45163b7))
+* **ontology:** implement DataProfile superclass hierarchy (R12) ([36a71b2](https://github.com/KhaosResearch/EDAAnOWL/commit/36a71b26999a03d233c43efd0c1aded845abef47))
+* **ontology:** nuance compliance language in description ([9beede2](https://github.com/KhaosResearch/EDAAnOWL/commit/9beede2f719ac04274bb11afb479ee41745dee91))
+* **release:** update documentation, citation, and security policy for v1.2.0 ([ef15a4c](https://github.com/KhaosResearch/EDAAnOWL/commit/ef15a4ce54788b80bb8b8b47a176835338d37d49))
+
 ## [1.1.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v1.0.0...v1.1.0) (2026-03-26)
 
 
