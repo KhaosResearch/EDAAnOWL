@@ -3,7 +3,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <> .
 <https://w3id.org/EDAAnOWL/1.2.0> a prov:Entity;
-	 dc:title "Ontología EDAAnOWL";
+	 dc:title "EDAAnOWL Ontology";
 	 prov:wasAttributedTo :agent0;
 	 prov:wasAttributedTo :agent1;
 	 prov:wasAttributedTo :agent2;
@@ -11,6 +11,6 @@
 	 prov:wasRevisionOf <https://w3id.org/EDAAnOWL/1.1.0>;
 	 prov:wasGeneratedAt "2025-10-10";
 .
-:agent0 a prov:Agent; foaf:name "https://github.com/MartinM10".
-:agent1 a prov:Agent; foaf:name "https://khaos.uma.es/".
+:agent0 a prov:Agent; foaf:name "https://khaos.uma.es/".
+:agent1 a prov:Agent; foaf:name "https://github.com/MartinM10".
 :agent2 a prov:Agent; foaf:name "https://www.linkedin.com/in/martin-jeronimo-salvachua/".

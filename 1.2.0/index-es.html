@@ -13,11 +13,11 @@
 <script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
 	<dark-mode-toggle class="slider"></dark-mode-toggle>
 </div>
- <title>Ontología EDAAnOWL</title>
+ <title>EDAAnOWL Ontology</title>
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/EDAAnOWL/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/EDAAnOWL/","name":"Ontología EDAAnOWL", "headline":"Ontología ligera para espacios de datos. La versión 1.2.0 introduce el perfilado simétrico para DataApps (puertos de Entrada/Salida), generaliza los metadatos administrativos tanto para Recursos como para Apps, y refuerza el diseño independiente del esquema de los DataSpecifications. El modelado se ha diseñado siguiendo el alineamiento con DCAT-AP-ES, el modelo CRED y el Information Model de IDSA para asegurar la interoperabilidad semántica entre dominios.", "dateReleased":"2025-10-10", "dateModified":"2026-03-26", "version":"1.2.0", "license":"https://creativecommons.org/licenses/by/4.0/", "codeRepository":"https://github.com/KhaosResearch/EDAAnOWL", "author":[{"@type":"Person","name":"https://github.com/MartinM10"},{"@type":"Person","name":"https://khaos.uma.es/"},{"@type":"Person","name":"https://www.linkedin.com/in/martin-jeronimo-salvachua/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/EDAAnOWL/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/EDAAnOWL/","name":"EDAAnOWL Ontology", "headline":"Ontología ligera para espacios de datos. La versión 1.2.0 introduce el perfilado simétrico para DataApps (puertos de Entrada/Salida), generaliza los metadatos administrativos tanto para Recursos como para Apps, y refuerza el diseño independiente del esquema de los DataSpecifications. El modelado se ha diseñado siguiendo el alineamiento con DCAT-AP-ES, el modelo CRED y el Information Model de IDSA para asegurar la interoperabilidad semántica entre dominios.", "dateReleased":"2025-10-10", "dateModified":"2026-03-26", "version":"1.2.0", "license":"https://creativecommons.org/licenses/by/4.0/", "codeRepository":"https://github.com/KhaosResearch/EDAAnOWL", "author":[{"@type":"Person","name":"https://khaos.uma.es/"},{"@type":"Person","name":"https://github.com/MartinM10"},{"@type":"Person","name":"https://www.linkedin.com/in/martin-jeronimo-salvachua/"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -65,7 +65,7 @@ $(function(){
 <div class="container">
 <div class="head">
 <div style="float:right">language <a href="index-en.html"><b>en</b></a> <a href="index-es.html"><b>es</b></a> </div>
-<h1>Ontología EDAAnOWL</h1>
+<h1>EDAAnOWL Ontology</h1>
 <h2>Fecha de creaci&oacute;n: 2025-10-10</h2>
 
 
@@ -78,7 +78,7 @@ $(function(){
 <dt>Revisi&oacute;n n&uacute;mero:</dt>
 <dd>1.2.0</dd>
 <dt>Autores:</dt>
-<dd>https://github.com/MartinM10</dd><dd>https://khaos.uma.es/</dd><dd>https://www.linkedin.com/in/martin-jeronimo-salvachua/</dd>
+<dd>https://khaos.uma.es/</dd><dd>https://github.com/MartinM10</dd><dd>https://www.linkedin.com/in/martin-jeronimo-salvachua/</dd>
 
 <dt>Publicado por:</dt>
 <dd>https://khaos.uma.es/</dd>
@@ -1064,7 +1064,7 @@ Ontología ligera para espacios de datos. La versión 1.2.0 introduce el perfila
 <!--DESCRIPTION SECTION-->
     <div id="description"><h2 id="desc" class="list">EDAAnOWL: Descripci&oacute;n <span class="backlink"> volver a <a href="#toc">&iacute;ndice</a></span></h2>
 
-<span class="markdown">El objetivo principal de EDAAnOWL es conseguir la interoperabilidad semántica sectorial en los espacios de datos, desacoplando las distribuciones físicas de los activos de sus especificaciones semánticas. La versión 1.2.0 asegura el alineamiento total con DCAT-AP-ES 1.0.0 y DCAT 3.0, e introduce el perfilado simétrico de aplicaciones (Input/Output Profiles) para un emparejamiento técnico formal. Por ejemplo, una aplicación que requiera 'Humedad del Suelo' en porcentaje puede descubrir y consumir automáticamente un Dataset cuya distribución (CSV/Parquet) esté mapeada semánticamente a dicha especificación mediante FieldMappings.</span><img src="https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/refs/heads/main/images/eda-an-architecture-en.svg"></div>
+<span class="markdown">EDAAnOWL aims to achieve sectoral semantic interoperability within data spaces by decoupling physical data distributions from their semantic specifications. Version 1.2.0 follows strategic alignment with DCAT-AP-ES, the CRED model, and the IDSA Information Model, and introduces symmetric app profiling (Input/Output Profiles) for formal technical matchmaking. For example, a DataApp requiring 'Soil Moisture' in percentage can automatically discover and consume a Dataset whose distribution (CSV/Parquet) is semantically mapped to that specification through FieldMappings.</span><img src="https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/refs/heads/main/images/eda-an-architecture-en.svg"></div>
    
 
 <!--CROSSREF SECTION-->
@@ -6321,10 +6321,10 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
     <a href="http://www.w3.org/ns/dcat#theme" target="_blank" title="http://www.w3.org/ns/dcat#theme">theme</a> <sup class="type-op" title="Propiedad entre objetos">op</sup> <a href="http://publications.europa.eu/resource/authority/data-theme/TECH" target="_blank" title="http://publications.europa.eu/resource/authority/data-theme/TECH">T E C H</a> <sup class="type-ni" title="Individuo">ni</sup>
    </dd>
    <dd>
-    <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">descripción</a> <sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="literal">"EDAAnOWL aims to achieve sectoral semantic interoperability within data spaces by decoupling physical data distributions from their semantic specifications. Version 1.2.0 ensures full alignment with DCAT-AP-ES 1.0.0 and DCAT 3.0, and introduces symmetric app profiling (Input/Output Profiles) for formal technical matchmaking. For example, a DataApp requiring 'Soil Moisture' in percentage can automatically discover and consume a Dataset whose distribution (CSV/Parquet) is semantically mapped to that specification through FieldMappings."@en</span>
+    <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">descripción</a> <sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="literal">"EDAAnOWL aims to achieve sectoral semantic interoperability within data spaces by decoupling physical data distributions from their semantic specifications. Version 1.2.0 follows strategic alignment with DCAT-AP-ES, the CRED model, and the IDSA Information Model, and introduces symmetric app profiling (Input/Output Profiles) for formal technical matchmaking. For example, a DataApp requiring 'Soil Moisture' in percentage can automatically discover and consume a Dataset whose distribution (CSV/Parquet) is semantically mapped to that specification through FieldMappings."@en</span>
    </dd>
    <dd>
-    <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">descripción</a> <sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="literal">"El objetivo principal de EDAAnOWL es conseguir la interoperabilidad semántica sectorial en los espacios de datos, desacoplando las distribuciones físicas de los activos de sus especificaciones semánticas. La versión 1.2.0 asegura el alineamiento total con DCAT-AP-ES 1.0.0 y DCAT 3.0, e introduce el perfilado simétrico de aplicaciones (Input/Output Profiles) para un emparejamiento técnico formal. Por ejemplo, una aplicación que requiera 'Humedad del Suelo' en porcentaje puede descubrir y consumir automáticamente un Dataset cuya distribución (CSV/Parquet) esté mapeada semánticamente a dicha especificación mediante FieldMappings."@es</span>
+    <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">descripción</a> <sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="literal">"El objetivo principal de EDAAnOWL es conseguir la interoperabilidad semántica sectorial en los espacios de datos, desacoplando las distribuciones físicas de los activos de sus especificaciones semánticas. La versión 1.2.0 se ha diseñado siguiendo el alineamiento estratégico con DCAT-AP-ES, el modelo CRED y el Information Model de IDSA, e introduce el perfilado simétrico de aplicaciones (Input/Output Profiles) para un emparejamiento técnico formal. Por ejemplo, una aplicación que requiera 'Humedad del Suelo' en porcentaje puede descubrir y consumir automáticamente un Dataset cuya distribución (CSV/Parquet) esté mapeada semánticamente a dicha especificación mediante FieldMappings."@es</span>
    </dd>
    <dd>
     <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">título</a> <sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="literal">"EDAAnOWL Ontology"@en</span>
@@ -6961,13 +6961,13 @@ Los DataSpecifications son ahora independientes del esquema. Ya no contienen inf
 <ul>
 <li>Nuevo: owl:deprecated "true"^^xsd:boolean</li>
 <li>Nuevo: rdfs:label "tiene tipo de esquema (obsoleto)"@es</li>
-<li>Nuevo: rdfs:label "has schema type (deprecated)"@en</li>
 <li>Nuevo: rdfs:comment "DEPRECATED: Technical schema details belong to the Distribution or FieldMapping layer. Identifies the technology or standard of the associated technical schema."@en</li>
+<li>Nuevo: rdfs:label "has schema type (deprecated)"@en</li>
 <li>Nuevo: rdfs:comment "OBSOLETO: Los detalles técnicos del esquema pertenecen a la capa de Distribution o FieldMapping. Identifica la tecnología o estándar del esquema técnico asociado."@es</li>
 </ul>
 <ul>
-<li>Eliminado: rdfs:label "has schema type"@en</li>
 <li>Eliminado: rdfs:comment "Identifies the technology or standard of the associated technical schema (e.g., JSON Schema, Google Protobuf, XML Schema)."@en</li>
+<li>Eliminado: rdfs:label "has schema type"@en</li>
 <li>Eliminado: rdfs:comment "Identifica la tecnología o estándar del esquema técnico asociado (p. ej., JSON Schema, Google Protobuf, XML Schema)."@es</li>
 <li>Eliminado: rdfs:label "tiene tipo de esquema"@es</li>
 </ul>
@@ -6995,8 +6995,8 @@ Los DataSpecifications son ahora independientes del esquema. Ya no contienen inf
 <ul>
 <li>Nuevo: rdfs:label "produce perfil (obsoleto)"@es</li>
 <li>Nuevo: rdfs:comment "DEPRECATED: Use :hasOutputProfile and :hasDataSpecification instead. Links a DataApp to a DataSpecification it produces as output."@en</li>
-<li>Nuevo: rdfs:comment "OBSOLETO: Use :hasOutputProfile y :hasDataSpecification en su lugar. Vincula una DataApp con un DataSpecification que produce como salida."@es</li>
 <li>Nuevo: owl:deprecated "true"^^xsd:boolean</li>
+<li>Nuevo: rdfs:comment "OBSOLETO: Use :hasOutputProfile y :hasDataSpecification en su lugar. Vincula una DataApp con un DataSpecification que produce como salida."@es</li>
 <li>Nuevo: rdfs:label "produces profile (deprecated)"@en</li>
 </ul>
 <ul>
@@ -7023,8 +7023,8 @@ Los DataSpecifications son ahora independientes del esquema. Ya no contienen inf
 </ul>
 <ul>
 <li>Eliminado: rdfs:comment "Links a DataApp or InputProfile to a DataSpecification it requires as input."@en</li>
-<li>Eliminado: rdfs:label "requires profile"@en</li>
 <li>Eliminado: rdfs:label "requiere perfil"@es</li>
+<li>Eliminado: rdfs:label "requires profile"@en</li>
 <li>Eliminado: rdfs:comment "Vincula una DataApp o InputProfile con un DataSpecification que requiere como entrada."@es</li>
 </ul>
 </li>
@@ -7152,8 +7152,8 @@ Los DataSpecifications son ahora independientes del esquema. Ya no contienen inf
 <li>Nuevo: Dominio Union de (https://w3id.org/EDAAnOWL/DataApp, https://w3id.org/idsa/core/Resource)</li>
 </ul>
 <ul>
-<li>Eliminado: rdfs:comment "Indica si los registros de auditoría para el uso del recurso están disponibles."@es</li>
 <li>Eliminado: rdfs:comment "Indicates if audit logs for the resource usage are available."@en</li>
+<li>Eliminado: rdfs:comment "Indica si los registros de auditoría para el uso del recurso están disponibles."@es</li>
 <li>Eliminado: Dominio https://w3id.org/idsa/core/Resource</li>
 </ul>
 </li>
