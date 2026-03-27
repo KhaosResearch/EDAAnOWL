@@ -65,7 +65,13 @@ Aquí es donde vinculamos la semántica con la realidad física del archivo.
     dcat:temporalResolution "PT1H"^^xsd:duration ;
     :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
 
-    # Vinculación (Capa 2): Aquí definimos unidades y mapeos
+    # Perfil Genérico (Capa Semántica, opcional pero recomendado)
+    :hasProfile [
+        a :DataProfile ;
+        :hasDataSpecification <spec/air-temperature> , <spec/soil-moisture>
+    ] ;
+
+    # Vinculación Específica por Campo (Capa 2): Aquí definimos unidades y mapeos
     :hasFieldMapping [
         a :FieldMapping ;
         :mapsToSpecification <spec/air-temperature> ;

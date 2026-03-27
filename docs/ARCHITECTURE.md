@@ -70,7 +70,9 @@ graph TB
     
     DA -- "hasFeatureOfInterest" --> FOI
 
-    DA -- "ids:representation" --> Repr
+    DA -- "dcat:distribution" --> Repr
+    Repr -- "hasProfile" --> Prof
+    Prof -- "hasDataSpecification" --> Spec
     Repr -- "hasFieldMapping" --> Mapping
     Mapping -- "mapsToSpecification" --> Spec
     Mapping -- "mapsField" --> Field["Physical Field"]
@@ -168,8 +170,12 @@ Specifications are now **pure semantic units** that define WHAT is being measure
 - `:hasObservableProperty` (semantic concept, e.g., NDVI).
 They do **NOT** contain column names, units, or metrics.
 
-#### 2. Field Mappings (`FieldMapping`)
-This bridge layer connects an atomic specification to a physical distribution:
+#### 2. Data Profiles (`DataProfile` / Dataset layer)
+This layer conceptually groups multiple semantic specifications at the distribution level. It represents the "what is inside this dataset as a whole" without referring to technical columns:
+- `:hasDataSpecification`: Points to the reusable atomic specification.
+
+#### 3. Field Mappings (`FieldMapping`)
+This bridge layer connects an atomic specification to a physical file's specific field:
 - `:mapsToSpecification`: Points to the reusable atomic specification.
 - `:mapsField`: Specifies the column name or field (e.g., "ndvi_column").
 - `:hasUnit`: Defines the unit of measure (QUDT) used in this specific distribution.
@@ -177,16 +183,16 @@ This bridge layer connects an atomic specification to a physical distribution:
 - `:hasObservationMetric`: Defines the aggregation or statistical metric (e.g., DailyAverage).
 - `:hasMetric`: Links technical quality metrics (e.g., Accuracy).
 
-#### 3. DataApp Profiles (`InputProfile` / `OutputProfile`)
-Apps define their ports through profiles:
+#### 4. DataApp Profiles (`InputProfile` / `OutputProfile`)
+Apps define their ports through specialized profiles:
 - `InputProfile`: Specifies what data an app needs (Demand).
 - `OutputProfile`: Specifies what data an app produces (Supply).
 - `:hasDataSpecification`: Specifies the needed/produced atomic variables.
 - `:hasConstraint`: Defines requirements for units, data types, or thresholds (e.g., `requiresDataType: xsd:float`, `requiresUnit: Celsius`).
 
-This enables high-precision matchmaking where an app's semantic and technical needs are compared against the distribution's mappings.
+This enables high-precision matchmaking where an app's semantic and technical needs are compared against the distribution's profiles and mappings.
 
-#### 4. Automatic Discovery (Matchmaking)
+#### 5. Automatic Discovery (Matchmaking)
 By reusing the same semantic variable (`DataSpecification`) across supply (Datasets) and demand (Apps), the system can perform automated discovery:
 - **Datasets** declare what specifications they provide via `FieldMapping`.
 - **Apps** specify what specifications they require via `InputProfile`.
@@ -195,13 +201,13 @@ By reusing the same semantic variable (`DataSpecification`) across supply (Datas
 ---
 
 
-#### 5. Matchmaking Specification (Normative Steps)
+#### 6. Matchmaking Specification (Normative Steps)
 
 To ensure full semantic interoperability, agents MUST follow these validation steps:
 
 | Step | Rule | Validation Mechanism |
 | :--- | :--- | :--- |
-| **1. Semantic Match** | `InputProfile` and `FieldMapping` MUST share the same `DataSpecification` URI. | RDF Graph Query (SPARQL) |
+| **1. Semantic Match** | `InputProfile` and `DataProfile` (or `FieldMapping`) MUST share the same `DataSpecification` URI. | RDF Graph Query (SPARQL) |
 | **2. Technical Match** | The `requiresDataType` (in constraints) MUST match the `hasDataType` in the mapping. | Exact Match (XSD IRI) |
 | **3. Unit Matching** | The `requiresUnit` in the constraint MUST match the `hasUnit` in the mapping. | Exact Match (QUDT IRI) |
 | **4. Metric Scope** | The `requiresMetric` (e.g., Daily Average) MUST match the `hasObservationMetric` of the field. | SKOS Broader/Exact Match |

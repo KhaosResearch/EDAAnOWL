@@ -18,11 +18,13 @@ graph TD
         Spec -- ":hasFeatureOfInterest" --> FOI
     end
 
-    subgraph Capa2 ["Capa 2: Vinculación (Bridge)"]
+    subgraph Capa2 ["Capa 2: Estructura y Vinculación (Bridge)"]
+        Prof[":DataProfile"]
         Mapping[":FieldMapping"]
         Unit["qudt:Unit"]
         DType["xsd:AnyType"]
         ObsMetric[":ObservationMetric"]
+        Prof -- ":hasDataSpecification" --> Spec
         Mapping -- ":mapsToSpecification" --> Spec
         Mapping -- ":hasUnit" --> Unit
         Mapping -- ":hasDataType" --> DType
@@ -32,6 +34,7 @@ graph TD
     subgraph Capa3 ["Capa 3: Técnica (DCAT-AP 3.0)"]
         Dist["dcat:Distribution"]
         Res["Resolución / CRS"]
+        Dist -- ":hasProfile" --> Prof
         Dist -- ":hasFieldMapping" --> Mapping
         Dist -- "Technical Metadata" --> Res
     end
@@ -102,6 +105,7 @@ flowchart LR
 
     Asset["📦 DataAsset<br/>(Supply)"]
     Dist["dcat:Distribution"]
+    Prof["📄 DataProfile<br/>(Supply)"]
     Mapping["🔗 FieldMapping"]
     Spec["🎯 DataSpecification"]
     
@@ -110,6 +114,8 @@ flowchart LR
     Cons["⚠️ DataConstraint"]
 
     Asset -- "dcat:distribution" --> Dist
+    Dist -- "hasProfile" --> Prof
+    Prof -- "hasDataSpecification" --> Spec
     Dist -- "hasFieldMapping" --> Mapping
     Mapping -- "mapsToSpecification" --> Spec
     
@@ -117,7 +123,7 @@ flowchart LR
     InProf -- "hasDataSpecification" --> Spec
     InProf -- "hasConstraint" --> Cons
 
-    class Asset,Dist,Mapping supply
+    class Asset,Dist,Prof,Mapping supply
     class App,InProf,Cons demand
     class Spec bridge
 ```

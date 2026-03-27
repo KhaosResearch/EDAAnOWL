@@ -56,7 +56,13 @@ ex:AssetUrbanAgri a edaan:DataAsset, dcat:Dataset ;
 ex:DistribucionCSV a edaan:DataRepresentation, dcat:Distribution ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
     
-    # POLIMORFISMO SEMÁNTICO: Múltiples mapeos en el mismo archivo
+    # Perfil Genérico: Qué variables proporciona este archivo en su conjunto
+    edaan:hasProfile [
+        a edaan:DataProfile ;
+        edaan:hasDataSpecification ex:SpecAirTemp, ex:SpecTrafficFlow, ex:SpecNO2Concentration
+    ] ;
+
+    # POLIMORFISMO SEMÁNTICO: Múltiples mapeos en el mismo archivo para cada columna
     edaan:hasFieldMapping [
         a edaan:FieldMapping ;
         edaan:mapsToSpecification ex:SpecAirTemp ;
