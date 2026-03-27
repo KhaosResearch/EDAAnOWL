@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1](https://github.com/KhaosResearch/EDAAnOWL/compare/v1.2.0...v1.2.1) (2026-03-27)
+
+
+### Changed
+
+* **architecture:** harmonize documentation and diagrams with v1.2.0 semantic symmetry ([e8c3b9e](https://github.com/KhaosResearch/EDAAnOWL/commit/e8c3b9e2ad012aad0840735f6a74f0e5a77c7bc0))
+* **v1.2.0:** restore and unify historical changelog entries ([dabf50f](https://github.com/KhaosResearch/EDAAnOWL/commit/dabf50fe8a000c41652007221ab49e3d99c31c21))
+
 ## [1.2.0](https://github.com/KhaosResearch/EDAAnOWL/compare/v1.1.0...v1.2.0) (2026-03-26)
 
 ### Added
