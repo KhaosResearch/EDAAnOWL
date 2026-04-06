@@ -1,17 +1,17 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 
-@base <https://w3id.org/EDAAnOWL/0.5.0/vocabularies/metric-types> .
+@base <https://w3id.org/AgoraOWL/0.5.0/vocabularies/metric-types> .
 
-<https://w3id.org/EDAAnOWL/0.5.0/vocabularies/metric-types> rdf:type owl:Ontology ;
+<https://w3id.org/AgoraOWL/0.5.0/vocabularies/metric-types> rdf:type owl:Ontology ;
     dct:title "Metric Types Vocabulary - Reference"@en ;
     dct:description """Reference vocabulary for standardized metric types, aligned with W3C DQV dimensions.
 
-NOT IMPORTED by EDAAnOWL - for documentation and reference only.
+NOT IMPORTED by AgoraOWL - for documentation and reference only.
 
 Quality metrics use skos:broader to link to W3C DQV dimensions:
 - dqv:Completeness - Data completeness

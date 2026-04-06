@@ -1,5 +1,5 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
-@prefix test: <https://w3id.org/EDAAnOWL/test/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
+@prefix test: <https://w3id.org/AgoraOWL/test/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix bigalg: <https://w3id.org/BIGOWLAlgorithms/> .
@@ -16,9 +16,9 @@
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://w3id.org/EDAAnOWL/test/> rdf:type owl:Ontology ;
+<https://w3id.org/AgoraOWL/test/> rdf:type owl:Ontology ;
     # Import the main ontology (needed for ROBOT to load all vocabs via catalog)
-    owl:imports <https://w3id.org/EDAAnOWL/> .
+    owl:imports <https://w3id.org/AgoraOWL/> .
 
 ### Mock concepts so that the test works independently of external vocabularies
 :agriculture rdf:type skos:Concept .

@@ -1,5 +1,5 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
-@prefix test: <https://w3id.org/EDAAnOWL/test/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
+@prefix test: <https://w3id.org/AgoraOWL/test/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -20,10 +20,10 @@
 @prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-<https://w3id.org/EDAAnOWL/test/> a owl:Ontology ;
-    owl:imports <https://w3id.org/EDAAnOWL/> ;
+<https://w3id.org/AgoraOWL/test/> a owl:Ontology ;
+    owl:imports <https://w3id.org/AgoraOWL/> ;
     dct:title "Consistency Test Instances"@en , "Instancias de Prueba de Consistencia"@es ;
-    dct:description "Test cases for verifying EDAAnOWL SHACL rules and DCAT-AP-ES compliance."@en , "Casos de prueba para verificar las reglas SHACL de EDAAnOWL y el cumplimiento de DCAT-AP-ES."@es ;
+    dct:description "Test cases for verifying AgoraOWL SHACL rules and DCAT-AP-ES compliance."@en , "Casos de prueba para verificar las reglas SHACL de AgoraOWL y el cumplimiento de DCAT-AP-ES."@es ;
     dct:publisher <http://datos.gob.es/recurso/sector-publico/org/Organismo/E01234567> ;
     dct:language <http://publications.europa.eu/resource/authority/language/ENG> , <http://publications.europa.eu/resource/authority/language/SPA> .
 

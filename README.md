@@ -1,11 +1,11 @@
-# EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL
+# AgoraOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL
 
-[![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/KhaosResearch/EDAAnOWL/actions/workflows/deploy-docs.yml)
-[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-1f6feb)](https://khaosresearch.github.io/EDAAnOWL/)
+[![Deploy Ontology to GitHub Pages](https://github.com/KhaosResearch/AgoraOWL/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/KhaosResearch/AgoraOWL/actions/workflows/deploy-docs.yml)
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-1f6feb)](https://khaosresearch.github.io/AgoraOWL/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Ontology Version](https://img.shields.io/badge/stable-1.2.0-blue.svg)](src/1.2.0/)
-[![PURL](https://img.shields.io/badge/purl-w3id.org-blue)](https://w3id.org/EDAAnOWL/)
-[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/1.2.0/shapes/edaan-shapes.ttl)
+[![PURL](https://img.shields.io/badge/purl-w3id.org-blue)](https://w3id.org/AgoraOWL/)
+[![SHACL Validation](https://img.shields.io/badge/SHACL-Conformant-success)](src/1.2.0/shapes/agoraowl-shapes.ttl)
 [![DCAT-AP-ES Compliance](https://img.shields.io/badge/DCAT--AP--ES-Full%20Compliance-brightgreen.svg)](https://github.com/datosgobes/DCAT-AP-ES)
 
 > **Sectoral Semantic Interoperability for Data Spaces**: Decoupling domain logic from technical schemas to enable automated matchmaking.
@@ -14,7 +14,7 @@
 
 ## 🚀 Overview
 
-**EDAAnOWL** is a lightweight ontology designed to operationalize Data Spaces. It bridges the gap between the **IDSA Information Model** (governance) and **BIGOWL** (analytical workflows), enabling:
+**AgoraOWL** is a lightweight ontology designed to operationalize Data Spaces. It bridges the gap between the **IDSA Information Model** (governance) and **BIGOWL** (analytical workflows), enabling:
 
 - **Full DCAT-AP-ES 1.0.0 & DCAT 3.0 Compliance**: Standardized metadata verified against official Spanish and European shapes.
 - **Symmetric App Profiling**: Formalized Input and Output ports for DataApps, enabling automated pipeline chaining.
@@ -28,7 +28,7 @@
 Annotate a Data Asset and a Data App using the decoupled model:
 
 ```turtle
-@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix qudt: <http://qudt.org/vocab/unit/> .
@@ -46,7 +46,7 @@ Annotate a Data Asset and a Data App using the decoupled model:
             :mapsToSpecification :TemperatureSpec ;
             :mapsField "temp_celsius" ;
             :hasUnit qudt:DEG_C ;
-            :hasDataType xsd:float 
+            :hasDataType xsd:float
         ]
     ] .
 
@@ -68,8 +68,9 @@ Annotate a Data Asset and a Data App using the decoupled model:
 
 ## 🇪🇸 Strategic Alignment (Spanish Framework)
 
-EDAAnOWL reinforces the **[Marco de Interoperabilidad Técnico (MIT)](https://cred.digital.gob.es/content/dam/cred/img/docs/MarcoInteroperabilidadTecnico.pdf)** by:
-- **Sectoral Semantic Interoperability**: By decoupling *technical mapping* from *domain semantics*, EDAAnOWL allow assets to reuse the same semantic library even if their physical schemas differ.
+AgoraOWL reinforces the **[Marco de Interoperabilidad Técnico (MIT)](https://cred.digital.gob.es/content/dam/cred/img/docs/MarcoInteroperabilidadTecnico.pdf)** by:
+
+- **Sectoral Semantic Interoperability**: By decoupling _technical mapping_ from _domain semantics_, AgoraOWL allow assets to reuse the same semantic library even if their physical schemas differ.
 - **SIEX & FEGA Support**: Includes native SKOS alignments for Spanish agricultural catalogs, ensuring immediate operationality in the national context.
 
 ---
@@ -79,13 +80,13 @@ EDAAnOWL reinforces the **[Marco de Interoperabilidad Técnico (MIT)](https://cr
 - **[Architecture Guide](docs/ARCHITECTURE.md)**: High-level view of the 4-layer model.
 - **[Semantic Profiling Guide](docs/semantic-profiling-guide.md)**: Detailed matchmaking rules.
 - **[Interoperability Examples (ES)](docs/INTEROPERABILITY_EXAMPLES_ES.md)**: Real-world Spanish scenarios.
-- **[Interactive Documentation (WIDOCO)](https://khaosresearch.github.io/EDAAnOWL/v1.2.0/index-en.html)**.
+- **[Interactive Documentation (WIDOCO)](https://khaosresearch.github.io/AgoraOWL/v1.2.0/index-en.html)**.
 
 ---
 
 ## 🛠️ Validation
 
-Ensure your instances conform to EDAAnOWL and DCAT-AP-ES rules:
+Ensure your instances conform to AgoraOWL and DCAT-AP-ES rules:
 
 ```bash
 # Verify using Docker-powered local suite

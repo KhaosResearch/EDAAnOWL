@@ -1,13 +1,13 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 
-@base <https://w3id.org/EDAAnOWL/0.4.0/vocabularies/metric-types> .
+@base <https://w3id.org/AgoraOWL/0.4.0/vocabularies/metric-types> .
 
-<https://w3id.org/EDAAnOWL/0.4.0/vocabularies/metric-types> rdf:type owl:Ontology ;
+<https://w3id.org/AgoraOWL/0.4.0/vocabularies/metric-types> rdf:type owl:Ontology ;
     dct:title "Metric Types Vocabulary"@en ;
     dct:description "Controlled vocabulary for standardized metric types, aligned with W3C DQV dimensions."@en .
 

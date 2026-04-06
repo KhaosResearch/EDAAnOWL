@@ -26,7 +26,7 @@ def create_architecture_diagram(filename):
         /* Thematic Colors */
         .theme-ds { fill: #3498db; stroke: #2980b9; }      /* Blue DataSpace */
         .theme-cred { fill: #9b59b6; stroke: #8e44ad; }    /* Purple CRED */
-        .theme-edaan { fill: #2ecc71; stroke: #27ae60; }   /* Green EDAAnOWL */
+        .theme-agoraowl { fill: #2ecc71; stroke: #27ae60; }   /* Green AgoraOWL */
         .theme-idsa { fill: #e74c3c; stroke: #c0392b; }    /* Red IDSA */
         .theme-bigowl { fill: #f1c40f; stroke: #f39c12; }  /* Yellow BIGOWL */
         
@@ -82,7 +82,7 @@ def create_architecture_diagram(filename):
     draw_node(770, 90, 200, 45, 'theme-ds', 'Algorithms & Apps')
 
     # 2. SEMANTIC LAYER
-    draw_box(50, 200, 1050, 680, 'theme-edaan', 'SEMANTIC INTEROPERABILITY (Ontology)', is_layer=True)
+    draw_box(50, 200, 1050, 680, 'theme-agoraowl', 'SEMANTIC INTEROPERABILITY (Ontology)', is_layer=True)
 
     # CRED (Left)
     draw_box(70, 260, 220, 280, 'theme-cred', 'CRED / DCAT-AP', is_layer=True)
@@ -99,27 +99,27 @@ def create_architecture_diagram(filename):
     draw_node(880, 730, 180, 35, 'theme-bigowl', 'bigwf:Workflow')
     draw_node(880, 780, 180, 35, 'theme-bigowl', 'bigwf:Component')
 
-    # EDAAnOWL Core (Middle)
-    draw_box(320, 260, 510, 560, 'theme-edaan', 'EDAAnOWL CORE v1.0.0', is_layer=True)
+    # AgoraOWL Core (Middle)
+    draw_box(320, 260, 510, 560, 'theme-agoraowl', 'AgoraOWL CORE v1.0.0', is_layer=True)
 
     # Supply/Demand
-    draw_box(350, 310, 180, 50, 'theme-edaan', 'DataAsset', '(Supply Side)')
-    draw_box(620, 310, 180, 50, 'theme-edaan', 'SmartDataApp', '(Demand Side)')
+    draw_box(350, 310, 180, 50, 'theme-agoraowl', 'DataAsset', '(Supply Side)')
+    draw_box(620, 310, 180, 50, 'theme-agoraowl', 'SmartDataApp', '(Demand Side)')
 
     # Decoupling Matchmaking Bridge
-    dwg.add(dwg.rect(insert=(340, 400), size=(470, 220), class_='layer-box theme-edaan', fill='#f1f8f1', stroke_dasharray="4,4"))
+    dwg.add(dwg.rect(insert=(340, 400), size=(470, 220), class_='layer-box theme-agoraowl', fill='#f1f8f1', stroke_dasharray="4,4"))
     dwg.add(dwg.text('MATCHMAKING DECOUPLING', insert=(575, 420), class_='italic'))
 
-    draw_node(365, 440, 150, 40, 'theme-edaan', 'FieldMapping')
-    draw_node(365, 495, 150, 40, 'theme-edaan', 'Metric / Unit')
+    draw_node(365, 440, 150, 40, 'theme-agoraowl', 'FieldMapping')
+    draw_node(365, 495, 150, 40, 'theme-agoraowl', 'Metric / Unit')
 
-    draw_node(635, 440, 150, 40, 'theme-edaan', 'InputProfile')
-    draw_node(635, 495, 150, 40, 'theme-edaan', 'DataConstraint')
+    draw_node(635, 440, 150, 40, 'theme-agoraowl', 'InputProfile')
+    draw_node(635, 495, 150, 40, 'theme-agoraowl', 'DataConstraint')
 
-    draw_box(410, 560, 330, 45, 'theme-edaan', 'DataSpecification (Meaning)', '') # 410, 560 is bottom of center layer
+    draw_box(410, 560, 330, 45, 'theme-agoraowl', 'DataSpecification (Meaning)', '') # 410, 560 is bottom of center layer
 
     # Anchoring
-    draw_box(340, 720, 470, 75, 'theme-edaan', 'Semantic Anchoring (SOSA/QUDT)', '(ObservableProperty / FeatureOfInterest / Unit URI)')
+    draw_box(340, 720, 470, 75, 'theme-agoraowl', 'Semantic Anchoring (SOSA/QUDT)', '(ObservableProperty / FeatureOfInterest / Unit URI)')
 
 
     # ================= ORTHOGONAL ROUTING ================= #

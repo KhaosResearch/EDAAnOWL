@@ -1,9 +1,9 @@
-﻿@prefix : <https://w3id.org/EDAAnOWL/> .
+﻿@prefix : <https://w3id.org/AgoraOWL/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-<https://w3id.org/EDAAnOWL/0.4.1/vocabularies/datatype-scheme> a owl:Ontology ;
+<https://w3id.org/AgoraOWL/0.4.1/vocabularies/datatype-scheme> a owl:Ontology ;
     dct:title "Data Type Categories"@en ;
     dct:description "Categories for classifying data types and formats."@en .
 

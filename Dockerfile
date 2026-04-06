@@ -2,7 +2,7 @@
 FROM eclipse-temurin:17-jdk-jammy
 
 LABEL maintainer="martin.salvachua1@gmail.com"
-LABEL description="Local validation environment for EDAAnOWL ontology"
+LABEL description="Local validation environment for AgoraOWL ontology"
 
 # Instalar Python 3, pip y wget
 RUN apt-get update && apt-get install -y \

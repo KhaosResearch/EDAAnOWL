@@ -1,14 +1,14 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-<https://w3id.org/EDAAnOWL/0.5.0/vocabularies/access-rights> a owl:Ontology ;
+<https://w3id.org/AgoraOWL/0.5.0/vocabularies/access-rights> a owl:Ontology ;
     dct:title "Access Rights - EU NAL Reference"@en ;
     dct:description """Reference document for EU Publications Office Access Rights NAL.
 
-NOT IMPORTED by EDAAnOWL - for documentation/stub definitions only.
+NOT IMPORTED by AgoraOWL - for documentation/stub definitions only.
 
 Use EU NAL URIs directly in your data:
   ex:MyDataset dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> .

@@ -1,14 +1,14 @@
-# EDAAnOWL v0.7.0
+# AgoraOWL v0.7.0
 
-This is a **minor release** introducing explicit support for measurement units via the [QUDT](https://qudt.org/) ontology, giving EDAAnOWL robust, semantic units of measure rather than simple strings.
+This is a **minor release** introducing explicit support for measurement units via the [QUDT](https://qudt.org/) ontology, giving AgoraOWL robust, semantic units of measure rather than simple strings.
 
 ## v0.7.0 Highlights
 
-| Change | Impact | Justification |
-|--------|--------|---------------|
-| **Semantic Standards** | `metricUnit` → `edaan:hasMetricStandard` | Enables referencing standardized QUDT URIs or SKOS ConceptSchemes natively, improving interoperability and machine reasoning for both numerical units and categorical data. [(resolves #35)](https://github.com/KhaosResearch/EDAAnOWL/issues/35) |
-| **Operational Meaning** | New Property: `edaan:measuresProperty` | Explicitly links metrics to the `ObservableProperty` they measure (e.g., AGROVOC terms), ensuring type-safe measurements and better matchmaking. |
-| **SIEX Integration** | Versioned Namespace: `w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/` | Local SIEX alignment mapped to the versioned vocabulary path to ensure immediate resolvability with existing PURL rules. |
+| Change                  | Impact                                                            | Justification                                                                                                                                                                                                                                     |
+| ----------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Semantic Standards**  | `metricUnit` → `agoraowl:hasMetricStandard`                       | Enables referencing standardized QUDT URIs or SKOS ConceptSchemes natively, improving interoperability and machine reasoning for both numerical units and categorical data. [(resolves #35)](https://github.com/KhaosResearch/AgoraOWL/issues/35) |
+| **Operational Meaning** | New Property: `agoraowl:measuresProperty`                         | Explicitly links metrics to the `ObservableProperty` they measure (e.g., AGROVOC terms), ensuring type-safe measurements and better matchmaking.                                                                                                  |
+| **SIEX Integration**    | Versioned Namespace: `w3id.org/AgoraOWL/0.7.0/vocabularies/siex/` | Local SIEX alignment mapped to the versioned vocabulary path to ensure immediate resolvability with existing PURL rules.                                                                                                                          |
 
 ---
 
@@ -16,12 +16,12 @@ This is a **minor release** introducing explicit support for measurement units v
 
 ### Deprecated Properties
 
-| Deprecated Property | Replacement | Notes |
-|---------------------|-------------|-------|
-| `:metricUnit` (string) | `:hasMetricStandard` (ObjectProperty → QUDT / SKOS) | Prefer QUDT URIs for units (e.g., `unit:PERCENT`) or SKOS for categorical codes. |
-| `:hasMetricUnit` (Object) | `:hasMetricStandard` | Consolidated into standard-agnostic property. |
-| `:accessType` (string) | `:accessTypeConcept` (ObjectProperty → `skos:Concept`) | Use a controlled vocabulary for access modes. |
-| `:appliesToFeature` (string) | `:appliesToFeatureConcept` (ObjectProperty → `skos:Concept`) | Link to formal schema elements when available. |
+| Deprecated Property          | Replacement                                                  | Notes                                                                            |
+| ---------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| `:metricUnit` (string)       | `:hasMetricStandard` (ObjectProperty → QUDT / SKOS)          | Prefer QUDT URIs for units (e.g., `unit:PERCENT`) or SKOS for categorical codes. |
+| `:hasMetricUnit` (Object)    | `:hasMetricStandard`                                         | Consolidated into standard-agnostic property.                                    |
+| `:accessType` (string)       | `:accessTypeConcept` (ObjectProperty → `skos:Concept`)       | Use a controlled vocabulary for access modes.                                    |
+| `:appliesToFeature` (string) | `:appliesToFeatureConcept` (ObjectProperty → `skos:Concept`) | Link to formal schema elements when available.                                   |
 
 > [!NOTE]
 > The deprecated string properties are still functional for backward compatibility. However, new implementations should prefer the `*Concept` or URI-based object properties.
@@ -49,18 +49,18 @@ We have explicitly separated the concept of the phenomenon observed from the sta
 
 v0.6.0 introduced **deeper alignment with European standards** (DQV, DCAT, PROV) and **vocabulary standardization**.
 
-| Change | Impact | Justification |
-|--------|--------|---------------|
-| **DQV Alignment** | `:metricType` → `dqv:isMeasurementOf`, `:metricValue` → `dqv:value` | Enables DQV-aware tools to interpret EDAAnOWL metrics natively. |
-| **PROV Alignment** | `:computedAt` → `prov:generatedAtTime` | Establishes lineage tracking for metric measurements. |
-| **Vocabulary Strategy** | External Normative Vocabs | Removed all local vocabularies (`/vocabularies/`) in favor of global standards. |
-| **Validation** | IDSA & DCAT-AP SHACL | Integrated authoritative SHACL shapes for deeper semantic compliance. |
+| Change                  | Impact                                                              | Justification                                                                   |
+| ----------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| **DQV Alignment**       | `:metricType` → `dqv:isMeasurementOf`, `:metricValue` → `dqv:value` | Enables DQV-aware tools to interpret AgoraOWL metrics natively.                 |
+| **PROV Alignment**      | `:computedAt` → `prov:generatedAtTime`                              | Establishes lineage tracking for metric measurements.                           |
+| **Vocabulary Strategy** | External Normative Vocabs                                           | Removed all local vocabularies (`/vocabularies/`) in favor of global standards. |
+| **Validation**          | IDSA & DCAT-AP SHACL                                                | Integrated authoritative SHACL shapes for deeper semantic compliance.           |
 
 ---
 
 ### Previous DQV Alignment
 
-We align EDAAnOWL's metric properties with the W3C Data Quality Vocabulary (DQV):
+We align AgoraOWL's metric properties with the W3C Data Quality Vocabulary (DQV):
 
 ```diff
 -:metricType rdf:type owl:ObjectProperty .
@@ -72,7 +72,7 @@ We align EDAAnOWL's metric properties with the W3C Data Quality Vocabulary (DQV)
 +             rdfs:subPropertyOf dqv:value .
 ```
 
-**Why?** A `:Metric` in EDAAnOWL is semantically a *measurement* (an observation of a quality dimension), not the *definition* of a metric. This aligns with DQV's distinction between `dqv:Metric` (the definition) and `dqv:QualityMeasurement` (the observation).
+**Why?** A `:Metric` in AgoraOWL is semantically a _measurement_ (an observation of a quality dimension), not the _definition_ of a metric. This aligns with DQV's distinction between `dqv:Metric` (the definition) and `dqv:QualityMeasurement` (the observation).
 
 ### 2. PROV Alignment
 
@@ -82,7 +82,7 @@ We align EDAAnOWL's metric properties with the W3C Data Quality Vocabulary (DQV)
 +            rdfs:subPropertyOf prov:generatedAtTime .
 ```
 
-**Why?** This allows any PROV-aware tool to trace *when* a quality assertion was made, connecting data quality to provenance chains.
+**Why?** This allows any PROV-aware tool to trace _when_ a quality assertion was made, connecting data quality to provenance chains.
 
 ### 3. DCAT-AP Compliance
 
@@ -94,7 +94,7 @@ We align EDAAnOWL's metric properties with the W3C Data Quality Vocabulary (DQV)
                     rdfs:subPropertyOf dcterms:conformsTo .
 ```
 
-**Why?** These alignments were already present in v0.4.x but are now *explicitly documented*. By declaring `:DataProfile` as a subclass of `dct:Standard`, DCAT-AP catalogs can interpret profile conformance without needing to understand EDAAnOWL-specific classes.
+**Why?** These alignments were already present in v0.4.x but are now _explicitly documented_. By declaring `:DataProfile` as a subclass of `dct:Standard`, DCAT-AP catalogs can interpret profile conformance without needing to understand AgoraOWL-specific classes.
 
 ### 4. CRS Range Restriction
 
@@ -124,10 +124,11 @@ We have refined the class hierarchy to strictly follow the IDSA 4.2.0 taxonomy:
 ```turtle
 dcat:Distribution
   └─ ids:DataRepresentation (IDSA Taxonomy)
-       └─ :DataRepresentation (EDAAnOWL specialization)
+       └─ :DataRepresentation (AgoraOWL specialization)
 ```
 
 **Key Improvements:**
+
 - **Inheritance**: `:DataRepresentation` now explicitly extends `ids:DataRepresentation` (instead of acting as a sibling or generic subclass).
 - **Instance Management**: We now use `ids:instance` (range `ids:RepresentationInstance`) to link to artifacts (files) or values, removing the redundant `:instance` property.
 - **Standards**: We recommend using `ids:representationStandard` (for technical standards like CSV W3C) alongside `:conformsToProfile` (for semantic/quality profiles).
@@ -136,25 +137,27 @@ dcat:Distribution
 
 ## Vocabulary Strategy (BREAKING CHANGE)
 
-Starting with v0.6.0, EDAAnOWL **no longer bundles local SKOS vocabularies** for domain concepts, observable properties, metrics, or sectors. Instead, we recommend using **established external vocabularies** directly:
+Starting with v0.6.0, AgoraOWL **no longer bundles local SKOS vocabularies** for domain concepts, observable properties, metrics, or sectors. Instead, we recommend using **established external vocabularies** directly:
 
-| Domain | Recommended Vocabulary | URI Pattern |
-|--------|------------------------|-------------|
-| Agriculture (Global) | [AGROVOC](http://aims.fao.org/aos/agrovoc/) | `http://aims.fao.org/aos/agrovoc/c_*` |
-| Agriculture (Spain) | [SIEX (local)](vocabularies/siex.ttl) | `https://w3id.org/EDAAnOWL/0.7.0/vocabularies/siex/kos/*` |
-| Units of Measure | [QUDT](http://qudt.org/vocab/unit/) | `http://qudt.org/vocab/unit/*` |
-| Data Quality | [DQV](http://www.w3.org/ns/dqv#) | `http://www.w3.org/ns/dqv#*` |
-| General Science | [EuroSciVoc](http://data.europa.eu/8mn/) | `http://data.europa.eu/8mn/*` |
-| Geospatial | [EPSG](http://www.opengis.net/def/crs/EPSG/) | `http://www.opengis.net/def/crs/EPSG/0/*` |
+| Domain               | Recommended Vocabulary                       | URI Pattern                                               |
+| -------------------- | -------------------------------------------- | --------------------------------------------------------- |
+| Agriculture (Global) | [AGROVOC](http://aims.fao.org/aos/agrovoc/)  | `http://aims.fao.org/aos/agrovoc/c_*`                     |
+| Agriculture (Spain)  | [SIEX (local)](vocabularies/siex.ttl)        | `https://w3id.org/AgoraOWL/0.7.0/vocabularies/siex/kos/*` |
+| Units of Measure     | [QUDT](http://qudt.org/vocab/unit/)          | `http://qudt.org/vocab/unit/*`                            |
+| Data Quality         | [DQV](http://www.w3.org/ns/dqv#)             | `http://www.w3.org/ns/dqv#*`                              |
+| General Science      | [EuroSciVoc](http://data.europa.eu/8mn/)     | `http://data.europa.eu/8mn/*`                             |
+| Geospatial           | [EPSG](http://www.opengis.net/def/crs/EPSG/) | `http://www.opengis.net/def/crs/EPSG/0/*`                 |
 
 > [!IMPORTANT]
-> **Why this change?** EDAAnOWL's purpose is to provide *structure* (classes, properties) for semantic interoperability across data spaces. Domain *content* (concepts, terms) should come from globally recognized vocabularies to maximize cross-domain compatibility.
+> **Why this change?** AgoraOWL's purpose is to provide _structure_ (classes, properties) for semantic interoperability across data spaces. Domain _content_ (concepts, terms) should come from globally recognized vocabularies to maximize cross-domain compatibility.
 
 ### Zero-Local Policy
+
 As of v0.6.0, all local vocabulary files (previously in `vocabularies/`) have been removed. Semantic interoperability is now achieved by directly referencing external normative IRIs.
 
 ### Regional Catalogs (Exception: SIEX)
-For the [EDAAn Data Space](https://edaan.agora-datalab.eu/), which is specialized in Spanish agriculture, we have reintroduced a **local exception** for the **[SIEX (FEGA)](https://www3.sede.fega.gob.es/bdcsixpor/catalogos)** catalogs.
+
+For the [EDAAn Data Space](https://agoraowl.agora-datalab.eu/), which is specialized in Spanish agriculture, we have reintroduced a **local exception** for the **[SIEX (FEGA)](https://www3.sede.fega.gob.es/bdcsixpor/catalogos)** catalogs.
 
 Since SIEX does not provide an official ontology or hosted SKOS vocabulary, we have curated these codes locally to ensure immediate operational value for Spanish participants who already use these codes for government aid (CAP/PAC). These have been generated using internal scripts from official CSV sources to bridge the gap while waiting for official RDF publications from the administration.
 
@@ -166,7 +169,7 @@ Starting with v0.6.0, we prioritize authoritative validation:
 
 1. **IDSA Official Shapes**: We include [idsa-shapes.ttl](shapes/idsa-shapes.ttl) for core Information Model compliance.
 2. **DCAT-AP Alignment**: We use [dcat-ap-alignment.ttl](shapes/dcat-ap-alignment.ttl) for European data portal compatibility.
-3. **Internal EDAAnOWL Shapes**: [edaan-shapes.ttl](shapes/edaan-shapes.ttl) remains as a complementary set for domain-specific rules (profiling, metrics, etc.).
+3. **Internal AgoraOWL Shapes**: [agoraowl-shapes.ttl](shapes/agoraowl-shapes.ttl) remains as a complementary set for domain-specific rules (profiling, metrics, etc.).
 
 Run the local validation script to verify compliance across all sets:
 

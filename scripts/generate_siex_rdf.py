@@ -5,9 +5,9 @@ from rdflib.namespace import SKOS, DCTERMS, RDFS, XSD, OWL
 import re
 
 # Namespaces
-SIEX_ONT = URIRef("https://w3id.org/EDAAnOWL/0.8.0/vocabularies/siex")
-SIEX_DEF = Namespace("https://w3id.org/EDAAnOWL/0.8.0/vocabularies/siex#")
-EDAAN = Namespace("https://w3id.org/EDAAnOWL/")
+SIEX_ONT = URIRef("https://w3id.org/AgoraOWL/0.8.0/vocabularies/siex")
+SIEX_DEF = Namespace("https://w3id.org/AgoraOWL/0.8.0/vocabularies/siex#")
+EDAAN = Namespace("https://w3id.org/AgoraOWL/")
 
 # Paths relative to this script's location
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -218,7 +218,7 @@ def generate_rdf():
 
     print("Serializing graph...")
     out = g.serialize(format="turtle")
-    match = re.search(r"@prefix (\w+): <https://w3id\.org/EDAAnOWL/0\.8\.0/vocabularies/siex> \.", out)
+    match = re.search(r"@prefix (\w+): <https://w3id\.org/AgoraOWL/0\.8\.0/vocabularies/siex> \.", out)
     if match:
         prefix_name = match.group(1)
         if "@prefix siex:" not in out:

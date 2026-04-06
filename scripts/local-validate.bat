@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set IMAGE_NAME=edaanowl-validator
+set IMAGE_NAME=agoraowl-validator
 set ROOT_DIR=%~dp0..
 
 echo --- Building local validation image ---
@@ -48,7 +48,7 @@ echo --- Running OWL consistency (ROBOT) ---
 set CATALOG_FILE=%ROOT_DIR%\robot-catalog.xml
 echo ^<?xml version="1.0" encoding="UTF-8"?^> > "%CATALOG_FILE%"
 echo ^<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public"^> >> "%CATALOG_FILE%"
-echo   ^<uri name="https://w3id.org/EDAAnOWL/" uri="file:/app/%LATEST_PATH%/EDAAnOWL.ttl"/^> >> "%CATALOG_FILE%"
+echo   ^<uri name="https://w3id.org/AgoraOWL/" uri="file:/app/%LATEST_PATH%/AgoraOWL.ttl"/^> >> "%CATALOG_FILE%"
 echo ^</catalog^> >> "%CATALOG_FILE%"
 
 docker run --rm -v "%ROOT_DIR%:/app" %IMAGE_NAME% java -jar /opt/robot/robot.jar reason --catalog /app/robot-catalog.xml --input /app/%LATEST_PATH%/examples/test-consistency.ttl --reasoner ELK --output /tmp/reasoned.owl

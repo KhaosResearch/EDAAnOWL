@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-IMAGE_NAME="edaanowl-validator"
+IMAGE_NAME="agoraowl-validator"
 ROOT_DIR=$(cd "$(dirname "$0")/.." && pwd)
 
 echo "--- Building local validation image ($IMAGE_NAME) ---"
@@ -27,7 +27,7 @@ LATEST_PATH="src/$LATEST_VERSION"
 cat > "$ROOT_DIR/robot-catalog.xml" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
-  <uri name="https://w3id.org/EDAAnOWL/" uri="file:/app/$LATEST_PATH/EDAAnOWL.ttl"/>
+  <uri name="https://w3id.org/AgoraOWL/" uri="file:/app/$LATEST_PATH/AgoraOWL.ttl"/>
 </catalog>
 EOF
 
@@ -35,14 +35,14 @@ docker_run java -jar /opt/robot/robot.jar reason \
         --catalog /app/robot-catalog.xml \
         --input /app/$LATEST_PATH/examples/test-consistency.ttl \
         --reasoner ELK \
-        --output /tmp/edaanowl-reasoned.owl
+        --output /tmp/agoraowl-reasoned.owl
 
 echo -e "\n--- 🚀 Running OWL consistency validation (ROBOT) on EO examples ---"
 docker_run java -jar /opt/robot/robot.jar reason \
         --catalog /app/robot-catalog.xml \
         --input /app/$LATEST_PATH/examples/eo-instances.ttl \
         --reasoner ELK \
-        --output /tmp/edaanowl-reasoned-eo.owl
+        --output /tmp/agoraowl-reasoned-eo.owl
 
 rm "$ROOT_DIR/robot-catalog.xml"
 

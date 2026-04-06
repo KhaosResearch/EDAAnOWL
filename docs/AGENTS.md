@@ -7,7 +7,7 @@
 
 When starting a session or resuming work, perform these checks to establish current state:
 
-1.  **Current Version**: Check `owl:versionInfo` in the root `EDAAnOWL.ttl` (usually symlinked or copied to the latest version).
+1.  **Current Version**: Check `owl:versionInfo` in the root `AgoraOWL.ttl` (usually symlinked or copied to the latest version).
 2.  **Recent Changes**: Read `CHANGELOG.md` to understand what was implemented in the last few increments.
 3.  **Critical Feedback**: Review `docs/REVIEW_v1.1.0_ES.md` for pending semantic fixes or architectural debts.
 4.  **Active Version Path**: Documentation and source code reside in `src/<version>/`.
@@ -25,7 +25,7 @@ Adhere to these rules in every edit:
 
 ### Procedure A: Generating a New Version (e.g., 1.0.0 → 1.1.0)
 
-1.  **Folder Hierarchy**: 
+1.  **Folder Hierarchy**:
     - Duplicate the latest version folder: `cp -r src/1.0.0/ src/1.1.0/`
 2.  **Ontology Metadata**:
     - Update `owl:versionIRI` to `.../1.0.0`
@@ -39,33 +39,36 @@ Adhere to these rules in every edit:
 
 ### Procedure B: Adding a New Metric or Property
 
-1.  **Ontology**: Add definition to `EDAAnOWL.ttl`.
+1.  **Ontology**: Add definition to `AgoraOWL.ttl`.
 2.  **Alignment**: Map it to DQV (`dqv:Metric` / `dqv:QualityMeasurement`) or PROV (`prov:Activity`) if applicable.
-3.  **SHACL**: Add a targeted shape in `shapes/edaan-shapes.ttl`.
+3.  **SHACL**: Add a targeted shape in `shapes/agoraowl-shapes.ttl`.
 4.  **Example**: Update `examples/` to demonstrate the new property.
 
 ### Check scripts
+
 check if the `scripts/` files are updated with the new property or metric.
 
 ### Check docs
+
 check if the `docs/` files are updated with the new property or metric.
 
 ## 4. Semantic Mapping Reference
 
-| Concept | External Standard / Base Class |
-| :--- | :--- |
-| **Quality Metric** | `dqv:QualityMeasurement` |
-| **Metric Definition** | `dqv:Metric` |
-| **Field Mapping** | `edaan:FieldMapping` |
-| **Data Specification** | `edaan:DataSpecification` |
-| **Data App** | `ids:DataApp` / `bigwf:Component` |
-| **Data Asset** | `ids:Resource` / `dcat:Dataset` |
-| **Lineage** | `prov:generatedAtTime` |
-| **Format** | `dct:format` (MIME or URI) |
+| Concept                | External Standard / Base Class    |
+| :--------------------- | :-------------------------------- |
+| **Quality Metric**     | `dqv:QualityMeasurement`          |
+| **Metric Definition**  | `dqv:Metric`                      |
+| **Field Mapping**      | `agoraowl:FieldMapping`           |
+| **Data Specification** | `agoraowl:DataSpecification`      |
+| **Data App**           | `ids:DataApp` / `bigwf:Component` |
+| **Data Asset**         | `ids:Resource` / `dcat:Dataset`   |
+| **Lineage**            | `prov:generatedAtTime`            |
+| **Format**             | `dct:format` (MIME or URI)        |
 
 ### DCAT-AP-ES Compliance Schema
+
 ![DCAT All Attributes Diagram](assets/dcat-all-attributes.svg)
-*Reference diagram for Full DCAT-AP-ES 1.0.0 compliance.*
+_Reference diagram for Full DCAT-AP-ES 1.0.0 compliance._
 
 ## 5. Troubleshooting for AI Agents
 
@@ -74,4 +77,5 @@ check if the `docs/` files are updated with the new property or metric.
 - **Symlink Issues**: Under Windows, be careful with symlinks; prefer updating the actual versioned file.
 
 ---
-*Created for AI Agents, maintained by humans.*
+
+_Created for AI Agents, maintained by humans._
