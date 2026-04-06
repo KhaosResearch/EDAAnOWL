@@ -1,6 +1,6 @@
-# EDAAnOWL v0.3.2
+# AgoraOWL v0.3.2
 
-Welcome to the documentation for version 0.3.2 of the EDAAnOWL ontology.
+Welcome to the documentation for version 0.3.2 of the AgoraOWL ontology.
 
 This ontology provides a semantic model for describing and annotating **Data Assets** and **Data Apps** (Applications/Services) within a Data Space, aligning the **IDSA** Information Model and the **BIGOWL** ontology framework.
 
@@ -9,6 +9,7 @@ This ontology provides a semantic model for describing and annotating **Data Ass
 This version adds significant improvements for interoperability and agricultural domain coverage:
 
 ### 1. Standardized Metric Types (`:MetricType`)
+
 - New **`:MetricType`** class and **`:metricType`** property for controlled metric vocabulary
 - New **`metric-types.ttl`** vocabulary with ~20 standardized types:
   - Quality (DQV-aligned): `mt_completeness`, `mt_uniqueness`, `mt_accuracy`
@@ -17,6 +18,7 @@ This version adds significant improvements for interoperability and agricultural
   - Performance: `mt_executionTime`, `mt_modelAccuracy`, `mt_f1Score`
 
 ### 2. Extended Observable Properties
+
 - Expanded from 6 to **~25 observable properties** covering:
   - Vegetation indices (`ndvi`, `evi`, `lai`, `chlorophyllContent`)
   - Meteorological (`temperature`, `precipitation`, `evapotranspiration`)
@@ -26,6 +28,7 @@ This version adds significant improvements for interoperability and agricultural
   - Pest & disease (`pestIncidence`, `diseaseIncidence`, `repiloIncidence`)
 
 ### 3. Extended Agricultural Vocabulary
+
 - Expanded from 6 to **~25 agricultural concepts**:
   - Mediterranean crops (`olive`, `vine`, `almond`, `citrus`)
   - Cereals (`wheat`, `maize`, `barley`, `rice`)
@@ -33,10 +36,12 @@ This version adds significant improvements for interoperability and agricultural
   - Diseases (`repilo`, `verticillium`, `tuberculosis`)
 
 ### 4. AGROVOC Alignment
+
 - All vocabulary terms now include `skos:exactMatch` / `skos:closeMatch` to [FAO AGROVOC](http://aims.fao.org/aos/agrovoc/)
 - Documentation on how to extend vocabularies with external references
 
 ### 5. Structural Refinement
+
 - **`:ObservableProperty`** is now a subclass of both `sosa:ObservableProperty` and `skos:Concept`. This allows using SKOS concepts (like AGROVOC terms) directly as observable properties while maintaining SOSA semantics.
 - **`:declaresObservedProperty`** now has a range of `:ObservableProperty` (instead of generic `skos:Concept`), enforcing stricter typing.
 
@@ -45,6 +50,7 @@ This version adds significant improvements for interoperability and agricultural
 This version adds **full bilingual support (English/Spanish)** to make the ontology more accessible to the international community.
 
 ### 1. Complete Spanish Translation
+
 - **All `rdfs:label` annotations** now include both `@en` and `@es` versions
 - **All `rdfs:comment` annotations** now include both `@en` and `@es` versions
 - **Ontology metadata** translated:
@@ -54,12 +60,14 @@ This version adds **full bilingual support (English/Spanish)** to make the ontol
   - `widoco:introduction` (English and Spanish)
 
 ### 2. Coverage
+
 - ✅ **24 Object Properties** translated
 - ✅ **23 Data Properties** translated
 - ✅ **11 Classes** translated
 - ✅ **All core concepts** now available in both languages
 
 ### 3. Benefits
+
 - **Better Accessibility**: Spanish-speaking researchers and developers can work in their native language
 - **International Adoption**: Facilitates use in Spanish-speaking countries and organizations
 - **Tool Compatibility**: Works seamlessly with Protégé and other ontology editors that support language preferences
@@ -73,7 +81,7 @@ This was a major release focusing on Quality & Provenance...
 
 ## 🧐 How the Ontology Fulfills Requirements (v0.3.0 Model)
 
-EDAAnOWL v0.3.0 provides **two complementary compatibility models** that can now be used together.
+AgoraOWL v0.3.0 provides **two complementary compatibility models** that can now be used together.
 
 ### Model 1: Profile-based Compatibility (from v0.0.1)
 
@@ -185,19 +193,19 @@ graph LR
 
 ## 🧩 Key Classes and Properties (Quick Reference)
 
-| Class | Origin | Role in EDAAnOWL | Key Object Properties | Key Data Properties | Example |
-| :-------------------------------------------- | :------------ | :--------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ | :------------------------------------------------------ |
-| ids:Resource | IDSA | Base for any asset/service | `:hasDomainSector`, `:topic`, `:spatialGranularityConcept` | `:supportContact` | `ex:r a ids:Resource` |
-| :DataAsset ⊑ ids:DataResource | EDAAnOWL | Data asset with domain semantics | `:servesObservableProperty` | — | `ex:d a :DataAsset ; :servesObservableProperty :ndvi` |
-| ids:SmartDataApp | IDSA | Data processing app/service | `:requiresProfile`, `:producesProfile`, `:requiresObservableProperty`, `:producesObservableProperty`, `:implementsComponent`, `:realizesWorkflow`, `:parameter` | — | `ex:a a ids:SmartDataApp ; :requiresProfile ex:p` |
-| :PredictionApp ⊑ ids:SmartDataApp | EDAAnOWL | Predictive app specialization | inherits above | — | `ex:pred a :PredictionApp` |
-| :AnalyzerApp ⊑ ids:SmartDataApp | EDAAnOWL | Descriptive/diagnostic app | inherits above | — | `ex:ana a :AnalyzerApp` |
-| :VisualizationApp ⊑ ids:SmartDataApp | EDAAnOWL | Visualization/reporting app | inherits above | — | `ex:viz a :VisualizationApp` |
-| :DataProfile | EDAAnOWL | Data “signature” (structure/semantics) | `:declaresDataClass`, `:declaresObservedProperty`, `:hasCRS` | `dcat:temporalResolution`, `dcat:spatialResolutionInMeters` | `ex:p a :DataProfile ; :declaresObservedProperty :ndvi` |
-| :ObservableProperty ⊑ sosa:ObservableProperty | EDAAnOWL/SOSA | Semantic variable used by assets and apps | — | — | `:ndvi a :ObservableProperty` |
-| bigwf:Component | BIGOWL | Workflow component implemented by apps | `:producesResource`, `:consumesResource` | — | `ex:c a bigwf:Component` |
-| ids:Representation | IDSA | Representation consumed/produced in components | — | — | `ex:r a ids:Representation` |
-| opmw:WorkflowTemplate | OPMW | Abstract workflow realized by apps | — | — | `ex:w a opmw:WorkflowTemplate` |
+| Class                                         | Origin        | Role in AgoraOWL                               | Key Object Properties                                                                                                                                           | Key Data Properties                                         | Example                                                 |
+| :-------------------------------------------- | :------------ | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------- | :------------------------------------------------------ |
+| ids:Resource                                  | IDSA          | Base for any asset/service                     | `:hasDomainSector`, `:topic`, `:spatialGranularityConcept`                                                                                                      | `:supportContact`                                           | `ex:r a ids:Resource`                                   |
+| :DataAsset ⊑ ids:DataResource                 | AgoraOWL      | Data asset with domain semantics               | `:servesObservableProperty`                                                                                                                                     | —                                                           | `ex:d a :DataAsset ; :servesObservableProperty :ndvi`   |
+| ids:SmartDataApp                              | IDSA          | Data processing app/service                    | `:requiresProfile`, `:producesProfile`, `:requiresObservableProperty`, `:producesObservableProperty`, `:implementsComponent`, `:realizesWorkflow`, `:parameter` | —                                                           | `ex:a a ids:SmartDataApp ; :requiresProfile ex:p`       |
+| :PredictionApp ⊑ ids:SmartDataApp             | AgoraOWL      | Predictive app specialization                  | inherits above                                                                                                                                                  | —                                                           | `ex:pred a :PredictionApp`                              |
+| :AnalyzerApp ⊑ ids:SmartDataApp               | AgoraOWL      | Descriptive/diagnostic app                     | inherits above                                                                                                                                                  | —                                                           | `ex:ana a :AnalyzerApp`                                 |
+| :VisualizationApp ⊑ ids:SmartDataApp          | AgoraOWL      | Visualization/reporting app                    | inherits above                                                                                                                                                  | —                                                           | `ex:viz a :VisualizationApp`                            |
+| :DataProfile                                  | AgoraOWL      | Data “signature” (structure/semantics)         | `:declaresDataClass`, `:declaresObservedProperty`, `:hasCRS`                                                                                                    | `dcat:temporalResolution`, `dcat:spatialResolutionInMeters` | `ex:p a :DataProfile ; :declaresObservedProperty :ndvi` |
+| :ObservableProperty ⊑ sosa:ObservableProperty | AgoraOWL/SOSA | Semantic variable used by assets and apps      | —                                                                                                                                                               | —                                                           | `:ndvi a :ObservableProperty`                           |
+| bigwf:Component                               | BIGOWL        | Workflow component implemented by apps         | `:producesResource`, `:consumesResource`                                                                                                                        | —                                                           | `ex:c a bigwf:Component`                                |
+| ids:Representation                            | IDSA          | Representation consumed/produced in components | —                                                                                                                                                               | —                                                           | `ex:r a ids:Representation`                             |
+| opmw:WorkflowTemplate                         | OPMW          | Abstract workflow realized by apps             | —                                                                                                                                                               | —                                                           | `ex:w a opmw:WorkflowTemplate`                          |
 
 Notes:
 

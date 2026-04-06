@@ -1,15 +1,15 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix bigdat: <https://w3id.org/BIGOWLData/> .
 
-<https://w3id.org/EDAAnOWL/0.5.0/vocabularies/datatype-scheme> a owl:Ontology ;
+<https://w3id.org/AgoraOWL/0.5.0/vocabularies/datatype-scheme> a owl:Ontology ;
     dct:title "Data Type Alignment - Reference"@en ;
-    dct:description """Reference vocabulary showing alignment between EDAAnOWL data types and BIGOWL Data classes.
+    dct:description """Reference vocabulary showing alignment between AgoraOWL data types and BIGOWL Data classes.
 
-NOT IMPORTED by EDAAnOWL - for documentation and reference only.
+NOT IMPORTED by AgoraOWL - for documentation and reference only.
 
 RECOMMENDED: Use BIGOWL Data classes directly:
   bigdat:TabularDataSet  # Tabular/CSV data
@@ -60,7 +60,7 @@ bigdat:Map a owl:Class ;
     skos:definition "Geographic map data"@en .
 
 ###
-### EDAAnOWL Alignment (DEPRECATED - use BIGOWL classes directly)
+### AgoraOWL Alignment (DEPRECATED - use BIGOWL classes directly)
 ###
 
 :DataTypeScheme a owl:NamedIndividual,

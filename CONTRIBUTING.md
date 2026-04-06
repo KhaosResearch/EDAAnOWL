@@ -1,10 +1,10 @@
 # How to Contribute
 
-Thank you for your interest in contributing to EDAAnOWL!
+Thank you for your interest in contributing to AgoraOWL!
 
 ## Reporting Issues
 
-If you find a bug, inconsistency, or have a feature request, please [open an Issue](https://github.com/KhaosResearch/EDAAnOWL/issues) in the repository.
+If you find a bug, inconsistency, or have a feature request, please [open an Issue](https://github.com/KhaosResearch/AgoraOWL/issues) in the repository.
 
 ## Submitting Changes (General Contributions)
 
@@ -43,15 +43,15 @@ We use [Google Release Please](https://github.com/google-github-actions/release-
 2.  **Release PR**: When changes are merged into the `main` branch, the **release-please** bot automatically checks commits since the last release.
     - If there are user-facing changes (`feat`, `fix`), it opens a **Release PR**.
     - This PR contains:
-        - Updated `CHANGELOG.md`
-        - Updated `.release-please-manifest.json` versions
+      - Updated `CHANGELOG.md`
+      - Updated `.release-please-manifest.json` versions
 
 3.  **Publishing**:
     - **Review** the Release PR created by the bot.
     - **Merge** the Release PR.
     - Only then will the bot:
-        - Create a GitHub Release tag (`vX.Y.Z`).
-        - Trigger the `deploy-docs.yml` workflow to build/publish documentation.
+      - Create a GitHub Release tag (`vX.Y.Z`).
+      - Trigger the `deploy-docs.yml` workflow to build/publish documentation.
 
 ### Developer Workflow
 
@@ -68,7 +68,7 @@ git commit -m "docs: update contributor guide"
 ## External Vocabulary Strategy (v0.5.0+)
 
 > [!IMPORTANT]
-> **EDAAnOWL follows an external-first strategy.** Use external standardized URIs directly whenever possible, and use local bridge vocabularies only when they add value through aliases, acronyms, explicit mappings, or missing concepts.
+> **AgoraOWL follows an external-first strategy.** Use external standardized URIs directly whenever possible, and use local bridge vocabularies only when they add value through aliases, acronyms, explicit mappings, or missing concepts.
 
 ### Why External-First Vocabularies?
 
@@ -79,17 +79,18 @@ git commit -m "docs: update contributor guide"
 
 ### Recommended Vocabularies
 
-| Domain | Vocabulary | URI Pattern |
-|--------|------------|-------------|
-| Agriculture | AGROVOC | `http://aims.fao.org/aos/agrovoc/c_*` |
+| Domain      | Vocabulary        | URI Pattern                                                     |
+| ----------- | ----------------- | --------------------------------------------------------------- |
+| Agriculture | AGROVOC           | `http://aims.fao.org/aos/agrovoc/c_*`                           |
 | Data Themes | EU Data Theme NAL | `http://publications.europa.eu/resource/authority/data-theme/*` |
-| Data Types | BIGOWL Data | `https://w3id.org/BIGOWLData/*` |
-| Quality | W3C DQV | `http://www.w3.org/ns/dqv#*` |
-| CRS | OGC EPSG | `http://www.opengis.net/def/crs/EPSG/0/*` |
+| Data Types  | BIGOWL Data       | `https://w3id.org/BIGOWLData/*`                                 |
+| Quality     | W3C DQV           | `http://www.w3.org/ns/dqv#*`                                    |
+| CRS         | OGC EPSG          | `http://www.opengis.net/def/crs/EPSG/0/*`                       |
 
 ### What About Local Vocabulary Files?
 
 Files in `vocabularies/` are **bridge or reference documents**:
+
 - `datatype-scheme.ttl` - Alignment with BIGOWL Data classes
 - `metric-types.ttl` - DQV-aligned metric instances
 - `data-theme.ttl` - EU NAL stubs for SHACL validation
@@ -117,8 +118,8 @@ Use this checklist before every release:
 
 ```markdown
 - [ ] New `src/X.Y.Z/` folder created
-- [ ] `EDAAnOWL.ttl`: owl:versionIRI, owl:versionInfo, owl:priorVersion
-- [ ] `EDAAnOWL.ttl`: All owl:imports point to X.Y.Z paths
+- [ ] `AgoraOWL.ttl`: owl:versionIRI, owl:versionInfo, owl:priorVersion
+- [ ] `AgoraOWL.ttl`: All owl:imports point to X.Y.Z paths
 - [ ] `vocabularies/*.ttl`: @base and owl:Ontology URIs updated
 - [ ] `shapes/*.ttl`: Updated for new classes/properties
 - [ ] `examples/*.ttl`: Valid against new ontology

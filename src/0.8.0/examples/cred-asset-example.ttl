@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -16,10 +16,10 @@
 @prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
 @prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
 
-@base <https://w3id.org/EDAAnOWL/examples/cred/> .
+@base <https://w3id.org/AgoraOWL/examples/cred/> .
 
 # ═══════════════════════════════════════════════════════════════
-#  CRED-compliant Asset Annotation Example (EDAAnOWL v0.8.0)
+#  CRED-compliant Asset Annotation Example (AgoraOWL v0.8.0)
 #
 #  This example demonstrates how to annotate a data space asset
 #  following the CRED (Centro de Referencia de Espacios de Datos)
@@ -81,7 +81,7 @@
     dcat:landingPage <https://datos.juntadeandalucia.es/olivar-monitoring> ;
     dcat:distribution <distribution/olive-csv> ;
     ids:representation <distribution/olive-csv> ;
-    # ── EDAAnOWL-specific ──
+    # ── AgoraOWL-specific ──
     :servesObservableProperty agrovoc:c_ce585e0d ;  # NDVI
     :hasDomainSector theme:AGRI ;
     :isAlive true ;
@@ -111,7 +111,7 @@
 
 
 # ─────────────────────────────────────────────────────────────
-#  5. DATA PROFILE — EDAAnOWL semantic profile
+#  5. DATA PROFILE — AgoraOWL semantic profile
 # ─────────────────────────────────────────────────────────────
 
 <profile/olive-monitoring-profile> a :DataProfile ;
@@ -186,22 +186,22 @@
 #  8. VOCABULARY as DATASET — Library model (CRED Ilustración 17)
 # ─────────────────────────────────────────────────────────────
 
-<dataset/edaanowl-catalog-entry> a dcat:Dataset ;
-    dct:identifier "edaanowl-ontology" ;
-    dct:title "Ontología EDAAnOWL"@es ;
+<dataset/agoraowl-catalog-entry> a dcat:Dataset ;
+    dct:identifier "agoraowl-ontology" ;
+    dct:title "Ontología AgoraOWL"@es ;
     dct:description "Ontología para la anotación semántica de activos en espacios de datos"@es ;
     dct:modified "2026-03-04"^^xsd:date ;
     dct:publisher <agent/khaos-research> ;
     dct:type <http://publications.europa.eu/resource/authority/dataset-type/ONTOLOGY> ;
     owl:versionInfo "0.8.0" ;
-    dcat:distribution <distribution/edaanowl-ttl> ;
+    dcat:distribution <distribution/agoraowl-ttl> ;
     dcat:theme theme:TECH ;
     dct:accessRights <https://creativecommons.org/licenses/by/4.0/> .
 
-<distribution/edaanowl-ttl> a dcat:Distribution ;
-    dct:description "Serialización Turtle de la ontología EDAAnOWL"@es ;
+<distribution/agoraowl-ttl> a dcat:Distribution ;
+    dct:description "Serialización Turtle de la ontología AgoraOWL"@es ;
     dct:rights <https://creativecommons.org/licenses/by/4.0/> ;
-    dcat:accessURL <https://github.com/KhaosResearch/EDAAnOWL/raw/refs/heads/main/src/0.8.0/EDAAnOWL.ttl> ;
+    dcat:accessURL <https://github.com/KhaosResearch/AgoraOWL/raw/refs/heads/main/src/0.8.0/AgoraOWL.ttl> ;
     dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> .
 
 

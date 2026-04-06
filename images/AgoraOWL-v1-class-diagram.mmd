@@ -1,0 +1,45 @@
+classDiagram
+    %% Core Classes
+    class DataAsset
+    class DataApp
+    class Distribution
+    
+    %% Semantic Linkage
+    class DataProfile
+    class FieldMapping
+    class DataSpecification
+    class FeatureOfInterest
+    class ObservableProperty
+    
+    class InputProfile
+    class OutputProfile
+
+    %% Constraints & Quality
+    class DataConstraint
+    class Metric
+    class Unit
+    
+    %% Relationships
+    DataAsset --> Distribution : dcat:distribution
+    Distribution --> DataProfile : hasProfile
+    Distribution --> FieldMapping : hasFieldMapping
+    
+    DataProfile --> DataSpecification : hasDataSpecification
+    FieldMapping --> DataSpecification : mapsToSpecification
+    FieldMapping --> Metric : hasMetric
+    FieldMapping --> Unit : hasUnit
+    
+    DataSpecification --> FeatureOfInterest : hasFeatureOfInterest
+    DataSpecification --> ObservableProperty : hasObservableProperty
+    
+    DataApp --> InputProfile : hasInputProfile
+    DataApp --> OutputProfile : hasOutputProfile
+    
+    InputProfile --> DataSpecification : hasDataSpecification
+    OutputProfile --> DataSpecification : hasDataSpecification
+    
+    InputProfile --> DataConstraint : hasConstraint
+    
+    %% Profile Inheritance
+    DataProfile <|-- InputProfile
+    DataProfile <|-- OutputProfile

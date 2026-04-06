@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -7,14 +7,14 @@
 
 #################################################################
 #    DCAT-AP Alignment Shapes
-#    These shapes ensure that EDAAnOWL assets are compatible 
+#    These shapes ensure that AgoraOWL assets are compatible 
 #    with the European DCAT Application Profile.
 #################################################################
 
 :DCATAlignmentShape a sh:NodeShape ;
     sh:targetClass :DataAsset ;
     rdfs:label "DCAT-AP Alignment Shape"@en ;
-    rdfs:comment "Ensures EDAAnOWL Assets are discoverable via DCAT portals."@en ;
+    rdfs:comment "Ensures AgoraOWL Assets are discoverable via DCAT portals."@en ;
     
     # Dual Typing Recommendation
     sh:property [

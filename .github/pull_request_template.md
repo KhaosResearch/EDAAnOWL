@@ -1,4 +1,4 @@
-# EDAAnOWL Pull Request
+# AgoraOWL Pull Request
 
 ## Type of Change
 
@@ -20,10 +20,10 @@ Please include a summary of the changes and the problem that is fixed.
 If this PR introduces a new release (e.g., v0.0.2), please verify the following based on `CONTRIBUTING.md`:
 
 - [ ] **Directory**: A new folder `src/X.Y.Z/` exists with all assets.
-- [ ] **Ontology Version**: `EDAAnOWL.ttl` has updated:
-    - [ ] `owl:versionIRI`
-    - [ ] `owl:versionInfo`
-    - [ ] `owl:priorVersion`
+- [ ] **Ontology Version**: `AgoraOWL.ttl` has updated:
+  - [ ] `owl:versionIRI`
+  - [ ] `owl:versionInfo`
+  - [ ] `owl:priorVersion`
 - [ ] **Vocabulary Imports**: All `owl:imports` point to the new version path (`.../X.Y.Z/...`).
 - [ ] **Vocabularies**: Each file in `vocabularies/` has updated `@base` and `owl:Ontology` URI.
 - [ ] **Changelog**: `CHANGELOG.md` is updated with an `[Unreleased]` section detailing changes.

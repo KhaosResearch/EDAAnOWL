@@ -1,0 +1,58 @@
+classDiagram
+    class DataAsset {
+        dcat:distribution
+    }
+    class Distribution {
+        hasProfile
+        hasFieldMapping
+    }
+    class DataProfile {
+        hasDataSpecification
+    }
+    class FieldMapping {
+        mapsToSpecification
+        mapsField
+        hasUnit
+        hasDataType
+        hasObservationMetric
+        hasMetric
+    }
+    class Metric {
+        metricName
+        metricValue
+    }
+    class Unit {
+    }
+    class DataSpecification {
+        hasFeatureOfInterest
+        hasObservableProperty
+    }
+    class FeatureOfInterest {
+    }
+    class ObservableProperty {
+    }
+    class DataApp {
+        hasInputProfile
+        hasOutputProfile
+    }
+    class InputProfile {
+        hasDataSpecification
+        hasConstraint
+    }
+    class DataConstraint {
+        constraintOperator
+        constraintValue
+    }
+    
+    DataAsset --> Distribution
+    Distribution --> DataProfile
+    Distribution --> FieldMapping
+    DataProfile --> DataSpecification
+    FieldMapping --> DataSpecification
+    FieldMapping --> Unit
+    FieldMapping --> Metric
+    DataSpecification --> FeatureOfInterest
+    DataSpecification --> ObservableProperty
+    DataApp --> InputProfile
+    InputProfile --> DataSpecification
+    InputProfile --> DataConstraint

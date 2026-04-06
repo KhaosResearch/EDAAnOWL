@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
 @prefix ex: <http://example.org/data/eo/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -21,9 +21,9 @@
 @prefix opmw: <http://www.opmw.org/ontology/> .
 
 <http://example.org/data/eo/> rdf:type owl:Ontology ;
-    owl:imports <https://w3id.org/EDAAnOWL/> ;
+    owl:imports <https://w3id.org/AgoraOWL/> ;
     dct:title "Earth Observation (EO) Instance Examples"@en ;
-    dct:description "Example instances demonstrating EDAAnOWL v0.4.0 features including IDSA alignment with DataRepresentation, conformsToProfile on Distribution, and extended vocabularies."@en .
+    dct:description "Example instances demonstrating AgoraOWL v0.4.0 features including IDSA alignment with DataRepresentation, conformsToProfile on Distribution, and extended vocabularies."@en .
 
 ###
 ### Use Case 1: Earth Observation (EO) Data Asset with v0.4.0 Pattern

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-RDF Syntax Validator for EDAAnOWL.
+RDF Syntax Validator for AgoraOWL.
 
 Validates all Turtle files in the latest version folder under `src/`.
 """
@@ -31,7 +31,7 @@ def validate_rdf_file(file_path: Path) -> bool:
 
 def main() -> None:
     """Main validation function."""
-    print("EDAAnOWL RDF Syntax Validation")
+    print("AgoraOWL RDF Syntax Validation")
 
     try:
         src_path = Path("src")

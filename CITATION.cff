@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this ontology, please cite it as below."
-title: "EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL"
-abstract: "EDAAnOWL is a lightweight, modular ontology for describing data-space assets (datasets, data apps, policies, processes) aligned with the IDSA Information Model and connected to BIGOWL. Version 1.2.0 introduces symmetric app profiling and generalized administrative metadata."
+title: "AgoraOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL"
+abstract: "AgoraOWL is a lightweight, modular ontology for describing data-space assets (datasets, data apps, policies, processes) aligned with the IDSA Information Model and connected to BIGOWL. Version 1.2.0 introduces symmetric app profiling and generalized administrative metadata."
 version: 1.2.0
 date-released: 2026-03-26
 authors:
@@ -10,8 +10,8 @@ authors:
     orcid: "https://orcid.org/0000-0002-8508-1940"
   - name: "Khaos Research"
 license: "MIT"
-repository-code: "https://github.com/KhaosResearch/EDAAnOWL"
-url: "https://w3id.org/EDAAnOWL/"
+repository-code: "https://github.com/KhaosResearch/AgoraOWL"
+url: "https://w3id.org/AgoraOWL/"
 keywords:
   - ontology
   - semantic
@@ -33,4 +33,4 @@ keywords:
   - data-market-place
   - data-economy
   - metadata
-  - edaan
+  - agoraowl

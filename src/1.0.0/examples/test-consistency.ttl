@@ -1,5 +1,5 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
-@prefix test: <https://w3id.org/EDAAnOWL/test/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
+@prefix test: <https://w3id.org/AgoraOWL/test/> .
 @prefix ids: <https://w3id.org/idsa/core/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -20,9 +20,9 @@
 @prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 
-<https://w3id.org/EDAAnOWL/test/> rdf:type owl:Ontology ;
-    owl:imports <https://w3id.org/EDAAnOWL/> ;
-    dct:title "EDAAnOWL Test Instances (v1.0.0)"@en ;
+<https://w3id.org/AgoraOWL/test/> rdf:type owl:Ontology ;
+    owl:imports <https://w3id.org/AgoraOWL/> ;
+    dct:title "AgoraOWL Test Instances (v1.0.0)"@en ;
     dct:description "Minimal test instances for SHACL validation using the v1.0.0 atomic profiles architecture."@en .
 
 ### Stub definitions for external concepts (enables offline validation)

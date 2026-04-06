@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-EDAAnOWL SHACL validation script.
+AgoraOWL SHACL validation script.
 
-By default this validates the ontology and EDAAnOWL-authored examples for the
+By default this validates the ontology and AgoraOWL-authored examples for the
 latest version under `src/`. Official DCAT-AP-ES reference RDF examples can be
 included explicitly with `--include-official-examples`.
 """
@@ -108,11 +108,11 @@ def main() -> None:
 
     include_official_examples = should_include_official_examples(sys.argv[1:])
 
-    print(f"EDAAnOWL SHACL Validation (v{version})")
+    print(f"AgoraOWL SHACL Validation (v{version})")
     print("=" * 50)
 
     version_dir = src_dir / version
-    ontology_file = version_dir / "EDAAnOWL.ttl"
+    ontology_file = version_dir / "AgoraOWL.ttl"
 
     shape_dir = version_dir / "shapes" / "compliance" / "dcat-ap-es" / "1.0.0"
     shape_files = [
@@ -122,7 +122,7 @@ def main() -> None:
         shape_dir / "shacl_distribution_shape.ttl",
         shape_dir / "shacl_dataservice_shape.ttl",
         shape_dir / "shacl_mdr-vocabularies.shape.ttl",
-        version_dir / "shapes" / "edaan-shapes.ttl",
+        version_dir / "shapes" / "agoraowl-shapes.ttl",
         version_dir / "shapes" / "idsa-shapes.ttl",
         version_dir / "shapes" / "cred-alignment-shapes.ttl",
     ]

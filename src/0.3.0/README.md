@@ -1,6 +1,6 @@
-# EDAAnOWL v0.3.0
+# AgoraOWL v0.3.0
 
-Welcome to the documentation for version 0.3.0 of the EDAAnOWL ontology.
+Welcome to the documentation for version 0.3.0 of the AgoraOWL ontology.
 
 This ontology provides a semantic model for describing and annotating **Data Assets** and **Data Apps** (Applications/Services) within a Data Space, aligning the **IDSA** Information Model and the **BIGOWL** ontology framework.
 
@@ -9,27 +9,33 @@ This ontology provides a semantic model for describing and annotating **Data Ass
 This version enriches the ontology with standard vocabularies for **Data Quality** and **Provenance**, and simplifies the architecture.
 
 ### 1. Data Quality (DQV Alignment)
-- **`edaan:Metric`** is now a subclass of `dqv:Metric`.
-- **`edaan:QualityMetric`** is now a subclass of `dqv:QualityMetric`.
+
+- **`agoraowl:Metric`** is now a subclass of `dqv:Metric`.
+- **`agoraowl:QualityMetric`** is now a subclass of `dqv:QualityMetric`.
 - This enables interoperability with tools that consume W3C Data Quality Vocabulary.
 
 ### 2. Provenance (PROV-O Alignment)
+
 - Added support for **`prov:wasGeneratedBy`** in `:DataAsset`.
 - Allows tracing the lineage of a data asset back to the `:DataApp` (or `:PredictionApp`) that generated it.
 
 ### 3. Architecture Simplification
+
 - Removed the deprecated `:AnalyticalService` class (fully replaced by `ids:SmartDataApp` subclasses).
 - See the updated [Architecture Diagram](../../ARCHITECTURE.md).
 
 ### 4. Demo & Transformation
+
 - Added a `demo/` folder with a **DCAT-to-RDF transformation script** (`transform_catalog.py`).
-- Demonstrates how to convert a standard `catalog.json` into EDAAnOWL RDF, automatically mapping keywords to algorithms and generating data profiles.
+- Demonstrates how to convert a standard `catalog.json` into AgoraOWL RDF, automatically mapping keywords to algorithms and generating data profiles.
 
 ### 5. Fixes & Improvements
+
 - **SHACL Shapes**: Split `:DataAssetShape` into `:SpatialTemporalAssetShape` (strict) and `:DataAssetShape` (flexible) to allow generic assets without mandatory spatial/temporal coverage.
 - **Validation**: Fixed syntax errors in shape files and ensured full compliance with the new profile/semantic models.
 
 ## 🛠 Key changes in v0.2.1 (Previous)
+
 (Kept for history)
 This was a small maintenance/packaging release...
 
@@ -37,7 +43,7 @@ This was a small maintenance/packaging release...
 
 ## 🧐 How the Ontology Fulfills Requirements (v0.3.0 Model)
 
-EDAAnOWL v0.3.0 provides **two complementary compatibility models** that can now be used together.
+AgoraOWL v0.3.0 provides **two complementary compatibility models** that can now be used together.
 
 ### Model 1: Profile-based Compatibility (from v0.0.1)
 
@@ -140,19 +146,19 @@ graph LR
 
 ## 🧩 Key Classes and Properties (Quick Reference)
 
-| Class | Origin | Role in EDAAnOWL | Key Object Properties | Key Data Properties | Example |
-| :-------------------------------------------- | :------------ | :--------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ | :------------------------------------------------------ |
-| ids:Resource | IDSA | Base for any asset/service | `:hasDomainSector`, `:topic`, `:spatialGranularityConcept` | `:supportContact` | `ex:r a ids:Resource` |
-| :DataAsset ⊑ ids:DataResource | EDAAnOWL | Data asset with domain semantics | `:servesObservableProperty` | — | `ex:d a :DataAsset ; :servesObservableProperty :ndvi` |
-| ids:SmartDataApp | IDSA | Data processing app/service | `:requiresProfile`, `:producesProfile`, `:requiresObservableProperty`, `:producesObservableProperty`, `:implementsComponent`, `:realizesWorkflow`, `:parameter` | — | `ex:a a ids:SmartDataApp ; :requiresProfile ex:p` |
-| :PredictionApp ⊑ ids:SmartDataApp | EDAAnOWL | Predictive app specialization | inherits above | — | `ex:pred a :PredictionApp` |
-| :AnalyzerApp ⊑ ids:SmartDataApp | EDAAnOWL | Descriptive/diagnostic app | inherits above | — | `ex:ana a :AnalyzerApp` |
-| :VisualizationApp ⊑ ids:SmartDataApp | EDAAnOWL | Visualization/reporting app | inherits above | — | `ex:viz a :VisualizationApp` |
-| :DataProfile | EDAAnOWL | Data “signature” (structure/semantics) | `:declaresDataClass`, `:declaresObservedProperty`, `:hasCRS` | `dcat:temporalResolution`, `dcat:spatialResolutionInMeters` | `ex:p a :DataProfile ; :declaresObservedProperty :ndvi` |
-| :ObservableProperty ⊑ sosa:ObservableProperty | EDAAnOWL/SOSA | Semantic variable used by assets and apps | — | — | `:ndvi a :ObservableProperty` |
-| bigwf:Component | BIGOWL | Workflow component implemented by apps | `:producesResource`, `:consumesResource` | — | `ex:c a bigwf:Component` |
-| ids:Representation | IDSA | Representation consumed/produced in components | — | — | `ex:r a ids:Representation` |
-| opmw:WorkflowTemplate | OPMW | Abstract workflow realized by apps | — | — | `ex:w a opmw:WorkflowTemplate` |
+| Class                                         | Origin        | Role in AgoraOWL                               | Key Object Properties                                                                                                                                           | Key Data Properties                                         | Example                                                 |
+| :-------------------------------------------- | :------------ | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------- | :------------------------------------------------------ |
+| ids:Resource                                  | IDSA          | Base for any asset/service                     | `:hasDomainSector`, `:topic`, `:spatialGranularityConcept`                                                                                                      | `:supportContact`                                           | `ex:r a ids:Resource`                                   |
+| :DataAsset ⊑ ids:DataResource                 | AgoraOWL      | Data asset with domain semantics               | `:servesObservableProperty`                                                                                                                                     | —                                                           | `ex:d a :DataAsset ; :servesObservableProperty :ndvi`   |
+| ids:SmartDataApp                              | IDSA          | Data processing app/service                    | `:requiresProfile`, `:producesProfile`, `:requiresObservableProperty`, `:producesObservableProperty`, `:implementsComponent`, `:realizesWorkflow`, `:parameter` | —                                                           | `ex:a a ids:SmartDataApp ; :requiresProfile ex:p`       |
+| :PredictionApp ⊑ ids:SmartDataApp             | AgoraOWL      | Predictive app specialization                  | inherits above                                                                                                                                                  | —                                                           | `ex:pred a :PredictionApp`                              |
+| :AnalyzerApp ⊑ ids:SmartDataApp               | AgoraOWL      | Descriptive/diagnostic app                     | inherits above                                                                                                                                                  | —                                                           | `ex:ana a :AnalyzerApp`                                 |
+| :VisualizationApp ⊑ ids:SmartDataApp          | AgoraOWL      | Visualization/reporting app                    | inherits above                                                                                                                                                  | —                                                           | `ex:viz a :VisualizationApp`                            |
+| :DataProfile                                  | AgoraOWL      | Data “signature” (structure/semantics)         | `:declaresDataClass`, `:declaresObservedProperty`, `:hasCRS`                                                                                                    | `dcat:temporalResolution`, `dcat:spatialResolutionInMeters` | `ex:p a :DataProfile ; :declaresObservedProperty :ndvi` |
+| :ObservableProperty ⊑ sosa:ObservableProperty | AgoraOWL/SOSA | Semantic variable used by assets and apps      | —                                                                                                                                                               | —                                                           | `:ndvi a :ObservableProperty`                           |
+| bigwf:Component                               | BIGOWL        | Workflow component implemented by apps         | `:producesResource`, `:consumesResource`                                                                                                                        | —                                                           | `ex:c a bigwf:Component`                                |
+| ids:Representation                            | IDSA          | Representation consumed/produced in components | —                                                                                                                                                               | —                                                           | `ex:r a ids:Representation`                             |
+| opmw:WorkflowTemplate                         | OPMW          | Abstract workflow realized by apps             | —                                                                                                                                                               | —                                                           | `ex:w a opmw:WorkflowTemplate`                          |
 
 Notes:
 
