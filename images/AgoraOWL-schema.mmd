@@ -1,0 +1,22 @@
+flowchart LR
+    Asset["DataAsset"] -->|"dcat:distribution"| Dist["Distribution"]
+    Dist -->|"hasProfile"| Prof["DataProfile"]
+    Dist -->|"hasFieldMapping"| Map["FieldMapping"]
+    Prof -->|"hasDataSpecification"| Spec["DataSpecification"]
+    Map -->|"mapsToSpecification"| Spec
+    Map -->|"hasUnit"| Unit["Unit"]
+    Map -->|"hasMetric"| Met["Metric"]
+    
+    Spec -->|"hasFeatureOfInterest"| FOI["FeatureOfInterest"]
+    Spec -->|"hasObservableProperty"| OP["ObservableProperty"]
+
+    App["DataApp"] -->|"hasInputProfile"| InProf["InputProfile"]
+    InProf -->|"hasDataSpecification"| Spec
+    InProf -->|"hasConstraint"| Cons["DataConstraint"]
+
+    classDef supply fill:#bbb,stroke:#333,stroke-width:2px;
+    classDef demand fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef core fill:#bfb,stroke:#333,stroke-width:2px;
+    class Asset,Dist,Prof,Map supply;
+    class App,InProf,Cons demand;
+    class Spec,FOI,OP,Unit,Met core;

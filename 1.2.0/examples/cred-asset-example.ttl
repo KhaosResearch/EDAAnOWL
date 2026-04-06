@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -27,7 +27,7 @@
 #  1. CATALOG 
 # ─────────────────────────────────────────────────────────────
 
-<https://w3id.org/EDAAnOWL/examples/cred/catalog/agri-data-space> a dcat:Catalog ;
+<https://w3id.org/AgoraOWL/examples/cred/catalog/agri-data-space> a dcat:Catalog ;
     dct:title "Catálogo del Espacio de Datos Agrícola"@es ,
               "Agricultural Data Space Catalog"@en ;
     dct:description "Catálogo de recursos semánticos del espacio de datos agrícola de Andalucía"@es ,
@@ -47,8 +47,8 @@
     dcat:keyword "agricultura"@es , "olivar"@es , "agriculture"@en ;
     foaf:homepage <https://datos.juntadeandalucia.es> ;
     dcat:themeTaxonomy <http://datos.gob.es/kos/sector-publico/sector> , <http://publications.europa.eu/resource/authority/data-theme> ;
-    dcat:dataset <https://w3id.org/EDAAnOWL/examples/cred/dataset/olive-grove-monitoring> ;
-    dcat:distribution <https://w3id.org/EDAAnOWL/examples/cred/distribution/catalog-rdf> ;
+    dcat:dataset <https://w3id.org/AgoraOWL/examples/cred/dataset/olive-grove-monitoring> ;
+    dcat:distribution <https://w3id.org/AgoraOWL/examples/cred/distribution/catalog-rdf> ;
     dcatap:applicableLegislation <https://www.boe.es/eli/es-ga/2024/10/01> ;
     dcat:contactPoint [ 
         a vcard:Organization ; 
@@ -61,13 +61,13 @@
     ] .
 
 # Strictly DCAT-aligned Catalog Distribution
-<https://w3id.org/EDAAnOWL/examples/cred/distribution/catalog-rdf> a dcat:Distribution ;
+<https://w3id.org/AgoraOWL/examples/cred/distribution/catalog-rdf> a dcat:Distribution ;
     dct:title "Catálogo en formato RDF"@es , "Catalog in RDF format"@en ;
     dct:description "Distribución del catálogo en formato RDF Turtle para acceso programático"@es , "Catalog distribution in RDF Turtle format for programmatic access"@en ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
     dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ;
     dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
-    dcat:accessURL <https://w3id.org/EDAAnOWL/examples/cred-asset-example.ttl> ;
+    dcat:accessURL <https://w3id.org/AgoraOWL/examples/cred-asset-example.ttl> ;
     dcatap:availability <http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE> ;
     dcatap:applicableLegislation <https://www.boe.es/eli/es/rd/2023/12/19/1089> .
 
@@ -84,7 +84,7 @@
 #  3. DATASET
 # ─────────────────────────────────────────────────────────────
 
-<https://w3id.org/EDAAnOWL/examples/cred/dataset/olive-grove-monitoring> a :DataAsset , dcat:Dataset ;
+<https://w3id.org/AgoraOWL/examples/cred/dataset/olive-grove-monitoring> a :DataAsset , dcat:Dataset ;
     dct:title "Datos de Monitorización de Olivares"@es ,
               "Olive Grove Monitoring Data"@en ;
     dct:description "Datos de sensores y satélite sobre el estado de olivares en la provincia de Jaén"@es ,
@@ -105,8 +105,8 @@
     owl:versionInfo "1.2.0" ;
     dcatap:applicableLegislation <https://www.boe.es/eli/es/rd/2023/12/19/1089> ;
     dcat:landingPage <https://datos.juntadeandalucia.es/olivar-monitoring> ;
-    dcat:distribution <https://w3id.org/EDAAnOWL/examples/cred/distribution/olive-csv> ;
-    ids:representation <https://w3id.org/EDAAnOWL/examples/cred/distribution/olive-csv> ;
+    dcat:distribution <https://w3id.org/AgoraOWL/examples/cred/distribution/olive-csv> ;
+    ids:representation <https://w3id.org/AgoraOWL/examples/cred/distribution/olive-csv> ;
     dcat:contactPoint [ 
         a vcard:Organization ; 
         vcard:fn "Khaos Research"@en , "Khaos Research"@es ;
@@ -124,10 +124,10 @@
     :hasDomainSector theme:AGRI ;
     :isAlive true ;
     dct:conformsTo <http://data.europa.eu/r5r/dcat-ap/3.0.1> ;
-    dqv:hasQualityMetadata <https://w3id.org/EDAAnOWL/examples/cred/quality/olive-dataset-assessment> ;
-    odrl:hasPolicy <https://w3id.org/EDAAnOWL/examples/cred/policy/olive-data-offer> .
+    dqv:hasQualityMetadata <https://w3id.org/AgoraOWL/examples/cred/quality/olive-dataset-assessment> ;
+    odrl:hasPolicy <https://w3id.org/AgoraOWL/examples/cred/policy/olive-data-offer> .
 
-<https://w3id.org/EDAAnOWL/examples/cred/distribution/olive-csv> a :DataRepresentation , dcat:Distribution ;
+<https://w3id.org/AgoraOWL/examples/cred/distribution/olive-csv> a :DataRepresentation , dcat:Distribution ;
     dct:title "Distribución CSV de datos de olivar"@es ,
               "Olive grove CSV distribution"@en ;
     dct:description "Archivo CSV con datos tabulares de monitorización de olivar"@es ,
@@ -148,53 +148,53 @@
     :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
     :hasFieldMapping [
         a :FieldMapping ;
-        :mapsToSpecification <https://w3id.org/EDAAnOWL/examples/cred/spec/ndvi-daily-spec> ;
+        :mapsToSpecification <https://w3id.org/AgoraOWL/examples/cred/spec/ndvi-daily-spec> ;
         :mapsField "ndvi_daily" ;
         :hasUnit qudt:UNITLESS ;
         :hasDataType xsd:float ;
         :hasObservationMetric :DailyAverage ;
-        :hasMetric <https://w3id.org/EDAAnOWL/examples/cred/metric/olive-record-count> ,
-                    <https://w3id.org/EDAAnOWL/examples/cred/metric/olive-completeness> ,
-                    <https://w3id.org/EDAAnOWL/examples/cred/metric/olive-ndvi-avg>
+        :hasMetric <https://w3id.org/AgoraOWL/examples/cred/metric/olive-record-count> ,
+                    <https://w3id.org/AgoraOWL/examples/cred/metric/olive-completeness> ,
+                    <https://w3id.org/AgoraOWL/examples/cred/metric/olive-ndvi-avg>
     ] .
 
-<https://w3id.org/EDAAnOWL/examples/cred/spec/ndvi-daily-spec> a :DataSpecification ;
+<https://w3id.org/AgoraOWL/examples/cred/spec/ndvi-daily-spec> a :DataSpecification ;
     rdfs:label "NDVI Daily Specification"@en , "Especificación diaria de NDVI"@es ;
     :hasObservableProperty agrovoc:c_ce585e0d ;
     :hasFeatureOfInterest agrovoc:c_12926 .
 
-<https://w3id.org/EDAAnOWL/examples/cred/metric/olive-record-count> a :Metric ;
+<https://w3id.org/AgoraOWL/examples/cred/metric/olive-record-count> a :Metric ;
     :metricName "recordCount" ;
     :metricValue "365000"^^xsd:integer ;
     :hasMetricStandard <http://qudt.org/vocab/unit/NUM> ;
     :computedAt "2026-03-01T10:00:00"^^xsd:dateTime ;
-    dqv:computedOn <https://w3id.org/EDAAnOWL/examples/cred/dataset/olive-grove-monitoring> .
+    dqv:computedOn <https://w3id.org/AgoraOWL/examples/cred/dataset/olive-grove-monitoring> .
 
-<https://w3id.org/EDAAnOWL/examples/cred/metric/olive-completeness> a :Metric ;
+<https://w3id.org/AgoraOWL/examples/cred/metric/olive-completeness> a :Metric ;
     :metricType :Completeness ;
     :metricName "completeness" ;
     :metricValue "0.97"^^xsd:decimal ;
     :hasMetricStandard <http://qudt.org/vocab/unit/PERCENT> ;
     :computedAt "2026-03-01T10:00:00"^^xsd:dateTime ;
-    dqv:computedOn <https://w3id.org/EDAAnOWL/examples/cred/dataset/olive-grove-monitoring> .
+    dqv:computedOn <https://w3id.org/AgoraOWL/examples/cred/dataset/olive-grove-monitoring> .
 
 :Completeness a :MetricType ; skos:prefLabel "Completeness"@en .
 
-<https://w3id.org/EDAAnOWL/examples/cred/metric/olive-ndvi-avg> a :Metric ;
+<https://w3id.org/AgoraOWL/examples/cred/metric/olive-ndvi-avg> a :Metric ;
     :metricName "average_ndvi" ;
     :measuresProperty agrovoc:c_ce585e0d ;
     :metricValue "0.65"^^xsd:decimal ;
     :hasMetricStandard <http://qudt.org/vocab/unit/UNITLESS> ;
     :computedAt "2026-03-01T10:00:00"^^xsd:dateTime ;
-    dqv:computedOn <https://w3id.org/EDAAnOWL/examples/cred/dataset/olive-grove-monitoring> .
+    dqv:computedOn <https://w3id.org/AgoraOWL/examples/cred/dataset/olive-grove-monitoring> .
 
-<https://w3id.org/EDAAnOWL/examples/cred/quality/olive-dataset-assessment> a dqv:QualityMetadata ;
-    dqv:hasQualityMeasurement <https://w3id.org/EDAAnOWL/examples/cred/metric/olive-record-count> ,
-                               <https://w3id.org/EDAAnOWL/examples/cred/metric/olive-completeness> ,
-                               <https://w3id.org/EDAAnOWL/examples/cred/metric/olive-ndvi-avg> .
+<https://w3id.org/AgoraOWL/examples/cred/quality/olive-dataset-assessment> a dqv:QualityMetadata ;
+    dqv:hasQualityMeasurement <https://w3id.org/AgoraOWL/examples/cred/metric/olive-record-count> ,
+                               <https://w3id.org/AgoraOWL/examples/cred/metric/olive-completeness> ,
+                               <https://w3id.org/AgoraOWL/examples/cred/metric/olive-ndvi-avg> .
 
-<https://w3id.org/EDAAnOWL/examples/cred/policy/olive-data-offer> a odrl:Offer ;
-    odrl:target <https://w3id.org/EDAAnOWL/examples/cred/dataset/olive-grove-monitoring> ;
+<https://w3id.org/AgoraOWL/examples/cred/policy/olive-data-offer> a odrl:Offer ;
+    odrl:target <https://w3id.org/AgoraOWL/examples/cred/dataset/olive-grove-monitoring> ;
     odrl:permission [
         odrl:action odrl:use ;
         odrl:assigner <http://datos.gob.es/recurso/sector-publico/org/Organismo/U01100001> ;

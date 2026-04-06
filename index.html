@@ -1,199 +1,316 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AgoraOWL – Ontology Documentation</title>
+    <meta
+      name="description"
+      content="Official documentation for AgoraOWL: An ontology for annotating data-space assets."
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EDAAnOWL – Ontology Documentation</title>
-  <meta name="description"
-    content="Official documentation for EDAAnOWL: An ontology for annotating data-space assets." />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main JS for Theme Toggle -->
+    <script src="assets/js/main.js"></script>
+  </head>
 
-  <!-- Main JS for Theme Toggle -->
-  <script src="assets/js/main.js"></script>
-</head>
-
-<body>
-
-  <header>
-    <div class="container header-content">
-      <a href="#" class="brand">
-        <div class="brand-logo">E</div>
-        <span class="brand-text">EDAAnOWL</span>
-      </a>
-      <nav class="nav-links">
-        <a href="https://github.com/KhaosResearch/EDAAnOWL" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="badge latest" style="margin-bottom: 20px;">Latest Stable Release: v1.2.0</div>
-        <h1>Semantic Data Spaces <br> Made Simple.</h1>
-        <p>
-          EDAAnOWL is a lightweight, modular ontology for describing data assets,
-          services, and workflows in the IDSA and BIGOWL context.
-        </p>
-        <a href="1.2.0/" class="cta-button">Read Documentation <i class="fas fa-arrow-right"
-            style="margin-left:8px; font-size: 0.9em;"></i></a>
+  <body>
+    <header>
+      <div class="container header-content">
+        <a href="#" class="brand">
+          <div class="brand-logo">E</div>
+          <span class="brand-text">AgoraOWL</span>
+        </a>
+        <nav class="nav-links">
+          <a href="https://github.com/KhaosResearch/AgoraOWL" target="_blank"
+            ><i class="fab fa-github"></i> GitHub</a
+          >
+        </nav>
       </div>
-    </section>
+    </header>
 
-    <section class="doc-content">
-      <div class="container">
-        <h2 style="font-size: 1.8rem; margin-bottom: 30px;">Available Versions</h2>
-
-        <div class="versions-grid">
-
-          <!-- Latest Version -->
-          <a href="1.2.0/" class="version-card" style="border-color: var(--accent-primary);">
-            <div style="display:flex; justify-content:space-between; align-items:start;">
-              <span class="version-number">v1.2.0</span>
-              <span class="badge latest">Latest</span>
-            </div>
-            <div class="version-date">March 24, 2026</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              Symmetric App Profiling: Introduced OutputProfile for balanced I/O modeling. Generalized administrative metadata for both Resources and DataApps. Enforced schema-agnostic DataSpecifications with dedicated technical requirement properties (requiresDataType).
-            </p>
-          </a>
-
-          <!-- v1.1.0 -->
-          <a href="1.1.0/" class="version-card">
-            <span class="version-number">v1.1.0</span>
-            <div class="version-date">March 16, 2026</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              Full DCAT-AP-ES 1.0.0 & DCAT 3.0 Compliance. Verified by official Spanish Government validation tools. Standardized DIR3 Agent IRIs and technical distribution SHACL refinements.
-            </p>
-          </a>
-
-          <!-- v1.0.0 -->
-          <a href="1.0.0/" class="version-card">
-            <span class="version-number">v1.0.0</span>
-            <div class="version-date">March 12, 2026</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              Major architectural update: Atomic reusable DataProfiles, ProfileBinding for field mapping, and InputRequirements with QualityConstraints for DataApps.
-            </p>
-          </a>
-
-          <!-- v0.9.0 -->
-          <a href="0.9.0/" class="version-card">
-            <span class="version-number">v0.9.0</span>
-            <div class="version-date">March 11, 2026</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              Feature of Interest (SOSA/SSN) integration, decoupled semantic discovery, and consolidated metric standards (QUDT/SKOS).
-            </p>
-          </a>
-
-          <a href="0.8.1/" class="version-card">
-            <span class="version-number">v0.8.1</span>
-            <div class="version-date">March 10, 2026</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              DQV/ODRL consistency fixes, observed-properties bridge vocabulary, and validated EO/CRED examples.
-            </p>
-          </a>
-
-          <a href="0.8.0/" class="version-card">
-            <span class="version-number">v0.8.0</span>
-            <div class="version-date">March 4, 2026</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              CRED Model (UNE 0087:2025), DCAT-AP 3.0, ODRL 2.2, FOAF Agent, and SHACL compliance for data space assets.
-            </p>
-          </a>
-          <!-- v0.7.0 -->
-          <a href="0.7.0/" class="version-card">
-            <span class="version-number">v0.7.0</span>
-            <div class="version-date">February 24, 2026</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              QUDT units integration, SIEX agricultural catalogues, and measuresProperty for semantic alignment.
-            </p>
-          </a>
-
-          <!-- v0.6.0 -->
-          <a href="0.6.0/" class="version-card">
-            <span class="version-number">v0.6.0</span>
-            <div class="version-date">February 16, 2026</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              DQV, PROV & DCAT-AP alignment, Performance metrics, IDSA SHACL, and external-first vocabularies.
-            </p>
-          </a>
-
-          <!-- v0.5.0 -->
-          <a href="0.5.0/" class="version-card">
-            <span class="version-number">v0.5.0</span>
-            <div class="version-date">January 21, 2026</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              DQV & PROV alignment, new controlled vocabulary properties.
-            </p>
-          </a>
-
-          <!-- v0.4.1 -->
-          <a href="0.4.1/" class="version-card">
-            <span class="version-number">v0.4.1</span>
-            <div class="version-date">January 12, 2026</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              Bugfixes for IDSA alignment: :conformsToProfile constraints and updated examples/docs.
-            </p>
-          </a>
-
-          <!-- v0.4.0 -->
-          <a href="0.4.0/" class="version-card">
-            <span class="version-number">v0.4.0</span>
-            <div class="version-date">December 22, 2025</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              IDSA alignment: DataRepresentation/AppRepresentation classes, conformsToProfile on Distribution.
-            </p>
-          </a>
-
-          <!-- v0.3.2 -->
-          <a href="0.3.2/" class="version-card">
-            <span class="version-number">v0.3.2</span>
-            <div class="version-date">December 11, 2025</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              MetricType vocabulary, extended observable properties (~25), AGROVOC alignment.
-            </p>
-          </a>
-
-          <!-- v0.3.1 -->
-          <a href="0.3.1/" class="version-card">
-            <span class="version-number">v0.3.1</span>
-            <div class="version-date">November 28, 2025</div>
-            <p style="color: var(--text-secondary); margin-top: 12px; font-size: 0.95rem;">
-              Multilingual support (English/Spanish).
-            </p>
-          </a>
-
-          <!-- v0.3.0 -->
-          <a href="0.3.0/" class="version-card">
-            <span class="version-number">v0.3.0</span>
-            <div class="version-date">November 2025</div>
-          </a>
-
-          <!-- v0.2.1 -->
-          <a href="0.2.1/" class="version-card">
-            <span class="version-number">v0.2.1</span>
-            <div class="version-date">October 2025</div>
-          </a>
-
-          <!-- v0.0.1 -->
-          <a href="0.0.1/" class="version-card">
-            <span class="version-number">v0.0.1</span>
-            <div class="version-date">Initial Pre-release</div>
-          </a>
-
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="badge latest" style="margin-bottom: 20px">
+            Latest Stable Release: v1.2.0
+          </div>
+          <h1>
+            Semantic Data Spaces <br />
+            Made Simple.
+          </h1>
+          <p>
+            AgoraOWL is a lightweight, modular ontology for describing data
+            assets, services, and workflows in the IDSA and BIGOWL context.
+          </p>
+          <a href="1.2.0/" class="cta-button"
+            >Read Documentation
+            <i
+              class="fas fa-arrow-right"
+              style="margin-left: 8px; font-size: 0.9em"
+            ></i
+          ></a>
         </div>
+      </section>
+
+      <section class="doc-content">
+        <div class="container">
+          <h2 style="font-size: 1.8rem; margin-bottom: 30px">
+            Available Versions
+          </h2>
+
+          <div class="versions-grid">
+            <!-- Latest Version -->
+            <a
+              href="1.2.0/"
+              class="version-card"
+              style="border-color: var(--accent-primary)"
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: start;
+                "
+              >
+                <span class="version-number">v1.2.0</span>
+                <span class="badge latest">Latest</span>
+              </div>
+              <div class="version-date">March 24, 2026</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                Symmetric App Profiling: Introduced OutputProfile for balanced
+                I/O modeling. Generalized administrative metadata for both
+                Resources and DataApps. Enforced schema-agnostic
+                DataSpecifications with dedicated technical requirement
+                properties (requiresDataType).
+              </p>
+            </a>
+
+            <!-- v1.1.0 -->
+            <a href="1.1.0/" class="version-card">
+              <span class="version-number">v1.1.0</span>
+              <div class="version-date">March 16, 2026</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                Full DCAT-AP-ES 1.0.0 & DCAT 3.0 Compliance. Verified by
+                official Spanish Government validation tools. Standardized DIR3
+                Agent IRIs and technical distribution SHACL refinements.
+              </p>
+            </a>
+
+            <!-- v1.0.0 -->
+            <a href="1.0.0/" class="version-card">
+              <span class="version-number">v1.0.0</span>
+              <div class="version-date">March 12, 2026</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                Major architectural update: Atomic reusable DataProfiles,
+                ProfileBinding for field mapping, and InputRequirements with
+                QualityConstraints for DataApps.
+              </p>
+            </a>
+
+            <!-- v0.9.0 -->
+            <a href="0.9.0/" class="version-card">
+              <span class="version-number">v0.9.0</span>
+              <div class="version-date">March 11, 2026</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                Feature of Interest (SOSA/SSN) integration, decoupled semantic
+                discovery, and consolidated metric standards (QUDT/SKOS).
+              </p>
+            </a>
+
+            <a href="0.8.1/" class="version-card">
+              <span class="version-number">v0.8.1</span>
+              <div class="version-date">March 10, 2026</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                DQV/ODRL consistency fixes, observed-properties bridge
+                vocabulary, and validated EO/CRED examples.
+              </p>
+            </a>
+
+            <a href="0.8.0/" class="version-card">
+              <span class="version-number">v0.8.0</span>
+              <div class="version-date">March 4, 2026</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                CRED Model (UNE 0087:2025), DCAT-AP 3.0, ODRL 2.2, FOAF Agent,
+                and SHACL compliance for data space assets.
+              </p>
+            </a>
+            <!-- v0.7.0 -->
+            <a href="0.7.0/" class="version-card">
+              <span class="version-number">v0.7.0</span>
+              <div class="version-date">February 24, 2026</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                QUDT units integration, SIEX agricultural catalogues, and
+                measuresProperty for semantic alignment.
+              </p>
+            </a>
+
+            <!-- v0.6.0 -->
+            <a href="0.6.0/" class="version-card">
+              <span class="version-number">v0.6.0</span>
+              <div class="version-date">February 16, 2026</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                DQV, PROV & DCAT-AP alignment, Performance metrics, IDSA SHACL,
+                and external-first vocabularies.
+              </p>
+            </a>
+
+            <!-- v0.5.0 -->
+            <a href="0.5.0/" class="version-card">
+              <span class="version-number">v0.5.0</span>
+              <div class="version-date">January 21, 2026</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                DQV & PROV alignment, new controlled vocabulary properties.
+              </p>
+            </a>
+
+            <!-- v0.4.1 -->
+            <a href="0.4.1/" class="version-card">
+              <span class="version-number">v0.4.1</span>
+              <div class="version-date">January 12, 2026</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                Bugfixes for IDSA alignment: :conformsToProfile constraints and
+                updated examples/docs.
+              </p>
+            </a>
+
+            <!-- v0.4.0 -->
+            <a href="0.4.0/" class="version-card">
+              <span class="version-number">v0.4.0</span>
+              <div class="version-date">December 22, 2025</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                IDSA alignment: DataRepresentation/AppRepresentation classes,
+                conformsToProfile on Distribution.
+              </p>
+            </a>
+
+            <!-- v0.3.2 -->
+            <a href="0.3.2/" class="version-card">
+              <span class="version-number">v0.3.2</span>
+              <div class="version-date">December 11, 2025</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                MetricType vocabulary, extended observable properties (~25),
+                AGROVOC alignment.
+              </p>
+            </a>
+
+            <!-- v0.3.1 -->
+            <a href="0.3.1/" class="version-card">
+              <span class="version-number">v0.3.1</span>
+              <div class="version-date">November 28, 2025</div>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-top: 12px;
+                  font-size: 0.95rem;
+                "
+              >
+                Multilingual support (English/Spanish).
+              </p>
+            </a>
+
+            <!-- v0.3.0 -->
+            <a href="0.3.0/" class="version-card">
+              <span class="version-number">v0.3.0</span>
+              <div class="version-date">November 2025</div>
+            </a>
+
+            <!-- v0.2.1 -->
+            <a href="0.2.1/" class="version-card">
+              <span class="version-number">v0.2.1</span>
+              <div class="version-date">October 2025</div>
+            </a>
+
+            <!-- v0.0.1 -->
+            <a href="0.0.1/" class="version-card">
+              <span class="version-number">v0.0.1</span>
+              <div class="version-date">Initial Pre-release</div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© 2026 Khaos Research · Released under MIT License</p>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>© 2026 Khaos Research · Released under MIT License</p>
-    </div>
-  </footer>
-
-</body>
-
+    </footer>
+  </body>
 </html>

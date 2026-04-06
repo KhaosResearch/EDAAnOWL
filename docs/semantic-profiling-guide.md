@@ -1,6 +1,6 @@
 # Guía de Perfilado Semántico: Dataset Real y Matchmaking (v1.2.0)
 
-En la versión **v1.2.0** de EDAAnOWL, hemos evolucionado la arquitectura para permitir un perfilado simétrico. La clave es la **separación en 4 capas**:
+En la versión **v1.2.0** de AgoraOWL, hemos evolucionado la arquitectura para permitir un perfilado simétrico. La clave es la **separación en 4 capas**:
 
 1.  **Capa 1: Semántica (¿Qué es?):** `DataSpecification`. Define el fenómeno físico (ej. Humedad) y el sujeto (ej. Suelo). Es pura y reutilizable.
 2.  **Capa 2: Puente (¿Cómo viene?):** `FieldMapping`. Une la especificación semántica con una columna física, definiendo la **Unidad**, el **Tipo de Dato** y la **Métrica de Observación**.
@@ -14,23 +14,25 @@ En la versión **v1.2.0** de EDAAnOWL, hemos evolucionado la arquitectura para p
 Imagina un fichero CSV llamado `monitoreo-sensores.csv` con estas columnas:
 
 | fecha      | sensor_id | temp_c | humedad_suelo_p |
-|------------|-----------|--------|-----------------|
+| ---------- | --------- | ------ | --------------- |
 | 2026-05-10 | S-01      | 22.5   | 45.2            |
 | 2026-05-10 | S-02      | 23.0   | 44.8            |
 
 Este CSV ofrece datos sobre 2 variables semánticas:
+
 1. **Temperatura del Aire** (`agrovoc:c_7657` + `agrovoc:c_331557`): Medido en grados Celsius.
 2. **Humedad del Suelo** (`agrovoc:c_7208`): Medido en porcentaje.
 
 ---
 
-## 2. Modelando con EDAAnOWL v1.2.0 (Turtle)
+## 2. Modelando con AgoraOWL v1.2.0 (Turtle)
 
 ### 2.1 Especificaciones Semánticas (Librería Reutilizable)
+
 Estas definiciones se crean una vez y se reutilizan en todo el espacio de datos.
 
 ```turtle
-@prefix : <https://w3id.org/EDAAnOWL/> .
+@prefix : <https://w3id.org/AgoraOWL/> .
 @prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
 
 # Especificación de Humedad del Suelo
@@ -47,6 +49,7 @@ Estas definiciones se crean una vez y se reutilizan en todo el espacio de datos.
 ```
 
 ### 2.2 El Activo y su Distribución (Supply)
+
 Aquí es donde vinculamos la semántica con la realidad física del archivo.
 
 ```turtle
@@ -60,7 +63,7 @@ Aquí es donde vinculamos la semántica con la realidad física del archivo.
 
 <distribution/field-sensors-csv> a :DataRepresentation, dcat:Distribution ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
-    
+
     # Metadatos Técnicos (Capa 3)
     dcat:temporalResolution "PT1H"^^xsd:duration ;
     :hasCRS <http://www.opengis.net/def/crs/EPSG/0/4326> ;
@@ -78,7 +81,7 @@ Aquí es donde vinculamos la semántica con la realidad física del archivo.
         :mapsField "temp_c" ;
         :hasUnit qudt:DEG_C ;           # La unidad va en el mapeo, no en la spec
         :hasDataType xsd:float ;
-        :hasObservationMetric :Instantaneous 
+        :hasObservationMetric :Instantaneous
     ] ,
     [
         a :FieldMapping ;
@@ -101,25 +104,25 @@ En v1.2.0, las aplicaciones no solo piden "Humedad", sino que pueden exigir requ
 ```turtle
 <app/smart-irrigator> a :DataApp, ids:DataApp ;
     dct:title "Irrigador Inteligente v1.0"@es ;
-    
+
     # Requisitos de entrada
     :hasInputProfile [
         a :InputProfile ;
         :hasDataSpecification <spec/soil-moisture> ;
-        
+
         # Constraint: Mi algoritmo SOLO entiende float y medias diarias
         :hasConstraint [
             a :DataConstraint ;
             :requiresUnit qudt:PERCENT ;
             :requiresDataType xsd:float ;
-            :requiresMetric :DailyAverage 
+            :requiresMetric :DailyAverage
         ]
     ] ;
 
     # Perfil de Salida (Symmetric Profiling)
     :hasOutputProfile [
         a :OutputProfile ;
-        :hasDataSpecification <spec/irrigation-volume> 
+        :hasDataSpecification <spec/irrigation-volume>
     ] .
 ```
 

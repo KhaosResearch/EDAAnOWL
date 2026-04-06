@@ -1,4 +1,4 @@
-# EDAAnOWL v1.2.0 - Diagramas de Arquitectura y Capas
+# AgoraOWL v1.2.0 - Diagramas de Arquitectura y Capas
 
 Este documento presenta los diagramas actualizados que reflejan la arquitectura **simétrica de 4 capas** adoptada en la versión 1.2.0.
 
@@ -6,7 +6,7 @@ Este documento presenta los diagramas actualizados que reflejan la arquitectura 
 
 ## 1️⃣ La Arquitectura Simétrica de 4 Capas
 
-EDAAnOWL v1.2.0 organiza la información en cuatro niveles para desacoplar totalmente la semántica de la implementación técnica.
+AgoraOWL v1.2.0 organiza la información en cuatro niveles para desacoplar totalmente la semántica de la implementación técnica.
 
 ```mermaid
 graph TD
@@ -44,7 +44,7 @@ graph TD
         InProf[":InputProfile"]
         OutProf[":OutputProfile"]
         Cons[":DataConstraint"]
-        
+
         App -- ":hasInputProfile" --> InProf
         App -- ":hasOutputProfile" --> OutProf
         InProf -- ":hasDataSpecification" --> Spec
@@ -55,14 +55,14 @@ graph TD
 
 ---
 
-## 2️⃣ Jerarquía de Clases: IDSA → EDAAnOWL (v1.2.0)
+## 2️⃣ Jerarquía de Clases: IDSA → AgoraOWL (v1.2.0)
 
 La versión 1.2.0 consolida el perfilado simétrico para aplicaciones e introduce nuevas propiedades de cumplimiento.
 
 ```mermaid
 flowchart TD
     classDef idsa fill:#bbdefb,stroke:#1565c0,stroke-width:2px
-    classDef edaan fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    classDef agoraowl fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
 
     R["ids:Resource"]
     DR["ids:DataResource"]
@@ -75,7 +75,7 @@ flowchart TD
     DataApp[":DataApp"]
     FieldMap[":FieldMapping"]
     DataSpec[":DataSpecification"]
-    
+
     subgraph Profiles ["Symmetric Profiling"]
         InProf[":InputProfile"]
         OutProf[":OutputProfile"]
@@ -83,12 +83,12 @@ flowchart TD
 
     DR --> DataAsset
     DA_IDSA --> DataApp
-    
+
     DataApp -- "hasInputProfile" --> InProf
     DataApp -- "hasOutputProfile" --> OutProf
-    
+
     class R,DR,DA_IDSA idsa
-    class DataAsset,DataApp,FieldMap,DataSpec,InProf,OutProf edaan
+    class DataAsset,DataApp,FieldMap,DataSpec,InProf,OutProf agoraowl
 ```
 
 ---
@@ -108,7 +108,7 @@ flowchart LR
     Prof["📄 DataProfile<br/>(Supply)"]
     Mapping["🔗 FieldMapping"]
     Spec["🎯 DataSpecification"]
-    
+
     App["⚙️ DataApp<br/>(Demand)"]
     InProf["📋 InputProfile"]
     Cons["⚠️ DataConstraint"]
@@ -118,7 +118,7 @@ flowchart LR
     Prof -- "hasDataSpecification" --> Spec
     Dist -- "hasFieldMapping" --> Mapping
     Mapping -- "mapsToSpecification" --> Spec
-    
+
     App -- "hasInputProfile" --> InProf
     InProf -- "hasDataSpecification" --> Spec
     InProf -- "hasConstraint" --> Cons
@@ -132,18 +132,18 @@ flowchart LR
 
 ## 4️⃣ Resumen de Propiedades Clave v1.2.0
 
-| Capa | Clase | Propiedad | Significado |
-| :--- | :--- | :--- | :--- |
-| **Binding** | FieldMapping | `:hasDataType` | Define el tipo técnico (xsd:float, etc) |
-| **Binding** | FieldMapping | `:hasObservationMetric` | Define la estadística (Media, Máximo, etc) |
-| **Requirement**| DataConstraint | `:requiresDataType` | **(Nuevo v1.2.0)** Exige un tipo de dato específico |
-| **Requirement**| DataConstraint | `:constraintOperator` | **(Nuevo v1.2.0)** Operador formal (vía Vocabulario de Clases) |
-| **Offer** | OutputProfile | `:hasDataSpecification`| **(Nuevo v1.2.0)** La App produce esta variable |
+| Capa            | Clase          | Propiedad               | Significado                                                    |
+| :-------------- | :------------- | :---------------------- | :------------------------------------------------------------- |
+| **Binding**     | FieldMapping   | `:hasDataType`          | Define el tipo técnico (xsd:float, etc)                        |
+| **Binding**     | FieldMapping   | `:hasObservationMetric` | Define la estadística (Media, Máximo, etc)                     |
+| **Requirement** | DataConstraint | `:requiresDataType`     | **(Nuevo v1.2.0)** Exige un tipo de dato específico            |
+| **Requirement** | DataConstraint | `:constraintOperator`   | **(Nuevo v1.2.0)** Operador formal (vía Vocabulario de Clases) |
+| **Offer**       | OutputProfile  | `:hasDataSpecification` | **(Nuevo v1.2.0)** La App produce esta variable                |
 
 ---
 
 ## 🎯 Mensaje Clave v1.2.0
 
 > **Sincronización Técnica y Semántica**
-> 
+>
 > Mientras que la v1.1.0 separaba el significado del mapeo, la **v1.2.0** permite que la demanda (Apps) y la oferta (Datasets) hablen el mismo lenguaje técnico a través de restricciones explícitas de tipos de datos y operadores formales, facilitando el encadenamiento automático de servicios en el espacio de datos.

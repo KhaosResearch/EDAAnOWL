@@ -3,9 +3,9 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+      "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -15,7 +15,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -27,11 +27,11 @@
     "@list" : [ {
       "@id" : "http://www.w3.org/ns/dcat#Distribution"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/DataAsset"
+      "@id" : "https://w3id.org/AgoraOWL/DataAsset"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+      "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
+      "@id" : "https://w3id.org/AgoraOWL/FieldMapping"
     } ]
   } ]
 }, {
@@ -39,7 +39,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -49,9 +49,9 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/CertificationReport"
+      "@id" : "https://w3id.org/AgoraOWL/CertificationReport"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/QualityReport"
+      "@id" : "https://w3id.org/AgoraOWL/QualityReport"
     } ]
   } ]
 }, {
@@ -59,9 +59,9 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/InputProfile"
+      "@id" : "https://w3id.org/AgoraOWL/InputProfile"
     } ]
   } ]
 }, {
@@ -69,7 +69,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -79,7 +79,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -89,9 +89,9 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+      "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/Metric"
+      "@id" : "https://w3id.org/AgoraOWL/Metric"
     } ]
   } ]
 }, {
@@ -99,7 +99,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -109,7 +109,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -119,9 +119,9 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+      "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -131,7 +131,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -141,9 +141,9 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+      "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -153,7 +153,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -163,7 +163,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -173,9 +173,9 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/CertificationReport"
+      "@id" : "https://w3id.org/AgoraOWL/CertificationReport"
     }, {
-      "@id" : "https://w3id.org/EDAAnOWL/QualityReport"
+      "@id" : "https://w3id.org/AgoraOWL/QualityReport"
     } ]
   } ]
 }, {
@@ -212,16 +212,16 @@
     "@id" : "https://w3id.org/BIGOWLData/Data"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/declaresDataClass"
+    "@id" : "https://w3id.org/AgoraOWL/declaresDataClass"
   } ]
 }, {
   "@id" : "_:genid64",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@id" : "https://w3id.org/AgoraOWL/Metric"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/hasMetric"
+    "@id" : "https://w3id.org/AgoraOWL/hasMetric"
   } ]
 }, {
   "@id" : "_:genid65",
@@ -231,7 +231,7 @@
     "@value" : "0"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/hasFieldMapping"
+    "@id" : "https://w3id.org/AgoraOWL/hasFieldMapping"
   } ]
 }, {
   "@id" : "_:genid66",
@@ -264,10 +264,10 @@
   "@id" : "_:genid69",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+    "@id" : "https://w3id.org/AgoraOWL/MetricType"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/constraintMetricType"
+    "@id" : "https://w3id.org/AgoraOWL/constraintMetricType"
   } ],
   "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -277,10 +277,10 @@
   "@id" : "_:genid70",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator"
+    "@id" : "https://w3id.org/AgoraOWL/ConstraintOperator"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/constraintOperator"
+    "@id" : "https://w3id.org/AgoraOWL/constraintOperator"
   } ],
   "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -294,16 +294,16 @@
     "@value" : "1"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/constraintValue"
+    "@id" : "https://w3id.org/AgoraOWL/constraintValue"
   } ]
 }, {
   "@id" : "_:genid72",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/FeatureOfInterest"
+    "@id" : "https://w3id.org/AgoraOWL/FeatureOfInterest"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/hasFeatureOfInterest"
+    "@id" : "https://w3id.org/AgoraOWL/hasFeatureOfInterest"
   } ],
   "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -313,10 +313,10 @@
   "@id" : "_:genid73",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservableProperty"
+    "@id" : "https://w3id.org/AgoraOWL/ObservableProperty"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/hasObservableProperty"
+    "@id" : "https://w3id.org/AgoraOWL/hasObservableProperty"
   } ],
   "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -326,19 +326,19 @@
   "@id" : "_:genid74",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@id" : "https://w3id.org/AgoraOWL/Metric"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/hasMetric"
+    "@id" : "https://w3id.org/AgoraOWL/hasMetric"
   } ]
 }, {
   "@id" : "_:genid75",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/mapsToSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/mapsToSpecification"
   } ],
   "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -351,7 +351,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/mapsField"
+    "@id" : "https://w3id.org/AgoraOWL/mapsField"
   } ],
   "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -361,10 +361,10 @@
   "@id" : "_:genid77",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#allValuesFrom" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+    "@id" : "https://w3id.org/AgoraOWL/DataConstraint"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/hasConstraint"
+    "@id" : "https://w3id.org/AgoraOWL/hasConstraint"
   } ]
 }, {
   "@id" : "_:genid78",
@@ -374,10 +374,10 @@
     "@value" : "1"
   } ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/hasDataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/hasDataSpecification"
   } ]
 }, {
   "@id" : "_:genid79",
@@ -386,7 +386,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/metricName"
+    "@id" : "https://w3id.org/AgoraOWL/metricName"
   } ],
   "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -400,7 +400,7 @@
     "@value" : "1"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/metricValue"
+    "@id" : "https://w3id.org/AgoraOWL/metricValue"
   } ]
 }, {
   "@id" : "_:genid81",
@@ -410,17 +410,17 @@
     "@value" : "1"
   } ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/hasDataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/hasDataSpecification"
   } ]
 }, {
   "@id" : "_:genid9",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+      "@id" : "https://w3id.org/AgoraOWL/DataApp"
     }, {
       "@id" : "https://w3id.org/idsa/core/Resource"
     } ]
@@ -1954,20 +1954,20 @@
   "@id" : "http://www.w3.org/ns/prov#wasDerivedFrom",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataAsset"
+    "@id" : "https://w3id.org/AgoraOWL/DataAsset"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataAsset"
+    "@id" : "https://w3id.org/AgoraOWL/DataAsset"
   } ]
 }, {
   "@id" : "http://www.w3.org/ns/prov#wasGeneratedBy",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Links a resource to the activity or DataApp that generated it. In EDAAnOWL, typically links a DataAsset to the DataApp that produced it. Compatible with DCAT-AP-ES (prov:Activity) and EDAAnOWL (edaan:DataApp)."
+    "@value" : "Links a resource to the activity or DataApp that generated it. In AgoraOWL, typically links a DataAsset to the DataApp that produced it. Compatible with DCAT-AP-ES (prov:Activity) and AgoraOWL (agoraowl:DataApp)."
   }, {
     "@language" : "es",
-    "@value" : "Vincula un recurso con la actividad o DataApp que lo generó. En EDAAnOWL, típicamente vincula un DataAsset con la DataApp que lo produjo. Compatible con DCAT-AP-ES (prov:Activity) y EDAAnOWL (edaan:DataApp)."
+    "@value" : "Vincula un recurso con la actividad o DataApp que lo generó. En AgoraOWL, típicamente vincula un DataAsset con la DataApp que lo produjo. Compatible con DCAT-AP-ES (prov:Activity) y AgoraOWL (agoraowl:DataApp)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -2070,16 +2070,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
   } ]
 }, {
-  "@id" : "https://w3id.org/BIGOWLData/Column",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
-}, {
-  "@id" : "https://w3id.org/BIGOWLData/Data",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
-}, {
-  "@id" : "https://w3id.org/BIGOWLWorkflows/Component",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
-}, {
-  "@id" : "https://w3id.org/EDAAnOWL/",
+  "@id" : "https://w3id.org/AgoraOWL/",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://data.europa.eu/r5r/availability" : [ {
     "@id" : "http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE"
@@ -2092,7 +2083,7 @@
     "@value" : "Ontología ligera para espacios de datos. La versión 1.2.0 introduce el perfilado simétrico para DataApps (puertos de Entrada/Salida), generaliza los metadatos administrativos tanto para Recursos como para Apps, y refuerza el diseño independiente del esquema de los DataSpecifications. El modelado se ha diseñado siguiendo el alineamiento con DCAT-AP-ES, el modelo CRED y el Information Model de IDSA para asegurar la interoperabilidad semántica entre dominios."
   } ],
   "http://purl.org/dc/terms/bibliographicCitation" : [ {
-    "@value" : "Salvachúa Galimberti, M. J.; Khaos Research. (2026). EDAAnOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 1.2.0."
+    "@value" : "Salvachúa Galimberti, M. J.; Khaos Research. (2026). AgoraOWL: An ontology for annotating data-space assets aligned with IDSA and BIGOWL. Version 1.2.0."
   } ],
   "http://purl.org/dc/terms/created" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
@@ -2107,10 +2098,10 @@
   } ],
   "http://purl.org/dc/terms/description" : [ {
     "@language" : "en",
-    "@value" : "EDAAnOWL aims to achieve sectoral semantic interoperability within data spaces by decoupling physical data distributions from their semantic specifications. Version 1.2.0 follows strategic alignment with DCAT-AP-ES, the CRED model, and the IDSA Information Model, and introduces symmetric app profiling (Input/Output Profiles) for formal technical matchmaking. For example, a DataApp requiring 'Soil Moisture' in percentage can automatically discover and consume a Dataset whose distribution (CSV/Parquet) is semantically mapped to that specification through FieldMappings."
+    "@value" : "AgoraOWL aims to achieve sectoral semantic interoperability within data spaces by decoupling physical data distributions from their semantic specifications. Version 1.2.0 follows strategic alignment with DCAT-AP-ES, the CRED model, and the IDSA Information Model, and introduces symmetric app profiling (Input/Output Profiles) for formal technical matchmaking. For example, a DataApp requiring 'Soil Moisture' in percentage can automatically discover and consume a Dataset whose distribution (CSV/Parquet) is semantically mapped to that specification through FieldMappings."
   }, {
     "@language" : "es",
-    "@value" : "El objetivo principal de EDAAnOWL es conseguir la interoperabilidad semántica sectorial en los espacios de datos, desacoplando las distribuciones físicas de los activos de sus especificaciones semánticas. La versión 1.2.0 se ha diseñado siguiendo el alineamiento estratégico con DCAT-AP-ES, el modelo CRED y el Information Model de IDSA, e introduce el perfilado simétrico de aplicaciones (Input/Output Profiles) para un emparejamiento técnico formal. Por ejemplo, una aplicación que requiera 'Humedad del Suelo' en porcentaje puede descubrir y consumir automáticamente un Dataset cuya distribución (CSV/Parquet) esté mapeada semánticamente a dicha especificación mediante FieldMappings."
+    "@value" : "El objetivo principal de AgoraOWL es conseguir la interoperabilidad semántica sectorial en los espacios de datos, desacoplando las distribuciones físicas de los activos de sus especificaciones semánticas. La versión 1.2.0 se ha diseñado siguiendo el alineamiento estratégico con DCAT-AP-ES, el modelo CRED y el Information Model de IDSA, e introduce el perfilado simétrico de aplicaciones (Input/Output Profiles) para un emparejamiento técnico formal. Por ejemplo, una aplicación que requiera 'Humedad del Suelo' en porcentaje puede descubrir y consumir automáticamente un Dataset cuya distribución (CSV/Parquet) esté mapeada semánticamente a dicha especificación mediante FieldMappings."
   } ],
   "http://purl.org/dc/terms/language" : [ {
     "@id" : "http://publications.europa.eu/resource/authority/language/ENG"
@@ -2129,29 +2120,29 @@
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@language" : "en",
-    "@value" : "EDAAnOWL Ontology"
+    "@value" : "AgoraOWL Ontology"
   }, {
     "@language" : "es",
-    "@value" : "Ontología EDAAnOWL"
+    "@value" : "Ontología AgoraOWL"
   } ],
   "http://purl.org/vocab/vann/preferredNamespacePrefix" : [ {
-    "@value" : "edaan"
+    "@value" : "agoraowl"
   } ],
   "http://purl.org/vocab/vann/preferredNamespaceUri" : [ {
-    "@value" : "https://w3id.org/EDAAnOWL/"
+    "@value" : "https://w3id.org/AgoraOWL/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
-    "@value" : "EDAAnOWL"
+    "@value" : "AgoraOWL"
   }, {
     "@language" : "es",
-    "@value" : "EDAAnOWL"
+    "@value" : "AgoraOWL"
   } ],
   "http://www.w3.org/2002/07/owl#priorVersion" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/1.1.0"
+    "@id" : "https://w3id.org/AgoraOWL/1.1.0"
   } ],
   "http://www.w3.org/2002/07/owl#versionIRI" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/1.2.0"
+    "@id" : "https://w3id.org/AgoraOWL/1.2.0"
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
     "@value" : "1.2.0"
@@ -2162,23 +2153,23 @@
     "@id" : "http://publications.europa.eu/resource/authority/data-theme/TECH"
   } ],
   "https://schema.org/codeRepository" : [ {
-    "@id" : "https://github.com/KhaosResearch/EDAAnOWL"
+    "@id" : "https://github.com/KhaosResearch/AgoraOWL"
   } ],
   "https://schema.org/image" : [ {
-    "@id" : "https://raw.githubusercontent.com/KhaosResearch/EDAAnOWL/refs/heads/main/images/eda-an-architecture-en.svg"
+    "@id" : "https://raw.githubusercontent.com/KhaosResearch/AgoraOWL/refs/heads/main/images/eda-an-architecture-en.svg"
   } ],
   "https://w3id.org/widoco/vocab#introduction" : [ {
     "@language" : "es",
-    "@value" : "EDAAnOWL proporciona un vocabulario compacto pero expresivo para describir la semántica operacional de los espacios de datos. La versión 1.2.0 consolida el modelo de perfilado simétrico y mejora la gestión de metadatos transversales.\n\n### Novedades de la v1.2.0\n- **Perfilado Simétrico de Apps**: Se introduce `OutputProfile` para complementar a `InputProfile`, permitiendo que las Apps declaren sus capacidades de salida de forma atómica o agrupada por puertos.\n- **Metadatos Generalizados**: Propiedades como `hasCertification`, `supportContact` o `legalContact` ahora pueden aplicarse tanto a Activos de Datos (`ids:Resource`) como a Aplicaciones (`edaan:DataApp`).\n- **Separación Semántica Estricta**: Se ha completado el desacoplamiento técnico de `DataSpecification`. Los detalles de esquema (`hasSchemaType`) ahora residen exclusivamente en la capa de Distribución/Mapeo.\n\n### Arquitectura Desacoplada\n1. **DataSpecification (Semántica)**: Unidad atómica reutilizable (FOI + Observable Property).\n2. **FieldMapping (Puente)**: Vincula semántica con campos físicos, unidades y métricas de calidad.\n3. **Profiles (Requisitos)**: `InputProfile` y `OutputProfile` definen los requisitos/ofertas semánticas de las Apps."
+    "@value" : "AgoraOWL proporciona un vocabulario compacto pero expresivo para describir la semántica operacional de los espacios de datos. La versión 1.2.0 consolida el modelo de perfilado simétrico y mejora la gestión de metadatos transversales.\n\n### Novedades de la v1.2.0\n- **Perfilado Simétrico de Apps**: Se introduce `OutputProfile` para complementar a `InputProfile`, permitiendo que las Apps declaren sus capacidades de salida de forma atómica o agrupada por puertos.\n- **Metadatos Generalizados**: Propiedades como `hasCertification`, `supportContact` o `legalContact` ahora pueden aplicarse tanto a Activos de Datos (`ids:Resource`) como a Aplicaciones (`agoraowl:DataApp`).\n- **Separación Semántica Estricta**: Se ha completado el desacoplamiento técnico de `DataSpecification`. Los detalles de esquema (`hasSchemaType`) ahora residen exclusivamente en la capa de Distribución/Mapeo.\n\n### Arquitectura Desacoplada\n1. **DataSpecification (Semántica)**: Unidad atómica reutilizable (FOI + Observable Property).\n2. **FieldMapping (Puente)**: Vincula semántica con campos físicos, unidades y métricas de calidad.\n3. **Profiles (Requisitos)**: `InputProfile` y `OutputProfile` definen los requisitos/ofertas semánticas de las Apps."
   }, {
     "@language" : "en",
-    "@value" : "EDAAnOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces. Version 1.2.0 consolidates the symmetric profiling model and improves cross-domain metadata management.\n\n### What's new in v1.2.0\n- **Symmetric App Profiling**: Introduces `OutputProfile` to complement `InputProfile`, enabling Apps to declare their output capabilities atomically or grouped by ports.\n- **Generalized Metadata**: Properties such as `hasCertification`, `supportContact`, or `legalContact` can now be applied to both Data Assets (`ids:Resource`) and Applications (`edaan:DataApp`).\n- **Strict Semantic Separation**: Completed the technical decoupling of `DataSpecification`. Schema details (`hasSchemaType`) now reside exclusively in the Distribution/Mapping layer.\n\n### Decoupled Architecture\n1. **DataSpecification (Semantics)**: Atomic reusable unit (FOI + Observable Property).\n2. **FieldMapping (Bridge)**: Links semantics to physical fields, units, and quality metrics.\n3. **Profiles (Requirements)**: `InputProfile` and `OutputProfile` define the semantic requirements/offers of Apps."
+    "@value" : "AgoraOWL provides a compact yet expressive vocabulary to describe the operational semantics of data spaces. Version 1.2.0 consolidates the symmetric profiling model and improves cross-domain metadata management.\n\n### What's new in v1.2.0\n- **Symmetric App Profiling**: Introduces `OutputProfile` to complement `InputProfile`, enabling Apps to declare their output capabilities atomically or grouped by ports.\n- **Generalized Metadata**: Properties such as `hasCertification`, `supportContact`, or `legalContact` can now be applied to both Data Assets (`ids:Resource`) and Applications (`agoraowl:DataApp`).\n- **Strict Semantic Separation**: Completed the technical decoupling of `DataSpecification`. Schema details (`hasSchemaType`) now reside exclusively in the Distribution/Mapping layer.\n\n### Decoupled Architecture\n1. **DataSpecification (Semantics)**: Atomic reusable unit (FOI + Observable Property).\n2. **FieldMapping (Bridge)**: Links semantics to physical fields, units, and quality metrics.\n3. **Profiles (Requirements)**: `InputProfile` and `OutputProfile` define the semantic requirements/offers of Apps."
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/Accuracy",
+  "@id" : "https://w3id.org/AgoraOWL/Accuracy",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+    "@id" : "https://w3id.org/AgoraOWL/MetricType"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2195,10 +2186,10 @@
     "@value" : "Exactitud"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/QualityMetric"
+    "@id" : "https://w3id.org/AgoraOWL/QualityMetric"
   } ],
   "http://www.w3.org/2004/02/skos/core#inScheme" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/metric-types"
+    "@id" : "https://w3id.org/AgoraOWL/metric-types"
   } ],
   "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
     "@language" : "en",
@@ -2208,7 +2199,7 @@
     "@value" : "Exactitud"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/AnalyzerApp",
+  "@id" : "https://w3id.org/AgoraOWL/AnalyzerApp",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2225,12 +2216,12 @@
     "@value" : "Aplicación Analizadora"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+    "@id" : "https://w3id.org/AgoraOWL/DataApp"
   }, {
     "@id" : "https://w3id.org/idsa/core/SmartDataApp"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/CertificationReport",
+  "@id" : "https://w3id.org/AgoraOWL/CertificationReport",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2247,10 +2238,10 @@
     "@value" : "Informe de Certificación"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/Completeness",
+  "@id" : "https://w3id.org/AgoraOWL/Completeness",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+    "@id" : "https://w3id.org/AgoraOWL/MetricType"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2267,10 +2258,10 @@
     "@value" : "Completitud"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/QualityMetric"
+    "@id" : "https://w3id.org/AgoraOWL/QualityMetric"
   } ],
   "http://www.w3.org/2004/02/skos/core#inScheme" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/metric-types"
+    "@id" : "https://w3id.org/AgoraOWL/metric-types"
   } ],
   "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
     "@language" : "en",
@@ -2280,13 +2271,13 @@
     "@value" : "Completitud"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator",
+  "@id" : "https://w3id.org/AgoraOWL/ConstraintOperator",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/DailyAverage",
+  "@id" : "https://w3id.org/AgoraOWL/DailyAverage",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservationMetric"
+    "@id" : "https://w3id.org/AgoraOWL/ObservationMetric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -2303,14 +2294,14 @@
     "@value" : "Media Diaria"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/DataApp",
+  "@id" : "https://w3id.org/AgoraOWL/DataApp",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
-    "@value" : "Especialización de ids:DataApp para EDAAnOWL. Permite la declaración de requisitos de entrada (hasInputProfile), perfiles de salida (hasOutputProfile) y métricas de rendimiento (hasPerformanceMetric)."
+    "@value" : "Especialización de ids:DataApp para AgoraOWL. Permite la declaración de requisitos de entrada (hasInputProfile), perfiles de salida (hasOutputProfile) y métricas de rendimiento (hasPerformanceMetric)."
   }, {
     "@language" : "en",
-    "@value" : "Specialization of ids:DataApp for EDAAnOWL. Enables declaration of input requirements (hasInputProfile), output profiles (hasOutputProfile), and performance metrics (hasPerformanceMetric)."
+    "@value" : "Specialization of ids:DataApp for AgoraOWL. Enables declaration of input requirements (hasInputProfile), output profiles (hasOutputProfile), and performance metrics (hasPerformanceMetric)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -2323,14 +2314,14 @@
     "@id" : "https://w3id.org/idsa/core/DataApp"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/DataAsset",
+  "@id" : "https://w3id.org/AgoraOWL/DataAsset",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
-    "@value" : "Especializa ids:DataResource para añadir la capa semántica específica de EDAAnOWL. Los perfiles se vinculan mediante ids:representation → dcat:Distribution → hasFieldMapping → mapsToSpecification. Puede vincularse a la DataApp que lo generó usando prov:wasGeneratedBy."
+    "@value" : "Especializa ids:DataResource para añadir la capa semántica específica de AgoraOWL. Los perfiles se vinculan mediante ids:representation → dcat:Distribution → hasFieldMapping → mapsToSpecification. Puede vincularse a la DataApp que lo generó usando prov:wasGeneratedBy."
   }, {
     "@language" : "en",
-    "@value" : "Specialises ids:DataResource to add the EDAAnOWL domain-specific semantic layer. Profiles are linked via ids:representation → dcat:Distribution → hasFieldMapping → mapsToSpecification. Can be linked to the DataApp that generated it using prov:wasGeneratedBy."
+    "@value" : "Specialises ids:DataResource to add the AgoraOWL domain-specific semantic layer. Profiles are linked via ids:representation → dcat:Distribution → hasFieldMapping → mapsToSpecification. Can be linked to the DataApp that generated it using prov:wasGeneratedBy."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -2343,7 +2334,7 @@
     "@id" : "https://w3id.org/idsa/core/DataResource"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/DataConstraint",
+  "@id" : "https://w3id.org/AgoraOWL/DataConstraint",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -2367,14 +2358,14 @@
     "@id" : "_:genid71"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/DataProfile",
+  "@id" : "https://w3id.org/AgoraOWL/DataProfile",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
-    "@value" : "Superclase para todos los tipos de perfil en EDAAnOWL. Un DataProfile agrupa una o más DataSpecifications para representar un conjunto de variables semánticas. Las subclases especializan su rol: InputProfile (variables requeridas por una DataApp) y OutputProfile (variables producidas por una DataApp). Use DataProfile directamente cuando el perfil no tiene restricción direccional (p. ej., para una descripción a nivel de Distribution)."
+    "@value" : "Superclase para todos los tipos de perfil en AgoraOWL. Un DataProfile agrupa una o más DataSpecifications para representar un conjunto de variables semánticas. Las subclases especializan su rol: InputProfile (variables requeridas por una DataApp) y OutputProfile (variables producidas por una DataApp). Use DataProfile directamente cuando el perfil no tiene restricción direccional (p. ej., para una descripción a nivel de Distribution)."
   }, {
     "@language" : "en",
-    "@value" : "Superclass for all profile types in EDAAnOWL. A DataProfile groups one or more DataSpecifications to represent a set of semantic variables. Subclasses specialize its role: InputProfile (variables required by a DataApp) and OutputProfile (variables produced by a DataApp). Use DataProfile directly when the profile has no directional constraint (e.g., for a Distribution-level description)."
+    "@value" : "Superclass for all profile types in AgoraOWL. A DataProfile groups one or more DataSpecifications to represent a set of semantic variables. Subclasses specialize its role: InputProfile (variables required by a DataApp) and OutputProfile (variables produced by a DataApp). Use DataProfile directly when the profile has no directional constraint (e.g., for a Distribution-level description)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2384,14 +2375,14 @@
     "@value" : "Perfil de Datos"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/DataRepresentation",
+  "@id" : "https://w3id.org/AgoraOWL/DataRepresentation",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Physical representation of (structured) data. Specializes ids:DataRepresentation \n    from the IDSA taxonomy to add EDAAnOWL-specific semantics for data profiles and quality metrics.\n    \n    Alignment: ids:DataRepresentation extends dcat:Distribution (W3C DCAT 2+), \n    ensuring interoperability with DCAT-based catalogs while maintaining IDSA compliance."
+    "@value" : "Physical representation of (structured) data. Specializes ids:DataRepresentation \n    from the IDSA taxonomy to add AgoraOWL-specific semantics for data profiles and quality metrics.\n    \n    Alignment: ids:DataRepresentation extends dcat:Distribution (W3C DCAT 2+), \n    ensuring interoperability with DCAT-based catalogs while maintaining IDSA compliance."
   }, {
     "@language" : "es",
-    "@value" : "Representación física de datos (estructurados). Especializa ids:DataRepresentation \n    de la taxonomía IDSA para añadir semántica específica de EDAAnOWL para perfiles de datos y métricas de calidad.\n    \n    Alineación: ids:DataRepresentation extiende dcat:Distribution (W3C DCAT 2+), \n    asegurando interoperabilidad con catálogos basados en DCAT mientras mantiene conformidad IDSA."
+    "@value" : "Representación física de datos (estructurados). Especializa ids:DataRepresentation \n    de la taxonomía IDSA para añadir semántica específica de AgoraOWL para perfiles de datos y métricas de calidad.\n    \n    Alineación: ids:DataRepresentation extiende dcat:Distribution (W3C DCAT 2+), \n    asegurando interoperabilidad con catálogos basados en DCAT mientras mantiene conformidad IDSA."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2404,7 +2395,7 @@
     "@id" : "https://w3id.org/idsa/core/DataRepresentation"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/DataSpecification",
+  "@id" : "https://w3id.org/AgoraOWL/DataSpecification",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2428,10 +2419,10 @@
     "@id" : "_:genid73"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/Equal",
+  "@id" : "https://w3id.org/AgoraOWL/Equal",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator"
+    "@id" : "https://w3id.org/AgoraOWL/ConstraintOperator"
   } ],
   "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
     "@language" : "en",
@@ -2441,7 +2432,7 @@
     "@value" : "Igual"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/FeatureOfInterest",
+  "@id" : "https://w3id.org/AgoraOWL/FeatureOfInterest",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -2461,7 +2452,7 @@
     "@id" : "http://www.w3.org/ns/sosa/FeatureOfInterest"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/FieldMapping",
+  "@id" : "https://w3id.org/AgoraOWL/FieldMapping",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -2485,10 +2476,10 @@
     "@id" : "_:genid76"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/GreaterOrEqual",
+  "@id" : "https://w3id.org/AgoraOWL/GreaterOrEqual",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator"
+    "@id" : "https://w3id.org/AgoraOWL/ConstraintOperator"
   } ],
   "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
     "@language" : "en",
@@ -2498,10 +2489,10 @@
     "@value" : "Mayor o Igual"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/GreaterThan",
+  "@id" : "https://w3id.org/AgoraOWL/GreaterThan",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator"
+    "@id" : "https://w3id.org/AgoraOWL/ConstraintOperator"
   } ],
   "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
     "@language" : "en",
@@ -2511,7 +2502,7 @@
     "@value" : "Mayor que"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/InputProfile",
+  "@id" : "https://w3id.org/AgoraOWL/InputProfile",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -2528,17 +2519,17 @@
     "@value" : "Perfil de Entrada"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/AgoraOWL/DataProfile"
   }, {
     "@id" : "_:genid77"
   }, {
     "@id" : "_:genid78"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/Instantaneous",
+  "@id" : "https://w3id.org/AgoraOWL/Instantaneous",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservationMetric"
+    "@id" : "https://w3id.org/AgoraOWL/ObservationMetric"
   } ],
   "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
     "@language" : "en",
@@ -2548,10 +2539,10 @@
     "@value" : "Instantáneo"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/LessOrEqual",
+  "@id" : "https://w3id.org/AgoraOWL/LessOrEqual",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator"
+    "@id" : "https://w3id.org/AgoraOWL/ConstraintOperator"
   } ],
   "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
     "@language" : "en",
@@ -2561,10 +2552,10 @@
     "@value" : "Menor o Igual"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/LessThan",
+  "@id" : "https://w3id.org/AgoraOWL/LessThan",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator"
+    "@id" : "https://w3id.org/AgoraOWL/ConstraintOperator"
   } ],
   "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
     "@language" : "en",
@@ -2574,10 +2565,10 @@
     "@value" : "Menor que"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/Maximum",
+  "@id" : "https://w3id.org/AgoraOWL/Maximum",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservationMetric"
+    "@id" : "https://w3id.org/AgoraOWL/ObservationMetric"
   } ],
   "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
     "@language" : "en",
@@ -2587,7 +2578,7 @@
     "@value" : "Máximo"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/Metric",
+  "@id" : "https://w3id.org/AgoraOWL/Metric",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2611,7 +2602,7 @@
     "@id" : "_:genid80"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/MetricType",
+  "@id" : "https://w3id.org/AgoraOWL/MetricType",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2631,10 +2622,10 @@
     "@id" : "http://www.w3.org/ns/dqv#Metric"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/Minimum",
+  "@id" : "https://w3id.org/AgoraOWL/Minimum",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservationMetric"
+    "@id" : "https://w3id.org/AgoraOWL/ObservationMetric"
   } ],
   "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
     "@language" : "en",
@@ -2644,7 +2635,7 @@
     "@value" : "Mínimo"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/ObservableProperty",
+  "@id" : "https://w3id.org/AgoraOWL/ObservableProperty",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -2664,7 +2655,7 @@
     "@id" : "http://www.w3.org/ns/sosa/ObservableProperty"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/ObservationMetric",
+  "@id" : "https://w3id.org/AgoraOWL/ObservationMetric",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -2681,7 +2672,7 @@
     "@value" : "Observation Metric"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/OutputProfile",
+  "@id" : "https://w3id.org/AgoraOWL/OutputProfile",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -2698,12 +2689,12 @@
     "@value" : "Perfil de Salida"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/AgoraOWL/DataProfile"
   }, {
     "@id" : "_:genid81"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/PerformanceMetric",
+  "@id" : "https://w3id.org/AgoraOWL/PerformanceMetric",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2720,10 +2711,10 @@
     "@value" : "Performance Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@id" : "https://w3id.org/AgoraOWL/Metric"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/PredictionApp",
+  "@id" : "https://w3id.org/AgoraOWL/PredictionApp",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2740,12 +2731,12 @@
     "@value" : "Prediction App"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+    "@id" : "https://w3id.org/AgoraOWL/DataApp"
   }, {
     "@id" : "https://w3id.org/idsa/core/SmartDataApp"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/QualityMetric",
+  "@id" : "https://w3id.org/AgoraOWL/QualityMetric",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2764,10 +2755,10 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/dqv#QualityMetric"
   }, {
-    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+    "@id" : "https://w3id.org/AgoraOWL/MetricType"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/QualityReport",
+  "@id" : "https://w3id.org/AgoraOWL/QualityReport",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2784,7 +2775,7 @@
     "@value" : "Quality Report"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/SpatialTemporalAsset",
+  "@id" : "https://w3id.org/AgoraOWL/SpatialTemporalAsset",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -2801,13 +2792,13 @@
     "@value" : "Spatial Temporal Asset"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataAsset"
+    "@id" : "https://w3id.org/AgoraOWL/DataAsset"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/Timeliness",
+  "@id" : "https://w3id.org/AgoraOWL/Timeliness",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+    "@id" : "https://w3id.org/AgoraOWL/MetricType"
   } ],
   "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
     "@language" : "es",
@@ -2817,10 +2808,10 @@
     "@value" : "Timeliness"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/Uniqueness",
+  "@id" : "https://w3id.org/AgoraOWL/Uniqueness",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+    "@id" : "https://w3id.org/AgoraOWL/MetricType"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2837,10 +2828,10 @@
     "@value" : "Uniqueness"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/QualityMetric"
+    "@id" : "https://w3id.org/AgoraOWL/QualityMetric"
   } ],
   "http://www.w3.org/2004/02/skos/core#inScheme" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/metric-types"
+    "@id" : "https://w3id.org/AgoraOWL/metric-types"
   } ],
   "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
     "@language" : "es",
@@ -2850,7 +2841,7 @@
     "@value" : "Uniqueness"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/VerifiableDataSpecification",
+  "@id" : "https://w3id.org/AgoraOWL/VerifiableDataSpecification",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2867,10 +2858,10 @@
     "@value" : "Verifiable Data Specification"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/VisualizationApp",
+  "@id" : "https://w3id.org/AgoraOWL/VisualizationApp",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2887,12 +2878,12 @@
     "@value" : "Visualization App"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+    "@id" : "https://w3id.org/AgoraOWL/DataApp"
   }, {
     "@id" : "https://w3id.org/idsa/core/SmartDataApp"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/accessType",
+  "@id" : "https://w3id.org/AgoraOWL/accessType",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2919,7 +2910,7 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/accessTypeConcept",
+  "@id" : "https://w3id.org/AgoraOWL/accessTypeConcept",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2942,7 +2933,7 @@
     "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/alternativeName",
+  "@id" : "https://w3id.org/AgoraOWL/alternativeName",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -2968,7 +2959,7 @@
     "@id" : "http://purl.org/dc/terms/alternative"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/anonymizationTechnique",
+  "@id" : "https://w3id.org/AgoraOWL/anonymizationTechnique",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -2978,7 +2969,7 @@
     "@value" : "The technique used to anonymize personal data (e.g., 'k-anonymity', 'differential privacy')."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   }, {
     "@id" : "https://w3id.org/idsa/core/Resource"
   } ],
@@ -2993,7 +2984,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/appliesToFeature",
+  "@id" : "https://w3id.org/AgoraOWL/appliesToFeature",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3003,7 +2994,7 @@
     "@value" : "OBSOLETO: Use :appliesToFeatureConcept para punteros formales a esquema. Indica la característica, columna o atributo específico al que se refiere una métrica (p. ej., 'column_name', 'user.address.city', '$.user.address.city')."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@id" : "https://w3id.org/AgoraOWL/Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3020,7 +3011,7 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/appliesToFeatureConcept",
+  "@id" : "https://w3id.org/AgoraOWL/appliesToFeatureConcept",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3040,7 +3031,7 @@
     "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/auditLogAvailable",
+  "@id" : "https://w3id.org/AgoraOWL/auditLogAvailable",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -3063,7 +3054,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/certificationLevel",
+  "@id" : "https://w3id.org/AgoraOWL/certificationLevel",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -3073,7 +3064,7 @@
     "@value" : "The level of certification achieved (e.g., 'Gaia-X Label 1', 'Gold')."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/CertificationReport"
+    "@id" : "https://w3id.org/AgoraOWL/CertificationReport"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3086,7 +3077,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/collectionMethod",
+  "@id" : "https://w3id.org/AgoraOWL/collectionMethod",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -3109,7 +3100,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/computedAt",
+  "@id" : "https://w3id.org/AgoraOWL/computedAt",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -3119,7 +3110,7 @@
     "@value" : "The timestamp indicating when the metric's value was computed or validated. Aligned with prov:generatedAtTime for provenance interoperability."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@id" : "https://w3id.org/AgoraOWL/Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -3135,7 +3126,7 @@
     "@id" : "http://www.w3.org/ns/prov#generatedAtTime"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/conformsToSchema",
+  "@id" : "https://w3id.org/AgoraOWL/conformsToSchema",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3145,7 +3136,7 @@
     "@value" : "OBSOLETO: Use dcat:Distribution con dct:conformsTo en su lugar. Vincula un perfil con un esquema técnico formal (p. ej., JSON Schema, XSD, SQL DDL)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3162,7 +3153,7 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/constraintMetricType",
+  "@id" : "https://w3id.org/AgoraOWL/constraintMetricType",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -3172,7 +3163,7 @@
     "@value" : "Identifies the type of quality metric a constraint applies to."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+    "@id" : "https://w3id.org/AgoraOWL/DataConstraint"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3182,10 +3173,10 @@
     "@value" : "tipo de métrica de restricción"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+    "@id" : "https://w3id.org/AgoraOWL/MetricType"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/constraintOperator",
+  "@id" : "https://w3id.org/AgoraOWL/constraintOperator",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3195,7 +3186,7 @@
     "@value" : "Vincula una restricción de calidad con un operador de comparación formal (p. ej., :GreaterOrEqual, :Equal). Reemplaza el enfoque anterior basado en strings."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+    "@id" : "https://w3id.org/AgoraOWL/DataConstraint"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3205,10 +3196,10 @@
     "@value" : "operador de restricción"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ConstraintOperator"
+    "@id" : "https://w3id.org/AgoraOWL/ConstraintOperator"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/constraintValue",
+  "@id" : "https://w3id.org/AgoraOWL/constraintValue",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -3218,7 +3209,7 @@
     "@value" : "Defines the threshold value for a quality constraint."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+    "@id" : "https://w3id.org/AgoraOWL/DataConstraint"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3231,7 +3222,7 @@
     "@id" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/consumesAppRepresentation",
+  "@id" : "https://w3id.org/AgoraOWL/consumesAppRepresentation",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3254,14 +3245,14 @@
     "@id" : "https://w3id.org/idsa/core/AppRepresentation"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/consumesDataRepresentation",
+  "@id" : "https://w3id.org/AgoraOWL/consumesDataRepresentation",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Links a BIGOWL Component to an EDAAnOWL DataRepresentation it consumes as input. Use this for data flows."
+    "@value" : "Links a BIGOWL Component to an AgoraOWL DataRepresentation it consumes as input. Use this for data flows."
   }, {
     "@language" : "es",
-    "@value" : "Vincula un Componente BIGOWL con una DataRepresentation EDAAnOWL que consume como entrada. Use esto para flujos de datos."
+    "@value" : "Vincula un Componente BIGOWL con una DataRepresentation AgoraOWL que consume como entrada. Use esto para flujos de datos."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/BIGOWLWorkflows/Component"
@@ -3274,10 +3265,10 @@
     "@value" : "consumes data representation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataRepresentation"
+    "@id" : "https://w3id.org/AgoraOWL/DataRepresentation"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/consumesResource",
+  "@id" : "https://w3id.org/AgoraOWL/consumesResource",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3304,7 +3295,7 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/containsPersonalData",
+  "@id" : "https://w3id.org/AgoraOWL/containsPersonalData",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -3327,7 +3318,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/declaresDataClass",
+  "@id" : "https://w3id.org/AgoraOWL/declaresDataClass",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3347,7 +3338,7 @@
     "@id" : "https://w3id.org/BIGOWLData/Data"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/externalQualityReport",
+  "@id" : "https://w3id.org/AgoraOWL/externalQualityReport",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3367,10 +3358,10 @@
     "@value" : "informe de calidad externo"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/QualityReport"
+    "@id" : "https://w3id.org/AgoraOWL/QualityReport"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasCRS",
+  "@id" : "https://w3id.org/AgoraOWL/hasCRS",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3390,7 +3381,7 @@
     "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasCertification",
+  "@id" : "https://w3id.org/AgoraOWL/hasCertification",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3410,10 +3401,10 @@
     "@value" : "tiene certificación"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/CertificationReport"
+    "@id" : "https://w3id.org/AgoraOWL/CertificationReport"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasConstraint",
+  "@id" : "https://w3id.org/AgoraOWL/hasConstraint",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3423,7 +3414,7 @@
     "@value" : "Vincula un requisito de entrada con una restricción técnica o de calidad específica que deben cumplir los datos."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/InputProfile"
+    "@id" : "https://w3id.org/AgoraOWL/InputProfile"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3433,10 +3424,10 @@
     "@value" : "tiene restricción"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+    "@id" : "https://w3id.org/AgoraOWL/DataConstraint"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasCredential",
+  "@id" : "https://w3id.org/AgoraOWL/hasCredential",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3459,7 +3450,7 @@
     "@id" : "https://www.w3.org/2018/credentials#VerifiableCredential"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasDPIA",
+  "@id" : "https://w3id.org/AgoraOWL/hasDPIA",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3482,7 +3473,7 @@
     "@id" : "http://xmlns.com/foaf/0.1/Document"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasDataConstraint",
+  "@id" : "https://w3id.org/AgoraOWL/hasDataConstraint",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3492,7 +3483,7 @@
     "@value" : "LEGADO: Use :hasConstraint en su lugar. Vincula un requisito de entrada con un umbral de calidad específico que deben cumplir los datos."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/InputProfile"
+    "@id" : "https://w3id.org/AgoraOWL/InputProfile"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3502,17 +3493,17 @@
     "@value" : "tiene restricción de calidad (legado)"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+    "@id" : "https://w3id.org/AgoraOWL/DataConstraint"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/hasConstraint"
+    "@id" : "https://w3id.org/AgoraOWL/hasConstraint"
   } ],
   "http://www.w3.org/2002/07/owl#deprecated" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasDataSpecification",
+  "@id" : "https://w3id.org/AgoraOWL/hasDataSpecification",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3522,7 +3513,7 @@
     "@value" : "Vincula un DataProfile (o cualquiera de sus subclases: InputProfile, OutputProfile) con las DataSpecifications que contiene o requiere."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/AgoraOWL/DataProfile"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3532,10 +3523,10 @@
     "@value" : "tiene especificación de datos"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasDataType",
+  "@id" : "https://w3id.org/AgoraOWL/hasDataType",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3545,7 +3536,7 @@
     "@value" : "Tipo de dato físico del campo en la distribución (p. ej., xsd:float, xsd:dateTime)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
+    "@id" : "https://w3id.org/AgoraOWL/FieldMapping"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3558,7 +3549,7 @@
     "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasDomainSector",
+  "@id" : "https://w3id.org/AgoraOWL/hasDomainSector",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3584,7 +3575,7 @@
     "@id" : "http://www.w3.org/ns/dcat#theme"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasFeatureOfInterest",
+  "@id" : "https://w3id.org/AgoraOWL/hasFeatureOfInterest",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3601,10 +3592,10 @@
     "@value" : "tiene característica de interés"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/FeatureOfInterest"
+    "@id" : "https://w3id.org/AgoraOWL/FeatureOfInterest"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasFieldMapping",
+  "@id" : "https://w3id.org/AgoraOWL/hasFieldMapping",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3624,10 +3615,10 @@
     "@value" : "tiene mapeo de campo"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
+    "@id" : "https://w3id.org/AgoraOWL/FieldMapping"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasInputProfile",
+  "@id" : "https://w3id.org/AgoraOWL/hasInputProfile",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3637,7 +3628,7 @@
     "@value" : "Vincula una DataApp con un requisito de entrada estructurado, agregando un perfil requerido y restricciones de calidad opcionales."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+    "@id" : "https://w3id.org/AgoraOWL/DataApp"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3647,10 +3638,10 @@
     "@value" : "tiene requisito de entrada"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/InputProfile"
+    "@id" : "https://w3id.org/AgoraOWL/InputProfile"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasMetric",
+  "@id" : "https://w3id.org/AgoraOWL/hasMetric",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3670,10 +3661,10 @@
     "@value" : "tiene métrica"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@id" : "https://w3id.org/AgoraOWL/Metric"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasMetricStandard",
+  "@id" : "https://w3id.org/AgoraOWL/hasMetricStandard",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3690,7 +3681,7 @@
     "@value" : "tiene estándar de métrica"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasMetricUnit",
+  "@id" : "https://w3id.org/AgoraOWL/hasMetricUnit",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3700,7 +3691,7 @@
     "@value" : "OBSOLETO: Use :hasMetricStandard en su lugar. La unidad de medida para el valor de la métrica referenciando una URI (p. ej., qudt:KiloGM, unit:PERCENT)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@id" : "https://w3id.org/AgoraOWL/Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3714,7 +3705,7 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasObservableProperty",
+  "@id" : "https://w3id.org/AgoraOWL/hasObservableProperty",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3731,10 +3722,10 @@
     "@value" : "tiene propiedad observable"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservableProperty"
+    "@id" : "https://w3id.org/AgoraOWL/ObservableProperty"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasObservationMetric",
+  "@id" : "https://w3id.org/AgoraOWL/hasObservationMetric",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3744,7 +3735,7 @@
     "@value" : "Vincula un FieldMapping con la métrica estadística o de agregación de la observación (p. ej., MediaDiaria, Máximo)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
+    "@id" : "https://w3id.org/AgoraOWL/FieldMapping"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3754,10 +3745,10 @@
     "@value" : "tiene métrica de observación"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservationMetric"
+    "@id" : "https://w3id.org/AgoraOWL/ObservationMetric"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasOutputProfile",
+  "@id" : "https://w3id.org/AgoraOWL/hasOutputProfile",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3767,7 +3758,7 @@
     "@value" : "Vincula una DataApp con una declaración de salida estructurada, especificando qué DataSpecifications produce la aplicación."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+    "@id" : "https://w3id.org/AgoraOWL/DataApp"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3777,10 +3768,10 @@
     "@value" : "tiene perfil de salida"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/OutputProfile"
+    "@id" : "https://w3id.org/AgoraOWL/OutputProfile"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasPerformanceMetric",
+  "@id" : "https://w3id.org/AgoraOWL/hasPerformanceMetric",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3790,7 +3781,7 @@
     "@value" : "Vincula una DataApp con una métrica de rendimiento específica (p. ej., precisión, tiempo de ejecución)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+    "@id" : "https://w3id.org/AgoraOWL/DataApp"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3800,13 +3791,13 @@
     "@value" : "tiene métrica de rendimiento"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/PerformanceMetric"
+    "@id" : "https://w3id.org/AgoraOWL/PerformanceMetric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/hasMetric"
+    "@id" : "https://w3id.org/AgoraOWL/hasMetric"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasProfile",
+  "@id" : "https://w3id.org/AgoraOWL/hasProfile",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3826,10 +3817,10 @@
     "@value" : "tiene perfil"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataProfile"
+    "@id" : "https://w3id.org/AgoraOWL/DataProfile"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasSchemaType",
+  "@id" : "https://w3id.org/AgoraOWL/hasSchemaType",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3839,7 +3830,7 @@
     "@value" : "OBSOLETO: Los detalles técnicos del esquema pertenecen a la capa de Distribution o FieldMapping. Identifica la tecnología o estándar del esquema técnico asociado."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3853,7 +3844,7 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasSpatialCoverage",
+  "@id" : "https://w3id.org/AgoraOWL/hasSpatialCoverage",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -3863,7 +3854,7 @@
     "@value" : "Defines the spatial coverage of the data asset required by Earth Observation CUs."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/SpatialTemporalAsset"
+    "@id" : "https://w3id.org/AgoraOWL/SpatialTemporalAsset"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3876,7 +3867,7 @@
     "@id" : "http://www.w3.org/ns/locn#Geometry"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasTemporalCoverage",
+  "@id" : "https://w3id.org/AgoraOWL/hasTemporalCoverage",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -3886,7 +3877,7 @@
     "@value" : "Defines the temporal coverage of the data asset required by Earth Observation CUs."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/SpatialTemporalAsset"
+    "@id" : "https://w3id.org/AgoraOWL/SpatialTemporalAsset"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3899,7 +3890,7 @@
     "@id" : "http://www.w3.org/2006/time#Interval"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/hasUnit",
+  "@id" : "https://w3id.org/AgoraOWL/hasUnit",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3909,7 +3900,7 @@
     "@value" : "Vincula un FieldMapping con la unidad de medida QUDT del campo físico (p. ej., qudt:DEG_C, qudt:PERCENT)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
+    "@id" : "https://w3id.org/AgoraOWL/FieldMapping"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3922,7 +3913,7 @@
     "@id" : "http://qudt.org/vocab/unit/Unit"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/implementsComponent",
+  "@id" : "https://w3id.org/AgoraOWL/implementsComponent",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -3932,7 +3923,7 @@
     "@value" : "Vincula una DataApp IDSA con el Componente de flujo de trabajo BIGOWL que implementa."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+    "@id" : "https://w3id.org/AgoraOWL/DataApp"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -3945,7 +3936,7 @@
     "@id" : "https://w3id.org/BIGOWLWorkflows/Component"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/isAlive",
+  "@id" : "https://w3id.org/AgoraOWL/isAlive",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -3968,7 +3959,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/isStreaming",
+  "@id" : "https://w3id.org/AgoraOWL/isStreaming",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -3991,7 +3982,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/knownLimitations",
+  "@id" : "https://w3id.org/AgoraOWL/knownLimitations",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4014,7 +4005,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/legalContact",
+  "@id" : "https://w3id.org/AgoraOWL/legalContact",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4040,7 +4031,7 @@
     "@id" : "http://www.w3.org/ns/dcat#contactPoint"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/mapsField",
+  "@id" : "https://w3id.org/AgoraOWL/mapsField",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4050,7 +4041,7 @@
     "@value" : "The physical identifier (column name, JSONPath, XPath) of the field in the distribution that corresponds to the bound atomic profile."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
+    "@id" : "https://w3id.org/AgoraOWL/FieldMapping"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4063,7 +4054,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/mapsToSpecification",
+  "@id" : "https://w3id.org/AgoraOWL/mapsToSpecification",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4073,7 +4064,7 @@
     "@value" : "Vincula un FieldMapping con el DataSpecification atómico reutilizable que instancia para un campo específico."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/FieldMapping"
+    "@id" : "https://w3id.org/AgoraOWL/FieldMapping"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4083,10 +4074,10 @@
     "@value" : "vincula perfil"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/measuresProperty",
+  "@id" : "https://w3id.org/AgoraOWL/measuresProperty",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4096,7 +4087,7 @@
     "@value" : "Vincula una métrica (medición) con la propiedad observable que está cuantificando. De este modo, se asocia de forma indirecta una Unidad de Medida (vía Metric) con un fenómeno físico (ObservableProperty)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@id" : "https://w3id.org/AgoraOWL/Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4106,44 +4097,44 @@
     "@value" : "mide la propiedad"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservableProperty"
+    "@id" : "https://w3id.org/AgoraOWL/ObservableProperty"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/metric-types",
+  "@id" : "https://w3id.org/AgoraOWL/metric-types",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://purl.org/dc/terms/description" : [ {
     "@language" : "en",
-    "@value" : "Controlled vocabulary of standardized metric type definitions used by the EDAAnOWL ontology."
+    "@value" : "Controlled vocabulary of standardized metric type definitions used by the AgoraOWL ontology."
   }, {
     "@language" : "es",
-    "@value" : "Vocabulario controlado de definiciones de tipos de métricas estandarizadas utilizadas por la ontología EDAAnOWL."
+    "@value" : "Vocabulario controlado de definiciones de tipos de métricas estandarizadas utilizadas por la ontología AgoraOWL."
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@language" : "en",
-    "@value" : "EDAAnOWL Metric Types"
+    "@value" : "AgoraOWL Metric Types"
   }, {
     "@language" : "es",
-    "@value" : "Tipos de Métricas EDAAnOWL"
+    "@value" : "Tipos de Métricas AgoraOWL"
   } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.w3.org/2004/02/skos/core#ConceptScheme"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Controlled vocabulary of standardized metric type definitions used by the EDAAnOWL ontology."
+    "@value" : "Controlled vocabulary of standardized metric type definitions used by the AgoraOWL ontology."
   }, {
     "@language" : "es",
-    "@value" : "Vocabulario controlado de definiciones de tipos de métricas estandarizadas utilizadas por la ontología EDAAnOWL."
+    "@value" : "Vocabulario controlado de definiciones de tipos de métricas estandarizadas utilizadas por la ontología AgoraOWL."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
-    "@value" : "EDAAnOWL Metric Types"
+    "@value" : "AgoraOWL Metric Types"
   }, {
     "@language" : "es",
-    "@value" : "Tipos de Métricas EDAAnOWL"
+    "@value" : "Tipos de Métricas AgoraOWL"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/metricName",
+  "@id" : "https://w3id.org/AgoraOWL/metricName",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4153,7 +4144,7 @@
     "@value" : "Un nombre o identificador legible para la métrica (p. ej., 'recordCount', 'missing_ratio')."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@id" : "https://w3id.org/AgoraOWL/Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4166,7 +4157,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/metricType",
+  "@id" : "https://w3id.org/AgoraOWL/metricType",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4176,7 +4167,7 @@
     "@value" : "Vincula una medición de Métrica con una definición de MetricType estandarizada del vocabulario controlado. Alineada con dqv:isMeasurementOf para interoperabilidad DQV."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@id" : "https://w3id.org/AgoraOWL/Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4186,13 +4177,13 @@
     "@value" : "tipo de métrica"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/MetricType"
+    "@id" : "https://w3id.org/AgoraOWL/MetricType"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/ns/dqv#isMeasurementOf"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/metricUnit",
+  "@id" : "https://w3id.org/AgoraOWL/metricUnit",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4202,7 +4193,7 @@
     "@value" : "OBSOLETO: Use :hasMetricStandard en su lugar. La unidad de medida para el valor de la métrica (p. ej., '%', 'kg/ha', 'ppm')."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@id" : "https://w3id.org/AgoraOWL/Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4219,7 +4210,7 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/metricValue",
+  "@id" : "https://w3id.org/AgoraOWL/metricValue",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4229,7 +4220,7 @@
     "@value" : "The value of the metric measurement. Aligned with dqv:value for DQV interoperability. Range is rdfs:Literal to support multiple datatypes (e.g., xsd:boolean, xsd:integer, xsd:string, xsd:decimal)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/Metric"
+    "@id" : "https://w3id.org/AgoraOWL/Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4245,7 +4236,7 @@
     "@id" : "http://www.w3.org/ns/dqv#value"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/nullPercentage",
+  "@id" : "https://w3id.org/AgoraOWL/nullPercentage",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4268,7 +4259,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/parameter",
+  "@id" : "https://w3id.org/AgoraOWL/parameter",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4278,7 +4269,7 @@
     "@value" : "Vincula una DataApp con un parámetro de ejecución que acepta."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+    "@id" : "https://w3id.org/AgoraOWL/DataApp"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4291,7 +4282,7 @@
     "@id" : "http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#Parameter"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/paymentModelDescription",
+  "@id" : "https://w3id.org/AgoraOWL/paymentModelDescription",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4314,7 +4305,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/producesAppRepresentation",
+  "@id" : "https://w3id.org/AgoraOWL/producesAppRepresentation",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4337,14 +4328,14 @@
     "@id" : "https://w3id.org/idsa/core/AppRepresentation"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/producesDataRepresentation",
+  "@id" : "https://w3id.org/AgoraOWL/producesDataRepresentation",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Links a BIGOWL Component to an EDAAnOWL DataRepresentation it produces as output. Use this for data flows."
+    "@value" : "Links a BIGOWL Component to an AgoraOWL DataRepresentation it produces as output. Use this for data flows."
   }, {
     "@language" : "es",
-    "@value" : "Vincula un Componente BIGOWL con una DataRepresentation EDAAnOWL que produce como salida. Use esto para flujos de datos."
+    "@value" : "Vincula un Componente BIGOWL con una DataRepresentation AgoraOWL que produce como salida. Use esto para flujos de datos."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/BIGOWLWorkflows/Component"
@@ -4357,10 +4348,10 @@
     "@value" : "produces data representation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataRepresentation"
+    "@id" : "https://w3id.org/AgoraOWL/DataRepresentation"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/producesProfile",
+  "@id" : "https://w3id.org/AgoraOWL/producesProfile",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4370,7 +4361,7 @@
     "@value" : "OBSOLETO: Use :hasOutputProfile y :hasDataSpecification en su lugar. Vincula una DataApp con un DataSpecification que produce como salida."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+    "@id" : "https://w3id.org/AgoraOWL/DataApp"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -4380,14 +4371,14 @@
     "@value" : "produces profile (deprecated)"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ],
   "http://www.w3.org/2002/07/owl#deprecated" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/producesResource",
+  "@id" : "https://w3id.org/AgoraOWL/producesResource",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4414,10 +4405,10 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/profileCRS",
+  "@id" : "https://w3id.org/AgoraOWL/profileCRS",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -4434,7 +4425,7 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/profileSpatialResolution",
+  "@id" : "https://w3id.org/AgoraOWL/profileSpatialResolution",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4444,7 +4435,7 @@
     "@value" : "Obsoleto. Use dcat:spatialResolutionInMeters o dcat:spatialResolutionInDegrees."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4461,7 +4452,7 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/profileTemporalResolution",
+  "@id" : "https://w3id.org/AgoraOWL/profileTemporalResolution",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4471,7 +4462,7 @@
     "@value" : "Obsoleto. Use dcat:temporalResolution para la resolución temporal de conjuntos de datos/perfiles."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4491,7 +4482,7 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/qualityReportURI",
+  "@id" : "https://w3id.org/AgoraOWL/qualityReportURI",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4501,7 +4492,7 @@
     "@value" : "The URI of the full, human-readable quality report (e.g., a PDF or HTML document)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/QualityReport"
+    "@id" : "https://w3id.org/AgoraOWL/QualityReport"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -4514,7 +4505,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/qualityScore",
+  "@id" : "https://w3id.org/AgoraOWL/qualityScore",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4524,7 +4515,7 @@
     "@value" : "Una puntuación de calidad cuantitativa (p. ej., 0-100) asignada por el informe de calidad externo."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/QualityReport"
+    "@id" : "https://w3id.org/AgoraOWL/QualityReport"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -4537,7 +4528,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#integer"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/realizesWorkflow",
+  "@id" : "https://w3id.org/AgoraOWL/realizesWorkflow",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4547,7 +4538,7 @@
     "@value" : "OBSOLETO: Una DataApp implementa un Component, no un Workflow.\n\nUse :implementsComponent para vincular una DataApp con el Component BIGOWL que implementa.\nUn Workflow es un pipeline compuesto por múltiples Components conectados via Tasks."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataApp"
+    "@id" : "https://w3id.org/AgoraOWL/DataApp"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -4564,7 +4555,7 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/recommendedUse",
+  "@id" : "https://w3id.org/AgoraOWL/recommendedUse",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4587,7 +4578,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/refundPolicy",
+  "@id" : "https://w3id.org/AgoraOWL/refundPolicy",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4610,7 +4601,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/reportDate",
+  "@id" : "https://w3id.org/AgoraOWL/reportDate",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4633,7 +4624,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/reportingEntity",
+  "@id" : "https://w3id.org/AgoraOWL/reportingEntity",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4656,7 +4647,7 @@
     "@id" : "http://www.w3.org/ns/org#Organization"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/requiresDataType",
+  "@id" : "https://w3id.org/AgoraOWL/requiresDataType",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4666,7 +4657,7 @@
     "@value" : "Indicates a technical requirement for a specific data type at the application input port."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+    "@id" : "https://w3id.org/AgoraOWL/DataConstraint"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -4679,7 +4670,7 @@
     "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/requiresMetric",
+  "@id" : "https://w3id.org/AgoraOWL/requiresMetric",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4689,7 +4680,7 @@
     "@value" : "Specifies the observation metric (e.g., DailyAverage) required by a DataConstraint for matchmaking."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+    "@id" : "https://w3id.org/AgoraOWL/DataConstraint"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -4699,10 +4690,10 @@
     "@value" : "requires metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/ObservationMetric"
+    "@id" : "https://w3id.org/AgoraOWL/ObservationMetric"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/requiresProfile",
+  "@id" : "https://w3id.org/AgoraOWL/requiresProfile",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4722,14 +4713,14 @@
     "@value" : "requires profile (deprecated)"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataSpecification"
+    "@id" : "https://w3id.org/AgoraOWL/DataSpecification"
   } ],
   "http://www.w3.org/2002/07/owl#deprecated" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/requiresUnit",
+  "@id" : "https://w3id.org/AgoraOWL/requiresUnit",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4739,7 +4730,7 @@
     "@value" : "Specifies the unit of measurement (QUDT) required by a DataConstraint for matchmaking."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataConstraint"
+    "@id" : "https://w3id.org/AgoraOWL/DataConstraint"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "es",
@@ -4752,7 +4743,7 @@
     "@id" : "http://qudt.org/vocab/unit/Unit"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/sampleValue",
+  "@id" : "https://w3id.org/AgoraOWL/sampleValue",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4775,7 +4766,7 @@
     "@id" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/securityClassification",
+  "@id" : "https://w3id.org/AgoraOWL/securityClassification",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4798,7 +4789,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/spatialGranularity",
+  "@id" : "https://w3id.org/AgoraOWL/spatialGranularity",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/idsa/core/Resource"
@@ -4818,7 +4809,7 @@
     "@value" : "true"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/spatialGranularityConcept",
+  "@id" : "https://w3id.org/AgoraOWL/spatialGranularityConcept",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4841,7 +4832,7 @@
     "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/supportContact",
+  "@id" : "https://w3id.org/AgoraOWL/supportContact",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4867,7 +4858,7 @@
     "@id" : "http://www.w3.org/ns/dcat#contactPoint"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/topic",
+  "@id" : "https://w3id.org/AgoraOWL/topic",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4893,7 +4884,7 @@
     "@id" : "http://purl.org/dc/terms/subject"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/uniquenessRatio",
+  "@id" : "https://w3id.org/AgoraOWL/uniquenessRatio",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
@@ -4916,7 +4907,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
   } ]
 }, {
-  "@id" : "https://w3id.org/EDAAnOWL/usesVocabulary",
+  "@id" : "https://w3id.org/AgoraOWL/usesVocabulary",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -4942,6 +4933,15 @@
     "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
     "@value" : "true"
   } ]
+}, {
+  "@id" : "https://w3id.org/BIGOWLData/Column",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/BIGOWLData/Data",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/BIGOWLWorkflows/Component",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "https://w3id.org/idsa/core/AppEndpoint",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
@@ -5172,7 +5172,7 @@
   "@id" : "https://w3id.org/idsa/core/dataTypeSchema",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/EDAAnOWL/DataRepresentation"
+    "@id" : "https://w3id.org/AgoraOWL/DataRepresentation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "https://w3id.org/idsa/core/Resource"
